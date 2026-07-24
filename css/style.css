@@ -137,7 +137,6 @@ textarea.fld { min-height: 58px; }
 
 .header-row { display: flex; gap: 10px; margin: 0 0 12px; }
 .field-day { width: 96px; }
-.field-emoji { width: 64px; }
 .field-flex { flex: 1; }
 .field-prevday { width: 110px; margin: 0 0 12px; }
 
