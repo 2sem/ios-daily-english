@@ -4,7 +4,7 @@ const LETTERS = ['a', 'b', 'c', 'd', 'e'];
 const CIRCLED = ['①', '②', '③', '④', '⑤', '⑥', '⑦', '⑧'];
 
 const state = {
-  day: '291', emoji: '📱', title: 'iOS Daily English', handle: '@gamehelper',
+  day: '291', title: 'iOS Daily English', handle: '@gamehelper',
   terms: [
     { term: 'UISheetPresentationController', def: 'An object that manages the appearance and behavior of a sheet (the card-like view that slides up from the bottom) in UIKit.', example: 'I used the UISheetPresentationController to configure the half-height detent so users can still see the map behind the settings.' },
     { term: 'UIActivityItemSource', def: 'A protocol used to provide specific data (like text or images) to a share sheet depending on which app the user chooses to share to.', example: 'By implementing UIActivityItemSource, we can share a high-quality image to Instagram but a simple link to Twitter.' },
@@ -69,8 +69,6 @@ function parsePaste(rawInput) {
 
   // --- header ---
   const firstLine = raw.split('\n').find(l => l.trim()) || '';
-  const dEmoji = firstLine.match(/^\s*([\u{1F000}-\u{1FAFF}☀-➿←-⇿⬀-⯿])/u);
-  if (dEmoji) next.emoji = dEmoji[1];
   const dTitle = firstLine.match(/^[^A-Za-z]*([A-Za-z][A-Za-z .'&]+?)\s*[-–]\s*Day/);
   if (dTitle) next.title = dTitle[1].trim();
   const dDay = firstLine.match(/Day\s+(\d+)/i);
@@ -207,7 +205,6 @@ function reviewItemHTML(r, i) {
 
 function renderForm() {
   document.getElementById('dayField').value = state.day;
-  document.getElementById('emojiField').value = state.emoji;
   document.getElementById('titleField').value = state.title;
   document.getElementById('prevDayField').value = state.prevDay;
   document.getElementById('pasteText').value = state.pasteText || '';
@@ -250,9 +247,8 @@ function coverCardHTML() {
     </div>`).join('');
   return `
   <div style="width:100%;height:100%;padding:96px;display:flex;flex-direction:column;justify-content:space-between;background:linear-gradient(158deg,#0A0A0C 0%,#1A1A24 100%);color:#fff;box-sizing:border-box">
-    <div style="display:flex;align-items:center;justify-content:space-between">
-      <span style="font:600 26px/1 ui-monospace,SF Mono,Menlo;letter-spacing:.28em;color:#8E8E96">SWIFT · UIKIT</span>
-      <span style="font-size:56px">${esc(state.emoji)}</span>
+    <div style="display:flex;align-items:center;justify-content:flex-end">
+      <svg width="46" height="56" viewBox="0 0 384 512" fill="#EDEDF0" xmlns="http://www.w3.org/2000/svg" style="display:block"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg>
     </div>
     <div>
       <div style="font:600 34px/1 ui-monospace,SF Mono,Menlo;letter-spacing:.2em;color:#0A84FF;margin:0 0 8px">DAY</div>
@@ -454,7 +450,6 @@ function init() {
     const t = e.target;
     if (t.id === 'pasteText') { state.pasteText = t.value; return; }
     if (t.id === 'dayField') { state.day = t.value; renderPreview(); return; }
-    if (t.id === 'emojiField') { state.emoji = t.value; renderPreview(); return; }
     if (t.id === 'titleField') { state.title = t.value; renderPreview(); return; }
     if (t.id === 'prevDayField') { state.prevDay = t.value; renderPreview(); return; }
 
