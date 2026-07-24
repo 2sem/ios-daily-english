@@ -233,3 +233,11 @@ textarea.fld { min-height: 58px; }
   border-radius: 7px;
   cursor: pointer;
 }
+
+/* below this width the fixed 380px form pane would push the preview pane off-screen */
+@media (max-width: 860px) {
+  .app { height: auto; min-height: 100vh; }
+  .body { flex-direction: column; }
+  .form-pane { width: 100%; border-right: none; border-bottom: 1px solid #E5E5EA; overflow-y: visible; }
+  .preview-pane { overflow-y: visible; }
+}
