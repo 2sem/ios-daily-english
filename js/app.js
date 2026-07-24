@@ -398,7 +398,7 @@ async function captureNode(node) {
   fitCardText(node);
   let url;
   try {
-    url = await window.htmlToImage.toPng(node, { width: 1080, height: 1350, pixelRatio: 2, cacheBust: true, backgroundColor: '#ffffff' });
+    url = await window.htmlToImage.toJpeg(node, { width: 1080, height: 1350, pixelRatio: 2, quality: 0.92, cacheBust: true, backgroundColor: '#ffffff' });
   } finally {
     node.style.transform = prevT;
     node.style.transformOrigin = prevO;
@@ -413,7 +413,7 @@ async function exportOne(i) {
   try {
     const url = await captureNode(nodes[i]);
     const pdf = new window.jspdf.jsPDF({ orientation: 'portrait', unit: 'px', format: [1080, 1350] });
-    pdf.addImage(url, 'PNG', 0, 0, 1080, 1350);
+    pdf.addImage(url, 'JPEG', 0, 0, 1080, 1350);
     pdf.save(`ios-day-${state.day}-page-${String(i + 1).padStart(2, '0')}.pdf`);
   } catch (e) {
     console.error(e);
@@ -430,7 +430,7 @@ async function exportAll() {
     for (let i = 0; i < nodes.length; i++) {
       if (i > 0) pdf.addPage([1080, 1350], 'portrait');
       const url = await captureNode(nodes[i]);
-      pdf.addImage(url, 'PNG', 0, 0, 1080, 1350);
+      pdf.addImage(url, 'JPEG', 0, 0, 1080, 1350);
     }
     pdf.save(`ios-day-${state.day}-cards.pdf`);
   } catch (e) {
