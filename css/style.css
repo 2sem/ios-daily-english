@@ -1,0 +1,236 @@
+html, body { margin: 0; height: 100%; }
+* { box-sizing: border-box; }
+
+body {
+  font-family: -apple-system, system-ui, sans-serif;
+}
+
+.fld {
+  width: 100%;
+  padding: 9px 11px;
+  border: 1px solid #D2D2D7;
+  border-radius: 9px;
+  font: 400 13px/1.4 -apple-system, system-ui, sans-serif;
+  color: #1D1D1F;
+  background: #fff;
+  resize: vertical;
+}
+.fld:focus {
+  outline: none;
+  border-color: #0071E3;
+  box-shadow: 0 0 0 3px rgba(0, 113, 227, .15);
+}
+textarea.fld { min-height: 58px; }
+
+.lbl {
+  display: block;
+  font: 600 10px/1 -apple-system, system-ui, sans-serif;
+  letter-spacing: .09em;
+  text-transform: uppercase;
+  color: #86868B;
+  margin: 0 0 5px;
+}
+.lbl-inline { margin: 0; }
+
+/* ---- app shell ---- */
+.app {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background: #F5F5F7;
+  color: #1D1D1F;
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 13px 22px;
+  background: #fff;
+  border-bottom: 1px solid #E5E5EA;
+  flex: none;
+}
+.topbar-left { display: flex; align-items: baseline; gap: 11px; }
+.topbar-title { font: 700 16px/1 -apple-system, system-ui; letter-spacing: -.01em; }
+.topbar-meta { font: 500 12px/1 ui-monospace, "SF Mono", Menlo; color: #86868B; }
+.topbar-right { display: flex; gap: 9px; align-items: center; }
+.topbar-status { font: 500 12px/1 -apple-system, system-ui; color: #86868B; }
+
+.btn-primary {
+  border: none;
+  background: #0071E3;
+  color: #fff;
+  font: 600 13px/1 -apple-system, system-ui;
+  padding: 11px 18px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.btn-primary:disabled { opacity: .6; cursor: default; }
+
+.body { display: flex; flex: 1; min-height: 0; }
+
+/* ---- form pane ---- */
+.form-pane {
+  width: 380px;
+  flex: none;
+  overflow-y: auto;
+  background: #fff;
+  border-right: 1px solid #E5E5EA;
+  padding: 20px;
+}
+
+.paste-box {
+  border: 1px solid #D8E9FC;
+  background: #F3F9FF;
+  border-radius: 12px;
+  padding: 13px;
+  margin: 0 0 20px;
+}
+.paste-title {
+  font: 700 12px/1 -apple-system, system-ui;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  color: #0071E3;
+  margin: 0 0 4px;
+}
+.paste-hint {
+  font: 400 11px/1.4 -apple-system, system-ui;
+  color: #86868B;
+  margin: 0 0 8px;
+}
+.paste-textarea {
+  min-height: 90px;
+  font-family: ui-monospace, "SF Mono", Menlo;
+  font-size: 11px;
+}
+.btn-parse {
+  width: 100%;
+  margin-top: 8px;
+  border: none;
+  background: #0071E3;
+  color: #fff;
+  font: 600 12px/1 -apple-system, system-ui;
+  padding: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.parse-msg {
+  font: 500 11px/1.3 -apple-system, system-ui;
+  color: #0071E3;
+  margin-top: 7px;
+  min-height: 13px;
+}
+
+.section-title {
+  font: 700 12px/1 -apple-system, system-ui;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  color: #0071E3;
+}
+.section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 0 12px;
+}
+.section-header-tight { margin: 14px 0 8px; }
+
+.header-row { display: flex; gap: 10px; margin: 0 0 12px; }
+.field-day { width: 96px; }
+.field-emoji { width: 64px; }
+.field-flex { flex: 1; }
+.field-prevday { width: 110px; margin: 0 0 12px; }
+
+.divider { height: 1px; background: #F0F0F2; margin: 18px 0; }
+
+.btn-add {
+  border: 1px dashed #C7C7CC;
+  background: #fff;
+  color: #0071E3;
+  font: 600 11px/1 -apple-system, system-ui;
+  padding: 6px 10px;
+  border-radius: 7px;
+  cursor: pointer;
+}
+.btn-add-sm { padding: 5px 9px; }
+
+.btn-remove {
+  border: none;
+  background: none;
+  color: #C7C7CC;
+  font: 600 15px/1 -apple-system, system-ui;
+  cursor: pointer;
+}
+
+.item-card {
+  border: 1px solid #ECECEE;
+  border-radius: 11px;
+  padding: 12px;
+  margin: 0 0 11px;
+  background: #FBFBFD;
+}
+.item-card-head {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin: 0 0 7px;
+}
+.item-card-head--between { justify-content: space-between; }
+.mb7 { margin: 0 0 7px; }
+.mono { font-family: ui-monospace, "SF Mono", Menlo; }
+.mono-11 { font: 600 11px/1 ui-monospace, "SF Mono", Menlo; color: #86868B; }
+
+.quiz-opt-row { display: flex; align-items: center; gap: 7px; margin: 0 0 6px; }
+.quiz-opt-letter { font: 600 12px/1 ui-monospace, "SF Mono", Menlo; color: #86868B; width: 14px; }
+
+.answer-row { display: flex; gap: 7px; align-items: center; margin: 0 0 7px; }
+.answer-label-input { width: 44px; text-align: center; font-family: ui-monospace, "SF Mono", Menlo; }
+.answer-text-input { font-family: ui-monospace, "SF Mono", Menlo; }
+
+.review-card {
+  border: 1px solid #ECECEE;
+  border-radius: 11px;
+  padding: 11px;
+  margin: 0 0 9px;
+  background: #FBFBFD;
+}
+.review-remove { padding: 0 0 0 8px; }
+.review-term-input { font-family: ui-monospace, "SF Mono", Menlo; }
+
+.spacer { height: 30px; }
+
+/* ---- preview pane ---- */
+.preview-pane {
+  flex: 1;
+  min-width: 0;
+  overflow-y: auto;
+  background: #E8E8ED;
+  padding: 28px;
+}
+.cards-wrap { display: flex; flex-wrap: wrap; gap: 26px; align-items: flex-start; }
+
+.card-col { display: flex; flex-direction: column; gap: 8px; align-items: center; }
+.card-frame { width: 345.6px; height: 432px; overflow: hidden; }
+.exportcard {
+  width: 1080px;
+  height: 1350px;
+  transform: scale(0.32);
+  transform-origin: top left;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.card-footer { display: flex; align-items: center; gap: 8px; }
+.card-page { font: 500 11px/1 ui-monospace, "SF Mono", Menlo; color: #86868B; }
+.card-pdf-btn {
+  border: 1px solid #D2D2D7;
+  background: #fff;
+  color: #1D1D1F;
+  font: 600 11px/1 -apple-system, system-ui;
+  padding: 6px 12px;
+  border-radius: 7px;
+  cursor: pointer;
+}

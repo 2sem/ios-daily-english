@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<script src="https://cdn.jsdelivr.net/npm/html-to-image@1.11.11/dist/html-to-image.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
+<style>
+  html,body{margin:0;height:100%}
+  *{box-sizing:border-box}
+  .fld{width:100%;padding:9px 11px;border:1px solid #D2D2D7;border-radius:9px;font:400 13px/1.4 -apple-system,system-ui,sans-serif;color:#1D1D1F;background:#fff;resize:vertical}
+  .fld:focus{outline:none;border-color:#0071E3;box-shadow:0 0 0 3px rgba(0,113,227,.15)}
+  textarea.fld{min-height:58px}
+  .lbl{display:block;font:600 10px/1 -apple-system,system-ui,sans-serif;letter-spacing:.09em;text-transform:uppercase;color:#86868B;margin:0 0 5px}
+</style>
+</helmet>
+<div style="display:flex;flex-direction:column;height:100vh;background:#F5F5F7;font-family:-apple-system,system-ui,sans-serif;color:#1D1D1F">
+
+  <div style="display:flex;align-items:center;justify-content:space-between;padding:13px 22px;background:#fff;border-bottom:1px solid #E5E5EA;flex:none">
+    <div style="display:flex;align-items:baseline;gap:11px">
+      <span style="font:700 16px/1 -apple-system,system-ui;letter-spacing:-.01em">Card News Generator</span>
+      <span style="font:500 12px/1 ui-monospace,SF Mono,Menlo;color:#86868B">{{ cardCount }} pages · 1080×1350</span>
+    </div>
+    <div style="display:flex;gap:9px;align-items:center">
+      <span style="font:500 12px/1 -apple-system,system-ui;color:#86868B">{{ statusText }}</span>
+      <button onClick="{{ exportAll }}" style="border:none;background:#0071E3;color:#fff;font:600 13px/1 -apple-system,system-ui;padding:11px 18px;border-radius:10px;cursor:pointer">Download PDF</button>
+    </div>
+  </div>
+
+  <div style="display:flex;flex:1;min-height:0">
+
+    <!-- FORM -->
+    <div style="width:380px;flex:none;overflow-y:auto;background:#fff;border-right:1px solid #E5E5EA;padding:20px">
+
+      <div style="border:1px solid #D8E9FC;background:#F3F9FF;border-radius:12px;padding:13px;margin:0 0 20px">
+        <div style="font:700 12px/1 -apple-system,system-ui;letter-spacing:.05em;text-transform:uppercase;color:#0071E3;margin:0 0 4px">Paste &amp; auto-fill</div>
+        <div style="font:400 11px/1.4 -apple-system,system-ui;color:#86868B;margin:0 0 8px">Paste your full day's text (terms, quizzes, answers). Fields below fill in automatically.</div>
+        <textarea class="fld" style="min-height:90px;font-family:ui-monospace,SF Mono,Menlo;font-size:11px" value="{{ pasteText }}" onChange="{{ onPaste }}" placeholder="Paste the full day's text here..."></textarea>
+        <button onClick="{{ doParse }}" style="width:100%;margin-top:8px;border:none;background:#0071E3;color:#fff;font:600 12px/1;padding:10px;border-radius:8px;cursor:pointer">Auto-fill fields</button>
+        <div style="font:500 11px/1.3 -apple-system,system-ui;color:#0071E3;margin-top:7px;min-height:13px">{{ parseMsg }}</div>
+      </div>
+
+      <div style="font:700 12px/1 -apple-system,system-ui;letter-spacing:.05em;text-transform:uppercase;color:#0071E3;margin:0 0 12px">Header</div>
+      <div style="display:flex;gap:10px;margin:0 0 12px">
+        <div style="width:96px"><span class="lbl">Day</span><input class="fld" value="{{ day }}" onChange="{{ onDay }}"></div>
+        <div style="width:64px"><span class="lbl">Emoji</span><input class="fld" value="{{ emoji }}" onChange="{{ onEmoji }}"></div>
+        <div style="flex:1"><span class="lbl">Title</span><input class="fld" value="{{ title }}" onChange="{{ onTitle }}"></div>
+      </div>
+
+      <div style="height:1px;background:#F0F0F2;margin:18px 0"></div>
+      <div style="display:flex;align-items:center;justify-content:space-between;margin:0 0 12px">
+        <div style="font:700 12px/1 -apple-system,system-ui;letter-spacing:.05em;text-transform:uppercase;color:#0071E3">Vocabulary</div>
+        <button onClick="{{ addTerm }}" style="border:1px dashed #C7C7CC;background:#fff;color:#0071E3;font:600 11px/1;padding:6px 10px;border-radius:7px;cursor:pointer">+ term</button>
+      </div>
+      <sc-for list="{{ termFields }}" as="t" hint-placeholder-count="3">
+        <div style="border:1px solid #ECECEE;border-radius:11px;padding:12px;margin:0 0 11px;background:#FBFBFD">
+          <div style="display:flex;justify-content:flex-end;align-items:center;margin:0 0 7px">
+            <button onClick="{{ t.onRemove }}" style="border:none;background:none;color:#C7C7CC;font:600 15px/1;cursor:pointer">×</button>
+          </div>
+          <input class="fld" style="font-family:ui-monospace,SF Mono,Menlo;margin:0 0 7px" value="{{ t.term }}" onChange="{{ t.onTerm }}" placeholder="ClassName">
+          <textarea class="fld" style="margin:0 0 7px" value="{{ t.def }}" onChange="{{ t.onDef }}" placeholder="Definition"></textarea>
+          <textarea class="fld" value="{{ t.example }}" onChange="{{ t.onExample }}" placeholder="Example sentence"></textarea>
+        </div>
+      </sc-for>
+
+      <div style="height:1px;background:#F0F0F2;margin:18px 0"></div>
+      <div style="display:flex;align-items:center;justify-content:space-between;margin:0 0 12px">
+        <div style="font:700 12px/1 -apple-system,system-ui;letter-spacing:.05em;text-transform:uppercase;color:#0071E3">Quizzes</div>
+        <button onClick="{{ addQuiz }}" style="border:1px dashed #C7C7CC;background:#fff;color:#0071E3;font:600 11px/1;padding:6px 10px;border-radius:7px;cursor:pointer">+ quiz</button>
+      </div>
+      <sc-for list="{{ quizFields }}" as="q" hint-placeholder-count="3">
+        <div style="border:1px solid #ECECEE;border-radius:11px;padding:12px;margin:0 0 11px;background:#FBFBFD">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin:0 0 7px">
+            <span style="font:600 11px/1 ui-monospace,SF Mono,Menlo;color:#86868B">QUIZ {{ q.n }}</span>
+            <button onClick="{{ q.onRemove }}" style="border:none;background:none;color:#C7C7CC;font:600 15px/1;cursor:pointer">×</button>
+          </div>
+          <textarea class="fld" style="margin:0 0 7px" value="{{ q.q }}" onChange="{{ q.onQ }}" placeholder="Question"></textarea>
+          <sc-for list="{{ q.opts }}" as="o" hint-placeholder-count="3">
+            <div style="display:flex;align-items:center;gap:7px;margin:0 0 6px">
+              <span style="font:600 12px/1 ui-monospace,SF Mono,Menlo;color:#86868B;width:14px">{{ o.letter }}</span>
+              <input class="fld" value="{{ o.text }}" onChange="{{ o.onChange }}">
+            </div>
+          </sc-for>
+        </div>
+      </sc-for>
+
+      <div style="height:1px;background:#F0F0F2;margin:18px 0"></div>
+      <div style="display:flex;align-items:center;justify-content:space-between;margin:0 0 12px">
+        <div style="font:700 12px/1 -apple-system,system-ui;letter-spacing:.05em;text-transform:uppercase;color:#0071E3">Previous Day — Answers</div>
+      </div>
+      <div style="width:110px;margin:0 0 12px"><span class="lbl">Prev day</span><input class="fld" value="{{ prevDay }}" onChange="{{ onPrevDay }}"></div>
+      <div style="display:flex;align-items:center;justify-content:space-between;margin:0 0 8px">
+        <span class="lbl" style="margin:0">Answers</span>
+        <button onClick="{{ addAnswer }}" style="border:1px dashed #C7C7CC;background:#fff;color:#0071E3;font:600 11px/1;padding:5px 9px;border-radius:7px;cursor:pointer">+</button>
+      </div>
+      <sc-for list="{{ ansFields }}" as="a" hint-placeholder-count="3">
+        <div style="display:flex;gap:7px;align-items:center;margin:0 0 7px">
+          <input class="fld" style="width:44px;text-align:center;font-family:ui-monospace,SF Mono,Menlo" value="{{ a.label }}" onChange="{{ a.onLabel }}">
+          <input class="fld" style="font-family:ui-monospace,SF Mono,Menlo" value="{{ a.text }}" onChange="{{ a.onText }}">
+          <button onClick="{{ a.onRemove }}" style="border:none;background:none;color:#C7C7CC;font:600 15px/1;cursor:pointer">×</button>
+        </div>
+      </sc-for>
+      <div style="display:flex;align-items:center;justify-content:space-between;margin:14px 0 8px">
+        <span class="lbl" style="margin:0">Quick review</span>
+        <button onClick="{{ addReview }}" style="border:1px dashed #C7C7CC;background:#fff;color:#0071E3;font:600 11px/1;padding:5px 9px;border-radius:7px;cursor:pointer">+</button>
+      </div>
+      <sc-for list="{{ revFields }}" as="r" hint-placeholder-count="3">
+        <div style="border:1px solid #ECECEE;border-radius:11px;padding:11px;margin:0 0 9px;background:#FBFBFD">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin:0 0 6px">
+            <input class="fld" style="font-family:ui-monospace,SF Mono,Menlo" value="{{ r.term }}" onChange="{{ r.onTerm }}" placeholder="Term">
+            <button onClick="{{ r.onRemove }}" style="border:none;background:none;color:#C7C7CC;font:600 15px/1;cursor:pointer;padding:0 0 0 8px">×</button>
+          </div>
+          <textarea class="fld" value="{{ r.desc }}" onChange="{{ r.onDesc }}" placeholder="Short description"></textarea>
+        </div>
+      </sc-for>
+      <div style="height:30px"></div>
+    </div>
+
+    <!-- PREVIEW -->
+    <div style="flex:1;min-width:0;overflow-y:auto;background:#E8E8ED;padding:28px">
+      <div style="display:flex;flex-wrap:wrap;gap:26px;align-items:flex-start">
+        <sc-for list="{{ cards }}" as="c" hint-placeholder-count="9">
+          <div style="display:flex;flex-direction:column;gap:8px;align-items:center">
+            <div style="width:345.6px;height:432px;overflow:hidden">
+              <div class="exportcard" style="width:1080px;height:1350px;transform:scale(0.32);transform-origin:top left;overflow:hidden;display:flex;flex-direction:column;box-sizing:border-box;position:relative">
+
+                <sc-if value="{{ c.isCover }}" hint-placeholder-val="{{ true }}">
+                  <div style="width:100%;height:100%;padding:96px;display:flex;flex-direction:column;justify-content:space-between;background:linear-gradient(158deg,#0A0A0C 0%,#1A1A24 100%);color:#fff;box-sizing:border-box">
+                    <div style="display:flex;align-items:center;justify-content:space-between">
+                      <span style="font:600 26px/1 ui-monospace,SF Mono,Menlo;letter-spacing:.28em;color:#8E8E96">SWIFT · UIKIT</span>
+                      <span style="font-size:56px">{{ emoji }}</span>
+                    </div>
+                    <div>
+                      <div style="font:600 34px/1 ui-monospace,SF Mono,Menlo;letter-spacing:.2em;color:#0A84FF;margin:0 0 8px">DAY</div>
+                      <div style="font:800 224px/.9 -apple-system,system-ui;letter-spacing:-.04em;margin:0 0 22px">{{ day }}</div>
+                      <div style="font:600 52px/1.1 -apple-system,system-ui;color:#EDEDF0">{{ title }}</div>
+                    </div>
+                    <div style="display:flex;flex-direction:column;gap:16px">
+                      <sc-for list="{{ coverTerms }}" as="t" hint-placeholder-count="3">
+                        <div style="display:flex;align-items:center;gap:16px">
+                          <span style="width:12px;height:12px;border-radius:50%;background:#0A84FF;flex:none"></span>
+                          <span style="font:500 34px/1.2 ui-monospace,SF Mono,Menlo;color:#C7C7CE;overflow-wrap:anywhere">{{ t }}</span>
+                        </div>
+                      </sc-for>
+                    </div>
+                    <div style="display:flex;justify-content:space-between;align-items:center;border-top:1px solid rgba(255,255,255,.12);padding-top:30px">
+                      <span style="font:600 30px/1 -apple-system,system-ui;color:#8E8E96">iOS Daily English</span>
+                      <span style="font:600 30px/1 ui-monospace,SF Mono,Menlo;color:#0A84FF">{{ handle }}</span>
+                    </div>
+                  </div>
+                </sc-if>
+
+                <sc-if value="{{ c.isVocab }}" hint-placeholder-val="{{ true }}">
+                  <div style="width:100%;height:100%;padding:96px;display:flex;flex-direction:column;background:#fff;box-sizing:border-box">
+                    <div style="margin:0 0 44px">
+                      <span style="display:inline-block;font:600 40px/1.15 ui-monospace,SF Mono,Menlo;color:#0071E3;background:#EAF3FE;padding:16px 24px;border-radius:16px;white-space:nowrap;max-width:888px;overflow:hidden;text-overflow:ellipsis">{{ c.term }}</span>
+                    </div>
+                    <div data-fit-base="46" data-fit-min="30" style="font:400 46px/1.42 -apple-system,system-ui;color:#1D1D1F;text-wrap:pretty">{{ c.def }}</div>
+                    <div style="margin-top:auto;background:#F5F5F7;border-radius:22px;padding:44px 48px">
+                      <div style="font:600 26px/1 ui-monospace,SF Mono,Menlo;letter-spacing:.16em;color:#0071E3;margin:0 0 20px">USAGE EXAMPLE</div>
+                      <div data-fit-base="40" data-fit-min="26" style="font:400 40px/1.4 -apple-system,system-ui;color:#3A3A3C;text-wrap:pretty">“{{ c.example }}”</div>
+                    </div>
+                    <div style="display:flex;justify-content:space-between;align-items:center;margin-top:44px">
+                      <span style="font:500 28px/1 -apple-system,system-ui;color:#B0B0B8">{{ c.footLeft }}</span>
+                      <span style="font:600 28px/1 ui-monospace,SF Mono,Menlo;color:#B0B0B8">{{ handle }} · {{ c.page }}</span>
+                    </div>
+                  </div>
+                </sc-if>
+
+                <sc-if value="{{ c.isQuiz }}" hint-placeholder-val="{{ true }}">
+                  <div style="width:100%;height:100%;padding:96px;display:flex;flex-direction:column;background:#fff;box-sizing:border-box">
+                    <div style="display:flex;align-items:baseline;gap:22px;margin:0 0 20px">
+                      <span style="font:800 96px/1 -apple-system,system-ui;color:#5E5CE6;letter-spacing:-.02em">{{ c.num }}</span>
+                      <span style="font:700 42px/1 -apple-system,system-ui;color:#1D1D1F">Quiz</span>
+                    </div>
+                    <div data-fit-base="48" data-fit-min="30" style="font:600 48px/1.34 -apple-system,system-ui;color:#1D1D1F;margin:0 0 56px;text-wrap:pretty">{{ c.q }}</div>
+                    <div style="display:flex;flex-direction:column;gap:24px">
+                      <sc-for list="{{ c.opts }}" as="o" hint-placeholder-count="3">
+                        <div style="display:flex;align-items:center;gap:28px;border:2px solid #EAEAEF;border-radius:22px;padding:34px 40px">
+                          <span style="width:72px;height:72px;flex:none;border-radius:50%;background:#F0F0F7;color:#5E5CE6;font:700 40px/72px ui-monospace,SF Mono,Menlo;text-align:center">{{ o.letter }}</span>
+                          <span data-fit-base="42" data-fit-min="26" style="font:500 42px/1.25 -apple-system,system-ui;color:#1D1D1F;overflow-wrap:anywhere">{{ o.text }}</span>
+                        </div>
+                      </sc-for>
+                    </div>
+                    <div style="display:flex;justify-content:space-between;align-items:center;margin-top:auto;padding-top:44px">
+                      <span style="font:500 28px/1 -apple-system,system-ui;color:#B0B0B8">{{ c.footLeft }}</span>
+                      <span style="font:600 28px/1 ui-monospace,SF Mono,Menlo;color:#B0B0B8">{{ handle }} · {{ c.page }}</span>
+                    </div>
+                  </div>
+                </sc-if>
+
+                <sc-if value="{{ c.isAnswers }}" hint-placeholder-val="{{ true }}">
+                  <div style="width:100%;height:100%;padding:96px;display:flex;flex-direction:column;background:#F5F5F7;box-sizing:border-box">
+                    <div style="display:flex;align-items:center;gap:18px;margin:0 0 40px">
+                      <span style="font-size:52px">✅</span>
+                      <span style="font:700 50px/1.1 -apple-system,system-ui;color:#1D1D1F">Day {{ c.prevDay }} Answers</span>
+                    </div>
+                    <div style="display:flex;flex-direction:column;gap:18px;margin:0 0 44px">
+                      <sc-for list="{{ c.answers }}" as="a" hint-placeholder-count="3">
+                        <div style="display:flex;align-items:center;gap:24px;background:#fff;border-radius:18px;padding:26px 32px">
+                          <span style="width:60px;height:60px;flex:none;border-radius:50%;background:#E4F7EC;color:#28A745;font:700 34px/60px ui-monospace,SF Mono,Menlo;text-align:center">{{ a.label }}</span>
+                          <span style="font:600 40px/1.2 ui-monospace,SF Mono,Menlo;color:#1D1D1F;overflow-wrap:anywhere">{{ a.text }}</span>
+                        </div>
+                      </sc-for>
+                    </div>
+                    <div style="font:600 26px/1 ui-monospace,SF Mono,Menlo;letter-spacing:.16em;color:#86868B;margin:0 0 22px">QUICK REVIEW</div>
+                    <div style="display:flex;flex-direction:column;gap:20px">
+                      <sc-for list="{{ c.reviews }}" as="r" hint-placeholder-count="3">
+                        <div>
+                          <span style="font:600 34px/1.3 ui-monospace,SF Mono,Menlo;color:#0071E3;overflow-wrap:anywhere">{{ r.term }}</span>
+                          <span data-fit-base="34" data-fit-min="24" style="font:400 34px/1.3 -apple-system,system-ui;color:#3A3A3C"> — {{ r.desc }}</span>
+                        </div>
+                      </sc-for>
+                    </div>
+                    <div style="display:flex;justify-content:space-between;align-items:center;margin-top:auto;padding-top:36px">
+                      <span style="font:500 28px/1 -apple-system,system-ui;color:#B0B0B8">{{ c.footLeft }}</span>
+                      <span style="font:600 28px/1 ui-monospace,SF Mono,Menlo;color:#B0B0B8">{{ handle }} · {{ c.page }}</span>
+                    </div>
+                  </div>
+                </sc-if>
+
+              </div>
+            </div>
+            <div style="display:flex;align-items:center;gap:8px">
+              <span style="font:500 11px/1 ui-monospace,SF Mono,Menlo;color:#86868B">{{ c.page }}</span>
+              <button onClick="{{ c.onExport }}" style="border:1px solid #D2D2D7;background:#fff;color:#1D1D1F;font:600 11px/1 -apple-system,system-ui;padding:6px 12px;border-radius:7px;cursor:pointer">PDF</button>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = {
+    day: '291', emoji: '📱', title: 'iOS Daily English', handle: '@gamehelper',
+    terms: [
+      { term: 'UISheetPresentationController', def: 'An object that manages the appearance and behavior of a sheet (the card-like view that slides up from the bottom) in UIKit.', example: 'I used the UISheetPresentationController to configure the half-height detent so users can still see the map behind the settings.' },
+      { term: 'UIActivityItemSource', def: 'A protocol used to provide specific data (like text or images) to a share sheet depending on which app the user chooses to share to.', example: 'By implementing UIActivityItemSource, we can share a high-quality image to Instagram but a simple link to Twitter.' },
+      { term: 'LPLinkMetadata', def: 'An object from the LinkPresentation framework that holds the title, icon, and preview image for a URL to create rich link previews.', example: 'We fetched the LPLinkMetadata for the website URL to display a beautiful preview card in the system share sheet.' },
+    ],
+    note: 'These terms enhance the modern UI and sharing experience in iOS. UISheetPresentationController is the UIKit way to create the popular “bottom sheet” interface, while UIActivityItemSource and LPLinkMetadata work together to make your app’s shared content look professional and context-aware.',
+    quizzes: [
+      { q: 'Which object is responsible for storing the title and thumbnail image used to show a “Rich Link” preview in a share sheet?', opts: ['UISheetPresentationController', 'UIActivityItemSource', 'LPLinkMetadata'] },
+      { q: 'Which controller should you use in UIKit to create a modal window that only covers the bottom half of the screen and is draggable?', opts: ['UISheetPresentationController', 'LPLinkMetadata', 'UIActivityItemSource'] },
+      { q: 'Which protocol lets your app provide different versions of content (a short summary for SMS, a long one for Email) during a share action?', opts: ['LPLinkMetadata', 'UIActivityItemSource', 'UISheetPresentationController'] },
+    ],
+    prevDay: '290',
+    answers: [
+      { label: 'b', text: 'AVCaptureSession' },
+      { label: 'a', text: 'AVCaptureDevice' },
+      { label: 'c', text: 'AVCaptureVideoPreviewLayer' },
+    ],
+    reviews: [
+      { term: 'AVCaptureSession', desc: 'The central controller that manages the flow of data during capture.' },
+      { term: 'AVCaptureDevice', desc: 'The object representing the physical camera or microphone hardware.' },
+      { term: 'AVCaptureVideoPreviewLayer', desc: 'The visual layer used to display the live camera feed on the screen.' },
+    ],
+    exporting: false,
+  };
+
+  setField(f, e) { this.setState({ [f]: e.target.value }); }
+  setItem(key, i, field, e) {
+    const v = e.target.value;
+    this.setState(st => ({ [key]: st[key].map((it, j) => j === i ? { ...it, [field]: v } : it) }));
+  }
+  setOpt(i, oi, e) {
+    const v = e.target.value;
+    this.setState(st => ({ quizzes: st.quizzes.map((q, j) => j === i ? { ...q, opts: q.opts.map((o, k) => k === oi ? v : o) } : q) }));
+  }
+  addItem(key, blank) { this.setState(st => ({ [key]: [...st[key], blank] })); }
+
+  parsePaste() {
+    const raw = (this.state.pasteText || '').replace(/\r/g, '');
+    if (!raw.trim()) { this.setState({ parseMsg: 'Paste some text first.' }); return; }
+    const next = { ...this.state };
+    const optLine = /^\s*([a-eA-E])[\)\.\:]\s*(.+)$/;
+
+    // --- header ---
+    const firstLine = raw.split('\n').find(l => l.trim()) || '';
+    const dEmoji = firstLine.match(/^\s*([\u{1F000}-\u{1FAFF}\u2600-\u27BF\u2190-\u21FF\u2B00-\u2BFF])/u);
+    if (dEmoji) next.emoji = dEmoji[1];
+    const dTitle = firstLine.match(/^[^A-Za-z]*([A-Za-z][A-Za-z .'&]+?)\s*[-–]\s*Day/);
+    if (dTitle) next.title = dTitle[1].trim();
+    const dDay = firstLine.match(/Day\s+(\d+)/i);
+    if (dDay) next.day = dDay[1];
+
+    // --- split into major sections ---
+    const quizIdx = raw.search(/\n\s*Quiz\b/i);
+    const ansIdx = raw.search(/Day\s+\d+\s+Answers/i);
+    const noteIdx = raw.search(/\niOS note\s*:/i);
+    let vocabEnd = raw.length;
+    [quizIdx, noteIdx, ansIdx].forEach(x => { if (x > -1 && x < vocabEnd) vocabEnd = x; });
+    const headerEnd = raw.indexOf('\n', raw.indexOf(firstLine) + firstLine.length);
+    const vocabText = raw.slice(headerEnd > -1 ? headerEnd : 0, vocabEnd);
+
+    // --- vocabulary terms ---
+    const terms = [];
+    vocabText.split(/\n\s*\n/).forEach(block => {
+      const lines = block.split('\n').map(l => l.trim()).filter(Boolean);
+      if (!lines.length) return;
+      const head = lines[0];
+      if (/^(iOS note|Quiz|Quick review|✅)/i.test(head)) return;
+      const term = head.replace(/[:：]\s*$/, '').trim();
+      if (!/^[A-Za-z][\w.]+$/.test(term)) return;
+      let def = '', example = '';
+      lines.slice(1).forEach(l => {
+        const c = l.replace(/^[-•‣·]\s*/, '');
+        if (/^Example\s*[:：]/i.test(c)) example = c.replace(/^Example\s*[:：]\s*/i, '').replace(/^["“]|["”]$/g, '').trim();
+        else if (!def) def = c;
+        else def += ' ' + c;
+      });
+      terms.push({ term, def, example });
+    });
+    if (terms.length) next.terms = terms;
+
+    // --- quizzes ---
+    if (quizIdx > -1) {
+      const quizRegion = raw.slice(quizIdx, ansIdx > quizIdx ? ansIdx : raw.length);
+      const chunks = quizRegion.split(/\n\s*Quiz\b[^\n]*/i).map(c => c.trim()).filter(Boolean);
+      const quizzes = [];
+      chunks.forEach(chunk => {
+        const lines = chunk.split('\n').map(l => l.trim()).filter(Boolean);
+        const opts = [];
+        let q = '';
+        lines.forEach(l => {
+          const m = l.match(optLine);
+          if (m) opts.push(m[2].trim());
+          else if (!opts.length) q = q ? q + ' ' + l : l;
+        });
+        if (q && opts.length) quizzes.push({ q, opts });
+      });
+      if (quizzes.length) next.quizzes = quizzes;
+    }
+
+    // --- answers + quick review ---
+    if (ansIdx > -1) {
+      const ansRegion = raw.slice(ansIdx);
+      const pd = ansRegion.match(/Day\s+(\d+)\s+Answers/i);
+      if (pd) next.prevDay = pd[1];
+      const revIdx = ansRegion.search(/Quick review\s*:/i);
+      const ansPart = revIdx > -1 ? ansRegion.slice(0, revIdx) : ansRegion;
+      const answers = [];
+      ansPart.split('\n').forEach(l => {
+        const m = l.trim().match(optLine);
+        if (m) answers.push({ label: m[1].toLowerCase(), text: m[2].trim() });
+      });
+      if (answers.length) next.answers = answers;
+      if (revIdx > -1) {
+        const reviews = [];
+        ansRegion.slice(revIdx).split('\n').slice(1).forEach(l => {
+          const c = l.trim().replace(/^[-•‣·]\s*/, '');
+          const m = c.match(/^([\w.]+)\s*[-–:：]\s*(.+)$/);
+          if (m) reviews.push({ term: m[1].trim(), desc: m[2].trim() });
+        });
+        if (reviews.length) next.reviews = reviews;
+      }
+    }
+
+    next.parseMsg = `Filled ${next.terms.length} terms · ${next.quizzes.length} quizzes · ${next.answers.length} answers.`;
+    this.setState(next);
+  }
+
+  removeItem(key, i) { this.setState(st => ({ [key]: st[key].filter((_, j) => j !== i) })); }
+
+  // capture a card at its true 1080×1350 by neutralizing the preview scale
+  async capture(node) {
+    const prevT = node.style.transform, prevO = node.style.transformOrigin;
+    node.style.transform = 'none';
+    node.style.transformOrigin = 'top left';
+    // wait a frame so layout settles at full size
+    await new Promise(r => requestAnimationFrame(() => requestAnimationFrame(r)));
+    let url;
+    try {
+      url = await window.htmlToImage.toPng(node, { width: 1080, height: 1350, pixelRatio: 2, cacheBust: true, backgroundColor: '#ffffff' });
+    } finally {
+      node.style.transform = prevT;
+      node.style.transformOrigin = prevO;
+    }
+    return url;
+  }
+  async exportOne(i) {
+    const nodes = document.querySelectorAll('.exportcard');
+    if (!nodes[i] || !window.jspdf) return;
+    this.setState({ exporting: true });
+    try {
+      const url = await this.capture(nodes[i]);
+      const pdf = new window.jspdf.jsPDF({ orientation: 'portrait', unit: 'px', format: [1080, 1350] });
+      pdf.addImage(url, 'PNG', 0, 0, 1080, 1350);
+      pdf.save(`ios-day-${this.state.day}-page-${String(i + 1).padStart(2, '0')}.pdf`);
+    } catch (e) { console.error(e); }
+    this.setState({ exporting: false });
+  }
+  async exportAll() {
+    const nodes = [...document.querySelectorAll('.exportcard')];
+    if (!nodes.length || !window.jspdf) return;
+    this.setState({ exporting: true });
+    try {
+      const pdf = new window.jspdf.jsPDF({ orientation: 'portrait', unit: 'px', format: [1080, 1350] });
+      for (let i = 0; i < nodes.length; i++) {
+        if (i > 0) pdf.addPage([1080, 1350], 'portrait');
+        const url = await this.capture(nodes[i]);
+        pdf.addImage(url, 'PNG', 0, 0, 1080, 1350);
+      }
+      pdf.save(`ios-day-${this.state.day}-cards.pdf`);
+    } catch (e) { console.error(e); }
+    this.setState({ exporting: false });
+  }
+
+  renderVals() {
+    const s = this.state;
+    const circ = ['①', '②', '③', '④', '⑤', '⑥', '⑦', '⑧'];
+    const letters = ['a', 'b', 'c', 'd', 'e'];
+
+    const termFields = s.terms.map((t, i) => ({
+      n: i + 1, term: t.term, def: t.def, example: t.example,
+      onTerm: e => this.setItem('terms', i, 'term', e),
+      onDef: e => this.setItem('terms', i, 'def', e),
+      onExample: e => this.setItem('terms', i, 'example', e),
+      onRemove: () => this.removeItem('terms', i),
+    }));
+    const quizFields = s.quizzes.map((q, i) => ({
+      n: i + 1, q: q.q,
+      opts: q.opts.map((o, oi) => ({ letter: letters[oi], text: o, onChange: e => this.setOpt(i, oi, e) })),
+      onQ: e => this.setItem('quizzes', i, 'q', e),
+      onRemove: () => this.removeItem('quizzes', i),
+    }));
+    const ansFields = s.answers.map((a, i) => ({
+      label: a.label, text: a.text,
+      onLabel: e => this.setItem('answers', i, 'label', e),
+      onText: e => this.setItem('answers', i, 'text', e),
+      onRemove: () => this.removeItem('answers', i),
+    }));
+    const revFields = s.reviews.map((r, i) => ({
+      term: r.term, desc: r.desc,
+      onTerm: e => this.setItem('reviews', i, 'term', e),
+      onDesc: e => this.setItem('reviews', i, 'desc', e),
+      onRemove: () => this.removeItem('reviews', i),
+    }));
+
+    const cards = [];
+    cards.push({ type: 'cover' });
+    s.terms.forEach((t) => cards.push({ type: 'vocab', term: t.term, def: t.def, example: t.example }));
+    s.quizzes.forEach((q, i) => cards.push({ type: 'quiz', num: circ[i] || (i + 1), q: q.q, opts: q.opts.map((o, oi) => ({ letter: letters[oi], text: o })) }));
+    cards.push({ type: 'answers', prevDay: s.prevDay, answers: s.answers, reviews: s.reviews });
+
+    const total = cards.length;
+    const footLeft = `iOS Daily English · Day ${s.day}`;
+    cards.forEach((c, i) => {
+      c.page = `${i + 1} / ${total}`;
+      c.footLeft = footLeft;
+      c.isCover = c.type === 'cover';
+      c.isVocab = c.type === 'vocab';
+      c.isQuiz = c.type === 'quiz';
+      c.isAnswers = c.type === 'answers';
+      c.onExport = () => this.exportOne(i);
+    });
+
+    return {
+      day: s.day, emoji: s.emoji, title: s.title, handle: s.handle,
+      prevDay: s.prevDay,
+      pasteText: s.pasteText || '', parseMsg: s.parseMsg || '',
+      coverTerms: s.terms.map(t => t.term),
+      cardCount: total,
+      statusText: s.exporting ? 'Rendering…' : '',
+      cards, termFields, quizFields, ansFields, revFields,
+      onDay: e => this.setField('day', e),
+      onEmoji: e => this.setField('emoji', e),
+      onTitle: e => this.setField('title', e),
+      onPaste: e => this.setState({ pasteText: e.target.value }),
+      doParse: () => this.parsePaste(),
+      onPrevDay: e => this.setField('prevDay', e),
+      addTerm: () => this.addItem('terms', { term: '', def: '', example: '' }),
+      addQuiz: () => this.addItem('quizzes', { q: '', opts: ['', '', ''] }),
+      addAnswer: () => this.addItem('answers', { label: '', text: '' }),
+      addReview: () => this.addItem('reviews', { term: '', desc: '' }),
+      exportAll: () => this.exportAll(),
+    };
+  }
+}
+</script>
+</body>
+</html>
