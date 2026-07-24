@@ -4,7 +4,7 @@ const LETTERS = ['a', 'b', 'c', 'd', 'e'];
 const CIRCLED = ['①', '②', '③', '④', '⑤', '⑥', '⑦', '⑧'];
 
 const state = {
-  day: '291', title: 'iOS Daily English', handle: '@gamehelper',
+  day: '291', title: 'UIKit Sheets & Sharing', handle: '@gamehelper',
   terms: [
     { term: 'UISheetPresentationController', def: 'An object that manages the appearance and behavior of a sheet (the card-like view that slides up from the bottom) in UIKit.', example: 'I used the UISheetPresentationController to configure the half-height detent so users can still see the map behind the settings.' },
     { term: 'UIActivityItemSource', def: 'A protocol used to provide specific data (like text or images) to a share sheet depending on which app the user chooses to share to.', example: 'By implementing UIActivityItemSource, we can share a high-quality image to Instagram but a simple link to Twitter.' },
