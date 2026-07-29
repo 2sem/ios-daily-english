@@ -84,23 +84,29 @@ function parsePaste(rawInput) {
   const vocabText = raw.slice(headerEnd > -1 ? headerEnd : 0, vocabEnd);
 
   // --- vocabulary terms ---
+  // Blank lines are not treated as block separators here: some paste
+  // sources (social apps, notes) inject a redundant blank line after
+  // every single line, which would otherwise split one term's
+  // term/def/example across several broken blocks. Instead, a new term
+  // starts whenever a line looks like a bare identifier; every other
+  // non-blank line is folded into the current term's def/example.
   const terms = [];
-  vocabText.split(/\n\s*\n/).forEach(block => {
-    const lines = block.split('\n').map(l => l.trim()).filter(Boolean);
-    if (!lines.length) return;
-    const head = lines[0];
-    if (/^(iOS note|Quiz|Quick review|✅)/i.test(head)) return;
-    const term = head.replace(/[:：]\s*$/, '').trim();
-    if (!/^[A-Za-z][\w.]+$/.test(term)) return;
-    let def = '', example = '';
-    lines.slice(1).forEach(l => {
-      const c = l.replace(/^[-•‣·]\s*/, '');
-      if (/^Example\s*[:：]/i.test(c)) example = c.replace(/^Example\s*[:：]\s*/i, '').replace(/^["“]|["”]$/g, '').trim();
-      else if (!def) def = c;
-      else def += ' ' + c;
-    });
-    terms.push({ term, def, example });
+  let current = null;
+  vocabText.split('\n').map(l => l.trim()).filter(Boolean).forEach(line => {
+    if (/^(iOS note|Quiz|Quick review|✅)/i.test(line)) return;
+    const candidate = line.replace(/[:：]\s*$/, '').trim();
+    if (/^[A-Za-z][\w.]+$/.test(candidate)) {
+      if (current) terms.push(current);
+      current = { term: candidate, def: '', example: '' };
+      return;
+    }
+    if (!current) return;
+    const c = line.replace(/^[-•‣·]\s*/, '');
+    if (/^Example\s*[:：]/i.test(c)) current.example = c.replace(/^Example\s*[:：]\s*/i, '').replace(/^["“]|["”]$/g, '').trim();
+    else if (!current.def) current.def = c;
+    else current.def += ' ' + c;
   });
+  if (current) terms.push(current);
   if (terms.length) next.terms = terms;
 
   // --- quizzes ---
