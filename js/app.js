@@ -40,6 +40,15 @@ function escapeRegExp(s) {
   return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 }
 
+/* escapes an API name and adds <wbr> break points at camelCase / dot / underscore
+   boundaries, so long terms wrap as "UICollectionView|CompositionalLayout" instead of mid-word */
+function termHTML(term) {
+  return String(term ?? '')
+    .split(/(?<=[a-z0-9])(?=[A-Z])|(?<=[A-Z])(?=[A-Z][a-z])|(?<=[._])/)
+    .map(esc)
+    .join('<wbr>');
+}
+
 /* wraps every occurrence of `term` inside `text` in a highlighted span (case-insensitive) */
 function highlightTerm(text, term) {
   const t = String(text ?? '');
@@ -49,7 +58,7 @@ function highlightTerm(text, term) {
   let out = '', lastIndex = 0, m;
   while ((m = re.exec(t))) {
     out += esc(t.slice(lastIndex, m.index));
-    out += `<span style="color:#0071E3;font-weight:700">${esc(m[0])}</span>`;
+    out += `<span style="color:#0071E3;font-weight:700">${termHTML(m[0])}</span>`;
     lastIndex = m.index + m[0].length;
   }
   out += esc(t.slice(lastIndex));
@@ -247,9 +256,9 @@ function buildCards() {
 
 function coverCardHTML() {
   const terms = state.terms.map(t => `
-    <div style="display:flex;align-items:center;gap:16px">
-      <span style="width:12px;height:12px;border-radius:50%;background:#0A84FF;flex:none"></span>
-      <span style="font:500 34px/1.2 ui-monospace,SF Mono,Menlo;color:#C7C7CE;overflow-wrap:anywhere">${esc(t.term)}</span>
+    <div style="display:flex;align-items:flex-start;gap:16px">
+      <span style="width:12px;height:12px;margin-top:14.4px;border-radius:50%;background:#0A84FF;flex:none"></span>
+      <span style="font:500 34px/1.2 ui-monospace,SF Mono,Menlo;color:#C7C7CE;overflow-wrap:anywhere">${termHTML(t.term)}</span>
     </div>`).join('');
   return `
   <div style="width:100%;height:100%;padding:96px;display:flex;flex-direction:column;justify-content:space-between;background:linear-gradient(158deg,#0A0A0C 0%,#1A1A24 100%);color:#fff;box-sizing:border-box">
@@ -273,7 +282,7 @@ function vocabCardHTML(c) {
   return `
   <div style="width:100%;height:100%;padding:96px;display:flex;flex-direction:column;background:#fff;box-sizing:border-box">
     <div style="margin:0 0 44px">
-      <span style="display:inline-block;font:600 40px/1.15 ui-monospace,SF Mono,Menlo;color:#0071E3;background:#EAF3FE;padding:16px 24px;border-radius:16px;white-space:nowrap;max-width:888px;overflow:hidden;text-overflow:ellipsis">${esc(c.term)}</span>
+      <span data-fit-lines="2" data-fit-lines-base="40" data-fit-lines-min="26" style="display:inline-block;font:600 40px/1.15 ui-monospace,SF Mono,Menlo;color:#0071E3;background:#EAF3FE;padding:16px 24px;border-radius:16px;max-width:888px;box-sizing:border-box;overflow-wrap:anywhere;text-wrap:balance">${termHTML(c.term)}</span>
     </div>
     <div data-fit-base="46" data-fit-min="30" style="font:400 46px/1.42 -apple-system,system-ui;color:#1D1D1F;text-wrap:pretty">${esc(c.def)}</div>
     <div style="margin-top:auto;background:#F5F5F7;border-radius:22px;padding:44px 48px">
@@ -316,7 +325,7 @@ function answersCardHTML(c) {
       </div>`).join('');
   const reviews = c.reviews.map(r => `
       <div>
-        <span style="font:600 34px/1.3 ui-monospace,SF Mono,Menlo;color:#0071E3;overflow-wrap:anywhere">${esc(r.term)}</span>
+        <span style="font:600 34px/1.3 ui-monospace,SF Mono,Menlo;color:#0071E3;overflow-wrap:anywhere">${termHTML(r.term)}</span>
         <span data-fit-base="34" data-fit-min="24" style="font:400 34px/1.3 -apple-system,system-ui;color:#3A3A3C"> — ${esc(r.desc)}</span>
       </div>`).join('');
   return `
@@ -356,8 +365,24 @@ function cardColHTML(c) {
   </div>`;
 }
 
+/* shrink an element until its text wraps to at most `data-fit-lines` lines */
+function fitLines(el) {
+  const maxLines = parseFloat(el.dataset.fitLines);
+  const min = parseFloat(el.dataset.fitLinesMin);
+  let size = parseFloat(el.dataset.fitLinesBase);
+  const cs = getComputedStyle(el);
+  const padY = parseFloat(cs.paddingTop) + parseFloat(cs.paddingBottom);
+  el.style.fontSize = size + 'px';
+  const lineCount = () => Math.round((el.clientHeight - padY) / parseFloat(getComputedStyle(el).lineHeight));
+  while (lineCount() > maxLines && size > min) {
+    size -= 1;
+    el.style.fontSize = size + 'px';
+  }
+}
+
 /* shrink text that would overflow its fixed-size card (long paste content) */
 function fitCardText(cardEl) {
+  cardEl.querySelectorAll('[data-fit-lines]').forEach(fitLines);
   const fits = () => cardEl.scrollHeight <= cardEl.clientHeight + 1;
   if (fits()) return;
   const targets = Array.from(cardEl.querySelectorAll('[data-fit-base]'));
