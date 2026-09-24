@@ -74,7 +74,7 @@ function highlightTerm(text, term) {
    sentences, so they fail on lowercase words or trailing punctuation */
 function isTermLine(line) {
   if (/^[A-Za-z][\w.]+$/.test(line)) return true;
-  const words = line.split(' ');
+  const words = line.split(/\s+/);
   return words.length >= 2 && words.length <= 5 && words.every(w => /^[A-Z0-9][\w.]*$/.test(w));
 }
 
@@ -113,7 +113,8 @@ function parsePaste(rawInput) {
   let current = null;
   vocabText.split('\n').map(l => l.trim()).filter(Boolean).forEach(line => {
     if (/^(iOS note|Quiz|Quick review|✅)/i.test(line)) return;
-    const candidate = line.replace(/[:：]\s*$/, '').trim();
+    // paste sources (LinkedIn, notes) often use non-breaking spaces
+    const candidate = line.replace(/[:：]\s*$/, '').replace(/\s+/g, ' ').trim();
     if (isTermLine(candidate)) {
       if (current) terms.push(current);
       current = { term: candidate, def: '', example: '' };
@@ -164,8 +165,8 @@ function parsePaste(rawInput) {
       const reviews = [];
       ansRegion.slice(revIdx).split('\n').slice(1).forEach(l => {
         const c = l.trim().replace(/^[-•‣·]\s*/, '');
-        const m = c.match(/^(\w[\w. ]*?)\s*[-–:：]\s*(.+)$/);
-        if (m) reviews.push({ term: m[1].trim(), desc: m[2].trim() });
+        const m = c.match(/^(\w[\w.\s]*?)\s*[-–:：]\s*(.+)$/);
+        if (m) reviews.push({ term: m[1].replace(/\s+/g, ' ').trim(), desc: m[2].trim() });
       });
       if (reviews.length) next.reviews = reviews;
     }
