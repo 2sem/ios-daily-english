@@ -69,6 +69,15 @@ function highlightTerm(text, term) {
 /* paste-and-parse                                                   */
 /* ---------------------------------------------------------------- */
 
+/* a term line is a bare identifier (`URLSession`, `os.Logger`) or a short
+   phrase of 2–5 capitalized words (`Required Reason API`) — definitions are
+   sentences, so they fail on lowercase words or trailing punctuation */
+function isTermLine(line) {
+  if (/^[A-Za-z][\w.]+$/.test(line)) return true;
+  const words = line.split(' ');
+  return words.length >= 2 && words.length <= 5 && words.every(w => /^[A-Z0-9][\w.]*$/.test(w));
+}
+
 function parsePaste(rawInput) {
   const raw = (rawInput || '').replace(/\r/g, '');
   if (!raw.trim()) return { parseMsg: 'Paste some text first.' };
@@ -97,14 +106,15 @@ function parsePaste(rawInput) {
   // sources (social apps, notes) inject a redundant blank line after
   // every single line, which would otherwise split one term's
   // term/def/example across several broken blocks. Instead, a new term
-  // starts whenever a line looks like a bare identifier; every other
+  // starts whenever a line looks like a term (a bare identifier, or a
+  // short Title Case phrase such as "Required Reason API"); every other
   // non-blank line is folded into the current term's def/example.
   const terms = [];
   let current = null;
   vocabText.split('\n').map(l => l.trim()).filter(Boolean).forEach(line => {
     if (/^(iOS note|Quiz|Quick review|✅)/i.test(line)) return;
     const candidate = line.replace(/[:：]\s*$/, '').trim();
-    if (/^[A-Za-z][\w.]+$/.test(candidate)) {
+    if (isTermLine(candidate)) {
       if (current) terms.push(current);
       current = { term: candidate, def: '', example: '' };
       return;
@@ -154,7 +164,7 @@ function parsePaste(rawInput) {
       const reviews = [];
       ansRegion.slice(revIdx).split('\n').slice(1).forEach(l => {
         const c = l.trim().replace(/^[-•‣·]\s*/, '');
-        const m = c.match(/^([\w.]+)\s*[-–:：]\s*(.+)$/);
+        const m = c.match(/^(\w[\w. ]*?)\s*[-–:：]\s*(.+)$/);
         if (m) reviews.push({ term: m[1].trim(), desc: m[2].trim() });
       });
       if (reviews.length) next.reviews = reviews;
