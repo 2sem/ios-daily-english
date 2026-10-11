@@ -56,7 +56,8 @@
     "voices": {
       "narrator": "Ava (Premium)",
       "example": "Evan (Enhanced)",
-      "pattern": "female -> male"
+      "pattern": "female -> male",
+      "exampleSlow": "Ava (Premium)"
     }
   },
   "status": {
