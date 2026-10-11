@@ -76,6 +76,13 @@
   "status": {
     "content": "ready",
     "video": "rendered",
-    "youtube": "todo"
+    "youtube": "uploaded"
+  },
+  "youtube": {
+    "videoId": "tH0CpJUdGNI",
+    "url": "https://youtu.be/tH0CpJUdGNI",
+    "privacy": "private",
+    "scheduledAt": null,
+    "uploaded": "2026-10-11T06:44:29.643Z"
   }
 }
