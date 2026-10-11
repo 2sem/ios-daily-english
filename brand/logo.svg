@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
-  <!-- iOS Daily English: two overlaid hands on an iPhone with an "Aa" speech bubble.
+  <!-- iOS Daily English: a helper hand placed over a newbie hand on an iPhone with an "Aa" speech bubble.
        Sister mark of the 게임도우미 logo (same indigo/white palette, same two-hands motif). -->
   <defs>
     <g id="hand">
@@ -22,14 +22,14 @@
   <path d="M196 112h120a18 18 0 0 1 18 18v52a18 18 0 0 1-18 18h-62l-26 22v-22h-32a18 18 0 0 1-18-18v-52a18 18 0 0 1 18-18z" fill="#303F9F"/>
   <text x="256" y="176" text-anchor="middle" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-weight="800" font-size="52" fill="#ffffff">Aa</text>
 
-  <!-- back hand -->
-  <g transform="translate(204 384) rotate(-14) scale(1.55)">
+  <!-- newbie hand (small, light), peeking out under the helper's hand -->
+  <g transform="translate(226 350) rotate(-5) scale(1.32)">
     <use href="#hand" fill="#ffffff" stroke="#ffffff" stroke-width="12" stroke-linejoin="round"/>
     <use href="#hand" fill="#7986CB"/>
   </g>
-  <!-- front hand -->
-  <g transform="translate(314 408) rotate(12) scale(-1.55 1.55)">
-    <use href="#hand" fill="#ffffff" stroke="#ffffff" stroke-width="12" stroke-linejoin="round"/>
+  <!-- helper hand (large, dark) placed over it -->
+  <g transform="translate(268 416) rotate(-5) scale(1.62)">
+    <use href="#hand" fill="#ffffff" stroke="#ffffff" stroke-width="10" stroke-linejoin="round"/>
     <use href="#hand" fill="#303F9F"/>
   </g>
 </svg>
