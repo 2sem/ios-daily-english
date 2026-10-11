@@ -62,6 +62,8 @@
 
       /* intro */
       #intro { display: flex; flex-direction: column; justify-content: center; align-items: flex-start; padding: 0 250px 0 72px; }
+      .logo-tile { width: 300px; height: 300px; border-radius: 66px; overflow: hidden; background: #fff; margin-bottom: 52px; box-shadow: 0 18px 60px rgba(0, 0, 0, 0.45); }
+      .logo-tile img { display: block; width: 300px; height: 300px; image-rendering: pixelated; }
       .kicker { font-size: 34px; font-weight: 600; color: var(--swift); letter-spacing: 0.08em; text-transform: uppercase; }
       .day { font-size: 230px; font-weight: 800; letter-spacing: -0.05em; line-height: 1; margin: 22px 0 36px; }
       .intro-sub { font-size: 42px; font-weight: 500; color: var(--muted); }
@@ -168,6 +170,7 @@
       </div>
 
       <div class="scene clip" id="intro" data-start="0" data-duration="3.7" data-track-index="1">
+        <div class="logo-tile" id="i-logo"><img src="assets/logo.png" alt="iOS Daily English logo" /></div>
         <div class="kicker" id="i-kicker">iOS Daily English</div>
         <div class="day" id="i-day">Day 1</div>
         <div class="intro-sub" id="i-sub">3 terms on declaring values</div>
@@ -341,6 +344,7 @@
       </div>
 
       <div class="scene clip" id="outro" data-start="101.4" data-duration="4.5" data-track-index="1">
+        <div class="logo-tile" id="o-logo"><img src="assets/logo.png" alt="iOS Daily English logo" /></div>
         <div class="recap-title">Recap</div>
         <div class="recap">
           <div class="row"><div class="k" style="color: var(--swift)">let</div><div class="v">a constant, set once</div></div>
@@ -365,6 +369,7 @@
       const P = (n) => PLAN.terms[n];
 
       tl.fromTo("#header", { opacity: 0, y: -12 }, { opacity: 1, y: 0, duration: 0.5, ease: E }, 0);
+      tl.fromTo("#i-logo", { autoAlpha: 0, scale: 0.88, y: 20 }, { autoAlpha: 1, scale: 1, y: 0, duration: 0.6, ease: "back.out(1.6)" }, 0.05);
       tl.fromTo("#i-kicker", { autoAlpha: 0, y: 20 }, { autoAlpha: 1, y: 0, duration: 0.5, ease: E }, 0.1);
       tl.fromTo("#i-day", { autoAlpha: 0, y: 40, scale: 0.96 }, { autoAlpha: 1, y: 0, scale: 1, duration: 0.7, ease: E }, 0.25);
       tl.fromTo("#i-sub", { autoAlpha: 0, y: 20 }, { autoAlpha: 1, y: 0, duration: 0.5, ease: E }, 0.6);
@@ -480,6 +485,7 @@
       quiz("#q3", PLAN.quizzes[2]);
 
       t = PLAN.outro.start;
+      tl.fromTo("#o-logo", { autoAlpha: 0, scale: 0.9 }, { autoAlpha: 1, scale: 1, duration: 0.5, ease: E }, t);
       tl.fromTo("#outro .recap-title", { autoAlpha: 0, y: 16 }, { autoAlpha: 1, y: 0, duration: 0.4, ease: E }, t);
       tl.fromTo("#outro .row", { autoAlpha: 0, x: -30 }, { autoAlpha: 1, x: 0, duration: 0.45, ease: E, stagger: 0.2 }, t + 0.25);
       tl.fromTo("#outro .follow", { autoAlpha: 0, y: 16 }, { autoAlpha: 1, y: 0, duration: 0.45, ease: E }, t + 1.2);
