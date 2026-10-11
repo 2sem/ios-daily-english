@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 // Writes a timing plan (from scripts/timing.mjs) into a day's composition:
-//   node scripts/apply-timing.mjs video/day001/index.html video/out/day-001.timing.json [--audio-dir video/audio/day-001] [--voice examples|all|none]
+//   node scripts/apply-timing.mjs video/day001/index.html video/out/day-001.timing.json [--audio-dir video/audio/day-001] [--voice examples|all|none] [--bgm file.mp3] [--bgm-volume 0.14]
 // With --audio-dir, copies the TTS clips next to the page and adds <audio> elements at each cue
 // (default --voice examples: the example sentence is spoken at the end of every term).
 // Rewrites data-start / data-duration on the header, root and every scene, and the `const PLAN = ...` line.
@@ -8,7 +8,7 @@ import { readFileSync, writeFileSync, mkdirSync, copyFileSync, existsSync } from
 import { dirname, join, resolve } from "node:path";
 const argv = process.argv.slice(2);
 const opt = (n, d) => (argv.includes(`--${n}`) ? argv[argv.indexOf(`--${n}`) + 1] : d);
-const [htmlPath, planPath] = argv.filter((a) => !a.startsWith("--") && a !== opt("audio-dir") && a !== opt("voice"));
+const [htmlPath, planPath] = argv.filter((a) => !a.startsWith("--") && a !== opt("audio-dir") && a !== opt("voice") && a !== opt("bgm") && a !== opt("bgm-volume"));
 if (!htmlPath || !planPath) {
   console.error("usage: apply-timing.mjs <index.html> <day-NNN.timing.json>");
   process.exit(1);
@@ -47,8 +47,13 @@ if (audioDir && mode !== "none") {
     copyFileSync(src, join(dest, `${c.key}.wav`));
     tags.push(`      <audio id="v-${c.key}" src="assets/voice/${c.key}.wav" data-start="${c.at}" data-duration="${(Math.ceil(c.seconds * 10) / 10 + 0.1).toFixed(1)}" data-track-index="${20 + tags.length}" data-volume="1"></audio>`);
   }
+  const bgm = opt("bgm", null);
+  if (bgm) {
+    copyFileSync(resolve(bgm), join(dest, "bgm.mp3"));
+    tags.push(`      <audio id="bgm" src="assets/voice/bgm.mp3" data-start="0" data-duration="${plan.total}" data-track-index="5" data-volume="${opt("bgm-volume", "0.14")}" data-timeline-role="music" data-fade-in="1.5" data-fade-out="3"></audio>`);
+  }
   html = html.replace(/(\n    <\/div>\n\n    <script>)/, `\n      <!-- VOICE:START -->\n${tags.join("\n")}\n      <!-- VOICE:END -->$1`);
-  console.log(`added ${tags.length} voice clips (${mode})`);
+  console.log(`added ${tags.length} audio elements (voice ${mode}${bgm ? ", bgm" : ""})`);
 }
 writeFileSync(htmlPath, html);
 console.log(`applied plan: ${plan.total}s total, ${Object.keys(scenes).length} scenes`);

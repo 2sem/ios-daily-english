@@ -100,6 +100,7 @@ const quizzes = day.quizzes.map((q, i) => {
     dur: r1(dur),
     questionAt: r1(questionAt),
     optsAt: r1(optsAt),
+    optStep: r1(dOpts / 3), // seconds per spoken option, used to light each one up
     countdownAt: r1(countdownAt),
     quizSeconds: QUIZ_SECONDS,
   };
