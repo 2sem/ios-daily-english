@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <!-- iOS Daily English: two overlaid hands on an iPhone with an "Aa" speech bubble.
+       Sister mark of the 게임도우미 logo (same indigo/white palette, same two-hands motif). -->
+  <defs>
+    <g id="hand">
+      <rect x="-40" y="-8" width="80" height="90" rx="26"/>
+      <rect x="-40" y="-78" width="19" height="90" rx="9.5"/>
+      <rect x="-18" y="-98" width="19" height="110" rx="9.5"/>
+      <rect x="4" y="-88" width="19" height="100" rx="9.5"/>
+      <rect x="26" y="-66" width="17" height="80" rx="8.5"/>
+      <rect x="-46" y="-14" width="21" height="66" rx="10.5" transform="rotate(-40 -36 48)"/>
+    </g>
+  </defs>
+
+  <rect width="512" height="512" fill="#ffffff"/>
+
+  <!-- phone -->
+  <rect x="166" y="52" width="180" height="330" rx="34" fill="#ffffff" stroke="#303F9F" stroke-width="14"/>
+  <rect x="226" y="64" width="60" height="9" rx="4.5" fill="#303F9F"/>
+
+  <!-- speech bubble with Aa -->
+  <path d="M196 112h120a18 18 0 0 1 18 18v52a18 18 0 0 1-18 18h-62l-26 22v-22h-32a18 18 0 0 1-18-18v-52a18 18 0 0 1 18-18z" fill="#303F9F"/>
+  <text x="256" y="176" text-anchor="middle" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-weight="800" font-size="52" fill="#ffffff">Aa</text>
+
+  <!-- back hand -->
+  <g transform="translate(204 384) rotate(-14) scale(1.55)">
+    <use href="#hand" fill="#ffffff" stroke="#ffffff" stroke-width="12" stroke-linejoin="round"/>
+    <use href="#hand" fill="#7986CB"/>
+  </g>
+  <!-- front hand -->
+  <g transform="translate(314 408) rotate(12) scale(-1.55 1.55)">
+    <use href="#hand" fill="#ffffff" stroke="#ffffff" stroke-width="12" stroke-linejoin="round"/>
+    <use href="#hand" fill="#303F9F"/>
+  </g>
+</svg>
