@@ -1,8 +1,8 @@
 <!doctype html>
-<html lang="en" data-resolution="square">
+<html lang="en" data-resolution="portrait">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=1080, height=1080" />
+    <meta name="viewport" content="width=1080, height=1920" />
     <script src="assets/gsap.min.js"></script>
     <style>
       @font-face { font-family: Inter; font-weight: 400; font-style: normal; src: url(assets/fonts/inter-latin-400-normal.woff2) format("woff2"); }
@@ -24,10 +24,13 @@
         --violet: #b692ff;
         --err: #ff5d6c;
         --ok: #43d68a;
+        --quiz: #ffc145;
       }
       * { margin: 0; padding: 0; box-sizing: border-box; }
+      /* Vertical 1080x1920 (YouTube Shorts). Text column is 72px left gutter .. 250px right safe zone
+         (758px wide); bottom ~200px stays clear of important content. */
       html, body {
-        width: 1080px; height: 1080px; overflow: hidden;
+        width: 1080px; height: 1920px; overflow: hidden;
         background: var(--bg); color: var(--text);
         font-family: Inter, ui-sans-serif, system-ui, sans-serif;
       }
@@ -35,22 +38,20 @@
       .bg-glow {
         position: absolute; inset: 0;
         background:
-          radial-gradient(700px 500px at 85% -10%, rgba(242, 107, 79, 0.16), transparent 70%),
-          radial-gradient(600px 500px at -10% 110%, rgba(90, 169, 255, 0.12), transparent 70%);
+          radial-gradient(900px 700px at 85% -5%, rgba(242, 107, 79, 0.16), transparent 70%),
+          radial-gradient(800px 700px at -10% 105%, rgba(90, 169, 255, 0.12), transparent 70%);
       }
-      .scene { position: absolute; inset: 0; padding: 64px 72px; }
+      .scene { position: absolute; inset: 0; padding: 230px 250px 0 72px; }
 
       /* persistent header */
       .header {
-        position: absolute; top: 44px; left: 72px; right: 72px; height: 40px;
+        position: absolute; top: 130px; left: 72px; right: 250px; height: 40px;
         display: flex; align-items: center; justify-content: space-between;
         font-size: 22px; font-weight: 600; color: var(--muted); letter-spacing: 0.02em;
         z-index: 5;
       }
       .header .brand { display: flex; align-items: center; gap: 12px; }
-      .phone {
-        width: 20px; height: 32px; border: 3px solid var(--swift); border-radius: 6px; position: relative;
-      }
+      .phone { width: 20px; height: 32px; border: 3px solid var(--swift); border-radius: 6px; position: relative; }
       .phone::after {
         content: ""; position: absolute; bottom: 3px; left: 50%; width: 6px; height: 2px;
         margin-left: -3px; background: var(--swift); border-radius: 2px;
@@ -60,56 +61,31 @@
       .dot i { display: block; height: 100%; width: 100%; border-radius: 3px; transform-origin: left; transform: scaleX(0); }
 
       /* intro */
-      #intro { display: flex; flex-direction: column; justify-content: center; align-items: flex-start; padding: 0 96px; }
-      .kicker { font-size: 30px; font-weight: 600; color: var(--swift); letter-spacing: 0.08em; text-transform: uppercase; }
-      .day { font-size: 188px; font-weight: 800; letter-spacing: -0.05em; line-height: 1; margin: 18px 0 30px; }
-      .intro-sub { font-size: 38px; font-weight: 500; color: var(--muted); }
-      .intro-terms { margin-top: 44px; display: flex; flex-direction: column; gap: 16px; }
-      .intro-terms div { font-family: "JetBrains Mono", monospace; font-size: 36px; font-weight: 600; }
+      #intro { display: flex; flex-direction: column; justify-content: center; align-items: flex-start; padding: 0 250px 0 72px; }
+      .kicker { font-size: 34px; font-weight: 600; color: var(--swift); letter-spacing: 0.08em; text-transform: uppercase; }
+      .day { font-size: 230px; font-weight: 800; letter-spacing: -0.05em; line-height: 1; margin: 22px 0 36px; }
+      .intro-sub { font-size: 42px; font-weight: 500; color: var(--muted); }
+      .intro-terms { margin-top: 60px; display: flex; flex-direction: column; gap: 22px; }
+      .intro-terms div { font-family: "JetBrains Mono", monospace; font-size: 48px; font-weight: 600; }
 
       /* term scenes */
-      .num { margin-top: 70px; font-family: "JetBrains Mono", monospace; font-size: 26px; font-weight: 600; letter-spacing: 0.06em; }
-      .term { font-size: 84px; font-weight: 800; letter-spacing: -0.035em; line-height: 1.05; margin-top: 8px; }
+      .num { font-family: "JetBrains Mono", monospace; font-size: 30px; font-weight: 600; letter-spacing: 0.06em; }
+      .term { font-size: 92px; font-weight: 800; letter-spacing: -0.035em; line-height: 1.05; margin-top: 12px; white-space: nowrap; }
       .term code { font-family: "JetBrains Mono", monospace; font-weight: 600; letter-spacing: -0.02em; }
-      .def { margin-top: 20px; font-size: 31px; line-height: 1.38; color: #cfd6e4; max-width: 920px; }
+      .def { margin-top: 28px; font-size: 36px; line-height: 1.38; color: #cfd6e4; }
 
-      .slot { position: absolute; left: 72px; right: 72px; top: 452px; height: 330px; }
+      .slot { position: absolute; left: 72px; width: 758px; top: 670px; height: 640px; }
       .diagram, .code { position: absolute; inset: 0; }
-
-      .box {
-        position: absolute; top: 40px; width: 380px; height: 230px; border-radius: 22px;
-        border: 2px solid var(--line); background: rgba(19, 26, 42, 0.8);
-      }
-      .box.left { left: 0; }
-      .box.right { right: 0; }
-      .box.dashed { border-style: dashed; }
-      .box-label {
-        position: absolute; top: 18px; left: 24px; font-size: 22px; font-weight: 600;
-        color: var(--muted); font-family: "JetBrains Mono", monospace;
-      }
-      .chip {
-        position: absolute; top: 130px; left: 70px; width: 240px; height: 82px; border-radius: 41px;
-        display: flex; align-items: center; justify-content: center; gap: 12px;
-        font-family: "JetBrains Mono", monospace; font-size: 26px; font-weight: 600; color: #0b0f1a;
-      }
-      .chip.ghost { background: transparent !important; border: 3px dashed; }
-      .tag {
-        position: absolute; font-size: 24px; font-weight: 700; padding: 8px 18px; border-radius: 999px;
-        white-space: nowrap;
-      }
-      .tag.err { color: var(--err); background: rgba(255, 93, 108, 0.12); border: 2px solid rgba(255, 93, 108, 0.5); }
-      .tag.ok { color: var(--ok); background: rgba(67, 214, 138, 0.12); border: 2px solid rgba(67, 214, 138, 0.5); }
-      .arrow { position: absolute; top: 150px; left: 400px; width: 136px; height: 40px; }
 
       .code {
         display: flex; flex-direction: column; justify-content: center;
-        background: #0e1422; border: 2px solid var(--line); border-radius: 22px;
-        padding: 30px 36px; font-family: "JetBrains Mono", monospace; font-size: 27px; line-height: 1.62;
+        background: #0e1422; border: 2px solid var(--line); border-radius: 24px;
+        padding: 30px 40px; font-family: "JetBrains Mono", monospace; font-size: 30px; line-height: 1.75;
       }
       .ln { white-space: pre; position: relative; font-variant-ligatures: none; }
       .ln.bad { color: var(--err); }
       .ln.bad::before, .ln.good::before {
-        content: ""; position: absolute; left: -20px; right: -20px; top: 2px; bottom: 2px; border-radius: 8px;
+        content: ""; position: absolute; left: -22px; right: -22px; top: 3px; bottom: 3px; border-radius: 8px;
       }
       .ln.bad::before { background: rgba(255, 93, 108, 0.12); }
       .ln.good::before { background: rgba(67, 214, 138, 0.10); }
@@ -117,119 +93,72 @@
       .ty { color: #6bdfff; }
       .fn { color: #67b7a4; }
       .cm { color: #7f8aa3; }
-      .cm.e { color: var(--err); }
-      .cm.o { color: var(--ok); }
       .st { color: #fc6a5d; }
 
       .example {
-        position: absolute; left: 72px; right: 72px; top: 810px;
-        border-left: 5px solid; padding: 6px 0 6px 26px;
+        position: absolute; left: 72px; width: 758px; top: 1350px;
+        border-left: 5px solid; padding: 6px 0 6px 28px;
       }
-      .example .lbl { font-size: 20px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; }
-      .example p { margin-top: 10px; font-size: 29px; line-height: 1.42; color: #dfe4ee; font-style: italic; }
+      .example .lbl { font-size: 24px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; }
+      .example p { margin-top: 12px; font-size: 36px; line-height: 1.42; color: #dfe4ee; font-style: italic; }
+
+      /* diagram parts */
+      .tag {
+        position: absolute; font-size: 28px; font-weight: 700; padding: 10px 22px; border-radius: 999px;
+        white-space: nowrap; border: 2px solid;
+      }
+      .tag.err { color: var(--err); background: #271a20; border-color: rgba(255, 93, 108, 0.5); }
+      .tag.ok { color: var(--ok); background: #122728; border-color: rgba(67, 214, 138, 0.5); }
+      .nd { position: absolute; border-radius: 22px; border: 2px solid var(--line); background: var(--panel); }
+      .nd .nl { position: absolute; left: 26px; top: 20px; font-family: "JetBrains Mono", monospace; font-size: 26px; font-weight: 600; color: var(--muted); }
+      .val { position: absolute; left: 40px; top: 108px; font-family: "JetBrains Mono", monospace; font-size: 78px; font-weight: 600; line-height: 1; }
+      .val.stack { left: 40px; }
+      .lock { position: absolute; right: 56px; top: 100px; width: 84px; height: 108px; }
+      .lock .sh { position: absolute; left: 17px; top: 0; width: 50px; height: 52px; border: 9px solid; border-bottom: none; border-radius: 25px 25px 0 0; }
+      .lock .bd { position: absolute; left: 0; top: 48px; width: 84px; height: 60px; border-radius: 12px; }
+      .chp {
+        position: absolute; height: 88px; padding: 0 22px; border-radius: 18px; display: flex; align-items: center; justify-content: center;
+        font-family: "JetBrains Mono", monospace; font-size: 30px; font-weight: 600; white-space: nowrap; z-index: 2;
+        border: 2px solid var(--line); background: var(--panel);
+      }
+      .wire { position: absolute; height: 4px; border-radius: 2px; background: var(--line); }
+      .pkt { position: absolute; width: 30px; height: 30px; border-radius: 50%; z-index: 3; }
+      .cap { position: absolute; font-family: "JetBrains Mono", monospace; font-size: 24px; font-weight: 600; color: var(--muted); text-align: center; white-space: nowrap; }
 
       /* outro */
-      #outro { display: flex; flex-direction: column; justify-content: center; padding: 0 96px; }
-      .recap-title { font-size: 30px; font-weight: 600; color: var(--muted); letter-spacing: 0.08em; text-transform: uppercase; }
-      .recap { margin-top: 40px; display: flex; flex-direction: column; gap: 26px; }
-      .row { display: flex; align-items: baseline; gap: 28px; }
-      .row .k { font-family: "JetBrains Mono", monospace; font-size: 40px; font-weight: 600; width: 330px; flex: none; }
-      .row .v { font-size: 34px; color: #dfe4ee; }
-      .follow { margin-top: 72px; font-size: 32px; font-weight: 600; }
+      #outro { display: flex; flex-direction: column; justify-content: center; padding: 0 250px 0 72px; }
+      .recap-title { font-size: 34px; font-weight: 600; color: var(--muted); letter-spacing: 0.08em; text-transform: uppercase; }
+      .recap { margin-top: 56px; display: flex; flex-direction: column; gap: 52px; }
+      .row { display: flex; flex-direction: column; align-items: flex-start; gap: 10px; }
+      .row .k { font-family: "JetBrains Mono", monospace; font-size: 64px; font-weight: 600; letter-spacing: -0.02em; }
+      .row .v { font-size: 38px; color: #dfe4ee; }
+      .follow { margin-top: 110px; font-size: 44px; font-weight: 600; }
       .follow span { color: var(--swift); }
-      /* ---- day 361 additions ---- */
-      .term { font-size: 80px; }
-      .node {
-        position: absolute; height: 70px; border-radius: 16px; border: 2px solid var(--line);
-        background: rgba(19, 26, 42, 0.9); display: flex; align-items: center; justify-content: center;
-        font-family: "JetBrains Mono", monospace; font-size: 22px; font-weight: 600; color: var(--text);
-      }
-      .node.buf { border: 2px dashed var(--err); color: var(--err); }
-      .lane { position: absolute; left: 0; width: 120px; font-family: "JetBrains Mono", monospace; font-size: 20px; font-weight: 600; color: var(--muted); }
-      .wire { position: absolute; height: 3px; background: var(--line); }
-      .pkt { position: absolute; width: 22px; height: 22px; border-radius: 50%; }
-
-      .sub {
-        position: absolute; left: 115px; width: 150px; height: 36px; border-radius: 8px;
-        border: 2px solid rgba(90, 169, 255, 0.7); background: rgba(90, 169, 255, 0.18);
-      }
-      .bitmap {
-        position: absolute; left: 90px; top: 110px; width: 200px; height: 64px; border-radius: 12px;
-        background: var(--blue); color: #0b0f1a; display: flex; align-items: center; justify-content: center;
-        font-family: "JetBrains Mono", monospace; font-size: 24px; font-weight: 600;
-      }
-
-      .ov {
-        position: absolute; width: 420px; height: 170px; border-radius: 18px;
-        border: 2px solid rgba(182, 146, 255, 0.8); background: rgba(182, 146, 255, 0.16);
-      }
-      .ov span { position: absolute; top: 8px; left: 16px; font-family: "JetBrains Mono", monospace; font-size: 20px; font-weight: 600; color: #d9c8ff; }
-      .count { position: absolute; left: 690px; top: 70px; width: 246px; text-align: center; }
-      .count b { position: absolute; left: 0; right: 0; top: 0; font-size: 120px; font-weight: 800; letter-spacing: -0.04em; line-height: 1; }
-      .count small { position: absolute; left: 0; right: 0; top: 136px; font-size: 22px; font-weight: 600; color: var(--muted); }
-
-      .row { flex-direction: column; align-items: flex-start; gap: 6px; }
-      .row .k { font-family: Inter, sans-serif; font-weight: 800; letter-spacing: -0.02em; width: auto; }
-      .row .v { font-size: 30px; }
-      .recap { gap: 30px; }
-      /* ---- day 362 additions ---- */
-      :root { --quiz: #ffc145; }
-      .term { font-size: 84px; }
-      .vwire { position: absolute; width: 3px; background: var(--line); }
-      .node.rec { border-color: rgba(242, 107, 79, 0.6); }
-      .share-card {
-        position: absolute; left: 400px; top: 10px; width: 536px; height: 300px; border-radius: 22px;
-        border: 2px solid var(--swift); background: rgba(242, 107, 79, 0.06);
-      }
-      .share-card .ttl { position: absolute; top: 16px; left: 24px; font-family: "JetBrains Mono", monospace; font-size: 24px; font-weight: 600; color: var(--swift); }
-      .prow { position: absolute; left: 24px; right: 24px; height: 58px; display: flex; align-items: center; gap: 16px; border-radius: 14px; padding: 0 12px; }
-      .avatar { width: 40px; height: 40px; border-radius: 50%; flex: none; display: flex; align-items: center; justify-content: center; font-size: 20px; font-weight: 700; color: #0b0f1a; }
-      .pname { font-size: 26px; font-weight: 600; flex: 1; }
-      .perm { font-family: "JetBrains Mono", monospace; font-size: 20px; font-weight: 600; padding: 6px 14px; border-radius: 999px; border: 2px solid; }
-      .link { position: absolute; left: 250px; top: 74px; width: 150px; height: 0; border-top: 3px dashed var(--swift); transform-origin: left; }
-
-      .dbbox { position: absolute; left: 0; right: 0; top: 24px; height: 296px; border-radius: 22px; border: 2px solid var(--line); background: rgba(19, 26, 42, 0.6); }
-      .dbbox .dblabel { position: absolute; right: 22px; bottom: 12px; font-family: "JetBrains Mono", monospace; font-size: 20px; font-weight: 600; color: var(--muted); }
-      .zone { position: absolute; top: 46px; width: 420px; height: 196px; border-radius: 18px; border: 2px dashed rgba(90, 169, 255, 0.6); background: rgba(90, 169, 255, 0.05); }
-      .zone .zl { position: absolute; top: 12px; left: 18px; font-family: "JetBrains Mono", monospace; font-size: 21px; font-weight: 600; color: var(--blue); }
-      .rc { position: absolute; top: 90px; width: 112px; height: 60px; border-radius: 12px; border: 2px solid rgba(90, 169, 255, 0.7); background: rgba(90, 169, 255, 0.16); display: flex; align-items: center; justify-content: center; font-family: "JetBrains Mono", monospace; font-size: 20px; font-weight: 600; }
-
-      .job { position: absolute; left: 40px; width: 300px; height: 32px; border-radius: 10px; display: flex; align-items: center; padding-left: 16px; font-family: "JetBrains Mono", monospace; font-size: 20px; font-weight: 600; color: var(--err); border: 2px solid rgba(255, 93, 108, 0.6); background: rgba(255, 93, 108, 0.1); }
 
       /* quiz */
-      #quiz-intro { display: flex; flex-direction: column; justify-content: center; padding: 0 96px; }
+      #quiz-intro { display: flex; flex-direction: column; justify-content: center; padding: 0 250px 0 72px; }
       #quiz-intro .kicker { color: var(--quiz); }
-      .qbig { font-size: 150px; font-weight: 800; letter-spacing: -0.05em; line-height: 1; margin: 18px 0 30px; }
-      .qlabel { margin-top: 70px; font-size: 28px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--quiz); }
-      .question { margin-top: 14px; font-size: 40px; font-weight: 700; line-height: 1.3; letter-spacing: -0.01em; max-width: 760px; }
-      .clock { position: absolute; top: 128px; right: 72px; width: 120px; height: 120px; border-radius: 50%; border: 5px solid var(--quiz); }
-      .clock b { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-size: 60px; font-weight: 800; color: var(--quiz); }
+      .qbig { font-size: 190px; font-weight: 800; letter-spacing: -0.05em; line-height: 1; margin: 22px 0 36px; }
+      .qlabel { font-size: 34px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--quiz); }
+      .question { margin-top: 130px; font-size: 54px; font-weight: 700; line-height: 1.28; letter-spacing: -0.01em; }
+      .clock { position: absolute; top: 210px; right: 250px; width: 130px; height: 130px; border-radius: 50%; border: 6px solid var(--quiz); }
+      .clock b { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-size: 66px; font-weight: 800; color: var(--quiz); }
       .clock b.done { color: var(--ok); }
-      .opts { position: absolute; left: 72px; right: 72px; top: 470px; display: flex; flex-direction: column; gap: 22px; }
-      .opt { position: relative; height: 96px; border-radius: 20px; border: 2px solid var(--line); background: var(--panel); display: flex; align-items: center; gap: 26px; padding: 0 28px; }
-      .opt .letter { width: 54px; height: 54px; border-radius: 50%; border: 2px solid var(--muted); display: flex; align-items: center; justify-content: center; font-family: "JetBrains Mono", monospace; font-size: 26px; font-weight: 600; color: var(--muted); }
-      .opt .name { font-family: "JetBrains Mono", monospace; font-size: 36px; font-weight: 600; }
-      .opt .mark { position: absolute; right: 28px; font-size: 26px; font-weight: 700; color: var(--ok); }
-      .timer { position: absolute; left: 72px; right: 72px; top: 860px; height: 12px; border-radius: 6px; background: var(--line); }
-      .timer i { position: absolute; inset: 0; border-radius: 6px; background: var(--quiz); transform-origin: left; }
-      .tlabel { position: absolute; left: 72px; top: 896px; font-size: 24px; font-weight: 600; color: var(--muted); }
-      /* ---- day 371 additions ---- */
-      .term { font-size: 80px; }
-      .tag.swift { color: var(--swift); background: rgba(242, 107, 79, 0.12); border: 2px solid rgba(242, 107, 79, 0.5); }
-      .nd { position: absolute; border-radius: 16px; border: 2px solid var(--line); background: var(--panel); }
-      .nd .nl { position: absolute; left: 18px; top: 12px; font-family: "JetBrains Mono", monospace; font-size: 20px; font-weight: 600; color: var(--muted); }
-      .ver { position: absolute; left: 0; right: 0; top: 56px; text-align: center; font-family: "JetBrains Mono", monospace; font-size: 40px; font-weight: 600; }
-      .chp { position: absolute; height: 52px; padding: 0 18px; border-radius: 12px; display: flex; align-items: center; font-family: "JetBrains Mono", monospace; font-size: 20px; font-weight: 600; white-space: nowrap; z-index: 2; border: 2px solid var(--line); background: var(--panel); }
-      .slice { position: absolute; left: 30px; width: 500px; height: 52px; border-radius: 12px; display: flex; align-items: center; padding-left: 18px; font-family: "JetBrains Mono", monospace; font-size: 21px; font-weight: 600; color: var(--violet); border: 2px solid rgba(182, 146, 255, 0.6); background: #1d1830; z-index: 1; }
-      .tgt { position: absolute; left: 650px; width: 286px; height: 52px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 22px; font-weight: 700; border: 2px solid var(--line); background: var(--panel); z-index: 1; }
+      .opts { position: absolute; left: 72px; width: 758px; top: 840px; display: flex; flex-direction: column; gap: 28px; }
+      .opt { position: relative; height: 122px; border-radius: 24px; border: 2px solid var(--line); background: var(--panel); display: flex; align-items: center; gap: 30px; padding: 0 34px; }
+      .opt .letter { width: 66px; height: 66px; border-radius: 50%; border: 2px solid var(--muted); display: flex; align-items: center; justify-content: center; font-family: "JetBrains Mono", monospace; font-size: 32px; font-weight: 600; color: var(--muted); }
+      .opt .name { font-family: "JetBrains Mono", monospace; font-size: 46px; font-weight: 600; }
+      .timer { position: absolute; left: 72px; width: 758px; top: 1330px; height: 14px; border-radius: 7px; background: var(--line); }
+      .timer i { position: absolute; inset: 0; border-radius: 7px; background: var(--quiz); transform-origin: left; }
+      .tlabel { position: absolute; left: 72px; top: 1372px; font-size: 30px; font-weight: 600; color: var(--muted); }
     </style>
   </head>
   <body>
-    <div id="root" data-composition-id="main" data-start="0" data-duration="82.5" data-width="1080" data-height="1080">
+    <div id="root" data-composition-id="main" data-start="0" data-duration="105.9" data-width="1080" data-height="1920">
       <div class="bg-glow"></div>
 
-      <div class="header clip" id="header" data-start="0" data-duration="82.5" data-track-index="0">
-        <div class="brand"><div class="phone"></div>iOS Daily English · Day 371</div>
+      <div class="header clip" id="header" data-start="0" data-duration="105.9" data-track-index="0">
+        <div class="brand"><div class="phone"></div>iOS Daily English · Day 1</div>
         <div class="dots">
           <div class="dot"><i id="p1" style="background: var(--swift)"></i></div>
           <div class="dot"><i id="p2" style="background: var(--blue)"></i></div>
@@ -238,168 +167,193 @@
         </div>
       </div>
 
-      <div class="scene clip" id="intro" data-start="0" data-duration="3.5" data-track-index="1">
+      <div class="scene clip" id="intro" data-start="0" data-duration="3.7" data-track-index="1">
         <div class="kicker" id="i-kicker">iOS Daily English</div>
-        <div class="day" id="i-day">Day 371</div>
-        <div class="intro-sub" id="i-sub">3 terms on shipping dependencies</div>
+        <div class="day" id="i-day">Day 1</div>
+        <div class="intro-sub" id="i-sub">3 terms on declaring values</div>
         <div class="intro-terms">
-          <div class="it" style="color: var(--swift)">Package.resolved</div>
-          <div class="it" style="color: var(--blue)">Binary Target</div>
-          <div class="it" style="color: var(--violet)">XCFramework</div>
+          <div class="it" style="color: var(--swift)">let</div>
+          <div class="it" style="color: var(--blue)">var</div>
+          <div class="it" style="color: var(--violet)">Type Inference</div>
         </div>
       </div>
 
-      <!-- TERM 1: Package.resolved -->
-      <div class="scene clip" id="s1" data-start="3.5" data-duration="13" data-track-index="1">
+      <!-- TERM 1: let -->
+      <div class="scene clip" id="s1" data-start="3.7" data-duration="12.2" data-track-index="1">
         <div class="num" style="color: var(--swift)">01 / 03</div>
-        <div class="term"><code>Package.resolved</code></div>
-        <div class="def">The file that records the exact version and commit of every dependency the package manager settled on, so every machine and CI run builds the same code.</div>
+        <div class="term"><code>let</code></div>
+        <div class="def">The keyword that declares a constant, a value that cannot be changed once it has been set.</div>
 
         <div class="slot">
           <div class="diagram" id="d1">
-            <div class="chp" id="d1-file" style="left: 268px; top: 0px; color: var(--swift); border-color: rgba(242, 107, 79, 0.6); background: #271a20">Package.resolved: 5.2.1</div>
-            <div class="nd" style="left: 0px; top: 110px; width: 400px; height: 150px"><span class="nl">your Mac</span><div class="ver" id="d1-mac">5.2.1</div></div>
-            <div class="nd" id="d1-ci" style="left: 536px; top: 110px; width: 400px; height: 150px"><span class="nl">CI runner</span><div class="ver" id="d1-ci-bad" style="color: var(--err)">5.4.0</div><div class="ver" id="d1-ci-ok" style="color: var(--ok)">5.2.1</div></div>
-            <div class="tag err" id="d1-err" style="top: 272px; left: 536px">file gitignored</div>
-            <div class="tag ok" id="d1-ok" style="top: 272px; left: 536px">same code everywhere</div>
+            <div class="nd" id="d1-box" style="left: 0; top: 10px; width: 758px; height: 290px; border-color: rgba(242, 107, 79, 0.6)">
+              <span class="nl">let greeting</span>
+              <div class="val" id="d1-val" style="color: var(--text)">"Hello"</div>
+              <div class="lock" id="d1-lock">
+                <div class="sh" id="d1-sh" style="border-color: var(--swift)"></div>
+                <div class="bd" style="background: var(--swift)"></div>
+              </div>
+            </div>
+            <div class="chp" id="d1-try" style="left: 0; top: 400px; width: 380px; color: var(--err); border-color: rgba(255, 93, 108, 0.6); background: #271a20">greeting = "Hi"</div>
+            <div class="tag err" id="d1-err" style="left: 0; top: 540px">Rejected: it is a constant</div>
           </div>
           <div class="code" id="c1">
-<div class="ln"><span class="cm">// Package.swift allows a range.</span></div>
-<div class="ln">.<span class="fn">package</span>(url: <span class="st">".../Alamofire"</span>, from: <span class="st">"5.0.0"</span>)</div>
-<div class="ln"><span class="cm">// Package.resolved pins one commit. Commit the file.</span></div>
-<div class="ln"><span class="st">"identity"</span> : <span class="st">"alamofire"</span>,</div>
-<div class="ln good"><span class="st">"version"</span> : <span class="st">"5.2.1"</span>,</div>
-<div class="ln good"><span class="st">"revision"</span> : <span class="st">"a1b2c3d…"</span></div>
+<div class="ln"><span class="cm">// A constant is set once.</span></div>
+<div class="ln"><span class="kw">let</span> greeting = <span class="st">"Hello"</span></div>
+<div class="ln bad">greeting = "Hi"</div>
+<div class="ln bad"><span class="cm" style="color: var(--err)">// error: cannot assign to value:</span></div>
+<div class="ln bad"><span class="cm" style="color: var(--err)">// 'greeting' is a 'let' constant</span></div>
           </div>
         </div>
 
         <div class="example" style="border-color: var(--swift)">
           <div class="lbl" style="color: var(--swift)">In a sentence</div>
-          <p>"The build broke only on CI because someone had gitignored Package.resolved and the runner picked up a newer minor version."</p>
+          <p>"I made the greeting a let because it never needs to be reassigned."</p>
         </div>
       </div>
 
-      <!-- TERM 2: Binary Target -->
-      <div class="scene clip" id="s2" data-start="16.5" data-duration="13" data-track-index="1">
+      <!-- TERM 2: var -->
+      <div class="scene clip" id="s2" data-start="15.9" data-duration="12.1" data-track-index="1">
         <div class="num" style="color: var(--blue)">02 / 03</div>
-        <div class="term">Binary Target</div>
-        <div class="def">A package target that points at a precompiled binary instead of source code, used for closed-source SDKs or to skip compiling a large dependency.</div>
+        <div class="term"><code>var</code></div>
+        <div class="def">The keyword that declares a variable, a value you can change after it has been set.</div>
 
         <div class="slot">
           <div class="diagram" id="d2">
-            <div class="chp" id="d2-zip" style="left: 0px; top: 40px; color: var(--blue); border-color: rgba(90, 169, 255, 0.6); background: #152236">VendorSDK.xcframework.zip</div>
-            <div class="nd" id="d2-pkg" style="left: 420px; top: 10px; width: 516px; height: 230px"><span class="nl">Package</span></div>
-            <div class="chp" style="left: 450px; top: 60px">App · source</div>
-            <div class="chp" id="d2-slot" style="left: 450px; top: 150px; color: var(--muted); border-style: dashed">VendorSDK · binary</div>
-            <div class="tag err" id="d2-tag" style="top: 262px; left: 420px">no source, nothing to patch</div>
+            <div class="nd" id="d2-box" style="left: 0; top: 10px; width: 758px; height: 290px; border-color: rgba(90, 169, 255, 0.6)">
+              <span class="nl">var score</span>
+              <div class="val stack" id="d2-v0" style="color: var(--text)">0</div>
+              <div class="val stack d2-v" id="d2-v1" style="color: var(--blue)">1</div>
+              <div class="val stack d2-v" id="d2-v2" style="color: var(--blue)">2</div>
+              <div class="val stack d2-v" id="d2-v3" style="color: var(--blue)">3</div>
+              <div class="lock">
+                <div class="sh" style="border-color: var(--blue); transform: translate(26px, -2px) rotate(24deg)"></div>
+                <div class="bd" style="background: var(--blue)"></div>
+              </div>
+            </div>
+            <div class="chp d2-t" id="d2-t1" style="left: 0; top: 400px; width: 226px">score += 1</div>
+            <div class="chp d2-t" id="d2-t2" style="left: 266px; top: 400px; width: 226px">score += 1</div>
+            <div class="chp d2-t" id="d2-t3" style="left: 532px; top: 400px; width: 226px">score += 1</div>
+            <div class="tag ok" id="d2-tag" style="left: 0; top: 540px">The value changes each time</div>
           </div>
           <div class="code" id="c2">
-<div class="ln">.<span class="fn">binaryTarget</span>(</div>
-<div class="ln">    name: <span class="st">"VendorSDK"</span>,</div>
-<div class="ln good">    url: <span class="st">"https://example.com/SDK.xcframework.zip"</span>,</div>
-<div class="ln good">    checksum: <span class="st">"6d2f…e91a"</span></div>
-<div class="ln">)</div>
-<div class="ln"><span class="cm">// Or use path: for a local .xcframework.</span></div>
+<div class="ln"><span class="cm">// A var can change after it is set.</span></div>
+<div class="ln"><span class="kw">var</span> score = <span class="st">0</span></div>
+<div class="ln good">score += <span class="st">1</span></div>
+<div class="ln good">score += <span class="st">1</span></div>
+<div class="ln"><span class="fn">print</span>(score)</div>
+<div class="ln"><span class="cm">// Prints 2</span></div>
           </div>
         </div>
 
         <div class="example" style="border-color: var(--blue)">
           <div class="lbl" style="color: var(--blue)">In a sentence</div>
-          <p>"The vendor ships their SDK as a binary target, so we never see its source and cannot patch it ourselves."</p>
+          <p>"The score is a var because it goes up every time the player taps."</p>
         </div>
       </div>
 
-      <!-- TERM 3: XCFramework -->
-      <div class="scene clip" id="s3" data-start="29.5" data-duration="13" data-track-index="1">
+      <!-- TERM 3: Type Inference -->
+      <div class="scene clip" id="s3" data-start="28" data-duration="15.4" data-track-index="1">
         <div class="num" style="color: var(--violet)">03 / 03</div>
-        <div class="term"><code>XCFramework</code></div>
-        <div class="def">A distribution bundle that packs the same framework built for several platforms and architectures, including simulator and device, into one artifact.</div>
+        <div class="term">Type Inference</div>
+        <div class="def">The compiler's ability to work out a value's type from what you assign to it, so you do not have to write the type yourself.</div>
 
         <div class="slot">
           <div class="diagram" id="d3">
-            <div class="nd" id="d3-box" style="left: 0px; top: 0px; width: 560px; height: 300px"><span class="nl">Analytics.xcframework</span></div>
-            <div class="wire d3-w" style="left: 530px; top: 85px; width: 120px"></div>
-            <div class="wire d3-w" style="left: 530px; top: 161px; width: 120px"></div>
-            <div class="wire d3-w" style="left: 530px; top: 237px; width: 120px"></div>
-            <div class="slice" style="top: 60px">ios-arm64</div>
-            <div class="slice" style="top: 136px">ios-arm64_x86_64-simulator</div>
-            <div class="slice" style="top: 212px">macos-arm64_x86_64</div>
-            <div class="tgt" style="top: 60px">iPhone</div>
-            <div class="tgt" style="top: 136px">Simulator</div>
-            <div class="tgt" style="top: 212px">Mac</div>
+            <div class="nd" id="d3-src" style="left: 0; top: 10px; width: 758px; height: 130px">
+              <span class="nl">you write</span>
+              <div class="val" style="top: 62px; font-size: 44px; left: 26px">let count = 42</div>
+            </div>
+            <div class="chp" id="d3-lit" style="left: 0; top: 250px; width: 170px; height: 150px; font-size: 56px; color: var(--violet)">42</div>
+            <div class="wire d3-w" style="left: 170px; top: 323px; width: 100px"></div>
+            <div class="chp" id="d3-cmp" style="left: 270px; top: 250px; width: 250px; height: 150px; font-size: 34px">Compiler</div>
+            <div class="wire d3-w" style="left: 520px; top: 323px; width: 100px"></div>
+            <div class="chp" id="d3-int" style="left: 620px; top: 250px; width: 138px; height: 150px; font-size: 56px; color: var(--ok); border-color: rgba(67, 214, 138, 0.6); background: #122728">Int</div>
+            <div class="pkt" id="d3-p1" style="left: 155px; top: 310px; background: var(--violet)"></div>
+            <div class="pkt" id="d3-p2" style="left: 505px; top: 310px; background: var(--ok)"></div>
+            <div class="cap d3-c" style="left: 0; width: 170px; top: 420px">literal</div>
+            <div class="cap d3-c" style="left: 270px; width: 250px; top: 420px">works it out</div>
+            <div class="cap d3-c" id="d3-cap" style="right: 0; width: 200px; top: 420px; text-align: right">inferred type</div>
+            <div class="tag ok" id="d3-tag" style="left: 0; top: 520px">You wrote no type</div>
           </div>
           <div class="code" id="c3">
-<div class="ln"><span class="fn">xcodebuild</span> -create-xcframework \</div>
-<div class="ln">  -framework ios/Analytics.framework \</div>
-<div class="ln">  -framework sim/Analytics.framework \</div>
-<div class="ln">  -framework mac/Analytics.framework \</div>
-<div class="ln good">  -output Analytics.xcframework</div>
+<div class="ln"><span class="kw">let</span> count = <span class="st">42</span></div>
+<div class="ln"><span class="cm">// The compiler infers Int.</span></div>
+<div class="ln"><span class="kw">let</span> price = <span class="st">9.99</span></div>
+<div class="ln"><span class="cm">// The compiler infers Double.</span></div>
+<div class="ln good"><span class="kw">let</span> total: <span class="ty">Int</span> = <span class="st">42</span></div>
+<div class="ln"><span class="cm">// The annotation is optional.</span></div>
           </div>
         </div>
 
         <div class="example" style="border-color: var(--violet)">
           <div class="lbl" style="color: var(--violet)">In a sentence</div>
-          <p>"We publish our analytics library as an XCFramework so one download works for iOS, the simulator, and macOS."</p>
+          <p>"We left out the type annotation because type inference already knows it is an Int."</p>
         </div>
       </div>
 
-      <div class="scene clip" id="quiz-intro" data-start="42.5" data-duration="2.5" data-track-index="1">
+      <div class="scene clip" id="quiz-intro" data-start="43.4" data-duration="2.5" data-track-index="1">
         <div class="kicker">Your turn</div>
         <div class="qbig">Quiz time</div>
         <div class="intro-sub">3 questions · 8 seconds each</div>
       </div>
 
-      <div class="scene clip" id="q1" data-start="45" data-duration="11" data-track-index="1">
+      <div class="scene clip" id="q1" data-start="45.9" data-duration="19" data-track-index="1">
         <div class="qlabel">Quiz 1 of 3</div>
-        <div class="question">Which bundle packs one framework built for several platforms and architectures into a single artifact?</div>
+        <div class="question">Which feature lets the compiler work out a value's type from what is assigned, without you writing it?</div>
         <div class="clock"><b>8</b><b>7</b><b>6</b><b>5</b><b>4</b><b>3</b><b>2</b><b>1</b><b class="done" style="color: var(--quiz)">?</b></div>
         <div class="opts">
-          <div class="opt"><div class="letter">a</div><div class="name">Package.resolved</div></div>
-          <div class="opt"><div class="letter">b</div><div class="name">XCFramework</div></div>
-          <div class="opt"><div class="letter">c</div><div class="name">Binary Target</div></div>
+          <div class="opt"><div class="letter">a</div><div class="name">let</div></div>
+          <div class="opt"><div class="letter">b</div><div class="name">var</div></div>
+          <div class="opt"><div class="letter">c</div><div class="name">Type Inference</div></div>
         </div>
         <div class="timer"><i></i></div>
         <div class="tlabel">Answer before the bar runs out</div>
         <div class="tlabel up">Time's up. Got it?</div>
       </div>
 
-      <div class="scene clip" id="q2" data-start="56" data-duration="11" data-track-index="1">
+      <div class="scene clip" id="q2" data-start="64.9" data-duration="17.8" data-track-index="1">
         <div class="qlabel">Quiz 2 of 3</div>
-        <div class="question">Which target type points at precompiled code rather than source, as closed-source SDKs require?</div>
+        <div class="question">Which keyword declares a value that can never be reassigned once it has been set?</div>
         <div class="clock"><b>8</b><b>7</b><b>6</b><b>5</b><b>4</b><b>3</b><b>2</b><b>1</b><b class="done" style="color: var(--quiz)">?</b></div>
         <div class="opts">
-          <div class="opt"><div class="letter">a</div><div class="name">XCFramework</div></div>
-          <div class="opt"><div class="letter">b</div><div class="name">Binary Target</div></div>
-          <div class="opt"><div class="letter">c</div><div class="name">Package.resolved</div></div>
+          <div class="opt"><div class="letter">a</div><div class="name">let</div></div>
+          <div class="opt"><div class="letter">b</div><div class="name">Type Inference</div></div>
+          <div class="opt"><div class="letter">c</div><div class="name">var</div></div>
         </div>
         <div class="timer"><i></i></div>
         <div class="tlabel">Answer before the bar runs out</div>
         <div class="tlabel up">Time's up. Got it?</div>
       </div>
 
-      <div class="scene clip" id="q3" data-start="67" data-duration="11" data-track-index="1">
+      <div class="scene clip" id="q3" data-start="82.8" data-duration="18.6" data-track-index="1">
         <div class="qlabel">Quiz 3 of 3</div>
-        <div class="question">Which file records the exact resolved version of every dependency so builds are reproducible?</div>
+        <div class="question">Which keyword declares a value you can change later, such as a score that keeps going up?</div>
         <div class="clock"><b>8</b><b>7</b><b>6</b><b>5</b><b>4</b><b>3</b><b>2</b><b>1</b><b class="done" style="color: var(--quiz)">?</b></div>
         <div class="opts">
-          <div class="opt"><div class="letter">a</div><div class="name">Binary Target</div></div>
-          <div class="opt"><div class="letter">b</div><div class="name">XCFramework</div></div>
-          <div class="opt"><div class="letter">c</div><div class="name">Package.resolved</div></div>
+          <div class="opt"><div class="letter">a</div><div class="name">Type Inference</div></div>
+          <div class="opt"><div class="letter">b</div><div class="name">var</div></div>
+          <div class="opt"><div class="letter">c</div><div class="name">let</div></div>
         </div>
         <div class="timer"><i></i></div>
         <div class="tlabel">Answer before the bar runs out</div>
         <div class="tlabel up">Time's up. Got it?</div>
       </div>
 
-      <div class="scene clip" id="outro" data-start="78" data-duration="4.5" data-track-index="1">
+      <div class="scene clip" id="outro" data-start="101.4" data-duration="4.5" data-track-index="1">
         <div class="recap-title">Recap</div>
         <div class="recap">
-          <div class="row"><div class="k" style="color: var(--swift)">Package.resolved</div><div class="v">exact versions, so every build matches</div></div>
-          <div class="row"><div class="k" style="color: var(--blue)">Binary Target</div><div class="v">a dependency shipped prebuilt, not as source</div></div>
-          <div class="row"><div class="k" style="color: var(--violet)">XCFramework</div><div class="v">one bundle for every platform and simulator</div></div>
+          <div class="row"><div class="k" style="color: var(--swift)">let</div><div class="v">a constant, set once</div></div>
+          <div class="row"><div class="k" style="color: var(--blue)">var</div><div class="v">a variable you can change</div></div>
+          <div class="row"><div class="k" style="color: var(--violet)">Type Inference</div><div class="v">the compiler works out the type</div></div>
         </div>
         <div class="follow">Not sure? <span>Watch it again.</span></div>
       </div>
+      <!-- VOICE:START -->
+      <audio id="v-t1-ex" src="assets/voice/t1-ex.wav" data-start="11.4" data-duration="3.3" data-track-index="20" data-volume="1"></audio>
+      <audio id="v-t2-ex" src="assets/voice/t2-ex.wav" data-start="23.3" data-duration="3.5" data-track-index="21" data-volume="1"></audio>
+      <audio id="v-t3-ex" src="assets/voice/t3-ex.wav" data-start="37.9" data-duration="4.3" data-track-index="22" data-volume="1"></audio>
+      <!-- VOICE:END -->
     </div>
 
     <script>
@@ -432,48 +386,57 @@
       }
       tl.set(["#c1", "#c2", "#c3", ".example"], { autoAlpha: 0 }, 0);
 
-      // ---------- term 1: Package.resolved ----------
+      // ---------- term 1: let ----------
       let t = P(0).start, d = t + P(0).defAt - 0.9; // diagram steps play while the definition is read
       tl.to("#p1", { scaleX: 1, duration: P(0).dur, ease: "none" }, t);
       termIn("#s1", t);
-      tl.set(["#d1-file", "#d1-ci-ok", "#d1-ok", "#d1-err", "#d1-mac", "#d1-ci-bad"], { autoAlpha: 0 }, 0);
-      tl.fromTo("#d1 .nd", { autoAlpha: 0, y: 10 }, { autoAlpha: 1, y: 0, duration: 0.4, ease: E, stagger: 0.12 }, d + 0.9);
-      // without the file, each machine resolves the range on its own
-      tl.to(["#d1-mac", "#d1-ci-bad"], { autoAlpha: 1, duration: 0.3, stagger: 0.3 }, d + 1.4);
-      tl.to("#d1-ci", { borderColor: "#ff5d6c", duration: 0.3 }, d + 1.8);
-      tl.fromTo("#d1-err", { autoAlpha: 0, y: 8 }, { autoAlpha: 1, y: 0, duration: 0.3, ease: E }, d + 1.9);
-      // with the committed file, both build the same commit
-      tl.fromTo("#d1-file", { autoAlpha: 0, y: -10 }, { autoAlpha: 1, y: 0, duration: 0.4, ease: E }, d + 3.2);
-      tl.to(["#d1-err", "#d1-ci-bad"], { autoAlpha: 0, duration: 0.2 }, d + 3.7);
-      tl.to("#d1-ci-ok", { autoAlpha: 1, duration: 0.3 }, d + 3.8);
-      tl.to("#d1-ci", { borderColor: "#43d68a", duration: 0.3 }, d + 3.8);
-      tl.fromTo("#d1-ok", { autoAlpha: 0, y: 8 }, { autoAlpha: 1, y: 0, duration: 0.3, ease: E }, d + 4.0);
+      tl.set(["#d1-try", "#d1-err"], { autoAlpha: 0 }, 0);
+      tl.set("#d1-sh", { y: -16 }, 0);
+      tl.fromTo("#d1-box", { autoAlpha: 0, y: 10 }, { autoAlpha: 1, y: 0, duration: 0.4, ease: E }, d + 0.9);
+      // the value is set, then the lock closes
+      tl.to("#d1-sh", { y: 0, duration: 0.35, ease: "back.out(2)" }, d + 1.8);
+      // a second assignment tries to get in and bounces off
+      tl.fromTo("#d1-try", { autoAlpha: 0, y: 0 }, { autoAlpha: 1, y: 0, duration: 0.3, ease: E }, d + 2.8);
+      tl.to("#d1-try", { y: -70, duration: 0.45, ease: "power2.in" }, d + 3.2);
+      tl.to("#d1-try", { y: 0, duration: 0.4, ease: "power2.out" }, d + 3.65);
+      tl.to("#d1-box", { borderColor: "#ff5d6c", duration: 0.2 }, d + 3.6);
+      tl.fromTo("#d1-err", { autoAlpha: 0, y: 8 }, { autoAlpha: 1, y: 0, duration: 0.3, ease: E }, d + 3.9);
       termOut("#s1", "#d1", "#c1", t, P(0));
 
-      // ---------- term 2: Binary Target ----------
-      t = P(1).start; d = t + P(1).defAt - 0.9; // diagram steps play while the definition is read
+      // ---------- term 2: var ----------
+      t = P(1).start; d = t + P(1).defAt - 0.9;
       tl.to("#p2", { scaleX: 1, duration: P(1).dur, ease: "none" }, t);
       termIn("#s2", t);
-      tl.set("#d2-tag", { autoAlpha: 0 }, 0);
-      tl.fromTo("#d2 .nd, #d2 .chp", { autoAlpha: 0, y: 10 }, { autoAlpha: 1, y: 0, duration: 0.35, ease: E, stagger: 0.12 }, d + 0.9);
-      // the prebuilt zip drops into the binary slot
-      tl.to("#d2-zip", { x: 450, y: 110, scale: 0.9, duration: 0.9, ease: "power2.inOut" }, d + 2.2);
-      tl.to("#d2-zip", { autoAlpha: 0, duration: 0.2 }, d + 3.1);
-      tl.to("#d2-slot", { color: "#5aa9ff", borderStyle: "solid", borderColor: "#5aa9ff", backgroundColor: "#152236", duration: 0.3 }, d + 3.1);
-      tl.fromTo("#d2-tag", { autoAlpha: 0, y: 8 }, { autoAlpha: 1, y: 0, duration: 0.35, ease: E }, d + 3.6);
+      tl.set([".d2-v", "#d2-tag"], { autoAlpha: 0 }, 0);
+      tl.fromTo("#d2-box", { autoAlpha: 0, y: 10 }, { autoAlpha: 1, y: 0, duration: 0.4, ease: E }, d + 0.9);
+      tl.fromTo(".d2-t", { autoAlpha: 0, y: 10 }, { autoAlpha: 1, y: 0, duration: 0.35, ease: E, stagger: 0.12 }, d + 1.3);
+      // each tap changes the same box
+      for (let n = 1; n <= 3; n++) {
+        const at = d + 1.9 + (n - 1) * 0.75;
+        tl.to(`#d2-t${n}`, { color: "#5aa9ff", borderColor: "#5aa9ff", backgroundColor: "#152236", duration: 0.25 }, at);
+        tl.set(`#d2-v${n - 1}`, { autoAlpha: 0 }, at + 0.15);
+        tl.fromTo(`#d2-v${n}`, { autoAlpha: 0, y: 14 }, { autoAlpha: 1, y: 0, duration: 0.3, ease: E }, at + 0.15);
+      }
+      tl.fromTo("#d2-tag", { autoAlpha: 0, y: 8 }, { autoAlpha: 1, y: 0, duration: 0.3, ease: E }, d + 4.4);
       termOut("#s2", "#d2", "#c2", t, P(1));
 
-      // ---------- term 3: XCFramework ----------
-      t = P(2).start; d = t + P(2).defAt - 0.9; // diagram steps play while the definition is read
+      // ---------- term 3: Type Inference ----------
+      t = P(2).start; d = t + P(2).defAt - 0.9;
       tl.to("#p3", { scaleX: 1, duration: P(2).dur, ease: "none" }, t);
       termIn("#s3", t);
-      tl.set(".d3-w", { autoAlpha: 0 }, 0);
-      tl.fromTo("#d3-box", { autoAlpha: 0, y: 10 }, { autoAlpha: 1, y: 0, duration: 0.4, ease: E }, d + 0.9);
-      tl.fromTo("#d3 .slice", { autoAlpha: 0, x: -16 }, { autoAlpha: 1, x: 0, duration: 0.35, ease: E, stagger: 0.2 }, d + 1.3);
-      tl.fromTo("#d3 .tgt", { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.3, stagger: 0.1 }, d + 2.2);
-      // each platform picks its own slice from the one bundle
-      tl.to(".d3-w", { autoAlpha: 1, backgroundColor: "#43d68a", duration: 0.3, stagger: 0.35 }, d + 2.8);
-      tl.to("#d3 .tgt", { color: "#43d68a", borderColor: "#43d68a", duration: 0.3, stagger: 0.35 }, d + 2.9);
+      tl.set([".d3-w", "#d3-p1", "#d3-p2", "#d3-int", "#d3-cap", "#d3-tag"], { autoAlpha: 0 }, 0);
+      tl.fromTo("#d3-src", { autoAlpha: 0, y: 10 }, { autoAlpha: 1, y: 0, duration: 0.4, ease: E }, d + 0.9);
+      tl.fromTo(["#d3-lit", "#d3-cmp"], { autoAlpha: 0, y: 10 }, { autoAlpha: 1, y: 0, duration: 0.35, ease: E, stagger: 0.15 }, d + 1.5);
+      tl.fromTo(".d3-c:not(#d3-cap)", { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.3, stagger: 0.1 }, d + 1.8);
+      tl.to(".d3-w", { autoAlpha: 1, duration: 0.2 }, d + 2.2);
+      // the literal flows into the compiler, the inferred type comes out
+      tl.fromTo("#d3-p1", { autoAlpha: 1, x: 0 }, { autoAlpha: 1, x: 112, duration: 0.7, ease: "power1.inOut" }, d + 2.5);
+      tl.to("#d3-p1", { autoAlpha: 0, duration: 0.15 }, d + 3.2);
+      tl.to("#d3-cmp", { borderColor: "#b692ff", color: "#b692ff", duration: 0.3 }, d + 3.2);
+      tl.fromTo("#d3-p2", { autoAlpha: 1, x: 0 }, { autoAlpha: 1, x: 112, duration: 0.6, ease: "power1.inOut" }, d + 3.6);
+      tl.to("#d3-p2", { autoAlpha: 0, duration: 0.15 }, d + 4.2);
+      tl.fromTo("#d3-int", { autoAlpha: 0, scale: 0.8 }, { autoAlpha: 1, scale: 1, duration: 0.4, ease: "back.out(2)" }, d + 4.2);
+      tl.fromTo(["#d3-cap", "#d3-tag"], { autoAlpha: 0, y: 8 }, { autoAlpha: 1, y: 0, duration: 0.3, ease: E, stagger: 0.25 }, d + 4.6);
       termOut("#s3", "#d3", "#c3", t, P(2));
 
       // ---------- quiz (no answer reveal, so viewers rewatch) ----------
@@ -524,4 +487,3 @@
     </script>
   </body>
 </html>
-
