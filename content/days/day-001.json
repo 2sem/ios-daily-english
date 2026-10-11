@@ -49,9 +49,22 @@
     }
   ],
   "video": {
-    "title": "",
-    "description": "",
-    "tags": [],
+    "title": "let, var & Type Inference in 2 minutes | iOS Daily English Day 1",
+    "description": "Learn 3 Swift words every iOS developer says out loud: let, var and Type Inference, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nlet - The keyword that declares a constant, a value that cannot be changed once it has been set.\nvar - The keyword that declares a variable, a value you can change after it has been set.\nType Inference - The compiler's ability to work out a value's type from what you assign to it, so you do not have to write the type yourself.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 1 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish #SwiftUI",
+    "tags": [
+      "let",
+      "var",
+      "type inference",
+      "swift constants and variables",
+      "swift for beginners",
+      "swift basics",
+      "ios development",
+      "ios developer english",
+      "english for developers",
+      "learn english",
+      "swift programming",
+      "iOS Daily English"
+    ],
     "file": "video/out/day001.mp4",
     "voices": {
       "narrator": "Ava (Premium)",
