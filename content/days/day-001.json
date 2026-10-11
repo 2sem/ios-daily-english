@@ -76,13 +76,13 @@
   "status": {
     "content": "ready",
     "video": "rendered",
-    "youtube": "uploaded"
+    "youtube": "scheduled"
   },
   "youtube": {
     "videoId": "tH0CpJUdGNI",
     "url": "https://youtu.be/tH0CpJUdGNI",
     "privacy": "private",
-    "scheduledAt": null,
+    "scheduledAt": "2026-10-11T23:00:00Z",
     "uploaded": "2026-10-11T06:44:29.643Z",
     "thumbnail": "video/out/day-001-thumb.png",
     "thumbnailSet": "2026-10-11T06:52:48.593Z"

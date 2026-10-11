@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 // One-time YouTube login. Opens a browser, you approve with the channel's Google account,
 // and the refresh token is stored in ~/.config/ios-daily-english/token.json (mode 600).
-//   node scripts/youtube-auth.mjs
+//   node scripts/youtube-auth.mjs   (scope: youtube, needed for scheduling as well as uploading)
 // Needs ~/.config/ios-daily-english/client_secret.json (Desktop OAuth client). No packages.
 import { createServer } from "node:http";
 import { createHash, randomBytes } from "node:crypto";
@@ -12,7 +12,7 @@ import { join } from "node:path";
 
 const dir = join(homedir(), ".config", "ios-daily-english");
 const { client_id, client_secret, auth_uri, token_uri } = Object.values(JSON.parse(readFileSync(join(dir, "client_secret.json"), "utf8")))[0];
-const SCOPE = "https://www.googleapis.com/auth/youtube.upload";
+const SCOPE = "https://www.googleapis.com/auth/youtube"; // upload + update (schedule) + thumbnails
 
 const verifier = randomBytes(48).toString("base64url");
 const challenge = createHash("sha256").update(verifier).digest("base64url");
