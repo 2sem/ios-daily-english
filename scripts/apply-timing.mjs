@@ -45,7 +45,7 @@ if (audioDir && mode !== "none") {
     const src = join(resolve(audioDir), `${c.key}.wav`);
     if (!existsSync(src)) { console.error(`error: missing clip ${src} (run scripts/tts.mjs)`); process.exit(1); }
     copyFileSync(src, join(dest, `${c.key}.wav`));
-    tags.push(`      <audio id="v-${c.key}" src="assets/voice/${c.key}.wav" data-start="${c.at}" data-duration="${Math.ceil(c.seconds * 10) / 10 + 0.1}" data-track-index="${20 + tags.length}" data-volume="1"></audio>`);
+    tags.push(`      <audio id="v-${c.key}" src="assets/voice/${c.key}.wav" data-start="${c.at}" data-duration="${(Math.ceil(c.seconds * 10) / 10 + 0.1).toFixed(1)}" data-track-index="${20 + tags.length}" data-volume="1"></audio>`);
   }
   html = html.replace(/(\n    <\/div>\n\n    <script>)/, `\n      <!-- VOICE:START -->\n${tags.join("\n")}\n      <!-- VOICE:END -->$1`);
   console.log(`added ${tags.length} voice clips (${mode})`);
