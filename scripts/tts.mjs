@@ -22,7 +22,8 @@ const saved = day.video?.voices ?? pickVoices(day.day);
 const voice = opt("voice", saved.narrator);
 const rate = opt("rate", "135"); // words per minute; slower than natural speech (~160) for learners
 const exVoice = opt("example-voice", saved.example);
-const exRate = opt("example-rate", "140");
+const exRate = opt("example-rate", "160"); // first reading: natural speed
+const exSlowRate = opt("example-slow-rate", "100"); // second reading: slow, word by word
 const dir = join(root, "video", "audio", `day-${String(day.day).padStart(3, "0")}`);
 mkdirSync(dir, { recursive: true });
 
@@ -31,6 +32,7 @@ day.terms.forEach((t, i) => {
   clips[`t${i + 1}-term`] = t.term;
   clips[`t${i + 1}-def`] = t.definition;
   clips[`t${i + 1}-ex`] = t.example;
+  clips[`t${i + 1}-ex2`] = t.example; // same sentence again, slowly
 });
 day.quizzes.forEach((q, i) => {
   clips[`q${i + 1}-q`] = q.question;
@@ -41,10 +43,11 @@ const speakable = (s) => s.replace(/\biOS\b/g, "eye O S").replace(/\bSwiftUI\b/g
 
 for (const [key, text] of Object.entries(clips)) {
   const aiff = join(dir, `${key}.aiff`);
-  const isExample = /^t\d-ex$/.test(key);
+  const isExample = /^t\d-ex2?$/.test(key);
+  const slow = /^t\d-ex2$/.test(key);
   // short pauses at commas so a definition can be followed
   const spoken = speakable(text).replace(/, /g, ", [[slnc 220]] ");
-  execFileSync("say", ["-v", isExample ? exVoice : voice, "-r", isExample ? exRate : rate, "-o", aiff, spoken]);
+  execFileSync("say", ["-v", isExample ? exVoice : voice, "-r", slow ? exSlowRate : isExample ? exRate : rate, "-o", aiff, spoken]);
   execFileSync("ffmpeg", ["-y", "-v", "error", "-i", aiff, "-ar", "44100", "-ac", "1", join(dir, `${key}.wav`)]);
   rmSync(aiff);
 }
@@ -52,4 +55,4 @@ if (!day.video?.voices) {
   day.video = { ...(day.video ?? {}), voices: { narrator: voice, example: exVoice, pattern: saved.pattern } };
   writeFileSync(resolve(file), JSON.stringify(day, null, 2) + "\n");
 }
-console.log(`wrote ${Object.keys(clips).length} clips to ${dir} (narrator ${voice} ${rate} wpm, examples ${exVoice} ${exRate} wpm)`);
+console.log(`wrote ${Object.keys(clips).length} clips to ${dir} (narrator ${voice} ${rate} wpm, examples ${exVoice} ${exRate} wpm then ${exSlowRate} wpm)`);

@@ -37,7 +37,7 @@ const audioDir = opt("audio-dir", null);
 const mode = opt("voice", "examples");
 html = html.replace(/\n *<!-- VOICE:START -->[\s\S]*?<!-- VOICE:END -->/, "");
 if (audioDir && mode !== "none") {
-  const want = (key) => mode === "all" || /^t\d-ex$/.test(key);
+  const want = (key) => mode === "all" || /^t\d-ex2?$/.test(key);
   const dest = join(dirname(resolve(htmlPath)), "assets", "voice");
   mkdirSync(dest, { recursive: true });
   const tags = [];

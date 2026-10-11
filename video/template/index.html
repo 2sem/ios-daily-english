@@ -101,7 +101,8 @@
         position: absolute; left: 72px; width: 758px; top: 1350px;
         border-left: 5px solid; padding: 6px 0 6px 28px;
       }
-      .example .lbl { font-size: 24px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; }
+      .example .lbl { position: relative; font-size: 24px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; }
+      .example .lbl .l2 { position: absolute; left: 0; top: 0; white-space: nowrap; }
       .example p { margin-top: 12px; font-size: 36px; line-height: 1.42; color: #dfe4ee; font-style: italic; }
 
       /* diagram parts */
@@ -210,7 +211,7 @@
         </div>
 
         <div class="example" style="border-color: var(--swift)">
-          <div class="lbl" style="color: var(--swift)">In a sentence</div>
+          <div class="lbl" style="color: var(--swift)"><span class="l1">In a sentence</span><span class="l2">Again, slowly</span></div>
           <p>"I made the greeting a let because it never needs to be reassigned."</p>
         </div>
       </div>
@@ -250,7 +251,7 @@
         </div>
 
         <div class="example" style="border-color: var(--blue)">
-          <div class="lbl" style="color: var(--blue)">In a sentence</div>
+          <div class="lbl" style="color: var(--blue)"><span class="l1">In a sentence</span><span class="l2">Again, slowly</span></div>
           <p>"The score is a var because it goes up every time the player taps."</p>
         </div>
       </div>
@@ -290,7 +291,7 @@
         </div>
 
         <div class="example" style="border-color: var(--violet)">
-          <div class="lbl" style="color: var(--violet)">In a sentence</div>
+          <div class="lbl" style="color: var(--violet)"><span class="l1">In a sentence</span><span class="l2">Again, slowly</span></div>
           <p>"We left out the type annotation because type inference already knows it is an Int."</p>
         </div>
       </div>
@@ -387,9 +388,12 @@
         tl.fromTo(c, { autoAlpha: 0, y: 24 }, { autoAlpha: 1, y: 0, duration: 0.5, ease: E }, t0 + p.codeAt);
         tl.fromTo(`${c} .ln`, { autoAlpha: 0, x: -12 }, { autoAlpha: 1, x: 0, duration: 0.35, ease: E, stagger: 0.22 }, t0 + p.codeAt + 0.2);
         tl.fromTo(`${id} .example`, { autoAlpha: 0, y: 20 }, { autoAlpha: 1, y: 0, duration: 0.6, ease: E }, t0 + p.exampleAt);
+        // second reading is slow: swap the label so viewers know
+        tl.set(`${id} .example .l1`, { autoAlpha: 0 }, t0 + p.ex2At);
+        tl.fromTo(`${id} .example .l2`, { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.25 }, t0 + p.ex2At);
         tl.to(id, { opacity: 0, duration: 0.4 }, t0 + p.out);
       }
-      tl.set(["#c1", "#c2", "#c3", ".example"], { autoAlpha: 0 }, 0);
+      tl.set(["#c1", "#c2", "#c3", ".example", ".example .l2"], { autoAlpha: 0 }, 0);
 
       // ---------- term 1: let ----------
       let t = P(0).start, d = t + P(0).defAt - 0.9; // diagram steps play while the definition is read

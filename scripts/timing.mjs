@@ -57,12 +57,14 @@ const terms = day.terms.map((term, i) => {
   const n = i + 1;
   const dTerm = speak(`t${n}-term`, term.term);
   const dDef = speak(`t${n}-def`, term.definition);
-  const dEx = speak(`t${n}-ex`, term.example);
+  const dEx = speak(`t${n}-ex`, term.example); // natural speed
+  const dEx2 = clips[`t${n}-ex2`] ?? speak(`t${n}-ex2`, term.example) / 0.62; // again, slowly
   const termAt = 0.5;
   const defAt = termAt + dTerm + 0.4;
   const codeAt = defAt + dDef + 0.7; // diagram ends, code card + example come in
   const exampleAt = codeAt + 0.6;
-  const dur = exampleAt + 0.2 + dEx + 1.3;
+  const ex2At = exampleAt + 0.2 + dEx + 0.9;
+  const dur = ex2At + dEx2 + 1.3;
   const scene = {
     term: term.term,
     start: r1(t),
@@ -72,11 +74,13 @@ const terms = day.terms.map((term, i) => {
     diagramOut: r1(codeAt - 0.2),
     codeAt: r1(codeAt),
     exampleAt: r1(exampleAt),
+    ex2At: r1(ex2At),
     out: r1(dur - 0.4),
   };
   cues.push({ at: r1(t + termAt), key: `t${n}-term`, text: term.term, seconds: r1(dTerm) });
   cues.push({ at: r1(t + defAt), key: `t${n}-def`, text: term.definition, seconds: r1(dDef) });
   cues.push({ at: r1(t + exampleAt + 0.2), key: `t${n}-ex`, text: term.example, seconds: r1(dEx) });
+  cues.push({ at: r1(t + ex2At), key: `t${n}-ex2`, text: term.example + " (slow)", seconds: r1(dEx2) });
   t += dur;
   return scene;
 });
