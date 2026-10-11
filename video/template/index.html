@@ -406,96 +406,101 @@
       window.__timelines = window.__timelines || {};
       const tl = gsap.timeline({ paused: true });
       const E = "power3.out";
+      // Timing plan from `node scripts/timing.mjs`; scripts/apply-timing.mjs rewrites this line and the data-start/data-duration attributes.
+      const PLAN = /*PLAN*/ {};
+      const P = (n) => PLAN.terms[n];
 
       tl.fromTo("#header", { opacity: 0, y: -12 }, { opacity: 1, y: 0, duration: 0.5, ease: E }, 0);
       tl.fromTo("#i-kicker", { autoAlpha: 0, y: 20 }, { autoAlpha: 1, y: 0, duration: 0.5, ease: E }, 0.1);
       tl.fromTo("#i-day", { autoAlpha: 0, y: 40, scale: 0.96 }, { autoAlpha: 1, y: 0, scale: 1, duration: 0.7, ease: E }, 0.25);
       tl.fromTo("#i-sub", { autoAlpha: 0, y: 20 }, { autoAlpha: 1, y: 0, duration: 0.5, ease: E }, 0.6);
       tl.fromTo("#intro .it", { autoAlpha: 0, x: -30 }, { autoAlpha: 1, x: 0, duration: 0.45, ease: E, stagger: 0.18 }, 0.9);
-      tl.to("#intro", { opacity: 0, duration: 0.4 }, 3.1);
+      tl.to("#intro", { opacity: 0, duration: 0.4 }, PLAN.intro.dur - 0.4);
 
       function termIn(id, t0) {
         tl.fromTo(`${id} .num`, { autoAlpha: 0, y: 16 }, { autoAlpha: 1, y: 0, duration: 0.4, ease: E }, t0);
         tl.fromTo(`${id} .term`, { autoAlpha: 0, y: 30 }, { autoAlpha: 1, y: 0, duration: 0.6, ease: E }, t0 + 0.1);
         tl.fromTo(`${id} .def`, { autoAlpha: 0, y: 20 }, { autoAlpha: 1, y: 0, duration: 0.6, ease: E }, t0 + 0.45);
       }
-      function termOut(id, d, c, t0) {
-        tl.to(d, { autoAlpha: 0, y: -16, duration: 0.4 }, t0 + 6);
-        tl.fromTo(c, { autoAlpha: 0, y: 24 }, { autoAlpha: 1, y: 0, duration: 0.5, ease: E }, t0 + 6.2);
-        tl.fromTo(`${c} .ln`, { autoAlpha: 0, x: -12 }, { autoAlpha: 1, x: 0, duration: 0.35, ease: E, stagger: 0.22 }, t0 + 6.4);
-        tl.fromTo(`${id} .example`, { autoAlpha: 0, y: 20 }, { autoAlpha: 1, y: 0, duration: 0.6, ease: E }, t0 + 7.4);
-        tl.to(id, { opacity: 0, duration: 0.4 }, t0 + 12.6);
+      function termOut(id, d, c, t0, p) {
+        // diagram leaves, code card + example arrive while the voice reads the example
+        tl.to(d, { autoAlpha: 0, y: -16, duration: 0.4 }, t0 + p.diagramOut);
+        tl.fromTo(c, { autoAlpha: 0, y: 24 }, { autoAlpha: 1, y: 0, duration: 0.5, ease: E }, t0 + p.codeAt);
+        tl.fromTo(`${c} .ln`, { autoAlpha: 0, x: -12 }, { autoAlpha: 1, x: 0, duration: 0.35, ease: E, stagger: 0.22 }, t0 + p.codeAt + 0.2);
+        tl.fromTo(`${id} .example`, { autoAlpha: 0, y: 20 }, { autoAlpha: 1, y: 0, duration: 0.6, ease: E }, t0 + p.exampleAt);
+        tl.to(id, { opacity: 0, duration: 0.4 }, t0 + p.out);
       }
       tl.set(["#c1", "#c2", "#c3", ".example"], { autoAlpha: 0 }, 0);
 
       // ---------- term 1: Package.resolved ----------
-      let t = 3.5;
-      tl.to("#p1", { scaleX: 1, duration: 13, ease: "none" }, t);
+      let t = P(0).start, d = t + P(0).defAt - 0.9; // diagram steps play while the definition is read
+      tl.to("#p1", { scaleX: 1, duration: P(0).dur, ease: "none" }, t);
       termIn("#s1", t);
       tl.set(["#d1-file", "#d1-ci-ok", "#d1-ok", "#d1-err", "#d1-mac", "#d1-ci-bad"], { autoAlpha: 0 }, 0);
-      tl.fromTo("#d1 .nd", { autoAlpha: 0, y: 10 }, { autoAlpha: 1, y: 0, duration: 0.4, ease: E, stagger: 0.12 }, t + 0.9);
+      tl.fromTo("#d1 .nd", { autoAlpha: 0, y: 10 }, { autoAlpha: 1, y: 0, duration: 0.4, ease: E, stagger: 0.12 }, d + 0.9);
       // without the file, each machine resolves the range on its own
-      tl.to(["#d1-mac", "#d1-ci-bad"], { autoAlpha: 1, duration: 0.3, stagger: 0.3 }, t + 1.4);
-      tl.to("#d1-ci", { borderColor: "#ff5d6c", duration: 0.3 }, t + 1.8);
-      tl.fromTo("#d1-err", { autoAlpha: 0, y: 8 }, { autoAlpha: 1, y: 0, duration: 0.3, ease: E }, t + 1.9);
+      tl.to(["#d1-mac", "#d1-ci-bad"], { autoAlpha: 1, duration: 0.3, stagger: 0.3 }, d + 1.4);
+      tl.to("#d1-ci", { borderColor: "#ff5d6c", duration: 0.3 }, d + 1.8);
+      tl.fromTo("#d1-err", { autoAlpha: 0, y: 8 }, { autoAlpha: 1, y: 0, duration: 0.3, ease: E }, d + 1.9);
       // with the committed file, both build the same commit
-      tl.fromTo("#d1-file", { autoAlpha: 0, y: -10 }, { autoAlpha: 1, y: 0, duration: 0.4, ease: E }, t + 3.2);
-      tl.to(["#d1-err", "#d1-ci-bad"], { autoAlpha: 0, duration: 0.2 }, t + 3.7);
-      tl.to("#d1-ci-ok", { autoAlpha: 1, duration: 0.3 }, t + 3.8);
-      tl.to("#d1-ci", { borderColor: "#43d68a", duration: 0.3 }, t + 3.8);
-      tl.fromTo("#d1-ok", { autoAlpha: 0, y: 8 }, { autoAlpha: 1, y: 0, duration: 0.3, ease: E }, t + 4.0);
-      termOut("#s1", "#d1", "#c1", t);
+      tl.fromTo("#d1-file", { autoAlpha: 0, y: -10 }, { autoAlpha: 1, y: 0, duration: 0.4, ease: E }, d + 3.2);
+      tl.to(["#d1-err", "#d1-ci-bad"], { autoAlpha: 0, duration: 0.2 }, d + 3.7);
+      tl.to("#d1-ci-ok", { autoAlpha: 1, duration: 0.3 }, d + 3.8);
+      tl.to("#d1-ci", { borderColor: "#43d68a", duration: 0.3 }, d + 3.8);
+      tl.fromTo("#d1-ok", { autoAlpha: 0, y: 8 }, { autoAlpha: 1, y: 0, duration: 0.3, ease: E }, d + 4.0);
+      termOut("#s1", "#d1", "#c1", t, P(0));
 
       // ---------- term 2: Binary Target ----------
-      t = 16.5;
-      tl.to("#p2", { scaleX: 1, duration: 13, ease: "none" }, t);
+      t = P(1).start; d = t + P(1).defAt - 0.9; // diagram steps play while the definition is read
+      tl.to("#p2", { scaleX: 1, duration: P(1).dur, ease: "none" }, t);
       termIn("#s2", t);
       tl.set("#d2-tag", { autoAlpha: 0 }, 0);
-      tl.fromTo("#d2 .nd, #d2 .chp", { autoAlpha: 0, y: 10 }, { autoAlpha: 1, y: 0, duration: 0.35, ease: E, stagger: 0.12 }, t + 0.9);
+      tl.fromTo("#d2 .nd, #d2 .chp", { autoAlpha: 0, y: 10 }, { autoAlpha: 1, y: 0, duration: 0.35, ease: E, stagger: 0.12 }, d + 0.9);
       // the prebuilt zip drops into the binary slot
-      tl.to("#d2-zip", { x: 450, y: 110, scale: 0.9, duration: 0.9, ease: "power2.inOut" }, t + 2.2);
-      tl.to("#d2-zip", { autoAlpha: 0, duration: 0.2 }, t + 3.1);
-      tl.to("#d2-slot", { color: "#5aa9ff", borderStyle: "solid", borderColor: "#5aa9ff", backgroundColor: "#152236", duration: 0.3 }, t + 3.1);
-      tl.fromTo("#d2-tag", { autoAlpha: 0, y: 8 }, { autoAlpha: 1, y: 0, duration: 0.35, ease: E }, t + 3.6);
-      termOut("#s2", "#d2", "#c2", t);
+      tl.to("#d2-zip", { x: 450, y: 110, scale: 0.9, duration: 0.9, ease: "power2.inOut" }, d + 2.2);
+      tl.to("#d2-zip", { autoAlpha: 0, duration: 0.2 }, d + 3.1);
+      tl.to("#d2-slot", { color: "#5aa9ff", borderStyle: "solid", borderColor: "#5aa9ff", backgroundColor: "#152236", duration: 0.3 }, d + 3.1);
+      tl.fromTo("#d2-tag", { autoAlpha: 0, y: 8 }, { autoAlpha: 1, y: 0, duration: 0.35, ease: E }, d + 3.6);
+      termOut("#s2", "#d2", "#c2", t, P(1));
 
       // ---------- term 3: XCFramework ----------
-      t = 29.5;
-      tl.to("#p3", { scaleX: 1, duration: 13, ease: "none" }, t);
+      t = P(2).start; d = t + P(2).defAt - 0.9; // diagram steps play while the definition is read
+      tl.to("#p3", { scaleX: 1, duration: P(2).dur, ease: "none" }, t);
       termIn("#s3", t);
       tl.set(".d3-w", { autoAlpha: 0 }, 0);
-      tl.fromTo("#d3-box", { autoAlpha: 0, y: 10 }, { autoAlpha: 1, y: 0, duration: 0.4, ease: E }, t + 0.9);
-      tl.fromTo("#d3 .slice", { autoAlpha: 0, x: -16 }, { autoAlpha: 1, x: 0, duration: 0.35, ease: E, stagger: 0.2 }, t + 1.3);
-      tl.fromTo("#d3 .tgt", { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.3, stagger: 0.1 }, t + 2.2);
+      tl.fromTo("#d3-box", { autoAlpha: 0, y: 10 }, { autoAlpha: 1, y: 0, duration: 0.4, ease: E }, d + 0.9);
+      tl.fromTo("#d3 .slice", { autoAlpha: 0, x: -16 }, { autoAlpha: 1, x: 0, duration: 0.35, ease: E, stagger: 0.2 }, d + 1.3);
+      tl.fromTo("#d3 .tgt", { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.3, stagger: 0.1 }, d + 2.2);
       // each platform picks its own slice from the one bundle
-      tl.to(".d3-w", { autoAlpha: 1, backgroundColor: "#43d68a", duration: 0.3, stagger: 0.35 }, t + 2.8);
-      tl.to("#d3 .tgt", { color: "#43d68a", borderColor: "#43d68a", duration: 0.3, stagger: 0.35 }, t + 2.9);
-      termOut("#s3", "#d3", "#c3", t);
+      tl.to(".d3-w", { autoAlpha: 1, backgroundColor: "#43d68a", duration: 0.3, stagger: 0.35 }, d + 2.8);
+      tl.to("#d3 .tgt", { color: "#43d68a", borderColor: "#43d68a", duration: 0.3, stagger: 0.35 }, d + 2.9);
+      termOut("#s3", "#d3", "#c3", t, P(2));
 
       // ---------- quiz (no answer reveal, so viewers rewatch) ----------
-      t = 42.5;
+      t = PLAN.quizIntro.start;
       tl.fromTo("#quiz-intro .kicker", { autoAlpha: 0, y: 20 }, { autoAlpha: 1, y: 0, duration: 0.4, ease: E }, t);
       tl.fromTo("#quiz-intro .qbig", { autoAlpha: 0, y: 40, scale: 0.96 }, { autoAlpha: 1, y: 0, scale: 1, duration: 0.6, ease: E }, t + 0.15);
       tl.fromTo("#quiz-intro .intro-sub", { autoAlpha: 0, y: 20 }, { autoAlpha: 1, y: 0, duration: 0.4, ease: E }, t + 0.5);
       tl.to("#quiz-intro", { opacity: 0, duration: 0.35 }, t + 2.15);
-      tl.to("#p4", { scaleX: 1, duration: 35.5, ease: "none" }, t);
+      tl.to("#p4", { scaleX: 1, duration: PLAN.outro.start - PLAN.quizIntro.start, ease: "none" }, t);
 
-      const QUIZ_SECONDS = 8; // countdown length per question
-      function quiz(id, t0) {
+      // voice reads the question, then the options; the countdown starts only after that
+      function quiz(id, Q) {
+        const t0 = Q.start, QUIZ_SECONDS = Q.quizSeconds;
         const q = (s) => `${id} ${s}`;
         tl.set([q(".clock b"), q(".tlabel.up")], { autoAlpha: 0 }, 0);
         tl.fromTo(q(".qlabel"), { autoAlpha: 0, y: 16 }, { autoAlpha: 1, y: 0, duration: 0.4, ease: E }, t0);
-        tl.fromTo(q(".question"), { autoAlpha: 0, y: 24 }, { autoAlpha: 1, y: 0, duration: 0.5, ease: E }, t0 + 0.15);
-        tl.fromTo(q(".clock"), { autoAlpha: 0, scale: 0.8 }, { autoAlpha: 1, scale: 1, duration: 0.4, ease: "back.out(2)" }, t0 + 0.3);
-        tl.fromTo(q(".opt"), { autoAlpha: 0, x: -24 }, { autoAlpha: 1, x: 0, duration: 0.35, ease: E, stagger: 0.12 }, t0 + 0.5);
-        tl.fromTo(q(".timer"), { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.3 }, t0 + 0.9);
-        tl.fromTo(q(".tlabel:not(.up)"), { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.3 }, t0 + 0.9);
-        const go = t0 + 1.2;
+        tl.fromTo(q(".question"), { autoAlpha: 0, y: 24 }, { autoAlpha: 1, y: 0, duration: 0.5, ease: E }, t0 + Q.questionAt);
+        tl.fromTo(q(".clock"), { autoAlpha: 0, scale: 0.8 }, { autoAlpha: 1, scale: 1, duration: 0.4, ease: "back.out(2)" }, t0 + Q.optsAt);
+        tl.fromTo(q(".opt"), { autoAlpha: 0, x: -24 }, { autoAlpha: 1, x: 0, duration: 0.35, ease: E, stagger: 0.9 }, t0 + Q.optsAt); // one option per spoken line
+        tl.fromTo(q(".timer"), { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.3 }, t0 + Q.countdownAt - 0.3);
+        tl.fromTo(q(".tlabel:not(.up)"), { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.3 }, t0 + Q.countdownAt - 0.3);
+        const go = t0 + Q.countdownAt;
         tl.fromTo(q(".timer i"), { scaleX: 1 }, { scaleX: 0, duration: QUIZ_SECONDS, ease: "none" }, go);
         tl.to(q(".timer i"), { backgroundColor: "#ff5d6c", duration: 2 }, go + QUIZ_SECONDS - 2);
         for (let n = 0; n < QUIZ_SECONDS; n++) {
           const b = `${id} .clock b:nth-child(${n + 1})`;
-          tl.fromTo(b, { autoAlpha: 1, scale: 1.25 }, { autoAlpha: 1, scale: 1, duration: 0.2, ease: E }, n === 0 ? t0 + 0.3 : go + n);
+          tl.fromTo(b, { autoAlpha: 1, scale: 1.25 }, { autoAlpha: 1, scale: 1, duration: 0.2, ease: E }, n === 0 ? t0 + Q.optsAt : go + n);
           tl.set(b, { autoAlpha: 0 }, go + n + 1);
         }
         // time's up: no answer shown
@@ -505,11 +510,11 @@
         tl.fromTo(q(".tlabel.up"), { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.25 }, r);
         tl.to(id, { opacity: 0, duration: 0.35 }, r + 1.45);
       }
-      quiz("#q1", 45);
-      quiz("#q2", 56);
-      quiz("#q3", 67);
+      quiz("#q1", PLAN.quizzes[0]);
+      quiz("#q2", PLAN.quizzes[1]);
+      quiz("#q3", PLAN.quizzes[2]);
 
-      t = 78;
+      t = PLAN.outro.start;
       tl.fromTo("#outro .recap-title", { autoAlpha: 0, y: 16 }, { autoAlpha: 1, y: 0, duration: 0.4, ease: E }, t);
       tl.fromTo("#outro .row", { autoAlpha: 0, x: -30 }, { autoAlpha: 1, x: 0, duration: 0.45, ease: E, stagger: 0.2 }, t + 0.25);
       tl.fromTo("#outro .follow", { autoAlpha: 0, y: 16 }, { autoAlpha: 1, y: 0, duration: 0.45, ease: E }, t + 1.2);
