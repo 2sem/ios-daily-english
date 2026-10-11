@@ -1,3 +1,6 @@
 .DS_Store
 .codegraph/
 .remember/
+video/node_modules/
+video/out/
+video/day*/
