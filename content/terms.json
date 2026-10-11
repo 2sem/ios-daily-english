@@ -1,0 +1,16 @@
+{
+  "terms": {
+    "let": {
+      "term": "let",
+      "day": 1
+    },
+    "var": {
+      "term": "var",
+      "day": 1
+    },
+    "typeinference": {
+      "term": "Type Inference",
+      "day": 1
+    }
+  }
+}

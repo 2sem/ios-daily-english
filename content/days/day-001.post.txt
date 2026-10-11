@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 1
+
+let
+- The keyword that declares a constant, a value that cannot be changed once it has been set.
+- Example: "I made the greeting a let because it never needs to be reassigned."
+
+var
+- The keyword that declares a variable, a value you can change after it has been set.
+- Example: "The score is a var because it goes up every time the player taps."
+
+Type Inference
+- The compiler's ability to work out a value's type from what you assign to it, so you do not have to write the type yourself.
+- Example: "We left out the type annotation because type inference already knows it is an Int."
+
+
+Quiz ①
+Which feature lets the compiler work out a value's type from what is assigned, without you writing it?
+a) let
+b) var
+c) Type Inference
+
+Quiz ②
+Which keyword declares a value that can never be reassigned once it has been set?
+a) let
+b) Type Inference
+c) var
+
+Quiz ③
+Which keyword declares a value you can change later, such as a score that keeps going up?
+a) Type Inference
+b) var
+c) let

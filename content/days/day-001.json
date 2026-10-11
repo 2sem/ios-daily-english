@@ -1,0 +1,90 @@
+{
+  "day": 1,
+  "phase": "1. Swift basics",
+  "theme": "3 terms on declaring values",
+  "terms": [
+    {
+      "term": "let",
+      "definition": "The keyword that declares a constant, a value that cannot be changed once it has been set.",
+      "example": "I made the greeting a let because it never needs to be reassigned."
+    },
+    {
+      "term": "var",
+      "definition": "The keyword that declares a variable, a value you can change after it has been set.",
+      "example": "The score is a var because it goes up every time the player taps."
+    },
+    {
+      "term": "Type Inference",
+      "definition": "The compiler's ability to work out a value's type from what you assign to it, so you do not have to write the type yourself.",
+      "example": "We left out the type annotation because type inference already knows it is an Int."
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "Which feature lets the compiler work out a value's type from what is assigned, without you writing it?",
+      "options": [
+        "let",
+        "var",
+        "Type Inference"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "Which keyword declares a value that can never be reassigned once it has been set?",
+      "options": [
+        "let",
+        "Type Inference",
+        "var"
+      ],
+      "answer": "a"
+    },
+    {
+      "question": "Which keyword declares a value you can change later, such as a score that keeps going up?",
+      "options": [
+        "Type Inference",
+        "var",
+        "let"
+      ],
+      "answer": "b"
+    }
+  ],
+  "video": {
+    "title": "let, var & Type Inference in 2 minutes | iOS Daily English Day 1",
+    "description": "Learn 3 Swift words every iOS developer says out loud: let, var and Type Inference, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nlet - The keyword that declares a constant, a value that cannot be changed once it has been set.\nvar - The keyword that declares a variable, a value you can change after it has been set.\nType Inference - The compiler's ability to work out a value's type from what you assign to it, so you do not have to write the type yourself.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 1 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish #SwiftUI",
+    "tags": [
+      "let",
+      "var",
+      "type inference",
+      "swift constants and variables",
+      "swift for beginners",
+      "swift basics",
+      "ios development",
+      "ios developer english",
+      "english for developers",
+      "learn english",
+      "swift programming",
+      "iOS Daily English"
+    ],
+    "file": "video/out/day001.mp4",
+    "voices": {
+      "narrator": "Ava (Premium)",
+      "example": "Evan (Enhanced)",
+      "pattern": "female -> male",
+      "exampleSlow": "Ava (Premium)"
+    }
+  },
+  "status": {
+    "content": "ready",
+    "video": "rendered",
+    "youtube": "scheduled"
+  },
+  "youtube": {
+    "videoId": "tH0CpJUdGNI",
+    "url": "https://youtu.be/tH0CpJUdGNI",
+    "privacy": "private",
+    "scheduledAt": "2026-10-11T23:00:00Z",
+    "uploaded": "2026-10-11T06:44:29.643Z",
+    "thumbnail": "video/out/day-001-thumb.png",
+    "thumbnailSet": "2026-10-11T06:52:48.593Z"
+  }
+}

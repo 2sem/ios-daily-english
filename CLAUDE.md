@@ -73,5 +73,8 @@ Heuristic text → structured data. Key rules to preserve:
 ## Status
 
 - `design/` — Claude Design handoff bundle (spec). Present.
-- Application source — **not started.**
-- Build / lint / test tooling — **none yet.** Add this section once tooling exists.
+- Card generator (`index.html`, `css/`, `js/`) — shipped on GitHub Pages.
+- YouTube channel pipeline (content, voice, vertical video, thumbnail, upload) — `docs/channel-workflow.md`,
+  `content/`, `scripts/`, `video/` (tooling in `video/` uses npm and is separate from the static site),
+  agents in `.claude/agents/`, manager skill `/new-day`.
+- Build / lint / test tooling for the site — **none.**
