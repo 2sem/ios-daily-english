@@ -2,7 +2,7 @@
 // Timing plan for a day's video, driven by how long the voice needs to read the text.
 //   node scripts/timing.mjs content/days/day-001.json [--wps 2.2] [--quiz-seconds 8] [--audio-dir video/audio/day-001]
 // Voice lengths are estimated from word count. If --audio-dir holds real TTS clips, their ffprobe
-// durations replace the estimates. Clip names: intro, t1-term, t1-def, t1-ex, t2-..., q1-q, q1-opts ...
+// durations replace the estimates. Clip names: intro, t1-term, t1-def, t1-ex, t2-..., q1-q ...
 // (any extension). Prints the plan as JSON and writes video/out/day-NNN.timing.json + .voiceover.txt.
 import { readFileSync, writeFileSync, mkdirSync, existsSync, readdirSync } from "node:fs";
 import { execFileSync } from "node:child_process";
@@ -86,26 +86,24 @@ const quizIntro = { start: r1(t), dur: 2.5 };
 cues.push({ at: r1(t + 0.3), key: "quiz-intro", text: "Quiz time. Three questions.", seconds: 1.8 });
 t += quizIntro.dur;
 
-// quiz: question + options are read, THEN the countdown starts; answer is never revealed
+// quiz: the question is read, options are shown (not spoken), THEN the countdown starts; answer is never revealed
 const quizzes = day.quizzes.map((q, i) => {
   const n = i + 1;
   const dQ = speak(`q${n}-q`, q.question);
-  const dOpts = speak(`q${n}-opts`, q.options.map((o, j) => `${"abc"[j]}. ${o}.`).join(" "));
+  // the question is read aloud; the options are NOT spoken, viewers read them (about 0.8 s each)
   const questionAt = 0.5;
   const optsAt = questionAt + dQ + 0.3;
-  const countdownAt = optsAt + dOpts + 0.4;
+  const countdownAt = optsAt + 2.4;
   const dur = countdownAt + QUIZ_SECONDS + 1.5 + 1.0; // countdown, "Time's up", fade
   const scene = {
     start: r1(t),
     dur: r1(dur),
     questionAt: r1(questionAt),
     optsAt: r1(optsAt),
-    optStep: r1(dOpts / 3), // seconds per spoken option, used to light each one up
     countdownAt: r1(countdownAt),
     quizSeconds: QUIZ_SECONDS,
   };
   cues.push({ at: r1(t + questionAt), key: `q${n}-q`, text: q.question, seconds: r1(dQ) });
-  cues.push({ at: r1(t + optsAt), key: `q${n}-opts`, text: q.options.map((o, j) => `${"abc"[j]}. ${o}.`).join(" "), seconds: r1(dOpts) });
   t += dur;
   return scene;
 });

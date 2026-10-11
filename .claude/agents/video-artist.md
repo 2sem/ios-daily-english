@@ -24,7 +24,7 @@ You are the video artist for the **iOS Daily English** channel.
 1. Read the day JSON and the workflow rules.
 2. **Timing follows the voice.** Run `node scripts/timing.mjs content/days/day-NNN.json`
    (add `--audio-dir video/audio/day-NNN` once TTS clips exist; clip names `intro`, `t1-term`, `t1-def`,
-   `t1-ex`, `q1-q`, `q1-opts`, ... so real lengths replace the word-count estimate; `--wps` sets reading speed).
+   `t1-ex`, `q1-q`, ... (quiz options are never spoken) so real lengths replace the word-count estimate; `--wps` sets reading speed).
    It writes `video/out/day-NNN.timing.json` (scene times) and `day-NNN.voiceover.txt` (every line with its start time,
    for the TTS). After copying the template run
    `node scripts/apply-timing.mjs video/dayNNN/index.html video/out/day-NNN.timing.json`.

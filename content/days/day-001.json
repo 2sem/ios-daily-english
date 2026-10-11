@@ -52,7 +52,12 @@
     "title": "",
     "description": "",
     "tags": [],
-    "file": "video/out/day001.mp4"
+    "file": "video/out/day001.mp4",
+    "voices": {
+      "narrator": "Samantha",
+      "example": "Reed (영어(미국))",
+      "pattern": "female -> male"
+    }
   },
   "status": {
     "content": "ready",
