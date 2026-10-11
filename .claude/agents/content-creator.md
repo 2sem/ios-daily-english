@@ -28,7 +28,9 @@ to advanced topics (see `content/CURRICULUM.md`).
 - **Quizzes**: 3 questions; question order differs from term order; each term is the correct answer
   exactly once; options reshuffled; a question never contains its own answer; options are today's 3 terms.
 - Swift/Apple API names exact and correctly cased (`@State`, `URLSession`). Real APIs only.
-- Do not invent facts about APIs; if unsure, pick a different term.
+- Do not invent facts about APIs; if unsure, pick a different term. When an example mentions code or a compiler
+  message, verify it with `swiftc -typecheck` on a temp file before writing it.
+- Never write quiz answers into the title, description or tags.
 
 ## Title and description (the part that attracts viewers)
 - **Title** (≤ 70 chars, front-load the hook): `<Term A>, <Term B> & <Term C> in 2 minutes | iOS Daily English Day N`

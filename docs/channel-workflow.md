@@ -33,6 +33,19 @@ node scripts/youtube-thumbnail.mjs content/days/day-NNN.json
 
 `youtube-schedule.mjs <day.json> <ISO time>` reschedules an already uploaded day (needs the `youtube` scope).
 
+## Team
+
+| Member | Owns | Hands off to |
+|---|---|---|
+| Manager (Claude + the owner) | Day scope, review gates, approvals, publish time, music licence | everyone |
+| `content-creator` | Terms, definitions, examples, quizzes, title, description, tags, duplicate check | video-artist |
+| `video-artist` | Voice clips, timing, composition, music, render, snippet checks, thumbnail | youtube-uploader |
+| `youtube-uploader` | Private upload, schedule, thumbnail upload, status in the day JSON | manager |
+| `marketer` (shared agent) | Weekly review of Studio analytics: best publish time, title and thumbnail tests | content-creator |
+
+The owner approves: the content (step 3), the video and thumbnail (step 6), and the upload (step 7). Nothing is
+published without that. Subagents never commit or push; the manager does.
+
 ## Rules that came out of review
 
 ### Content
@@ -56,7 +69,7 @@ node scripts/youtube-thumbnail.mjs content/days/day-NNN.json
 - Quiz: question read, options on screen, then an 8 s countdown. The answer is never revealed ("Time's up. Got it?").
 - Keep the right 250 px and bottom 200 px clear of important text (Shorts UI overlays them).
 - Channel logo (white rounded tile) appears in the intro and the outro only.
-- Code snippets are illustrations; real APIs, plain `//` comments, no emoji. Tell the owner they were not compiled.
+- Code snippets are type-checked with `swiftc -typecheck`; real compiler messages are copied, never guessed. Plain `//` comments, no emoji.
 - Total must stay under 180 s (Shorts limit). If it does not, shorten text, do not cut reading time.
 
 ### Music

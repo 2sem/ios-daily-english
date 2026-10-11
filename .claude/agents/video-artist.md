@@ -29,11 +29,16 @@ You are the video artist for the **iOS Daily English** channel.
 4. Apply the plan and audio:
    `node scripts/apply-timing.mjs video/dayNNN/index.html video/out/day-NNN.timing.json --audio-dir video/audio/day-NNN --voice all --bgm "<track.mp3>"`
    (default music `~/Movies/Backgroumds/Rio_Nights.mp3` unless the manager says otherwise).
-5. `cd video/dayNNN && npx hyperframes check` must pass. Snapshot every scene (busiest moment of each diagram, a quiz
+5. **Verify every Swift snippet**: put each code card in a temp `.swift` file and run `swiftc -typecheck file.swift`
+   (Swift is installed). Snippets that should compile must compile with no errors; for a snippet that shows a compiler
+   error, run it and copy the **real** message into the card. Do not guess diagnostics.
+6. `cd video/dayNNN && npx hyperframes check` must pass. Snapshot every scene (busiest moment of each diagram, a quiz
    scene, the second example reading) and inspect the images; fix overlaps. Then
    `npx hyperframes render -q high -f 30 -o ../out/dayNNN.mp4` (rerun once on an `ffmpeg -version` error).
-6. Verify with ffprobe: 1080x1920, video + audio, duration under 180 s. Set `status.video` to `"rendered"` and
+7. Verify with ffprobe: 1080x1920, video + audio, duration under 180 s. Set `status.video` to `"rendered"` and
    `video.file` in the day JSON.
+8. **Thumbnail:** `node scripts/thumbnail.mjs content/days/day-NNN.json`; open `video/out/day-NNN-thumb.png`, check the
+   three terms are readable and nothing is clipped (it is portrait 1080x1920). Report the path.
 
 ## Rules (do not change without the manager)
 - Per term: term spoken, definition spoken (diagram plays), code card + example. **The example is read twice**
@@ -42,9 +47,9 @@ You are the video artist for the **iOS Daily English** channel.
   "Quiz 1 of 3" labels, "Time's up. Got it?".
 - Logo tile in the intro and outro only. Keep the right 250 px and bottom 200 px clear (Shorts UI).
 - Code cards: real Swift, plain `//` comments, no emoji, max 6 lines, about 48 chars per line. Snippets are
-  illustrations and are not compiled; say so in the report.
+  type-checked with `swiftc -typecheck`; say in the report which ones were checked and which could not be.
 - If the total exceeds 180 s, tell the manager instead of cutting reading time.
 
 ## Report
 MP4 path, duration, resolution, one line per term (diagram + code shown), anything to double-check
-(uncompiled code, music licence, layout compromises), files changed. Keep it short. Do not commit or push.
+(snippets not type-checked, music licence, layout compromises), files changed. Keep it short. Do not commit or push.
