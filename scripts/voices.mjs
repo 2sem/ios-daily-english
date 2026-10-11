@@ -2,8 +2,18 @@
 //   day % 3 == 1 -> female narrator, male example
 //   day % 3 == 2 -> male narrator, female example
 //   day % 3 == 0 -> random (seeded by the day number, so a re-render keeps the same voices)
-export const FEMALE = ["Samantha", "Flo (영어(미국))", "Sandy (영어(미국))", "Shelley (영어(미국))", "Karen", "Moira"];
-export const MALE = ["Reed (영어(미국))", "Eddy (영어(미국))", "Rocko (영어(미국))", "Daniel", "Rishi"];
+// Premium/Enhanced neural voices (System Settings > Accessibility > Spoken Content) are preferred when installed.
+import { execFileSync } from "node:child_process";
+const PREMIUM_F = ["Ava (Premium)", "Zoe (Premium)"];
+const PREMIUM_M = ["Evan (Enhanced)", "Tom (Enhanced)"];
+const BASIC_F = ["Samantha", "Flo (영어(미국))", "Sandy (영어(미국))", "Shelley (영어(미국))", "Karen", "Moira"];
+const BASIC_M = ["Reed (영어(미국))", "Eddy (영어(미국))", "Rocko (영어(미국))", "Daniel", "Rishi"];
+
+let installed = "";
+try { installed = execFileSync("say", ["-v", "?"], { encoding: "utf8" }); } catch {}
+const have = (names) => names.filter((n) => installed.includes(n));
+export const FEMALE = have(PREMIUM_F).length ? have(PREMIUM_F) : BASIC_F;
+export const MALE = have(PREMIUM_M).length ? have(PREMIUM_M) : BASIC_M;
 
 function rng(seed) {
   let a = seed * 2654435761 >>> 0;

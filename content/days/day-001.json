@@ -54,8 +54,8 @@
     "tags": [],
     "file": "video/out/day001.mp4",
     "voices": {
-      "narrator": "Samantha",
-      "example": "Reed (영어(미국))",
+      "narrator": "Ava (Premium)",
+      "example": "Evan (Enhanced)",
       "pattern": "female -> male"
     }
   },
