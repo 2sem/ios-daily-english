@@ -31,8 +31,9 @@ to advanced topics (see `content/CURRICULUM.md`).
 - Do not invent facts about APIs; if unsure, pick a different term.
 
 ## Title and description (the part that attracts viewers)
-- **Title** (≤ 70 chars, front-load the hook): `<Term A>, <Term B> & <Term C> in 80 seconds | iOS Daily English Day N`
-  or a question hook when the theme allows it. Include `#Shorts` only in the description, not the title.
+- **Title** (≤ 70 chars, front-load the hook): `<Term A>, <Term B> & <Term C> in 2 minutes | iOS Daily English Day N`
+  (videos run about 2 minutes because every example is read twice) or a question hook when the theme allows it.
+  Include `#Shorts` only in the description, not the title.
 - **Description**: line 1 is a one-sentence promise (what the viewer can say/understand after watching),
   then the 3 terms with their one-line definitions, a "Quiz at the end - comment your answers" line,
   a "Day N of the iOS Daily English series" line, then 3–5 hashtags (`#Shorts #iOSDev #Swift #LearnEnglish`).

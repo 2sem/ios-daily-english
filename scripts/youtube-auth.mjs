@@ -32,7 +32,7 @@ console.log("Opening the browser for Google login...\nIf it does not open, visit
 execFile("open", [url.toString()]);
 
 const code = await new Promise((resolve, reject) => {
-  const timer = setTimeout(() => reject(new Error("timed out waiting for login (5 min)")), 5 * 60 * 1000);
+  const timer = setTimeout(() => reject(new Error("timed out waiting for login (15 min)")), 15 * 60 * 1000);
   server.on("request", (req, res) => {
     const q = new URL(req.url, redirect).searchParams;
     if (q.get("error")) { res.end("Login failed: " + q.get("error")); clearTimeout(timer); return reject(new Error(q.get("error"))); }

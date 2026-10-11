@@ -1,5 +1,11 @@
 # iOS Daily English — Video Workflow (HyperFrames)
 
+> **Superseded in part.** This is the original square, silent LinkedIn workflow (Day 371 reference). The channel now makes
+> vertical 1080x1920 Shorts with TTS voice, music, timing from the voice, thumbnails and scheduled uploads.
+> The current pipeline is **`docs/channel-workflow.md`**. Section 4 "Rules" below (quiz, code snippets, layout) still applies.
+> Differences: format is 1080x1920 (not 1080x1080), about 2 minutes (not 82 s), the quiz question is voiced, quiz options
+> are not, and each example is read twice.
+
 Hand this file to Claude Code on any machine and say:
 **"Read IOS_DAILY_ENGLISH_VIDEO.md and set up the workflow. Then make a video for Day N: <paste the post>."**
 
