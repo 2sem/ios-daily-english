@@ -28,6 +28,10 @@ You are the video artist for the **iOS Daily English** channel.
    It writes `video/out/day-NNN.timing.json` (scene times) and `day-NNN.voiceover.txt` (every line with its start time,
    for the TTS). After copying the template run
    `node scripts/apply-timing.mjs video/dayNNN/index.html video/out/day-NNN.timing.json`.
+   **Voice:** `node scripts/tts.mjs content/days/day-NNN.json` makes offline TTS clips (macOS `say`, voice Samantha, 155 wpm;
+   `--voice` / `--rate` to change). Run `timing.mjs --audio-dir video/audio/day-NNN` so real clip lengths drive the plan, then
+   `apply-timing.mjs ... --audio-dir video/audio/day-NNN [--voice examples|all|none]`, which adds the `<audio>` elements.
+   Default `examples`: the example sentence is spoken at the end of every term.
    The template reads `PLAN` for every offset: write new diagram steps as `d + x` (`d` = when the definition starts being read), never as fixed seconds.
    Per term the order is: term spoken -> definition spoken (diagram plays) -> code card + example (example spoken).
    The example always gets its full reading time. If total > 180 s, tell the manager instead of cutting reading time.
