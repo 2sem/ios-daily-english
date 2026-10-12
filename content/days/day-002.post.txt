@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 2
+
+nil
+- The keyword that means a value is missing, so there is nothing stored there at all.
+- Example: "The profile photo is nil until the user picks one from their library."
+
+Optional
+- A type that either holds a value or holds nothing, written with a question mark after the type name.
+- Example: "I made the middle name an optional because not every user has one."
+
+Optional Binding
+- A safe way to check whether an optional has a value and, if it does, use that value as a normal constant.
+- Example: "Use optional binding to unwrap the email instead of force unwrapping it and risking a crash."
+
+
+Quiz ①
+Which technique uses if let to safely check for a value and then use it as a normal constant?
+a) Optional
+b) Optional Binding
+c) nil
+
+Quiz ②
+Which keyword means that no value is stored at all?
+a) Optional Binding
+b) nil
+c) Optional
+
+Quiz ③
+Which type can hold either a value or nothing, and is written with a question mark after the type name?
+a) nil
+b) Optional Binding
+c) Optional

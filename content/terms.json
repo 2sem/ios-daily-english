@@ -11,6 +11,18 @@
     "typeinference": {
       "term": "Type Inference",
       "day": 1
+    },
+    "nil": {
+      "term": "nil",
+      "day": 2
+    },
+    "optional": {
+      "term": "Optional",
+      "day": 2
+    },
+    "optionalbinding": {
+      "term": "Optional Binding",
+      "day": 2
     }
   }
 }
