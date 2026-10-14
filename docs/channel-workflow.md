@@ -46,8 +46,9 @@ node scripts/facebook-upload.mjs content/days/day-NNN.json   # 6. Facebook Page 
 | `facebook-uploader` | Facebook Page Reel from the same MP4 (Meta cross-posts to Instagram), friendly caption, status in the day JSON | manager |
 | `marketer` (shared agent) | Weekly review of Studio analytics: best publish time, title and thumbnail tests | content-creator |
 
-The owner approves: the content (step 3), the video and thumbnail (step 6), and the upload (step 7). Nothing is
-published without that. Subagents never commit or push; the manager does.
+The owner approves: the content (step 3) and the video and thumbnail (step 6). That approval, or an explicit
+"publish", also covers the YouTube upload and Facebook Reel: do not ask again about caption, time or licence.
+Default time is 08:00 KST next day. Nothing is published before the step 6 approval. Subagents never commit or push; the manager does.
 
 ## Rules that came out of review
 

@@ -22,8 +22,8 @@ built-in `fetch`. **Do not install axios or any HTTP package.**
 ## Procedure
 1. Verify: `status.video == "rendered"`, MP4 exists, title is 100 chars or fewer, description is 5000 bytes or fewer,
    `youtube.videoId` is not set.
-2. **Ask the manager to confirm** title, description, publish time and that the music licence is cleared.
-   Uploading is outward-facing.
+2. The manager's brief carries the approval, time and licence confirmation. Do not ask again. If the brief omits
+   the publish time, stop and report instead of guessing.
 3. `node scripts/youtube-upload.mjs content/days/day-NNN.json --publish-at <ISO>`: private upload,
    category Education, not made for kids, scheduled; records `youtube.videoId`, `scheduledAt`, `status.youtube`.
 4. `node scripts/youtube-thumbnail.mjs content/days/day-NNN.json`.
