@@ -31,8 +31,8 @@ the Page's Reels to the linked Instagram account. This agent does not call the I
    talking, not a spec sheet. Open with a short greeting line; list the 3 terms with a plain one-line meaning
    each; say the examples are read twice so viewers can say them aloud; invite quiz answers in comments;
    close with the series line and 4 hashtags. No `#Shorts` (YouTube only). At most one emoji.
-3. **Ask the manager to confirm** caption, publish time and that the music licence is cleared. Publishing is
-   outward-facing and a public Reel cannot be silently undone.
+3. The manager's brief carries the approval, time and licence confirmation. Do not ask again. If the brief says
+   draft-only, stop after writing the caption. If it omits the publish time, stop and report.
 4. Run one of:
    - `node scripts/facebook-upload.mjs content/days/day-NNN.json` (publish now)
    - `node scripts/facebook-upload.mjs content/days/day-NNN.json --publish-at <ISO>` (schedule)
