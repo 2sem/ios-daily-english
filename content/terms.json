@@ -35,6 +35,18 @@
     "argumentlabel": {
       "term": "Argument Label",
       "day": 3
+    },
+    "condition": {
+      "term": "Condition",
+      "day": 4
+    },
+    "guard": {
+      "term": "guard",
+      "day": 4
+    },
+    "earlyexit": {
+      "term": "Early Exit",
+      "day": 4
     }
   }
 }

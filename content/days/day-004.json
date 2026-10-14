@@ -1,0 +1,99 @@
+{
+  "day": 4,
+  "phase": "1. Swift basics",
+  "theme": "3 terms on control flow and leaving code early",
+  "terms": [
+    {
+      "term": "Condition",
+      "definition": "A Bool expression that Swift checks to decide which path the code takes.",
+      "example": "The if only runs when the condition is true, so log the value to see why it never fires."
+    },
+    {
+      "term": "guard",
+      "definition": "A Swift statement that checks a condition and must leave the current scope if the check fails.",
+      "example": "Use a guard at the top of the method so we bail out when the user is not signed in."
+    },
+    {
+      "term": "Early Exit",
+      "definition": "A style of returning from a function as soon as a requirement fails, so the main code stays unindented.",
+      "example": "I rewrote the nested ifs as an early exit, and now the happy path reads straight down."
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "Which Swift statement must leave the current scope when its check fails?",
+      "options": [
+        "Early Exit",
+        "Condition",
+        "guard"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "Which name describes the habit of returning as soon as a requirement is not met, keeping the main code flat?",
+      "options": [
+        "guard",
+        "Early Exit",
+        "Condition"
+      ],
+      "answer": "b"
+    },
+    {
+      "question": "Which expression evaluates to true or false and decides which branch of code runs?",
+      "options": [
+        "Condition",
+        "Early Exit",
+        "guard"
+      ],
+      "answer": "a"
+    }
+  ],
+  "video": {
+    "title": "Condition, guard & Early Exit in 2 minutes | iOS Daily English Day 4",
+    "description": "Learn to talk about control flow in Swift: Condition, guard and Early Exit, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nCondition - A Bool expression that Swift checks to decide which path the code takes.\nguard - A Swift statement that checks a condition and must leave the current scope if the check fails.\nEarly Exit - A style of returning from a function as soon as a requirement fails, so the main code stays unindented.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 4 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish #SwiftUI",
+    "tags": [
+      "condition",
+      "guard",
+      "early exit",
+      "swift guard statement",
+      "swift control flow",
+      "swift basics",
+      "swift for beginners",
+      "ios development",
+      "ios developer english",
+      "english for developers",
+      "learn english",
+      "iOS Daily English"
+    ],
+    "voices": {
+      "narrator": "Ava (Premium)",
+      "example": "Evan (Enhanced)",
+      "exampleSlow": "Ava (Premium)",
+      "pattern": "random (female -> male)"
+    },
+    "file": "video/out/day004.mp4"
+  },
+  "status": {
+    "video": "rendered",
+    "youtube": "scheduled",
+    "facebook": "scheduled"
+  },
+  "youtube": {
+    "videoId": "7FDD4wmYKcs",
+    "url": "https://youtu.be/7FDD4wmYKcs",
+    "privacy": "private",
+    "scheduledAt": "2026-10-14T23:00:00.000Z",
+    "uploaded": "2026-10-14T02:59:02.956Z",
+    "thumbnail": "video/out/day-004-thumb.png",
+    "thumbnailSet": "2026-10-14T02:59:10.040Z"
+  },
+  "facebook": {
+    "videoId": "28941913845438955",
+    "mode": "SCHEDULED",
+    "uploaded": "2026-10-14T03:10:21.499Z",
+    "thumbnail": "video/out/day-004-thumb.png",
+    "thumbnailSet": "2026-10-14T03:10:21.495Z",
+    "scheduledAt": "2026-10-14T23:00:00.000Z",
+    "url": "https://www.facebook.com/reel/28941913845438955/"
+  }
+}
