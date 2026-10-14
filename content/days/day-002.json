@@ -1,0 +1,99 @@
+{
+  "day": 2,
+  "phase": "1. Swift basics",
+  "theme": "3 terms on values that might be missing",
+  "terms": [
+    {
+      "term": "nil",
+      "definition": "The keyword that means a value is missing, so there is nothing stored there at all.",
+      "example": "The profile photo is nil until the user picks one from their library."
+    },
+    {
+      "term": "Optional",
+      "definition": "A type that either holds a value or holds nothing, written with a question mark after the type name.",
+      "example": "I made the middle name an optional because not every user has one."
+    },
+    {
+      "term": "Optional Binding",
+      "definition": "A safe way to check whether an optional has a value and, if it does, use that value as a normal constant.",
+      "example": "Use optional binding to unwrap the email instead of force unwrapping it and risking a crash."
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "Which technique uses if let to safely check for a value and then use it as a normal constant?",
+      "options": [
+        "Optional",
+        "Optional Binding",
+        "nil"
+      ],
+      "answer": "b"
+    },
+    {
+      "question": "Which keyword means that no value is stored at all?",
+      "options": [
+        "Optional Binding",
+        "nil",
+        "Optional"
+      ],
+      "answer": "b"
+    },
+    {
+      "question": "Which type can hold either a value or nothing, and is written with a question mark after the type name?",
+      "options": [
+        "nil",
+        "Optional Binding",
+        "Optional"
+      ],
+      "answer": "c"
+    }
+  ],
+  "video": {
+    "title": "nil, Optional & Optional Binding in 2 minutes | iOS Daily English Day 2",
+    "description": "Learn to talk about missing values in Swift: nil, Optional and Optional Binding, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nnil - The keyword that means a value is missing, so there is nothing stored there at all.\nOptional - A type that either holds a value or holds nothing, written with a question mark after the type name.\nOptional Binding - A safe way to check whether an optional has a value and, if it does, use that value as a normal constant.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 2 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish #SwiftUI",
+    "tags": [
+      "nil",
+      "optional",
+      "optional binding",
+      "swift optionals",
+      "swift for beginners",
+      "swift basics",
+      "ios development",
+      "ios developer english",
+      "english for developers",
+      "learn english",
+      "swift programming",
+      "iOS Daily English"
+    ],
+    "voices": {
+      "narrator": "Tom (Enhanced)",
+      "example": "Zoe (Premium)",
+      "exampleSlow": "Tom (Enhanced)",
+      "pattern": "male -> female"
+    },
+    "file": "video/out/day002.mp4"
+  },
+  "status": {
+    "content": "ready",
+    "video": "rendered",
+    "youtube": "scheduled",
+    "facebook": "scheduled"
+  },
+  "facebook": {
+    "videoId": "1407766228110209",
+    "mode": "SCHEDULED",
+    "uploaded": "2026-10-12T01:56:36.587Z",
+    "scheduledAt": "2026-10-12T23:00:00.000Z",
+    "url": "https://www.facebook.com/reel/1407766228110209/",
+    "caption": "Hi again, ready for some Swift English? 👋\n\nToday's 3 words:\n• nil: the keyword for \"no value\". Nothing is stored there at all.\n• Optional: a type that holds a value or holds nothing. You write it with a question mark.\n• Optional Binding: a safe way to check for a value and then use it, without risking a crash.\n\nEvery example is read twice, first at normal speed and then slowly, so you can say it out loud with me. Try the quiz at the end and share your answers in the comments!\n\nDay 2 of iOS Daily English: 3 terms a day, from Swift basics to advanced iOS.\n\n#iOSDev #Swift #LearnEnglish #SwiftUI"
+  },
+  "youtube": {
+    "videoId": "39U5x8vyJHU",
+    "url": "https://youtu.be/39U5x8vyJHU",
+    "privacy": "private",
+    "scheduledAt": "2026-10-12T23:00:00.000Z",
+    "uploaded": "2026-10-12T01:52:04.487Z",
+    "thumbnail": "video/out/day-002-thumb.png",
+    "thumbnailSet": "2026-10-12T01:52:13.349Z"
+  }
+}

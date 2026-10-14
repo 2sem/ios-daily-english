@@ -11,6 +11,30 @@
     "typeinference": {
       "term": "Type Inference",
       "day": 1
+    },
+    "nil": {
+      "term": "nil",
+      "day": 2
+    },
+    "optional": {
+      "term": "Optional",
+      "day": 2
+    },
+    "optionalbinding": {
+      "term": "Optional Binding",
+      "day": 2
+    },
+    "function": {
+      "term": "Function",
+      "day": 3
+    },
+    "parameter": {
+      "term": "Parameter",
+      "day": 3
+    },
+    "argumentlabel": {
+      "term": "Argument Label",
+      "day": 3
     }
   }
 }

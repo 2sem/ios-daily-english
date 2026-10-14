@@ -76,7 +76,8 @@
   "status": {
     "content": "ready",
     "video": "rendered",
-    "youtube": "scheduled"
+    "youtube": "scheduled",
+    "facebook": "published"
   },
   "youtube": {
     "videoId": "tH0CpJUdGNI",
@@ -86,5 +87,12 @@
     "uploaded": "2026-10-11T06:44:29.643Z",
     "thumbnail": "video/out/day-001-thumb.png",
     "thumbnailSet": "2026-10-11T06:52:48.593Z"
+  },
+  "facebook": {
+    "videoId": "1790748868795346",
+    "mode": "PUBLISHED",
+    "uploaded": "2026-10-12T01:33:37.513Z",
+    "url": "https://www.facebook.com/reel/1790748868795346/",
+    "caption": "Quick Swift English for your day 👋\n\nToday's 3 words:\n• let: a constant. Set it once and it never changes.\n• var: a variable. You can change it whenever you like.\n• Type Inference: Swift works out the type for you, so you don't have to write it.\n\nEvery example is read twice, first at normal speed and then slowly, so you can say it out loud with me. Try the quiz at the end and share your answers in the comments!\n\nDay 1 of iOS Daily English: 3 terms a day, from Swift basics to advanced iOS.\n\n#iOSDev #Swift #LearnEnglish #SwiftUI"
   }
 }
