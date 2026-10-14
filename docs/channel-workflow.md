@@ -12,7 +12,7 @@ reference; the layout rules and diagram guidance in its section 4 still apply, e
 | Music | Quiet background track under the voice |
 | Thumbnail | Portrait **1080x1920**: logo, "Day N", the three terms |
 | Metadata | Title, description, tags stored in the day JSON |
-| Upload | Private upload, scheduled with `publishAt` |
+| Upload | YouTube: private upload, scheduled with `publishAt`. Facebook: Page Reel, cross-posted to Instagram |
 
 ## Pipeline (one command per step, run from the repo root)
 
@@ -29,9 +29,11 @@ node scripts/apply-timing.mjs video/dayNNN/index.html video/out/day-NNN.timing.j
 node scripts/thumbnail.mjs content/days/day-NNN.json        # 5. video/out/day-NNN-thumb.png
 node scripts/youtube-upload.mjs content/days/day-NNN.json --publish-at 2026-10-12T08:00:00+09:00
 node scripts/youtube-thumbnail.mjs content/days/day-NNN.json
+node scripts/facebook-upload.mjs content/days/day-NNN.json   # 6. Facebook Page Reel (--publish-at ISO | --draft)
 ```
 
 `youtube-schedule.mjs <day.json> <ISO time>` reschedules an already uploaded day (needs the `youtube` scope).
+`facebook-upload.mjs` publishes the same MP4 as a Facebook Page Reel; Meta shares it to Instagram.
 
 ## Team
 
@@ -40,7 +42,8 @@ node scripts/youtube-thumbnail.mjs content/days/day-NNN.json
 | Manager (Claude + the owner) | Day scope, review gates, approvals, publish time, music licence | everyone |
 | `content-creator` | Terms, definitions, examples, quizzes, title, description, tags, duplicate check | video-artist |
 | `video-artist` | Voice clips, timing, composition, music, render, snippet checks, thumbnail | youtube-uploader |
-| `youtube-uploader` | Private upload, schedule, thumbnail upload, status in the day JSON | manager |
+| `youtube-uploader` | Private upload, schedule, thumbnail upload, status in the day JSON | facebook-uploader |
+| `facebook-uploader` | Facebook Page Reel from the same MP4 (Meta cross-posts to Instagram), friendly caption, status in the day JSON | manager |
 | `marketer` (shared agent) | Weekly review of Studio analytics: best publish time, title and thumbnail tests | content-creator |
 
 The owner approves: the content (step 3), the video and thumbnail (step 6), and the upload (step 7). Nothing is
@@ -81,26 +84,43 @@ published without that. Subagents never commit or push; the manager does.
 - Never upload the same day twice (the script refuses when `youtube.videoId` is set).
 - Thumbnail is set right after the upload (`youtube-thumbnail.mjs`).
 
+### Facebook / Instagram
+- Reel goes to the Page "IOS Daily English" (Facebook Group has no API). Instagram receives it through Meta
+  Accounts Center auto-sharing; the script never calls the Instagram API.
+- Caption is stored in the day JSON as `facebook.caption`: friendly and natural, a greeting, the 3 terms in plain
+  words, examples read twice, quiz invite, series line, 4 hashtags, no `#Shorts`, at most one emoji.
+- Publish now by default; `--publish-at` schedules, `--draft` uploads without publishing. Never twice per day.
+- Thumbnail: Facebook only accepts it while the Reel is unpublished, so the script sets `day-NNN-thumb.png` right after
+  processing for `--publish-at` and `--draft`. Publishing now cannot set one; always schedule. YouTube gets its thumbnail
+  at upload time the same way (`youtube-thumbnail.mjs`).
+- Edit a live caption with `POST /{videoId}` `description=...`, then update `facebook.caption`.
+- Day 1 (128 s) was accepted as a Reel.
+
 ## Credentials and safety
 - `~/.config/ios-daily-english/client_secret.json` and `token.json`, mode 600, outside the repo. Never print or commit them.
 - One-time login: `node scripts/youtube-auth.mjs`. Scope is `youtube` (needed to reschedule after upload).
   Upload, thumbnail and scheduling at upload time also work with the narrower `youtube.upload` scope.
 - The Google Cloud project must have **YouTube Data API v3 enabled**. In Testing mode the token expires after 7 days.
 - Revoke access any time: Google Account, Security, Third-party apps with account access.
+- Facebook: `~/.config/ios-daily-english/facebook.json` (mode 600) holds `pageId`, `pageAccessToken`, `userAccessToken`.
+  The Page token comes from `GET me/accounts`; `/me` with it must return the Page. Meta app `967380933077818`
+  (use case: Manage everything on your Page; permissions `pages_show_list`, `pages_read_engagement`, `pages_manage_posts`).
 
 ## Folder map
 
 | Path | What |
 |---|---|
 | `content/` | `CURRICULUM.md`, `terms.json` (registry), `days/day-NNN.json` and `.post.txt` |
-| `scripts/` | day registry, TTS, timing, apply-timing, thumbnail, YouTube auth/upload/schedule/thumbnail |
+| `scripts/` | day registry, TTS, timing, apply-timing, thumbnail, YouTube auth/upload/schedule/thumbnail, Facebook upload |
 | `video/template/` | vertical composition template, fonts, GSAP, logo (copy per day) |
 | `video/out/`, `video/audio/`, `video/dayNNN/` | generated, gitignored |
 | `brand/` | `logo.png`, avatar and banner renders |
-| `.claude/agents/` | content-creator, video-artist, youtube-uploader |
+| `.claude/agents/` | content-creator, video-artist, youtube-uploader, facebook-uploader |
 | `.claude/skills/new-day/` | `/new-day` manager workflow |
 
 ## Open items
 - Music license for `Rio_Nights.mp3` unconfirmed.
 - Premium voices cover US English only; the standard pool adds GB, AU, IE, IN, ZA accents.
+- Facebook: the user token expires (about 60 days if extended); refresh in Graph API Explorer and re-derive the Page token.
+- Facebook: the app is in Development mode, so only app roles can publish; fine for our own Page.
 - Day 1 was uploaded under the first Google Cloud project; the current OAuth client belongs to a second project.

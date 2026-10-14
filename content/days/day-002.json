@@ -76,7 +76,16 @@
   "status": {
     "content": "ready",
     "video": "rendered",
-    "youtube": "scheduled"
+    "youtube": "scheduled",
+    "facebook": "scheduled"
+  },
+  "facebook": {
+    "videoId": "1407766228110209",
+    "mode": "SCHEDULED",
+    "uploaded": "2026-10-12T01:56:36.587Z",
+    "scheduledAt": "2026-10-12T23:00:00.000Z",
+    "url": "https://www.facebook.com/reel/1407766228110209/",
+    "caption": "Hi again, ready for some Swift English? 👋\n\nToday's 3 words:\n• nil: the keyword for \"no value\". Nothing is stored there at all.\n• Optional: a type that holds a value or holds nothing. You write it with a question mark.\n• Optional Binding: a safe way to check for a value and then use it, without risking a crash.\n\nEvery example is read twice, first at normal speed and then slowly, so you can say it out loud with me. Try the quiz at the end and share your answers in the comments!\n\nDay 2 of iOS Daily English: 3 terms a day, from Swift basics to advanced iOS.\n\n#iOSDev #Swift #LearnEnglish #SwiftUI"
   },
   "youtube": {
     "videoId": "39U5x8vyJHU",

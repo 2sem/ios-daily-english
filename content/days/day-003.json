@@ -1,0 +1,99 @@
+{
+  "day": 3,
+  "phase": "1. Swift basics",
+  "theme": "3 terms on writing and calling functions",
+  "terms": [
+    {
+      "term": "Function",
+      "definition": "A named block of code that does one job and can be run again whenever you call it by name.",
+      "example": "I moved the date formatting into a function so both screens can reuse it."
+    },
+    {
+      "term": "Parameter",
+      "definition": "A named input that a function declares so the caller can pass a value in.",
+      "example": "The method takes one parameter, the user ID, so pass it the ID of the signed-in user."
+    },
+    {
+      "term": "Argument Label",
+      "definition": "A word written before a value in a function call that tells the reader what that value is for.",
+      "example": "Add an argument label here so the call reads like a sentence at the call site."
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "Which name is written in front of a value at the call site so the call reads like a sentence?",
+      "options": [
+        "Parameter",
+        "Argument Label",
+        "Function"
+      ],
+      "answer": "b"
+    },
+    {
+      "question": "Which named block of code can be called again and again to do one specific job?",
+      "options": [
+        "Parameter",
+        "Argument Label",
+        "Function"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "Which name sits inside the parentheses of a declaration and receives the value the caller passes in?",
+      "options": [
+        "Parameter",
+        "Function",
+        "Argument Label"
+      ],
+      "answer": "a"
+    }
+  ],
+  "video": {
+    "title": "Function, Parameter & Argument Label in 2 minutes | iOS Daily English Day 3",
+    "description": "Learn to talk about functions in Swift: Function, Parameter and Argument Label, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nFunction - A named block of code that does one job and can be run again whenever you call it by name.\nParameter - A named input that a function declares so the caller can pass a value in.\nArgument Label - A word written before a value in a function call that tells the reader what that value is for.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 3 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish #SwiftUI",
+    "tags": [
+      "function",
+      "parameter",
+      "argument label",
+      "swift functions",
+      "swift for beginners",
+      "swift basics",
+      "ios development",
+      "ios developer english",
+      "english for developers",
+      "learn english",
+      "swift programming",
+      "iOS Daily English"
+    ],
+    "voices": {
+      "narrator": "Ava (Premium)",
+      "example": "Evan (Enhanced)",
+      "exampleSlow": "Ava (Premium)",
+      "pattern": "random (female -> male)"
+    },
+    "file": "video/out/day003.mp4"
+  },
+  "status": {
+    "video": "rendered",
+    "youtube": "scheduled",
+    "facebook": "scheduled"
+  },
+  "facebook": {
+    "videoId": "1095177616834331",
+    "mode": "SCHEDULED",
+    "uploaded": "2026-10-12T23:54:21.651Z",
+    "scheduledAt": "2026-10-13T23:00:00.000Z",
+    "url": "https://www.facebook.com/reel/1095177616834331/",
+    "thumbnail": "video/out/day-003-thumb.png",
+    "thumbnailSet": "2026-10-13T00:21:00.328Z"
+  },
+  "youtube": {
+    "videoId": "z-qVFHKQvi0",
+    "url": "https://youtu.be/z-qVFHKQvi0",
+    "privacy": "private",
+    "scheduledAt": "2026-10-13T23:00:00.000Z",
+    "uploaded": "2026-10-12T23:46:29.358Z",
+    "thumbnail": "video/out/day-003-thumb.png",
+    "thumbnailSet": "2026-10-13T00:20:58.011Z"
+  }
+}

@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 3
+
+Function
+- A named block of code that does one job and can be run again whenever you call it by name.
+- Example: "I moved the date formatting into a function so both screens can reuse it."
+
+Parameter
+- A named input that a function declares so the caller can pass a value in.
+- Example: "The method takes one parameter, the user ID, so pass it the ID of the signed-in user."
+
+Argument Label
+- A word written before a value in a function call that tells the reader what that value is for.
+- Example: "Add an argument label here so the call reads like a sentence at the call site."
+
+
+Quiz ①
+Which name is written in front of a value at the call site so the call reads like a sentence?
+a) Parameter
+b) Argument Label
+c) Function
+
+Quiz ②
+Which named block of code can be called again and again to do one specific job?
+a) Parameter
+b) Argument Label
+c) Function
+
+Quiz ③
+Which name sits inside the parentheses of a declaration and receives the value the caller passes in?
+a) Parameter
+b) Function
+c) Argument Label

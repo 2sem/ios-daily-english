@@ -23,6 +23,18 @@
     "optionalbinding": {
       "term": "Optional Binding",
       "day": 2
+    },
+    "function": {
+      "term": "Function",
+      "day": 3
+    },
+    "parameter": {
+      "term": "Parameter",
+      "day": 3
+    },
+    "argumentlabel": {
+      "term": "Argument Label",
+      "day": 3
     }
   }
 }
