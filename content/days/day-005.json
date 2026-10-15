@@ -1,0 +1,101 @@
+{
+  "day": 5,
+  "phase": "1. Swift basics",
+  "theme": "3 terms on collections that hold many values",
+  "terms": [
+    {
+      "term": "Array",
+      "definition": "An ordered collection of values of the same type that you read by their position, starting at zero.",
+      "example": "I stored the photo names in an array so the gallery shows them in the same order every time."
+    },
+    {
+      "term": "Dictionary",
+      "definition": "A collection that stores values under unique keys, so you look up a value by its key instead of its position.",
+      "example": "We keep the user settings in a dictionary, so I can read the theme by its key."
+    },
+    {
+      "term": "Set",
+      "definition": "An unordered collection of unique values, where each value can appear only once.",
+      "example": "I switched the selected tags to a set so the same tag can never be added twice."
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "Which collection holds only unique values and has no guaranteed order?",
+      "options": [
+        "Array",
+        "Set",
+        "Dictionary"
+      ],
+      "answer": "b"
+    },
+    {
+      "question": "Which collection keeps values in order, so you read them by position, such as the first item?",
+      "options": [
+        "Dictionary",
+        "Set",
+        "Array"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "Which collection stores values under unique keys, so you look a value up by its key?",
+      "options": [
+        "Dictionary",
+        "Array",
+        "Set"
+      ],
+      "answer": "a"
+    }
+  ],
+  "video": {
+    "title": "Array, Dictionary & Set in 2 minutes | iOS Daily English Day 5",
+    "description": "Learn to talk about Swift collections: Array, Dictionary and Set, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nArray - An ordered collection of values of the same type that you read by their position, starting at zero.\nDictionary - A collection that stores values under unique keys, so you look up a value by its key instead of its position.\nSet - An unordered collection of unique values, where each value can appear only once.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 5 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish #SwiftUI",
+    "tags": [
+      "array",
+      "dictionary",
+      "set",
+      "swift collections",
+      "swift array",
+      "swift dictionary",
+      "swift basics",
+      "swift for beginners",
+      "ios development",
+      "ios developer english",
+      "english for developers",
+      "iOS Daily English"
+    ],
+    "file": "video/out/day005.mp4",
+    "voices": {
+      "narrator": "Ava (Premium)",
+      "example": "Evan (Enhanced)",
+      "exampleSlow": "Ava (Premium)",
+      "pattern": "random (female -> male)"
+    }
+  },
+  "status": {
+    "content": "ready",
+    "video": "rendered",
+    "youtube": "scheduled",
+    "facebook": "scheduled"
+  },
+  "facebook": {
+    "caption": "Hi everyone, welcome to Day 5 of iOS Daily English!\n\nToday we look at 3 Swift collections:\n\nArray - an ordered list of values you read by position, starting at zero.\nDictionary - values stored under unique keys, so you look them up by key.\nSet - unique values only, with no guaranteed order.\n\nEvery example sentence is read twice, once at normal speed and once slowly, so you can say it out loud with me.\n\nThere is a short quiz at the end. Write your answers in the comments, then watch again to check!\n\niOS Daily English: 3 terms a day, from Swift basics to advanced iOS.\n\n#iOSDev #Swift #LearnEnglish #SwiftUI",
+    "videoId": "1050361524721687",
+    "mode": "SCHEDULED",
+    "uploaded": "2026-10-15T00:25:55.551Z",
+    "thumbnail": "video/out/day-005-thumb.png",
+    "thumbnailSet": "2026-10-15T00:25:55.544Z",
+    "scheduledAt": "2026-10-15T23:00:00.000Z",
+    "url": "https://www.facebook.com/reel/1050361524721687/"
+  },
+  "youtube": {
+    "videoId": "BQtyXdcFOOc",
+    "url": "https://youtu.be/BQtyXdcFOOc",
+    "privacy": "private",
+    "scheduledAt": "2026-10-15T23:00:00.000Z",
+    "uploaded": "2026-10-15T00:23:51.744Z",
+    "thumbnail": "video/out/day-005-thumb.png",
+    "thumbnailSet": "2026-10-15T00:24:03.928Z"
+  }
+}

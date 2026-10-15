@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 5
+
+Array
+- An ordered collection of values of the same type that you read by their position, starting at zero.
+- Example: "I stored the photo names in an array so the gallery shows them in the same order every time."
+
+Dictionary
+- A collection that stores values under unique keys, so you look up a value by its key instead of its position.
+- Example: "We keep the user settings in a dictionary, so I can read the theme by its key."
+
+Set
+- An unordered collection of unique values, where each value can appear only once.
+- Example: "I switched the selected tags to a set so the same tag can never be added twice."
+
+
+Quiz ①
+Which collection holds only unique values and has no guaranteed order?
+a) Array
+b) Set
+c) Dictionary
+
+Quiz ②
+Which collection keeps values in order, so you read them by position, such as the first item?
+a) Dictionary
+b) Set
+c) Array
+
+Quiz ③
+Which collection stores values under unique keys, so you look a value up by its key?
+a) Dictionary
+b) Array
+c) Set

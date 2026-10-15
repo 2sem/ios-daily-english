@@ -47,6 +47,18 @@
     "earlyexit": {
       "term": "Early Exit",
       "day": 4
+    },
+    "array": {
+      "term": "Array",
+      "day": 5
+    },
+    "dictionary": {
+      "term": "Dictionary",
+      "day": 5
+    },
+    "set": {
+      "term": "Set",
+      "day": 5
     }
   }
 }
