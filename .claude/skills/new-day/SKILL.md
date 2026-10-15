@@ -24,11 +24,13 @@ Full rules and commands: `docs/channel-workflow.md`.
 6. **Thumbnail.** `node scripts/thumbnail.mjs content/days/day-NNN.json`; show `video/out/day-NNN-thumb.png`.
 7. **Upload.** The user's approval of the video and thumbnail (or "confirmed" / "publish") is the single publish
    approval. Do not ask again about caption, time or licence. Use the stated time, else the default 08:00 KST next
-   day, and spawn `youtube-uploader`. It uploads private with `publishAt`, then sets the thumbnail.
+   day, and spawn `youtube-uploader`. It uploads private with `publishAt`, then sets the 16:9 thumbnail (the
+   Shorts feed cover is NOT settable via API; see step 9).
 8. **Facebook.** Right after the YouTube upload, spawn `facebook-uploader` with the same time. It writes the
    friendly `facebook.caption` and runs `scripts/facebook-upload.mjs` (`--publish-at` by default) without asking.
    Show the caption in the final report. Meta cross-posts the Reel to Instagram.
-9. **Wrap up.** `node scripts/day.mjs list`; report status, URL and scheduled time. Commit the day files on a branch
+9. **Wrap up.** `node scripts/day.mjs list`; report status, URL and scheduled time. Always end with the manual to-do: set the Shorts cover in the YouTube Studio
+   mobile app (Content > the Short > Edit > Thumbnail > upload `video/out/day-NNN-thumb.png`). Commit the day files on a branch
    named for the goal (e.g. `day-002-content`), never on `main`.
 
 ## Notes

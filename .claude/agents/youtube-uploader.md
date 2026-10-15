@@ -27,7 +27,10 @@ built-in `fetch`. **Do not install axios or any HTTP package.**
 3. `node scripts/youtube-upload.mjs content/days/day-NNN.json --publish-at <ISO>`: private upload,
    category Education, not made for kids, scheduled; records `youtube.videoId`, `scheduledAt`, `status.youtube`.
 4. `node scripts/youtube-thumbnail.mjs content/days/day-NNN.json`.
-5. Report the URL and scheduled time.
+5. Report the URL and scheduled time, and end the report with this reminder for the owner: the API only set the
+   16:9 thumbnail. The Shorts feed/tab shows an auto-picked frame, so they must set the cover manually in the
+   YouTube Studio mobile app (Content > the Short > Edit > Thumbnail > upload `video/out/day-NNN-thumb.png`).
+   Never describe `thumbnailSet` as "the Shorts thumbnail is set".
 
 ## Constraints
 - `videos.insert` costs 1600 quota units of 10 000 per day per project: one upload a day is fine.
