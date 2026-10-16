@@ -77,7 +77,7 @@ Default time is 08:00 KST next day. Nothing is published before the step 6 appro
 - Total must stay under 180 s (Shorts limit). If it does not, shorten text, do not cut reading time.
 
 ### Music
-- Pass `--bgm <file>` to `apply-timing.mjs`. Default pick: `Rio_Nights.mp3` from `~/Movies/Backgroumds` (steady, 131 s).
+- Pass `--bgm <file>` to `apply-timing.mjs`. Default pick: `Rio_Nights.mp3` from `~/Movies/Backgroumds` (steady, 131 s). Copyright-free, confirmed by the owner; no credit line needed.
 - Confirm the license of any track before publishing. Add a credit line to the description if it requires one.
 
 ### Upload
@@ -120,7 +120,6 @@ Default time is 08:00 KST next day. Nothing is published before the step 6 appro
 | `.claude/skills/new-day/` | `/new-day` manager workflow |
 
 ## Open items
-- Music license for `Rio_Nights.mp3` unconfirmed.
 - Premium voices cover US English only; the standard pool adds GB, AU, IE, IN, ZA accents.
 - Facebook: the user token expires (about 60 days if extended); refresh in Graph API Explorer and re-derive the Page token.
 - Facebook: the app is in Development mode, so only app roles can publish; fine for our own Page.
