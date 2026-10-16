@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 6
+
+for-in Loop
+- A loop that runs the same code once for each item in a collection or sequence.
+- Example: "I used a for-in loop to go through every photo name and print it."
+
+Range
+- A span of values from a start to an end, written with operators like 1...5 or 0..<5.
+- Example: "I wrote the loop over a range from one to ten, so it runs exactly ten times."
+
+stride
+- A function that gives you a sequence of numbers that moves from a start value toward an end value by a step you choose.
+- Example: "I used stride to count from zero to one hundred in steps of ten for the progress marks."
+
+
+Quiz ①
+Which function lets you count by a custom step, such as every tenth number?
+a) Range
+b) stride
+c) for-in Loop
+
+Quiz ②
+Which one repeats the same code once for every item in a collection?
+a) stride
+b) for-in Loop
+c) Range
+
+Quiz ③
+Which one is a span of values from a start to an end, like 1...5?
+a) for-in Loop
+b) stride
+c) Range
