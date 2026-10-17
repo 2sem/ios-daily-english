@@ -1,0 +1,100 @@
+{
+  "day": 6,
+  "phase": "1. Swift basics",
+  "theme": "3 terms on repeating work over values",
+  "terms": [
+    {
+      "term": "for-in Loop",
+      "definition": "A loop that runs the same code once for each item in a collection or sequence.",
+      "example": "I used a for-in loop to go through every photo name and print it."
+    },
+    {
+      "term": "Range",
+      "definition": "A span of values from a start to an end, written with operators like 1...5 (closed) or 0 up to 5 (half-open).",
+      "example": "I wrote the loop over a range from one to ten, so it runs exactly ten times."
+    },
+    {
+      "term": "stride",
+      "definition": "A function that gives you a sequence of numbers that moves from a start value toward an end value by a step you choose.",
+      "example": "I used stride to count from zero to one hundred in steps of ten for the progress marks."
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "Which function lets you count by a custom step, such as every tenth number?",
+      "options": [
+        "Range",
+        "stride",
+        "for-in Loop"
+      ],
+      "answer": "b"
+    },
+    {
+      "question": "Which one repeats the same code once for every item in a collection?",
+      "options": [
+        "stride",
+        "for-in Loop",
+        "Range"
+      ],
+      "answer": "b"
+    },
+    {
+      "question": "Which one is a span of values from a start to an end, like 1...5?",
+      "options": [
+        "for-in Loop",
+        "stride",
+        "Range"
+      ],
+      "answer": "c"
+    }
+  ],
+  "video": {
+    "title": "for-in Loop, Range & stride in 2 minutes | iOS Daily English Day 6",
+    "description": "Learn to talk about repeating work in Swift: for-in Loop, Range and stride, with a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nfor-in Loop - A loop that runs the same code once for each item in a collection or sequence.\nRange - A span of values from a start to an end, written with operators like 1...5 (closed) or 0 up to 5 (half-open).\nstride - A function that gives you a sequence of numbers that moves from a start value toward an end value by a step you choose.\n\nQuiz at the end - comment your answers, then watch again to check.\n\nDay 6 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish #SwiftUI",
+    "tags": [
+      "for-in loop",
+      "range",
+      "stride",
+      "swift loops",
+      "swift range",
+      "swift basics",
+      "swift for beginners",
+      "swift",
+      "ios development",
+      "ios developer english",
+      "english for developers",
+      "iOS Daily English"
+    ],
+    "voices": {
+      "narrator": "Ava (Premium)",
+      "example": "Tom (Enhanced)",
+      "exampleSlow": "Ava (Premium)",
+      "pattern": "random (female -> male)"
+    },
+    "file": "video/out/day006.mp4"
+  },
+  "status": {
+    "video": "rendered",
+    "youtube": "scheduled",
+    "facebook": "scheduled"
+  },
+  "facebook": {
+    "caption": "Hi everyone! Today we talk about repeating work in Swift.\n\nToday's 3 terms\nfor-in Loop - runs the same code once for each item in a collection.\nRange - a span of values from a start to an end, like 1...5.\nstride - counts from a start to an end by a step you choose.\n\nEvery example is read twice, normal speed and then slow, so you can say it out loud with me.\n\nThere is a short quiz at the end. Drop your answers in the comments, then watch again to check!\n\nDay 6 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#iOSDev #Swift #LearnEnglish #SwiftUI",
+    "videoId": "976391968224523",
+    "mode": "SCHEDULED",
+    "uploaded": "2026-10-16T01:11:29.382Z",
+    "thumbnail": "video/out/day-006-thumb.png",
+    "thumbnailSet": "2026-10-16T01:11:29.381Z",
+    "scheduledAt": "2026-10-16T23:00:00.000Z",
+    "url": "https://www.facebook.com/reel/976391968224523/"
+  },
+  "youtube": {
+    "videoId": "yixJGJVk1lc",
+    "url": "https://youtu.be/yixJGJVk1lc",
+    "privacy": "private",
+    "scheduledAt": "2026-10-16T23:00:00.000Z",
+    "uploaded": "2026-10-16T01:09:39.103Z",
+    "thumbnail": "video/out/day-006-thumb.png",
+    "thumbnailSet": "2026-10-16T01:09:45.487Z"
+  }
+}

@@ -59,6 +59,18 @@
     "set": {
       "term": "Set",
       "day": 5
+    },
+    "forinloop": {
+      "term": "for-in Loop",
+      "day": 6
+    },
+    "range": {
+      "term": "Range",
+      "day": 6
+    },
+    "stride": {
+      "term": "stride",
+      "day": 6
     }
   }
 }
