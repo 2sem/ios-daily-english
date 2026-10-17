@@ -83,7 +83,11 @@ Default time is 08:00 KST next day. Nothing is published before the step 6 appro
 ### Upload
 - Always upload **private**, scheduled with `--publish-at`. Default slot: 08:00 KST (commute).
 - Never upload the same day twice (the script refuses when `youtube.videoId` is set).
-- Thumbnail is set right after the upload (`youtube-thumbnail.mjs`).
+- `youtube-thumbnail.mjs` (right after the upload) only sets the 16:9 thumbnail (watch page, search). For a Short,
+  YouTube's channel Shorts tab and Shorts feed ignore it and show an auto-picked video frame (the last term's scene,
+  e.g. "Early Exit" alone). The API cannot change that.
+- **Manual step, every day:** in the YouTube Studio mobile app, Content > the Short > Edit > Thumbnail, then upload
+  `video/out/day-NNN-thumb.png`. Do this once the upload is processed; the report must remind the owner.
 
 ### Facebook / Instagram
 - Reel goes to the Page "IOS Daily English" (Facebook Group has no API). Instagram receives it through Meta
@@ -92,8 +96,8 @@ Default time is 08:00 KST next day. Nothing is published before the step 6 appro
   words, examples read twice, quiz invite, series line, 4 hashtags, no `#Shorts`, at most one emoji.
 - Publish now by default; `--publish-at` schedules, `--draft` uploads without publishing. Never twice per day.
 - Thumbnail: Facebook only accepts it while the Reel is unpublished, so the script sets `day-NNN-thumb.png` right after
-  processing for `--publish-at` and `--draft`. Publishing now cannot set one; always schedule. YouTube gets its thumbnail
-  at upload time the same way (`youtube-thumbnail.mjs`).
+  processing for `--publish-at` and `--draft`. Publishing now cannot set one; always schedule. YouTube's Shorts cover is
+  a separate manual step (see Upload).
 - Edit a live caption with `POST /{videoId}` `description=...`, then update `facebook.caption`.
 - Day 1 (128 s) was accepted as a Reel.
 
