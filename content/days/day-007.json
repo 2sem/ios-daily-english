@@ -1,0 +1,98 @@
+{
+  "day": 7,
+  "phase": "1. Swift basics",
+  "theme": "3 terms on passing blocks of code around",
+  "terms": [
+    {
+      "term": "Closure",
+      "definition": "A block of code you can store in a variable or pass to a function and run later.",
+      "example": "I passed a closure to the sort method so it knows how to compare two names."
+    },
+    {
+      "term": "Trailing Closure",
+      "definition": "A closure written after the function's parentheses instead of inside them, which makes the call easier to read.",
+      "example": "I used a trailing closure on map, so the code reads cleanly with no extra parentheses."
+    },
+    {
+      "term": "Capture List",
+      "definition": "A list in square brackets at the start of a closure that says which outside values the closure keeps, and how it keeps them.",
+      "example": "I added a capture list with weak self so the closure does not keep the view controller alive."
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "Which one is written in square brackets at the start of a closure to control how it keeps outside values?",
+      "options": [
+        "Closure",
+        "Capture List",
+        "Trailing Closure"
+      ],
+      "answer": "b"
+    },
+    {
+      "question": "Which one is a block of code you can store in a variable and run later?",
+      "options": [
+        "Trailing Closure",
+        "Capture List",
+        "Closure"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "Which one is written after the function's parentheses to make the call easier to read?",
+      "options": [
+        "Trailing Closure",
+        "Closure",
+        "Capture List"
+      ],
+      "answer": "a"
+    }
+  ],
+  "video": {
+    "title": "Closure, Trailing Closure & Capture List | iOS Daily English Day 7",
+    "description": "Learn to talk about closures in Swift: Closure, Trailing Closure and Capture List, with a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nClosure - A block of code you can store in a variable or pass to a function and run later.\nTrailing Closure - A closure written after the function's parentheses instead of inside them, which makes the call easier to read.\nCapture List - A list in square brackets at the start of a closure that says which outside values the closure keeps, and how it keeps them.\n\nQuiz at the end - comment your answers, then watch again to check.\n\nDay 7 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish #SwiftUI",
+    "tags": [
+      "closure",
+      "trailing closure",
+      "capture list",
+      "swift closures",
+      "swift basics",
+      "swift for beginners",
+      "swift",
+      "ios development",
+      "ios developer english",
+      "english for developers",
+      "iOS Daily English"
+    ],
+    "voices": {
+      "narrator": "Ava (Premium)",
+      "example": "Evan (Enhanced)",
+      "exampleSlow": "Ava (Premium)",
+      "pattern": "female -> male"
+    },
+    "file": "video/out/day007.mp4"
+  },
+  "status": {
+    "video": "rendered",
+    "youtube": "scheduled",
+    "facebook": "scheduled"
+  },
+  "facebook": {
+    "videoId": "1147694044359240",
+    "mode": "SCHEDULED",
+    "uploaded": "2026-10-17T14:09:30.827Z",
+    "thumbnail": "video/out/day-007-thumb.png",
+    "thumbnailSet": "2026-10-17T14:09:30.825Z",
+    "scheduledAt": "2026-10-17T23:00:00.000Z",
+    "url": "https://www.facebook.com/reel/1147694044359240/"
+  },
+  "youtube": {
+    "videoId": "RIINvwY77H8",
+    "url": "https://youtu.be/RIINvwY77H8",
+    "privacy": "private",
+    "scheduledAt": "2026-10-17T23:00:00.000Z",
+    "uploaded": "2026-10-17T14:07:35.075Z",
+    "thumbnail": "video/out/day-007-thumb.png",
+    "thumbnailSet": "2026-10-17T14:07:46.005Z"
+  }
+}
