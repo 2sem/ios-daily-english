@@ -95,6 +95,18 @@
     "associatedvalue": {
       "term": "Associated Value",
       "day": 8
+    },
+    "struct": {
+      "term": "Struct",
+      "day": 9
+    },
+    "class": {
+      "term": "Class",
+      "day": 9
+    },
+    "referencetype": {
+      "term": "Reference Type",
+      "day": 9
     }
   }
 }

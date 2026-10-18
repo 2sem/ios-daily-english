@@ -1,0 +1,99 @@
+{
+  "day": 9,
+  "phase": "1. Swift basics",
+  "theme": "3 terms on structs and classes",
+  "terms": [
+    {
+      "term": "Struct",
+      "definition": "A type that groups related values together, and every copy you make is independent of the others.",
+      "example": "I made the user profile a struct, so changing a copy does not touch the original."
+    },
+    {
+      "term": "Class",
+      "definition": "A type that groups data and actions together, and it can inherit from a parent type.",
+      "example": "The view controller is a class, because UIKit needs it to inherit from UIViewController."
+    },
+    {
+      "term": "Reference Type",
+      "definition": "A type where many variables point to the same single instance, so a change through one variable shows up in all of them.",
+      "example": "Because it is a reference type, both screens see the update as soon as one of them changes it."
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "Which one is a type that can inherit from a parent type?",
+      "options": [
+        "Struct",
+        "Reference Type",
+        "Class"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "Which one means many variables share one instance, so a change shows up everywhere?",
+      "options": [
+        "Reference Type",
+        "Class",
+        "Struct"
+      ],
+      "answer": "a"
+    },
+    {
+      "question": "Which one is a type that groups related values, where every copy is independent?",
+      "options": [
+        "Class",
+        "Struct",
+        "Reference Type"
+      ],
+      "answer": "b"
+    }
+  ],
+  "video": {
+    "title": "Struct, Class & Reference Type | iOS Daily English Day 9",
+    "description": "Learn to talk about structs and classes in Swift: Struct, Class and Reference Type, with a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nStruct - A type that groups related values together, and every copy you make is independent of the others.\nClass - A type that groups data and actions together, and it can inherit from a parent type.\nReference Type - A type where many variables point to the same single instance, so a change through one variable shows up in all of them.\n\nQuiz at the end - comment your answers, then watch again to check.\n\nDay 9 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "struct",
+      "class",
+      "reference type",
+      "swift struct vs class",
+      "swift basics",
+      "swift for beginners",
+      "swift",
+      "ios development",
+      "ios developer english",
+      "english for developers",
+      "iOS Daily English"
+    ],
+    "voices": {
+      "narrator": "Tom (Enhanced)",
+      "example": "Zoe (Premium)",
+      "exampleSlow": "Tom (Enhanced)",
+      "pattern": "male -> female"
+    },
+    "file": "video/out/day009.mp4"
+  },
+  "status": {
+    "video": "rendered",
+    "youtube": "scheduled",
+    "facebook": "scheduled"
+  },
+  "youtube": {
+    "videoId": "oorAthY9sqY",
+    "url": "https://youtu.be/oorAthY9sqY",
+    "privacy": "private",
+    "scheduledAt": "2026-10-19T23:00:00.000Z",
+    "uploaded": "2026-10-18T23:50:44.021Z",
+    "thumbnail": "video/out/day-009-thumb.png",
+    "thumbnailSet": "2026-10-18T23:50:50.075Z"
+  },
+  "facebook": {
+    "caption": "Hi everyone! Here are today's 3 iOS terms, all about structs and classes.\n\nStruct - a type that groups related values, and every copy is independent.\nClass - a type that groups data and actions, and it can inherit from a parent type.\nReference Type - many variables point to the same instance, so one change shows up everywhere.\n\nEach example is read twice, normal speed then slow, so you can say it out loud with me. There is a short quiz at the end, so share your answers in the comments and watch again to check!\n\nDay 9 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#iOSDev #Swift #LearnEnglish #SwiftBasics",
+    "videoId": "986939057789319",
+    "mode": "SCHEDULED",
+    "uploaded": "2026-10-18T23:52:25.064Z",
+    "thumbnail": "video/out/day-009-thumb.png",
+    "thumbnailSet": "2026-10-18T23:52:25.062Z",
+    "scheduledAt": "2026-10-19T23:00:00.000Z",
+    "url": "https://www.facebook.com/reel/986939057789319/"
+  }
+}
