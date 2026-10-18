@@ -1,0 +1,99 @@
+{
+  "day": 8,
+  "phase": "1. Swift basics",
+  "theme": "3 terms on enums",
+  "terms": [
+    {
+      "term": "Enum",
+      "definition": "A type that lists a fixed set of related choices, such as north, south, east and west.",
+      "example": "I made an enum for the screen states, so the code can only be loading, loaded or failed."
+    },
+    {
+      "term": "Raw Value",
+      "definition": "A fixed value, such as a string or a number, that is attached to each case of an enum when you declare it.",
+      "example": "I gave each case a string raw value, so it matches the name the server sends."
+    },
+    {
+      "term": "Associated Value",
+      "definition": "Extra data that you attach to an enum case when you create it, so each case can carry different details.",
+      "example": "The failed case has an associated value for the error, so we can show the right message."
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "Which one is extra data that each enum case carries when you create it?",
+      "options": [
+        "Raw Value",
+        "Enum",
+        "Associated Value"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "Which one is a type that lists a fixed set of related choices?",
+      "options": [
+        "Enum",
+        "Associated Value",
+        "Raw Value"
+      ],
+      "answer": "a"
+    },
+    {
+      "question": "Which one is a fixed value, like a string or a number, set for each case when you declare the enum?",
+      "options": [
+        "Associated Value",
+        "Raw Value",
+        "Enum"
+      ],
+      "answer": "b"
+    }
+  ],
+  "video": {
+    "title": "Enum, Raw Value & Associated Value | iOS Daily English Day 8",
+    "description": "Learn to talk about enums in Swift: Enum, Raw Value and Associated Value, with a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nEnum - A type that lists a fixed set of related choices, such as north, south, east and west.\nRaw Value - A fixed value, such as a string or a number, that is attached to each case of an enum when you declare it.\nAssociated Value - Extra data that you attach to an enum case when you create it, so each case can carry different details.\n\nQuiz at the end - comment your answers, then watch again to check.\n\nDay 8 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "enum",
+      "raw value",
+      "associated value",
+      "swift enums",
+      "swift basics",
+      "swift for beginners",
+      "swift",
+      "ios development",
+      "ios developer english",
+      "english for developers",
+      "iOS Daily English"
+    ],
+    "voices": {
+      "narrator": "Tom (Enhanced)",
+      "example": "Zoe (Premium)",
+      "exampleSlow": "Tom (Enhanced)",
+      "pattern": "male -> female"
+    },
+    "file": "video/out/day008.mp4"
+  },
+  "status": {
+    "video": "rendered",
+    "youtube": "scheduled",
+    "facebook": "scheduled"
+  },
+  "facebook": {
+    "caption": "Hi everyone, welcome to Day 8 of iOS Daily English!\n\nToday we talk about enums in Swift:\n\nEnum - a type that lists a fixed set of related choices, like north, south, east and west.\nRaw Value - a fixed value, like a string or a number, attached to each case when you declare the enum.\nAssociated Value - extra data you attach to a case when you create it, so each case can carry different details.\n\nEvery example sentence is read twice, normal speed and then slow, so you can say it out loud with the voice.\n\nThere is a quiz at the end. Drop your answers in the comments, then watch again to check!\n\nDay 8 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#iOSDev #Swift #LearnEnglish #iOSDailyEnglish",
+    "videoId": "1471163931859144",
+    "mode": "SCHEDULED",
+    "uploaded": "2026-10-18T01:36:31.767Z",
+    "thumbnail": "video/out/day-008-thumb.png",
+    "thumbnailSet": "2026-10-18T01:36:31.765Z",
+    "scheduledAt": "2026-10-18T23:00:00.000Z",
+    "url": "https://www.facebook.com/reel/1471163931859144/"
+  },
+  "youtube": {
+    "videoId": "Rc2Jl3J36jY",
+    "url": "https://youtu.be/Rc2Jl3J36jY",
+    "privacy": "private",
+    "scheduledAt": "2026-10-18T23:00:00.000Z",
+    "uploaded": "2026-10-18T01:34:48.007Z",
+    "thumbnail": "video/out/day-008-thumb.png",
+    "thumbnailSet": "2026-10-18T01:34:56.916Z"
+  }
+}
