@@ -83,6 +83,18 @@
     "capturelist": {
       "term": "Capture List",
       "day": 7
+    },
+    "enum": {
+      "term": "Enum",
+      "day": 8
+    },
+    "rawvalue": {
+      "term": "Raw Value",
+      "day": 8
+    },
+    "associatedvalue": {
+      "term": "Associated Value",
+      "day": 8
     }
   }
 }
