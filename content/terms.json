@@ -71,6 +71,18 @@
     "stride": {
       "term": "stride",
       "day": 6
+    },
+    "closure": {
+      "term": "Closure",
+      "day": 7
+    },
+    "trailingclosure": {
+      "term": "Trailing Closure",
+      "day": 7
+    },
+    "capturelist": {
+      "term": "Capture List",
+      "day": 7
     }
   }
 }
