@@ -1,6 +1,6 @@
 ---
 name: youtube-uploader
-description: Uploads and schedules each day's rendered video to YouTube (private + publishAt) and sets its thumbnail, using the scripts in scripts/. Use after the video and thumbnail are rendered and the manager has approved publishing. Receives tasks from manager only.
+description: Uploads and schedules each day's rendered video to YouTube (private + publishAt), using the scripts in scripts/. Use after the video and thumbnail are rendered and the manager has approved publishing. Receives tasks from manager only.
 tools: Read, Write, Edit, Bash, Grep, Glob
 ---
 

@@ -42,7 +42,7 @@ node scripts/facebook-upload.mjs content/days/day-NNN.json   # 6. Facebook Page 
 | Manager (Claude + the owner) | Day scope, review gates, approvals, publish time, music licence | everyone |
 | `content-creator` | Terms, definitions, examples, quizzes, title, description, tags, duplicate check | video-artist |
 | `video-artist` | Voice clips, timing, composition, music, render, snippet checks, thumbnail | youtube-uploader |
-| `youtube-uploader` | Private upload, schedule, thumbnail upload, status in the day JSON | facebook-uploader |
+| `youtube-uploader` | Private upload, schedule, status in the day JSON | facebook-uploader |
 | `facebook-uploader` | Facebook Page Reel from the same MP4 (Meta cross-posts to Instagram), friendly caption, status in the day JSON | manager |
 | `marketer` (shared agent) | Weekly review of Studio analytics: best publish time, title and thumbnail tests | content-creator |
 
@@ -103,7 +103,7 @@ Default time is 08:00 KST next day. Nothing is published before the step 6 appro
 ## Credentials and safety
 - `~/.config/ios-daily-english/client_secret.json` and `token.json`, mode 600, outside the repo. Never print or commit them.
 - One-time login: `node scripts/youtube-auth.mjs`. Scope is `youtube` (needed to reschedule after upload).
-  Upload, thumbnail and scheduling at upload time also work with the narrower `youtube.upload` scope.
+  Upload and scheduling at upload time also work with the narrower `youtube.upload` scope.
 - The Google Cloud project must have **YouTube Data API v3 enabled**. In Testing mode the token expires after 7 days.
 - Revoke access any time: Google Account, Security, Third-party apps with account access.
 - Facebook: `~/.config/ios-daily-english/facebook.json` (mode 600) holds `pageId`, `pageAccessToken`, `userAccessToken`.
