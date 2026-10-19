@@ -28,7 +28,7 @@ node scripts/apply-timing.mjs video/dayNNN/index.html video/out/day-NNN.timing.j
 (cd video/dayNNN && npx hyperframes check && npx hyperframes render -q high -f 30 -o ../out/dayNNN.mp4)
 node scripts/thumbnail.mjs content/days/day-NNN.json        # 5. video/out/day-NNN-thumb.png
 node scripts/youtube-upload.mjs content/days/day-NNN.json --publish-at 2026-10-12T08:00:00+09:00
-node scripts/youtube-thumbnail.mjs content/days/day-NNN.json
+cp video/out/day-NNN-thumb.png ~/Downloads/                  # after the upload succeeds
 node scripts/facebook-upload.mjs content/days/day-NNN.json   # 6. Facebook Page Reel (--publish-at ISO | --draft)
 ```
 
@@ -42,7 +42,7 @@ node scripts/facebook-upload.mjs content/days/day-NNN.json   # 6. Facebook Page 
 | Manager (Claude + the owner) | Day scope, review gates, approvals, publish time, music licence | everyone |
 | `content-creator` | Terms, definitions, examples, quizzes, title, description, tags, duplicate check | video-artist |
 | `video-artist` | Voice clips, timing, composition, music, render, snippet checks, thumbnail | youtube-uploader |
-| `youtube-uploader` | Private upload, schedule, thumbnail upload, status in the day JSON | facebook-uploader |
+| `youtube-uploader` | Private upload, schedule, status in the day JSON | facebook-uploader |
 | `facebook-uploader` | Facebook Page Reel from the same MP4 (Meta cross-posts to Instagram), friendly caption, status in the day JSON | manager |
 | `marketer` (shared agent) | Weekly review of Studio analytics: best publish time, title and thumbnail tests | content-creator |
 
@@ -83,9 +83,8 @@ Default time is 08:00 KST next day. Nothing is published before the step 6 appro
 ### Upload
 - Always upload **private**, scheduled with `--publish-at`. Default slot: 08:00 KST (commute).
 - Never upload the same day twice (the script refuses when `youtube.videoId` is set).
-- `youtube-thumbnail.mjs` (right after the upload) only sets the 16:9 thumbnail (watch page, search). For a Short,
-  YouTube's channel Shorts tab and Shorts feed ignore it and show an auto-picked video frame (the last term's scene,
-  e.g. "Early Exit" alone). The API cannot change that.
+- No thumbnail API call. `thumbnails.set` only fills the 16:9 slot (watch page, search); the Shorts tab and feed show
+  an auto-picked video frame and the API cannot change that. After the upload, copy the thumbnail to `~/Downloads/`.
 - **Manual step, every day:** in the YouTube Studio mobile app, Content > the Short > Edit > Thumbnail, then upload
   `video/out/day-NNN-thumb.png`. Do this once the upload is processed; the report must remind the owner.
 
@@ -104,7 +103,7 @@ Default time is 08:00 KST next day. Nothing is published before the step 6 appro
 ## Credentials and safety
 - `~/.config/ios-daily-english/client_secret.json` and `token.json`, mode 600, outside the repo. Never print or commit them.
 - One-time login: `node scripts/youtube-auth.mjs`. Scope is `youtube` (needed to reschedule after upload).
-  Upload, thumbnail and scheduling at upload time also work with the narrower `youtube.upload` scope.
+  Upload and scheduling at upload time also work with the narrower `youtube.upload` scope.
 - The Google Cloud project must have **YouTube Data API v3 enabled**. In Testing mode the token expires after 7 days.
 - Revoke access any time: Google Account, Security, Third-party apps with account access.
 - Facebook: `~/.config/ios-daily-english/facebook.json` (mode 600) holds `pageId`, `pageAccessToken`, `userAccessToken`.
@@ -116,7 +115,7 @@ Default time is 08:00 KST next day. Nothing is published before the step 6 appro
 | Path | What |
 |---|---|
 | `content/` | `CURRICULUM.md`, `terms.json` (registry), `days/day-NNN.json` and `.post.txt` |
-| `scripts/` | day registry, TTS, timing, apply-timing, thumbnail, YouTube auth/upload/schedule/thumbnail, Facebook upload |
+| `scripts/` | day registry, TTS, timing, apply-timing, thumbnail, YouTube auth/upload/schedule, Facebook upload |
 | `video/template/` | vertical composition template, fonts, GSAP, logo (copy per day) |
 | `video/out/`, `video/audio/`, `video/dayNNN/` | generated, gitignored |
 | `brand/` | `logo.png`, avatar and banner renders |
