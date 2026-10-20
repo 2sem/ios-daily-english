@@ -1,0 +1,98 @@
+{
+  "day": 10,
+  "phase": "1. Swift basics",
+  "theme": "3 terms on protocols and extensions",
+  "terms": [
+    {
+      "term": "Protocol",
+      "definition": "A list of requirements that a type promises to follow, without saying how the work is done.",
+      "example": "Let's write a protocol for the data service, so we can swap in a fake one in tests."
+    },
+    {
+      "term": "Protocol Conformance",
+      "definition": "When a type promises to follow a protocol and provides everything that the protocol asks for.",
+      "example": "I added Codable conformance to the model, so we can save it as JSON."
+    },
+    {
+      "term": "Extension",
+      "definition": "A way to add new features to an existing type, even one you did not write yourself.",
+      "example": "I wrote an extension on String to trim spaces, and now we use it everywhere."
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "Which one adds new features to an existing type, even one you did not write?",
+      "options": [
+        "Protocol",
+        "Extension",
+        "Protocol Conformance"
+      ],
+      "answer": "b"
+    },
+    {
+      "question": "Which one is a list of requirements that a type promises to follow?",
+      "options": [
+        "Extension",
+        "Protocol Conformance",
+        "Protocol"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "Which one is when a type promises to follow a protocol and provides everything it asks for?",
+      "options": [
+        "Protocol Conformance",
+        "Protocol",
+        "Extension"
+      ],
+      "answer": "a"
+    }
+  ],
+  "video": {
+    "title": "Protocol, Protocol Conformance & Extension | iOS Daily English Day 10",
+    "description": "Learn to talk about protocols in Swift: Protocol, Protocol Conformance and Extension, with a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nProtocol - A list of requirements that a type promises to follow, without saying how the work is done.\nProtocol Conformance - When a type promises to follow a protocol and provides everything that the protocol asks for.\nExtension - A way to add new features to an existing type, even one you did not write yourself.\n\nQuiz at the end - comment your answers, then watch again to check.\n\nDay 10 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "protocol",
+      "protocol conformance",
+      "extension",
+      "swift protocol",
+      "swift extension",
+      "swift basics",
+      "swift for beginners",
+      "swift",
+      "ios development",
+      "ios developer english",
+      "english for developers",
+      "iOS Daily English"
+    ],
+    "voices": {
+      "narrator": "Zoe (Premium)",
+      "example": "Tom (Enhanced)",
+      "exampleSlow": "Zoe (Premium)",
+      "pattern": "female -> male"
+    },
+    "file": "video/out/day010.mp4"
+  },
+  "status": {
+    "video": "rendered",
+    "youtube": "scheduled",
+    "facebook": "scheduled"
+  },
+  "youtube": {
+    "videoId": "grn6u4bO_tA",
+    "url": "https://youtu.be/grn6u4bO_tA",
+    "privacy": "private",
+    "scheduledAt": "2026-10-20T23:00:00.000Z",
+    "uploaded": "2026-10-20T01:12:06.648Z"
+  },
+  "facebook": {
+    "caption": "Hi everyone! Today's iOS Daily English is about protocols and extensions in Swift.\n\nToday's 3 terms:\nProtocol - a list of requirements that a type promises to follow.\nProtocol Conformance - when a type follows a protocol and provides everything it asks for.\nExtension - a way to add new features to an existing type, even one you did not write.\n\nEvery example sentence is read twice, normal speed and then slow, so you can say it out loud with us.\n\nThere is a short quiz at the end. Drop your answers in the comments, then watch again to check!\n\nDay 10 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#iOSDev #Swift #LearnEnglish #iOSDailyEnglish",
+    "videoId": "29042885615350563",
+    "mode": "SCHEDULED",
+    "uploaded": "2026-10-20T01:13:36.760Z",
+    "thumbnail": "video/out/day-010-thumb.png",
+    "thumbnailSet": "2026-10-20T01:13:36.746Z",
+    "scheduledAt": "2026-10-20T23:00:00.000Z",
+    "url": "https://www.facebook.com/reel/29042885615350563/"
+  }
+}

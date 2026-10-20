@@ -107,6 +107,18 @@
     "referencetype": {
       "term": "Reference Type",
       "day": 9
+    },
+    "protocol": {
+      "term": "Protocol",
+      "day": 10
+    },
+    "protocolconformance": {
+      "term": "Protocol Conformance",
+      "day": 10
+    },
+    "extension": {
+      "term": "Extension",
+      "day": 10
     }
   }
 }
