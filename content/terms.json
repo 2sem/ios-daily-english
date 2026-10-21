@@ -119,6 +119,18 @@
     "extension": {
       "term": "Extension",
       "day": 10
+    },
+    "generic": {
+      "term": "Generic",
+      "day": 11
+    },
+    "typeparameter": {
+      "term": "Type Parameter",
+      "day": 11
+    },
+    "genericconstraint": {
+      "term": "Generic Constraint",
+      "day": 11
     }
   }
 }
