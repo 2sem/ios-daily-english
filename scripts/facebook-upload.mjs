@@ -83,6 +83,7 @@ if (mode === "PUBLISHED") {
 }
 
 day.facebook = {
+  ...day.facebook,
   videoId: start.video_id,
   mode,
   uploaded: new Date().toISOString(),

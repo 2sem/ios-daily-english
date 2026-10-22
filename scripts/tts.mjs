@@ -35,14 +35,24 @@ day.terms.forEach((t, i) => {
   clips[`t${i + 1}-ex`] = t.example;
   clips[`t${i + 1}-ex2`] = t.example; // same sentence again, slowly
 });
+// short format (video.cutQuizIndex set): cold-open hook and CTA outro replace intro, quiz-intro and outro
+const short = day.video?.cutQuizIndex !== undefined;
+if (short) {
+  delete clips.intro; delete clips["quiz-intro"]; delete clips.outro;
+  clips.hook = day.video.hook;
+  clips["outro-cta"] = "Comment your answer. I reply to every comment.";
+}
 day.quizzes.forEach((q, i) => {
+  if (short && i !== day.video.cutQuizIndex) return;
   clips[`q${i + 1}-q`] = q.question;
   // the answer options are never spoken: viewers read them on screen
 });
 // say reads "let" and "var" fine; spell out how Swift names are spoken
 const speakable = (s) => s.replace(/\biOS\b/g, "eye O S").replace(/\bSwiftUI\b/g, "Swift U I");
 
+const only = opt("only", null)?.split(","); // e.g. --only hook,outro-cta renders just those clips
 for (const [key, text] of Object.entries(clips)) {
+  if (only && !only.includes(key)) continue;
   const aiff = join(dir, `${key}.aiff`);
   const isExample = /^t\d-ex2?$/.test(key);
   const slow = /^t\d-ex2$/.test(key);

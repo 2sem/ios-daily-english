@@ -131,6 +131,18 @@
     "genericconstraint": {
       "term": "Generic Constraint",
       "day": 11
+    },
+    "throws": {
+      "term": "throws",
+      "day": 12
+    },
+    "try": {
+      "term": "try",
+      "day": 12
+    },
+    "docatch": {
+      "term": "do-catch",
+      "day": 12
     }
   }
 }
