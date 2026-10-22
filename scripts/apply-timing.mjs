@@ -16,13 +16,16 @@ if (!htmlPath || !planPath) {
 const plan = JSON.parse(readFileSync(planPath, "utf8"));
 let html = readFileSync(htmlPath, "utf8");
 
-const scenes = {
-  intro: plan.intro,
-  s1: plan.terms[0], s2: plan.terms[1], s3: plan.terms[2],
-  "quiz-intro": plan.quizIntro,
-  q1: plan.quizzes[0], q2: plan.quizzes[1], q3: plan.quizzes[2],
-  outro: plan.outro,
-};
+// short format (plan.short): scenes hook, s1-s3, quiz (single), outro; standard: intro, s1-s3, quiz-intro, q1-q3, outro
+const scenes = plan.short
+  ? { hook: plan.hook, s1: plan.terms[0], s2: plan.terms[1], s3: plan.terms[2], quiz: plan.quizzes[0], outro: plan.outro }
+  : {
+      intro: plan.intro,
+      s1: plan.terms[0], s2: plan.terms[1], s3: plan.terms[2],
+      "quiz-intro": plan.quizIntro,
+      q1: plan.quizzes[0], q2: plan.quizzes[1], q3: plan.quizzes[2],
+      outro: plan.outro,
+    };
 for (const [id, s] of Object.entries(scenes)) {
   const re = new RegExp(`(<div class="scene clip" id="${id}" data-start=")[\\d.]+(" data-duration=")[\\d.]+(")`);
   if (!re.test(html)) { console.error(`error: scene #${id} not found`); process.exit(1); }

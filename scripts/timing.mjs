@@ -22,7 +22,9 @@ if (!file) {
 }
 const day = JSON.parse(readFileSync(resolve(file), "utf8"));
 const WPS = Number(opt("wps", 2.2)); // ~130 wpm: a learner-friendly pace
-const QUIZ_SECONDS = Number(opt("quiz-seconds", 8));
+// short format (~60 s experiment): day.video.cutQuizIndex present -> cold-open hook, one quiz, CTA outro
+const SHORT = day.video?.cutQuizIndex !== undefined;
+const QUIZ_SECONDS = Number(opt("quiz-seconds", SHORT ? 4 : 8));
 const audioDir = opt("audio-dir", null);
 const r1 = (n) => Math.round(n * 10) / 10;
 
@@ -47,10 +49,21 @@ let t = 0;
 
 // intro: voice says the series name and day, then the three terms appear
 const introVoice = `iOS Daily English. Day ${day.day}.`;
-const dIntro = speak("intro", introVoice);
-const intro = { start: 0, dur: r1(Math.max(3.5, 0.5 + dIntro + 1.0)) };
-cues.push({ at: 0.5, key: "intro", text: introVoice, seconds: r1(dIntro) });
-t += intro.dur;
+let intro, hook;
+if (SHORT) {
+  // cold open: the hook is on screen and spoken from the first frame, no logo
+  const dHook = speak("hook", day.video.hook);
+  hook = { start: 0, dur: r1(0.15 + dHook + 0.45) };
+  cues.push({ at: 0.15, key: "hook", text: day.video.hook, seconds: r1(dHook) });
+  t += hook.dur;
+} else {
+  const dIntro = speak("intro", introVoice);
+  intro = { start: 0, dur: r1(Math.max(3.5, 0.5 + dIntro + 1.0)) };
+  cues.push({ at: 0.5, key: "intro", text: introVoice, seconds: r1(dIntro) });
+  t += intro.dur;
+}
+// short format trims the silent gaps only; every clip keeps its full length
+const G = SHORT ? { term: 0.3, def: 0.3, code: 0.45, ex: 0.3, mid: 0.4, tail: 0.5 } : { term: 0.5, def: 0.4, code: 0.7, ex: 0.6, mid: 0.9, tail: 1.3 };
 
 // term scene: term -> definition (diagram plays) -> code card + example (read aloud) -> breathing room
 const terms = day.terms.map((term, i) => {
@@ -59,12 +72,12 @@ const terms = day.terms.map((term, i) => {
   const dDef = speak(`t${n}-def`, term.definition);
   const dEx = speak(`t${n}-ex`, term.example); // natural speed
   const dEx2 = clips[`t${n}-ex2`] ?? speak(`t${n}-ex2`, term.example) / 0.62; // again, slowly
-  const termAt = 0.5;
-  const defAt = termAt + dTerm + 0.4;
-  const codeAt = defAt + dDef + 0.7; // diagram ends, code card + example come in
-  const exampleAt = codeAt + 0.6;
-  const ex2At = exampleAt + 0.2 + dEx + 0.9;
-  const dur = ex2At + dEx2 + 1.3;
+  const termAt = G.term;
+  const defAt = termAt + dTerm + G.def;
+  const codeAt = defAt + dDef + G.code; // diagram ends, code card + example come in
+  const exampleAt = codeAt + G.ex;
+  const ex2At = exampleAt + 0.2 + dEx + G.mid;
+  const dur = ex2At + dEx2 + G.tail;
   const scene = {
     term: term.term,
     start: r1(t),
@@ -85,20 +98,23 @@ const terms = day.terms.map((term, i) => {
   return scene;
 });
 
-// quiz title card
-const quizIntro = { start: r1(t), dur: 2.5 };
-cues.push({ at: r1(t + 0.3), key: "quiz-intro", text: "Quiz time. Three questions.", seconds: 1.8 });
-t += quizIntro.dur;
+// quiz title card (standard format only)
+let quizIntro;
+if (!SHORT) {
+  quizIntro = { start: r1(t), dur: 2.5 };
+  cues.push({ at: r1(t + 0.3), key: "quiz-intro", text: "Quiz time. Three questions.", seconds: 1.8 });
+  t += quizIntro.dur;
+}
 
 // quiz: the question is read, options are shown (not spoken), THEN the countdown starts; answer is never revealed
-const quizzes = day.quizzes.map((q, i) => {
+const quizzes = day.quizzes.map((q, i) => ({ q, i })).filter(({ i }) => !SHORT || i === day.video.cutQuizIndex).map(({ q, i }) => {
   const n = i + 1;
   const dQ = speak(`q${n}-q`, q.question);
   // the question is read aloud; the options are NOT spoken, viewers read them (about 0.8 s each)
-  const questionAt = 0.5;
+  const questionAt = SHORT ? 0.3 : 0.5;
   const optsAt = questionAt + dQ + 0.3;
-  const countdownAt = optsAt + 2.4;
-  const dur = countdownAt + QUIZ_SECONDS + 1.5 + 1.0; // countdown, "Time's up", fade
+  const countdownAt = SHORT ? optsAt + 0.5 : optsAt + 2.4; // short: options are already on screen while the question is read
+  const dur = countdownAt + QUIZ_SECONDS + (SHORT ? 1.4 : 2.5); // countdown, "Time's up", fade
   const scene = {
     start: r1(t),
     dur: r1(dur),
@@ -112,12 +128,20 @@ const quizzes = day.quizzes.map((q, i) => {
   return scene;
 });
 
-const outro = { start: r1(t), dur: 4.5 };
-cues.push({ at: r1(t + 1.2), key: "outro", text: "Not sure? Watch it again.", seconds: 1.8 });
+let outro;
+if (SHORT) {
+  // CTA with the logo, then the last ~0.9 s returns to the cold-open frame so the Short loops
+  const dCta = speak("outro-cta", "Comment your answer. I reply to every comment.");
+  outro = { start: r1(t), dur: r1(0.3 + dCta + 0.9), loopAt: r1(0.3 + dCta + 0.1) };
+  cues.push({ at: r1(t + 0.3), key: "outro-cta", text: "Comment your answer. I reply to every comment.", seconds: r1(dCta) });
+} else {
+  outro = { start: r1(t), dur: 4.5 };
+  cues.push({ at: r1(t + 1.2), key: "outro", text: "Not sure? Watch it again.", seconds: 1.8 });
+}
 t += outro.dur;
 
-const plan = { day: day.day, wps: WPS, estimated: !Object.keys(clips).length, total: r1(t), intro, terms, quizIntro, quizzes, outro, cues };
-if (plan.total > 180) console.error(`warning: ${plan.total}s is over the 3-minute Shorts limit; raise --wps or trim text`);
+const plan = { day: day.day, wps: WPS, estimated: !Object.keys(clips).length, total: r1(t), ...(SHORT ? { short: true, hook } : { intro, quizIntro }), terms, quizzes, outro, cues };
+if (!SHORT && plan.total > 180) console.error(`warning: ${plan.total}s is over the 3-minute Shorts limit; raise --wps or trim text`);
 
 const pad = String(day.day).padStart(3, "0");
 const outDir = join(root, "video", "out");
