@@ -17,7 +17,7 @@ Full rules and commands: `docs/channel-workflow.md`.
    registers the terms via `node scripts/day.mjs add` (duplicates are rejected there).
 3. **Review gate.** Show the user the terms, definitions, quizzes and title (from `day-NNN.post.txt` and the JSON).
    Wait for approval or edits. Re-run `node scripts/day.mjs add` after edits.
-4. **Voice.** `node scripts/tts.mjs content/days/day-NNN.json` (voices rotate by day and are saved in the JSON).
+4. **Voice.** `node scripts/tts.mjs content/days/day-NNN.json` (edge-tts neural voices; they rotate by day and are saved in the JSON; offline fallback `--engine say`).
    Optionally give the user the clips in `video/audio/day-NNN/` to audition before rendering.
 5. **Video.** Spawn `video-artist` with the day file path. It builds the vertical composition, applies timing from the
    real clip lengths, adds music, renders `video/out/dayNNN.mp4`. Open the MP4 for the user.
