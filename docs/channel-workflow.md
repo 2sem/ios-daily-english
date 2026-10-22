@@ -8,7 +8,7 @@ reference; the layout rules and diagram guidance in its section 4 still apply, e
 | Output | Detail |
 |---|---|
 | Video | Vertical **1080x1920** YouTube Short, about 2 minutes, H.264 + AAC |
-| Voice | Offline TTS (macOS `say`), two voices that rotate by day |
+| Voice | edge-tts (Microsoft neural en-US voices), two voices that rotate by day. Offline fallback: macOS `say` |
 | Music | Quiet background track under the voice |
 | Thumbnail | Portrait **1080x1920**: logo, "Day N", the three terms |
 | Metadata | Title, description, tags stored in the day JSON |
@@ -61,11 +61,25 @@ Default time is 08:00 KST next day. Nothing is published before the step 6 appro
 - Narrator voice reads intro, term, definition, quiz question and outro at 135 wpm, with short pauses at commas.
 - A second voice reads the example. **Each example is read twice: natural speed (160 wpm), then slowly (100 wpm)**,
   and the on-screen label switches from "In a sentence" to "Again, slowly".
-- Voices rotate by day (`scripts/voices.mjs`): female/male, male/female, random (seeded by day). Premium and Enhanced
-  voices are used when installed (System Settings, Accessibility, Spoken Content, Manage Voices).
-  A day's voices are saved in its JSON (`video.voices`) so a re-render sounds the same.
+- Voices rotate by day (`scripts/voices.mjs`): female/male, male/female, random (seeded by day). Default engine is
+  **edge-tts** (`en-US-Ava/Jenny/Aria` female, `en-US-Andrew/Guy/Brian` male; `edge-tts` is on PATH from `~/.local/bin`).
+  A day's voices and engine are saved in its JSON (`video.voices`) so a re-render sounds the same. A day saved with
+  another engine (older days used `say`) gets this engine's rotation when `tts.mjs` is re-run.
 - The slow second reading uses the narrator voice.
 - **Quiz options are never spoken.** They appear with the question so viewers can read ahead.
+
+### Narration engine (edge-tts)
+- Feed narration text as written. Keep English terms in English, no phonetic respelling (that was a `say` workaround;
+  `--engine say` still applies it).
+- Each clip is kept as `video/audio/day-NNN/<key>.mp3` and reused on re-runs, so a re-render never calls the service
+  again. `--force` regenerates; `--only a,b` renders just those keys. The pipeline reads the `.wav` made from the mp3.
+- Scene length = audio length (`timing.mjs` measures with ffprobe). edge clips run about 25-45% longer than `say`
+  (the slow second reading most), so retime scenes and check the 180 s Shorts limit and the 60-75 s short-format band.
+- Listen to the key terms (`throws`, `do-catch`, `SwiftUI`, `nil`) before the final render. Some voices, e.g.
+  `en-US-EmmaNeural`, intermittently reject certain `--rate` values, so they are not in the pool.
+- Offline fallback: `node scripts/tts.mjs <day.json> --engine say`. edge-tts needs internet and uses an unofficial Edge
+  endpoint: fine while the channel has no ads or sponsors; switch to Azure Speech (licensed, free tier 500k
+  chars/month) if the channel is monetized.
 
 ### Video
 - Timing is derived from real clip lengths (`timing.mjs`), never fixed seconds. The example always gets its full reading time.
@@ -123,7 +137,7 @@ Default time is 08:00 KST next day. Nothing is published before the step 6 appro
 | `.claude/skills/new-day/` | `/new-day` manager workflow |
 
 ## Open items
-- Premium voices cover US English only; the standard pool adds GB, AU, IE, IN, ZA accents.
+- edge voices are en-US only; other accents (en-GB, en-AU, en-IN) are available in edge-tts if wanted.
 - Facebook: the user token expires (about 60 days if extended); refresh in Graph API Explorer and re-derive the Page token.
 - Facebook: the app is in Development mode, so only app roles can publish; fine for our own Page.
 - Day 1 was uploaded under the first Google Cloud project; the current OAuth client belongs to a second project.

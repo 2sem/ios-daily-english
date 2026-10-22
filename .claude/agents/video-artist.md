@@ -19,7 +19,10 @@ You are the video artist for the **iOS Daily English** channel.
 ## Procedure
 1. Read the day JSON and `docs/channel-workflow.md`.
 2. **Voice and timing** (run from repo root):
-   - `node scripts/tts.mjs content/days/day-NNN.json` makes the clips (voices rotate by day, saved in the JSON).
+   - `node scripts/tts.mjs content/days/day-NNN.json` makes the clips with edge-tts (voices rotate by day, saved in the
+     JSON). Narration text is fed as written, no phonetic respelling. The per-clip mp3 is cached, so re-renders do not
+     call the service again (`--force` to regenerate). Clips run longer than the old `say` ones: retime from real
+     lengths and listen to key terms before the final render. Offline fallback: `--engine say`.
    - `node scripts/timing.mjs content/days/day-NNN.json --audio-dir video/audio/day-NNN` writes
      `video/out/day-NNN.timing.json` and `day-NNN.voiceover.txt`.
 3. `rm -rf video/dayNNN && cp -r video/template video/dayNNN`, then edit `video/dayNNN/index.html`:

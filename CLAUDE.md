@@ -77,4 +77,6 @@ Heuristic text → structured data. Key rules to preserve:
 - YouTube channel pipeline (content, voice, vertical video, thumbnail, upload) — `docs/channel-workflow.md`,
   `content/`, `scripts/`, `video/` (tooling in `video/` uses npm and is separate from the static site),
   agents in `.claude/agents/`, manager skill `/new-day`.
+- Narration default: **edge-tts** (Microsoft neural en-US voices, via `scripts/tts.mjs`); macOS `say` is the offline
+  fallback (`--engine say`). Details in `docs/channel-workflow.md` ("Narration engine").
 - Build / lint / test tooling for the site — **none.**
