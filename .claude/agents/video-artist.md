@@ -56,3 +56,19 @@ You are the video artist for the **iOS Daily English** channel.
 ## Report
 MP4 path, duration, resolution, one line per term (diagram + code shown), anything to double-check
 (snippets not type-checked, music licence, layout compromises), files changed. Keep it short. Do not commit or push.
+
+## Pilot formats: landscape long-form and vertical hooks
+When the day JSON has `dialogue` and/or `hooks` and the manager asks for them (see "Pilot: landscape long-form + vertical
+hooks" in `docs/video-workflow.md`), also produce:
+1. `node scripts/tts-landscape.mjs <day.json>`, then `timing-landscape.mjs`, `scaffold-landscape.mjs` (-> `video/dayNNN-landscape/`)
+   and `scaffold-hooks.mjs` (-> `video/dayNNN-hook1..K/`). Code snippets come from `terms[i].code` in the day JSON
+   (`--extra` is an optional override); type-check each with `swiftc -typecheck`. Delete `video/audio/day-NNN-landscape/`
+   first if voices changed (the cache is keyed by clip name).
+2. `npx hyperframes check`, snapshot (a term scene, a conversation line, a replay line before and after the reveal, a quiz,
+   the outro; each hook), fix overlaps in the **template** (`video/template-landscape/`, `video/template-hook/`) and rescaffold.
+3. Render landscape to `video/out/dayNNN-landscape.mp4` (1920x1080) and hooks to `video/out/dayNNN-hookK.mp4` (1080x1920,
+   15-25 s), and the 1280x720 thumbnail with `node scripts/thumbnail.mjs <day.json> --landscape`. Analyse the final audio
+   (ffmpeg `volumedetect`, `silencedetect`; the looped music has crossfaded seams). Report durations, render time and the
+   snippets checked. Do not upload.
+Voices: the narrator and example voices are not dialogue speakers (Christopher / Jenny by default). The conversation and replay scenes (and the one-line-conversation hook) use the chat-app UI: change its look in the templates, never in a generated folder. Rules that still hold: examples read twice, quiz options never spoken, no answer reveal, logo only in intro and outro, voices
+per speaker. The landscape format has no diagram per term (left = code, right = plain English).

@@ -13,7 +13,7 @@ Full rules and commands: `docs/channel-workflow.md`.
 1. **Next day.** `node scripts/day.mjs next`. Use `nextDay` unless the user names a day.
    If that day already has a file, stop and ask before overwriting.
 2. **Content.** Spawn `content-creator` with Day N, the phase hint from `content/CURRICULUM.md` and any theme
-   the user asked for. It writes `content/days/day-NNN.json` (terms, quizzes, title, description, tags) and
+   the user asked for. It writes `content/days/day-NNN.json` (terms, quizzes, title, description, tags, plus `dialogue`, `hooks` and an optional `terms[i].code` Swift snippet for the landscape code panel (new days should include it), see docs/channel-workflow.md) and
    registers the terms via `node scripts/day.mjs add` (duplicates are rejected there).
 3. **Review gate.** Show the user the terms, definitions, quizzes and title (from `day-NNN.post.txt` and the JSON).
    Wait for approval or edits. Re-run `node scripts/day.mjs add` after edits.

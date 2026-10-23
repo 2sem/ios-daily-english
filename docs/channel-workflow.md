@@ -57,6 +57,14 @@ Default time is 08:00 KST next day. Nothing is published before the step 6 appro
 - Definition: one plain sentence. Example: one realistic teammate sentence. Both appear verbatim in the video.
 - Quizzes: 3 questions, order differs from the terms, each term correct exactly once, question never names its answer.
 
+- Dialogue and hooks (pilot, landscape-dialogue-format): each day JSON also carries `dialogue`
+  (title, setting, two speakers with edge-tts voice ids, 18-20 lines of about 2 minutes, each term used at
+  least three times, per-line `terms`) for a long landscape video, and `hooks` (15-25 s Shorts: `one-line-example`
+  with one sentence, `one-line-conversation` with an A/B exchange, max about 12 words per line).
+  Each `terms[i]` may carry an optional `code` string (a 3-8 line Swift snippet, type-checked with
+  `swiftc -typecheck`) shown in the landscape code panel; new days should include it.
+  The vertical pipeline ignores these fields, so existing renders keep working.
+
 ### Voice
 - Narrator voice reads intro, term, definition, quiz question and outro at 135 wpm, with short pauses at commas.
 - A second voice reads the example. **Each example is read twice: natural speed (160 wpm), then slowly (100 wpm)**,
