@@ -63,6 +63,10 @@ Default time is 08:00 KST next day. Nothing is published before the step 6 appro
   with one sentence, `one-line-conversation` with an A/B exchange, max about 12 words per line).
   Each `terms[i]` may carry an optional `code` string (a 3-8 line Swift snippet, type-checked with
   `swiftc -typecheck`) shown in the landscape code panel; new days should include it.
+  Metadata: `video.landscape` = `{title (<=100), description, tags}` for the long video (description is EN + KO and contains
+  the literal line `{{CHAPTERS}}`, which the uploader fills with timestamps from the render timing); each hook also has
+  `title` (<=100, with #Shorts) and `description` containing `Full conversation: {{LONG_URL}}` (filled by the uploader
+  with the long video URL).
   The vertical pipeline ignores these fields, so existing renders keep working.
 
 ### Voice
@@ -109,6 +113,19 @@ Default time is 08:00 KST next day. Nothing is published before the step 6 appro
   an auto-picked video frame and the API cannot change that. After the upload, copy the thumbnail to `~/Downloads/`.
 - **Manual step, every day:** in the YouTube Studio mobile app, Content > the Short > Edit > Thumbnail, then upload
   `video/out/day-NNN-thumb.png`. Do this once the upload is processed; the report must remind the owner.
+
+### Landscape + hooks upload (pilot)
+- `node scripts/youtube-upload.mjs content/days/day-NNN.json --kind landscape|hook1|hook2|hook3 --publish-at <ISO> [--dry-run] [--force]`.
+  Files: `video/out/dayNNN-landscape.mp4`, `video/out/dayNNN-hook{1,2,3}.mp4`. Always private + `publishAt`, never made for kids.
+- Landscape: no `#Shorts`; tags from `video.landscape.tags`; `{{CHAPTERS}}` becomes chapter lines computed from
+  `video/out/day-NNN.landscape.timing.json` (0:00 Intro, each term, Chat conversation, Fill the blank (replay), Quiz,
+  See you tomorrow; the script refuses fewer than 3 chapters or any under 10 s).
+- Hooks: title/description from `hooks[i-1]`; `{{LONG_URL}}` becomes `https://youtu.be/<video.landscape.youtubeId>`,
+  so upload the landscape first. Tags come from `hooks[i].tags`, else `video.tags`.
+- `--dry-run` prints title (with length), file, privacy, publishAt, tags, chapters and description; no API call.
+- The id is recorded in the day JSON (`video.landscape.youtubeId` / `hooks[i].youtubeId`, plus `publishAt`, `privacy`,
+  `uploaded`). A kind that already has a `youtubeId` is refused unless `--force`.
+- Thumbnails are manual in Studio: copy `video/out/day-NNN-thumb-landscape.png` to `~/Downloads/`.
 
 ### Facebook / Instagram
 - Reel goes to the Page "IOS Daily English" (Facebook Group has no API). Instagram receives it through Meta

@@ -44,6 +44,11 @@ Besides the existing fields, every day JSON has two extra top-level fields. Exis
   `{type:"one-line-example", term, lines:[{text}]}` = one sentence using the term.
   `{type:"one-line-conversation", term, lines:[{speaker:"A",text},{speaker:"B",text}]}` = a two-line exchange.
   Cover each term at most once per hook; aim for one hook per term, mixing both types.
+- `video.landscape` (`{title, description, tags}`): metadata for the long landscape upload. Title <= 100 chars; description is
+  bilingual EN + KO (hook, 3 terms with definition + Korean gloss, a line about the chat, then the literal line `{{CHAPTERS}}`,
+  then the comment prompt, 3-5 hashtags, no #Shorts); tags without #. The uploader replaces `{{CHAPTERS}}` with timestamps.
+- `hooks[i].title` (<= 100 chars, includes #Shorts) and `hooks[i].description` (the line, term + EN/KO meaning,
+  `Full conversation: {{LONG_URL}}`, `#Shorts #Swift #iOSDeveloper`). The uploader replaces `{{LONG_URL}}` with the long video URL.
 
 ## Title and description (the part that attracts viewers)
 - **Title** (≤ 70 chars, front-load the hook): `<Term A>, <Term B> & <Term C> in 2 minutes | iOS Daily English Day N`

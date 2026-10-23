@@ -32,6 +32,13 @@ built-in `fetch`. **Do not install axios or any HTTP package.**
    settable via API, so set it manually in the YouTube Studio mobile app (Content > the Short > Edit > Thumbnail >
    upload `~/Downloads/day-NNN-thumb.png`).
 
+## Landscape + hook Shorts (pilot days)
+- `node scripts/youtube-upload.mjs content/days/day-NNN.json --kind landscape|hook1|hook2|hook3 --publish-at <ISO>`.
+  Always run with `--dry-run` first and show the output. Upload the landscape first (hooks link to its URL).
+- Landscape chapters are generated from `video/out/day-NNN.landscape.timing.json`; the dry run prints them.
+- Ids are stored as `video.landscape.youtubeId` / `hooks[i].youtubeId`; re-upload of a kind needs `--force`.
+- Thumbnails stay manual: copy `video/out/day-NNN-thumb-landscape.png` to `~/Downloads/`.
+
 ## Constraints
 - `videos.insert` costs 1600 quota units of 10 000 per day per project: one upload a day is fine.
 - Projects that have not passed YouTube's API audit may have uploads locked private; `publishAt` then does not take
