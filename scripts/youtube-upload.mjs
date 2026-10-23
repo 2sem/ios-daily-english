@@ -134,5 +134,14 @@ if (kind === "default") {
   Object.assign(holder, { youtubeId: out.id, youtubeUrl: `https://youtu.be/${out.id}`, privacy: status.privacyStatus, publishAt: status.publishAt ?? null, uploaded: new Date().toISOString() });
 }
 writeFileSync(dayPath, JSON.stringify(day, null, 2) + "\n");
+if (kind === "landscape") {
+  // 16:9 video: thumbnails.set works (verified on Day 13). Not for hooks / Shorts (cover is not settable via API).
+  const thumb = resolve(root, `video/out/day-${pad}-thumb-landscape.png`);
+  const tp = await fetch(`https://www.googleapis.com/upload/youtube/v3/thumbnails/set?videoId=${out.id}&uploadType=media`, {
+    method: "POST", headers: { ...auth, "content-type": "image/png" }, body: readFileSync(thumb),
+  }).catch((e) => ({ ok: false, status: 0, text: async () => String(e) }));
+  if (tp.ok) { holder.thumbnailSet = new Date().toISOString(); writeFileSync(dayPath, JSON.stringify(day, null, 2) + "\n"); console.log("Landscape thumbnail set via API."); }
+  else console.error(`Landscape thumbnail NOT set (${tp.status}): ${await tp.text()}\nRetry: node scripts/youtube-thumbnail.mjs ${out.id} ${thumb}`);
+}
 console.log(`Done: https://youtu.be/${out.id}  (${status.privacyStatus}${publishAt ? ", scheduled" : ""})`);
 console.log(`Studio: https://studio.youtube.com/video/${out.id}/edit`);

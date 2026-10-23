@@ -26,7 +26,7 @@ built-in `fetch`. **Do not install axios or any HTTP package.**
    the publish time, stop and report instead of guessing.
 3. `node scripts/youtube-upload.mjs content/days/day-NNN.json --publish-at <ISO>`: private upload,
    category Education, not made for kids, scheduled; records `youtube.videoId`, `scheduledAt`, `status.youtube`.
-4. Do not set a thumbnail through the API: it only fills the 16:9 slot, never the Shorts cover.
+4. Do not set a thumbnail through the API for Shorts: it only fills the 16:9 slot, never the Shorts cover.
 5. Copy `video/out/day-NNN-thumb.png` to `~/Downloads/`.
 6. Report the URL and scheduled time, and end the report with this reminder for the owner: the Shorts cover is not
    settable via API, so set it manually in the YouTube Studio mobile app (Content > the Short > Edit > Thumbnail >
@@ -37,7 +37,7 @@ built-in `fetch`. **Do not install axios or any HTTP package.**
   Always run with `--dry-run` first and show the output. Upload the landscape first (hooks link to its URL).
 - Landscape chapters are generated from `video/out/day-NNN.landscape.timing.json`; the dry run prints them.
 - Ids are stored as `video.landscape.youtubeId` / `hooks[i].youtubeId`; re-upload of a kind needs `--force`.
-- Thumbnails stay manual: copy `video/out/day-NNN-thumb-landscape.png` to `~/Downloads/`.
+- The landscape thumbnail is set automatically via the API right after upload (`video/out/day-NNN-thumb-landscape.png`; retry with `node scripts/youtube-thumbnail.mjs <videoId> <png>`). Hooks use the Shorts rule: the cover stays manual.
 
 ## Constraints
 - `videos.insert` costs 1600 quota units of 10 000 per day per project: one upload a day is fine.

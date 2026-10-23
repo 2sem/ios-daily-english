@@ -109,7 +109,7 @@ Default time is 08:00 KST next day. Nothing is published before the step 6 appro
 ### Upload
 - Always upload **private**, scheduled with `--publish-at`. Default slot: 08:00 KST (commute).
 - Never upload the same day twice (the script refuses when `youtube.videoId` is set).
-- No thumbnail API call. `thumbnails.set` only fills the 16:9 slot (watch page, search); the Shorts tab and feed show
+- No thumbnail API call for Shorts. `thumbnails.set` only fills the 16:9 slot (watch page, search); the Shorts tab and feed show
   an auto-picked video frame and the API cannot change that. After the upload, copy the thumbnail to `~/Downloads/`.
 - **Manual step, every day:** in the YouTube Studio mobile app, Content > the Short > Edit > Thumbnail, then upload
   `video/out/day-NNN-thumb.png`. Do this once the upload is processed; the report must remind the owner.
@@ -125,7 +125,9 @@ Default time is 08:00 KST next day. Nothing is published before the step 6 appro
 - `--dry-run` prints title (with length), file, privacy, publishAt, tags, chapters and description; no API call.
 - The id is recorded in the day JSON (`video.landscape.youtubeId` / `hooks[i].youtubeId`, plus `publishAt`, `privacy`,
   `uploaded`). A kind that already has a `youtubeId` is refused unless `--force`.
-- Thumbnails are manual in Studio: copy `video/out/day-NNN-thumb-landscape.png` to `~/Downloads/`.
+- The landscape (16:9) thumbnail is set automatically via `thumbnails.set` after the upload (verified on Day 13);
+  retry with `node scripts/youtube-thumbnail.mjs <videoId> video/out/day-NNN-thumb-landscape.png`. The manual-cover
+  rule applies to Shorts (normal and hooks) only.
 
 ### Facebook / Instagram
 - Reel goes to the Page "IOS Daily English" (Facebook Group has no API). Instagram receives it through Meta
