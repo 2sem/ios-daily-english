@@ -13,7 +13,7 @@ Full rules and commands: `docs/channel-workflow.md`.
 1. **Next day.** `node scripts/day.mjs next`. Use `nextDay` unless the user names a day.
    If that day already has a file, stop and ask before overwriting.
 2. **Content.** Spawn `content-creator` with Day N, the phase hint from `content/CURRICULUM.md` and any theme
-   the user asked for. It writes `content/days/day-NNN.json` (terms, quizzes, title, description, tags) and
+   the user asked for. It writes `content/days/day-NNN.json` (terms, quizzes, title, description, tags, plus `dialogue`, `hooks` and an optional `terms[i].code` Swift snippet for the landscape code panel (new days should include it), see docs/channel-workflow.md) and
    registers the terms via `node scripts/day.mjs add` (duplicates are rejected there).
 3. **Review gate.** Show the user the terms, definitions, quizzes and title (from `day-NNN.post.txt` and the JSON).
    Wait for approval or edits. Re-run `node scripts/day.mjs add` after edits.
@@ -25,7 +25,7 @@ Full rules and commands: `docs/channel-workflow.md`.
 7. **Upload.** The user's approval of the video and thumbnail (or "confirmed" / "publish") is the single publish
    approval. Do not ask again about caption, time or licence. Use the stated time, else the default 08:00 KST next
    day, and spawn `youtube-uploader`. It uploads private with `publishAt`. No thumbnail API call: the Shorts cover is NOT
-   settable via API (see step 9). When the upload succeeds, copy `video/out/day-NNN-thumb.png` to `~/Downloads/`.
+   settable via API (see step 9). Shorts upload with notifySubscribers=false; landscape notifies. When the upload succeeds, copy `video/out/day-NNN-thumb.png` to `~/Downloads/`.
 8. **Facebook.** Right after the YouTube upload, spawn `facebook-uploader` with the same time. It writes the
    friendly `facebook.caption` and runs `scripts/facebook-upload.mjs` (`--publish-at` by default) without asking.
    Show the caption in the final report. Meta cross-posts the Reel to Instagram.

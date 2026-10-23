@@ -2,6 +2,7 @@
 // Builds a portrait 1080x1920 (9:16) YouTube thumbnail for a day for the vertical Shorts (logo + "Day N" + the three terms) and screenshots it with
 // the headless Chrome that hyperframes already downloaded. No packages.
 //   node scripts/thumbnail.mjs content/days/day-001.json   -> video/out/day-001-thumb.png
+//   node scripts/thumbnail.mjs content/days/day-013.json --landscape   -> video/out/day-013-thumb-landscape.png (1280x720)
 import { readFileSync, writeFileSync, mkdirSync, readdirSync, existsSync, statSync } from "node:fs";
 import { execFileSync } from "node:child_process";
 import { homedir } from "node:os";
@@ -25,7 +26,27 @@ const logo = join(root, "brand", "logo.png");
 const colors = ["#f26b4f", "#5aa9ff", "#b692ff"];
 const terms = day.terms.map((t, i) => `<div class="t" style="color:${colors[i]}">${t.term}</div>`).join("");
 
-const html = `<!doctype html><html><head><meta charset="utf-8"><style>
+const landscape = process.argv.includes("--landscape"); // 1280x720 for the long-form video
+const W = landscape ? 1280 : 1080, H = landscape ? 720 : 1920;
+const lterms = day.terms.map((t, i) => `<div class="lt" style="color:${colors[i]}">${t.term}</div>`).join("");
+const landscapeHtml = `<!doctype html><html><head><meta charset="utf-8"><style>
+@font-face{font-family:Inter;font-weight:800;src:url(file://${fonts}/inter-latin-800-normal.woff2)}
+@font-face{font-family:Inter;font-weight:600;src:url(file://${fonts}/inter-latin-600-normal.woff2)}
+@font-face{font-family:JB;font-weight:600;src:url(file://${fonts}/jetbrains-mono-latin-600-normal.woff2)}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1280px;height:720px;overflow:hidden;background:#0b0f1a;color:#eef1f7;font-family:Inter,sans-serif}
+.bg{position:absolute;inset:0;background:radial-gradient(800px 500px at 92% -10%,rgba(242,107,79,.24),transparent 70%),radial-gradient(700px 500px at -6% 112%,rgba(90,169,255,.2),transparent 70%)}
+.wrap{position:absolute;inset:0;display:flex;align-items:center;padding:0 70px;gap:64px}
+.logo{width:340px;height:340px;flex:none;border-radius:76px;overflow:hidden;background:#fff;box-shadow:0 20px 60px rgba(0,0,0,.55)}
+.logo img{width:100%;height:100%;image-rendering:pixelated;display:block}
+.k{font-size:30px;font-weight:600;color:#f26b4f;letter-spacing:.08em;text-transform:uppercase}
+.d{font-size:150px;font-weight:800;letter-spacing:-.05em;line-height:1;margin:6px 0 22px}
+.lt{font-family:JB,monospace;font-size:62px;font-weight:600;line-height:1.28;white-space:nowrap}
+.cv{margin-top:18px;font-size:34px;font-weight:700;color:#ffc145}
+</style></head><body><div class="bg"></div>
+<div class="wrap"><div class="logo"><img src="file://${logo}"></div><div><div class="k">iOS Daily English</div><div class="d">Day ${day.day}</div>${lterms}${day.dialogue ? `<div class="cv">+ a real conversation</div>` : ""}</div></div>
+</body></html>`;
+const html = landscape ? landscapeHtml : `<!doctype html><html><head><meta charset="utf-8"><style>
 @font-face{font-family:Inter;font-weight:800;src:url(file://${fonts}/inter-latin-800-normal.woff2)}
 @font-face{font-family:Inter;font-weight:600;src:url(file://${fonts}/inter-latin-600-normal.woff2)}
 @font-face{font-family:JB;font-weight:600;src:url(file://${fonts}/jetbrains-mono-latin-600-normal.woff2)}
@@ -44,8 +65,9 @@ html,body{width:1080px;height:1920px;overflow:hidden;background:#0b0f1a;color:#e
 
 const out = join(root, "video", "out");
 mkdirSync(out, { recursive: true });
-const htmlPath = join(out, `day-${pad}-thumb.html`);
-const png = join(out, `day-${pad}-thumb.png`);
+const sfx = landscape ? "-thumb-landscape" : "-thumb";
+const htmlPath = join(out, `day-${pad}${sfx}.html`);
+const png = join(out, `day-${pad}${sfx}.png`);
 writeFileSync(htmlPath, html);
-execFileSync(chrome, ["--no-sandbox", "--hide-scrollbars", "--force-device-scale-factor=1", "--window-size=1080,1920", "--allow-file-access-from-files", `--screenshot=${png}`, `file://${htmlPath}`], { stdio: "ignore" });
+execFileSync(chrome, ["--no-sandbox", "--hide-scrollbars", "--force-device-scale-factor=1", `--window-size=${W},${H}`, "--allow-file-access-from-files", `--screenshot=${png}`, `file://${htmlPath}`], { stdio: "ignore" });
 console.log(`${png} (${(statSync(png).size / 1024).toFixed(0)} KB)`);

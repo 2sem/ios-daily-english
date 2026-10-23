@@ -1,0 +1,325 @@
+<!doctype html>
+<!--
+  Landscape 1920x1080 long-form template (pilot). Do not edit by hand per day:
+    node scripts/scaffold-landscape.mjs content/days/day-NNN.json
+  fills the three marked regions (SCENES, VOICE, PLAN/DATA) and copies this folder to video/dayNNN-landscape/.
+  Styling, fonts, logo and colours are shared with the vertical template (video/template).
+-->
+<html lang="en" data-resolution="landscape">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <script src="assets/gsap.min.js"></script>
+    <style>
+      @font-face { font-family: Inter; font-weight: 400; font-style: normal; src: url(assets/fonts/inter-latin-400-normal.woff2) format("woff2"); }
+      @font-face { font-family: Inter; font-weight: 500; font-style: normal; src: url(assets/fonts/inter-latin-500-normal.woff2) format("woff2"); }
+      @font-face { font-family: Inter; font-weight: 600; font-style: normal; src: url(assets/fonts/inter-latin-600-normal.woff2) format("woff2"); }
+      @font-face { font-family: Inter; font-weight: 700; font-style: normal; src: url(assets/fonts/inter-latin-700-normal.woff2) format("woff2"); }
+      @font-face { font-family: Inter; font-weight: 800; font-style: normal; src: url(assets/fonts/inter-latin-800-normal.woff2) format("woff2"); }
+      @font-face { font-family: Inter; font-weight: 400; font-style: italic; src: url(assets/fonts/inter-latin-400-italic.woff2) format("woff2"); }
+      @font-face { font-family: "JetBrains Mono"; font-weight: 400; src: url(assets/fonts/jetbrains-mono-latin-400-normal.woff2) format("woff2"); }
+      @font-face { font-family: "JetBrains Mono"; font-weight: 600; src: url(assets/fonts/jetbrains-mono-latin-600-normal.woff2) format("woff2"); }
+      @font-face { font-family: KoSans; font-weight: 400 800; src: local("Apple SD Gothic Neo"); }
+      :root {
+        --bg: #0b0f1a; --panel: #131a2a; --line: #26304a; --text: #eef1f7; --muted: #9aa5bd;
+        --swift: #f26b4f; --blue: #5aa9ff; --violet: #b692ff; --err: #ff5d6c; --ok: #43d68a; --quiz: #ffc145;
+        --spA: #3ecfc0; --spB: #ff7ab2;
+      }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1920px; height: 1080px; overflow: hidden; background: var(--bg); color: var(--text); font-family: Inter, ui-sans-serif, system-ui, sans-serif; }
+      #root { position: relative; width: 100%; height: 100%; overflow: hidden; }
+      .bg-glow { position: absolute; inset: 0; background: radial-gradient(1100px 700px at 88% -12%, rgba(242, 107, 79, 0.16), transparent 70%), radial-gradient(900px 700px at -8% 112%, rgba(90, 169, 255, 0.12), transparent 70%); }
+      .scene { position: absolute; inset: 0; }
+      .c0 { --c: var(--swift); --cbg: rgba(242, 107, 79, 0.2); }
+      .c1 { --c: var(--blue); --cbg: rgba(90, 169, 255, 0.2); }
+      .c2 { --c: var(--violet); --cbg: rgba(182, 146, 255, 0.2); }
+
+      /* persistent header */
+      .header { position: absolute; top: 34px; left: 72px; right: 72px; height: 40px; display: flex; align-items: center; justify-content: space-between; font-size: 24px; font-weight: 600; color: var(--muted); letter-spacing: 0.02em; z-index: 5; }
+      .header .brand { display: flex; align-items: center; gap: 12px; }
+      .phone { width: 20px; height: 32px; border: 3px solid var(--swift); border-radius: 6px; position: relative; }
+      .phone::after { content: ""; position: absolute; bottom: 3px; left: 50%; width: 6px; height: 2px; margin-left: -3px; background: var(--swift); border-radius: 2px; }
+      .dots { display: flex; gap: 10px; }
+      .dot { width: 64px; height: 6px; border-radius: 3px; background: var(--line); }
+      .dot i { display: block; height: 100%; width: 100%; border-radius: 3px; transform-origin: left; transform: scaleX(0); }
+
+      /* cold open */
+      .cold-hook { position: absolute; left: 160px; right: 160px; top: 0; bottom: 0; display: flex; align-items: center; justify-content: center; text-align: center; font-size: 120px; font-weight: 800; letter-spacing: -0.04em; line-height: 1.08; }
+      #cold-intro { position: absolute; inset: 0; padding: 0 160px; display: flex; align-items: center; gap: 90px; }
+      .logo-tile { width: 320px; height: 320px; flex: none; border-radius: 70px; overflow: hidden; background: #fff; box-shadow: 0 18px 60px rgba(0, 0, 0, 0.45); }
+      .logo-tile img { display: block; width: 100%; height: 100%; image-rendering: pixelated; }
+      .kicker { font-size: 34px; font-weight: 600; color: var(--swift); letter-spacing: 0.08em; text-transform: uppercase; }
+      .day { font-size: 200px; font-weight: 800; letter-spacing: -0.05em; line-height: 1; margin: 14px 0 24px; }
+      .intro-sub { font-size: 44px; font-weight: 500; color: var(--muted); }
+      .intro-terms { margin-top: 44px; display: flex; gap: 44px; flex-wrap: wrap; }
+      .intro-terms div { font-family: "JetBrains Mono", monospace; font-size: 46px; font-weight: 600; color: var(--c); }
+
+      /* term scenes: code panel left, plain English right */
+      .num { position: absolute; left: 72px; top: 112px; font-family: "JetBrains Mono", monospace; font-size: 26px; font-weight: 600; letter-spacing: 0.06em; color: var(--c); }
+      .lpanel { position: absolute; left: 72px; top: 170px; width: 880px; height: 700px; border-radius: 26px; border: 2px solid var(--line); background: #0e1422; overflow: hidden; }
+      .wbar { height: 60px; display: flex; align-items: center; gap: 10px; padding: 0 24px; border-bottom: 2px solid var(--line); background: #131a2a; font-family: "JetBrains Mono", monospace; font-size: 22px; color: var(--muted); }
+      .wbar i { width: 14px; height: 14px; border-radius: 50%; background: var(--line); }
+      .wbar span { margin-left: 14px; }
+      .code { position: absolute; left: 0; right: 0; top: 60px; bottom: 0; display: flex; flex-direction: column; justify-content: center; padding: 0 56px; font-family: "JetBrains Mono", monospace; font-size: 28px; line-height: 1.75; }
+      .ln { white-space: pre; position: relative; font-variant-ligatures: none; }
+      .ln.bad { color: var(--err); }
+      .ln.bad::before { content: ""; position: absolute; left: -20px; right: -20px; top: 2px; bottom: 2px; border-radius: 8px; background: rgba(255, 93, 108, 0.12); }
+      .kw { color: #ff7ab2; } .ty { color: #6bdfff; } .fn { color: #67b7a4; } .cm { color: #7f8aa3; } .cm.e { color: var(--err); } .st { color: #fc6a5d; }
+      .rp { position: absolute; left: 1010px; right: 72px; top: 150px; }
+      .term { font-size: 104px; font-weight: 800; letter-spacing: -0.035em; line-height: 1.05; color: var(--c); }
+      .term.mono { font-family: "JetBrains Mono", monospace; font-weight: 600; letter-spacing: -0.02em; }
+      .def { margin-top: 26px; font-size: 38px; line-height: 1.4; color: #cfd6e4; }
+      .ko { margin-top: 18px; font-family: KoSans, Inter, sans-serif; font-size: 30px; font-weight: 600; line-height: 1.35; color: #f2d38c; }
+      .example { position: absolute; left: 1010px; right: 72px; top: 650px; border-left: 6px solid var(--c); padding: 6px 0 6px 28px; }
+      .example .lbl { position: relative; height: 28px; font-size: 22px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--c); }
+      .example .lbl span { position: absolute; left: 0; top: 0; white-space: nowrap; }
+      .example p { margin-top: 12px; font-size: 40px; line-height: 1.38; color: #dfe4ee; font-style: italic; }
+      .shadow { position: absolute; left: 1010px; right: 72px; top: 940px; }
+      .shadow b { display: block; font-size: 30px; font-weight: 700; color: var(--quiz); }
+      .shadow .bar { margin-top: 14px; height: 10px; border-radius: 5px; background: var(--line); }
+      .shadow .bar i { display: block; height: 100%; border-radius: 5px; background: var(--quiz); transform-origin: left; }
+      /* highlighted term words (subtitles, examples, hooks) */
+      .tm { color: var(--c); background: var(--cbg); border-radius: 10px; padding: 0 10px; margin: 0 -2px; font-style: normal; font-weight: 800; }
+      .tm.bk { display: inline-grid; padding: 0 10px; }
+      .tm.bk > span { grid-area: 1 / 1; text-align: center; }
+      .tm .bl { color: var(--muted); letter-spacing: 0.06em; }
+
+      /* conversation + replay: chat-app window (iMessage / KakaoTalk style) */
+      .conv-kicker { position: absolute; left: 72px; top: 130px; font-size: 26px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ok); }
+      .side-l { position: absolute; left: 72px; top: 180px; width: 390px; }
+      .side-l .sl-title { font-size: 46px; font-weight: 800; letter-spacing: -0.02em; line-height: 1.15; }
+      .side-l .sl-set { margin-top: 16px; font-size: 26px; line-height: 1.4; color: var(--muted); }
+      .side-l .legend { margin-top: 40px; display: flex; flex-direction: column; gap: 18px; }
+      .side-l .lg { display: flex; align-items: center; gap: 16px; font-size: 28px; font-weight: 600; }
+      .side-l .lg small { display: block; font-size: 20px; font-weight: 500; color: var(--muted); }
+      .cav { width: 52px; height: 52px; border-radius: 50%; flex: none; display: flex; align-items: center; justify-content: center; font-size: 26px; font-weight: 800; color: #0b0f1a; }
+      .cav.A { background: var(--spA); } .cav.B { background: var(--spB); }
+      .cw { position: absolute; left: 510px; top: 112px; width: 900px; height: 930px; border-radius: 44px; background: #0e131f; border: 2px solid var(--line); box-shadow: 0 30px 90px rgba(0, 0, 0, 0.55); overflow: hidden; font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", Inter, sans-serif; }
+      .cw-head { position: absolute; left: 0; right: 0; top: 0; height: 104px; display: flex; align-items: center; gap: 22px; padding: 0 32px; background: #151c2c; border-bottom: 1px solid var(--line); }
+      .cw-head .stack { display: flex; flex: none; }
+      .cw-head .stack .cav { width: 60px; height: 60px; border: 3px solid #151c2c; }
+      .cw-head .stack .cav + .cav { margin-left: -16px; }
+      .cw-head .ht { font-size: 30px; font-weight: 700; white-space: nowrap; max-width: 640px; overflow: hidden; text-overflow: ellipsis; }
+      .cw-head .hs { margin-top: 4px; font-size: 22px; color: var(--muted); display: flex; align-items: center; gap: 10px; }
+      .cw-head .od { width: 12px; height: 12px; border-radius: 50%; background: var(--ok); }
+      .cw-body { position: absolute; left: 0; right: 0; top: 104px; bottom: 96px; overflow: hidden; }
+      .msgs { position: absolute; left: 0; right: 0; top: 0; padding: 22px 28px 26px; display: flex; flex-direction: column; gap: 6px; }
+      .row { position: relative; display: flex; align-items: flex-end; gap: 12px; }
+      .row.first { margin-top: 18px; }
+      .row.S { flex-direction: row-reverse; }
+      .row .cav { align-self: flex-start; }
+      .row .cav.sp { visibility: hidden; }
+      .row .col { display: flex; flex-direction: column; max-width: 600px; }
+      .row.S .col { align-items: flex-end; }
+      .bub { position: relative; padding: 16px 26px; border-radius: 28px; font-size: 34px; font-weight: 500; line-height: 1.34; letter-spacing: -0.005em; }
+      .row.R .bub { background: #e9e9ee; color: #111418; transform-origin: bottom left; }
+      .row.S .bub { background: #0071E3; color: #fff; transform-origin: bottom right; }
+      .row.R.last .bub::before { content: ""; position: absolute; left: -9px; bottom: 0; width: 22px; height: 24px; background: #e9e9ee; border-bottom-right-radius: 20px 18px; }
+      .row.R.last .bub::after { content: ""; position: absolute; left: -12px; bottom: 0; width: 12px; height: 24px; background: #0e131f; border-bottom-right-radius: 12px; }
+      .row.S.last .bub::before { content: ""; position: absolute; right: -9px; bottom: 0; width: 22px; height: 24px; background: #0071E3; border-bottom-left-radius: 20px 18px; }
+      .row.S.last .bub::after { content: ""; position: absolute; right: -12px; bottom: 0; width: 12px; height: 24px; background: #0e131f; border-bottom-left-radius: 12px; }
+      .meta { margin: 6px 6px 0; font-size: 20px; font-weight: 500; color: var(--muted); display: flex; }
+      .rs { display: inline-grid; }
+      .rs b { grid-area: 1 / 1; font-weight: 600; white-space: nowrap; }
+      .typing { position: absolute; bottom: 0; display: flex; gap: 8px; align-items: center; padding: 22px 26px; border-radius: 28px; }
+      .row.R .typing { left: 64px; background: #e9e9ee; transform-origin: bottom left; }
+      .row.S .typing { right: 64px; background: #0071E3; transform-origin: bottom right; }
+      .typing i { display: block; width: 12px; height: 12px; border-radius: 50%; }
+      .row.R .typing i { background: #8e8e93; } .row.S .typing i { background: rgba(255, 255, 255, 0.85); }
+      .cw .tm { background: var(--c); color: #0b0f1a; border-radius: 8px; padding: 0 8px; margin: 0 -1px; font-weight: 700; }
+      .cw .tm.bk { background: none; padding: 0; display: inline-grid; }
+      .cw .tm.bk > span { grid-area: 1 / 1; text-align: center; }
+      .cw .tm.bk .bl { color: inherit; opacity: 0.7; letter-spacing: 0.04em; }
+      .cw .tm.bk .rv { background: var(--c); color: #0b0f1a; border-radius: 8px; padding: 0 8px; font-weight: 700; }
+      .cw-input { position: absolute; left: 0; right: 0; bottom: 0; height: 96px; background: #151c2c; border-top: 1px solid var(--line); display: flex; align-items: center; gap: 16px; padding: 0 28px; }
+      .cw-input .field { flex: 1; height: 58px; border-radius: 29px; border: 2px solid var(--line); display: flex; align-items: center; padding: 0 24px; font-size: 26px; color: #6b7690; }
+      .cw-input .send { width: 50px; height: 50px; border-radius: 50%; background: #0071E3; position: relative; }
+      .cw-input .send::after { content: ""; position: absolute; left: 14px; top: 13px; width: 12px; height: 12px; border-left: 4px solid #fff; border-top: 4px solid #fff; transform: rotate(45deg); }
+      .chips { position: absolute; left: 1460px; top: 300px; width: 390px; display: flex; flex-direction: column; gap: 20px; align-items: flex-start; }
+      .chips .lab { font-size: 24px; font-weight: 600; color: var(--muted); }
+      .chip { padding: 10px 28px; border-radius: 999px; border: 2px solid var(--c); color: var(--c); font-family: "JetBrains Mono", monospace; font-size: 30px; font-weight: 600; background: #10172a; white-space: nowrap; }
+      .rcard { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
+      .rcard .kicker { color: var(--quiz); }
+      .rcard .big { font-size: 140px; font-weight: 800; letter-spacing: -0.05em; line-height: 1; margin: 16px 0 24px; }
+      .rcard .intro-sub { font-size: 40px; }
+
+      /* quiz */
+      #quiz-intro { display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
+      #quiz-intro .kicker { color: var(--quiz); }
+      .qbig { font-size: 170px; font-weight: 800; letter-spacing: -0.05em; line-height: 1; margin: 16px 0 28px; }
+      .qlabel { position: absolute; left: 72px; top: 130px; font-size: 30px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--quiz); }
+      .question { position: absolute; left: 72px; top: 200px; width: 860px; font-size: 56px; font-weight: 700; line-height: 1.3; letter-spacing: -0.01em; }
+      .clock { position: absolute; top: 130px; right: 72px; width: 130px; height: 130px; border-radius: 50%; border: 6px solid var(--quiz); }
+      .clock b { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-size: 66px; font-weight: 800; color: var(--quiz); }
+      .opts { position: absolute; left: 1010px; right: 72px; top: 320px; display: flex; flex-direction: column; gap: 26px; }
+      .opt { height: 120px; border-radius: 22px; border: 2px solid var(--line); background: var(--panel); display: flex; align-items: center; gap: 30px; padding: 0 34px; }
+      .opt .letter { width: 64px; height: 64px; border-radius: 50%; border: 2px solid var(--muted); display: flex; align-items: center; justify-content: center; font-family: "JetBrains Mono", monospace; font-size: 30px; font-weight: 600; color: var(--muted); }
+      .opt .name { font-family: "JetBrains Mono", monospace; font-size: 44px; font-weight: 600; }
+      .timer { position: absolute; left: 72px; width: 860px; top: 880px; height: 14px; border-radius: 7px; background: var(--line); }
+      .timer i { position: absolute; inset: 0; border-radius: 7px; background: var(--quiz); transform-origin: left; }
+      .tlabel { position: absolute; left: 72px; top: 920px; font-size: 28px; font-weight: 600; color: var(--muted); }
+
+      /* outro */
+      #outro { padding: 0 160px; display: flex; align-items: center; gap: 100px; }
+      .cta1 { font-size: 112px; font-weight: 800; letter-spacing: -0.04em; line-height: 1.04; }
+      .recap { margin-top: 44px; display: flex; flex-direction: column; gap: 26px; }
+      .row .k { font-family: "JetBrains Mono", monospace; font-size: 44px; font-weight: 600; color: var(--c); }
+      .row .v { margin-top: 4px; font-family: KoSans, Inter, sans-serif; font-size: 30px; color: #dfe4ee; }
+      .follow { margin-top: 48px; font-size: 36px; font-weight: 600; color: var(--muted); }
+      .follow span { color: var(--swift); }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="60" data-width="1920" data-height="1080">
+      <div class="bg-glow"></div>
+      <!-- SCENES:START -->
+      <!-- SCENES:END -->
+    </div>
+
+    <script>
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+      const E = "power3.out";
+      const PLAN = /*PLAN*/ {};
+      const DATA = /*DATA*/ {};
+
+      // ---- cold open ----
+      const C = PLAN.cold;
+      gsap.set("#header", { opacity: 0 }); // hidden from frame 0 (a tl.set at 0 would not render on the first frame)
+      tl.fromTo("#cold-hook", { autoAlpha: 0, y: 30 }, { autoAlpha: 1, y: 0, duration: 0.6, ease: E }, 0);
+      tl.to("#cold-hook", { autoAlpha: 0, y: -20, duration: 0.4 }, C.hookOut);
+      gsap.set("#cold-intro", { autoAlpha: 0 });
+      tl.set("#cold-intro", { autoAlpha: 1 }, C.introAt - 0.1);
+      tl.fromTo("#cold-intro .logo-tile", { autoAlpha: 0, scale: 0.9 }, { autoAlpha: 1, scale: 1, duration: 0.6, ease: E }, C.introAt);
+      tl.fromTo("#cold-intro .kicker", { autoAlpha: 0, y: 20 }, { autoAlpha: 1, y: 0, duration: 0.5, ease: E }, C.introAt + 0.1);
+      tl.fromTo("#cold-intro .day", { autoAlpha: 0, y: 40, scale: 0.96 }, { autoAlpha: 1, y: 0, scale: 1, duration: 0.7, ease: E }, C.introAt + 0.2);
+      tl.fromTo("#cold-intro .intro-sub", { autoAlpha: 0, y: 20 }, { autoAlpha: 1, y: 0, duration: 0.5, ease: E }, C.introAt + 0.5);
+      tl.fromTo("#cold-intro .it", { autoAlpha: 0, y: 20 }, { autoAlpha: 1, y: 0, duration: 0.45, ease: E, stagger: 0.25 }, C.previewAt);
+      tl.to("#cold", { opacity: 0, duration: 0.4 }, C.dur - 0.4);
+      tl.to("#header", { opacity: 1, duration: 0.5 }, PLAN.terms[0].start);
+
+      // ---- terms ----
+      PLAN.terms.forEach((T, i) => {
+        const id = `#s${i + 1}`, t0 = T.start;
+        tl.to(`#p${i + 1}`, { scaleX: 1, duration: T.dur, ease: "none" }, t0);
+        tl.fromTo(`${id} .num`, { autoAlpha: 0, y: 16 }, { autoAlpha: 1, y: 0, duration: 0.4, ease: E }, t0 + 0.1);
+        tl.fromTo(`${id} .term`, { autoAlpha: 0, y: 30 }, { autoAlpha: 1, y: 0, duration: 0.6, ease: E }, t0 + T.termAt);
+        tl.fromTo(`${id} .lpanel`, { autoAlpha: 0, x: -30 }, { autoAlpha: 1, x: 0, duration: 0.6, ease: E }, t0 + T.termAt + 0.1);
+        tl.fromTo(`${id} .def`, { autoAlpha: 0, y: 20 }, { autoAlpha: 1, y: 0, duration: 0.6, ease: E }, t0 + T.defAt);
+        tl.fromTo(`${id} .ko`, { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.6 }, t0 + T.defAt + 0.8);
+        // the code builds line by line while the definition is read
+        tl.fromTo(`${id} .code .ln`, { autoAlpha: 0, x: -14 }, { autoAlpha: 1, x: 0, duration: 0.35, ease: E, stagger: Math.min(0.5, (T.exampleAt - T.defAt - 1.2) / 6) }, t0 + T.codeAt + 0.3);
+        tl.fromTo(`${id} .example`, { autoAlpha: 0, y: 20 }, { autoAlpha: 1, y: 0, duration: 0.6, ease: E }, t0 + T.exampleAt);
+        // example is read twice: label swaps for the slow reading
+        tl.set(`${id} .lbl .a`, { autoAlpha: 1 }, 0);
+        tl.set(`${id} .lbl .b`, { autoAlpha: 0 }, 0);
+        tl.set(`${id} .lbl .a`, { autoAlpha: 0 }, t0 + T.ex2At);
+        tl.set(`${id} .lbl .b`, { autoAlpha: 1 }, t0 + T.ex2At);
+        tl.fromTo(`${id} .example p`, { color: "#dfe4ee" }, { color: "#ffffff", duration: 0.3, yoyo: true, repeat: 1 }, t0 + T.ex2At);
+        // your turn: time to say it out loud
+        tl.fromTo(`${id} .shadow`, { autoAlpha: 0, y: 14 }, { autoAlpha: 1, y: 0, duration: 0.4, ease: E }, t0 + T.shadowAt);
+        tl.fromTo(`${id} .shadow .bar i`, { scaleX: 1 }, { scaleX: 0, duration: T.shadowDur, ease: "none" }, t0 + T.shadowAt);
+        tl.to(id, { opacity: 0, duration: 0.4 }, t0 + T.out);
+      });
+
+      // ---- chat app: typing dots, bubble pop, smooth scroll ----
+      // items: [{ i, typeAt, at, dur, revealAt? }] (times relative to t0); rows are `#${prefix}${i}`.
+      // Scroll distances are measured lazily at render time (function-based tween values with immediateRender:false),
+      // so they depend only on the laid-out rows, never on playback order: seek-safe and deterministic.
+      function chat(scene, prefix, items, t0) {
+        const body = document.querySelector(scene + " .cw-body");
+        const scrollTo = (k) => {
+          if (k < 0) return 0;
+          const r = document.getElementById(`${prefix}${items[k].i}`);
+          return Math.max(0, r.offsetTop + r.offsetHeight + 26 - body.clientHeight);
+        };
+        items.forEach((it, k) => {
+          const row = `#${prefix}${it.i}`, ty = t0 + it.typeAt, at = t0 + it.at;
+          tl.fromTo(`${scene} .msgs`, { y: () => -scrollTo(k - 1) }, { y: () => -scrollTo(k), duration: 0.45, ease: "power2.out", immediateRender: false }, ty);
+          tl.fromTo(`${row} .cav:not(.sp)`, { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.25 }, ty);
+          tl.fromTo(`${row} .typing`, { autoAlpha: 0, scale: 0.6 }, { autoAlpha: 1, scale: 1, duration: 0.2, ease: E }, ty);
+          tl.fromTo(`${row} .typing i`, { y: 0 }, { y: -8, duration: 0.22, ease: "sine.inOut", yoyo: true, repeat: Math.max(1, Math.floor((at - ty - 0.2) / 0.22)), stagger: 0.1 }, ty + 0.1);
+          tl.to(`${row} .typing`, { autoAlpha: 0, duration: 0.08 }, at - 0.02);
+          tl.fromTo(`${row} .bub`, { autoAlpha: 0, scale: 0.5, y: 10 }, { autoAlpha: 1, scale: 1, y: 0, duration: 0.4, ease: "back.out(2.4)" }, at);
+          tl.fromTo(`${row} .meta`, { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.3 }, at + 0.15);
+          // sent messages: "Delivered", then "Read" once the other person starts typing
+          if (document.getElementById(prefix + it.i).querySelector(".st2")) {
+            tl.fromTo(`${row} .st2`, { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.2 }, t0 + (items[k + 1] ? items[k + 1].typeAt + 0.3 : it.at + it.dur + 0.8));
+            tl.to(`${row} .st1`, { autoAlpha: 0, duration: 0.2 }, t0 + (items[k + 1] ? items[k + 1].typeAt + 0.3 : it.at + it.dur + 0.8));
+          }
+          if (DATA.lines[it.i].terms.length && document.querySelector(scene + " .chip")) {
+            tl.to(`${scene} .chip`, { opacity: 0.3, duration: 0.2 }, at);
+            DATA.lines[it.i].terms.forEach((c) => tl.to(`${scene} .chip.c${c}`, { opacity: 1, duration: 0.2 }, at));
+          }
+        });
+      }
+
+      // ---- conversation ----
+      const V = PLAN.conv;
+      if (V) {
+        tl.to("#p4", { scaleX: 1, duration: V.dur + PLAN.replay.dur, ease: "none" }, V.start);
+        tl.fromTo("#conv .cw", { autoAlpha: 0, y: 30, scale: 0.98 }, { autoAlpha: 1, y: 0, scale: 1, duration: 0.6, ease: E }, V.start + 0.2);
+        tl.fromTo("#conv .conv-kicker, #conv .side-l, #conv .chips", { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.6 }, V.start + 0.3);
+        chat("#conv", "cl", V.lines, V.start);
+        tl.to("#conv", { opacity: 0, duration: 0.4 }, V.start + V.dur - 0.4);
+      }
+
+      // ---- replay: the same chat with the terms blanked ----
+      const R = PLAN.replay;
+      if (R) {
+        tl.fromTo("#replay .rcard", { autoAlpha: 0, y: 24 }, { autoAlpha: 1, y: 0, duration: 0.5, ease: E }, R.start + 0.2);
+        tl.to("#replay .rcard", { autoAlpha: 0, duration: 0.4 }, R.start + R.introDur - 0.5);
+        tl.fromTo("#replay .cw", { autoAlpha: 0, y: 30, scale: 0.98 }, { autoAlpha: 1, y: 0, scale: 1, duration: 0.6, ease: E }, R.start + R.introDur - 0.4);
+        tl.fromTo("#replay .conv-kicker, #replay .side-l", { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.6 }, R.start + R.introDur - 0.3);
+        chat("#replay", "rl", R.lines, R.start);
+        R.lines.forEach((it) => {
+          const a = R.start + it.revealAt, b = `#rl${it.i}`;
+          tl.fromTo(`${b} .rv`, { autoAlpha: 0, scale: 0.7 }, { autoAlpha: 1, scale: 1, duration: 0.4, ease: "back.out(2.2)" }, a);
+          tl.to(`${b} .bl`, { autoAlpha: 0, duration: 0.2 }, a);
+        });
+        tl.to("#replay", { opacity: 0, duration: 0.4 }, R.start + R.dur - 0.4);
+      }
+
+      // ---- quiz (the answer is never revealed) ----
+      const QI = PLAN.quizIntro;
+      tl.fromTo("#quiz-intro .kicker", { autoAlpha: 0, y: 20 }, { autoAlpha: 1, y: 0, duration: 0.4, ease: E }, QI.start);
+      tl.fromTo("#quiz-intro .qbig", { autoAlpha: 0, y: 40, scale: 0.96 }, { autoAlpha: 1, y: 0, scale: 1, duration: 0.6, ease: E }, QI.start + 0.15);
+      tl.fromTo("#quiz-intro .intro-sub", { autoAlpha: 0, y: 20 }, { autoAlpha: 1, y: 0, duration: 0.4, ease: E }, QI.start + 0.5);
+      tl.to("#quiz-intro", { opacity: 0, duration: 0.35 }, QI.start + QI.dur - 0.35);
+      tl.to("#p5", { scaleX: 1, duration: PLAN.outro.start - QI.start, ease: "none" }, QI.start);
+      PLAN.quizzes.forEach((Q, i) => {
+        const id = `#q${i + 1}`, q = (s) => `${id} ${s}`, t0 = Q.start;
+        tl.set([q(".clock b"), q(".tlabel.up")], { autoAlpha: 0 }, 0);
+        tl.fromTo(q(".qlabel"), { autoAlpha: 0, y: 16 }, { autoAlpha: 1, y: 0, duration: 0.4, ease: E }, t0);
+        tl.fromTo(q(".question"), { autoAlpha: 0, y: 24 }, { autoAlpha: 1, y: 0, duration: 0.5, ease: E }, t0 + Q.questionAt);
+        tl.fromTo(q(".clock"), { autoAlpha: 0, scale: 0.8 }, { autoAlpha: 1, scale: 1, duration: 0.4, ease: "back.out(2)" }, t0 + Q.questionAt);
+        tl.fromTo(q(".opt"), { autoAlpha: 0, x: -24 }, { autoAlpha: 1, x: 0, duration: 0.35, ease: E, stagger: 0.12 }, t0 + Q.optsAt);
+        tl.fromTo(q(".timer"), { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.3 }, t0 + Q.countdownAt - 0.4);
+        tl.fromTo(q(".tlabel:not(.up)"), { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.3 }, t0 + Q.countdownAt - 0.4);
+        const go = t0 + Q.countdownAt, N = Q.quizSeconds;
+        tl.fromTo(q(".timer i"), { scaleX: 1 }, { scaleX: 0, duration: N, ease: "none" }, go);
+        tl.to(q(".timer i"), { backgroundColor: "#ff5d6c", duration: 2 }, go + N - 2);
+        for (let n = 0; n < N; n++) {
+          const b = `${id} .clock b:nth-child(${n + 1})`;
+          tl.fromTo(b, { autoAlpha: 1, scale: 1.25 }, { autoAlpha: 1, scale: 1, duration: 0.2, ease: E }, n === 0 ? t0 + Q.questionAt : go + n);
+          tl.set(b, { autoAlpha: 0 }, go + n + 1);
+        }
+        const r = go + N;
+        tl.fromTo(q(".clock b.done"), { autoAlpha: 0, scale: 0.6 }, { autoAlpha: 1, scale: 1, duration: 0.3, ease: "back.out(2)" }, r);
+        tl.set(q(".tlabel:not(.up)"), { autoAlpha: 0 }, r);
+        tl.fromTo(q(".tlabel.up"), { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.25 }, r);
+        tl.to(id, { opacity: 0, duration: 0.35 }, t0 + Q.dur - 0.4);
+      });
+
+      // ---- outro: recap + see you tomorrow ----
+      const O = PLAN.outro;
+      tl.fromTo("#outro .logo-tile", { autoAlpha: 0, scale: 0.9 }, { autoAlpha: 1, scale: 1, duration: 0.6, ease: E }, O.start + 0.1);
+      tl.fromTo("#outro .cta1", { autoAlpha: 0, y: 24 }, { autoAlpha: 1, y: 0, duration: 0.6, ease: E }, O.start + 0.3);
+      tl.fromTo("#outro .row", { autoAlpha: 0, x: -30 }, { autoAlpha: 1, x: 0, duration: 0.45, ease: E, stagger: 0.25 }, O.start + 0.7);
+      tl.fromTo("#outro .follow", { autoAlpha: 0, y: 16 }, { autoAlpha: 1, y: 0, duration: 0.45, ease: E }, O.start + 1.8);
+
+      window.__timelines["main"] = tl;
+      tl.seek(0);
+    </script>
+  </body>
+</html>

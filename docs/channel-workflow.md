@@ -10,7 +10,8 @@ reference; the layout rules and diagram guidance in its section 4 still apply, e
 | Video | Vertical **1080x1920** YouTube Short, about 2 minutes, H.264 + AAC |
 | Voice | edge-tts (Microsoft neural en-US voices), two voices that rotate by day. Offline fallback: macOS `say` |
 | Music | Quiet background track under the voice |
-| Thumbnail | Portrait **1080x1920**: logo, "Day N", the three terms |
+| Thumbnail | Shorts: portrait **1080x1920** (cover set manually in Studio). Landscape: **1280x720**, set via API after upload |
+| Logo, "Day N", the three terms | Both thumbnails |
 | Metadata | Title, description, tags stored in the day JSON |
 | Upload | YouTube: private upload, scheduled with `publishAt`. Facebook: Page Reel, cross-posted to Instagram |
 
@@ -57,6 +58,18 @@ Default time is 08:00 KST next day. Nothing is published before the step 6 appro
 - Definition: one plain sentence. Example: one realistic teammate sentence. Both appear verbatim in the video.
 - Quizzes: 3 questions, order differs from the terms, each term correct exactly once, question never names its answer.
 
+- Dialogue and hooks (pilot, landscape-dialogue-format): each day JSON also carries `dialogue`
+  (title, setting, two speakers with edge-tts voice ids, 18-20 lines of about 2 minutes, each term used at
+  least three times, per-line `terms`) for a long landscape video, and `hooks` (15-25 s Shorts: `one-line-example`
+  with one sentence, `one-line-conversation` with an A/B exchange, max about 12 words per line).
+  Each `terms[i]` may carry an optional `code` string (a 3-8 line Swift snippet, type-checked with
+  `swiftc -typecheck`) shown in the landscape code panel; new days should include it.
+  Metadata: `video.landscape` = `{title (<=100), description, tags}` for the long video (description is EN + KO and contains
+  the literal line `{{CHAPTERS}}`, which the uploader fills with timestamps from the render timing); each hook also has
+  `title` (<=100, with #Shorts) and `description` containing `Full conversation: {{LONG_URL}}` (filled by the uploader
+  with the long video URL).
+  The vertical pipeline ignores these fields, so existing renders keep working.
+
 ### Voice
 - Narrator voice reads intro, term, definition, quiz question and outro at 135 wpm, with short pauses at commas.
 - A second voice reads the example. **Each example is read twice: natural speed (160 wpm), then slowly (100 wpm)**,
@@ -96,11 +109,27 @@ Default time is 08:00 KST next day. Nothing is published before the step 6 appro
 
 ### Upload
 - Always upload **private**, scheduled with `--publish-at`. Default slot: 08:00 KST (commute).
+- Shorts (normal days and hooks) upload with `notifySubscribers=false`; the landscape long video notifies (YouTube default). `--notify` forces true.
 - Never upload the same day twice (the script refuses when `youtube.videoId` is set).
-- No thumbnail API call. `thumbnails.set` only fills the 16:9 slot (watch page, search); the Shorts tab and feed show
+- No thumbnail API call for Shorts. `thumbnails.set` only fills the 16:9 slot (watch page, search); the Shorts tab and feed show
   an auto-picked video frame and the API cannot change that. After the upload, copy the thumbnail to `~/Downloads/`.
 - **Manual step, every day:** in the YouTube Studio mobile app, Content > the Short > Edit > Thumbnail, then upload
   `video/out/day-NNN-thumb.png`. Do this once the upload is processed; the report must remind the owner.
+
+### Landscape + hooks upload (pilot)
+- `node scripts/youtube-upload.mjs content/days/day-NNN.json --kind landscape|hook1|hook2|hook3 --publish-at <ISO> [--dry-run] [--force]`.
+  Files: `video/out/dayNNN-landscape.mp4`, `video/out/dayNNN-hook{1,2,3}.mp4`. Always private + `publishAt`, never made for kids.
+- Landscape: no `#Shorts`; tags from `video.landscape.tags`; `{{CHAPTERS}}` becomes chapter lines computed from
+  `video/out/day-NNN.landscape.timing.json` (0:00 Intro, each term, Chat conversation, Fill the blank (replay), Quiz,
+  See you tomorrow; the script refuses fewer than 3 chapters or any under 10 s).
+- Hooks: title/description from `hooks[i-1]`; `{{LONG_URL}}` becomes `https://youtu.be/<video.landscape.youtubeId>`,
+  so upload the landscape first. Tags come from `hooks[i].tags`, else `video.tags`.
+- `--dry-run` prints title (with length), file, privacy, publishAt, tags, chapters and description; no API call.
+- The id is recorded in the day JSON (`video.landscape.youtubeId` / `hooks[i].youtubeId`, plus `publishAt`, `privacy`,
+  `uploaded`). A kind that already has a `youtubeId` is refused unless `--force`.
+- The landscape (16:9) thumbnail is set automatically via `thumbnails.set` after the upload (verified on Day 13);
+  retry with `node scripts/youtube-thumbnail.mjs <videoId> video/out/day-NNN-thumb-landscape.png`. The manual-cover
+  rule applies to Shorts (normal and hooks) only.
 
 ### Facebook / Instagram
 - Reel goes to the Page "IOS Daily English" (Facebook Group has no API). Instagram receives it through Meta

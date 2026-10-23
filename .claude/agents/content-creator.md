@@ -32,6 +32,24 @@ to advanced topics (see `content/CURRICULUM.md`).
   message, verify it with `swiftc -typecheck` on a temp file before writing it.
 - Never write quiz answers into the title, description or tags.
 
+## Dialogue and hooks (long landscape video + Shorts hooks)
+Besides the existing fields, every day JSON has two extra top-level fields. Existing fields stay unchanged.
+- `dialogue`: `{title, setting, speakers:[{id,name,voice}], lines:[{speaker,text,terms:[...]}]}`.
+  Two speakers (A = Mina, B = Jake), two different edge-tts en-US voices from `scripts/voices.mjs`
+  (e.g. `en-US-AvaNeural` and `en-US-AndrewNeural`). 18-20 lines, about 2 minutes spoken (~300 words), with one natural extra beat such as a short disagreement or a mistake being fixed, natural dev talk
+  at A2-B1 level. Each of the 3 terms is used at least three times in natural sentences (no glossary-style lines).
+  `terms` lists the exact term strings used in that line (empty array if none). Never put quiz answers in it.
+- `terms[i].code` (optional string, but include it for the landscape format): a short, correct Swift snippet (3-8 lines) for the code panel of that term. Verify it with `swiftc -typecheck` on a temp file before writing it.
+- `hooks`: array for 15-25 s vertical Shorts, each standalone and punchy, max about 12 words per line.
+  `{type:"one-line-example", term, lines:[{text}]}` = one sentence using the term.
+  `{type:"one-line-conversation", term, lines:[{speaker:"A",text},{speaker:"B",text}]}` = a two-line exchange.
+  Cover each term at most once per hook; aim for one hook per term, mixing both types.
+- `video.landscape` (`{title, description, tags}`): metadata for the long landscape upload. Title <= 100 chars; description is
+  bilingual EN + KO (hook, 3 terms with definition + Korean gloss, a line about the chat, then the literal line `{{CHAPTERS}}`,
+  then the comment prompt, 3-5 hashtags, no #Shorts); tags without #. The uploader replaces `{{CHAPTERS}}` with timestamps.
+- `hooks[i].title` (<= 100 chars, includes #Shorts) and `hooks[i].description` (the line, term + EN/KO meaning,
+  `Full conversation: {{LONG_URL}}`, `#Shorts #Swift #iOSDeveloper`). The uploader replaces `{{LONG_URL}}` with the long video URL.
+
 ## Title and description (the part that attracts viewers)
 - **Title** (≤ 70 chars, front-load the hook): `<Term A>, <Term B> & <Term C> in 2 minutes | iOS Daily English Day N`
   (videos run about 2 minutes because every example is read twice) or a question hook when the theme allows it.
@@ -43,4 +61,4 @@ to advanced topics (see `content/CURRICULUM.md`).
 - Do not use clickbait that the video does not deliver. Do not reveal quiz answers anywhere.
 
 ## Output
-Report the day file path, the 3 terms, the title, and any term you rejected as a duplicate. Keep it short.
+Report the day file path, the 3 terms, the title, the dialogue and hooks, and any term you rejected as a duplicate. Keep it short.

@@ -1,0 +1,139 @@
+<!doctype html>
+<!--
+  Vertical 1080x1920 hook Short template (15-25 s). Generated per hook by:
+    node scripts/scaffold-hooks.mjs content/days/day-NNN.json
+  Types: one-line-example (sentence, term highlighted) and one-line-conversation (two bubbles).
+  Ends with a card: "Full conversation on the channel". Right 250 px and bottom 200 px stay clear (Shorts UI).
+-->
+<html lang="en" data-resolution="portrait">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <script src="assets/gsap.min.js"></script>
+    <style>
+      @font-face { font-family: Inter; font-weight: 400; font-style: normal; src: url(assets/fonts/inter-latin-400-normal.woff2) format("woff2"); }
+      @font-face { font-family: Inter; font-weight: 500; font-style: normal; src: url(assets/fonts/inter-latin-500-normal.woff2) format("woff2"); }
+      @font-face { font-family: Inter; font-weight: 600; font-style: normal; src: url(assets/fonts/inter-latin-600-normal.woff2) format("woff2"); }
+      @font-face { font-family: Inter; font-weight: 700; font-style: normal; src: url(assets/fonts/inter-latin-700-normal.woff2) format("woff2"); }
+      @font-face { font-family: Inter; font-weight: 800; font-style: normal; src: url(assets/fonts/inter-latin-800-normal.woff2) format("woff2"); }
+      @font-face { font-family: Inter; font-weight: 400; font-style: italic; src: url(assets/fonts/inter-latin-400-italic.woff2) format("woff2"); }
+      @font-face { font-family: "JetBrains Mono"; font-weight: 600; src: url(assets/fonts/jetbrains-mono-latin-600-normal.woff2) format("woff2"); }
+      :root { --bg: #0b0f1a; --panel: #131a2a; --line: #26304a; --text: #eef1f7; --muted: #9aa5bd; --swift: #f26b4f; --blue: #5aa9ff; --violet: #b692ff; --quiz: #ffc145; --spA: #3ecfc0; --spB: #ff7ab2; }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1080px; height: 1920px; overflow: hidden; background: var(--bg); color: var(--text); font-family: Inter, ui-sans-serif, system-ui, sans-serif; }
+      #root { position: relative; width: 100%; height: 100%; overflow: hidden; }
+      .bg-glow { position: absolute; inset: 0; background: radial-gradient(800px 600px at 90% -8%, rgba(242, 107, 79, 0.18), transparent 70%), radial-gradient(700px 600px at -10% 108%, rgba(90, 169, 255, 0.13), transparent 70%); }
+      .scene { position: absolute; inset: 0; }
+      .c0 { --c: var(--swift); --cbg: rgba(242, 107, 79, 0.22); }
+      .c1 { --c: var(--blue); --cbg: rgba(90, 169, 255, 0.22); }
+      .c2 { --c: var(--violet); --cbg: rgba(182, 146, 255, 0.22); }
+      /* content column: 72 px gutter, 250 px right safe zone, 200 px bottom safe zone */
+      .col { position: absolute; left: 72px; right: 250px; top: 340px; bottom: 200px; }
+      .brandline { position: absolute; left: 72px; top: 120px; font-size: 34px; font-weight: 600; color: var(--muted); letter-spacing: 0.02em; }
+      .kicker { font-size: 34px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--c); }
+      .hk-term { margin-top: 16px; font-family: "JetBrains Mono", monospace; font-size: 120px; font-weight: 600; letter-spacing: -0.03em; line-height: 1.05; color: var(--c); }
+      .lbl { position: relative; height: 40px; margin-top: 80px; font-size: 30px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
+      .lbl span { position: absolute; left: 0; top: 0; white-space: nowrap; }
+      .sentence { margin-top: 20px; font-size: 74px; font-weight: 700; line-height: 1.28; letter-spacing: -0.02em; }
+      .tm { color: var(--c); background: var(--cbg); border-radius: 12px; padding: 0 12px; margin: 0 -4px; font-weight: 800; }
+      /* chat-app look for the one-line-conversation hook */
+      .hk-top { position: absolute; left: 72px; right: 250px; top: 190px; }
+      .col2 { position: absolute; left: 72px; right: 250px; top: 0; bottom: 200px; }
+      .cw { position: absolute; left: 0; right: 0; top: 520px; height: 800px; border-radius: 44px; background: #0e131f; border: 2px solid var(--line); box-shadow: 0 24px 70px rgba(0, 0, 0, 0.5); overflow: hidden; font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", Inter, sans-serif; }
+      .cav { width: 52px; height: 52px; border-radius: 50%; flex: none; display: flex; align-items: center; justify-content: center; font-size: 26px; font-weight: 800; color: #0b0f1a; }
+      .cav.A { background: var(--spA); } .cav.B { background: var(--spB); }
+      .cw-head { position: absolute; left: 0; right: 0; top: 0; height: 100px; display: flex; align-items: center; gap: 20px; padding: 0 28px; background: #151c2c; border-bottom: 1px solid var(--line); }
+      .cw-head .stack { display: flex; flex: none; }
+      .cw-head .stack .cav { width: 58px; height: 58px; border: 3px solid #151c2c; }
+      .cw-head .stack .cav + .cav { margin-left: -16px; }
+      .cw-head .ht { font-size: 30px; font-weight: 700; }
+      .cw-head .hs { margin-top: 4px; font-size: 22px; color: var(--muted); display: flex; align-items: center; gap: 10px; }
+      .cw-head .od { width: 12px; height: 12px; border-radius: 50%; background: #43d68a; }
+      .msgs { position: absolute; left: 0; right: 0; top: 100px; padding: 28px 24px; display: flex; flex-direction: column; gap: 26px; }
+      .row { position: relative; display: flex; align-items: flex-end; gap: 12px; }
+      .row.S { flex-direction: row-reverse; }
+      .row .cav { align-self: flex-start; }
+      .row .mc { display: flex; flex-direction: column; max-width: 510px; }
+      .row.S .mc { align-items: flex-end; }
+      .bub { position: relative; padding: 20px 28px; border-radius: 32px; font-size: 42px; font-weight: 500; line-height: 1.32; }
+      .row.R .bub { background: #e9e9ee; color: #111418; transform-origin: bottom left; }
+      .row.S .bub { background: #0071E3; color: #fff; transform-origin: bottom right; }
+      .row.R .bub::before { content: ""; position: absolute; left: -9px; bottom: 0; width: 22px; height: 24px; background: #e9e9ee; border-bottom-right-radius: 20px 18px; }
+      .row.R .bub::after { content: ""; position: absolute; left: -12px; bottom: 0; width: 12px; height: 24px; background: #0e131f; border-bottom-right-radius: 12px; }
+      .row.S .bub::before { content: ""; position: absolute; right: -9px; bottom: 0; width: 22px; height: 24px; background: #0071E3; border-bottom-left-radius: 20px 18px; }
+      .row.S .bub::after { content: ""; position: absolute; right: -12px; bottom: 0; width: 12px; height: 24px; background: #0e131f; border-bottom-left-radius: 12px; }
+      .meta { margin: 6px 6px 0; font-size: 22px; font-weight: 500; color: var(--muted); }
+      .typing { position: absolute; bottom: 0; display: flex; gap: 8px; align-items: center; padding: 26px 28px; border-radius: 32px; }
+      .row.R .typing { left: 64px; background: #e9e9ee; transform-origin: bottom left; }
+      .row.S .typing { right: 64px; background: #0071E3; transform-origin: bottom right; }
+      .typing i { display: block; width: 14px; height: 14px; border-radius: 50%; }
+      .row.R .typing i { background: #8e8e93; } .row.S .typing i { background: rgba(255, 255, 255, 0.85); }
+      .cw .tm { background: var(--c); color: #0b0f1a; border-radius: 10px; padding: 0 8px; margin: 0 -1px; font-weight: 700; }
+      .cw-input { position: absolute; left: 0; right: 0; bottom: 0; height: 96px; background: #151c2c; border-top: 1px solid var(--line); display: flex; align-items: center; gap: 16px; padding: 0 24px; }
+      .cw-input .field { flex: 1; height: 58px; border-radius: 29px; border: 2px solid var(--line); display: flex; align-items: center; padding: 0 24px; font-size: 26px; color: #6b7690; }
+      .cw-input .send { width: 50px; height: 50px; border-radius: 50%; background: #0071E3; position: relative; }
+      .cw-input .send::after { content: ""; position: absolute; left: 14px; top: 13px; width: 12px; height: 12px; border-left: 4px solid #fff; border-top: 4px solid #fff; transform: rotate(45deg); }
+      .shadow { position: absolute; left: 0; right: 0; bottom: 0; }
+      .shadow b { display: block; font-size: 40px; font-weight: 700; color: var(--quiz); }
+      .shadow .bar { margin-top: 18px; height: 12px; border-radius: 6px; background: var(--line); }
+      .shadow .bar i { display: block; height: 100%; border-radius: 6px; background: var(--quiz); transform-origin: left; }
+      /* end card */
+      #hk-end { display: block; }
+      .end-main { position: absolute; left: 72px; right: 250px; top: 0; bottom: 200px; display: flex; flex-direction: column; justify-content: center; }
+      .logo-tile { width: 300px; height: 300px; border-radius: 66px; overflow: hidden; background: #fff; margin-bottom: 56px; box-shadow: 0 18px 60px rgba(0, 0, 0, 0.45); }
+      .logo-tile img { display: block; width: 100%; height: 100%; image-rendering: pixelated; }
+      .end1 { font-size: 92px; font-weight: 800; letter-spacing: -0.04em; line-height: 1.06; }
+      .end2 { margin-top: 28px; font-size: 40px; font-weight: 600; color: var(--muted); }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="20" data-width="1080" data-height="1920">
+      <div class="bg-glow"></div>
+      <!-- SCENES:START -->
+      <!-- SCENES:END -->
+    </div>
+
+    <script>
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+      const E = "power3.out";
+      const PLAN = /*PLAN*/ {};
+
+      const M = PLAN.main;
+      tl.fromTo("#hk .brandline", { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.4 }, 0);
+      tl.fromTo("#hk .kicker", { autoAlpha: 0, y: 16 }, { autoAlpha: 1, y: 0, duration: 0.4, ease: E }, 0.1);
+      tl.fromTo("#hk .hk-term", { autoAlpha: 0, y: 30 }, { autoAlpha: 1, y: 0, duration: 0.6, ease: E }, 0.2);
+
+      if (PLAN.type === "one-line-example") {
+        tl.fromTo("#hk .lbl, #hk .sentence", { autoAlpha: 0, y: 24 }, { autoAlpha: 1, y: 0, duration: 0.6, ease: E, stagger: 0.1 }, PLAN.lines[0].at - 0.3);
+        tl.set("#hk .lbl .a", { autoAlpha: 1 }, 0);
+        tl.set("#hk .lbl .b", { autoAlpha: 0 }, 0);
+        tl.set("#hk .lbl .a", { autoAlpha: 0 }, PLAN.slow.at);
+        tl.set("#hk .lbl .b", { autoAlpha: 1 }, PLAN.slow.at);
+        tl.fromTo("#hk .sentence", { color: "#eef1f7" }, { color: "#ffffff", duration: 0.3, yoyo: true, repeat: 1 }, PLAN.slow.at);
+      } else {
+        tl.fromTo("#hk .cw", { autoAlpha: 0, y: 30 }, { autoAlpha: 1, y: 0, duration: 0.5, ease: E }, 0.3);
+        PLAN.lines.forEach((L, i) => {
+          const row = "#hr" + i;
+          tl.fromTo(row + " .cav", { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.25 }, L.typeAt);
+          tl.fromTo(row + " .typing", { autoAlpha: 0, scale: 0.6 }, { autoAlpha: 1, scale: 1, duration: 0.2, ease: E }, L.typeAt);
+          tl.fromTo(row + " .typing i", { y: 0 }, { y: -9, duration: 0.22, ease: "sine.inOut", yoyo: true, repeat: Math.max(1, Math.floor((L.at - L.typeAt - 0.2) / 0.22)), stagger: 0.1 }, L.typeAt + 0.1);
+          tl.to(row + " .typing", { autoAlpha: 0, duration: 0.08 }, L.at - 0.02);
+          tl.fromTo(row + " .bub", { autoAlpha: 0, scale: 0.5, y: 10 }, { autoAlpha: 1, scale: 1, y: 0, duration: 0.4, ease: "back.out(2.4)" }, L.at);
+          tl.fromTo(row + " .meta", { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.3 }, L.at + 0.15);
+        });
+      }
+      tl.fromTo("#hk .shadow", { autoAlpha: 0, y: 14 }, { autoAlpha: 1, y: 0, duration: 0.4, ease: E }, PLAN.shadow.at);
+      tl.fromTo("#hk .shadow .bar i", { scaleX: 1 }, { scaleX: 0, duration: PLAN.shadow.dur, ease: "none" }, PLAN.shadow.at);
+      tl.to("#hk", { opacity: 0, duration: 0.3 }, M.dur - 0.3);
+
+      const N = PLAN.end.start;
+      tl.fromTo("#hk-end .logo-tile", { autoAlpha: 0, scale: 0.9 }, { autoAlpha: 1, scale: 1, duration: 0.5, ease: E }, N);
+      tl.fromTo("#hk-end .end1", { autoAlpha: 0, y: 24 }, { autoAlpha: 1, y: 0, duration: 0.5, ease: E }, N + 0.2);
+      tl.fromTo("#hk-end .end2", { autoAlpha: 0, y: 16 }, { autoAlpha: 1, y: 0, duration: 0.4, ease: E }, N + 0.6);
+
+      window.__timelines["main"] = tl;
+      tl.seek(0);
+    </script>
+  </body>
+</html>
