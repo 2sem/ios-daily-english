@@ -10,7 +10,8 @@ reference; the layout rules and diagram guidance in its section 4 still apply, e
 | Video | Vertical **1080x1920** YouTube Short, about 2 minutes, H.264 + AAC |
 | Voice | edge-tts (Microsoft neural en-US voices), two voices that rotate by day. Offline fallback: macOS `say` |
 | Music | Quiet background track under the voice |
-| Thumbnail | Portrait **1080x1920**: logo, "Day N", the three terms |
+| Thumbnail | Shorts: portrait **1080x1920** (cover set manually in Studio). Landscape: **1280x720**, set via API after upload |
+| Logo, "Day N", the three terms | Both thumbnails |
 | Metadata | Title, description, tags stored in the day JSON |
 | Upload | YouTube: private upload, scheduled with `publishAt`. Facebook: Page Reel, cross-posted to Instagram |
 
@@ -108,6 +109,7 @@ Default time is 08:00 KST next day. Nothing is published before the step 6 appro
 
 ### Upload
 - Always upload **private**, scheduled with `--publish-at`. Default slot: 08:00 KST (commute).
+- Shorts (normal days and hooks) upload with `notifySubscribers=false`; the landscape long video notifies (YouTube default). `--notify` forces true.
 - Never upload the same day twice (the script refuses when `youtube.videoId` is set).
 - No thumbnail API call for Shorts. `thumbnails.set` only fills the 16:9 slot (watch page, search); the Shorts tab and feed show
   an auto-picked video frame and the API cannot change that. After the upload, copy the thumbnail to `~/Downloads/`.

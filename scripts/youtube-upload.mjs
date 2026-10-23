@@ -2,6 +2,7 @@
 // Upload a day's video to YouTube (Data API v3, resumable upload). No packages.
 //   node scripts/youtube-upload.mjs content/days/day-001.json [--publish-at 2026-10-12T08:00:00+09:00] [--public]
 //   --kind landscape|hook1|hook2|hook3   upload the Day's landscape video or a hook Short (always private + publishAt)
+//   --notify   force notifySubscribers=true (Shorts default to false; landscape uses the YouTube default = true)
 //   --dry-run  print title/description/tags/file/publishAt without calling the API;  --force  re-upload a kind that has a youtubeId
 // Default privacy is "private" (safe): publish later in Studio. --publish-at schedules it (stays private until then).
 // Needs ~/.config/ios-daily-english/{client_secret,token}.json (run scripts/youtube-auth.mjs once).
@@ -14,13 +15,15 @@ const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const argv = process.argv.slice(2);
 const file = argv.find((a) => a.endsWith(".json"));
 const opt = (n, d = null) => (argv.includes(`--${n}`) ? argv[argv.indexOf(`--${n}`) + 1] : d);
-if (!file) { console.error("usage: youtube-upload.mjs <day.json> [--publish-at ISO] [--public] [--kind landscape|hook1..3] [--dry-run] [--force]"); process.exit(1); }
+if (!file) { console.error("usage: youtube-upload.mjs <day.json> [--publish-at ISO] [--public] [--kind landscape|hook1..3] [--dry-run] [--force] [--notify]"); process.exit(1); }
 
 const dayPath = resolve(file);
 const day = JSON.parse(readFileSync(dayPath, "utf8"));
 const kind = opt("kind", "default");
 const dry = argv.includes("--dry-run");
 const force = argv.includes("--force");
+// Shorts (default day + hooks) never notify subscribers; the landscape keeps the YouTube default (notifies). --notify forces true.
+const notify = argv.includes("--notify") ? true : kind !== "landscape" ? false : null;
 const publishAt = opt("publish-at");
 const pad = String(day.day).padStart(3, "0");
 
@@ -86,6 +89,7 @@ if (dry) {
   console.log(`title (${item.title.length}/100): ${item.title}`);
   console.log(`file: ${videoPath} (${(size / 1e6).toFixed(1)} MB)`);
   console.log(`privacy: ${status.privacyStatus}   publishAt: ${publishAt ?? "(none)"}${status.publishAt ? ` (UTC ${status.publishAt})` : ""}   madeForKids: false`);
+  console.log(`notifySubscribers: ${notify === null ? "true (YouTube default, not sent)" : notify}${argv.includes("--notify") ? " (--notify override)" : ""}`);
   console.log(`tags (${item.tags.length}): ${item.tags.join(", ")}`);
   if (kind === "landscape") console.log(`chapters:\n${chapters()}`);
   console.log(`description (${Buffer.byteLength(item.description)} bytes):\n${item.description}`);
@@ -110,7 +114,8 @@ const metadata = {
   status,
 };
 
-const init = await fetch("https://www.googleapis.com/upload/youtube/v3/videos?uploadType=resumable&part=snippet,status", {
+const initUrl = `https://www.googleapis.com/upload/youtube/v3/videos?uploadType=resumable&part=snippet,status${notify === null ? "" : `&notifySubscribers=${notify}`}`;
+const init = await fetch(initUrl, {
   method: "POST",
   headers: { ...auth, "content-type": "application/json; charset=UTF-8", "x-upload-content-length": String(size), "x-upload-content-type": "video/mp4" },
   body: JSON.stringify(metadata),

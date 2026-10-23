@@ -44,4 +44,5 @@ built-in `fetch`. **Do not install axios or any HTTP package.**
 - Projects that have not passed YouTube's API audit may have uploads locked private; `publishAt` then does not take
   effect. Tell the manager and schedule in YouTube Studio instead.
 - Rescheduling an uploaded video: `node scripts/youtube-schedule.mjs <day.json> <ISO>` (needs the `youtube` scope).
+- Shorts upload with `notifySubscribers=false` (script does it for no `--kind` and hook1..3); landscape notifies. `--notify` forces true; dry run prints the value.
 - Never upload the same day twice.
