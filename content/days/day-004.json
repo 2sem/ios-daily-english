@@ -6,17 +6,20 @@
     {
       "term": "Condition",
       "definition": "A Bool expression that Swift checks to decide which path the code takes.",
-      "example": "The if only runs when the condition is true, so log the value to see why it never fires."
+      "example": "The if only runs when the condition is true, so log the value to see why it never fires.",
+      "code": "let age = 20\nif age >= 18 {   // the condition\n    print(\"Adult\")\n} else {\n    print(\"Minor\")\n}"
     },
     {
       "term": "guard",
       "definition": "A Swift statement that checks a condition and must leave the current scope if the check fails.",
-      "example": "Use a guard at the top of the method so we bail out when the user is not signed in."
+      "example": "Use a guard at the top of the method so we bail out when the user is not signed in.",
+      "code": "func show(user: String?) {\n    guard let user else { return }\n    print(\"Hello, \\(user)\")\n}"
     },
     {
       "term": "Early Exit",
       "definition": "A style of returning from a function as soon as a requirement fails, so the main code stays unindented.",
-      "example": "I rewrote the nested ifs as an early exit, and now the happy path reads straight down."
+      "example": "I rewrote the nested ifs as an early exit, and now the happy path reads straight down.",
+      "code": "func upload(count: Int) {\n    if count == 0 { return }  // early\n    if count > 10 { return }\n    print(\"Uploading \\(count)\")\n}"
     }
   ],
   "quizzes": [
@@ -71,7 +74,26 @@
       "exampleSlow": "Ava (Premium)",
       "pattern": "random (female -> male)"
     },
-    "file": "video/out/day004.mp4"
+    "file": "video/out/day004.mp4",
+    "landscape": {
+      "title": "Swift Condition, guard & Early Exit in English | Real Code Review Chat | Day 4",
+      "description": "Explain conditions, guard and early exit in Swift by listening to a real code review chat between two iOS devs.\n영어 코드 리뷰 대화로 조건, guard, 얼리 익시트 표현을 익혀요.\n\nCondition - A Bool expression that Swift checks to decide which path the code takes.\n한국어: 코드가 어느 길로 갈지 정하기 위해 Swift가 확인하는 Bool 식\n\nguard - A Swift statement that checks a condition and must leave the current scope if the check fails.\n한국어: 조건을 확인하고, 실패하면 현재 범위를 반드시 벗어나게 하는 구문\n\nEarly Exit - A style of returning from a function as soon as a requirement fails, so the main code stays unindented.\n한국어: 조건이 맞지 않으면 바로 반환해서 메인 코드를 들여쓰기 없이 두는 스타일\n\nIn this video, Mina and Jake untangle a nested login check on a Friday afternoon in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 4 of the iOS Daily English series.\n\n#Swift #iOSDeveloper #EnglishForDevelopers",
+      "tags": [
+        "Condition",
+        "guard",
+        "Early Exit",
+        "swift guard statement",
+        "swift early return",
+        "스위프트 guard",
+        "스위프트 조건문",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "ios development",
+        "iOS Daily English"
+      ]
+    }
   },
   "status": {
     "video": "rendered",
@@ -95,5 +117,178 @@
     "thumbnailSet": "2026-10-14T03:10:21.495Z",
     "scheduledAt": "2026-10-14T23:00:00.000Z",
     "url": "https://www.facebook.com/reel/28941913845438955/"
-  }
+  },
+  "dialogue": {
+    "title": "Friday review: five nested ifs",
+    "setting": "Friday afternoon pull request review",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, this login method has five nested ifs. I got lost on line ten.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "I know. Every if checks one thing, so the code moves to the right.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "Let's read the first condition. What does it check?",
+        "terms": [
+          "Condition"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "It checks if the user is signed in. If the condition is true, the code continues.",
+        "terms": [
+          "Condition"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "And when the condition is false, the else is at the very bottom, thirty lines later.",
+        "terms": [
+          "Condition"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Yes, that is hard to read. What do you suggest?",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "Use guard. A guard checks a condition at the top, and if it fails, you leave.",
+        "terms": [
+          "Condition",
+          "guard"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "So I write guard isSignedIn else, and then return.",
+        "terms": [
+          "guard"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Yes. The else block of a guard must leave the scope. Swift forces you to do that.",
+        "terms": [
+          "guard"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "What if I forget the return? Does it build?",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "No. The compiler shows an error. That is a good safety net.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Nice. So this is what people call an early exit.",
+        "terms": [
+          "Early Exit"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Right. An early exit means you stop as soon as a requirement fails.",
+        "terms": [
+          "Early Exit"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Then the early exit keeps the main code on the left side, with no indent.",
+        "terms": [
+          "Early Exit"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Exactly. The happy path reads straight down.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "I disagree on one thing. For a simple true or false choice, I still like a plain if.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "Fair. Use if for choices, and use guard for requirements.",
+        "terms": [
+          "guard"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Deal. A clear condition, a guard, and an early exit.",
+        "terms": [
+          "Condition",
+          "guard",
+          "Early Exit"
+        ]
+      }
+    ]
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "Condition",
+      "lines": [
+        {
+          "text": "The if never runs, so log the condition and check it."
+        }
+      ],
+      "title": "The if never runs, so log the condition and check it #Shorts",
+      "description": "The if never runs, so log the condition and check it.\n\nCondition - A Bool expression that Swift checks to decide which path the code takes.\n한국어: 코드가 어느 길로 갈지 정하기 위해 Swift가 확인하는 Bool 식\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "guard",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "How do we stop when the user is signed out?"
+        },
+        {
+          "speaker": "B",
+          "text": "Use a guard at the top of the method."
+        }
+      ],
+      "title": "How do we stop when the user is signed out? guard #Shorts",
+      "description": "How do we stop when the user is signed out? / Use a guard at the top of the method.\n\nguard - A Swift statement that checks a condition and must leave the current scope if the check fails.\n한국어: 조건을 확인하고, 실패하면 현재 범위를 반드시 벗어나게 하는 구문\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Early Exit",
+      "lines": [
+        {
+          "text": "I rewrote the nested ifs as an early exit."
+        }
+      ],
+      "title": "I rewrote the nested ifs as an early exit #Shorts",
+      "description": "I rewrote the nested ifs as an early exit.\n\nEarly Exit - A style of returning from a function as soon as a requirement fails, so the main code stays unindented.\n한국어: 조건이 맞지 않으면 바로 반환해서 메인 코드를 들여쓰기 없이 두는 스타일\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ]
 }

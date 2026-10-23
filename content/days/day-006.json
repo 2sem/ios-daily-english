@@ -6,17 +6,20 @@
     {
       "term": "for-in Loop",
       "definition": "A loop that runs the same code once for each item in a collection or sequence.",
-      "example": "I used a for-in loop to go through every photo name and print it."
+      "example": "I used a for-in loop to go through every photo name and print it.",
+      "code": "let photos = [\"a.png\", \"b.png\", \"c.png\"]\nfor name in photos {\n    print(name)\n}"
     },
     {
       "term": "Range",
       "definition": "A span of values from a start to an end, written with operators like 1...5 (closed) or 0 up to 5 (half-open).",
-      "example": "I wrote the loop over a range from one to ten, so it runs exactly ten times."
+      "example": "I wrote the loop over a range from one to ten, so it runs exactly ten times.",
+      "code": "for i in 1...3 {      // 1, 2, 3\n    print(i)\n}\nfor i in 0..<3 {      // 0, 1, 2\n    print(i)\n}"
     },
     {
       "term": "stride",
       "definition": "A function that gives you a sequence of numbers that moves from a start value toward an end value by a step you choose.",
-      "example": "I used stride to count from zero to one hundred in steps of ten for the progress marks."
+      "example": "I used stride to count from zero to one hundred in steps of ten for the progress marks.",
+      "code": "// 0, 10, 20, 30, 40\nfor n in stride(from: 0, to: 50, by: 10) {\n    print(n)\n}"
     }
   ],
   "quizzes": [
@@ -71,7 +74,26 @@
       "exampleSlow": "Ava (Premium)",
       "pattern": "random (female -> male)"
     },
-    "file": "video/out/day006.mp4"
+    "file": "video/out/day006.mp4",
+    "landscape": {
+      "title": "Swift for-in Loop, Range & stride in English | Real Code Review Chat | Day 6",
+      "description": "Explain for-in loops, ranges and stride in Swift by listening to a real code review chat between two iOS devs.\n영어 코드 리뷰 대화로 for-in 반복문, 범위, stride 표현을 익혀요.\n\nfor-in Loop - A loop that runs the same code once for each item in a collection or sequence.\n한국어: 컬렉션이나 시퀀스의 각 항목마다 같은 코드를 한 번씩 실행하는 반복문\n\nRange - A span of values from a start to an end, written with operators like 1...5 (closed) or 0 up to 5 (half-open).\n한국어: 시작부터 끝까지의 값 구간 (예: 1...5)\n\nstride - A function that gives you a sequence of numbers that moves from a start value toward an end value by a step you choose.\n한국어: 시작 값에서 끝 값까지 정한 간격으로 이동하는 숫자 시퀀스를 만드는 함수\n\nIn this video, Mina and Jake build progress marks for a download bar in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 6 of the iOS Daily English series.\n\n#Swift #iOSDeveloper #EnglishForDevelopers",
+      "tags": [
+        "for-in Loop",
+        "Range",
+        "stride",
+        "swift for in loop",
+        "swift stride",
+        "스위프트 반복문",
+        "스위프트 for in",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "ios development",
+        "iOS Daily English"
+      ]
+    }
   },
   "status": {
     "video": "rendered",
@@ -96,5 +118,181 @@
     "uploaded": "2026-10-16T01:09:39.103Z",
     "thumbnail": "video/out/day-006-thumb.png",
     "thumbnailSet": "2026-10-16T01:09:45.487Z"
-  }
+  },
+  "dialogue": {
+    "title": "Coffee break: the download progress bar",
+    "setting": "Pair programming over coffee",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "B",
+        "text": "Mina, I am building the download progress bar. I need marks at ten, twenty, thirty, and so on.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "Nice. Do you want to write each mark by hand?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "No way. That is a hundred lines. I need a loop.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "Right. A for-in loop runs the same code once for each item.",
+        "terms": [
+          "for-in Loop"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "So I write a for-in loop over the marks, and put my drawing code inside.",
+        "terms": [
+          "for-in Loop"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Yes. And you do not need an index. The for-in loop gives you each item.",
+        "terms": [
+          "for-in Loop"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "But I have no array of marks. I only have numbers from one to ten.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "Then use a range. Write 1...10, and Swift counts for you.",
+        "terms": [
+          "Range"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Does the range include ten?",
+        "terms": [
+          "Range"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "With three dots, yes. It is a closed range. With 0..<10, ten is not included.",
+        "terms": [
+          "Range"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "I always forget this. I used a closed range 0...10 last week, and I got eleven marks.",
+        "terms": [
+          "Range"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Good lesson. Use a half-open range when you count items from zero.",
+        "terms": [
+          "Range"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Now my marks must go by ten, not by one.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "That is a job for stride. It counts from a start value to an end value, by a step you choose.",
+        "terms": [
+          "stride"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "So stride from zero through one hundred, by ten.",
+        "terms": [
+          "stride"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Yes. With stride, use through if you want to include one hundred.",
+        "terms": [
+          "stride"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Cool. It gives me eleven marks in a for-in loop.",
+        "terms": [
+          "for-in Loop"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "A for-in loop, a range, and stride. That is most of your daily loops.",
+        "terms": [
+          "for-in Loop",
+          "Range",
+          "stride"
+        ]
+      }
+    ]
+  },
+  "hooks": [
+    {
+      "type": "one-line-conversation",
+      "term": "for-in Loop",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "How do I print every photo name?"
+        },
+        {
+          "speaker": "B",
+          "text": "Use a for-in loop over the array."
+        }
+      ],
+      "title": "How do I print every photo name? for-in Loop #Shorts",
+      "description": "How do I print every photo name? / Use a for-in loop over the array.\n\nfor-in Loop - A loop that runs the same code once for each item in a collection or sequence.\n한국어: 컬렉션이나 시퀀스의 각 항목마다 같은 코드를 한 번씩 실행하는 반복문\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Range",
+      "lines": [
+        {
+          "text": "I looped over a range from one to ten."
+        }
+      ],
+      "title": "I looped over a range from one to ten #Shorts",
+      "description": "I looped over a range from one to ten.\n\nRange - A span of values from a start to an end, written with operators like 1...5 (closed) or 0 up to 5 (half-open).\n한국어: 시작부터 끝까지의 값 구간 (예: 1...5)\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "stride",
+      "lines": [
+        {
+          "text": "I used stride to count to one hundred by tens."
+        }
+      ],
+      "title": "I used stride to count to one hundred by tens #Shorts",
+      "description": "I used stride to count to one hundred by tens.\n\nstride - A function that gives you a sequence of numbers that moves from a start value toward an end value by a step you choose.\n한국어: 시작 값에서 끝 값까지 정한 간격으로 이동하는 숫자 시퀀스를 만드는 함수\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ]
 }

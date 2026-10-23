@@ -6,17 +6,20 @@
     {
       "term": "let",
       "definition": "The keyword that declares a constant, a value that cannot be changed once it has been set.",
-      "example": "I made the greeting a let because it never needs to be reassigned."
+      "example": "I made the greeting a let because it never needs to be reassigned.",
+      "code": "let greeting = \"Hello\"\n// Set once. It cannot change.\nprint(greeting)"
     },
     {
       "term": "var",
       "definition": "The keyword that declares a variable, a value you can change after it has been set.",
-      "example": "The score is a var because it goes up every time the player taps."
+      "example": "The score is a var because it goes up every time the player taps.",
+      "code": "var score = 0\nscore += 10  // Changing a var is allowed.\nprint(score)"
     },
     {
       "term": "Type Inference",
       "definition": "The compiler's ability to work out a value's type from what you assign to it, so you do not have to write the type yourself.",
-      "example": "We left out the type annotation because type inference already knows it is an Int."
+      "example": "We left out the type annotation because type inference already knows it is an Int.",
+      "code": "let count = 3       // Swift infers Int\nlet name = \"Mina\"   // Swift infers String\nlet price = 9.99    // Swift infers Double\nprint(type(of: price))"
     }
   ],
   "quizzes": [
@@ -71,6 +74,31 @@
       "example": "Evan (Enhanced)",
       "pattern": "female -> male",
       "exampleSlow": "Ava (Premium)"
+    },
+    "landscape": {
+      "title": "Swift let, var & Type Inference in English | Real Code Review Chat | Day 1",
+      "description": "Explain let, var and type inference in Swift by listening to a real code review chat between two iOS devs.\n영어 코드 리뷰 대화로 let, var, 타입 추론 표현을 익혀요.\n\nlet - The keyword that declares a constant, a value that cannot be changed once it has been set.\n한국어: 한 번 정하면 바꿀 수 없는 상수를 선언하는 키워드\n\nvar - The keyword that declares a variable, a value you can change after it has been set.\n한국어: 나중에 값을 바꿀 수 있는 변수를 선언하는 키워드\n\nType Inference - The compiler's ability to work out a value's type from what you assign to it, so you do not have to write the type yourself.\n한국어: 대입하는 값을 보고 컴파일러가 타입을 알아내는 기능\n\nIn this video, Mina helps Jake fix a tip calculator on his first week in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 1 of the iOS Daily English series.\n\n#Swift #iOSDeveloper #EnglishForDevelopers",
+      "tags": [
+        "let",
+        "var",
+        "Type Inference",
+        "swift let vs var",
+        "swift type inference",
+        "스위프트 변수",
+        "스위프트 상수",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "ios development",
+        "iOS Daily English"
+      ],
+      "youtubeId": "Juh1W7qI4aI",
+      "youtubeUrl": "https://youtu.be/Juh1W7qI4aI",
+      "privacy": "private",
+      "publishAt": "2026-10-24T23:00:00.000Z",
+      "uploaded": "2026-10-23T14:55:58.851Z",
+      "thumbnailSet": "2026-10-23T14:56:05.295Z"
     }
   },
   "status": {
@@ -94,5 +122,195 @@
     "uploaded": "2026-10-12T01:33:37.513Z",
     "url": "https://www.facebook.com/reel/1790748868795346/",
     "caption": "Quick Swift English for your day 👋\n\nToday's 3 words:\n• let: a constant. Set it once and it never changes.\n• var: a variable. You can change it whenever you like.\n• Type Inference: Swift works out the type for you, so you don't have to write it.\n\nEvery example is read twice, first at normal speed and then slowly, so you can say it out loud with me. Try the quiz at the end and share your answers in the comments!\n\nDay 1 of iOS Daily English: 3 terms a day, from Swift basics to advanced iOS.\n\n#iOSDev #Swift #LearnEnglish #SwiftUI"
-  }
+  },
+  "dialogue": {
+    "title": "First week: fixing the tip calculator",
+    "setting": "Pair programming, Jake's first week",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Welcome to the team, Jake. Today we fix the tip calculator together.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Thanks, Mina. I see a lot of let and var in this file. How do I choose?",
+        "terms": [
+          "let",
+          "var"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Use let when the value never changes. The tax rate is a good let.",
+        "terms": [
+          "let"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "And var is for a value that changes, like the total price?",
+        "terms": [
+          "var"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Exactly. The total is a var, because it grows with every item.",
+        "terms": [
+          "var"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Then I will write var taxRate, just in case.",
+        "terms": [
+          "var"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Please do not. Someone can change the tax rate by mistake. Make it a let.",
+        "terms": [
+          "let"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Oh, I see. A let protects the value, and Xcode stops me if I try to change it.",
+        "terms": [
+          "let"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Right. And Xcode also warns you when a var never changes.",
+        "terms": [
+          "var"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Good to know. Next question. Why did you write the tax rate with no type?",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "Because of type inference. Swift sees 0.08 and knows it is a Double.",
+        "terms": [
+          "Type Inference"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "So type inference does the work, and I do not write Double myself.",
+        "terms": [
+          "Type Inference"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Yes. But watch out. Did you write let count = 3 in the cart?",
+        "terms": [
+          "let"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "I did. Then I added 0.5 to it, and I got an error.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "That is type inference again. It decided count is an Int, and 0.5 does not fit.",
+        "terms": [
+          "Type Inference"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Got it. I will write 3.0, so Swift infers a Double.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "Perfect. Now the discount is a var, and the rest is a let.",
+        "terms": [
+          "let",
+          "var"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Nice. It looks cleaner already.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "Great. Use let first, use var when you must, and trust type inference.",
+        "terms": [
+          "let",
+          "var",
+          "Type Inference"
+        ]
+      }
+    ]
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "let",
+      "lines": [
+        {
+          "text": "I made the tax rate a let, so nobody can change it."
+        }
+      ],
+      "title": "I made the tax rate a let, so nobody can change it #Shorts",
+      "description": "I made the tax rate a let, so nobody can change it.\n\nlet - The keyword that declares a constant, a value that cannot be changed once it has been set.\n한국어: 한 번 정하면 바꿀 수 없는 상수를 선언하는 키워드\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper",
+      "youtubeId": "-Lr8iO0bb34",
+      "youtubeUrl": "https://youtu.be/-Lr8iO0bb34",
+      "privacy": "private",
+      "publishAt": "2026-10-25T03:00:00.000Z",
+      "uploaded": "2026-10-23T14:56:22.846Z"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "var",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Why is the score a var?"
+        },
+        {
+          "speaker": "B",
+          "text": "It changes every time the player taps."
+        }
+      ],
+      "title": "Why is the score a var? var #Shorts",
+      "description": "Why is the score a var? / It changes every time the player taps.\n\nvar - The keyword that declares a variable, a value you can change after it has been set.\n한국어: 나중에 값을 바꿀 수 있는 변수를 선언하는 키워드\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Type Inference",
+      "lines": [
+        {
+          "text": "Thanks to type inference, I do not write the type here."
+        }
+      ],
+      "title": "Thanks to type inference, I do not write the type here #Shorts",
+      "description": "Thanks to type inference, I do not write the type here.\n\nType Inference - The compiler's ability to work out a value's type from what you assign to it, so you do not have to write the type yourself.\n한국어: 대입하는 값을 보고 컴파일러가 타입을 알아내는 기능\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ]
 }

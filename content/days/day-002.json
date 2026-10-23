@@ -6,17 +6,20 @@
     {
       "term": "nil",
       "definition": "The keyword that means a value is missing, so there is nothing stored there at all.",
-      "example": "The profile photo is nil until the user picks one from their library."
+      "example": "The profile photo is nil until the user picks one from their library.",
+      "code": "var photo: String? = \"me.png\"\nphoto = nil  // Nothing is stored now.\nprint(photo == nil)"
     },
     {
       "term": "Optional",
       "definition": "A type that either holds a value or holds nothing, written with a question mark after the type name.",
-      "example": "I made the middle name an optional because not every user has one."
+      "example": "I made the middle name an optional because not every user has one.",
+      "code": "// A String, or nothing\nvar nick: String? = nil\nnick = \"Rose\"\nprint(nick ?? \"No nickname\")"
     },
     {
       "term": "Optional Binding",
       "definition": "A safe way to check whether an optional has a value and, if it does, use that value as a normal constant.",
-      "example": "Use optional binding to unwrap the email instead of force unwrapping it and risking a crash."
+      "example": "Use optional binding to unwrap the email instead of force unwrapping it and risking a crash.",
+      "code": "let email: String? = \"mina@example.com\"\nif let email {\n    print(\"Send to \\(email)\")\n} else {\n    print(\"No email\")\n}"
     }
   ],
   "quizzes": [
@@ -71,7 +74,26 @@
       "exampleSlow": "Tom (Enhanced)",
       "pattern": "male -> female"
     },
-    "file": "video/out/day002.mp4"
+    "file": "video/out/day002.mp4",
+    "landscape": {
+      "title": "Swift nil, Optional & Optional Binding in English | Real Code Review Chat | Day 2",
+      "description": "Explain optionals, nil and optional binding in Swift by listening to a real code review chat between two iOS devs.\n영어 코드 리뷰 대화로 옵셔널, nil, 옵셔널 바인딩 표현을 익혀요.\n\nnil - The keyword that means a value is missing, so there is nothing stored there at all.\n한국어: 값이 아예 없다는 것을 나타내는 키워드\n\nOptional - A type that either holds a value or holds nothing, written with a question mark after the type name.\n한국어: 값이 있거나 아무것도 없을 수 있는 타입 (타입 뒤에 ?)\n\nOptional Binding - A safe way to check whether an optional has a value and, if it does, use that value as a normal constant.\n한국어: 옵셔널에 값이 있을 때만 안전하게 꺼내 쓰는 방법\n\nIn this video, Mina and Jake track down a crash caused by a missing profile photo in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 2 of the iOS Daily English series.\n\n#Swift #iOSDeveloper #EnglishForDevelopers",
+      "tags": [
+        "nil",
+        "Optional",
+        "Optional Binding",
+        "swift optional binding",
+        "swift if let",
+        "스위프트 옵셔널",
+        "스위프트 nil",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "ios development",
+        "iOS Daily English"
+      ]
+    }
   },
   "status": {
     "content": "ready",
@@ -95,5 +117,185 @@
     "uploaded": "2026-10-12T01:52:04.487Z",
     "thumbnail": "video/out/day-002-thumb.png",
     "thumbnailSet": "2026-10-12T01:52:13.349Z"
-  }
+  },
+  "dialogue": {
+    "title": "Bug report: the app crashes on a new profile",
+    "setting": "Slack huddle about a crash report",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "B",
+        "text": "Mina, a user reports a crash on the profile screen. It happens for new accounts.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "New accounts have no photo yet. I think the photo is nil there.",
+        "terms": [
+          "nil"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Yes, I see it. The code reads the photo like it always exists.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "So the photo should be an optional. Then the type says it can be empty.",
+        "terms": [
+          "Optional"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Right. I will write String with a question mark. Now it is an optional.",
+        "terms": [
+          "Optional"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Good. An optional is either a value or nil, so Swift makes us handle both.",
+        "terms": [
+          "nil",
+          "Optional"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Now Xcode shows an error on the image line. What do I do?",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "Do not use the exclamation mark. That is force unwrapping, and it crashes when the value is nil.",
+        "terms": [
+          "nil"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Hmm, but it works on my phone. My account has a photo.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "That is the trap. It works until the first user with nil opens the screen.",
+        "terms": [
+          "nil"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Okay, okay. So what is the safe way?",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "Use optional binding. You write if let photo, and the code runs only when there is a value.",
+        "terms": [
+          "Optional Binding"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "So optional binding unwraps the photo into a normal constant inside the braces.",
+        "terms": [
+          "Optional Binding"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Exactly. And in the else branch, show a gray placeholder.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Nice. I will use optional binding in the name label too.",
+        "terms": [
+          "Optional Binding"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "The middle name is also an optional, right?",
+        "terms": [
+          "Optional"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Yes. Many users have no middle name, so it is nil.",
+        "terms": [
+          "nil"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Perfect. Please push the fix, and I will review it.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Done. An optional, nil, and optional binding. Crash fixed.",
+        "terms": [
+          "nil",
+          "Optional",
+          "Optional Binding"
+        ]
+      }
+    ]
+  },
+  "hooks": [
+    {
+      "type": "one-line-conversation",
+      "term": "nil",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Why does the photo not show?"
+        },
+        {
+          "speaker": "B",
+          "text": "It is nil until the user picks one."
+        }
+      ],
+      "title": "Why does the photo not show? nil #Shorts",
+      "description": "Why does the photo not show? / It is nil until the user picks one.\n\nnil - The keyword that means a value is missing, so there is nothing stored there at all.\n한국어: 값이 아예 없다는 것을 나타내는 키워드\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Optional",
+      "lines": [
+        {
+          "text": "I made the middle name an optional, because not everyone has one."
+        }
+      ],
+      "title": "I made the middle name an optional, because not everyone has one #Shorts",
+      "description": "I made the middle name an optional, because not everyone has one.\n\nOptional - A type that either holds a value or holds nothing, written with a question mark after the type name.\n한국어: 값이 있거나 아무것도 없을 수 있는 타입 (타입 뒤에 ?)\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Optional Binding",
+      "lines": [
+        {
+          "text": "Use optional binding instead of force unwrapping, and avoid the crash."
+        }
+      ],
+      "title": "Use optional binding instead of force unwrapping, and avoid the crash #Shorts",
+      "description": "Use optional binding instead of force unwrapping, and avoid the crash.\n\nOptional Binding - A safe way to check whether an optional has a value and, if it does, use that value as a normal constant.\n한국어: 옵셔널에 값이 있을 때만 안전하게 꺼내 쓰는 방법\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ]
 }

@@ -47,6 +47,7 @@ Besides the existing fields, every day JSON has two extra top-level fields. Exis
 - `video.landscape` (`{title, description, tags}`): metadata for the long landscape upload. Title <= 100 chars; description is
   bilingual EN + KO (hook, 3 terms with definition + Korean gloss, a line about the chat, then the literal line `{{CHAPTERS}}`,
   then the comment prompt, 3-5 hashtags, no #Shorts); tags without #. The uploader replaces `{{CHAPTERS}}` with timestamps.
+- `video.landscape.hook` (optional string): cold-open line for the landscape video, e.g. 'Can you explain <terms> in English?'; use it when the vertical `video.hook` does not fit.
 - `hooks[i].title` (<= 100 chars, includes #Shorts) and `hooks[i].description` (the line, term + EN/KO meaning,
   `Full conversation: {{LONG_URL}}`, `#Shorts #Swift #iOSDeveloper`). The uploader replaces `{{LONG_URL}}` with the long video URL.
 

@@ -11,7 +11,7 @@ import { readFileSync, writeFileSync, mkdirSync, copyFileSync, rmSync, cpSync, e
 import { execFileSync } from "node:child_process";
 import { homedir } from "node:os";
 import { join, resolve } from "node:path";
-import { loadDay, makeBgm, root, esc, opt, renderLine, replayPicks, dKey, rKey, highlightSwift } from "./lib/landscape.mjs";
+import { loadDay, coldHook, makeBgm, root, esc, opt, renderLine, replayPicks, dKey, rKey, highlightSwift } from "./lib/landscape.mjs";
 
 const { day, paths } = loadDay();
 if (!existsSync(paths.timing)) { console.error(`missing ${paths.timing} (run scripts/timing-landscape.mjs)`); process.exit(1); }
@@ -23,13 +23,15 @@ cpSync(join(root, "video", "template-landscape"), paths.outDir, { recursive: tru
 rmSync(join(paths.outDir, "test-extra-day012.json"), { force: true });
 
 const scene = (id, s, inner, cls = "") => `      <div class="scene clip${cls ? " " + cls : ""}" id="${id}" data-start="${s.start}" data-duration="${s.dur}" data-track-index="1">\n${inner}\n      </div>\n`;
+// code panel text area is ~766 px wide and JetBrains Mono is 0.6 em wide: shrink the font for long lines instead of clipping them
+const codeFont = (code) => { const m = Math.max(0, ...code.map((l) => l.length)); const px = Math.floor(Math.min(28, 760 / (m * 0.6))); return px < 28 ? ` style="font-size: ${px}px"` : ""; };
 const koOf = (t) => (t.ko ?? "").replace(/^[^:]+:\s*/, "");
 const isMono = (s) => /^[a-z][\w.()-]*$/i.test(s) && !/\s/.test(s) && s === s.toLowerCase();
 const warnings = [];
 let html = "";
 
 // cold open
-html += scene("cold", plan.cold, `        <div class="cold-hook" id="cold-hook">${esc(day.video?.hook ?? "")}</div>
+html += scene("cold", plan.cold, `        <div class="cold-hook" id="cold-hook">${esc(coldHook(day))}</div>
         <div id="cold-intro">
           <div class="logo-tile"><img src="assets/logo.png" alt="iOS Daily English logo" /></div>
           <div>
@@ -45,12 +47,12 @@ day.terms.forEach((t, i) => {
   const code = (t.code ?? "").split("\n").filter((l, k, a) => !(k === a.length - 1 && !l));
   if (!t.code) warnings.push(`term ${t.term}: no \`code\` field, placeholder shown`);
   if (code.length > 6) warnings.push(`term ${t.term}: code has ${code.length} lines (max 6)`);
-  code.forEach((l) => { if (l.length > 48) warnings.push(`term ${t.term}: line over 48 chars: ${l}`); });
+  code.forEach((l) => { if (l.length > 45) warnings.push(`term ${t.term}: line over 45 chars (font shrunk to fit): ${l}`); });
   const lines = t.code ? code.map(highlightSwift).join("\n") : `<div class="ln"><span class="cm">// TODO: add a code snippet for ${esc(t.term)}</span></div>`;
   const fileName = `${(t.term.replace(/[^\w]/g, "") || "Snippet")}.swift`;
   const ex = renderLine(day, { text: t.example, terms: [t.term] });
   html += scene(`s${i + 1}`, plan.terms[i], `        <div class="num">0${i + 1} / 0${day.terms.length}</div>
-        <div class="lpanel"><div class="wbar"><i></i><i></i><i></i><span>${esc(fileName)}</span></div><div class="code">
+        <div class="lpanel"><div class="wbar"><i></i><i></i><i></i><span>${esc(fileName)}</span></div><div class="code"${codeFont(code)}>
 ${lines}
         </div></div>
         <div class="rp">
