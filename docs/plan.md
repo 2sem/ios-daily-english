@@ -9,10 +9,15 @@ Decided 2026-10-23. Delete this file when the plan is done.
 - Day 13 (already uploaded, private) moves to **2026-11-06**, right after Day 12.
 - Day 14 onward: one new day per day, made just in time with the new format.
 - Shorts (hooks) upload with `notifySubscribers=false`; the landscape long video notifies.
+- **Hooks follow the long video** (changed 2026-10-24): from Day 8 on, only the long video is uploaded up front.
+  Its 3 hooks are made and scheduled with `/make-hook-shorts [day]` once the long video is public
+  (`.claude/skills/make-hook-shorts/SKILL.md`). Days 1-7 hooks were already uploaded and stay as scheduled.
 - Facebook/IG Reels are paused for the relaunch; decide later whether hooks go there.
 
 ## Schedule (KST)
-Day N long video: 08:00 on date D(N) = 2026-10-24 + N. The 3 hooks go out the same day at 12:00, 18:00, 21:00.
+Day N long video: 08:00 on date D(N) = 2026-10-24 + N. The 3 hooks go out the same day at 12:00, 18:00, 21:00
+(Days 1-7 already scheduled that way; Day 8+ via `/make-hook-shorts` after the long video is public, so slots
+that have already passed move to the next day).
 
 | Day | Date | | Day | Date |
 |---|---|---|---|---|
@@ -41,3 +46,8 @@ Day N long video: 08:00 on date D(N) = 2026-10-24 + N. The 3 hooks go out the sa
 - Old and new videos both say "Day N"; new titles carry "Real Code Review Chat" to tell them apart.
 - Whether `notifySubscribers=false` is honoured at scheduled go-live is unverified.
 - PR #27 is not merged yet; this work stacks on it.
+
+## Progress (2026-10-24)
+- Uploaded private + scheduled: Days 1-7 long video + 3 hooks each; Day 13 (moved to 11-06).
+- Left: Days 8-12 long video; their hooks via `/make-hook-shorts`.
+- The default YouTube quota (10,000/day, about 1,600 per upload) did not bind: 28 uploads went through in one sitting.

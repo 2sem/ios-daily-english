@@ -92,7 +92,13 @@
         "swift",
         "ios development",
         "iOS Daily English"
-      ]
+      ],
+      "youtubeId": "lgjDWPX7nJQ",
+      "youtubeUrl": "https://youtu.be/lgjDWPX7nJQ",
+      "privacy": "private",
+      "publishAt": "2026-10-27T23:00:00.000Z",
+      "uploaded": "2026-10-23T23:56:47.915Z",
+      "thumbnailSet": "2026-10-23T23:56:53.339Z"
     }
   },
   "status": {
@@ -261,7 +267,12 @@
         }
       ],
       "title": "The if never runs, so log the condition and check it #Shorts",
-      "description": "The if never runs, so log the condition and check it.\n\nCondition - A Bool expression that Swift checks to decide which path the code takes.\n한국어: 코드가 어느 길로 갈지 정하기 위해 Swift가 확인하는 Bool 식\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+      "description": "The if never runs, so log the condition and check it.\n\nCondition - A Bool expression that Swift checks to decide which path the code takes.\n한국어: 코드가 어느 길로 갈지 정하기 위해 Swift가 확인하는 Bool 식\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper",
+      "youtubeId": "SZyJETTDsuQ",
+      "youtubeUrl": "https://youtu.be/SZyJETTDsuQ",
+      "privacy": "private",
+      "publishAt": "2026-10-28T03:00:00.000Z",
+      "uploaded": "2026-10-23T23:56:58.012Z"
     },
     {
       "type": "one-line-conversation",
@@ -277,7 +288,12 @@
         }
       ],
       "title": "How do we stop when the user is signed out? guard #Shorts",
-      "description": "How do we stop when the user is signed out? / Use a guard at the top of the method.\n\nguard - A Swift statement that checks a condition and must leave the current scope if the check fails.\n한국어: 조건을 확인하고, 실패하면 현재 범위를 반드시 벗어나게 하는 구문\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+      "description": "How do we stop when the user is signed out? / Use a guard at the top of the method.\n\nguard - A Swift statement that checks a condition and must leave the current scope if the check fails.\n한국어: 조건을 확인하고, 실패하면 현재 범위를 반드시 벗어나게 하는 구문\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper",
+      "youtubeId": "rD6lLfoZotE",
+      "youtubeUrl": "https://youtu.be/rD6lLfoZotE",
+      "privacy": "private",
+      "publishAt": "2026-10-28T09:00:00.000Z",
+      "uploaded": "2026-10-23T23:57:01.895Z"
     },
     {
       "type": "one-line-example",
@@ -288,7 +304,12 @@
         }
       ],
       "title": "I rewrote the nested ifs as an early exit #Shorts",
-      "description": "I rewrote the nested ifs as an early exit.\n\nEarly Exit - A style of returning from a function as soon as a requirement fails, so the main code stays unindented.\n한국어: 조건이 맞지 않으면 바로 반환해서 메인 코드를 들여쓰기 없이 두는 스타일\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+      "description": "I rewrote the nested ifs as an early exit.\n\nEarly Exit - A style of returning from a function as soon as a requirement fails, so the main code stays unindented.\n한국어: 조건이 맞지 않으면 바로 반환해서 메인 코드를 들여쓰기 없이 두는 스타일\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper",
+      "youtubeId": "ogpm4yyuqXY",
+      "youtubeUrl": "https://youtu.be/ogpm4yyuqXY",
+      "privacy": "private",
+      "publishAt": "2026-10-28T12:00:00.000Z",
+      "uploaded": "2026-10-23T23:57:07.512Z"
     }
   ]
 }

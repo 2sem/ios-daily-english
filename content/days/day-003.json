@@ -92,7 +92,13 @@
         "swift",
         "ios development",
         "iOS Daily English"
-      ]
+      ],
+      "youtubeId": "srMUoRlCXyk",
+      "youtubeUrl": "https://youtu.be/srMUoRlCXyk",
+      "privacy": "private",
+      "publishAt": "2026-10-26T23:00:00.000Z",
+      "uploaded": "2026-10-23T23:56:06.582Z",
+      "thumbnailSet": "2026-10-23T23:56:13.458Z"
     }
   },
   "status": {
@@ -263,7 +269,12 @@
         }
       ],
       "title": "I moved the date code into one function for both screens #Shorts",
-      "description": "I moved the date code into one function for both screens.\n\nFunction - A named block of code that does one job and can be run again whenever you call it by name.\n한국어: 이름을 붙여 한 가지 일을 하고, 호출할 때마다 다시 실행하는 코드 묶음\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+      "description": "I moved the date code into one function for both screens.\n\nFunction - A named block of code that does one job and can be run again whenever you call it by name.\n한국어: 이름을 붙여 한 가지 일을 하고, 호출할 때마다 다시 실행하는 코드 묶음\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper",
+      "youtubeId": "AC7HAG70RTE",
+      "youtubeUrl": "https://youtu.be/AC7HAG70RTE",
+      "privacy": "private",
+      "publishAt": "2026-10-27T03:00:00.000Z",
+      "uploaded": "2026-10-23T23:56:19.032Z"
     },
     {
       "type": "one-line-conversation",
@@ -279,7 +290,12 @@
         }
       ],
       "title": "What does this method need from me? Parameter #Shorts",
-      "description": "What does this method need from me? / One parameter: the user ID.\n\nParameter - A named input that a function declares so the caller can pass a value in.\n한국어: 함수가 값을 받기 위해 선언하는 입력 이름\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+      "description": "What does this method need from me? / One parameter: the user ID.\n\nParameter - A named input that a function declares so the caller can pass a value in.\n한국어: 함수가 값을 받기 위해 선언하는 입력 이름\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper",
+      "youtubeId": "U-rr6VOVlv0",
+      "youtubeUrl": "https://youtu.be/U-rr6VOVlv0",
+      "privacy": "private",
+      "publishAt": "2026-10-27T09:00:00.000Z",
+      "uploaded": "2026-10-23T23:56:23.879Z"
     },
     {
       "type": "one-line-example",
@@ -290,7 +306,12 @@
         }
       ],
       "title": "Add an argument label, so the call reads like a sentence #Shorts",
-      "description": "Add an argument label, so the call reads like a sentence.\n\nArgument Label - A word written before a value in a function call that tells the reader what that value is for.\n한국어: 함수를 호출할 때 값 앞에 붙여 그 값의 역할을 알려주는 단어\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+      "description": "Add an argument label, so the call reads like a sentence.\n\nArgument Label - A word written before a value in a function call that tells the reader what that value is for.\n한국어: 함수를 호출할 때 값 앞에 붙여 그 값의 역할을 알려주는 단어\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper",
+      "youtubeId": "Py-UqQsGglE",
+      "youtubeUrl": "https://youtu.be/Py-UqQsGglE",
+      "privacy": "private",
+      "publishAt": "2026-10-27T12:00:00.000Z",
+      "uploaded": "2026-10-23T23:56:28.390Z"
     }
   ]
 }

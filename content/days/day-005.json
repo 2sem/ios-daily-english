@@ -92,7 +92,13 @@
         "swift",
         "ios development",
         "iOS Daily English"
-      ]
+      ],
+      "youtubeId": "bnEx7PruXl4",
+      "youtubeUrl": "https://youtu.be/bnEx7PruXl4",
+      "privacy": "private",
+      "publishAt": "2026-10-28T23:00:00.000Z",
+      "uploaded": "2026-10-23T23:57:25.613Z",
+      "thumbnailSet": "2026-10-23T23:57:30.411Z"
     }
   },
   "status": {
@@ -272,7 +278,12 @@
         }
       ],
       "title": "I stored the photo names in an array, so the order stays #Shorts",
-      "description": "I stored the photo names in an array, so the order stays.\n\nArray - An ordered collection of values of the same type that you read by their position, starting at zero.\n한국어: 같은 타입의 값을 순서대로 담고, 0부터 시작하는 위치로 읽는 컬렉션\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+      "description": "I stored the photo names in an array, so the order stays.\n\nArray - An ordered collection of values of the same type that you read by their position, starting at zero.\n한국어: 같은 타입의 값을 순서대로 담고, 0부터 시작하는 위치로 읽는 컬렉션\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper",
+      "youtubeId": "iodmzIus8VU",
+      "youtubeUrl": "https://youtu.be/iodmzIus8VU",
+      "privacy": "private",
+      "publishAt": "2026-10-29T03:00:00.000Z",
+      "uploaded": "2026-10-23T23:57:35.484Z"
     },
     {
       "type": "one-line-conversation",
@@ -288,7 +299,12 @@
         }
       ],
       "title": "How do you read the theme? Dictionary #Shorts",
-      "description": "How do you read the theme? / I look it up in the dictionary by its key.\n\nDictionary - A collection that stores values under unique keys, so you look up a value by its key instead of its position.\n한국어: 고유한 키로 값을 저장하고 키로 찾아 쓰는 컬렉션\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+      "description": "How do you read the theme? / I look it up in the dictionary by its key.\n\nDictionary - A collection that stores values under unique keys, so you look up a value by its key instead of its position.\n한국어: 고유한 키로 값을 저장하고 키로 찾아 쓰는 컬렉션\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper",
+      "youtubeId": "N8voMcdsuVk",
+      "youtubeUrl": "https://youtu.be/N8voMcdsuVk",
+      "privacy": "private",
+      "publishAt": "2026-10-29T09:00:00.000Z",
+      "uploaded": "2026-10-23T23:57:41.526Z"
     },
     {
       "type": "one-line-example",
@@ -299,7 +315,12 @@
         }
       ],
       "title": "I used a set, so the same tag cannot be added twice #Shorts",
-      "description": "I used a set, so the same tag cannot be added twice.\n\nSet - An unordered collection of unique values, where each value can appear only once.\n한국어: 중복 없이 고유한 값만 담는, 순서가 없는 컬렉션\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+      "description": "I used a set, so the same tag cannot be added twice.\n\nSet - An unordered collection of unique values, where each value can appear only once.\n한국어: 중복 없이 고유한 값만 담는, 순서가 없는 컬렉션\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper",
+      "youtubeId": "KI01QbHthHs",
+      "youtubeUrl": "https://youtu.be/KI01QbHthHs",
+      "privacy": "private",
+      "publishAt": "2026-10-29T12:00:00.000Z",
+      "uploaded": "2026-10-23T23:57:46.005Z"
     }
   ]
 }

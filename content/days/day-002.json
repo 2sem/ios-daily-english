@@ -92,7 +92,13 @@
         "swift",
         "ios development",
         "iOS Daily English"
-      ]
+      ],
+      "youtubeId": "8aUSEI8f3qQ",
+      "youtubeUrl": "https://youtu.be/8aUSEI8f3qQ",
+      "privacy": "private",
+      "publishAt": "2026-10-25T23:00:00.000Z",
+      "uploaded": "2026-10-23T23:55:28.670Z",
+      "thumbnailSet": "2026-10-23T23:55:33.194Z"
     }
   },
   "status": {
@@ -273,7 +279,12 @@
         }
       ],
       "title": "Why does the photo not show? nil #Shorts",
-      "description": "Why does the photo not show? / It is nil until the user picks one.\n\nnil - The keyword that means a value is missing, so there is nothing stored there at all.\n한국어: 값이 아예 없다는 것을 나타내는 키워드\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+      "description": "Why does the photo not show? / It is nil until the user picks one.\n\nnil - The keyword that means a value is missing, so there is nothing stored there at all.\n한국어: 값이 아예 없다는 것을 나타내는 키워드\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper",
+      "youtubeId": "DI8XL_birjg",
+      "youtubeUrl": "https://youtu.be/DI8XL_birjg",
+      "privacy": "private",
+      "publishAt": "2026-10-26T03:00:00.000Z",
+      "uploaded": "2026-10-23T23:55:38.161Z"
     },
     {
       "type": "one-line-example",
@@ -284,7 +295,12 @@
         }
       ],
       "title": "I made the middle name an optional, because not everyone has one #Shorts",
-      "description": "I made the middle name an optional, because not everyone has one.\n\nOptional - A type that either holds a value or holds nothing, written with a question mark after the type name.\n한국어: 값이 있거나 아무것도 없을 수 있는 타입 (타입 뒤에 ?)\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+      "description": "I made the middle name an optional, because not everyone has one.\n\nOptional - A type that either holds a value or holds nothing, written with a question mark after the type name.\n한국어: 값이 있거나 아무것도 없을 수 있는 타입 (타입 뒤에 ?)\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper",
+      "youtubeId": "qdDfOyRM30o",
+      "youtubeUrl": "https://youtu.be/qdDfOyRM30o",
+      "privacy": "private",
+      "publishAt": "2026-10-26T09:00:00.000Z",
+      "uploaded": "2026-10-23T23:55:43.046Z"
     },
     {
       "type": "one-line-example",
@@ -295,7 +311,12 @@
         }
       ],
       "title": "Use optional binding instead of force unwrapping, and avoid the crash #Shorts",
-      "description": "Use optional binding instead of force unwrapping, and avoid the crash.\n\nOptional Binding - A safe way to check whether an optional has a value and, if it does, use that value as a normal constant.\n한국어: 옵셔널에 값이 있을 때만 안전하게 꺼내 쓰는 방법\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+      "description": "Use optional binding instead of force unwrapping, and avoid the crash.\n\nOptional Binding - A safe way to check whether an optional has a value and, if it does, use that value as a normal constant.\n한국어: 옵셔널에 값이 있을 때만 안전하게 꺼내 쓰는 방법\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper",
+      "youtubeId": "-YsJ5758cDQ",
+      "youtubeUrl": "https://youtu.be/-YsJ5758cDQ",
+      "privacy": "private",
+      "publishAt": "2026-10-26T12:00:00.000Z",
+      "uploaded": "2026-10-23T23:55:48.508Z"
     }
   ]
 }
