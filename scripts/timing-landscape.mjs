@@ -5,7 +5,7 @@
 // Scene order: cold open, term x3, conversation, replay, quiz intro, quiz x3, outro.
 import { writeFileSync, mkdirSync } from "node:fs";
 import { dirname } from "node:path";
-import { loadDay, clipDurations, replayPicks, dKey, rKey, r1, opt } from "./lib/landscape.mjs";
+import { loadDay, coldHook, clipDurations, replayPicks, dKey, rKey, r1, opt } from "./lib/landscape.mjs";
 
 const { day, paths } = loadDay();
 const D = clipDurations(paths.audioDir);
@@ -19,7 +19,7 @@ let t = 0;
 const dHook = need("cold-hook"), dIntro = need("cold-intro"), dPrev = need("cold-preview");
 const hookAt = 0.3, hookOut = hookAt + dHook + 1.6, introAt = hookOut + 0.5, previewAt = introAt + dIntro + 0.5;
 const cold = { start: 0, dur: r1(previewAt + dPrev + 1.4), hookAt, hookOut: r1(hookOut), introAt: r1(introAt), previewAt: r1(previewAt) };
-cue(hookAt, "cold-hook", day.video?.hook ?? "");
+cue(hookAt, "cold-hook", coldHook(day));
 cue(introAt, "cold-intro", "intro"); cue(previewAt, "cold-preview", "preview");
 t += cold.dur;
 

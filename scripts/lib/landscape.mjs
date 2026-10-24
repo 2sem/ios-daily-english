@@ -86,10 +86,14 @@ export function renderLine(day, line, mode = "plain") {
   for (const s of spans) {
     out += esc(line.text.slice(i, s.a));
     const c = colorOf(day, s.t);
-    out += mode === "blank"
+    let el = mode === "blank"
       ? `<span class="tm c${c} bk"><span class="bl">${"_".repeat(Math.max(4, Math.min(10, s.word.length)))}</span><span class="rv">${esc(s.word)}</span></span>`
       : `<span class="tm c${c}">${esc(s.word)}</span>`;
     i = s.b;
+    // keep trailing punctuation glued to the term/blank so it never wraps onto a line of its own
+    const tail = line.text.slice(i).match(/^[.,!?;:)"']+/)?.[0] ?? "";
+    if (tail) { el = `<span class="nb">${el}${esc(tail)}</span>`; i += tail.length; }
+    out += el;
   }
   return out + esc(line.text.slice(i));
 }
@@ -108,6 +112,11 @@ export function replayPicks(day, max = Number(opt("replay-max", 5))) {
   return [...picked].sort((a, b) => a - b);
 }
 
+// Cold-open line: video.landscape.hook, else video.hook, else a generic question naming the terms.
+export function coldHook(day) {
+  const n = day.terms.map((t) => t.term);
+  return day.video?.landscape?.hook ?? day.video?.hook ?? `Can you explain ${n.slice(0, -1).join(", ")} and ${n.at(-1)} in English?`;
+}
 const two = (n) => String(n + 1).padStart(2, "0");
 export const dKey = (i) => `d${two(i)}`;
 export const rKey = (i) => `r${two(i)}`;
@@ -118,7 +127,7 @@ export function buildClips(day, voices) {
   const clips = {};
   const add = (key, text, voice, rate) => (clips[key] = { text, voice, rate });
   const names = day.terms.map((t) => t.term);
-  add("cold-hook", day.video?.hook ?? `Can you explain ${names[0]} in English?`, voices.narrator, R.narrator);
+  add("cold-hook", coldHook(day), voices.narrator, R.narrator);
   add("cold-intro", `iOS Daily English. Day ${day.day}.`, voices.narrator, R.narrator);
   add("cold-preview", `Today: ${names.slice(0, -1).join(", ")} and ${names.at(-1)}. Then a short conversation, and a quiz.`, voices.narrator, R.narrator);
   day.terms.forEach((t, i) => {

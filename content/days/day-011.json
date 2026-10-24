@@ -6,17 +6,20 @@
     {
       "term": "Generic",
       "definition": "Code that works with any type, so you write it once instead of once for each type.",
-      "example": "We made the cache generic, so it can store images, users, or anything else."
+      "example": "We made the cache generic, so it can store images, users, or anything else.",
+      "code": "struct Cache<Value> {\n    var items: [String: Value] = [:]\n}\nvar images = Cache<String>()\nimages.items[\"a\"] = \"a.png\""
     },
     {
       "term": "Type Parameter",
       "definition": "A placeholder name, like T, for a type that is filled in later when the code is used.",
-      "example": "In this function, T is the type parameter, and it becomes Int when we pass in numbers."
+      "example": "In this function, T is the type parameter, and it becomes Int when we pass in numbers.",
+      "code": "// T is the type parameter.\nfunc flip<T>(_ a: inout T, _ b: inout T) {\n    let temp = a\n    a = b\n    b = temp\n}"
     },
     {
       "term": "Generic Constraint",
       "definition": "A rule that limits a generic to types that meet a requirement, such as conforming to a protocol.",
-      "example": "I added a generic constraint so the function only accepts types that are Equatable."
+      "example": "I added a generic constraint so the function only accepts types that are Equatable.",
+      "code": "func same<T: Equatable>(\n    _ a: T, _ b: T\n) -> Bool {\n    a == b\n}\nprint(same(1, 1))"
     }
   ],
   "quizzes": [
@@ -70,7 +73,32 @@
       "exampleSlow": "Zoe (Premium)",
       "pattern": "female -> male"
     },
-    "file": "video/out/day011.mp4"
+    "file": "video/out/day011.mp4",
+    "landscape": {
+      "title": "Swift Generic, Type Parameter & Generic Constraint in English | Real Code Review Chat | Day 11",
+      "description": "Explain generics, type parameters and generic constraints in Swift by listening to a real code review chat between two iOS devs.\n영어 코드 리뷰 대화로 제네릭, 타입 파라미터, 제네릭 제약 표현을 익혀요.\n\nGeneric - Code that works with any type, so you write it once instead of once for each type.\n한국어: 어떤 타입과도 동작하는 코드로, 타입마다 따로 쓰지 않고 한 번만 쓴다\n\nType Parameter - A placeholder name, like T, for a type that is filled in later when the code is used.\n한국어: 나중에 채워질 타입을 대신하는 자리 이름 (예: T)\n\nGeneric Constraint - A rule that limits a generic to types that meet a requirement, such as conforming to a protocol.\n한국어: 제네릭을 프로토콜을 따르는 등 조건을 만족하는 타입으로 제한하는 규칙\n\nIn this video, Mina and Jake merge three copy-pasted caches into one in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 11 of the iOS Daily English series.\n\n#Swift #iOSDeveloper #EnglishForDevelopers",
+      "tags": [
+        "Generic",
+        "Type Parameter",
+        "Generic Constraint",
+        "swift generics",
+        "swift generic constraint",
+        "스위프트 제네릭",
+        "스위프트 타입 파라미터",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "ios development",
+        "iOS Daily English"
+      ],
+      "youtubeId": "uvkt4H6v4Cs",
+      "youtubeUrl": "https://youtu.be/uvkt4H6v4Cs",
+      "privacy": "private",
+      "publishAt": "2026-11-03T23:00:00.000Z",
+      "uploaded": "2026-10-24T07:55:37.544Z",
+      "thumbnailSet": "2026-10-24T07:55:41.660Z"
+    }
   },
   "status": {
     "video": "rendered",
@@ -93,5 +121,178 @@
     "thumbnailSet": "2026-10-20T23:59:38.879Z",
     "scheduledAt": "2026-10-21T23:00:00.000Z",
     "url": "https://www.facebook.com/reel/1296244285932692/"
-  }
+  },
+  "dialogue": {
+    "title": "Tech debt Friday: three caches, one idea",
+    "setting": "Tech debt Friday refactoring",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "It is tech debt Friday. Look, we have ImageCache, UserCache, and PostCache.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "They are almost the same code. Only the stored type is different.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "This is a job for generics. We write the cache once, for any type.",
+        "terms": [
+          "Generic"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "So a generic cache can store images, users, or anything else.",
+        "terms": [
+          "Generic"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Yes. We write Cache with angle brackets and a name inside, like Value.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "What is that name called again?",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "It is the type parameter. It is only a placeholder for a type that is filled in later.",
+        "terms": [
+          "Type Parameter"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "So when I write Cache of String, the type parameter becomes String.",
+        "terms": [
+          "Type Parameter"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Exactly. Now we have one generic type instead of three copies.",
+        "terms": [
+          "Generic"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Let me try a function too. I want to check if two values are the same.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "Go ahead.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "I wrote a generic function that compares a and b. But Xcode shows an error on the equals sign.",
+        "terms": [
+          "Generic"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Of course. Not every type can be compared. Swift does not know your type parameter supports it.",
+        "terms": [
+          "Type Parameter"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "So I need to say the type must be Equatable.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "Yes, that is a generic constraint. You write a colon after the type parameter.",
+        "terms": [
+          "Type Parameter",
+          "Generic Constraint"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "With the generic constraint, the function only accepts types that are Equatable.",
+        "terms": [
+          "Generic Constraint"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "And a generic constraint gives a clear error when someone passes the wrong type.",
+        "terms": [
+          "Generic Constraint"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Nice. Now it builds. One generic, one type parameter, one generic constraint.",
+        "terms": [
+          "Generic",
+          "Type Parameter",
+          "Generic Constraint"
+        ]
+      }
+    ]
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "Generic",
+      "lines": [
+        {
+          "text": "We made the cache generic, so it stores any type."
+        }
+      ],
+      "title": "We made the cache generic, so it stores any type #Shorts",
+      "description": "We made the cache generic, so it stores any type.\n\nGeneric - Code that works with any type, so you write it once instead of once for each type.\n한국어: 어떤 타입과도 동작하는 코드로, 타입마다 따로 쓰지 않고 한 번만 쓴다\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "Type Parameter",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "What is T in this function?"
+        },
+        {
+          "speaker": "B",
+          "text": "It is the type parameter. It becomes Int here."
+        }
+      ],
+      "title": "What is T in this function? Type Parameter #Shorts",
+      "description": "What is T in this function? / It is the type parameter. It becomes Int here.\n\nType Parameter - A placeholder name, like T, for a type that is filled in later when the code is used.\n한국어: 나중에 채워질 타입을 대신하는 자리 이름 (예: T)\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Generic Constraint",
+      "lines": [
+        {
+          "text": "I added a generic constraint, so only Equatable types fit."
+        }
+      ],
+      "title": "I added a generic constraint, so only Equatable types fit #Shorts",
+      "description": "I added a generic constraint, so only Equatable types fit.\n\nGeneric Constraint - A rule that limits a generic to types that meet a requirement, such as conforming to a protocol.\n한국어: 제네릭을 프로토콜을 따르는 등 조건을 만족하는 타입으로 제한하는 규칙\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ]
 }

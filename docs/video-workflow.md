@@ -47,6 +47,11 @@ cd ../day013-hook1 && npx hyperframes check && npx hyperframes render -q high -f
   name only: after changing a voice, delete `video/audio/day-NNN-landscape/` (or pass `--force`).
 - Test without real content: `--extra video/template-landscape/test-extra-day012.json --tag -test` (a stub dialogue,
   hooks and code for Day 12; outputs go to `*-test` folders). It is a stub, not content.
+- Cold-open line: `video.landscape.hook`, else `video.hook`, else "Can you explain <terms> in English?" (`coldHook` in the lib;
+  the same text is on screen and spoken). Punctuation after a highlighted/blanked term stays glued to it (`.nb`).
+- Batch: `scripts/render-day-landscape.sh 2 3 4` runs the whole chain per day, one day at a time (untested beyond Day 1's
+  individual steps). Old vertical files (`video/dayNNN/`, `video/out/day-NNN*.mp4`, `day-NNN-thumb.png`) are never touched:
+  the new names are `dayNNN-landscape`, `dayNNN-hookK`, `day-NNN.landscape.timing.json`, `day-NNN-thumb-landscape.png`.
 - Chat timing (timing-landscape.mjs): for every line the typing indicator (three bouncing dots) shows for 0.9 s (`typeAt`),
   then the bubble pops in and the voice starts at the same moment (`at`); the next line starts typing 0.15 s after the
   previous voice ends. The chat scrolls up smoothly (0.45 s) when the next typing row appears. Scroll distances are measured
