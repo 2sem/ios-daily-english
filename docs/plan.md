@@ -52,5 +52,6 @@ that have already passed move to the next day).
 - 2026-10-24: schedules removed from the 21 hooks of Days 1-7 (still uploaded, private, unscheduled). Long videos of Days 1-7 and Day 13 stay scheduled.
   Reschedule each day's hooks with `/make-hook-shorts` after its long video is public (`videos.update` with `publishAt`).
 - Day 8 long video uploaded (aECniF9cRwY, 11-01 08:00), custom thumbnail set.
-- Left: Days 9-12 long video; their hooks via `/make-hook-shorts`.
+- 2026-10-24 16:55: Days 9-12 long videos uploaded (private, scheduled 11-02..11-05 08:00), thumbnails set via API.
+- Left: hooks of Days 1-12 via `/make-hook-shorts` after each long video is public (Day 1 first, 10-25 08:00).
 - The default YouTube quota (10,000/day, about 1,600 per upload) did not bind: 28 uploads went through in one sitting.
