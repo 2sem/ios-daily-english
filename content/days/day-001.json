@@ -24,31 +24,34 @@
   ],
   "quizzes": [
     {
-      "question": "Which feature lets the compiler work out a value's type from what is assigned, without you writing it?",
+      "question": "Look at this code. We never wrote a type, so which feature works out Int and Double for us?",
       "options": [
         "let",
         "var",
         "Type Inference"
       ],
-      "answer": "c"
+      "answer": "c",
+      "code": "let price = 9.99\nlet count = 3\nprint(type(of: price))"
     },
     {
-      "question": "Which keyword declares a value that can never be reassigned once it has been set?",
+      "question": "Fill in the blank. Which keyword makes the second line an error?",
       "options": [
         "let",
         "Type Inference",
         "var"
       ],
-      "answer": "a"
+      "answer": "a",
+      "code": "___ tax = 0.08\ntax = 0.1  // Error!"
     },
     {
-      "question": "Which keyword declares a value you can change later, such as a score that keeps going up?",
+      "question": "Fill in the blank. Which keyword lets score change later?",
       "options": [
         "Type Inference",
         "var",
         "let"
       ],
-      "answer": "b"
+      "answer": "b",
+      "code": "___ score = 0\nscore += 10  // OK"
     }
   ],
   "video": {

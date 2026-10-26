@@ -2,8 +2,8 @@
 // Multi-voice clips for the landscape long-form video and its vertical hook shorts (edge-tts, cached per clip).
 //   node scripts/tts-landscape.mjs content/days/day-013.json [--extra extra.json] [--tag -test] [--only d01,d02] [--force]
 // Writes video/audio/day-NNN-landscape<tag>/<key>.mp3 (cache) and <key>.wav (silence-trimmed).
-// Keys: cold-hook cold-intro cold-preview, tN-term/def/ex/ex2, dNN (dialogue line, spoken by its own speaker voice),
-// replay-intro, rNN (replay line with the terms replaced by the word "blank"), quiz-intro, qN-q, outro,
+// Keys: cold-hook cold-intro cold-preview, tN-term/def/ex/ex2/turn, dNN (dialogue line, spoken by its own speaker voice),
+// replay-intro, rNNsK (replay line pieces around the terms; the gaps are silence), quiz-intro, qN-q, outro,
 // hookK-lJ / hookK-slow / hookK-end (vertical hooks). Quiz options are never spoken.
 // Does not write to the day JSON.
 import { mkdirSync, existsSync, statSync } from "node:fs";

@@ -24,31 +24,34 @@
   ],
   "quizzes": [
     {
-      "question": "Which technique uses if let to safely check for a value and then use it as a normal constant?",
+      "question": "What is this technique called? It safely checks for a value and uses it as a normal constant.",
       "options": [
         "Optional",
         "Optional Binding",
         "nil"
       ],
-      "answer": "b"
+      "answer": "b",
+      "code": "var name: String? = \"Mina\"\nif let name {\n    print(\"Hi, \\(name)\")\n}"
     },
     {
-      "question": "Which keyword means that no value is stored at all?",
+      "question": "Fill in the blank. Which keyword means that no value is stored at all?",
       "options": [
         "Optional Binding",
         "nil",
         "Optional"
       ],
-      "answer": "b"
+      "answer": "b",
+      "code": "var nickname: String? = ___"
     },
     {
-      "question": "Which type can hold either a value or nothing, and is written with a question mark after the type name?",
+      "question": "What is the type of age? It can hold either a value or nothing.",
       "options": [
         "nil",
         "Optional Binding",
         "Optional"
       ],
-      "answer": "c"
+      "answer": "c",
+      "code": "var age: Int? = 30\nage = nil"
     }
   ],
   "video": {

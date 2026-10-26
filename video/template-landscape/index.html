@@ -44,6 +44,7 @@
       .dot i { display: block; height: 100%; width: 100%; border-radius: 3px; transform-origin: left; transform: scaleX(0); }
 
       /* cold open */
+      .cold-hook .tm { border-radius: 26px; padding: 0 20px; margin: 0 -4px; }
       .cold-hook { position: absolute; left: 160px; right: 160px; top: 0; bottom: 0; display: flex; align-items: center; justify-content: center; text-align: center; font-size: 120px; font-weight: 800; letter-spacing: -0.04em; line-height: 1.08; }
       #cold-intro { position: absolute; inset: 0; padding: 0 160px; display: flex; align-items: center; gap: 90px; }
       .logo-tile { width: 320px; height: 320px; flex: none; border-radius: 70px; overflow: hidden; background: #fff; box-shadow: 0 18px 60px rgba(0, 0, 0, 0.45); }
@@ -74,11 +75,10 @@
       .example .lbl { position: relative; height: 28px; font-size: 22px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--c); }
       .example .lbl span { position: absolute; left: 0; top: 0; white-space: nowrap; }
       .example p { margin-top: 12px; font-size: 40px; line-height: 1.38; color: #dfe4ee; font-style: italic; }
-      .shadow { position: absolute; left: 1010px; right: 72px; top: 940px; }
-      .shadow b { display: block; font-size: 30px; font-weight: 700; color: var(--quiz); }
-      .shadow .bar { margin-top: 14px; height: 10px; border-radius: 5px; background: var(--line); }
-      .shadow .bar i { display: block; height: 100%; border-radius: 5px; background: var(--quiz); transform-origin: left; }
+      .example p .w { display: inline-block; margin: 0 0.05em; transform-origin: 50% 75%; }
       /* highlighted term words (subtitles, examples, hooks) */
+      .cd { font-family: "JetBrains Mono", monospace; font-style: normal; font-size: 0.88em; font-weight: 600; letter-spacing: -0.01em; color: inherit; background: rgba(255, 255, 255, 0.11); border-radius: 8px; padding: 0.02em 0.28em; }
+      .cw .cd { background: rgba(127, 127, 127, 0.22); }
       .nb { white-space: nowrap; }
       .tm { color: var(--c); background: var(--cbg); border-radius: 10px; padding: 0 10px; margin: 0 -2px; font-style: normal; font-weight: 800; }
       .tm.bk { display: inline-grid; padding: 0 10px; }
@@ -149,6 +149,9 @@
       #quiz-intro .kicker { color: var(--quiz); }
       .qbig { font-size: 170px; font-weight: 800; letter-spacing: -0.05em; line-height: 1; margin: 16px 0 28px; }
       .qlabel { position: absolute; left: 72px; top: 130px; font-size: 30px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--quiz); }
+      .question.hc { font-size: 44px; }
+      .qcode { position: absolute; left: 72px; top: 450px; width: 860px; height: 400px; border-radius: 26px; border: 2px solid var(--line); background: #0e1422; overflow: hidden; }
+      .qcode .code { font-size: 30px; }
       .question { position: absolute; left: 72px; top: 200px; width: 860px; font-size: 56px; font-weight: 700; line-height: 1.3; letter-spacing: -0.01em; }
       .clock { position: absolute; top: 130px; right: 72px; width: 130px; height: 130px; border-radius: 50%; border: 6px solid var(--quiz); }
       .clock b { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-size: 66px; font-weight: 800; color: var(--quiz); }
@@ -211,15 +214,26 @@
         // the code builds line by line while the definition is read
         tl.fromTo(`${id} .code .ln`, { autoAlpha: 0, x: -14 }, { autoAlpha: 1, x: 0, duration: 0.35, ease: E, stagger: Math.min(0.5, (T.exampleAt - T.defAt - 1.2) / 6) }, t0 + T.codeAt + 0.3);
         tl.fromTo(`${id} .example`, { autoAlpha: 0, y: 20 }, { autoAlpha: 1, y: 0, duration: 0.6, ease: E }, t0 + T.exampleAt);
-        // example is read twice: label swaps for the slow reading
+        // the example is read three times and its words light up one by one each time: male voice, female voice, then silent ("your turn")
         tl.set(`${id} .lbl .a`, { autoAlpha: 1 }, 0);
-        tl.set(`${id} .lbl .b`, { autoAlpha: 0 }, 0);
-        tl.set(`${id} .lbl .a`, { autoAlpha: 0 }, t0 + T.ex2At);
-        tl.set(`${id} .lbl .b`, { autoAlpha: 1 }, t0 + T.ex2At);
-        tl.fromTo(`${id} .example p`, { color: "#dfe4ee" }, { color: "#ffffff", duration: 0.3, yoyo: true, repeat: 1 }, t0 + T.ex2At);
-        // your turn: time to say it out loud
-        tl.fromTo(`${id} .shadow`, { autoAlpha: 0, y: 14 }, { autoAlpha: 1, y: 0, duration: 0.4, ease: E }, t0 + T.shadowAt);
-        tl.fromTo(`${id} .shadow .bar i`, { scaleX: 1 }, { scaleX: 0, duration: T.shadowDur, ease: "none" }, t0 + T.shadowAt);
+        tl.set([`${id} .lbl .b`, `${id} .lbl .c`], { autoAlpha: 0 }, 0);
+        tl.set(`${id} .lbl .a`, { autoAlpha: 0 }, t0 + T.femaleAt);
+        tl.set(`${id} .lbl .b`, { autoAlpha: 1 }, t0 + T.femaleAt);
+        tl.set(`${id} .lbl .b`, { autoAlpha: 0 }, t0 + T.turnAt);
+        tl.set(`${id} .lbl .c`, { autoAlpha: 1 }, t0 + T.turnAt);
+        const words = [...document.querySelectorAll(id + " .example p .w")];
+        const chars = words.reduce((a, w) => a + w.textContent.length + 1, 0);
+        tl.set(words, { opacity: 1, scale: 1 }, 0);
+        [[T.maleAt, T.maleDur], [T.femaleAt, T.femaleDur], [T.hlAt, T.hlDur]].forEach(([at, dur]) => {
+          tl.set(words, { opacity: 0.35 }, t0 + at - 0.05);
+          let off = 0;
+          words.forEach((w) => {
+            const d = ((w.textContent.length + 1) / chars) * dur, a = t0 + at + off;
+            tl.to(w, { scale: 1.1, opacity: 1, duration: Math.min(0.2, d * 0.45), ease: "power2.out" }, a);
+            tl.to(w, { scale: 1, duration: Math.min(0.25, d * 0.5), ease: "power2.in" }, a + Math.min(0.2, d * 0.45));
+            off += d;
+          });
+        });
         tl.to(id, { opacity: 0, duration: 0.4 }, t0 + T.out);
       });
 
@@ -293,6 +307,7 @@
         tl.set([q(".clock b"), q(".tlabel.up")], { autoAlpha: 0 }, 0);
         tl.fromTo(q(".qlabel"), { autoAlpha: 0, y: 16 }, { autoAlpha: 1, y: 0, duration: 0.4, ease: E }, t0);
         tl.fromTo(q(".question"), { autoAlpha: 0, y: 24 }, { autoAlpha: 1, y: 0, duration: 0.5, ease: E }, t0 + Q.questionAt);
+        tl.fromTo(q(".qcode"), { autoAlpha: 0, y: 24 }, { autoAlpha: 1, y: 0, duration: 0.5, ease: E }, t0 + Q.questionAt + 0.2);
         tl.fromTo(q(".clock"), { autoAlpha: 0, scale: 0.8 }, { autoAlpha: 1, scale: 1, duration: 0.4, ease: "back.out(2)" }, t0 + Q.questionAt);
         tl.fromTo(q(".opt"), { autoAlpha: 0, x: -24 }, { autoAlpha: 1, x: 0, duration: 0.35, ease: E, stagger: 0.12 }, t0 + Q.optsAt);
         tl.fromTo(q(".timer"), { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.3 }, t0 + Q.countdownAt - 0.4);
