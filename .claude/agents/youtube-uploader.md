@@ -36,6 +36,7 @@ built-in `fetch`. **Do not install axios or any HTTP package.**
 - `node scripts/youtube-upload.mjs content/days/day-NNN.json --kind landscape|hook1|hook2|hook3 --publish-at <ISO>`.
   Always run with `--dry-run` first and show the output. Upload the landscape first (hooks link to its URL).
 - Landscape chapters are generated from `video/out/day-NNN.landscape.timing.json`; the dry run prints them.
+- The landscape upload is added to the public "iOS Daily English" playlist automatically (`playlistAdded` in the day JSON); retry with `node scripts/youtube-playlist.mjs content/days/day-NNN.json`. Hooks and Shorts stay out of it.
 - Ids are stored as `video.landscape.youtubeId` / `hooks[i].youtubeId`; re-upload of a kind needs `--force`.
 - The landscape thumbnail is set automatically via the API right after upload (`video/out/day-NNN-thumb-landscape.png`; retry with `node scripts/youtube-thumbnail.mjs <videoId> <png>`). Hooks use the Shorts rule: the cover stays manual.
 
