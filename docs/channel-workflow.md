@@ -71,10 +71,21 @@ Default time is 08:00 KST next day. Nothing is published before the step 6 appro
   Optional `video.landscape.hook` = cold-open line for the landscape video (used instead of the vertical `video.hook`).
   The vertical pipeline ignores these fields, so existing renders keep working.
 
+### Landscape long video rules (series-wide)
+- **Exactly 5:00 (300 s)**, every day. `scripts/timing-landscape.mjs` defaults to `--target 300`: it trims quiz seconds (8 -> 6)
+  and replay lines (5 -> 3, term coverage kept) until it fits, then the outro tail absorbs the rest. `--target 0` = natural length.
+- Each term's example is read **three times**, words lighting up one by one (zoom in/out): male voice, female voice, then a
+  silent read after "Now your turn." (no timer bar). Labels: Male voice / Female voice / Your turn.
+- Replay ("Say the missing words"): the voice never says "blank"; terms are silent gaps while the blank shows on screen.
+- Quiz questions that refer to code carry `quizzes[i].code` (2-5 lines, `___` = blank) shown in a code panel under the question.
+- Inline Swift names in sentences (`Int`, `String`, `nil`, camelCase, `foo()`) render as neutral code chips; only the day's terms are coloured. The cold-open question colours the terms too.
+- **Review copy:** before any upload, export a reduced copy to `~/Downloads/dayNNN-landscape-review.mp4` (under 30 MB, so it can be sent by DM;
+  `ffmpeg -c:v libx264 -preset slow -crf 22 -maxrate 600k -bufsize 3000k -c:a aac -b:a 128k`) and wait for the owner's approval.
+
 ### Voice
 - Narrator voice reads intro, term, definition, quiz question and outro at 135 wpm, with short pauses at commas.
-- A second voice reads the example. **Each example is read twice: natural speed (160 wpm), then slowly (100 wpm)**,
-  and the on-screen label switches from "In a sentence" to "Again, slowly".
+- Vertical Shorts and hooks: a second voice reads the example. **Each example is read twice: natural speed (160 wpm), then slowly (100 wpm)**,
+  and the on-screen label switches from "In a sentence" to "Again, slowly". (The landscape video uses the three-step read above.)
 - Voices rotate by day (`scripts/voices.mjs`): female/male, male/female, random (seeded by day). Default engine is
   **edge-tts** (`en-US-Ava/Jenny/Aria` female, `en-US-Andrew/Guy/Brian` male; `edge-tts` is on PATH from `~/.local/bin`).
   A day's voices and engine are saved in its JSON (`video.voices`) so a re-render sounds the same. A day saved with

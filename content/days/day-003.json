@@ -24,31 +24,34 @@
   ],
   "quizzes": [
     {
-      "question": "Which name is written in front of a value at the call site so the call reads like a sentence?",
+      "question": "In this call, what are from and to? They make the call read like a sentence.",
       "options": [
         "Parameter",
         "Argument Label",
         "Function"
       ],
-      "answer": "b"
+      "answer": "b",
+      "code": "move(from: 1, to: 5)"
     },
     {
-      "question": "Which named block of code can be called again and again to do one specific job?",
+      "question": "What is this whole named block of code that you can call again and again?",
       "options": [
         "Parameter",
         "Argument Label",
         "Function"
       ],
-      "answer": "c"
+      "answer": "c",
+      "code": "func greet(name: String) -> String {\n    \"Hello, \\(name)\"\n}"
     },
     {
-      "question": "Which name sits inside the parentheses of a declaration and receives the value the caller passes in?",
+      "question": "Which name sits inside the parentheses of this declaration and receives the value the caller passes in?",
       "options": [
         "Parameter",
         "Function",
         "Argument Label"
       ],
-      "answer": "a"
+      "answer": "a",
+      "code": "func loadUser(id: Int) -> String {\n    \"User \\(id)\"\n}"
     }
   ],
   "video": {

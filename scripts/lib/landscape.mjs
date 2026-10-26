@@ -64,13 +64,21 @@ const termMatchers = (terms) =>
 // index of a term in day.terms (for its colour), 0 if it is not one of the day's three
 const colorOf = (day, t) => Math.max(0, day.terms.findIndex((x) => x.term.toLowerCase() === t.toLowerCase()));
 
+// Swift names inside a sentence (types, keywords, camelCase, foo()) are shown as inline code, in a neutral style: only the day's terms get a colour.
+const CODE_RE = /(?<![\w`])(?:Int|Double|Float|Bool|String|Character|Array|Dictionary|Void|URL|nil|var|func|struct|enum|protocol|extension|guard|init|print|let(?!\s+(?:me|us|you|him|her|them|it|the)\b))(?![\w])|\b[a-z]+(?:[A-Z][a-z0-9]+)+\b|\b\w+\(\)/g;
+export function codify(text) {
+  let out = "", i = 0;
+  for (const m of text.matchAll(CODE_RE)) { out += esc(text.slice(i, m.index)) + `<span class="cd">${esc(m[0])}</span>`; i = m.index + m[0].length; }
+  return out + esc(text.slice(i));
+}
+
 // mode "plain": highlighted term spans; "blank": spans holding a blank and the hidden term (revealed by the timeline);
-// "speech": text for TTS with the terms replaced by the word "blank".
+// "speech": text for TTS with each term replaced by a U+0001 gap marker (see speechPieces).
 export function renderLine(day, line, mode = "plain") {
   const ms = termMatchers(line.terms ?? []);
   if (mode === "speech") {
     let s = line.text;
-    for (const m of ms) s = s.replace(m.re, "blank");
+    for (const m of ms) s = s.replace(m.re, "\u0001");
     return s;
   }
   // tokenise so overlapping terms cannot double-wrap
@@ -84,7 +92,7 @@ export function renderLine(day, line, mode = "plain") {
   spans.sort((p, q) => p.a - q.a);
   let out = "", i = 0;
   for (const s of spans) {
-    out += esc(line.text.slice(i, s.a));
+    out += codify(line.text.slice(i, s.a));
     const c = colorOf(day, s.t);
     let el = mode === "blank"
       ? `<span class="tm c${c} bk"><span class="bl">${"_".repeat(Math.max(4, Math.min(10, s.word.length)))}</span><span class="rv">${esc(s.word)}</span></span>`
@@ -95,7 +103,20 @@ export function renderLine(day, line, mode = "plain") {
     if (tail) { el = `<span class="nb">${el}${esc(tail)}</span>`; i += tail.length; }
     out += el;
   }
-  return out + esc(line.text.slice(i));
+  return out + codify(line.text.slice(i));
+}
+
+// replay speech for one line: the say-pieces around each term, in order, with a gap marker where a term was.
+// The gaps are real silence in the video (the screen shows the blank), so a beginner never hears a made-up word.
+export function speechPieces(day, line) {
+  const marked = renderLine(day, line, "speech");
+  const out = [];
+  marked.split("\u0001").forEach((part, k, a) => {
+    const say = part.replace(/^[\s.,!?;:)"']+/, "").trim();
+    if (/[\w]/.test(say)) out.push({ say });
+    if (k < a.length - 1) out.push({ gap: true });
+  });
+  return out;
 }
 
 // lines used in the replay: every line that has terms, trimmed to --replay-max (default 5) while keeping every term covered
@@ -123,7 +144,7 @@ export const rKey = (i) => `r${two(i)}`;
 
 // Every clip of a landscape video and of its hook shorts: key -> { text, voice, rate }
 export function buildClips(day, voices) {
-  const R = { narrator: 135, example: 160, slow: 100, dialogue: 165 };
+  const R = { narrator: 170, example: 175, slow: 100, dialogue: 180 };
   const clips = {};
   const add = (key, text, voice, rate) => (clips[key] = { text, voice, rate });
   const names = day.terms.map((t) => t.term);
@@ -133,14 +154,15 @@ export function buildClips(day, voices) {
   day.terms.forEach((t, i) => {
     add(`t${i + 1}-term`, t.term, voices.narrator, R.narrator);
     add(`t${i + 1}-def`, t.definition, voices.narrator, R.narrator);
-    add(`t${i + 1}-ex`, t.example, voices.example, R.example);
-    add(`t${i + 1}-ex2`, t.example, voices.exampleSlow, R.slow);
+    add(`t${i + 1}-ex`, t.example, voices.speakers.B ?? voices.narrator, R.example); // male voice
+    add(`t${i + 1}-ex2`, t.example, voices.example, R.example); // female voice (the male one is -ex), words lit one by one
+    add(`t${i + 1}-turn`, "Now your turn.", voices.narrator, R.narrator);
   });
   (day.dialogue?.lines ?? []).forEach((l, i) => add(dKey(i), l.text, voices.speakers[l.speaker] ?? voices.narrator, R.dialogue));
-  add("replay-intro", "Now you. Fill in the blank.", voices.narrator, R.narrator);
+  add("replay-intro", "Now you. Say the missing words.", voices.narrator, R.narrator);
   if (day.dialogue) for (const i of replayPicks(day)) {
     const l = day.dialogue.lines[i];
-    add(rKey(i), renderLine(day, l, "speech"), voices.speakers[l.speaker] ?? voices.narrator, R.dialogue);
+    speechPieces(day, l).filter((p) => p.say).forEach((p, k) => add(`${rKey(i)}s${k + 1}`, p.say, voices.speakers[l.speaker] ?? voices.narrator, R.dialogue));
   }
   add("quiz-intro", "Quiz time. Three questions.", voices.narrator, R.narrator);
   day.quizzes.forEach((q, i) => add(`q${i + 1}-q`, q.question, voices.narrator, R.narrator)); // options are never spoken

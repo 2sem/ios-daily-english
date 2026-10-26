@@ -11,7 +11,7 @@ import { readFileSync, writeFileSync, mkdirSync, copyFileSync, rmSync, cpSync, e
 import { execFileSync } from "node:child_process";
 import { homedir } from "node:os";
 import { join, resolve } from "node:path";
-import { loadDay, coldHook, makeBgm, root, esc, opt, renderLine, replayPicks, dKey, rKey, highlightSwift } from "./lib/landscape.mjs";
+import { loadDay, coldHook, makeBgm, root, esc, opt, renderLine, codify, replayPicks, dKey, rKey, highlightSwift } from "./lib/landscape.mjs";
 
 const { day, paths } = loadDay();
 if (!existsSync(paths.timing)) { console.error(`missing ${paths.timing} (run scripts/timing-landscape.mjs)`); process.exit(1); }
@@ -27,11 +27,13 @@ const scene = (id, s, inner, cls = "") => `      <div class="scene clip${cls ? "
 const codeFont = (code) => { const m = Math.max(0, ...code.map((l) => l.length)); const px = Math.floor(Math.min(28, 760 / (m * 0.6))); return px < 28 ? ` style="font-size: ${px}px"` : ""; };
 const koOf = (t) => (t.ko ?? "").replace(/^[^:]+:\s*/, "");
 const isMono = (s) => /^[a-z][\w.()-]*$/i.test(s) && !/\s/.test(s) && s === s.toLowerCase();
+// every word of an already-rendered line becomes a .w span (the read-along highlight animates them); tags are left alone
+const wrapWords = (h) => h.split(/(<[^>]+>)/).map((p) => (p.startsWith("<") ? p : p.replace(/\S+/g, (w) => `<span class="w">${w}</span>`))).join("");
 const warnings = [];
 let html = "";
 
 // cold open
-html += scene("cold", plan.cold, `        <div class="cold-hook" id="cold-hook">${esc(coldHook(day))}</div>
+html += scene("cold", plan.cold, `        <div class="cold-hook" id="cold-hook"><div>${renderLine(day, { text: coldHook(day), terms: day.terms.map((t) => t.term) })}</div></div>
         <div id="cold-intro">
           <div class="logo-tile"><img src="assets/logo.png" alt="iOS Daily English logo" /></div>
           <div>
@@ -50,18 +52,17 @@ day.terms.forEach((t, i) => {
   code.forEach((l) => { if (l.length > 45) warnings.push(`term ${t.term}: line over 45 chars (font shrunk to fit): ${l}`); });
   const lines = t.code ? code.map(highlightSwift).join("\n") : `<div class="ln"><span class="cm">// TODO: add a code snippet for ${esc(t.term)}</span></div>`;
   const fileName = `${(t.term.replace(/[^\w]/g, "") || "Snippet")}.swift`;
-  const ex = renderLine(day, { text: t.example, terms: [t.term] });
+  const ex = wrapWords(renderLine(day, { text: t.example, terms: [t.term] }));
   html += scene(`s${i + 1}`, plan.terms[i], `        <div class="num">0${i + 1} / 0${day.terms.length}</div>
         <div class="lpanel"><div class="wbar"><i></i><i></i><i></i><span>${esc(fileName)}</span></div><div class="code"${codeFont(code)}>
 ${lines}
         </div></div>
         <div class="rp">
           <div class="term${isMono(t.term) ? " mono" : ""}"${t.term.length > 14 ? ' style="font-size: 76px"' : ""}>${esc(t.term)}</div>
-          <div class="def">${esc(t.definition)}</div>
+          <div class="def">${codify(t.definition)}</div>
           ${koOf(t) ? `<div class="ko">${esc(koOf(t))}</div>` : ""}
         </div>
-        <div class="example"><div class="lbl"><span class="a">In a sentence</span><span class="b">Again, slowly</span></div><p>"${ex}"</p></div>
-        <div class="shadow"><b>Your turn. Say it out loud.</b><div class="bar"><i></i></div></div>`, `c${i}`);
+        <div class="example"><div class="lbl"><span class="a">Male voice</span><span class="b">Female voice</span><span class="c">Your turn · say it</span></div><p>"${ex}"</p></div>`, `c${i}`);
 });
 
 // conversation + replay
@@ -94,20 +95,29 @@ if (D) {
         <div class="side-l"><div class="sl-title">${esc(D.title)}</div><div class="sl-set">${esc(D.setting ?? "")}</div>${legend}</div>
 ${win("cl", D.lines.map((_, i) => i), "plain")}
 ${chips}`);
-  html += scene("replay", plan.replay, `        <div class="rcard"><div class="kicker">Replay</div><div class="big">Fill in the blank</div><div class="intro-sub">Say the missing word out loud, then check.</div></div>
+  html += scene("replay", plan.replay, `        <div class="rcard"><div class="kicker">Replay</div><div class="big">Fill in the blank</div><div class="intro-sub">Say the missing words out loud, then check.</div></div>
         <div class="conv-kicker" style="color: var(--quiz)">Fill in the blank</div>
-        <div class="side-l"><div class="sl-title">Say the missing word</div><div class="sl-set">${esc(D.title)}. Listen, say the word, then see it appear.</div>${legend}</div>
+        <div class="side-l"><div class="sl-title">Say the missing words</div><div class="sl-set">${esc(D.title)}. Listen, say the word in each pause, then see it appear.</div>${legend}</div>
 ${win("rl", plan.replay.lines.map((l) => l.i), "blank")}`);
 } else warnings.push("no dialogue in the day JSON: conversation and replay scenes are skipped");
 
-// quiz
+// quiz (an optional `code` shows a snippet under the question; `___` marks the blank)
+const qcode = (q) => {
+  if (!q.code) return "";
+  const code = q.code.split("\n").filter((l, k, a) => !(k === a.length - 1 && !l));
+  if (code.length > 8) warnings.push(`quiz code has ${code.length} lines (max 8)`);
+  return `
+        <div class="qcode"><div class="wbar"><i></i><i></i><i></i><span>Quiz.swift</span></div><div class="code"${codeFont(code)}>
+${code.map(highlightSwift).join("\n")}
+        </div></div>`;
+};
 html += scene("quiz-intro", plan.quizIntro, `        <div class="kicker">Your turn</div>
         <div class="qbig">Quiz time</div>
         <div class="intro-sub">${day.quizzes.length} questions · 8 seconds each</div>`);
 day.quizzes.forEach((q, i) => {
   const clock = Array.from({ length: plan.quizzes[i].quizSeconds }, (_, k) => `<b>${plan.quizzes[i].quizSeconds - k}</b>`).join("") + `<b class="done">?</b>`;
   html += scene(`q${i + 1}`, plan.quizzes[i], `        <div class="qlabel">Quiz ${i + 1} of ${day.quizzes.length}</div>
-        <div class="question">${esc(q.question)}</div>
+        <div class="question${q.code ? " hc" : ""}">${codify(q.question)}</div>${qcode(q)}
         <div class="clock">${clock}</div>
         <div class="opts">
 ${q.options.map((o, k) => `          <div class="opt"><div class="letter">${"abc"[k]}</div><div class="name">${esc(o)}</div></div>`).join("\n")}
