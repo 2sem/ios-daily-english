@@ -91,18 +91,11 @@
         "swift",
         "ios development",
         "iOS Daily English"
-      ],
-      "youtubeId": "iwzKn2G3doE",
-      "youtubeUrl": "https://youtu.be/iwzKn2G3doE",
-      "privacy": "private",
-      "publishAt": "2026-10-30T23:00:00.000Z",
-      "uploaded": "2026-10-23T23:59:08.002Z",
-      "thumbnailSet": "2026-10-23T23:59:12.365Z"
+      ]
     }
   },
   "status": {
     "video": "rendered",
-    "youtube": "scheduled",
     "facebook": "scheduled"
   },
   "facebook": {
@@ -113,15 +106,6 @@
     "thumbnailSet": "2026-10-17T14:09:30.825Z",
     "scheduledAt": "2026-10-17T23:00:00.000Z",
     "url": "https://www.facebook.com/reel/1147694044359240/"
-  },
-  "youtube": {
-    "videoId": "RIINvwY77H8",
-    "url": "https://youtu.be/RIINvwY77H8",
-    "privacy": "private",
-    "scheduledAt": "2026-10-17T23:00:00.000Z",
-    "uploaded": "2026-10-17T14:07:35.075Z",
-    "thumbnail": "video/out/day-007-thumb.png",
-    "thumbnailSet": "2026-10-17T14:07:46.005Z"
   },
   "dialogue": {
     "title": "Debugging a screen that never goes away",
@@ -277,12 +261,7 @@
         }
       ],
       "title": "I passed a closure to sort, so it knows how to compare #Shorts",
-      "description": "I passed a closure to sort, so it knows how to compare.\n\nClosure - A block of code you can store in a variable or pass to a function and run later.\n한국어: 변수에 저장하거나 함수에 넘겨 나중에 실행할 수 있는 코드 블록\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper",
-      "youtubeId": "zSdI4qH9G84",
-      "youtubeUrl": "https://youtu.be/zSdI4qH9G84",
-      "privacy": "private",
-      "publishAt": "2026-10-31T03:00:00.000Z",
-      "uploaded": "2026-10-23T23:59:17.132Z"
+      "description": "I passed a closure to sort, so it knows how to compare.\n\nClosure - A block of code you can store in a variable or pass to a function and run later.\n한국어: 변수에 저장하거나 함수에 넘겨 나중에 실행할 수 있는 코드 블록\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
     },
     {
       "type": "one-line-conversation",
@@ -298,12 +277,7 @@
         }
       ],
       "title": "Why no parentheses after map? Trailing Closure #Shorts",
-      "description": "Why no parentheses after map? / It uses a trailing closure. It reads cleaner.\n\nTrailing Closure - A closure written after the function's parentheses instead of inside them, which makes the call easier to read.\n한국어: 함수 괄호 안이 아니라 뒤에 쓰는 클로저로, 호출이 읽기 쉬워진다\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper",
-      "youtubeId": "PI6F9wox0eY",
-      "youtubeUrl": "https://youtu.be/PI6F9wox0eY",
-      "privacy": "private",
-      "publishAt": "2026-10-31T09:00:00.000Z",
-      "uploaded": "2026-10-23T23:59:21.965Z"
+      "description": "Why no parentheses after map? / It uses a trailing closure. It reads cleaner.\n\nTrailing Closure - A closure written after the function's parentheses instead of inside them, which makes the call easier to read.\n한국어: 함수 괄호 안이 아니라 뒤에 쓰는 클로저로, 호출이 읽기 쉬워진다\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
     },
     {
       "type": "one-line-example",
@@ -314,12 +288,7 @@
         }
       ],
       "title": "I added a capture list with weak self to stop the leak #Shorts",
-      "description": "I added a capture list with weak self to stop the leak.\n\nCapture List - A list in square brackets at the start of a closure that says which outside values the closure keeps, and how it keeps them.\n한국어: 클로저가 바깥 값을 어떻게 붙잡을지 정하는 대괄호 목록\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper",
-      "youtubeId": "vIV98VeHK5I",
-      "youtubeUrl": "https://youtu.be/vIV98VeHK5I",
-      "privacy": "private",
-      "publishAt": "2026-10-31T12:00:00.000Z",
-      "uploaded": "2026-10-23T23:59:27.211Z"
+      "description": "I added a capture list with weak self to stop the leak.\n\nCapture List - A list in square brackets at the start of a closure that says which outside values the closure keeps, and how it keeps them.\n한국어: 클로저가 바깥 값을 어떻게 붙잡을지 정하는 대괄호 목록\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
     }
   ]
 }

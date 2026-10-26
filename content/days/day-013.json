@@ -92,12 +92,7 @@
         "swift",
         "ios development",
         "iOS Daily English"
-      ],
-      "youtubeId": "2cVGjENu-rU",
-      "youtubeUrl": "https://youtu.be/2cVGjENu-rU",
-      "privacy": "private",
-      "publishAt": "2026-11-05T23:00:00.000Z",
-      "uploaded": "2026-10-23T09:32:24.683Z"
+      ]
     }
   },
   "dialogue": {
@@ -247,12 +242,7 @@
         }
       ],
       "title": "I made the image loader lazy, so the app starts faster. #Shorts",
-      "description": "I made the image loader lazy, so the app starts faster.\n\nlazy - A keyword that waits to create a property until its first use.\n한국어: 처음 사용할 때까지 프로퍼티 생성을 미루는 키워드\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper",
-      "youtubeId": "AZTyQk6LCgI",
-      "youtubeUrl": "https://youtu.be/AZTyQk6LCgI",
-      "privacy": "private",
-      "publishAt": "2026-11-06T03:00:00.000Z",
-      "uploaded": "2026-10-23T09:32:35.919Z"
+      "description": "I made the image loader lazy, so the app starts faster.\n\nlazy - A keyword that waits to create a property until its first use.\n한국어: 처음 사용할 때까지 프로퍼티 생성을 미루는 키워드\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
     },
     {
       "type": "one-line-conversation",
@@ -268,12 +258,7 @@
         }
       ],
       "title": "Why is fullName always correct? Computed Property #Shorts",
-      "description": "Why is fullName always correct? / It is a computed property. It calculates the value every time.\n\nComputed Property - A property that calculates its value each time you read it.\n한국어: 읽을 때마다 값을 계산하는 프로퍼티\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper",
-      "youtubeId": "rZw3O4BQUfU",
-      "youtubeUrl": "https://youtu.be/rZw3O4BQUfU",
-      "privacy": "private",
-      "publishAt": "2026-11-06T09:00:00.000Z",
-      "uploaded": "2026-10-23T09:32:44.239Z"
+      "description": "Why is fullName always correct? / It is a computed property. It calculates the value every time.\n\nComputed Property - A property that calculates its value each time you read it.\n한국어: 읽을 때마다 값을 계산하는 프로퍼티\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
     },
     {
       "type": "one-line-example",
@@ -284,12 +269,7 @@
         }
       ],
       "title": "A property observer updates the label whenever the score changes #Shorts",
-      "description": "A property observer updates the label whenever the score changes.\n\nProperty Observer - Code that runs right before or after a property changes.\n한국어: 프로퍼티 값이 바뀔 때 실행되는 코드\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper",
-      "youtubeId": "QtpX9FbBDMk",
-      "youtubeUrl": "https://youtu.be/QtpX9FbBDMk",
-      "privacy": "private",
-      "publishAt": "2026-11-06T12:00:00.000Z",
-      "uploaded": "2026-10-23T09:32:50.339Z"
+      "description": "A property observer updates the label whenever the score changes.\n\nProperty Observer - Code that runs right before or after a property changes.\n한국어: 프로퍼티 값이 바뀔 때 실행되는 코드\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
     }
   ]
 }
