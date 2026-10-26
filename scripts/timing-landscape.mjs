@@ -30,14 +30,15 @@ function build(K) {
     const n = i + 1;
     const dT = need(`t${n}-term`), dDf = need(`t${n}-def`), dEx = need(`t${n}-ex`), dEx2 = need(`t${n}-ex2`), dTurn = need(`t${n}-turn`);
     const termAt = 0.5;
-    const defAt = termAt + dT + 0.6;
-    const exampleAt = defAt + dDf + 1.0;
+    const g = K.g ?? 1; // pause scale (1 = relaxed)
+    const defAt = termAt + dT + 0.6 * g;
+    const exampleAt = defAt + dDf + 1.0 * g;
     const maleAt = exampleAt + 0.2;
-    const femaleAt = maleAt + dEx + 0.9;
-    const turnAt = femaleAt + dEx2 + 0.8;
+    const femaleAt = maleAt + dEx + 0.9 * g;
+    const turnAt = femaleAt + dEx2 + 0.8 * g;
     const hlAt = turnAt + dTurn + 0.4;
-    const hlDur = Math.max(3.5, dEx * 1.2); // silent: the viewer says the sentence along with the highlight
-    const dur = hlAt + hlDur + 1.4;
+    const hlDur = Math.max(3.5 * g, dEx * 1.2); // silent: the viewer says the sentence along with the highlight
+    const dur = hlAt + hlDur + 1.4 * g;
     cue(t + termAt, `t${n}-term`, term.term); cue(t + defAt, `t${n}-def`, term.definition);
     cue(t + exampleAt + 0.2, `t${n}-ex`, term.example); cue(t + femaleAt, `t${n}-ex2`, term.example + " (female voice)"); cue(t + turnAt, `t${n}-turn`, "Now your turn.");
     const s = { term: term.term, start: r1(t), dur: r1(dur), termAt, defAt: r1(defAt), codeAt: r1(defAt), exampleAt: r1(exampleAt), maleAt: r1(maleAt), maleDur: r1(dEx), femaleAt: r1(femaleAt), femaleDur: r1(dEx2), turnAt: r1(turnAt), hlAt: r1(hlAt), hlDur: r1(hlDur), out: r1(dur - 0.4) };
@@ -97,8 +98,8 @@ function build(K) {
   const quizzes = day.quizzes.map((q, i) => {
     const dQ = need(`q${i + 1}-q`);
     const questionAt = 0.4;
-    const countdownAt = questionAt + dQ + 1.0;
-    const dur = countdownAt + K.quiz + 2.5;
+    const countdownAt = questionAt + dQ + 1.0 * (K.g ?? 1);
+    const dur = countdownAt + K.quiz + 2.5 * (K.g ?? 1);
     cue(t + questionAt, `q${i + 1}-q`, q.question);
     const s = { start: r1(t), dur: r1(dur), questionAt, optsAt: questionAt, countdownAt: r1(countdownAt), quizSeconds: K.quiz };
     t += dur;
@@ -133,10 +134,10 @@ const keep = (n) => {
 let plan;
 if (!TARGET) plan = build({ quiz: Number(opt("quiz-seconds", 8)), picks: basePicks, tail: MIN_TAIL });
 else {
-  const ladder = [[8, 5], [8, 4], [7, 4], [6, 4], [6, 3], [5, 3]]; // [quiz seconds, replay lines], most content first
+  const ladder = [[8, 5], [8, 4], [7, 4], [6, 4], [6, 3], [5, 3], [5, 3, 0.85], [5, 3, 0.7]]; // [quiz seconds, replay lines], most content first
   let K = null;
-  for (const [quiz, n] of ladder) {
-    const k = { quiz, picks: keep(n), tail: MIN_TAIL };
+  for (const [quiz, n, g] of ladder) {
+    const k = { quiz, picks: keep(n), tail: MIN_TAIL, g };
     K = k;
     if (build(k).total <= TARGET) break;
   }
