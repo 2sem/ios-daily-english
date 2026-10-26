@@ -72,7 +72,7 @@ Default time is 08:00 KST next day. Nothing is published before the step 6 appro
   The vertical pipeline ignores these fields, so existing renders keep working.
 
 ### Landscape long video rules (series-wide)
-- **Exactly 5:00 (300 s)**, every day. `scripts/timing-landscape.mjs` defaults to `--target 300`: it trims quiz seconds (8 -> 6)
+- **Exactly 5:00 (300 s)**, every day. `scripts/timing-landscape.mjs` defaults to `--target 300`: it trims quiz seconds (8 -> 5), replay lines and pauses
   and replay lines (5 -> 3, term coverage kept) until it fits, then the outro tail absorbs the rest. `--target 0` = natural length.
 - Each term's example is read **three times**, words lighting up one by one (zoom in/out): male voice, female voice, then a
   silent read after "Now your turn." (no timer bar). Labels: Male voice / Female voice / Your turn.
@@ -127,6 +127,11 @@ Default time is 08:00 KST next day. Nothing is published before the step 6 appro
   an auto-picked video frame and the API cannot change that. After the upload, copy the thumbnail to `~/Downloads/`.
 - **Manual step, every day:** in the YouTube Studio mobile app, Content > the Short > Edit > Thumbnail, then upload
   `video/out/day-NNN-thumb.png`. Do this once the upload is processed; the report must remind the owner.
+
+### LinkedIn newsletter (iOS Daily English)
+- `/linkedin-newsletter [day]` (skill `.claude/skills/linkedin-newsletter`): drafts the day's edition in Chrome (cover video + thumbnail,
+  title, English-only body with `Term N: X` headings and two bullets each) and **stops at the saved draft**. `scripts/linkedin-edition.mjs`
+  builds the text and puts the full video + thumbnail in `~/Downloads/` for the owner to attach. Never published automatically.
 
 ### Landscape + hooks upload (pilot)
 - `node scripts/youtube-upload.mjs content/days/day-NNN.json --kind landscape|hook1|hook2|hook3 --publish-at <ISO> [--dry-run] [--force]`.
