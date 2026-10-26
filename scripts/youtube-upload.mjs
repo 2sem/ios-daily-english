@@ -4,9 +4,11 @@
 //   --kind landscape|hook1|hook2|hook3   upload the Day's landscape video or a hook Short (always private + publishAt)
 //   --notify   force notifySubscribers=true (Shorts default to false; landscape uses the YouTube default = true)
 //   --dry-run  print title/description/tags/file/publishAt without calling the API;  --force  re-upload a kind that has a youtubeId
+// Landscape uploads are also added to the "iOS Daily English" playlist (scripts/youtube-playlist.mjs).
 // Default privacy is "private" (safe): publish later in Studio. --publish-at schedules it (stays private until then).
 // Needs ~/.config/ios-daily-english/{client_secret,token}.json (run scripts/youtube-auth.mjs once).
 import { readFileSync, writeFileSync, statSync } from "node:fs";
+import { spawnSync } from "node:child_process";
 import { homedir } from "node:os";
 import { dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
@@ -147,6 +149,11 @@ if (kind === "landscape") {
   }).catch((e) => ({ ok: false, status: 0, text: async () => String(e) }));
   if (tp.ok) { holder.thumbnailSet = new Date().toISOString(); writeFileSync(dayPath, JSON.stringify(day, null, 2) + "\n"); console.log("Landscape thumbnail set via API."); }
   else console.error(`Landscape thumbnail NOT set (${tp.status}): ${await tp.text()}\nRetry: node scripts/youtube-thumbnail.mjs ${out.id} ${thumb}`);
+}
+if (kind === "landscape") {
+  // join the "iOS Daily English" playlist; a failure here must not lose the upload record
+  const pl = spawnSync(process.execPath, [join(root, "scripts/youtube-playlist.mjs"), dayPath], { stdio: "inherit" });
+  if (pl.status !== 0) console.error(`Playlist add failed. Retry: node scripts/youtube-playlist.mjs ${file}`);
 }
 console.log(`Done: https://youtu.be/${out.id}  (${status.privacyStatus}${publishAt ? ", scheduled" : ""})`);
 console.log(`Studio: https://studio.youtube.com/video/${out.id}/edit`);
