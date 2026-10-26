@@ -1,0 +1,61 @@
+{
+  "_test": "STUB for testing the landscape/hook templates with day-012 data. Not real content; never copy into content/days.",
+  "terms": [
+    {
+      "term": "throws",
+      "ko": "throws: 함수가 에러를 던질 수 있다는 표시",
+      "definition": "A keyword you add to a function to say that it can fail and send back an error.",
+      "example": "I marked the save function as throws, because writing to disk can fail.",
+      "code": "enum SaveError: Error { case diskFull }\n\n// This function can fail.\nfunc save(_ text: String) throws {\n    if text.isEmpty { throw SaveError.diskFull }\n}"
+    },
+    {
+      "term": "try",
+      "ko": "try: 실패할 수 있는 함수를 호출할 때 앞에 붙이는 키워드",
+      "definition": "A keyword you write before a call to a function that can fail, to show you know it might send back an error.",
+      "example": "You need to put try before that call, otherwise the compiler will complain.",
+      "code": "func load() throws -> Int { 42 }\n\nlet a = load()\n// error: call can throw but is not\n// marked with 'try'\nlet b = try load()"
+    },
+    {
+      "term": "do-catch",
+      "ko": "do-catch: 에러를 잡아서 처리하는 구문",
+      "definition": "A statement that runs code that might fail and lets you handle the error if one happens.",
+      "example": "I wrapped the decoding in a do-catch, so a bad response will not crash the app.",
+      "code": "do {\n    try save(\"hello\")\n} catch {\n    print(\"Could not save: \\(error)\")\n}"
+    }
+  ],
+  "dialogue": {
+    "title": "A failing save, in a code review",
+    "setting": "Maya reviews a pull request from her teammate Dev.",
+    "speakers": [
+      { "id": "A", "name": "Maya", "voice": "en-US-AvaNeural" },
+      { "id": "B", "name": "Dev", "voice": "en-US-AndrewNeural" }
+    ],
+    "lines": [
+      { "speaker": "A", "text": "Hey Dev, quick question about your save function.", "terms": [] },
+      { "speaker": "B", "text": "Sure. What did you find?", "terms": [] },
+      { "speaker": "A", "text": "Writing to disk can fail, but the function is not marked as throws.", "terms": ["throws"] },
+      { "speaker": "B", "text": "Good catch. I will add throws to the signature.", "terms": ["throws"] },
+      { "speaker": "A", "text": "Then every caller needs to put try before the call.", "terms": ["try"] },
+      { "speaker": "B", "text": "Right, otherwise the compiler will complain.", "terms": [] },
+      { "speaker": "A", "text": "And please wrap it in a do-catch, so the app will not crash.", "terms": ["do-catch"] },
+      { "speaker": "B", "text": "Done. I used try inside a do-catch and showed an alert.", "terms": ["try", "do-catch"] },
+      { "speaker": "A", "text": "Perfect. I will approve it now.", "terms": [] },
+      { "speaker": "B", "text": "Thanks, Maya!", "terms": [] }
+    ]
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "try",
+      "lines": [{ "text": "You need to put try before that call, otherwise the compiler will complain." }]
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "do-catch",
+      "lines": [
+        { "speaker": "A", "text": "Will the app crash if the response is bad?" },
+        { "speaker": "B", "text": "No, I wrapped it in a do-catch." }
+      ]
+    }
+  ]
+}

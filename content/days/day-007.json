@@ -6,17 +6,20 @@
     {
       "term": "Closure",
       "definition": "A block of code you can store in a variable or pass to a function and run later.",
-      "example": "I passed a closure to the sort method so it knows how to compare two names."
+      "example": "I passed a closure to the sort method so it knows how to compare two names.",
+      "code": "let isShort = { (name: String) -> Bool in\n    name.count < 4\n}\nprint(isShort(\"Mina\"))"
     },
     {
       "term": "Trailing Closure",
       "definition": "A closure written after the function's parentheses instead of inside them, which makes the call easier to read.",
-      "example": "I used a trailing closure on map, so the code reads cleanly with no extra parentheses."
+      "example": "I used a trailing closure on map, so the code reads cleanly with no extra parentheses.",
+      "code": "let numbers = [1, 2, 3]\n// The closure sits after the parentheses.\nlet doubled = numbers.map { $0 * 2 }\nprint(doubled)"
     },
     {
       "term": "Capture List",
       "definition": "A list in square brackets at the start of a closure that says which outside values the closure keeps, and how it keeps them.",
-      "example": "I added a capture list with weak self so the closure does not keep the view controller alive."
+      "example": "I added a capture list with weak self so the closure does not keep the view controller alive.",
+      "code": "class Screen {\n    var title = \"Home\"\n    lazy var go: () -> String? = {\n        [weak self] in self?.title\n    }\n}"
     }
   ],
   "quizzes": [
@@ -70,7 +73,32 @@
       "exampleSlow": "Ava (Premium)",
       "pattern": "female -> male"
     },
-    "file": "video/out/day007.mp4"
+    "file": "video/out/day007.mp4",
+    "landscape": {
+      "title": "Swift Closure, Trailing Closure & Capture List in English | Real Code Review Chat | Day 7",
+      "description": "Explain closures, trailing closures and capture lists in Swift by listening to a real code review chat between two iOS devs.\n영어 코드 리뷰 대화로 클로저, 트레일링 클로저, 캡처 리스트 표현을 익혀요.\n\nClosure - A block of code you can store in a variable or pass to a function and run later.\n한국어: 변수에 저장하거나 함수에 넘겨 나중에 실행할 수 있는 코드 블록\n\nTrailing Closure - A closure written after the function's parentheses instead of inside them, which makes the call easier to read.\n한국어: 함수 괄호 안이 아니라 뒤에 쓰는 클로저로, 호출이 읽기 쉬워진다\n\nCapture List - A list in square brackets at the start of a closure that says which outside values the closure keeps, and how it keeps them.\n한국어: 클로저가 바깥 값을 어떻게 붙잡을지 정하는 대괄호 목록\n\nIn this video, Mina and Jake hunt a memory leak where a screen never closes in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 7 of the iOS Daily English series.\n\n#Swift #iOSDeveloper #EnglishForDevelopers",
+      "tags": [
+        "Closure",
+        "Trailing Closure",
+        "Capture List",
+        "swift closure",
+        "swift weak self",
+        "스위프트 클로저",
+        "스위프트 weak self",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "ios development",
+        "iOS Daily English"
+      ],
+      "youtubeId": "iwzKn2G3doE",
+      "youtubeUrl": "https://youtu.be/iwzKn2G3doE",
+      "privacy": "private",
+      "publishAt": "2026-10-30T23:00:00.000Z",
+      "uploaded": "2026-10-23T23:59:08.002Z",
+      "thumbnailSet": "2026-10-23T23:59:12.365Z"
+    }
   },
   "status": {
     "video": "rendered",
@@ -94,5 +122,204 @@
     "uploaded": "2026-10-17T14:07:35.075Z",
     "thumbnail": "video/out/day-007-thumb.png",
     "thumbnailSet": "2026-10-17T14:07:46.005Z"
-  }
+  },
+  "dialogue": {
+    "title": "Debugging a screen that never goes away",
+    "setting": "Debugging session in Xcode",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, the settings screen never goes away. The memory graph still shows it.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Is it a leak? What do we have on that screen?",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "A timer, and it runs a closure every second.",
+        "terms": [
+          "Closure"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "A closure is a block of code we pass around and run later, right?",
+        "terms": [
+          "Closure"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Yes. And this closure uses self inside. It holds the screen alive.",
+        "terms": [
+          "Closure"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "I see. How do I tell the closure not to hold the screen?",
+        "terms": [
+          "Closure"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Add a capture list. Write weak self in square brackets at the start.",
+        "terms": [
+          "Capture List"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "So a capture list says what the closure keeps, and how it keeps it.",
+        "terms": [
+          "Closure",
+          "Capture List"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Exactly. With weak, the screen can close, and self becomes nil inside the closure.",
+        "terms": [
+          "Closure"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Okay. Wait, I also see sort with a long closure in parentheses. Can we clean that up?",
+        "terms": [
+          "Closure"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Sure. Use a trailing closure. You put the closure after the parentheses.",
+        "terms": [
+          "Closure",
+          "Trailing Closure"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Oh, like map with curly braces and no extra parentheses.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "Yes. A trailing closure is easier to read, especially with one closure.",
+        "terms": [
+          "Closure",
+          "Trailing Closure"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Hmm, I tried weak self in my trailing closure, but Xcode shows an error.",
+        "terms": [
+          "Trailing Closure"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Check the order. The capture list comes first, inside the braces, before the word in.",
+        "terms": [
+          "Capture List"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "That was it. I put it after the parameters. Now the screen closes.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "Run it again and check the memory graph.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "The settings screen is gone from the graph. Fixed.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "Great. A closure, a trailing closure, and a capture list. Leak fixed.",
+        "terms": [
+          "Closure",
+          "Trailing Closure",
+          "Capture List"
+        ]
+      }
+    ]
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "Closure",
+      "lines": [
+        {
+          "text": "I passed a closure to sort, so it knows how to compare."
+        }
+      ],
+      "title": "I passed a closure to sort, so it knows how to compare #Shorts",
+      "description": "I passed a closure to sort, so it knows how to compare.\n\nClosure - A block of code you can store in a variable or pass to a function and run later.\n한국어: 변수에 저장하거나 함수에 넘겨 나중에 실행할 수 있는 코드 블록\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper",
+      "youtubeId": "zSdI4qH9G84",
+      "youtubeUrl": "https://youtu.be/zSdI4qH9G84",
+      "privacy": "private",
+      "publishAt": "2026-10-31T03:00:00.000Z",
+      "uploaded": "2026-10-23T23:59:17.132Z"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "Trailing Closure",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Why no parentheses after map?"
+        },
+        {
+          "speaker": "B",
+          "text": "It uses a trailing closure. It reads cleaner."
+        }
+      ],
+      "title": "Why no parentheses after map? Trailing Closure #Shorts",
+      "description": "Why no parentheses after map? / It uses a trailing closure. It reads cleaner.\n\nTrailing Closure - A closure written after the function's parentheses instead of inside them, which makes the call easier to read.\n한국어: 함수 괄호 안이 아니라 뒤에 쓰는 클로저로, 호출이 읽기 쉬워진다\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper",
+      "youtubeId": "PI6F9wox0eY",
+      "youtubeUrl": "https://youtu.be/PI6F9wox0eY",
+      "privacy": "private",
+      "publishAt": "2026-10-31T09:00:00.000Z",
+      "uploaded": "2026-10-23T23:59:21.965Z"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Capture List",
+      "lines": [
+        {
+          "text": "I added a capture list with weak self to stop the leak."
+        }
+      ],
+      "title": "I added a capture list with weak self to stop the leak #Shorts",
+      "description": "I added a capture list with weak self to stop the leak.\n\nCapture List - A list in square brackets at the start of a closure that says which outside values the closure keeps, and how it keeps them.\n한국어: 클로저가 바깥 값을 어떻게 붙잡을지 정하는 대괄호 목록\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper",
+      "youtubeId": "vIV98VeHK5I",
+      "youtubeUrl": "https://youtu.be/vIV98VeHK5I",
+      "privacy": "private",
+      "publishAt": "2026-10-31T12:00:00.000Z",
+      "uploaded": "2026-10-23T23:59:27.211Z"
+    }
+  ]
 }

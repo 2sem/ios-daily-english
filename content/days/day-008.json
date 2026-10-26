@@ -6,17 +6,20 @@
     {
       "term": "Enum",
       "definition": "A type that lists a fixed set of related choices, such as north, south, east and west.",
-      "example": "I made an enum for the screen states, so the code can only be loading, loaded or failed."
+      "example": "I made an enum for the screen states, so the code can only be loading, loaded or failed.",
+      "code": "enum ScreenState {\n    case loading\n    case loaded\n    case failed\n}\nlet state = ScreenState.loading"
     },
     {
       "term": "Raw Value",
       "definition": "A fixed value, such as a string or a number, that is attached to each case of an enum when you declare it.",
-      "example": "I gave each case a string raw value, so it matches the name the server sends."
+      "example": "I gave each case a string raw value, so it matches the name the server sends.",
+      "code": "enum Status: String {\n    case active = \"ACTIVE\"\n    case banned = \"BANNED\"\n}\nprint(Status.banned.rawValue)"
     },
     {
       "term": "Associated Value",
       "definition": "Extra data that you attach to an enum case when you create it, so each case can carry different details.",
-      "example": "The failed case has an associated value for the error, so we can show the right message."
+      "example": "The failed case has an associated value for the error, so we can show the right message.",
+      "code": "enum LoadState {\n    case loaded(Int)\n    case failed(String)\n}\nlet s = LoadState.failed(\"No network\")\nif case .failed(let m) = s { print(m) }"
     }
   ],
   "quizzes": [
@@ -70,7 +73,32 @@
       "exampleSlow": "Tom (Enhanced)",
       "pattern": "male -> female"
     },
-    "file": "video/out/day008.mp4"
+    "file": "video/out/day008.mp4",
+    "landscape": {
+      "title": "Swift Enum, Raw Value & Associated Value in English | Real Code Review Chat | Day 8",
+      "description": "Explain enums, raw values and associated values in Swift by listening to a real code review chat between two iOS devs.\n영어 코드 리뷰 대화로 열거형, 로우 밸류, 연관 값 표현을 익혀요.\n\nEnum - A type that lists a fixed set of related choices, such as north, south, east and west.\n한국어: 관련된 선택지의 정해진 집합을 나열하는 타입\n\nRaw Value - A fixed value, such as a string or a number, that is attached to each case of an enum when you declare it.\n한국어: enum을 선언할 때 각 case에 붙이는 고정 값 (문자열이나 숫자)\n\nAssociated Value - Extra data that you attach to an enum case when you create it, so each case can carry different details.\n한국어: enum case를 만들 때 붙이는 추가 데이터로, case마다 다른 정보를 담을 수 있다\n\nIn this video, Mina and Jake design screen states on a whiteboard in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 8 of the iOS Daily English series.\n\n#Swift #iOSDeveloper #EnglishForDevelopers",
+      "tags": [
+        "Enum",
+        "Raw Value",
+        "Associated Value",
+        "swift enum",
+        "swift associated value",
+        "스위프트 열거형",
+        "스위프트 enum",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "ios development",
+        "iOS Daily English"
+      ],
+      "youtubeId": "zC_EzUrxIgg",
+      "publishAt": "2026-10-31T23:00:00.000Z",
+      "thumbnailSet": "2026-10-24T08:40:23.165Z",
+      "youtubeUrl": "https://youtu.be/zC_EzUrxIgg",
+      "privacy": "private",
+      "uploaded": "2026-10-24T08:40:18.303Z"
+    }
   },
   "status": {
     "video": "rendered",
@@ -95,5 +123,176 @@
     "uploaded": "2026-10-18T01:34:48.007Z",
     "thumbnail": "video/out/day-008-thumb.png",
     "thumbnailSet": "2026-10-18T01:34:56.916Z"
-  }
+  },
+  "dialogue": {
+    "title": "Whiteboard: the states of one screen",
+    "setting": "Design meeting at the whiteboard",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Okay, Jake. Our feed screen has three states on the whiteboard. What are they?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Loading, loaded, and failed. Right now I use three Bool variables.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "Three Bools can be true at the same time. Then the screen shows a spinner and an error together.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "That already happened in the beta. So what do you suggest?",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "Use an enum. It lists a fixed set of choices, and only one can be active.",
+        "terms": [
+          "Enum"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "So the enum can only be loading, loaded, or failed. Nothing else.",
+        "terms": [
+          "Enum"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Yes, and Swift checks every case in a switch. If you forget one, you get an error.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Nice. Now the server sends a status as text, like active or banned.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "Then give the enum a raw value. Each case gets a string, like active equals the text active.",
+        "terms": [
+          "Enum",
+          "Raw Value"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "And we can create the enum from the server text with the raw value.",
+        "terms": [
+          "Enum",
+          "Raw Value"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Correct. That returns an optional, because the text might be unknown.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Hmm, but I also need the error message in the failed case. Can a raw value hold it?",
+        "terms": [
+          "Raw Value"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "No. A raw value is the same fixed value for each case. You need an associated value.",
+        "terms": [
+          "Raw Value",
+          "Associated Value"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Oh, I mixed those up. An associated value is extra data you attach when you create the case.",
+        "terms": [
+          "Associated Value"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Exactly. Failed with an associated value of type Error, so each failure carries its own details.",
+        "terms": [
+          "Associated Value"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "And loaded can carry the list of posts.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "Yes. Then the view cannot show posts in the failed state.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "I like that. An enum, a raw value for the server text, and an associated value for details.",
+        "terms": [
+          "Enum",
+          "Raw Value",
+          "Associated Value"
+        ]
+      }
+    ]
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "Enum",
+      "lines": [
+        {
+          "text": "I made an enum, so the screen is loading, loaded, or failed."
+        }
+      ],
+      "title": "I made an enum, so the screen is loading, loaded, or failed #Shorts",
+      "description": "I made an enum, so the screen is loading, loaded, or failed.\n\nEnum - A type that lists a fixed set of related choices, such as north, south, east and west.\n한국어: 관련된 선택지의 정해진 집합을 나열하는 타입\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "Raw Value",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "How do we match the server's text?"
+        },
+        {
+          "speaker": "B",
+          "text": "I gave each case a string raw value."
+        }
+      ],
+      "title": "How do we match the server's text? Raw Value #Shorts",
+      "description": "How do we match the server's text? / I gave each case a string raw value.\n\nRaw Value - A fixed value, such as a string or a number, that is attached to each case of an enum when you declare it.\n한국어: enum을 선언할 때 각 case에 붙이는 고정 값 (문자열이나 숫자)\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Associated Value",
+      "lines": [
+        {
+          "text": "The failed case has an associated value for the error."
+        }
+      ],
+      "title": "The failed case has an associated value for the error #Shorts",
+      "description": "The failed case has an associated value for the error.\n\nAssociated Value - Extra data that you attach to an enum case when you create it, so each case can carry different details.\n한국어: enum case를 만들 때 붙이는 추가 데이터로, case마다 다른 정보를 담을 수 있다\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ]
 }

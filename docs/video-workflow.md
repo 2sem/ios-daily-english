@@ -6,6 +6,73 @@
 > Differences: format is 1080x1920 (not 1080x1080), about 2 minutes (not 82 s), the quiz question is voiced, quiz options
 > are not, and each example is read twice.
 
+## Pilot: landscape long-form + vertical hooks (branch `landscape-dialogue-format`)
+
+A second format next to the vertical Shorts. Both are driven by the same `content/days/day-NNN.json`, which gains two
+optional fields (written by content-creator):
+
+- `dialogue`: `{ title, setting, speakers: [{id, name, voice}], lines: [{speaker: "A"|"B", text, terms: []}] }`
+- `hooks`: `[{ type: "one-line-example" | "one-line-conversation", term, lines: [{speaker?, text}] }]` (vertical Shorts, 15-25 s)
+- Per term: `code` (Swift snippet for the landscape code panel, max 6 lines, about 48 chars; type-check it with
+  `swiftc -typecheck`). The scaffold reads it from the day JSON; `--extra file.json` is only an optional override (used by
+  the day-012 test stub).
+
+**Landscape 1920x1080, about 5-6 min** (`video/template-landscape/`): cold open (hook line, then logo + day + terms),
+3 term scenes (left code panel, right plain English: term, definition, Korean gloss, example twice, "your turn" pause),
+conversation (a centered chat-app window in iMessage / KakaoTalk style: header with both avatars, the dialogue title and an
+online dot; speaker A sends on the right in brand blue #0071E3, B receives on the left in light gray; bubbles with tails,
+avatar on the first bubble of a run, a time under the last one, "Delivered" then "Read" under sent messages; the dialogue
+title/setting and speaker legend sit on the left, the term chips on the right and light up per line; each line is spoken in
+its own edge-tts voice), replay (the same chat UI with the key lines, terms blanked and spoken as "blank"; the term pops into
+the bubble after a beat; at most 5 lines, `--replay-max`), 3 quiz scenes (same rules as the Shorts: options never spoken, 8 s countdown, no reveal), recap + "See you
+tomorrow". Logo tile only in the cold open and the outro.
+
+```sh
+J=content/days/day-013.json
+node scripts/tts-landscape.mjs $J        # all clips (narrator, example, one voice per speaker, hook clips); cached
+node scripts/timing-landscape.mjs $J     # video/out/day-NNN.landscape.timing.json from real clip lengths
+node scripts/scaffold-landscape.mjs $J   # video/dayNNN-landscape/ (scenes, audio tags, looped bgm)
+node scripts/scaffold-hooks.mjs $J       # video/dayNNN-hook1..K/ (vertical 1080x1920)
+node scripts/thumbnail.mjs $J --landscape  # video/out/day-013-thumb-landscape.png (1280x720)
+cd video/day013-landscape && npx hyperframes check && npx hyperframes render -q high -f 30 -o ../out/day013-landscape.mp4
+cd ../day013-hook1 && npx hyperframes check && npx hyperframes render -q high -f 30 -o ../out/day013-hook1.mp4
+```
+
+- The scaffold scripts generate the whole composition; `index.html` in the templates is only CSS + timeline code with
+  `SCENES/VOICE/PLAN/DATA` markers. Change the look in the template, not in a generated day folder.
+- Speaker voices come from `dialogue.speakers[].voice` (edge-tts names; anything else falls back to Ava/Andrew). The landscape
+  video uses two further voices that are never a dialogue speaker: narrator (and slow example) = Christopher, natural
+  example = Jenny (first free voice from a short list; override with `video.landscapeVoices.{narrator,example}`). The
+  vertical Shorts keep the `scripts/voices.mjs` rotation. Scripts never write to the day JSON. The mp3 cache is keyed by clip
+  name only: after changing a voice, delete `video/audio/day-NNN-landscape/` (or pass `--force`).
+- Test without real content: `--extra video/template-landscape/test-extra-day012.json --tag -test` (a stub dialogue,
+  hooks and code for Day 12; outputs go to `*-test` folders). It is a stub, not content.
+- Cold-open line: `video.landscape.hook`, else `video.hook`, else "Can you explain <terms> in English?" (`coldHook` in the lib;
+  the same text is on screen and spoken). Punctuation after a highlighted/blanked term stays glued to it (`.nb`).
+- Batch: `scripts/render-day-landscape.sh 2 3 4` runs the whole chain per day, one day at a time (untested beyond Day 1's
+  individual steps). Old vertical files (`video/dayNNN/`, `video/out/day-NNN*.mp4`, `day-NNN-thumb.png`) are never touched:
+  the new names are `dayNNN-landscape`, `dayNNN-hookK`, `day-NNN.landscape.timing.json`, `day-NNN-thumb-landscape.png`.
+- Chat timing (timing-landscape.mjs): for every line the typing indicator (three bouncing dots) shows for 0.9 s (`typeAt`),
+  then the bubble pops in and the voice starts at the same moment (`at`); the next line starts typing 0.15 s after the
+  previous voice ends. The chat scrolls up smoothly (0.45 s) when the next typing row appears. Scroll distances are measured
+  lazily from the laid-out rows via function-based tween values with `immediateRender: false`, so seeking is deterministic.
+  HyperFrames lint rejects template-literal selectors in `querySelector`: build selectors with string concatenation or
+  `getElementById`. The check also prints many layout infos about scrolled-off bubbles; they are expected.
+- Hooks: `one-line-example` = term, sentence with the term highlighted, read naturally then slowly, "your turn" bar;
+  `one-line-conversation` = the same chat-app look in a vertical phone frame (typing dots, two bubbles, each in its speaker's voice), "your turn" bar. Both end on a card
+  "Full conversation on the channel" (logo, spoken). Right 250 px and bottom 200 px stay clear. At least 15 s.
+- Music: Rio_Nights (copyright-free) is looped to the video length by `makeBgm` in `scripts/lib/landscape.mjs`: the
+  track's closing fade-out is cut off (detected from the level) and each seam is a 4 s crossfade of loud audio, so there is no
+  click or dip. Volume 0.08 for the landscape video, 0.12 for hooks; fade in 1.5 s / out 3 s via the audio element.
+- Thumbnail: `scripts/thumbnail.mjs <day.json> --landscape` makes the 1280x720 one (logo, "Day N", the terms); without the
+  flag the portrait one is unchanged.
+- check warnings `clip_media_fit` and `nested_structure_needs_subcomposition` also appear on the vertical days (day011,
+  day012); ignore them. For landscape the scaffold writes exact audio durations, so only the nesting and "file too large"
+  warnings remain.
+- Same layout rules as section 4 below. Quiz, code-snippet and colour rules apply unchanged.
+
+---
+
 Hand this file to Claude Code on any machine and say:
 **"Read IOS_DAILY_ENGLISH_VIDEO.md and set up the workflow. Then make a video for Day N: <paste the post>."**
 

@@ -6,17 +6,20 @@
     {
       "term": "Array",
       "definition": "An ordered collection of values of the same type that you read by their position, starting at zero.",
-      "example": "I stored the photo names in an array so the gallery shows them in the same order every time."
+      "example": "I stored the photo names in an array so the gallery shows them in the same order every time.",
+      "code": "let names = [\"a.png\", \"b.png\", \"c.png\"]\nprint(names[0])   // starts at zero\nprint(names.count)"
     },
     {
       "term": "Dictionary",
       "definition": "A collection that stores values under unique keys, so you look up a value by its key instead of its position.",
-      "example": "We keep the user settings in a dictionary, so I can read the theme by its key."
+      "example": "We keep the user settings in a dictionary, so I can read the theme by its key.",
+      "code": "var ui = [\"theme\": \"dark\", \"font\": \"big\"]\nui[\"theme\"] = \"light\"  // by key\nprint(ui[\"theme\"] ?? \"none\")"
     },
     {
       "term": "Set",
       "definition": "An unordered collection of unique values, where each value can appear only once.",
-      "example": "I switched the selected tags to a set so the same tag can never be added twice."
+      "example": "I switched the selected tags to a set so the same tag can never be added twice.",
+      "code": "var tags: Set = [\"swift\", \"ios\"]\ntags.insert(\"swift\")  // no change\nprint(tags.count)"
     }
   ],
   "quizzes": [
@@ -71,6 +74,31 @@
       "example": "Evan (Enhanced)",
       "exampleSlow": "Ava (Premium)",
       "pattern": "random (female -> male)"
+    },
+    "landscape": {
+      "title": "Swift Array, Dictionary & Set in English | Real Code Review Chat | Day 5",
+      "description": "Explain arrays, dictionaries and sets in Swift by listening to a real code review chat between two iOS devs.\n영어 코드 리뷰 대화로 배열, 딕셔너리, 집합 표현을 익혀요.\n\nArray - An ordered collection of values of the same type that you read by their position, starting at zero.\n한국어: 같은 타입의 값을 순서대로 담고, 0부터 시작하는 위치로 읽는 컬렉션\n\nDictionary - A collection that stores values under unique keys, so you look up a value by its key instead of its position.\n한국어: 고유한 키로 값을 저장하고 키로 찾아 쓰는 컬렉션\n\nSet - An unordered collection of unique values, where each value can appear only once.\n한국어: 중복 없이 고유한 값만 담는, 순서가 없는 컬렉션\n\nIn this video, Mina and Jake plan the data for a photo gallery in sprint planning in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 5 of the iOS Daily English series.\n\n#Swift #iOSDeveloper #EnglishForDevelopers",
+      "tags": [
+        "Array",
+        "Dictionary",
+        "Set",
+        "swift array dictionary set",
+        "swift collections",
+        "스위프트 배열",
+        "스위프트 딕셔너리",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "ios development",
+        "iOS Daily English"
+      ],
+      "youtubeId": "bnEx7PruXl4",
+      "youtubeUrl": "https://youtu.be/bnEx7PruXl4",
+      "privacy": "private",
+      "publishAt": "2026-10-28T23:00:00.000Z",
+      "uploaded": "2026-10-23T23:57:25.613Z",
+      "thumbnailSet": "2026-10-23T23:57:30.411Z"
     }
   },
   "status": {
@@ -97,5 +125,202 @@
     "uploaded": "2026-10-15T00:23:51.744Z",
     "thumbnail": "video/out/day-005-thumb.png",
     "thumbnailSet": "2026-10-15T00:24:03.928Z"
-  }
+  },
+  "dialogue": {
+    "title": "Sprint planning: data for the photo gallery",
+    "setting": "Sprint planning meeting",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Okay, sprint planning. Our topic is the photo gallery. How do we store the photos?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "I suggest an array of file names. The gallery shows them in the same order every time.",
+        "terms": [
+          "Array"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Good. An array is ordered, and we read an item by its position.",
+        "terms": [
+          "Array"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "The first photo is at position one, right?",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "Not quite. An array starts at zero. So the first photo is names[0].",
+        "terms": [
+          "Array"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Oh, right. I always make that mistake. An array with nine photos crashes if I read position ten.",
+        "terms": [
+          "Array"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Yes. Next, the user settings, like the theme and the font size.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "That is a dictionary. We store each value under a key, like theme.",
+        "terms": [
+          "Dictionary"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "So we do not need a position. We ask the dictionary for the theme.",
+        "terms": [
+          "Dictionary"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "And the result is an optional, because the dictionary may not have that key.",
+        "terms": [
+          "Dictionary"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Correct. Now the tags. Users can pick tags like travel and food.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "I think an array is fine for tags, too.",
+        "terms": [
+          "Array"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "I disagree. With an array the same tag can be added twice. A set keeps every value unique.",
+        "terms": [
+          "Array",
+          "Set"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Good point. And I do not need the order of tags anyway.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "Right. A set has no order, so it is a good fit.",
+        "terms": [
+          "Set"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Okay. I will use a set for the selected tags.",
+        "terms": [
+          "Set"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Last check. Does the gallery look the same after a restart?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Yes. The array keeps the photo order, so nothing moves.",
+        "terms": [
+          "Array"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Great. An array for photos, a dictionary for settings, a set for tags.",
+        "terms": [
+          "Array",
+          "Dictionary",
+          "Set"
+        ]
+      }
+    ]
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "Array",
+      "lines": [
+        {
+          "text": "I stored the photo names in an array, so the order stays."
+        }
+      ],
+      "title": "I stored the photo names in an array, so the order stays #Shorts",
+      "description": "I stored the photo names in an array, so the order stays.\n\nArray - An ordered collection of values of the same type that you read by their position, starting at zero.\n한국어: 같은 타입의 값을 순서대로 담고, 0부터 시작하는 위치로 읽는 컬렉션\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper",
+      "youtubeId": "iodmzIus8VU",
+      "youtubeUrl": "https://youtu.be/iodmzIus8VU",
+      "privacy": "private",
+      "publishAt": "2026-10-29T03:00:00.000Z",
+      "uploaded": "2026-10-23T23:57:35.484Z"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "Dictionary",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "How do you read the theme?"
+        },
+        {
+          "speaker": "B",
+          "text": "I look it up in the dictionary by its key."
+        }
+      ],
+      "title": "How do you read the theme? Dictionary #Shorts",
+      "description": "How do you read the theme? / I look it up in the dictionary by its key.\n\nDictionary - A collection that stores values under unique keys, so you look up a value by its key instead of its position.\n한국어: 고유한 키로 값을 저장하고 키로 찾아 쓰는 컬렉션\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper",
+      "youtubeId": "N8voMcdsuVk",
+      "youtubeUrl": "https://youtu.be/N8voMcdsuVk",
+      "privacy": "private",
+      "publishAt": "2026-10-29T09:00:00.000Z",
+      "uploaded": "2026-10-23T23:57:41.526Z"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Set",
+      "lines": [
+        {
+          "text": "I used a set, so the same tag cannot be added twice."
+        }
+      ],
+      "title": "I used a set, so the same tag cannot be added twice #Shorts",
+      "description": "I used a set, so the same tag cannot be added twice.\n\nSet - An unordered collection of unique values, where each value can appear only once.\n한국어: 중복 없이 고유한 값만 담는, 순서가 없는 컬렉션\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper",
+      "youtubeId": "KI01QbHthHs",
+      "youtubeUrl": "https://youtu.be/KI01QbHthHs",
+      "privacy": "private",
+      "publishAt": "2026-10-29T12:00:00.000Z",
+      "uploaded": "2026-10-23T23:57:46.005Z"
+    }
+  ]
 }

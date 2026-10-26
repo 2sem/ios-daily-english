@@ -6,17 +6,20 @@
     {
       "term": "Struct",
       "definition": "A type that groups related values together, and every copy you make is independent of the others.",
-      "example": "I made the user profile a struct, so changing a copy does not touch the original."
+      "example": "I made the user profile a struct, so changing a copy does not touch the original.",
+      "code": "struct Profile { var name: String }\nlet a = Profile(name: \"Mina\")\nvar b = a        // b is a copy\nb.name = \"Jake\"\nprint(a.name)    // Still Mina"
     },
     {
       "term": "Class",
       "definition": "A type that groups data and actions together, and it can inherit from a parent type.",
-      "example": "The view controller is a class, because UIKit needs it to inherit from UIViewController."
+      "example": "The view controller is a class, because UIKit needs it to inherit from UIViewController.",
+      "code": "class Animal { func talk() {} }\nclass Dog: Animal {\n    override func talk() { print(\"Woof\") }\n}\nDog().talk()"
     },
     {
       "term": "Reference Type",
       "definition": "A type where many variables point to the same single instance, so a change through one variable shows up in all of them.",
-      "example": "Because it is a reference type, both screens see the update as soon as one of them changes it."
+      "example": "Because it is a reference type, both screens see the update as soon as one of them changes it.",
+      "code": "class Settings { var theme = \"light\" }\nlet a = Settings()\nlet b = a          // Same instance\nb.theme = \"dark\"\nprint(a.theme)     // dark"
     }
   ],
   "quizzes": [
@@ -70,7 +73,32 @@
       "exampleSlow": "Tom (Enhanced)",
       "pattern": "male -> female"
     },
-    "file": "video/out/day009.mp4"
+    "file": "video/out/day009.mp4",
+    "landscape": {
+      "title": "Swift Struct, Class & Reference Type in English | Real Code Review Chat | Day 9",
+      "description": "Explain structs, classes and reference types in Swift by listening to a real code review chat between two iOS devs.\n영어 코드 리뷰 대화로 구조체, 클래스, 참조 타입 표현을 익혀요.\n\nStruct - A type that groups related values together, and every copy you make is independent of the others.\n한국어: 관련된 값을 묶는 타입으로, 복사본마다 서로 독립적이다\n\nClass - A type that groups data and actions together, and it can inherit from a parent type.\n한국어: 데이터와 동작을 묶고 부모 타입을 상속할 수 있는 타입\n\nReference Type - A type where many variables point to the same single instance, so a change through one variable shows up in all of them.\n한국어: 여러 변수가 하나의 인스턴스를 가리켜서 한쪽의 변경이 모두에게 보이는 타입\n\nIn this video, Mina and Jake find out why two screens show different settings in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 9 of the iOS Daily English series.\n\n#Swift #iOSDeveloper #EnglishForDevelopers",
+      "tags": [
+        "Struct",
+        "Class",
+        "Reference Type",
+        "swift struct vs class",
+        "swift reference type",
+        "스위프트 구조체",
+        "스위프트 클래스",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "ios development",
+        "iOS Daily English"
+      ],
+      "youtubeId": "fCuab27EdQg",
+      "youtubeUrl": "https://youtu.be/fCuab27EdQg",
+      "privacy": "private",
+      "publishAt": "2026-11-01T23:00:00.000Z",
+      "uploaded": "2026-10-24T07:54:33.357Z",
+      "thumbnailSet": "2026-10-24T07:54:40.536Z"
+    }
   },
   "status": {
     "video": "rendered",
@@ -95,5 +123,184 @@
     "thumbnailSet": "2026-10-18T23:52:25.062Z",
     "scheduledAt": "2026-10-19T23:00:00.000Z",
     "url": "https://www.facebook.com/reel/986939057789319/"
-  }
+  },
+  "dialogue": {
+    "title": "Why do two screens show different data?",
+    "setting": "Slack huddle about a strange bug",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "B",
+        "text": "Mina, I have a strange bug. The settings screen changes the theme, but the home screen does not update.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "How do you pass the settings to the home screen?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "It is a struct. I pass it in the initializer.",
+        "terms": [
+          "Struct"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "That is the reason. Every copy of a struct is independent.",
+        "terms": [
+          "Struct"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "So the home screen has its own copy, and the change never reaches it.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "Yes. That is the good side of a struct too. A change to a copy never hurts the original.",
+        "terms": [
+          "Struct"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Then should I make the settings a class?",
+        "terms": [
+          "Class"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Maybe. A class is a reference type, so both screens point to the same instance.",
+        "terms": [
+          "Class",
+          "Reference Type"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "And a change on one screen shows up on the other.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "Right. A class can also inherit from a parent, like UIViewController.",
+        "terms": [
+          "Class"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "I changed it to a class, and now it works. Should I make every model a class?",
+        "terms": [
+          "Class"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "No, please. Prefer a struct for simple data, like a user profile.",
+        "terms": [
+          "Struct"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Why? A class feels more powerful.",
+        "terms": [
+          "Class"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Because a reference type can be changed from anywhere. That makes bugs hard to find.",
+        "terms": [
+          "Reference Type"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Hmm. I disagree a little. For shared settings, I want one place that everyone sees.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "Fair. For shared state, a reference type is the right tool. For a plain value, use a struct.",
+        "terms": [
+          "Struct",
+          "Reference Type"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Okay. The settings stay a class, and the profile stays a struct.",
+        "terms": [
+          "Struct",
+          "Class"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Perfect. A struct, a class, and a reference type. Choose on purpose.",
+        "terms": [
+          "Struct",
+          "Class",
+          "Reference Type"
+        ]
+      }
+    ]
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "Struct",
+      "lines": [
+        {
+          "text": "I made the profile a struct, so a copy is independent."
+        }
+      ],
+      "title": "I made the profile a struct, so a copy is independent #Shorts",
+      "description": "I made the profile a struct, so a copy is independent.\n\nStruct - A type that groups related values together, and every copy you make is independent of the others.\n한국어: 관련된 값을 묶는 타입으로, 복사본마다 서로 독립적이다\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "Class",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Why is the view controller a class?"
+        },
+        {
+          "speaker": "B",
+          "text": "UIKit needs it to inherit from UIViewController."
+        }
+      ],
+      "title": "Why is the view controller a class? Class #Shorts",
+      "description": "Why is the view controller a class? / UIKit needs it to inherit from UIViewController.\n\nClass - A type that groups data and actions together, and it can inherit from a parent type.\n한국어: 데이터와 동작을 묶고 부모 타입을 상속할 수 있는 타입\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Reference Type",
+      "lines": [
+        {
+          "text": "It is a reference type, so both screens see the update."
+        }
+      ],
+      "title": "It is a reference type, so both screens see the update #Shorts",
+      "description": "It is a reference type, so both screens see the update.\n\nReference Type - A type where many variables point to the same single instance, so a change through one variable shows up in all of them.\n한국어: 여러 변수가 하나의 인스턴스를 가리켜서 한쪽의 변경이 모두에게 보이는 타입\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ]
 }

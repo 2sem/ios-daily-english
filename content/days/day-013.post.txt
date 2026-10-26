@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 13
+
+lazy
+- A keyword that waits to create a property until the first time your code uses it.
+- Example: "I made the image loader lazy, so it is not created until the first screen needs it."
+
+Computed Property
+- A property that does not store a value, but calculates it each time you read it.
+- Example: "The full name is a computed property, so it always matches the first name and last name."
+
+Property Observer
+- Code that runs right before or right after the value of a property changes.
+- Example: "I added a property observer to score, so the label updates every time the number changes."
+
+
+Quiz ①
+Which one is code that runs right before or right after a property value changes?
+a) lazy
+b) Computed Property
+c) Property Observer
+
+Quiz ②
+Which one is a keyword that waits to create a property until the first time you use it?
+a) Property Observer
+b) lazy
+c) Computed Property
+
+Quiz ③
+Which one is a property that does not store a value, but calculates it each time you read it?
+a) Computed Property
+b) Property Observer
+c) lazy

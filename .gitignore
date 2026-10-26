@@ -5,3 +5,7 @@ video/node_modules/
 video/out/
 video/day*/
 video/audio/
+
+# local analytics token/exports (tokens live in ~/.config, never here)
+reports/*.csv
+reports/*.json
