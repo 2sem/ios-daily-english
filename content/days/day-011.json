@@ -91,26 +91,12 @@
         "swift",
         "ios development",
         "iOS Daily English"
-      ],
-      "youtubeId": "uvkt4H6v4Cs",
-      "youtubeUrl": "https://youtu.be/uvkt4H6v4Cs",
-      "privacy": "private",
-      "publishAt": "2026-11-03T23:00:00.000Z",
-      "uploaded": "2026-10-24T07:55:37.544Z",
-      "thumbnailSet": "2026-10-24T07:55:41.660Z"
+      ]
     }
   },
   "status": {
     "video": "rendered",
-    "youtube": "scheduled",
     "facebook": "scheduled"
-  },
-  "youtube": {
-    "videoId": "fd4FQdPvMIw",
-    "url": "https://youtu.be/fd4FQdPvMIw",
-    "privacy": "private",
-    "scheduledAt": "2026-10-21T23:00:00.000Z",
-    "uploaded": "2026-10-20T23:58:17.107Z"
   },
   "facebook": {
     "caption": "Hi everyone! Today we are talking about generics in Swift.\n\nToday's 3 terms\nGeneric: code that works with any type, so you write it once.\nType Parameter: a placeholder name, like T, for a type that is filled in later.\nGeneric Constraint: a rule that limits a generic to types that meet a requirement.\n\nEach example is read twice, normal speed and then slow, so you can say it out loud with me.\n\nThere is a short quiz at the end. Drop your answers in the comments, then watch again to check!\n\nDay 11 of iOS Daily English: 3 terms a day, from Swift basics to advanced iOS.\n\n#iOSDev #Swift #LearnEnglish #iOSDailyEnglish",

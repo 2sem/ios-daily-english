@@ -98,26 +98,12 @@
         "ios development",
         "iOS Daily English"
       ],
-      "hook": "Can you explain throws, try and do-catch in English?",
-      "youtubeId": "K8qdBu7li04",
-      "youtubeUrl": "https://youtu.be/K8qdBu7li04",
-      "privacy": "private",
-      "publishAt": "2026-11-04T23:00:00.000Z",
-      "uploaded": "2026-10-24T07:56:17.898Z",
-      "thumbnailSet": "2026-10-24T07:56:24.646Z"
+      "hook": "Can you explain throws, try and do-catch in English?"
     }
   },
   "status": {
     "video": "rendered",
-    "youtube": "scheduled",
     "facebook": "scheduled"
-  },
-  "youtube": {
-    "videoId": "nHrP8fc-C9s",
-    "url": "https://youtu.be/nHrP8fc-C9s",
-    "privacy": "private",
-    "scheduledAt": "2026-10-22T23:00:00.000Z",
-    "uploaded": "2026-10-22T00:43:01.717Z"
   },
   "facebook": {
     "caption": "Hi everyone! Day 12 of iOS Daily English is about error handling in Swift.\n\nToday's 3 terms:\n- throws: a keyword that says a function can fail and send back an error\n- try: goes before a call to a function that can fail\n- do-catch: runs risky code and lets you handle the error\n\n한국어로 한 줄씩:\n- throws: 함수가 에러를 던질 수 있다는 표시\n- try: 실패할 수 있는 함수를 호출할 때 앞에 붙이는 키워드\n- do-catch: 에러를 잡아서 처리하는 구문\n\nEach example is read twice, so you can say it out loud with me.\n\nTry the quiz and answer 1/2/3 in the comments. I reply to every comment!\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3).\n\niOS Daily English: one Swift phrase set a day.\n#Swift #iOSDeveloper #EnglishForDevelopers #LearnEnglish",

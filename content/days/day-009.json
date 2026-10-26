@@ -91,28 +91,12 @@
         "swift",
         "ios development",
         "iOS Daily English"
-      ],
-      "youtubeId": "fCuab27EdQg",
-      "youtubeUrl": "https://youtu.be/fCuab27EdQg",
-      "privacy": "private",
-      "publishAt": "2026-11-01T23:00:00.000Z",
-      "uploaded": "2026-10-24T07:54:33.357Z",
-      "thumbnailSet": "2026-10-24T07:54:40.536Z"
+      ]
     }
   },
   "status": {
     "video": "rendered",
-    "youtube": "scheduled",
     "facebook": "scheduled"
-  },
-  "youtube": {
-    "videoId": "oorAthY9sqY",
-    "url": "https://youtu.be/oorAthY9sqY",
-    "privacy": "private",
-    "scheduledAt": "2026-10-19T23:00:00.000Z",
-    "uploaded": "2026-10-18T23:50:44.021Z",
-    "thumbnail": "video/out/day-009-thumb.png",
-    "thumbnailSet": "2026-10-18T23:50:50.075Z"
   },
   "facebook": {
     "caption": "Hi everyone! Here are today's 3 iOS terms, all about structs and classes.\n\nStruct - a type that groups related values, and every copy is independent.\nClass - a type that groups data and actions, and it can inherit from a parent type.\nReference Type - many variables point to the same instance, so one change shows up everywhere.\n\nEach example is read twice, normal speed then slow, so you can say it out loud with me. There is a short quiz at the end, so share your answers in the comments and watch again to check!\n\nDay 9 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#iOSDev #Swift #LearnEnglish #SwiftBasics",

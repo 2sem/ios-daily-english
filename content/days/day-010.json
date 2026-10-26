@@ -92,26 +92,12 @@
         "swift",
         "ios development",
         "iOS Daily English"
-      ],
-      "youtubeId": "abVujXI6oPo",
-      "youtubeUrl": "https://youtu.be/abVujXI6oPo",
-      "privacy": "private",
-      "publishAt": "2026-11-02T23:00:00.000Z",
-      "uploaded": "2026-10-24T07:55:03.725Z",
-      "thumbnailSet": "2026-10-24T07:55:10.976Z"
+      ]
     }
   },
   "status": {
     "video": "rendered",
-    "youtube": "scheduled",
     "facebook": "scheduled"
-  },
-  "youtube": {
-    "videoId": "grn6u4bO_tA",
-    "url": "https://youtu.be/grn6u4bO_tA",
-    "privacy": "private",
-    "scheduledAt": "2026-10-20T23:00:00.000Z",
-    "uploaded": "2026-10-20T01:12:06.648Z"
   },
   "facebook": {
     "caption": "Hi everyone! Today's iOS Daily English is about protocols and extensions in Swift.\n\nToday's 3 terms:\nProtocol - a list of requirements that a type promises to follow.\nProtocol Conformance - when a type follows a protocol and provides everything it asks for.\nExtension - a way to add new features to an existing type, even one you did not write.\n\nEvery example sentence is read twice, normal speed and then slow, so you can say it out loud with us.\n\nThere is a short quiz at the end. Drop your answers in the comments, then watch again to check!\n\nDay 10 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#iOSDev #Swift #LearnEnglish #iOSDailyEnglish",
