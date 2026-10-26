@@ -68,6 +68,7 @@ Default time is 08:00 KST next day. Nothing is published before the step 6 appro
   the literal line `{{CHAPTERS}}`, which the uploader fills with timestamps from the render timing); each hook also has
   `title` (<=100, with #Shorts) and `description` containing `Full conversation: {{LONG_URL}}` (filled by the uploader
   with the long video URL).
+  Optional `video.landscape.hook` = cold-open line for the landscape video (used instead of the vertical `video.hook`).
   The vertical pipeline ignores these fields, so existing renders keep working.
 
 ### Voice

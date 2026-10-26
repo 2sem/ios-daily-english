@@ -6,17 +6,20 @@
     {
       "term": "Function",
       "definition": "A named block of code that does one job and can be run again whenever you call it by name.",
-      "example": "I moved the date formatting into a function so both screens can reuse it."
+      "example": "I moved the date formatting into a function so both screens can reuse it.",
+      "code": "func greet(name: String) -> String {\n    \"Hello, \\(name)\"\n}\nprint(greet(name: \"Mina\"))"
     },
     {
       "term": "Parameter",
       "definition": "A named input that a function declares so the caller can pass a value in.",
-      "example": "The method takes one parameter, the user ID, so pass it the ID of the signed-in user."
+      "example": "The method takes one parameter, the user ID, so pass it the ID of the signed-in user.",
+      "code": "// id is the parameter.\nfunc loadUser(id: Int) -> String {\n    \"User \\(id)\"\n}\nprint(loadUser(id: 7))"
     },
     {
       "term": "Argument Label",
       "definition": "A word written before a value in a function call that tells the reader what that value is for.",
-      "example": "Add an argument label here so the call reads like a sentence at the call site."
+      "example": "Add an argument label here so the call reads like a sentence at the call site.",
+      "code": "func move(from start: Int, to end: Int) {\n    print(\"\\(start) -> \\(end)\")\n}\n// Labels read like a sentence.\nmove(from: 1, to: 5)"
     }
   ],
   "quizzes": [
@@ -71,7 +74,32 @@
       "exampleSlow": "Ava (Premium)",
       "pattern": "random (female -> male)"
     },
-    "file": "video/out/day003.mp4"
+    "file": "video/out/day003.mp4",
+    "landscape": {
+      "title": "Swift Function, Parameter & Argument Label in English | Real Code Review Chat | Day 3",
+      "description": "Explain functions, parameters and argument labels in Swift by listening to a real code review chat between two iOS devs.\n영어 코드 리뷰 대화로 함수, 파라미터, 아규먼트 레이블 표현을 익혀요.\n\nFunction - A named block of code that does one job and can be run again whenever you call it by name.\n한국어: 이름을 붙여 한 가지 일을 하고, 호출할 때마다 다시 실행하는 코드 묶음\n\nParameter - A named input that a function declares so the caller can pass a value in.\n한국어: 함수가 값을 받기 위해 선언하는 입력 이름\n\nArgument Label - A word written before a value in a function call that tells the reader what that value is for.\n한국어: 함수를 호출할 때 값 앞에 붙여 그 값의 역할을 알려주는 단어\n\nIn this video, Mina and Jake clean up copy-pasted date code in a pull request in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 3 of the iOS Daily English series.\n\n#Swift #iOSDeveloper #EnglishForDevelopers",
+      "tags": [
+        "Function",
+        "Parameter",
+        "Argument Label",
+        "swift function parameters",
+        "swift argument label",
+        "스위프트 함수",
+        "스위프트 파라미터",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "ios development",
+        "iOS Daily English"
+      ],
+      "youtubeId": "srMUoRlCXyk",
+      "youtubeUrl": "https://youtu.be/srMUoRlCXyk",
+      "privacy": "private",
+      "publishAt": "2026-10-26T23:00:00.000Z",
+      "uploaded": "2026-10-23T23:56:06.582Z",
+      "thumbnailSet": "2026-10-23T23:56:13.458Z"
+    }
   },
   "status": {
     "video": "rendered",
@@ -95,5 +123,195 @@
     "uploaded": "2026-10-12T23:46:29.358Z",
     "thumbnail": "video/out/day-003-thumb.png",
     "thumbnailSet": "2026-10-13T00:20:58.011Z"
-  }
+  },
+  "dialogue": {
+    "title": "Pull request: the same code in two places",
+    "setting": "Morning stand-up and pull request review",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Morning, Jake. In your pull request, I see the same date code in two screens.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Yes. I copied it from the home screen. It was quick.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "Quick today, painful tomorrow. Let's put it in a function.",
+        "terms": [
+          "Function"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Okay. So I write one function, and both screens call it?",
+        "terms": [
+          "Function"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Exactly. A function has a name, does one job, and you can run it again anytime.",
+        "terms": [
+          "Function"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "What does it need from the caller? Only the date.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "Then add one parameter. The parameter is the input the function declares.",
+        "terms": [
+          "Function",
+          "Parameter"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "So the parameter is called date, and the caller passes a real value.",
+        "terms": [
+          "Parameter"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Careful with words. The name inside the function is the parameter. The value you pass is the argument.",
+        "terms": [
+          "Function",
+          "Parameter"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Oh, I mixed them up in my comment. I will fix it.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "No problem. Now look at the call: format(d, true). What does true mean?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Hmm. I forgot. It is for the short style.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "That is why we use an argument label. Write format(date: d, short: true).",
+        "terms": [
+          "Argument Label"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "I see. An argument label makes the call read like a sentence.",
+        "terms": [
+          "Argument Label"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "And you can hide an argument label with an underscore, when it adds nothing.",
+        "terms": [
+          "Argument Label"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Good. For the first parameter I will hide the argument label, and keep it for short.",
+        "terms": [
+          "Parameter",
+          "Argument Label"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Perfect. Then delete the two old copies.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Already done. One function, one parameter, and a clear argument label.",
+        "terms": [
+          "Function",
+          "Parameter",
+          "Argument Label"
+        ]
+      }
+    ]
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "Function",
+      "lines": [
+        {
+          "text": "I moved the date code into one function for both screens."
+        }
+      ],
+      "title": "I moved the date code into one function for both screens #Shorts",
+      "description": "I moved the date code into one function for both screens.\n\nFunction - A named block of code that does one job and can be run again whenever you call it by name.\n한국어: 이름을 붙여 한 가지 일을 하고, 호출할 때마다 다시 실행하는 코드 묶음\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper",
+      "youtubeId": "AC7HAG70RTE",
+      "youtubeUrl": "https://youtu.be/AC7HAG70RTE",
+      "privacy": "private",
+      "publishAt": "2026-10-27T03:00:00.000Z",
+      "uploaded": "2026-10-23T23:56:19.032Z"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "Parameter",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "What does this method need from me?"
+        },
+        {
+          "speaker": "B",
+          "text": "One parameter: the user ID."
+        }
+      ],
+      "title": "What does this method need from me? Parameter #Shorts",
+      "description": "What does this method need from me? / One parameter: the user ID.\n\nParameter - A named input that a function declares so the caller can pass a value in.\n한국어: 함수가 값을 받기 위해 선언하는 입력 이름\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper",
+      "youtubeId": "U-rr6VOVlv0",
+      "youtubeUrl": "https://youtu.be/U-rr6VOVlv0",
+      "privacy": "private",
+      "publishAt": "2026-10-27T09:00:00.000Z",
+      "uploaded": "2026-10-23T23:56:23.879Z"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Argument Label",
+      "lines": [
+        {
+          "text": "Add an argument label, so the call reads like a sentence."
+        }
+      ],
+      "title": "Add an argument label, so the call reads like a sentence #Shorts",
+      "description": "Add an argument label, so the call reads like a sentence.\n\nArgument Label - A word written before a value in a function call that tells the reader what that value is for.\n한국어: 함수를 호출할 때 값 앞에 붙여 그 값의 역할을 알려주는 단어\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper",
+      "youtubeId": "Py-UqQsGglE",
+      "youtubeUrl": "https://youtu.be/Py-UqQsGglE",
+      "privacy": "private",
+      "publishAt": "2026-10-27T12:00:00.000Z",
+      "uploaded": "2026-10-23T23:56:28.390Z"
+    }
+  ]
 }

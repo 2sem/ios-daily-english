@@ -6,17 +6,20 @@
     {
       "term": "Protocol",
       "definition": "A list of requirements that a type promises to follow, without saying how the work is done.",
-      "example": "Let's write a protocol for the data service, so we can swap in a fake one in tests."
+      "example": "Let's write a protocol for the data service, so we can swap in a fake one in tests.",
+      "code": "protocol DataService {\n    func loadUsers() -> [String]\n}"
     },
     {
       "term": "Protocol Conformance",
       "definition": "When a type promises to follow a protocol and provides everything that the protocol asks for.",
-      "example": "I added Codable conformance to the model, so we can save it as JSON."
+      "example": "Adding Protocol Conformance to Codable lets us save the model as JSON.",
+      "code": "protocol Greeter {\n    func greet() -> String\n}\nstruct Dog: Greeter {   // conforms\n    func greet() -> String { \"Woof\" }\n}"
     },
     {
       "term": "Extension",
       "definition": "A way to add new features to an existing type, even one you did not write yourself.",
-      "example": "I wrote an extension on String to trim spaces, and now we use it everywhere."
+      "example": "I wrote an extension on Int to add a squared property, and now we use it everywhere.",
+      "code": "extension Int {\n    var squared: Int { self * self }\n}\nprint(5.squared)"
     }
   ],
   "quizzes": [
@@ -71,7 +74,32 @@
       "exampleSlow": "Zoe (Premium)",
       "pattern": "female -> male"
     },
-    "file": "video/out/day010.mp4"
+    "file": "video/out/day010.mp4",
+    "landscape": {
+      "title": "Swift Protocol, Protocol Conformance & Extension in English | Real Code Review Chat | Day 10",
+      "description": "Explain protocols, conformance and extensions in Swift by listening to a real code review chat between two iOS devs.\n영어 코드 리뷰 대화로 프로토콜, 프로토콜 준수, 익스텐션 표현을 익혀요.\n\nProtocol - A list of requirements that a type promises to follow, without saying how the work is done.\n한국어: 타입이 지키겠다고 약속하는 요구 사항의 목록 (구현 방법은 말하지 않음)\n\nProtocol Conformance - When a type promises to follow a protocol and provides everything that the protocol asks for.\n한국어: 타입이 프로토콜을 따르겠다고 약속하고 요구 사항을 모두 제공하는 것\n\nExtension - A way to add new features to an existing type, even one you did not write yourself.\n한국어: 직접 만들지 않은 타입이라도 새 기능을 추가하는 방법\n\nIn this video, Mina and Jake make a data service testable by adding a fake one in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 10 of the iOS Daily English series.\n\n#Swift #iOSDeveloper #EnglishForDevelopers",
+      "tags": [
+        "Protocol",
+        "Protocol Conformance",
+        "Extension",
+        "swift protocol",
+        "swift extension",
+        "스위프트 프로토콜",
+        "스위프트 익스텐션",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "ios development",
+        "iOS Daily English"
+      ],
+      "youtubeId": "abVujXI6oPo",
+      "youtubeUrl": "https://youtu.be/abVujXI6oPo",
+      "privacy": "private",
+      "publishAt": "2026-11-02T23:00:00.000Z",
+      "uploaded": "2026-10-24T07:55:03.725Z",
+      "thumbnailSet": "2026-10-24T07:55:10.976Z"
+    }
   },
   "status": {
     "video": "rendered",
@@ -94,5 +122,175 @@
     "thumbnailSet": "2026-10-20T01:13:36.746Z",
     "scheduledAt": "2026-10-20T23:00:00.000Z",
     "url": "https://www.facebook.com/reel/29042885615350563/"
-  }
+  },
+  "dialogue": {
+    "title": "Writing tests: we need a fake data service",
+    "setting": "Unit test writing session",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, my unit test for the home screen calls the real server. That is slow and flaky.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Yes, a test should not need the network. We need a fake service.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "How do we swap the real service for a fake one?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "We write a protocol first. It lists what the service must do, like load users.",
+        "terms": [
+          "Protocol"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "So the protocol says what, but not how.",
+        "terms": [
+          "Protocol"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Exactly. The home screen only knows the protocol, not the real class.",
+        "terms": [
+          "Protocol"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Then the real service and the fake service both have to follow it.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "That is Protocol Conformance. You write a colon and the protocol name after the type.",
+        "terms": [
+          "Protocol",
+          "Protocol Conformance"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "And if I forget a method, the compiler tells me.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Right. Protocol conformance means you provide everything the protocol asks for.",
+        "terms": [
+          "Protocol",
+          "Protocol Conformance"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "I wrote the fake service. But my User model also needs Equatable, and the type is getting long.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Did you add that Protocol Conformance inside the main type?",
+        "terms": [
+          "Protocol Conformance"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Yes, all in one block. It feels messy.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Use an extension. You can put the conformance in a separate extension below the type.",
+        "terms": [
+          "Extension"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Oh nice. An extension adds features to an existing type.",
+        "terms": [
+          "Extension"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Even to types you did not write, like Int. I added a squared property last week.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "Great. Now my test runs in a few milliseconds.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "A protocol, a Protocol Conformance, and an extension. Clean and testable.",
+        "terms": [
+          "Protocol",
+          "Protocol Conformance",
+          "Extension"
+        ]
+      }
+    ]
+  },
+  "hooks": [
+    {
+      "type": "one-line-conversation",
+      "term": "Protocol",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "How do we fake the data service?"
+        },
+        {
+          "speaker": "B",
+          "text": "Write a protocol, and swap in a fake one."
+        }
+      ],
+      "title": "How do we fake the data service? Protocol #Shorts",
+      "description": "How do we fake the data service? / Write a protocol, and swap in a fake one.\n\nProtocol - A list of requirements that a type promises to follow, without saying how the work is done.\n한국어: 타입이 지키겠다고 약속하는 요구 사항의 목록 (구현 방법은 말하지 않음)\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Protocol Conformance",
+      "lines": [
+        {
+          "text": "Adding Protocol Conformance to Codable saves the model."
+        }
+      ],
+      "title": "Adding Protocol Conformance to Codable saves the model #Shorts",
+      "description": "Adding Protocol Conformance to Codable saves the model.\n\nProtocol Conformance - When a type promises to follow a protocol and provides everything that the protocol asks for.\n한국어: 타입이 프로토콜을 따르겠다고 약속하고 요구 사항을 모두 제공하는 것\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Extension",
+      "lines": [
+        {
+          "text": "I added a squared property with an extension on Int."
+        }
+      ],
+      "title": "I added a squared property with an extension on Int #Shorts",
+      "description": "I added a squared property with an extension on Int.\n\nExtension - A way to add new features to an existing type, even one you did not write yourself.\n한국어: 직접 만들지 않은 타입이라도 새 기능을 추가하는 방법\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ]
 }
