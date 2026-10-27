@@ -78,6 +78,7 @@ Default time is 08:00 KST next day. Nothing is published before the step 6 appro
   silent read after "Now your turn." (no timer bar). Labels: Male voice / Female voice / Your turn.
 - Replay ("Say the missing words"): the voice never says "blank"; terms are silent gaps while the blank shows on screen.
 - Quiz questions that refer to code carry `quizzes[i].code` (2-5 lines, `___` = blank) shown in a code panel under the question.
+- Words that are code but also plain English (`from`, `to`, `index`, ...) must be written in backticks in the day JSON; backticked words render as code chips and are spoken without the backticks.
 - Inline Swift names in sentences (`Int`, `String`, `nil`, camelCase, `foo()`) render as neutral code chips; only the day's terms are coloured. The cold-open question colours the terms too.
 - **Review copy:** before any upload, export a reduced copy to `~/Downloads/dayNNN-landscape-review.mp4` (under 30 MB, so it can be sent by DM;
   `ffmpeg -c:v libx264 -preset slow -crf 22 -maxrate 600k -bufsize 3000k -c:a aac -b:a 128k`) and wait for the owner's approval.

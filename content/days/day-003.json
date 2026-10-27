@@ -24,7 +24,7 @@
   ],
   "quizzes": [
     {
-      "question": "In this call, what are from and to? They make the call read like a sentence.",
+      "question": "In this call, what are `from` and `to`? They make the call read like a sentence.",
       "options": [
         "Parameter",
         "Argument Label",
