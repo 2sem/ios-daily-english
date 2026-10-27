@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 4
+
+If
+- A control-flow statement that runs a block of code only when a condition is true, and can run another block when it is false.
+- Example: "Too many nested ifs make this function hard to read."
+
+Switch
+- A control-flow statement that compares one value against several cases and runs the code of the first case that matches.
+- Example: "Use a switch on the status so the compiler tells us when we forget a case."
+
+Guard
+- A control-flow statement that checks a condition at the top of a function and exits early when it is not met.
+- Example: "Put a guard at the top, so we return early when the user ID is missing."
+
+
+Quiz ①
+Fill in the blank in this code: which statement checks the optional first and exits early when it is nil?
+a) Switch
+b) If
+c) Guard
+
+Quiz ②
+Which statement runs a block of code only when a condition is true, and can run another block otherwise?
+a) If
+b) Guard
+c) Switch
+
+Quiz ③
+Fill in the blank in this code: which statement compares one value against several cases?
+a) Guard
+b) Switch
+c) If

@@ -1,0 +1,303 @@
+{
+  "day": 4,
+  "phase": "1. Swift basics",
+  "theme": "3 terms on control flow: making decisions in Swift",
+  "terms": [
+    {
+      "term": "If",
+      "definition": "A control-flow statement that runs a block of code only when a condition is true, and can run another block when it is false.",
+      "example": "Too many nested ifs make this function hard to read.",
+      "code": "let score = 72\nif score >= 60 {\n    print(\"Pass\")\n} else {\n    print(\"Try again\")\n}"
+    },
+    {
+      "term": "Switch",
+      "definition": "A control-flow statement that compares one value against several cases and runs the code of the first case that matches.",
+      "example": "Use a switch on the status so the compiler tells us when we forget a case.",
+      "code": "let level = 2\nswitch level {\ncase 1: print(\"Easy\")\ncase 2: print(\"Normal\")\ndefault: print(\"Hard\")\n}"
+    },
+    {
+      "term": "Guard",
+      "definition": "A control-flow statement that checks a condition at the top of a function and exits early when it is not met.",
+      "example": "Put a guard at the top, so we return early when the user ID is missing.",
+      "code": "func greet(name: String?) {\n    guard let name = name else {\n        return\n    }\n    print(\"Hello, \\(name)\")\n}"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "Fill in the blank in this code: which statement checks the optional first and exits early when it is nil?",
+      "options": [
+        "Switch",
+        "If",
+        "Guard"
+      ],
+      "answer": "c",
+      "code": "func show(name: String?) {\n    ___ let name = name else { return }\n    print(name)\n}"
+    },
+    {
+      "question": "Which statement runs a block of code only when a condition is true, and can run another block otherwise?",
+      "options": [
+        "If",
+        "Guard",
+        "Switch"
+      ],
+      "answer": "a"
+    },
+    {
+      "question": "Fill in the blank in this code: which statement compares one value against several cases?",
+      "options": [
+        "Guard",
+        "Switch",
+        "If"
+      ],
+      "answer": "b",
+      "code": "let level = 2\n___ level {\ncase 1: print(\"Easy\")\ndefault: print(\"Hard\")\n}"
+    }
+  ],
+  "video": {
+    "title": "If, Switch & Guard in 2 minutes | iOS Daily English Day 4",
+    "description": "Learn to talk about control flow in Swift: If, Switch and Guard, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nIf - A control-flow statement that runs a block of code only when a condition is true, and can run another block when it is false.\nSwitch - A control-flow statement that compares one value against several cases and runs the code of the first case that matches.\nGuard - A control-flow statement that checks a condition at the top of a function and exits early when it is not met.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 4 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish #SwiftUI",
+    "tags": [
+      "if",
+      "switch",
+      "guard",
+      "swift control flow",
+      "swift for beginners",
+      "swift basics",
+      "ios development",
+      "ios developer english",
+      "english for developers",
+      "learn english",
+      "swift programming",
+      "iOS Daily English"
+    ],
+    "landscape": {
+      "title": "Swift If, Switch & Guard in English | Real Bug Fix Chat | Day 4",
+      "description": "Explain If, Switch and Guard in Swift by listening to a real bug-fix chat between two iOS devs.\n영어 버그 수정 대화로 if, switch, guard 표현을 익혀요.\n\nIf - A control-flow statement that runs a block of code only when a condition is true, and can run another block when it is false.\n한국어: 조건이 참일 때만 코드를 실행하고, 거짓일 때는 다른 코드를 실행할 수 있는 제어 흐름 문장\n\nSwitch - A control-flow statement that compares one value against several cases and runs the code of the first case that matches.\n한국어: 하나의 값을 여러 경우와 비교해 처음 맞는 경우의 코드를 실행하는 제어 흐름 문장\n\nGuard - A control-flow statement that checks a condition at the top of a function and exits early when it is not met.\n한국어: 함수 맨 위에서 조건을 확인하고, 맞지 않으면 일찍 빠져나가는 제어 흐름 문장\n\nIn this video, Mina and Jake fix a messy login check in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 4 of the iOS Daily English series.\n\n#Swift #iOSDeveloper #EnglishForDevelopers",
+      "tags": [
+        "If",
+        "Switch",
+        "Guard",
+        "swift if else",
+        "swift guard",
+        "swift switch",
+        "스위프트 조건문",
+        "스위프트 guard",
+        "개발자 영어",
+        "버그 수정 영어",
+        "english for developers",
+        "swift",
+        "ios development",
+        "iOS Daily English"
+      ],
+      "youtubeId": "N6a3fo_lptQ",
+      "youtubeUrl": "https://youtu.be/N6a3fo_lptQ",
+      "privacy": "private",
+      "publishAt": "2026-10-27T23:00:00.000Z",
+      "uploaded": "2026-10-27T00:18:46.371Z",
+      "thumbnailSet": "2026-10-27T00:18:51.452Z",
+      "playlistAdded": "2026-10-27T00:18:53.114Z"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    },
+    "file": "video/out/day004.mp4"
+  },
+  "dialogue": {
+    "title": "Fixing a messy login check",
+    "setting": "Morning stand-up and bug fix",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Morning, Jake. The login screen crashes when the user ID is missing.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "I know. My code has four nested ifs.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "Four? Let's look. A simple if statement is fine for one check.",
+        "terms": [
+          "If"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Right. If the password is empty, show an error. Else, continue.",
+        "terms": [
+          "If"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Good. That is a clear if statement. But the nesting is hard to read.",
+        "terms": [
+          "If"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "So what do I do with the user ID check?",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "Use a guard at the top of the function. If the ID is nil, return early.",
+        "terms": [
+          "Guard"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Oh, so guard is like an if statement, but it exits early?",
+        "terms": [
+          "Guard",
+          "If"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Yes. With guard, the good path stays on the left, without nesting.",
+        "terms": [
+          "Guard"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Nice. I will write guard let id, and return in the else block.",
+        "terms": [
+          "Guard"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "One rule: the else block of a guard must leave the function.",
+        "terms": [
+          "Guard"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Got it. Now the error type. I have an if statement and two else ifs.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "What are you checking there?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "The error code. Network, server, or unknown.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "That is a job for a switch. A switch compares one value with many cases.",
+        "terms": [
+          "Switch"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Hmm, I tried a switch yesterday, but the compiler complained.",
+        "terms": [
+          "Switch"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "It wants every case covered. Add a default case, or list all the cases.",
+        "terms": [
+          "Switch"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "That is actually useful. If I add a new case later, the switch will warn me.",
+        "terms": [
+          "Switch"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Exactly. Use ifs for simple checks, guard for early exit, and switch for many cases.",
+        "terms": [
+          "If",
+          "Guard",
+          "Switch"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Done. One guard, one switch, and a few simple ifs. The crash is gone.",
+        "terms": [
+          "Guard",
+          "Switch",
+          "If"
+        ]
+      }
+    ]
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "If",
+      "lines": [
+        {
+          "text": "Too many ifs make this code hard to read."
+        }
+      ],
+      "title": "Too many ifs make this code hard to read. If #Shorts",
+      "description": "Too many ifs make this code hard to read.\n\nIf - A control-flow statement that runs a block of code only when a condition is true, and can run another block when it is false.\n한국어: 조건이 참일 때만 코드를 실행하고, 거짓일 때는 다른 코드를 실행할 수 있는 제어 흐름 문장\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "Switch",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Why is the compiler complaining?"
+        },
+        {
+          "speaker": "B",
+          "text": "Your switch forgot one case."
+        }
+      ],
+      "title": "Why is the compiler complaining? Your switch forgot one case. Switch #Shorts",
+      "description": "Why is the compiler complaining? / Your switch forgot one case.\n\nSwitch - A control-flow statement that compares one value against several cases and runs the code of the first case that matches.\n한국어: 하나의 값을 여러 경우와 비교해 처음 맞는 경우의 코드를 실행하는 제어 흐름 문장\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Guard",
+      "lines": [
+        {
+          "text": "Put a guard at the top and return early."
+        }
+      ],
+      "title": "Put a guard at the top and return early. Guard #Shorts",
+      "description": "Put a guard at the top and return early.\n\nGuard - A control-flow statement that checks a condition at the top of a function and exits early when it is not met.\n한국어: 함수 맨 위에서 조건을 확인하고, 맞지 않으면 일찍 빠져나가는 제어 흐름 문장\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "status": {
+    "video": "rendered"
+  }
+}
