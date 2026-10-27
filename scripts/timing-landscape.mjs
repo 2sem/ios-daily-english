@@ -134,7 +134,7 @@ const keep = (n) => {
 let plan;
 if (!TARGET) plan = build({ quiz: Number(opt("quiz-seconds", 8)), picks: basePicks, tail: MIN_TAIL });
 else {
-  const ladder = [[8, 5], [8, 4], [7, 4], [6, 4], [6, 3], [5, 3], [5, 3, 0.85], [5, 3, 0.7]]; // [quiz seconds, replay lines], most content first
+  const ladder = [[8, 5], [8, 4], [7, 4], [6, 4], [6, 3], [5, 3], [5, 3, 0.85], [5, 3, 0.7], [5, 3, 0.6]]; // [quiz seconds, replay lines], most content first
   let K = null;
   for (const [quiz, n, g] of ladder) {
     const k = { quiz, picks: keep(n), tail: MIN_TAIL, g };

@@ -15,23 +15,22 @@ Full rules and commands: `docs/channel-workflow.md`.
 2. **Content.** Spawn `content-creator` with Day N, the phase hint from `content/CURRICULUM.md` and any theme
    the user asked for. It writes `content/days/day-NNN.json` (terms, quizzes, title, description, tags, plus `dialogue`, `hooks` and an optional `terms[i].code` Swift snippet for the landscape code panel (new days should include it), see docs/channel-workflow.md) and
    registers the terms via `node scripts/day.mjs add` (duplicates are rejected there).
-3. **Review gate.** Show the user the terms, definitions, quizzes and title (from `day-NNN.post.txt` and the JSON).
-   Wait for approval or edits. Re-run `node scripts/day.mjs add` after edits.
+3. **Content.** The owner reviews only the video, not the text: do not stop to ask about content. Show it in the final report only.
+   Wording rules: parallel definitions ("A control-flow statement that ..."), no lone singular like "an if" in examples (use "ifs").
+   Re-run `node scripts/day.mjs add` after any edit (it cannot remove a term; fix `terms.json` carefully if a term is renamed).
 4. **Voice.** `node scripts/tts.mjs content/days/day-NNN.json` (edge-tts neural voices; they rotate by day and are saved in the JSON; offline fallback `--engine say`).
    Optionally give the user the clips in `video/audio/day-NNN/` to audition before rendering.
-5. **Video.** Spawn `video-artist` with the day file path. It builds the vertical composition, applies timing from the
-   real clip lengths, adds music, renders `video/out/dayNNN.mp4`. Open the MP4 for the user.
-6. **Thumbnail.** `node scripts/thumbnail.mjs content/days/day-NNN.json`; show `video/out/day-NNN-thumb.png`.
-7. **Upload.** The user's approval of the video and thumbnail (or "confirmed" / "publish") is the single publish
+5. **Video.** Spawn `video-artist` for the **landscape** video only (`video/out/dayNNN-landscape.mp4`, exactly 5:00). Do NOT render the vertical
+   Short or hook Shorts unless the user asks. Copy it to `~/Downloads/dayNNN-landscape-review.mp4` and open it for the user.
+6. **Thumbnail.** `node scripts/thumbnail.mjs content/days/day-NNN.json --landscape` (set `thumbnailHook` in the day JSON for a short hook as the
+   big text); show `video/out/day-NNN-thumb-landscape.png`.
+7. **Upload.** The user's approval of the video and thumbnail (or "approve" / "confirmed" / "publish") is the single publish
    approval. Do not ask again about caption, time or licence. Use the stated time, else the default 08:00 KST next
-   day, and spawn `youtube-uploader`. It uploads private with `publishAt`. No thumbnail API call: the Shorts cover is NOT
-   settable via API (see step 9). Shorts upload with notifySubscribers=false; landscape notifies. When the upload succeeds, copy `video/out/day-NNN-thumb.png` to `~/Downloads/`.
-8. **Facebook.** Right after the YouTube upload, spawn `facebook-uploader` with the same time. It writes the
-   friendly `facebook.caption` and runs `scripts/facebook-upload.mjs` (`--publish-at` by default) without asking.
-   Show the caption in the final report. Meta cross-posts the Reel to Instagram.
-9. **Wrap up.** `node scripts/day.mjs list`; report status, URL and scheduled time. Always end with the manual to-do: set the Shorts cover in the YouTube Studio
-   mobile app (Content > the Short > Edit > Thumbnail > upload `video/out/day-NNN-thumb.png`). Commit the day files on a branch
-   named for the goal (e.g. `day-002-content`), never on `main`.
+   day, and spawn `youtube-uploader` for the landscape video (private + `publishAt`, notifies subscribers, sets the landscape thumbnail
+   through the API, joins the "iOS Daily English" playlist).
+8. **Facebook.** Only when a vertical video exists (the user asked for one): spawn `facebook-uploader` with the same time. Skipped by default.
+9. **Wrap up.** `node scripts/day.mjs list`; report status, URL and scheduled time. Commit the day files on a branch named for
+   the goal (e.g. `day-002-content`), never on `main`. LinkedIn is separate: `/linkedin-newsletter` when asked.
 
 ## Notes
 - `content/terms.json` is the duplicate registry; never edit it by hand.

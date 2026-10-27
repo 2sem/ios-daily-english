@@ -35,6 +35,18 @@
     "argumentlabel": {
       "term": "Argument Label",
       "day": 3
+    },
+    "switch": {
+      "term": "Switch",
+      "day": 4
+    },
+    "guard": {
+      "term": "Guard",
+      "day": 4
+    },
+    "if": {
+      "term": "If",
+      "day": 4
     }
   }
 }

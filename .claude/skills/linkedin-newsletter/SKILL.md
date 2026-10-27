@@ -14,7 +14,11 @@ Newsletter: https://www.linkedin.com/newsletters/ios-daily-english-7382287984366
 
 1. **Day.** The number the user gives; with none, the lowest day whose landscape video is rendered and has no edition yet.
 2. **Prepare.** `node scripts/linkedin-edition.mjs content/days/day-NNN.json` prints `{title, blocks, files}` and
-   - copies the full video (`dayNNN-landscape.mp4`) and thumbnail (`dayNNN-thumb-landscape.png`) to `~/Downloads/`,
+   - builds the **LinkedIn thumbnail** with `node scripts/thumbnail.mjs <day.json> --linkedin` (`video/out/day-NNN-thumb-linkedin.png`,
+     1280x720: small logo + "Day N" badge, headline "Code review English" (override with `linkedinHook` in the day JSON), the three
+     terms, and two chat bubbles with the day's real example sentences, key words highlighted; no hook question, no code card). Do not
+     reuse the YouTube thumbnail: LinkedIn readers are working developers, so it pitches a work skill and shows real English lines,
+   - copies the full video (`dayNNN-landscape.mp4`) and the LinkedIn thumbnail (`dayNNN-thumb-linkedin.png`) to `~/Downloads/`,
    - makes `video/out/dayNNN-linkedin-small.mp4` (720p, under 9.5 MB) as the cover to upload from the browser.
    The video must be the approved 5:00 render. The body is **English only** (no Korean), no quiz answers.
 3. **Editor.** `tabs_context_mcp` (createIfEmpty), `tabs_create_mcp`, open the newsletter URL, click **새 에디션 만들기**
@@ -26,10 +30,13 @@ Newsletter: https://www.linkedin.com/newsletters/ios-daily-english-7382287984366
    HTMLInputElement.prototype.click = function(){ if (this.type==='file'){ this.id='cap-file'; this.style.cssText='position:fixed;top:0;left:0;width:10px;height:10px;opacity:0.01;z-index:99999'; document.body.appendChild(this); return; } return orig.apply(this, arguments); };
    [...document.querySelectorAll('button')].find(x=>x.textContent.includes('컴퓨터에서 업로드')).click();
    ```
-   Then `find` `input#cap-file` and `file_upload` the **small cover** (the tool allows under 10 MB per call).
-5. **Thumbnail.** In the cover dialog click the image icon under the video; a second input
-   `#media-editor-video-thumbnail-selector__file-input` appears. `find` it, `file_upload` the thumbnail PNG, click **추가**,
-   then **다음**. Upload continues in the background.
+   Then `find` "button of type file (hidden file input)" (`find` does not see the id; take the **newest** file ref when several are
+   listed) and `file_upload` the **small cover** (the tool allows under 10 MB per call).
+5. **Thumbnail.** In the cover dialog click the image icon under the video (~594, 519); a second input
+   `#media-editor-video-thumbnail-selector__file-input` appears. `find` "동영상 썸네일 추가 file input", `file_upload`
+   `thumbForUpload` (the `-thumb-linkedin.png`), click **추가** (~1121, 520), then **다음** (~1265, 590). Upload continues in the background.
+   **A cover's thumbnail cannot be replaced in place** (clicking the cover only plays the video). To change it: click the trash icon on
+   the cover (~1075, 188), then repeat steps 4-5 (the title and body stay). After 다음 wait a few seconds before screenshotting.
 6. **Title.** Click the title field, type `title`.
 7. **Body.** Click the body (ProseMirror, `.ProseMirror`; coordinates shift once the cover loads, so screenshot first). To replace
    text: `javascript_tool` `e.focus(); document.execCommand('selectAll')` then `computer type`.
@@ -40,7 +47,7 @@ Newsletter: https://www.linkedin.com/newsletters/ios-daily-english-7382287984366
    - Term lines: click the line, open **스타일** (538, 88), choose **제목** (heading). Intro and closing stay plain.
    - Verify with `javascript_tool` (`[...e.children].map(c=>c.tagName+':'+c.innerText.slice(0,20))`: P, H2, UL, H2, UL, H2, UL, P) and a screenshot.
 8. **Hand-off.** Leave the tab open. Tell the owner: draft saved, not published; the cover is the small 720p copy, so remove it
-   with the trash icon and attach `~/Downloads/dayNNN-landscape.mp4` + `dayNNN-thumb-landscape.png`; files are in Downloads.
+   with the trash icon and attach `~/Downloads/dayNNN-landscape.mp4` + `dayNNN-thumb-linkedin.png`; files are in Downloads.
    Close no tab the owner needs. If the owner is not logged in or LinkedIn asks for a captcha/2FA, stop and report.
 
 ## Rules

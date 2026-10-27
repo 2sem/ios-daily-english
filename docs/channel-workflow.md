@@ -131,7 +131,9 @@ Default time is 08:00 KST next day. Nothing is published before the step 6 appro
 ### LinkedIn newsletter (iOS Daily English)
 - `/linkedin-newsletter [day]` (skill `.claude/skills/linkedin-newsletter`): drafts the day's edition in Chrome (cover video + thumbnail,
   title, English-only body with `Term N: X` headings and two bullets each) and **stops at the saved draft**. `scripts/linkedin-edition.mjs`
-  builds the text and puts the full video + thumbnail in `~/Downloads/` for the owner to attach. Never published automatically.
+  builds the text, makes a LinkedIn-specific thumbnail (`scripts/thumbnail.mjs --linkedin`: "Code review English" headline + the day's two example sentences as chat bubbles; `linkedinHook` in the day JSON overrides the headline) and puts the full video + that thumbnail in `~/Downloads/` for the owner to attach. A LinkedIn cover's thumbnail cannot be swapped in place: delete the cover and re-add it. Never published automatically.
+- Landscape YouTube thumbnail: `thumbnail.mjs --landscape`; an optional `thumbnailHook` in the day JSON makes a short hook the big text with a "Day N" badge (otherwise the big Day number). Replace on YouTube with `node scripts/youtube-thumbnail.mjs <videoId> video/out/day-NNN-thumb-landscape.png`.
+- Not automatic any more: the vertical full Short/portrait render and the hook Shorts are made only when the owner asks.
 
 ### Landscape + hooks upload (pilot)
 - `node scripts/youtube-upload.mjs content/days/day-NNN.json --kind landscape|hook1|hook2|hook3 --publish-at <ISO> [--dry-run] [--force]`.
