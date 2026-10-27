@@ -299,5 +299,6 @@
   ],
   "status": {
     "video": "rendered"
-  }
+  },
+  "thumbnailHook": "Too many ifs?"
 }
