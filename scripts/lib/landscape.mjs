@@ -64,11 +64,11 @@ const termMatchers = (terms) =>
 // index of a term in day.terms (for its colour), 0 if it is not one of the day's three
 const colorOf = (day, t) => Math.max(0, day.terms.findIndex((x) => x.term.toLowerCase() === t.toLowerCase()));
 
-// Swift names inside a sentence (types, keywords, camelCase, foo()) are shown as inline code, in a neutral style: only the day's terms get a colour.
-const CODE_RE = /(?<![\w`])(?:Int|Double|Float|Bool|String|Character|Array|Dictionary|Void|URL|nil|var|func|struct|enum|protocol|extension|guard|init|print|let(?!\s+(?:me|us|you|him|her|them|it|the)\b))(?![\w])|\b[a-z]+(?:[A-Z][a-z0-9]+)+\b|\b\w+\(\)/g;
+// Swift names inside a sentence (`backticked` words, types, keywords, camelCase, foo()) are shown as inline code, in a neutral style: only the day's terms get a colour.
+const CODE_RE = /`[^`\n]+`|(?<![\w`])(?:Int|Double|Float|Bool|String|Character|Array|Dictionary|Void|URL|nil|var|func|struct|enum|protocol|extension|guard|init|print|let(?!\s+(?:me|us|you|him|her|them|it|the)\b))(?![\w])|\b[a-z]+(?:[A-Z][a-z0-9]+)+\b|\b\w+\(\)/g;
 export function codify(text) {
   let out = "", i = 0;
-  for (const m of text.matchAll(CODE_RE)) { out += esc(text.slice(i, m.index)) + `<span class="cd">${esc(m[0])}</span>`; i = m.index + m[0].length; }
+  for (const m of text.matchAll(CODE_RE)) { out += esc(text.slice(i, m.index)) + `<span class="cd">${esc(m[0].replace(/^`|`$/g, ""))}</span>`; i = m.index + m[0].length; }
   return out + esc(text.slice(i));
 }
 
@@ -146,7 +146,7 @@ export const rKey = (i) => `r${two(i)}`;
 export function buildClips(day, voices) {
   const R = { narrator: 170, example: 175, slow: 100, dialogue: 180 };
   const clips = {};
-  const add = (key, text, voice, rate) => (clips[key] = { text, voice, rate });
+  const add = (key, text, voice, rate) => (clips[key] = { text: text.replaceAll("`", ""), voice, rate });
   const names = day.terms.map((t) => t.term);
   add("cold-hook", coldHook(day), voices.narrator, R.narrator);
   add("cold-intro", `iOS Daily English. Day ${day.day}.`, voices.narrator, R.narrator);

@@ -28,6 +28,7 @@ to advanced topics (see `content/CURRICULUM.md`).
 - **Quizzes**: 3 questions; question order differs from term order; each term is the correct answer
   exactly once; options reshuffled; a question never contains its own answer; options are today's 3 terms.
 - **Quiz code**: a question that refers to code carries `quizzes[i].code` (2-5 line Swift snippet shown under the question, `___` marks a blank), and its wording says "this code" or "fill in the blank". The snippet must not contain its own answer; verify it with `swiftc -typecheck` (blank lines excepted).
+- **Code words in prose**: any word that names code but is also an ordinary English word (argument labels like `from`/`to`/`at`/`of`, parameter names, `index`, `value`, `key`) must be wrapped in backticks wherever it appears in a sentence, quiz question, definition, example or dialogue line, e.g. "what are `from` and `to`?". The renderer shows backticked words as code chips and strips the backticks from the voice; unmarked, the viewer cannot tell the label from plain English. Day 3 was reported for this.
 - Swift/Apple API names exact and correctly cased (`@State`, `URLSession`). Real APIs only.
 - Do not invent facts about APIs; if unsure, pick a different term. When an example mentions code or a compiler
   message, verify it with `swiftc -typecheck` on a temp file before writing it.
