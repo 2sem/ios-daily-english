@@ -5,16 +5,15 @@
 // Scene order: cold open, term x3, conversation, replay, quiz intro, quiz x3, outro.
 import { writeFileSync, mkdirSync } from "node:fs";
 import { dirname } from "node:path";
-import { loadDay, coldHook, clipDurations, replayPicks, speechPieces, dKey, rKey, r1, opt } from "./lib/landscape.mjs";
+import { loadDay, coldHook, clipDurations, replayPicks, dKey, r1, opt } from "./lib/landscape.mjs";
 
 const { day, paths } = loadDay();
 const D = clipDurations(paths.audioDir);
 const need = (k) => { if (!D[k]) { console.error(`missing clip ${k}.wav in ${paths.audioDir} (run scripts/tts-landscape.mjs)`); process.exit(1); } return D[k]; };
-const GAP = 1.3; // silence for a blank in the replay
 // One full plan for a set of knobs: quiz seconds per question, which replay lines are kept, and the outro tail.
 function build(K) {
   const cues = [];
-  const cue = (at, key, text) => cues.push({ at: r1(at), key, text, seconds: Math.ceil(D[key] * 100) / 100 });
+  const cue = (at, key, text, clip = key) => cues.push({ at: r1(at), key, clip, text, seconds: Math.ceil(D[clip] * 100) / 100 });
   let t = 0;
 
   // cold open: hook line big on screen, then logo + day + the three terms
@@ -64,29 +63,22 @@ function build(K) {
     conv = { start: r1(t), dur: r1(end + 1.4), lead, lines: cl };
     t += conv.dur;
 
-    // replay: key lines with the terms blanked, then the term pops in after a beat
+    // replay "Fill in the blank": blanked line, read WHOLE in its speaker's voice (the conversation clip), then a silent pause (0.9 x clip, min 2 s); the term pops in at the end of the pause
     const dRi = need("replay-intro");
     let r = 0.4;
     cue(t + r, "replay-intro", "Now you. Say the missing words.");
     r += dRi + 1.4;
     const introDur = r;
-    let prevReveal = null;
+    let prevEnd = null;
     const rl = K.picks.map((i) => {
-      // the line is read in pieces with a silent gap (GAP s) where each term goes; the blank on screen is the cue
-      let o = 0, k = 0;
-      const typeAt = prevReveal === null ? r : prevReveal + 0.3;
+      const d = need(dKey(i)), pause = Math.max(2, 0.9 * d);
+      const typeAt = prevEnd === null ? r : prevEnd + 0.3;
       const at = typeAt + TYPE;
-      for (const p of speechPieces(day, lines[i])) {
-        if (p.gap) { o += GAP; continue; }
-        const key = `${rKey(i)}s${++k}`;
-        cue(t + at + o, key, p.say);
-        o += need(key) + 0.15;
-      }
-      const d = o, revealAt = at + d + 0.8; // a beat after the last piece
-      prevReveal = revealAt;
-      return { i, typeAt: r1(typeAt), at: r1(at), dur: r1(d), revealAt: r1(revealAt) };
+      cue(t + at, `rp-${dKey(i)}`, `${lines[i].speaker}: ${lines[i].text}`, dKey(i));
+      prevEnd = at + d + pause;
+      return { i, typeAt: r1(typeAt), at: r1(at), dur: r1(d), pauseAt: r1(at + d), pause: r1(pause), revealAt: r1(at + d + pause - 0.3) };
     });
-    replay = { start: r1(t), dur: r1(prevReveal + 1.6), introDur: r1(introDur), lines: rl };
+    replay = { start: r1(t), dur: r1(prevEnd + 1.2), introDur: r1(introDur), lines: rl };
     t += replay.dur;
   }
 
@@ -120,7 +112,7 @@ function build(K) {
 // it fits with a minimum outro tail, then the outro tail absorbs the rest so the total lands on TARGET. --target 0 = natural length.
 const TARGET = Number(opt("target", 300)), MIN_TAIL = 3, MAX_TAIL = 14;
 const lines = day.dialogue?.lines ?? [];
-const basePicks = replayPicks(day, 5); // the replay clips that exist
+const basePicks = replayPicks(day, 3);
 const covers = (ids) => day.terms.every((t) => ids.some((i) => (lines[i].terms ?? []).some((x) => x.toLowerCase() === t.term.toLowerCase())));
 const keep = (n) => {
   const ids = [...basePicks];
@@ -134,20 +126,22 @@ const keep = (n) => {
 let plan;
 if (!TARGET) plan = build({ quiz: Number(opt("quiz-seconds", 8)), picks: basePicks, tail: MIN_TAIL });
 else {
-  const ladder = [[8, 5], [8, 4], [7, 4], [6, 4], [6, 3], [5, 3], [5, 3, 0.85], [5, 3, 0.7], [5, 3, 0.6]]; // [quiz seconds, replay lines], most content first
+  const ladder = [[8, 3], [7, 3], [6, 3], [5, 3], [5, 3, 0.85], [5, 3, 0.7], [5, 3, 0.6]]; // [quiz seconds, replay lines], most content first
   let K = null;
   for (const [quiz, n, g] of ladder) {
     const k = { quiz, picks: keep(n), tail: MIN_TAIL, g };
     K = k;
     if (build(k).total <= TARGET) break;
   }
+  // too short even with the longest outro tail: relax the pauses (term, quiz) up to 1.6x instead of padding silence
+  while (build(K).total + (MAX_TAIL - MIN_TAIL) < TARGET && (K.g ?? 1) < 1.6) K.g = r1(((K.g ?? 1) + 0.1) * 10) / 10;
   const natural = build(K).total;
   if (natural > TARGET) console.error(`warning: ${natural}s even with the shortest settings; cut content (target ${TARGET}s)`);
   K.tail = Math.min(MAX_TAIL, MIN_TAIL + Math.max(0, TARGET - natural));
   plan = build(K);
   if (plan.total > TARGET + 0.05 || plan.total < TARGET - 0.05) console.error(`warning: total ${plan.total}s, not ${TARGET}s (outro tail capped at ${MAX_TAIL}s: add content or lower quiz seconds)`);
   else { plan.outro.dur = r1(TARGET - plan.outro.start); plan.total = TARGET; }
-  console.log(`knobs: quiz ${K.quiz}s, replay lines ${K.picks.length} (${K.picks.join(",")}), outro tail ${r1(K.tail)}s`);
+  console.log(`knobs: quiz ${K.quiz}s, replay lines ${K.picks.length} (${K.picks.join(",")}), pause scale ${K.g ?? 1}, outro tail ${r1(K.tail)}s`);
 }
 const { cold, terms, conv, replay, quizIntro, quizzes, outro, cues } = plan;
 mkdirSync(dirname(paths.timing), { recursive: true });

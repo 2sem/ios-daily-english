@@ -72,12 +72,12 @@ Default time is 08:00 KST next day. Nothing is published before the step 6 appro
   The vertical pipeline ignores these fields, so existing renders keep working.
 
 ### Landscape long video rules (series-wide)
-- **Exactly 5:00 (300 s)**, every day. `scripts/timing-landscape.mjs` defaults to `--target 300`: it trims quiz seconds (8 -> 5), replay lines and pauses
-  and replay lines (5 -> 3, term coverage kept) until it fits, then the outro tail absorbs the rest. `--target 0` = natural length.
+- **Exactly 5:00 (300 s)**, every day. `scripts/timing-landscape.mjs` defaults to `--target 300`: it trims quiz seconds (8 -> 5) and pauses
+  until it fits, then the outro tail absorbs the rest. `--target 0` = natural length.
 - Each term's example is read **three times**, words lighting up one by one (zoom in/out): male voice, female voice, then a
   silent read after "Now your turn." (no timer bar). Labels: Male voice / Female voice / Your turn.
-- Replay ("Say the missing words"): the voice never says "blank"; terms are silent gaps while the blank shows on screen.
-- Quiz questions that refer to code carry `quizzes[i].code` (2-5 lines, `___` = blank) shown in a code panel under the question.
+- Replay ("Fill in the blank"): 3 key dialogue lines (one per term). Each shows with the term as a blank on screen; the voice reads the WHOLE line (the conversation clip dNN, speaker's voice, term spoken, no cut pieces and no gap); then a silent pause (0.9 x clip, min 2 s) to say the missing word; at the end of the pause the term pops into the blank, highlighted. Intro: "Now you. Say the missing words." (Published Days 1-4 used cut-up replay clips.)
+- Quiz questions that refer to code carry `quizzes[i].code` (2-5 lines, `___` = blank) shown in a code panel under the question. Word the question as one short sentence starting "In this code, ..."; do not use the prefix "Fill in the blank in this code:" (awkward when spoken). Days 3-4 are published and keep the old wording.
 - Words that are code but also plain English (`from`, `to`, `index`, ...) must be written in backticks in the day JSON; backticked words render as code chips and are spoken without the backticks.
 - Inline Swift names in sentences (`Int`, `String`, `nil`, camelCase, `foo()`) render as neutral code chips; only the day's terms are coloured. The cold-open question colours the terms too.
 - **Review copy:** before any upload, export a reduced copy to `~/Downloads/dayNNN-landscape-review.mp4` (under 30 MB, so it can be sent by DM;

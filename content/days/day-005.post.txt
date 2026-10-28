@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 5
+
+Array
+- A collection that stores values in order and lets you read each one by its position.
+- Example: "The array keeps the tags in order, so the screen looks right."
+
+Dictionary
+- A collection that links each unique `key` to a `value`, so you can look up data by name.
+- Example: "Store the tag colors in a dictionary, with the tag as the `key`."
+
+Set
+- A collection that stores unique values in no particular order and ignores duplicates.
+- Example: "Turn the list into a set, and the duplicate tags are gone."
+
+
+Quiz ①
+In this code, which collection drops the duplicate 2, so the count is 3?
+a) Array
+b) Set
+c) Dictionary
+
+Quiz ②
+Which collection stores values in order and lets you read each one by its position?
+a) Dictionary
+b) Set
+c) Array
+
+Quiz ③
+In this code, which collection looks up an age by a name?
+a) Dictionary
+b) Array
+c) Set
