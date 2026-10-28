@@ -1,0 +1,289 @@
+{
+  "day": 5,
+  "phase": "1. Swift basics",
+  "theme": "3 terms on collections: storing many values in Swift",
+  "terms": [
+    {
+      "term": "Array",
+      "definition": "A collection that stores values in order and lets you read each one by its position.",
+      "example": "The array keeps the tags in order, so the screen looks right.",
+      "code": "let names = [\"Mina\", \"Jake\", \"Sam\"]\nprint(names[0])\nprint(names.count)"
+    },
+    {
+      "term": "Dictionary",
+      "definition": "A collection that links each unique `key` to a `value`, so you can look up data by name.",
+      "example": "Store the tag colors in a dictionary, with the tag as the `key`.",
+      "code": "let colors = [\"swift\": \"orange\", \"ios\": \"blue\"]\nprint(colors[\"swift\"] ?? \"gray\")"
+    },
+    {
+      "term": "Set",
+      "definition": "A collection that stores unique values in no particular order and ignores duplicates.",
+      "example": "Turn the list into a set, and the duplicate tags are gone.",
+      "code": "let tags: Set = [\"swift\", \"swift\", \"ios\"]\nprint(tags.count)\nprint(tags.contains(\"ios\"))"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "In this code, which collection drops the duplicate 2, so the count is 3?",
+      "options": [
+        "Array",
+        "Set",
+        "Dictionary"
+      ],
+      "answer": "b",
+      "code": "let ids: ___<Int> = [1, 2, 2, 3]\nprint(ids.count)"
+    },
+    {
+      "question": "Which collection stores values in order and lets you read each one by its position?",
+      "options": [
+        "Dictionary",
+        "Set",
+        "Array"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "In this code, which collection looks up an age by a name?",
+      "options": [
+        "Dictionary",
+        "Array",
+        "Set"
+      ],
+      "answer": "a",
+      "code": "let ages: ___<String, Int> = [\"Mina\": 28]\nprint(ages[\"Mina\"] ?? 0)"
+    }
+  ],
+  "video": {
+    "title": "Array, Dictionary & Set in 2 minutes | iOS Daily English Day 5",
+    "description": "Learn to talk about collections in Swift: Array, Dictionary and Set, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nArray - A collection that stores values in order and lets you read each one by its position.\nDictionary - A collection that links each unique `key` to a `value`, so you can look up data by name.\nSet - A collection that stores unique values in no particular order and ignores duplicates.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 5 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish #SwiftUI",
+    "tags": [
+      "array",
+      "dictionary",
+      "set",
+      "swift collections",
+      "swift for beginners",
+      "swift basics",
+      "ios development",
+      "ios developer english",
+      "english for developers",
+      "learn english",
+      "swift programming",
+      "iOS Daily English"
+    ],
+    "landscape": {
+      "title": "Swift Array, Dictionary & Set in English | Duplicate Tag Bug Chat | Day 5",
+      "description": "Explain Array, Dictionary and Set in Swift by listening to a real bug-fix chat between two iOS devs.\n영어 버그 수정 대화로 array, dictionary, set 표현을 익혀요.\n\nArray - A collection that stores values in order and lets you read each one by its position.\n한국어: 값을 순서대로 저장하고 위치로 읽을 수 있는 컬렉션\n\nDictionary - A collection that links each unique `key` to a `value`, so you can look up data by name.\n한국어: 고유한 키마다 값을 연결해 이름으로 데이터를 찾는 컬렉션\n\nSet - A collection that stores unique values in no particular order and ignores duplicates.\n한국어: 중복 없이 고유한 값을 순서 없이 저장하는 컬렉션\n\nIn this video, Mina and Jake fix a duplicate tag bug in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 5 of the iOS Daily English series.\n\n#Swift #iOSDeveloper #EnglishForDevelopers",
+      "tags": [
+        "Array",
+        "Dictionary",
+        "Set",
+        "swift array",
+        "swift dictionary",
+        "swift set",
+        "스위프트 배열",
+        "스위프트 딕셔너리",
+        "개발자 영어",
+        "버그 수정 영어",
+        "english for developers",
+        "swift",
+        "ios development",
+        "iOS Daily English"
+      ],
+      "youtubeId": "XKz30RCSXG4",
+      "youtubeUrl": "https://youtu.be/XKz30RCSXG4",
+      "privacy": "private",
+      "publishAt": "2026-10-28T23:00:00.000Z",
+      "uploaded": "2026-10-28T00:43:51.074Z",
+      "thumbnailSet": "2026-10-28T00:43:57.974Z",
+      "playlistAdded": "2026-10-28T00:44:00.114Z"
+    },
+    "voices": {
+      "narrator": "en-US-GuyNeural",
+      "example": "en-US-JennyNeural",
+      "exampleSlow": "en-US-GuyNeural",
+      "pattern": "male -> female",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "Fixing duplicate tags",
+    "setting": "Morning stand-up and bug fix",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Morning, Jake. How is the tag screen?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Not great. Users see the same tag twice on the profile screen.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "How do you store the tags?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "In an array of strings. The array keeps the order, so the screen looks right.",
+        "terms": [
+          "Array"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Good. But an array allows duplicates.",
+        "terms": [
+          "Array"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Yes, swift appears twice. That is the bug.",
+        "terms": [
+          "Array"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Use a set. A set ignores duplicates.",
+        "terms": [
+          "Set"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Nice. Why does `tags[0]` not compile?",
+        "terms": [
+          "Set"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "A set has no order, so there is no `index` to read.",
+        "terms": [
+          "Set"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Got it. I will turn the set into an array to show it.",
+        "terms": [
+          "Set",
+          "Array"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Where do you keep the tag colors?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "In two arrays, one for names and one for colors, matched by `index`.",
+        "terms": [
+          "Array"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Risky. Use a dictionary: tag name as the `key`, color as the `value`.",
+        "terms": [
+          "Dictionary"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "So the dictionary links each tag to its color?",
+        "terms": [
+          "Dictionary"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Yes, and lookup is fast. But the result is optional.",
+        "terms": [
+          "Dictionary"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Right, the `key` might be missing. I will add a default.",
+        "terms": [
+          "Dictionary"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Remember, a dictionary has no order, like a set.",
+        "terms": [
+          "Dictionary",
+          "Set"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Okay. Array for order, set for unique tags, dictionary for the colors.",
+        "terms": [
+          "Array",
+          "Set",
+          "Dictionary"
+        ]
+      }
+    ]
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "Set",
+      "lines": [
+        {
+          "text": "Use a set, and duplicate tags disappear."
+        }
+      ],
+      "title": "Use a set, and duplicate tags disappear. Set #Shorts",
+      "description": "Use a set, and duplicate tags disappear.\n\nSet - A collection that stores unique values in no particular order and ignores duplicates.\n한국어: 중복 없이 고유한 값을 순서 없이 저장하는 컬렉션\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "Dictionary",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "How do I find a color by tag?"
+        },
+        {
+          "speaker": "B",
+          "text": "Use a dictionary with the tag as `key`."
+        }
+      ],
+      "title": "How do I find a color by tag? Use a dictionary. Dictionary #Shorts",
+      "description": "How do I find a color by tag? / Use a dictionary with the tag as `key`.\n\nDictionary - A collection that links each unique `key` to a `value`, so you can look up data by name.\n한국어: 고유한 키마다 값을 연결해 이름으로 데이터를 찾는 컬렉션\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Array",
+      "lines": [
+        {
+          "text": "An array keeps your items in order."
+        }
+      ],
+      "title": "An array keeps your items in order. Array #Shorts",
+      "description": "An array keeps your items in order.\n\nArray - A collection that stores values in order and lets you read each one by its position.\n한국어: 값을 순서대로 저장하고 위치로 읽을 수 있는 컬렉션\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "Same tag twice?"
+}

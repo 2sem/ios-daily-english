@@ -72,15 +72,9 @@ export function codify(text) {
   return out + esc(text.slice(i));
 }
 
-// mode "plain": highlighted term spans; "blank": spans holding a blank and the hidden term (revealed by the timeline);
-// "speech": text for TTS with each term replaced by a U+0001 gap marker (see speechPieces).
+// mode "plain": highlighted term spans; "blank": spans holding a blank and the hidden term (revealed by the timeline).
 export function renderLine(day, line, mode = "plain") {
   const ms = termMatchers(line.terms ?? []);
-  if (mode === "speech") {
-    let s = line.text;
-    for (const m of ms) s = s.replace(m.re, "\u0001");
-    return s;
-  }
   // tokenise so overlapping terms cannot double-wrap
   const spans = [];
   for (const m of ms) {
@@ -106,21 +100,8 @@ export function renderLine(day, line, mode = "plain") {
   return out + codify(line.text.slice(i));
 }
 
-// replay speech for one line: the say-pieces around each term, in order, with a gap marker where a term was.
-// The gaps are real silence in the video (the screen shows the blank), so a beginner never hears a made-up word.
-export function speechPieces(day, line) {
-  const marked = renderLine(day, line, "speech");
-  const out = [];
-  marked.split("\u0001").forEach((part, k, a) => {
-    const say = part.replace(/^[\s.,!?;:)"']+/, "").trim();
-    if (/[\w]/.test(say)) out.push({ say });
-    if (k < a.length - 1) out.push({ gap: true });
-  });
-  return out;
-}
-
-// lines used in the replay: every line that has terms, trimmed to --replay-max (default 5) while keeping every term covered
-export function replayPicks(day, max = Number(opt("replay-max", 5))) {
+// lines used in the "Fill in the blank" replay: lines that have terms (the replay speaks them whole; the blank is only on screen), trimmed to max (default 3) while keeping every term covered
+export function replayPicks(day, max = Number(opt("replay-max", 3))) {
   const lines = day.dialogue?.lines ?? [];
   const withTerms = lines.map((l, i) => ({ l, i })).filter(({ l }) => (l.terms ?? []).length);
   if (withTerms.length <= max) return withTerms.map(({ i }) => i);
@@ -140,7 +121,6 @@ export function coldHook(day) {
 }
 const two = (n) => String(n + 1).padStart(2, "0");
 export const dKey = (i) => `d${two(i)}`;
-export const rKey = (i) => `r${two(i)}`;
 
 // Every clip of a landscape video and of its hook shorts: key -> { text, voice, rate }
 export function buildClips(day, voices) {
@@ -159,11 +139,7 @@ export function buildClips(day, voices) {
     add(`t${i + 1}-turn`, "Now your turn.", voices.narrator, R.narrator);
   });
   (day.dialogue?.lines ?? []).forEach((l, i) => add(dKey(i), l.text, voices.speakers[l.speaker] ?? voices.narrator, R.dialogue));
-  add("replay-intro", "Now you. Say the missing words.", voices.narrator, R.narrator);
-  if (day.dialogue) for (const i of replayPicks(day)) {
-    const l = day.dialogue.lines[i];
-    speechPieces(day, l).filter((p) => p.say).forEach((p, k) => add(`${rKey(i)}s${k + 1}`, p.say, voices.speakers[l.speaker] ?? voices.narrator, R.dialogue));
-  }
+  add("replay-intro", "Now you. Say the missing words.", voices.narrator, R.narrator); // the replay lines reuse the conversation clips dNN
   add("quiz-intro", "Quiz time. Three questions.", voices.narrator, R.narrator);
   day.quizzes.forEach((q, i) => add(`q${i + 1}-q`, q.question, voices.narrator, R.narrator)); // options are never spoken
   add("outro", "That's all for today. Not sure about the quiz? Watch it again. See you tomorrow.", voices.narrator, R.narrator);

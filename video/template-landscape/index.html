@@ -279,7 +279,7 @@
         tl.to("#conv", { opacity: 0, duration: 0.4 }, V.start + V.dur - 0.4);
       }
 
-      // ---- replay: the same chat with the terms blanked ----
+      // ---- replay: "Fill in the blank": blanked lines read whole, then a silent pause, then the term appears ----
       const R = PLAN.replay;
       if (R) {
         tl.fromTo("#replay .rcard", { autoAlpha: 0, y: 24 }, { autoAlpha: 1, y: 0, duration: 0.5, ease: E }, R.start + 0.2);

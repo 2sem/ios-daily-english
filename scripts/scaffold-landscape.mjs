@@ -11,7 +11,7 @@ import { readFileSync, writeFileSync, mkdirSync, copyFileSync, rmSync, cpSync, e
 import { execFileSync } from "node:child_process";
 import { homedir } from "node:os";
 import { join, resolve } from "node:path";
-import { loadDay, coldHook, makeBgm, root, esc, opt, renderLine, codify, replayPicks, dKey, rKey, highlightSwift } from "./lib/landscape.mjs";
+import { loadDay, coldHook, makeBgm, root, esc, opt, renderLine, codify, replayPicks, dKey, highlightSwift } from "./lib/landscape.mjs";
 
 const { day, paths } = loadDay();
 if (!existsSync(paths.timing)) { console.error(`missing ${paths.timing} (run scripts/timing-landscape.mjs)`); process.exit(1); }
@@ -97,7 +97,7 @@ ${win("cl", D.lines.map((_, i) => i), "plain")}
 ${chips}`);
   html += scene("replay", plan.replay, `        <div class="rcard"><div class="kicker">Replay</div><div class="big">Fill in the blank</div><div class="intro-sub">Say the missing words out loud, then check.</div></div>
         <div class="conv-kicker" style="color: var(--quiz)">Fill in the blank</div>
-        <div class="side-l"><div class="sl-title">Say the missing words</div><div class="sl-set">${esc(D.title)}. Listen, say the word in each pause, then see it appear.</div>${legend}</div>
+        <div class="side-l"><div class="sl-title">Say the missing words</div><div class="sl-set">${esc(D.title)}. Listen to the line, say the missing word in the pause, then see it appear.</div>${legend}</div>
 ${win("rl", plan.replay.lines.map((l) => l.i), "blank")}`);
 } else warnings.push("no dialogue in the day JSON: conversation and replay scenes are skipped");
 
@@ -151,10 +151,10 @@ const header = `      <div class="header clip" id="header" data-start="0" data-d
 const dest = join(paths.outDir, "assets", "voice");
 mkdirSync(dest, { recursive: true });
 const tags = cues.map((c, k) => {
-  const src = join(paths.audioDir, `${c.key}.wav`);
+  const src = join(paths.audioDir, `${c.clip ?? c.key}.wav`);
   if (!existsSync(src)) { console.error(`missing clip ${src}`); process.exit(1); }
-  copyFileSync(src, join(dest, `${c.key}.wav`));
-  return `      <audio id="v-${c.key}" src="assets/voice/${c.key}.wav" data-start="${c.at}" data-duration="${c.seconds}" data-track-index="${20 + k}" data-volume="1"></audio>`;
+  copyFileSync(src, join(dest, `${c.clip ?? c.key}.wav`));
+  return `      <audio id="v-${c.key}" src="assets/voice/${c.clip ?? c.key}.wav" data-start="${c.at}" data-duration="${c.seconds}" data-track-index="${20 + k}" data-volume="1"></audio>`;
 });
 const bgm = opt("bgm", join(homedir(), "Movies", "Backgroumds", "Rio_Nights.mp3"));
 if (existsSync(bgm)) {
