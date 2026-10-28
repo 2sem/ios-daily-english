@@ -181,14 +181,34 @@ export function clipDurations(dir) {
 
 // plain-text Swift highlighter for the code panel (same classes as the vertical template)
 const KW = new Set("func let var struct class enum protocol extension import return if else guard switch case default for in while do catch try throw throws rethrows async await self nil true false init private public static some any where as is defer".split(" "));
+// String literal: text stays string-coloured, but the expression inside \( ... ) is highlighted as code
+function highlightString(s) {
+  let out = "", from = 0;
+  for (let i = 0; i < s.length; i++) {
+    if (s[i] !== "\\" || s[i + 1] !== "(") { if (s[i] === "\\") i++; continue; }
+    let depth = 1, j = i + 2;
+    while (j < s.length && depth) { depth += s[j] === "(" ? 1 : s[j] === ")" ? -1 : 0; j++; }
+    if (depth) break; // unbalanced: leave the rest as plain string
+    out += `<span class="st">${esc(s.slice(from, i + 2))}</span>${highlightCode(s.slice(i + 2, j - 1))}`;
+    from = j - 1;
+    i = j - 1;
+  }
+  return out + `<span class="st">${esc(s.slice(from))}</span>`;
+}
 export function highlightSwift(line) {
   const ci = line.search(/\/\//);
   const code = ci >= 0 ? line.slice(0, ci) : line;
   const cm = ci >= 0 ? line.slice(ci) : "";
+  const out = highlightCode(code);
+  if (cm) return wrapLine(out + `<span class="cm${/error:/.test(cm) ? " e" : ""}">${esc(cm)}</span>`, line);
+  return wrapLine(out, line);
+}
+const wrapLine = (out, line) => `<div class="ln${/\/\/ error:/.test(line) ? " bad" : ""}">${out}</div>`;
+function highlightCode(code) {
   let out = "";
   const re = /("(?:[^"\\]|\\.)*")|([A-Za-z_]\w*)(\()?|(\s+|[^\w\s"]+|\d+)/g;
   for (const m of code.matchAll(re)) {
-    if (m[1]) out += `<span class="st">${esc(m[1])}</span>`;
+    if (m[1]) out += highlightString(m[1]);
     else if (m[2]) {
       if (KW.has(m[2])) out += `<span class="kw">${m[2]}</span>${m[3] ?? ""}`;
       else if (/^[A-Z]/.test(m[2])) out += `<span class="ty">${m[2]}</span>${m[3] ?? ""}`;
@@ -196,8 +216,7 @@ export function highlightSwift(line) {
       else out += m[2];
     } else out += esc(m[0]);
   }
-  if (cm) out += `<span class="cm${/error:/.test(cm) ? " e" : ""}">${esc(cm)}</span>`;
-  return `<div class="ln${/\/\/ error:/.test(line) ? " bad" : ""}">${out}</div>`;
+  return out;
 }
 
 // Loud part of a track: seconds up to where the closing fade-out starts (last 1 s window within 6 dB of the median level).
