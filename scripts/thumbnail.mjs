@@ -68,7 +68,7 @@ html,body{width:1280px;height:720px;overflow:hidden;background:#0b0f1a;color:#ee
 .badge{font-size:26px;font-weight:800;color:#0b0f1a;background:#f26b4f;border-radius:10px;padding:4px 14px}
 .l{position:absolute;left:64px;top:210px;width:600px}
 .h{font-size:96px;font-weight:800;letter-spacing:-.04em;line-height:1.02}
-.sub{margin-top:30px;font-family:JB,monospace;font-size:44px;font-weight:600;white-space:nowrap}
+.sub{margin-top:30px;font-family:JB,monospace;font-size:44px;font-weight:600;line-height:1.3}
 .chat{position:absolute;right:56px;top:150px;width:540px;display:flex;flex-direction:column;gap:26px}
 .m{display:flex;flex-direction:column;gap:8px}
 .m.r{align-items:flex-end}
