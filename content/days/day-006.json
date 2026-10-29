@@ -1,0 +1,286 @@
+{
+  "day": 6,
+  "phase": "1. Swift basics",
+  "theme": "3 terms on closures: passing code around in Swift",
+  "terms": [
+    {
+      "term": "Closure",
+      "definition": "A block of code you can store in a constant and pass to a function to run later.",
+      "example": "Pass a closure to the button, and it runs when the user taps.",
+      "code": "let greet = { (name: String) in\n    print(\"Hi, \\(name)\")\n}\ngreet(\"Mina\")"
+    },
+    {
+      "term": "Trailing Closure",
+      "definition": "A closure written after the closing parenthesis of a function call, instead of inside it.",
+      "example": "Use a trailing closure here, and the sort reads much cleaner.",
+      "code": "let sorted = [3, 1, 2].sorted { $0 < $1 }\nprint(sorted)"
+    },
+    {
+      "term": "Capture List",
+      "definition": "A list in square brackets at the start of a closure that copies values when the closure is created.",
+      "example": "Add a capture list, so the closure keeps the old value.",
+      "code": "var count = 1\nlet show = { [count] in\n    print(count)\n}\ncount = 2\nshow()"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "In this code, what is the block written after the call, outside the parentheses, called?",
+      "options": [
+        "Capture List",
+        "Trailing Closure",
+        "Closure"
+      ],
+      "answer": "b",
+      "code": "let names = [\"Sam\", \"Mina\"].sorted { $0 < $1 }\nprint(names)"
+    },
+    {
+      "question": "Which term is a block of code you can store in a constant and pass around?",
+      "options": [
+        "Closure",
+        "Capture List",
+        "Trailing Closure"
+      ],
+      "answer": "a"
+    },
+    {
+      "question": "In this code, what is `[count]` called, the part that keeps the value 1?",
+      "options": [
+        "Trailing Closure",
+        "Closure",
+        "Capture List"
+      ],
+      "answer": "c",
+      "code": "var count = 1\nlet show = { [count] in\n    print(count)\n}\ncount = 2\nshow()"
+    }
+  ],
+  "video": {
+    "title": "Closure, Trailing Closure & Capture List in 2 minutes | iOS Daily English Day 6",
+    "description": "Learn to talk about closures in Swift: Closure, Trailing Closure and Capture List, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nClosure - A block of code you can store in a constant and pass to a function to run later.\nTrailing Closure - A closure written after the closing parenthesis of a function call, instead of inside it.\nCapture List - A list in square brackets at the start of a closure that copies values when the closure is created.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 6 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish #SwiftUI",
+    "tags": [
+      "closure",
+      "trailing closure",
+      "capture list",
+      "swift closures",
+      "swift for beginners",
+      "swift basics",
+      "ios development",
+      "ios developer english",
+      "english for developers",
+      "learn english",
+      "swift programming",
+      "iOS Daily English"
+    ],
+    "landscape": {
+      "title": "Swift Closure, Trailing Closure & Capture List in English | Wrong Badge Bug Chat | Day 6",
+      "description": "Explain Closure, Trailing Closure and Capture List in Swift by listening to a real bug-fix chat between two iOS devs.\n클로저, 트레일링 클로저, 캡처 리스트 표현을 영어 버그 수정 대화로 익혀요.\n\nClosure - A block of code you can store in a constant and pass to a function to run later.\n한국어: 값처럼 저장하고 전달해서 나중에 실행하는 코드 블록\n\nTrailing Closure - A closure written after the closing parenthesis of a function call, instead of inside it.\n한국어: 함수 호출의 괄호 안이 아니라 뒤에 쓰는 클로저\n\nCapture List - A list in square brackets at the start of a closure that copies values when the closure is created.\n한국어: 클로저가 만들어질 때 값을 복사해 두는 대괄호 목록\n\nIn this video, Mina and Jake fix a wrong badge number in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 6 of the iOS Daily English series.\n\n#Swift #iOSDeveloper #EnglishForDevelopers",
+      "tags": [
+        "Closure",
+        "Trailing Closure",
+        "Capture List",
+        "swift closure",
+        "swift trailing closure",
+        "swift capture list",
+        "스위프트 클로저",
+        "스위프트 캡처 리스트",
+        "개발자 영어",
+        "버그 수정 영어",
+        "english for developers",
+        "swift",
+        "ios development",
+        "iOS Daily English"
+      ],
+      "youtubeId": "JUM_t6QFDDo",
+      "youtubeUrl": "https://youtu.be/JUM_t6QFDDo",
+      "privacy": "private",
+      "publishAt": "2026-10-29T23:00:00.000Z",
+      "uploaded": "2026-10-29T00:00:07.299Z",
+      "thumbnailSet": "2026-10-29T00:00:11.844Z",
+      "playlistAdded": "2026-10-29T00:00:13.590Z"
+    },
+    "voices": {
+      "narrator": "en-US-JennyNeural",
+      "example": "en-US-GuyNeural",
+      "exampleSlow": "en-US-JennyNeural",
+      "pattern": "random (female -> male)",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "Fixing the wrong badge number",
+    "setting": "Morning stand-up and bug fix",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Morning, Jake. Why is the badge number wrong?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "I change `count` after a tap, but the screen shows the old number.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "Do you use a closure for the tap?",
+        "terms": [
+          "Closure"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Yes. A closure is a block of code I run later.",
+        "terms": [
+          "Closure"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Right. You can pass a closure to another function.",
+        "terms": [
+          "Closure"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "For sorting, I wrote the closure inside the parentheses.",
+        "terms": [
+          "Closure"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "It works, but a trailing closure is cleaner.",
+        "terms": [
+          "Trailing Closure"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "What is a trailing closure?",
+        "terms": [
+          "Trailing Closure"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "You write the closure after the parentheses, not inside them.",
+        "terms": [
+          "Trailing Closure"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Nice. So `sorted { $0 < $1 }` is a trailing closure.",
+        "terms": [
+          "Trailing Closure"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Now the bug. Do you have a capture list in that closure?",
+        "terms": [
+          "Capture List",
+          "Closure"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Yes, `[count]`. I copied it from another file.",
+        "terms": [
+          "Capture List"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "A capture list copies the value when you create the closure.",
+        "terms": [
+          "Capture List",
+          "Closure"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "So it keeps 1 and ignores 2. I thought it was a compiler bug!",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "Ha, no. Remove the capture list, and the closure reads the latest `count`.",
+        "terms": [
+          "Capture List",
+          "Closure"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Fixed. It shows 2 now.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "Great. Keep a capture list only for old values.",
+        "terms": [
+          "Capture List"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Got it. I learned a lot today. Thanks, Mina!",
+        "terms": []
+      }
+    ]
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "Capture List",
+      "lines": [
+        {
+          "text": "Add a capture list, so the closure keeps the old value."
+        }
+      ],
+      "title": "Add a capture list, so the closure keeps the old value. Capture List #Shorts",
+      "description": "Add a capture list, so the closure keeps the old value.\n\nCapture List - A list in square brackets at the start of a closure that copies values when the closure is created.\n한국어: 클로저가 만들어질 때 값을 복사해 두는 대괄호 목록\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "Trailing Closure",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Why is your sort so short?"
+        },
+        {
+          "speaker": "B",
+          "text": "I used a trailing closure."
+        }
+      ],
+      "title": "Why is your sort so short? I used a trailing closure. Trailing Closure #Shorts",
+      "description": "Why is your sort so short? / I used a trailing closure.\n\nTrailing Closure - A closure written after the closing parenthesis of a function call, instead of inside it.\n한국어: 함수 호출의 괄호 안이 아니라 뒤에 쓰는 클로저\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Closure",
+      "lines": [
+        {
+          "text": "A closure is code you can pass around."
+        }
+      ],
+      "title": "A closure is code you can pass around. Closure #Shorts",
+      "description": "A closure is code you can pass around.\n\nClosure - A block of code you can store in a constant and pass to a function to run later.\n한국어: 값처럼 저장하고 전달해서 나중에 실행하는 코드 블록\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "Why the old value?"
+}

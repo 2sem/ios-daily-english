@@ -48,7 +48,7 @@ html,body{width:1280px;height:720px;overflow:hidden;background:#0b0f1a;color:#ee
 .cv{margin-top:18px;font-size:34px;font-weight:700;color:#ffc145}
 .badge{display:inline-block;font-size:34px;font-weight:800;color:#0b0f1a;background:#f26b4f;border-radius:14px;padding:6px 20px;margin:12px 0 18px}
 .h{font-size:112px;font-weight:800;letter-spacing:-.04em;line-height:1.02;margin-bottom:26px}
-.sub{font-family:JB,monospace;font-size:44px;font-weight:600;white-space:nowrap}
+.sub{font-family:JB,monospace;font-size:40px;font-weight:600;line-height:1.3}
 </style></head><body><div class="bg"></div>
 <div class="wrap"><div class="logo"><img src="file://${logo}"></div>${day.thumbnailHook
   ? `<div><div class="k">iOS Daily English</div><div class="badge">Day ${day.day}</div><div class="h">${day.thumbnailHook}</div><div class="sub">${day.terms.map((t, i) => `<span style="color:${colors[i]}">${t.term}</span>`).join(" · ")}</div></div>`
