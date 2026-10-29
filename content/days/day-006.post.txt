@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 6
+
+Closure
+- A block of code you can store in a constant and pass to a function to run later.
+- Example: "Pass a closure to the button, and it runs when the user taps."
+
+Trailing Closure
+- A closure written after the closing parenthesis of a function call, instead of inside it.
+- Example: "Use a trailing closure here, and the sort reads much cleaner."
+
+Capture List
+- A list in square brackets at the start of a closure that copies values when the closure is created.
+- Example: "Add a capture list, so the closure keeps the old value."
+
+
+Quiz ①
+In this code, what is the block written after the call, outside the parentheses, called?
+a) Capture List
+b) Trailing Closure
+c) Closure
+
+Quiz ②
+Which term is a block of code you can store in a constant and pass around?
+a) Closure
+b) Capture List
+c) Trailing Closure
+
+Quiz ③
+In this code, what is `[count]` called, the part that keeps the value 1?
+a) Trailing Closure
+b) Closure
+c) Capture List

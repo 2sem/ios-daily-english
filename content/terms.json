@@ -59,6 +59,18 @@
     "set": {
       "term": "Set",
       "day": 5
+    },
+    "closure": {
+      "term": "Closure",
+      "day": 6
+    },
+    "trailingclosure": {
+      "term": "Trailing Closure",
+      "day": 6
+    },
+    "capturelist": {
+      "term": "Capture List",
+      "day": 6
     }
   }
 }
