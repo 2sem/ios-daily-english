@@ -1,0 +1,266 @@
+{
+  "day": 7,
+  "phase": "1. Swift basics",
+  "theme": "3 terms on enums: modeling choices in Swift",
+  "terms": [
+    {
+      "term": "Enum",
+      "definition": "A type that lists a fixed set of related choices, called cases.",
+      "example": "Use an enum for the order status, and the compiler checks every case.",
+      "code": "enum Direction {\n    case north\n    case south\n}\nlet heading = Direction.north\nprint(heading)"
+    },
+    {
+      "term": "Associated Value",
+      "definition": "Extra data stored inside one case of an enum, so each case can carry its own details.",
+      "example": "Add an associated value to the card case, so it keeps the last four digits.",
+      "code": "enum Payment {\n    case cash\n    case card(last4: String)\n}\nlet pay = Payment.card(last4: \"4242\")\nprint(pay)"
+    },
+    {
+      "term": "Raw Value",
+      "definition": "A fixed number or text that each enum case is created with, such as 1 or \"low\".",
+      "example": "Give each level a raw value, so we can save it as a number.",
+      "code": "enum Level: Int {\n    case low = 1\n    case high = 3\n}\nprint(Level.high.rawValue)\nlet level = Level(rawValue: 1)"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "In this code, what is `last4: String` called, the extra data attached to a case?",
+      "options": [
+        "Raw Value",
+        "Enum",
+        "Associated Value"
+      ],
+      "answer": "c",
+      "code": "enum Payment {\n    case cash\n    case card(last4: String)\n}\nlet pay = Payment.card(last4: \"4242\")"
+    },
+    {
+      "question": "Which term is a type that lists a fixed set of related choices?",
+      "options": [
+        "Enum",
+        "Raw Value",
+        "Associated Value"
+      ],
+      "answer": "a"
+    },
+    {
+      "question": "In this code, what is the `1` after `low =` called?",
+      "options": [
+        "Associated Value",
+        "Raw Value",
+        "Enum"
+      ],
+      "answer": "b",
+      "code": "enum Level: Int {\n    case low = 1\n    case high = 3\n}\nlet score = Level.low"
+    }
+  ],
+  "video": {
+    "title": "Enum, Associated Value & Raw Value in 2 minutes | iOS Daily English Day 7",
+    "description": "Learn to talk about enums in Swift: Enum, Associated Value and Raw Value, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nEnum - A type that lists a fixed set of related choices, called cases.\nAssociated Value - Extra data stored inside one case of an enum, so each case can carry its own details.\nRaw Value - A fixed number or text that each enum case is created with, such as 1 or \"low\".\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 7 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish #SwiftUI",
+    "tags": [
+      "enum",
+      "associated value",
+      "raw value",
+      "swift enum",
+      "swift for beginners",
+      "swift basics",
+      "ios development",
+      "ios developer english",
+      "english for developers",
+      "learn english",
+      "swift programming",
+      "iOS Daily English"
+    ],
+    "landscape": {
+      "title": "Swift Enum, Associated Value & Raw Value in English | Order Status Chat | Day 7",
+      "description": "Explain Enum, Associated Value and Raw Value in Swift by listening to a real status-screen chat between two iOS devs.\n열거형, 연관 값, 원시 값 표현을 영어 대화로 익혀요.\n\nEnum - A type that lists a fixed set of related choices, called cases.\n한국어: 정해진 선택지(케이스)를 모아 둔 타입\n\nAssociated Value - Extra data stored inside one case of an enum, so each case can carry its own details.\n한국어: 열거형 케이스 안에 함께 저장하는 추가 데이터\n\nRaw Value - A fixed number or text that each enum case is created with, such as 1 or \"low\".\n한국어: 열거형 케이스마다 미리 정해 둔 고정 숫자나 문자열\n\nIn this video, Mina and Jake build an order status screen in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 7 of the iOS Daily English series.\n\n#Swift #iOSDeveloper #EnglishForDevelopers",
+      "tags": [
+        "Enum",
+        "Associated Value",
+        "Raw Value",
+        "swift enum",
+        "swift associated value",
+        "swift raw value",
+        "스위프트 열거형",
+        "스위프트 연관 값",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "ios development",
+        "iOS Daily English"
+      ],
+      "youtubeId": "JOzgGyjt9x0",
+      "youtubeUrl": "https://youtu.be/JOzgGyjt9x0",
+      "privacy": "private",
+      "publishAt": "2026-10-30T23:00:00.000Z",
+      "uploaded": "2026-10-29T23:58:12.205Z",
+      "thumbnailSet": "2026-10-29T23:58:16.830Z",
+      "playlistAdded": "2026-10-29T23:58:18.467Z"
+    },
+    "voices": {
+      "narrator": "en-US-JennyNeural",
+      "example": "en-US-GuyNeural",
+      "exampleSlow": "en-US-JennyNeural",
+      "pattern": "random (female -> male)",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "Building the order status screen",
+    "setting": "Morning stand-up and code chat",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "B",
+        "text": "Jake, why do you have status typos?",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "I use five strings. Try an enum: it lists every status in one place.",
+        "terms": [
+          "Enum"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Yes. Write `case paid` and `case shipped`, and you cannot misspell them.",
+        "terms": [
+          "Enum"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Nice. But shipped needs a tracking number.",
+        "terms": [
+          "Enum"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Then add an associated value to that case.",
+        "terms": [
+          "Associated Value"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Yes, an associated value is extra data inside one case.",
+        "terms": [
+          "Associated Value",
+          "Enum"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "So `shipped(tracking: String)` has an associated value, and `paid` has none.",
+        "terms": [
+          "Associated Value"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Now the server sends numbers like 1 and 2 for the status.",
+        "terms": [
+          "Enum"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Then use a raw value. Write `enum Status: Int`.",
+        "terms": [
+          "Raw Value",
+          "Enum"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Hmm, I tried that with an associated value, and it failed.",
+        "terms": [
+          "Raw Value",
+          "Associated Value"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Right, my mistake. An enum with associated values cannot have a raw value.",
+        "terms": [
+          "Associated Value",
+          "Raw Value",
+          "Enum"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "So I make two enums: one for the server, one for the screen.",
+        "terms": [
+          "Enum"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Good plan. Use `rawValue` to turn the server number into a case.",
+        "terms": [
+          "Raw Value"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Perfect. Thanks, Mina!",
+        "terms": []
+      }
+    ]
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "Raw Value",
+      "lines": [
+        {
+          "text": "Give each level a raw value, so we can save it."
+        }
+      ],
+      "title": "Give each level a raw value, so we can save it. Raw Value #Shorts",
+      "description": "Give each level a raw value, so we can save it.\n\nRaw Value - A fixed number or text that each enum case is created with, such as 1 or \"low\".\n한국어: 열거형 케이스마다 미리 정해 둔 고정 숫자나 문자열\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "Enum",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Why did you misspell the status?"
+        },
+        {
+          "speaker": "B",
+          "text": "I will use an enum instead."
+        }
+      ],
+      "title": "Why did you misspell the status? I will use an enum instead. Enum #Shorts",
+      "description": "Why did you misspell the status? / I will use an enum instead.\n\nEnum - A type that lists a fixed set of related choices, called cases.\n한국어: 정해진 선택지(케이스)를 모아 둔 타입\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Associated Value",
+      "lines": [
+        {
+          "text": "An associated value lets one case carry extra data."
+        }
+      ],
+      "title": "An associated value lets one case carry extra data. Associated Value #Shorts",
+      "description": "An associated value lets one case carry extra data.\n\nAssociated Value - Extra data stored inside one case of an enum, so each case can carry its own details.\n한국어: 열거형 케이스 안에 함께 저장하는 추가 데이터\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "Can a case hold data?"
+}
