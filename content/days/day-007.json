@@ -7,19 +7,22 @@
       "term": "Enum",
       "definition": "A type that lists a fixed set of related choices, called cases.",
       "example": "Use an enum for the order status, and the compiler checks every case.",
-      "code": "enum Direction {\n    case north\n    case south\n}\nlet heading = Direction.north\nprint(heading)"
+      "code": "enum Direction {\n    case north\n    case south\n}\nlet heading = Direction.north\nprint(heading)",
+      "output": "north"
     },
     {
       "term": "Associated Value",
       "definition": "Extra data stored inside one case of an enum, so each case can carry its own details.",
       "example": "Add an associated value to the card case, so it keeps the last four digits.",
-      "code": "enum Payment {\n    case cash\n    case card(last4: String)\n}\nlet pay = Payment.card(last4: \"4242\")\nprint(pay)"
+      "code": "enum Payment {\n    case cash\n    case card(last4: String)\n}\nlet pay = Payment.card(last4: \"4242\")\nprint(pay)",
+      "output": "card(last4: \"4242\")"
     },
     {
       "term": "Raw Value",
       "definition": "A fixed number or text that each enum case is created with, such as 1 or \"low\".",
       "example": "Give each level a raw value, so we can save it as a number.",
-      "code": "enum Level: Int {\n    case low = 1\n    case high = 3\n}\nprint(Level.high.rawValue)\nlet level = Level(rawValue: 1)"
+      "code": "enum Level: Int {\n    case low = 1\n    case high = 3\n}\nprint(Level.high.rawValue)\nprint(Level(rawValue: 1) ?? .high)",
+      "output": "3\nlow"
     }
   ],
   "quizzes": [
@@ -89,13 +92,13 @@
         "ios development",
         "iOS Daily English"
       ],
-      "youtubeId": "JOzgGyjt9x0",
-      "youtubeUrl": "https://youtu.be/JOzgGyjt9x0",
+      "youtubeId": "1pv1vPNO4rw",
+      "youtubeUrl": "https://youtu.be/1pv1vPNO4rw",
       "privacy": "private",
       "publishAt": "2026-10-30T23:00:00.000Z",
-      "uploaded": "2026-10-29T23:58:12.205Z",
-      "thumbnailSet": "2026-10-29T23:58:16.830Z",
-      "playlistAdded": "2026-10-29T23:58:18.467Z"
+      "uploaded": "2026-10-30T03:06:47.978Z",
+      "thumbnailSet": "2026-10-30T03:06:52.819Z",
+      "playlistAdded": "2026-10-30T03:06:54.640Z"
     },
     "voices": {
       "narrator": "en-US-JennyNeural",
@@ -123,104 +126,79 @@
     "lines": [
       {
         "speaker": "B",
-        "text": "Jake, why do you have status typos?",
+        "text": "I keep making typos in our order status strings.",
         "terms": []
       },
       {
         "speaker": "A",
-        "text": "I use five strings. Try an enum: it lists every status in one place.",
-        "terms": [
-          "Enum"
-        ]
-      },
-      {
-        "speaker": "A",
-        "text": "Yes. Write `case paid` and `case shipped`, and you cannot misspell them.",
+        "text": "Try an enum. It lists every status as a case, so typos are impossible.",
         "terms": [
           "Enum"
         ]
       },
       {
         "speaker": "B",
-        "text": "Nice. But shipped needs a tracking number.",
-        "terms": [
-          "Enum"
-        ]
+        "text": "Nice. But the server sends 1 and 2, not words.",
+        "terms": []
       },
       {
         "speaker": "A",
-        "text": "Then add an associated value to that case.",
-        "terms": [
-          "Associated Value"
-        ]
-      },
-      {
-        "speaker": "A",
-        "text": "Yes, an associated value is extra data inside one case.",
-        "terms": [
-          "Associated Value",
-          "Enum"
-        ]
-      },
-      {
-        "speaker": "B",
-        "text": "So `shipped(tracking: String)` has an associated value, and `paid` has none.",
-        "terms": [
-          "Associated Value"
-        ]
-      },
-      {
-        "speaker": "B",
-        "text": "Now the server sends numbers like 1 and 2 for the status.",
-        "terms": [
-          "Enum"
-        ]
-      },
-      {
-        "speaker": "A",
-        "text": "Then use a raw value. Write `enum Status: Int`.",
-        "terms": [
-          "Raw Value",
-          "Enum"
-        ]
-      },
-      {
-        "speaker": "B",
-        "text": "Hmm, I tried that with an associated value, and it failed.",
-        "terms": [
-          "Raw Value",
-          "Associated Value"
-        ]
-      },
-      {
-        "speaker": "A",
-        "text": "Right, my mistake. An enum with associated values cannot have a raw value.",
-        "terms": [
-          "Associated Value",
-          "Raw Value",
-          "Enum"
-        ]
-      },
-      {
-        "speaker": "B",
-        "text": "So I make two enums: one for the server, one for the screen.",
-        "terms": [
-          "Enum"
-        ]
-      },
-      {
-        "speaker": "A",
-        "text": "Good plan. Use `rawValue` to turn the server number into a case.",
+        "text": "Then give each case a raw value. In `Status`, `paid` is 1 and `shipped` is 2.",
         "terms": [
           "Raw Value"
         ]
       },
       {
         "speaker": "B",
-        "text": "Perfect. Thanks, Mina!",
+        "text": "Great. Can `shipped` also keep a tracking number?",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "Yes, add an associated value. In `Step`, `shipped(tracking: String)` carries it.",
+        "terms": [
+          "Associated Value"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Then I will put an associated value in `Status` too.",
+        "terms": [
+          "Associated Value"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Careful. An enum with a raw value cannot have an associated value.",
+        "terms": [
+          "Enum",
+          "Raw Value",
+          "Associated Value"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Oh, my mistake. So I need two enums.",
+        "terms": [
+          "Enum"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Right. `Status` uses a raw value for the server, and `Step` uses an associated value for the screen.",
+        "terms": [
+          "Raw Value",
+          "Associated Value"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Perfect, that makes sense. Thanks, Mina!",
         "terms": []
       }
-    ]
+    ],
+    "code": "enum Status: Int {\n    case paid = 1, shipped = 2\n}\nenum Step {\n    case paid, shipped(tracking: String)\n}",
+    "codeFile": "OrderStatus.swift"
   },
   "hooks": [
     {

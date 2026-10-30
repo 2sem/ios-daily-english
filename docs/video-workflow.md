@@ -18,13 +18,12 @@ optional fields (written by content-creator):
   the day-012 test stub).
 
 **Landscape 1920x1080, about 5-6 min** (`video/template-landscape/`): cold open (hook line, then logo + day + terms),
-3 term scenes (left code panel, right plain English: term, definition, Korean gloss, example twice, "your turn" pause),
+3 term scenes (left code panel plus an Output console block with the printed result, right plain English: term, definition, Korean gloss, example twice, "your turn" pause),
 conversation (a centered chat-app window in iMessage / KakaoTalk style: header with both avatars, the dialogue title and an
 online dot; speaker A sends on the right in brand blue #0071E3, B receives on the left in light gray; bubbles with tails,
 avatar on the first bubble of a run, a time under the last one, "Delivered" then "Read" under sent messages; the dialogue
-title/setting and speaker legend sit on the left, the term chips on the right and light up per line; each line is spoken in
-its own edge-tts voice), replay (the same chat UI with the key lines, terms blanked and spoken as "blank"; the term pops into
-the bubble after a beat; at most 5 lines, `--replay-max`), 3 quiz scenes (same rules as the Shorts: options never spoken, 8 s countdown, no reveal), recap + "See you
+title/setting, the `dialogue.code` card, the term chips (they light up per line) and the speaker legend sit on the left, the chat on the right; each line is spoken in
+its own edge-tts voice), replay (the same chat UI with ALL lines again, every term and `blanks` word blanked on screen while the line is read whole; after a line with a blank a short silent pause, then the words pop in; see docs/channel-workflow.md), 3 quiz scenes (same rules as the Shorts: options never spoken, 8 s countdown, no reveal), recap + "See you
 tomorrow". Logo tile only in the cold open and the outro.
 
 ```sh

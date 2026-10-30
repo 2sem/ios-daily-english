@@ -38,10 +38,13 @@ to advanced topics (see `content/CURRICULUM.md`).
 Besides the existing fields, every day JSON has two extra top-level fields. Existing fields stay unchanged.
 - `dialogue`: `{title, setting, speakers:[{id,name,voice}], lines:[{speaker,text,terms:[...]}]}`.
   Two speakers (A = Mina, B = Jake), two different edge-tts en-US voices from `scripts/voices.mjs`
-  (e.g. `en-US-AvaNeural` and `en-US-AndrewNeural`). 18-20 lines, about 2 minutes spoken (~300 words), with one natural extra beat such as a short disagreement or a mistake being fixed, natural dev talk
-  at A2-B1 level. Each of the 3 terms is used at least three times in natural sentences (no glossary-style lines).
+  (e.g. `en-US-AvaNeural` and `en-US-AndrewNeural`). 10-12 lines, about 50-60 s spoken (~150 words) because the conversation plays twice (chat, then the full replay with blanks), with one natural extra beat such as a short disagreement or a mistake being fixed, natural dev talk
+  at A2-B1 level. Each of the 3 terms is used at least twice in natural sentences (no glossary-style lines).
   `terms` lists the exact term strings used in that line (empty array if none). Never put quiz answers in it.
-- `terms[i].code` (optional string, but include it for the landscape format): a short, correct Swift snippet (3-8 lines) for the code panel of that term. Verify it with `swiftc -typecheck` on a temp file before writing it.
+- `terms[i].code` (string, required for new days): a short, correct Swift snippet (max 6 lines, ~48 chars per line) for the code panel of that term. Verify it with `swiftc -typecheck` on a temp file before writing it.
+- `terms[i].output` (string, required for new days, 1-4 lines, `\n` between lines): the real printed result of `code`. Compile and run the snippet (`swiftc file.swift -o x && ./x`) and copy what it prints. If it prints nothing use `// no output`. Shown in an "Output" console block under the code so beginners see the result.
+- `dialogue.code` (string, required for new days, up to 6 lines, type-checked) and optional `dialogue.codeFile` (default `Chat.swift`): the code the conversation is about, shown beside the chat in the conversation and the replay. Rule: every identifier, value or API name mentioned in a line must be introduced in an earlier line or be visible in `dialogue.code` (no `[count]` before any `count`). Optional `lines[i].blanks: ["word"]` blanks extra words in the replay besides the three terms.
+- The replay repeats ALL dialogue lines with the day's terms (and `blanks`) as blanks, so keep the dialogue short enough: the whole video is exactly 5:00 and the dialogue plays twice.
 - `hooks`: array for 15-25 s vertical Shorts, each standalone and punchy, max about 12 words per line.
   `{type:"one-line-example", term, lines:[{text}]}` = one sentence using the term.
   `{type:"one-line-conversation", term, lines:[{speaker:"A",text},{speaker:"B",text}]}` = a two-line exchange.

@@ -61,8 +61,23 @@ const termMatchers = (terms) =>
   [...new Set(terms)].filter(Boolean).sort((a, b) => b.length - a.length)
     .map((t) => ({ t, re: new RegExp(`(?<![\\w-])(${t.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")})(?![\\w-])`, "gi") }));
 
-// index of a term in day.terms (for its colour), 0 if it is not one of the day's three
-const colorOf = (day, t) => Math.max(0, day.terms.findIndex((x) => x.term.toLowerCase() === t.toLowerCase()));
+// index of a term in day.terms (for its colour), -1 if it is not one of the day's three (extra `blanks` words: neutral colour)
+const colorOf = (day, t) => day.terms.findIndex((x) => x.term.toLowerCase() === t.toLowerCase());
+
+// Non-overlapping matches of `terms` in `text` (longest term wins): [{ a, b, word, t }] sorted by position
+export function findSpans(text, terms) {
+  const spans = [];
+  for (const m of termMatchers(terms)) {
+    for (const x of text.matchAll(m.re)) {
+      const a = x.index, b = a + x[0].length;
+      if (!spans.some((s) => a < s.b && b > s.a)) spans.push({ a, b, word: x[0], t: m.t });
+    }
+  }
+  return spans.sort((p, q) => p.a - q.a);
+}
+// Words blanked in the replay for a line: each of the day's terms plus the line's optional `blanks` words
+export const blankTerms = (day, line) => [...day.terms.map((t) => t.term), ...(line.blanks ?? [])];
+export const hasBlank = (day, line) => findSpans(line.text, blankTerms(day, line)).length > 0;
 
 // Swift names inside a sentence (`backticked` words, types, keywords, camelCase, foo()) are shown as inline code, in a neutral style: only the day's terms get a colour.
 const CODE_RE = /`[^`\n]+`|(?<![\w`])(?:Int|Double|Float|Bool|String|Character|Array|Dictionary|Void|URL|nil|var|func|struct|enum|protocol|extension|guard|init|print|let(?!\s+(?:me|us|you|him|her|them|it|the)\b))(?![\w])|\b[a-z]+(?:[A-Z][a-z0-9]+)+\b|\b\w+\(\)/g;
@@ -74,23 +89,14 @@ export function codify(text) {
 
 // mode "plain": highlighted term spans; "blank": spans holding a blank and the hidden term (revealed by the timeline).
 export function renderLine(day, line, mode = "plain") {
-  const ms = termMatchers(line.terms ?? []);
-  // tokenise so overlapping terms cannot double-wrap
-  const spans = [];
-  for (const m of ms) {
-    for (const x of line.text.matchAll(m.re)) {
-      const a = x.index, b = a + x[0].length;
-      if (!spans.some((s) => a < s.b && b > s.a)) spans.push({ a, b, word: x[0], t: m.t });
-    }
-  }
-  spans.sort((p, q) => p.a - q.a);
+  const spans = findSpans(line.text, line.terms ?? []);
   let out = "", i = 0;
   for (const s of spans) {
     out += codify(line.text.slice(i, s.a));
-    const c = colorOf(day, s.t);
+    const c = colorOf(day, s.t), cls = c < 0 ? "cx" : `c${c}`;
     let el = mode === "blank"
-      ? `<span class="tm c${c} bk"><span class="bl">${"_".repeat(Math.max(4, Math.min(10, s.word.length)))}</span><span class="rv">${esc(s.word)}</span></span>`
-      : `<span class="tm c${c}">${esc(s.word)}</span>`;
+      ? `<span class="tm ${cls} bk"><span class="bl">${"_".repeat(Math.max(4, Math.min(10, s.word.length)))}</span><span class="rv">${esc(s.word)}</span></span>`
+      : `<span class="tm ${cls}">${esc(s.word)}</span>`;
     i = s.b;
     // keep trailing punctuation glued to the term/blank so it never wraps onto a line of its own
     const tail = line.text.slice(i).match(/^[.,!?;:)"']+/)?.[0] ?? "";
@@ -100,7 +106,7 @@ export function renderLine(day, line, mode = "plain") {
   return out + codify(line.text.slice(i));
 }
 
-// lines used in the "Fill in the blank" replay: lines that have terms (the replay speaks them whole; the blank is only on screen), trimmed to max (default 3) while keeping every term covered
+// LEGACY (days without dialogue.code): short replay of 3 key lines. New days replay the whole conversation. Lines that have terms (the replay speaks them whole; the blank is only on screen), trimmed to max (default 3) while keeping every term covered
 export function replayPicks(day, max = Number(opt("replay-max", 3))) {
   const lines = day.dialogue?.lines ?? [];
   const withTerms = lines.map((l, i) => ({ l, i })).filter(({ l }) => (l.terms ?? []).length);
