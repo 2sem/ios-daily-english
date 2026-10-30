@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 7
+
+Enum
+- A type that lists a fixed set of related choices, called cases.
+- Example: "Use an enum for the order status, and the compiler checks every case."
+
+Associated Value
+- Extra data stored inside one case of an enum, so each case can carry its own details.
+- Example: "Add an associated value to the card case, so it keeps the last four digits."
+
+Raw Value
+- A fixed number or text that each enum case is created with, such as 1 or "low".
+- Example: "Give each level a raw value, so we can save it as a number."
+
+
+Quiz ①
+In this code, what is `last4: String` called, the extra data attached to a case?
+a) Raw Value
+b) Enum
+c) Associated Value
+
+Quiz ②
+Which term is a type that lists a fixed set of related choices?
+a) Enum
+b) Raw Value
+c) Associated Value
+
+Quiz ③
+In this code, what is the `1` after `low =` called?
+a) Associated Value
+b) Raw Value
+c) Enum

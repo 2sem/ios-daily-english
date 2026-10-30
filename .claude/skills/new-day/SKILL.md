@@ -13,7 +13,7 @@ Full rules and commands: `docs/channel-workflow.md`.
 1. **Next day.** `node scripts/day.mjs next`. Use `nextDay` unless the user names a day.
    If that day already has a file, stop and ask before overwriting.
 2. **Content.** Spawn `content-creator` with Day N, the phase hint from `content/CURRICULUM.md` and any theme
-   the user asked for. It writes `content/days/day-NNN.json` (terms, quizzes, title, description, tags, plus `dialogue`, `hooks` and an optional `terms[i].code` Swift snippet for the landscape code panel (new days should include it), see docs/channel-workflow.md) and
+   the user asked for. It writes `content/days/day-NNN.json` (terms, quizzes, title, description, tags, plus `dialogue`, `hooks` and `terms[i].code` + `terms[i].output` (real printed result) and `dialogue.code` (the code the chat is about), all required for new days; the dialogue is 10-12 lines because the replay repeats it with blanks, see docs/channel-workflow.md) and
    registers the terms via `node scripts/day.mjs add` (duplicates are rejected there).
 3. **Content.** The owner reviews only the video, not the text: do not stop to ask about content. Show it in the final report only.
    Wording rules: parallel definitions ("A control-flow statement that ..."), no lone singular like "an if" in examples (use "ifs").

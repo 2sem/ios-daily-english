@@ -59,11 +59,20 @@ Default time is 08:00 KST next day. Nothing is published before the step 6 appro
 - Quizzes: 3 questions, order differs from the terms, each term correct exactly once, question never names its answer.
 
 - Dialogue and hooks (pilot, landscape-dialogue-format): each day JSON also carries `dialogue`
-  (title, setting, two speakers with edge-tts voice ids, 18-20 lines of about 2 minutes, each term used at
-  least three times, per-line `terms`) for a long landscape video, and `hooks` (15-25 s Shorts: `one-line-example`
+  (title, setting, two speakers with edge-tts voice ids, about 10-12 lines of ~50-60 s of speech because the conversation
+  plays twice (chat, then the replay), each term used at least twice, per-line `terms`, optional per-line `blanks`, and `code`) for a long landscape video, and `hooks` (15-25 s Shorts: `one-line-example`
   with one sentence, `one-line-conversation` with an A/B exchange, max about 12 words per line).
-  Each `terms[i]` may carry an optional `code` string (a 3-8 line Swift snippet, type-checked with
-  `swiftc -typecheck`) shown in the landscape code panel; new days should include it.
+  Each `terms[i]` carries `code` (Swift snippet, max 6 lines, type-checked with `swiftc -typecheck`) for the landscape code panel
+  and **`output`** (string, 1-4 lines, `\n` between lines): the real printed result of `code`, taken by compiling and running it
+  (a snippet that prints nothing uses e.g. `// no output`; a snippet that shows a compiler error puts the real message in `code`
+  and the same text or `// does not compile` in `output`). It is required for new days; older days without it only get a scaffold
+  warning. The landscape term scene shows it in an "Output" console block under the code, after the code builds and before the
+  example is read.
+  **`dialogue.code`** (string, up to 6 lines, type-checked) is required for new days: the code the conversation is about. It is
+  shown in a card (file name `dialogue.codeFile`, default `Chat.swift`) on the left, beside the chat, during the conversation and
+  the replay. Dialogue rules: every identifier, value or API name mentioned in a line must be introduced in an earlier line or be
+  visible in `dialogue.code` (readers got lost on Day 6: `[count]` came up before any `count`). An optional `blanks: ["word"]` on a
+  line blanks extra words in the replay besides the day's terms (neutral colour).
   Metadata: `video.landscape` = `{title (<=100), description, tags}` for the long video (description is EN + KO and contains
   the literal line `{{CHAPTERS}}`, which the uploader fills with timestamps from the render timing); each hook also has
   `title` (<=100, with #Shorts) and `description` containing `Full conversation: {{LONG_URL}}` (filled by the uploader
@@ -76,7 +85,7 @@ Default time is 08:00 KST next day. Nothing is published before the step 6 appro
   until it fits, then the outro tail absorbs the rest. `--target 0` = natural length.
 - Each term's example is read **three times**, words lighting up one by one (zoom in/out): male voice, female voice, then a
   silent read after "Now your turn." (no timer bar). Labels: Male voice / Female voice / Your turn.
-- Replay ("Fill in the blank"): 3 key dialogue lines (one per term). Each shows with the term as a blank on screen; the voice reads the WHOLE line (the conversation clip dNN, speaker's voice, term spoken, no cut pieces and no gap); then a silent pause (0.9 x clip, min 2 s) to say the missing word; at the end of the pause the term pops into the blank, highlighted. Intro: "Now you. Say the missing words." (Published Days 1-4 used cut-up replay clips.)
+- Replay ("Fill in the blank"): the WHOLE conversation again, in order, as the same chat window (the `dialogue.code` card stays on the left). In every line each of the day's terms (and the line's `blanks`) is shown as a blank. Each line is read whole by its speaker (the conversation clip dNN, no cut pieces). A line with a blank is followed by a silent pause (0.5 x clip, min 1.2 s, scaled by the knob ladder) to say the missing words, then the blanked words pop in highlighted at the end of the pause; a line without a blank plays straight through. Intro: "Now you. Say the missing words." The dialogue is 10-12 lines because it plays twice; `timing-landscape.mjs` trims quiz seconds / pause scale / outro tail to land on 300 s and warns if it cannot (shorten the dialogue then). Legacy days (no `dialogue.code`, 18-20 lines) that cannot fit fall back to the old 3-line replay (`--replay picks` forces it). (Published Days 1-6 keep the old replays.)
 - Quiz questions that refer to code carry `quizzes[i].code` (2-5 lines, `___` = blank) shown in a code panel under the question. Word the question as one short sentence starting "In this code, ..."; do not use the prefix "Fill in the blank in this code:" (awkward when spoken). Days 3-4 are published and keep the old wording.
 - Words that are code but also plain English (`from`, `to`, `index`, ...) must be written in backticks in the day JSON; backticked words render as code chips and are spoken without the backticks.
 - Inline Swift names in sentences (`Int`, `String`, `nil`, camelCase, `foo()`) render as neutral code chips; only the day's terms are coloured. The cold-open question colours the terms too.

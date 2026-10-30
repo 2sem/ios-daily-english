@@ -5,13 +5,16 @@
 //   node scripts/scaffold-landscape.mjs content/days/day-013.json [--bgm file.mp3] [--bgm-volume 0.10]
 //   cd video/day013-landscape && npx hyperframes check && npx hyperframes render -q high -f 30 -o ../out/day013-landscape.mp4
 // Test with a stub dialogue: add `--extra video/template-landscape/test-extra-day012.json --tag -test` to all three.
-// Each term carries `code` (max 6 lines, ~48 chars) for the left panel, read from the day JSON (an --extra file can override
+// Each term carries `output` (1-4 lines, the real printed result of `code`, shown in a console block under the code); the
+// dialogue carries `code` (max 6 lines, shown in a card beside the chat in the conversation and the replay) and `codeFile`.
+// The replay shows the whole conversation again; each day term (and each word in a line's optional `blanks`) is a blank.
+// Missing output / dialogue.code only warn. Each term carries `code` (max 6 lines, ~48 chars) for the left panel, read from the day JSON (an --extra file can override
 // it); without it the panel shows a visible placeholder and a warning is printed.
 import { readFileSync, writeFileSync, mkdirSync, copyFileSync, rmSync, cpSync, existsSync } from "node:fs";
 import { execFileSync } from "node:child_process";
 import { homedir } from "node:os";
 import { join, resolve } from "node:path";
-import { loadDay, coldHook, makeBgm, root, esc, opt, renderLine, codify, replayPicks, dKey, highlightSwift } from "./lib/landscape.mjs";
+import { loadDay, coldHook, makeBgm, root, esc, opt, renderLine, codify, blankTerms, dKey, highlightSwift } from "./lib/landscape.mjs";
 
 const { day, paths } = loadDay();
 if (!existsSync(paths.timing)) { console.error(`missing ${paths.timing} (run scripts/timing-landscape.mjs)`); process.exit(1); }
@@ -52,11 +55,20 @@ day.terms.forEach((t, i) => {
   code.forEach((l) => { if (l.length > 45) warnings.push(`term ${t.term}: line over 45 chars (font shrunk to fit): ${l}`); });
   const lines = t.code ? code.map(highlightSwift).join("\n") : `<div class="ln"><span class="cm">// TODO: add a code snippet for ${esc(t.term)}</span></div>`;
   const fileName = `${(t.term.replace(/[^\w]/g, "") || "Snippet")}.swift`;
+  const outLines = (t.output ?? "").split("\n").filter((l, k, a) => !(k === a.length - 1 && !l));
+  if (!outLines.length) warnings.push(`term ${t.term}: no \`output\` field, no Output block shown`);
+  if (outLines.length > 4) warnings.push(`term ${t.term}: output has ${outLines.length} lines (max 4)`);
+  outLines.forEach((l) => { if (l.length > 48) warnings.push(`term ${t.term}: output line over 48 chars (font shrunk to fit): ${l}`); });
+  const outPx = Math.floor(Math.min(28, 780 / (Math.max(0, ...outLines.map((l) => l.length)) * 0.6)));
+  const outBlock = outLines.length ? `
+        <div class="opanel" style="height: ${44 + outLines.length * 44 + 36}px"><div class="obar"><b>&gt;_</b>Output</div><div class="out"${outPx < 28 ? ` style="font-size: ${outPx}px"` : ""}>
+${outLines.map((l) => `<div class="ol">${esc(l)}</div>`).join("\n")}
+        </div></div>` : "";
   const ex = wrapWords(renderLine(day, { text: t.example, terms: [t.term] }));
   html += scene(`s${i + 1}`, plan.terms[i], `        <div class="num">0${i + 1} / 0${day.terms.length}</div>
-        <div class="lpanel"><div class="wbar"><i></i><i></i><i></i><span>${esc(fileName)}</span></div><div class="code"${codeFont(code)}>
+        <div class="lpanel${outLines.length ? " wo" : ""}"><div class="wbar"><i></i><i></i><i></i><span>${esc(fileName)}</span></div><div class="code"${codeFont(code)}>
 ${lines}
-        </div></div>
+        </div></div>${outBlock}
         <div class="rp">
           <div class="term${isMono(t.term) ? " mono" : ""}"${t.term.length > 14 ? ' style="font-size: 76px"' : ""}>${esc(t.term)}</div>
           <div class="def">${codify(t.definition)}</div>
@@ -73,8 +85,16 @@ if (D) {
   const colorIdx = (l) => (l.terms ?? []).map((x) => Math.max(0, day.terms.findIndex((t) => t.term.toLowerCase() === x.toLowerCase())));
   data.lines = D.lines.map((l) => ({ speaker: l.speaker, terms: [...new Set(colorIdx(l))] }));
   const ini = (id) => esc((sp[id]?.name ?? id)[0]);
-  const chips = `        <div class="chips"><span class="lab">Today's terms</span>${day.terms.map((t, i) => `<span class="chip c${i}">${esc(t.term)}</span>`).join("")}</div>`;
+  const chips = `<div class="chips"><span class="lab">Today's terms</span>${day.terms.map((t, i) => `<span class="chip c${i}">${esc(t.term)}</span>`).join("")}</div>`;
   const legend = `<div class="legend">${["A", "B"].map((id) => `<div class="lg"><div class="cav ${id}">${ini(id)}</div><div>${esc(sp[id]?.name ?? id)}<small>${id === "A" ? "writes in blue" : "writes in gray"}</small></div></div>`).join("")}</div>`;
+  // code card beside the chat: the code under discussion stays visible in the conversation and the replay
+  const dcode = (D.code ?? "").split("\n").filter((l, k, a) => !(k === a.length - 1 && !l));
+  if (!dcode.length) warnings.push("no `dialogue.code`: the conversation has no code card (readers can lose track of names mentioned in the chat)");
+  if (dcode.length > 6) warnings.push(`dialogue.code has ${dcode.length} lines (max 6)`);
+  dcode.forEach((l) => { if (l.length > 48) warnings.push(`dialogue.code line over 48 chars (font shrunk to fit): ${l}`); });
+  const codeCard = dcode.length ? `<div class="cc" style="height: ${60 + dcode.length * 49 + 40}px"><div class="wbar"><i></i><i></i><i></i><span>${esc(D.codeFile ?? "Chat.swift")}</span></div><div class="code"${codeFont(dcode)}>
+${dcode.map(highlightSwift).join("\n")}
+        </div></div>` : "";
   const header = `        <div class="cw-head"><div class="stack"><div class="cav A">${ini("A")}</div><div class="cav B">${ini("B")}</div></div><div><div class="ht">${esc(D.title)}</div><div class="hs">${esc(sp.A?.name ?? "A")} and ${esc(sp.B?.name ?? "B")} <span class="od"></span> online</div></div></div>`;
   const input = `        <div class="cw-input"><div class="field">Message</div><div class="send"></div></div>`;
   // rows grouped like a chat app: avatar on the first bubble of a run, tail and time on the last; A sends (right, blue), B receives (left, gray)
@@ -92,13 +112,16 @@ if (D) {
   };
   const win = (prefix, ids, mode) => `        <div class="cw">\n${header}\n        <div class="cw-body"><div class="msgs">\n${rows(prefix, ids, mode)}\n        </div></div>\n${input}\n        </div>`;
   html += scene("conv", plan.conv, `        <div class="conv-kicker">Conversation</div>
-        <div class="side-l"><div class="sl-title">${esc(D.title)}</div><div class="sl-set">${esc(D.setting ?? "")}</div>${legend}</div>
-${win("cl", D.lines.map((_, i) => i), "plain")}
-${chips}`);
-  html += scene("replay", plan.replay, `        <div class="rcard"><div class="kicker">Replay</div><div class="big">Fill in the blank</div><div class="intro-sub">Say the missing words out loud, then check.</div></div>
+        <div class="side-l"><div class="sl-title">${esc(D.title)}</div><div class="sl-set">${esc(D.setting ?? "")}</div>${codeCard}${chips}${legend}</div>
+${win("cl", D.lines.map((_, i) => i), "plain")}`);
+  // replay: the whole conversation again; every day term (and each line's `blanks`) is a blank
+  const blankLine = (l) => ({ ...l, terms: blankTerms(day, l) });
+  const saved = D.lines;
+  const blankRows = (prefix, ids) => { D.lines = saved.map(blankLine); try { return win(prefix, ids, "blank"); } finally { D.lines = saved; } };
+  html += scene("replay", plan.replay, `        <div class="rcard"><div class="kicker">Replay</div><div class="big">Fill in the blank</div><div class="intro-sub">Same chat again. Say the missing words out loud, then check.</div></div>
         <div class="conv-kicker" style="color: var(--quiz)">Fill in the blank</div>
-        <div class="side-l"><div class="sl-title">Say the missing words</div><div class="sl-set">${esc(D.title)}. Listen to the line, say the missing word in the pause, then see it appear.</div>${legend}</div>
-${win("rl", plan.replay.lines.map((l) => l.i), "blank")}`);
+        <div class="side-l"><div class="sl-title">Say the missing words</div><div class="sl-set">${esc(D.title)}. Listen to each line, say the missing words in the pause, then see them appear.</div>${codeCard}${legend}</div>
+${blankRows("rl", plan.replay.lines.map((l) => l.i))}`);
 } else warnings.push("no dialogue in the day JSON: conversation and replay scenes are skipped");
 
 // quiz (an optional `code` shows a snippet under the question; `___` marks the blank)
