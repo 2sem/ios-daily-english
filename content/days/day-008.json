@@ -1,0 +1,221 @@
+{
+  "day": 8,
+  "phase": "1. Swift basics",
+  "theme": "3 terms on structs and classes: copy or share in Swift",
+  "terms": [
+    {
+      "term": "Struct",
+      "definition": "A type that groups related values together and is copied whenever you pass it around.",
+      "example": "Make the point a struct, so each screen gets its own copy.",
+      "code": "struct Point {\n    var x: Int\n    var y: Int\n}\nlet p = Point(x: 1, y: 2)\nprint(p.x + p.y)",
+      "output": "3"
+    },
+    {
+      "term": "Class",
+      "definition": "A type that groups related values together and is shared, so every variable points to the same object.",
+      "example": "Make the player a class, so every screen sees the same score.",
+      "code": "class Player {\n    var score = 0\n}\nlet hero = Player()\nhero.score = 10\nprint(hero.score)",
+      "output": "10"
+    },
+    {
+      "term": "Value Type",
+      "definition": "A type that is copied each time you assign it, so changing the copy never changes the original.",
+      "example": "A struct is a value type, so editing the copy is safe.",
+      "code": "struct Cup { var water = 1 }\nvar a = Cup()\nvar b = a\nb.water = 5\nprint(a.water, b.water)",
+      "output": "1 5"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "In this code, `b` is a copy of `a`, so what kind of type is `Cup`?",
+      "options": [
+        "Class",
+        "Struct",
+        "Value Type"
+      ],
+      "answer": "c",
+      "code": "struct Cup {\n    var water = 1\n}\nvar a = Cup()\nvar b = a\nb.water = 5"
+    },
+    {
+      "question": "In this code, which word fits the blank to make `Point(x: 1, y: 2)` work?",
+      "options": [
+        "Struct",
+        "Value Type",
+        "Class"
+      ],
+      "answer": "a",
+      "code": "___ Point {\n    var x: Int\n    var y: Int\n}\nlet p = Point(x: 1, y: 2)"
+    },
+    {
+      "question": "In this code, which type lets `hero` and `buddy` share one score?",
+      "options": [
+        "Value Type",
+        "Struct",
+        "Class"
+      ],
+      "answer": "c",
+      "code": "___ Player {\n    var score = 0\n}\nlet hero = Player()\nlet buddy = hero\nbuddy.score = 10"
+    }
+  ],
+  "video": {
+    "title": "Struct, Class & Value Type in 2 minutes | iOS Daily English Day 8",
+    "description": "Learn to talk about structs and classes in Swift: Struct, Class and Value Type, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nStruct - A type that groups related values together and is copied whenever you pass it around.\nClass - A type that groups related values together and is shared, so every variable points to the same object.\nValue Type - A type that is copied each time you assign it, so changing the copy never changes the original.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 8 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish #SwiftUI",
+    "tags": [
+      "struct",
+      "class",
+      "value type",
+      "swift struct vs class",
+      "swift for beginners",
+      "swift basics",
+      "ios development",
+      "ios developer english",
+      "english for developers",
+      "learn english",
+      "swift programming",
+      "iOS Daily English"
+    ],
+    "landscape": {
+      "title": "Swift Struct, Class & Value Type in English | Copy vs Share Chat | Day 8",
+      "description": "Explain Struct, Class and Value Type in Swift by listening to a real bug-fix chat between two iOS devs.\n구조체, 클래스, 값 타입 표현을 영어 대화로 익혀요.\n\nStruct - A type that groups related values together and is copied whenever you pass it around.\n한국어: 관련된 값을 묶고 전달할 때마다 복사되는 타입\n\nClass - A type that groups related values together and is shared, so every variable points to the same object.\n한국어: 관련된 값을 묶고 공유되어 모두 같은 객체를 가리키는 타입\n\nValue Type - A type that is copied each time you assign it, so changing the copy never changes the original.\n한국어: 대입할 때마다 복사되어 원본이 바뀌지 않는 타입\n\nIn this video, Mina and Jake find out why a copied session changed, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 8 of the iOS Daily English series.\n\n#Swift #iOSDeveloper #EnglishForDevelopers",
+      "tags": [
+        "Struct",
+        "Class",
+        "Value Type",
+        "swift struct",
+        "swift class",
+        "swift struct vs class",
+        "스위프트 구조체",
+        "스위프트 클래스",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "ios development",
+        "iOS Daily English"
+      ],
+      "youtubeId": "hlQMQ4uFZhA",
+      "youtubeUrl": "https://youtu.be/hlQMQ4uFZhA",
+      "privacy": "private",
+      "publishAt": "2026-10-31T23:00:00.000Z",
+      "uploaded": "2026-10-31T01:52:04.689Z",
+      "thumbnailSet": "2026-10-31T01:52:11.640Z",
+      "playlistAdded": "2026-10-31T01:52:13.762Z"
+    },
+    "voices": {
+      "narrator": "en-US-JennyNeural",
+      "example": "en-US-GuyNeural",
+      "exampleSlow": "en-US-JennyNeural",
+      "pattern": "random (female -> male)",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "Why did the copy change?",
+    "setting": "Morning stand-up and code chat",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "B",
+        "text": "I copied the session, but the old one changed too.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "`Session` is a class, so both variables share the same object.",
+        "terms": [
+          "Class"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "How do I get a real copy?",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "Use a struct. A struct is a value type, so every variable gets its own copy when you assign it.",
+        "terms": [
+          "Struct",
+          "Value Type"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "But isn't a class safer?",
+        "terms": [
+          "Class"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Not for copies. Use a struct for data you copy, and a class only when you really need sharing.",
+        "terms": [
+          "Struct",
+          "Class"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Got it. I will use a value type for copies, and a class for sharing.",
+        "terms": [
+          "Value Type",
+          "Class"
+        ]
+      }
+    ],
+    "code": "struct Profile {\n    var name: String\n}\nclass Session {\n    var name = \"Mina\"\n}",
+    "codeFile": "Profile.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "Struct",
+      "lines": [
+        {
+          "text": "Make it a struct, so each screen gets its own copy."
+        }
+      ],
+      "title": "Make it a struct, so each screen gets its own copy. Struct #Shorts",
+      "description": "Make it a struct, so each screen gets its own copy.\n\nStruct - A type that groups related values together and is copied whenever you pass it around.\n한국어: 관련된 값을 묶고 전달할 때마다 복사되는 타입\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "Class",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Why did the score change everywhere?"
+        },
+        {
+          "speaker": "B",
+          "text": "Because the player is a class."
+        }
+      ],
+      "title": "Why did the score change everywhere? Because the player is a class. Class #Shorts",
+      "description": "Why did the score change everywhere? / Because the player is a class.\n\nClass - A type that groups related values together and is shared, so every variable points to the same object.\n한국어: 관련된 값을 묶고 공유되어 모두 같은 객체를 가리키는 타입\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Value Type",
+      "lines": [
+        {
+          "text": "A value type is copied, so the original stays safe."
+        }
+      ],
+      "title": "A value type is copied, so the original stays safe. Value Type #Shorts",
+      "description": "A value type is copied, so the original stays safe.\n\nValue Type - A type that is copied each time you assign it, so changing the copy never changes the original.\n한국어: 대입할 때마다 복사되어 원본이 바뀌지 않는 타입\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "Copy or share?"
+}

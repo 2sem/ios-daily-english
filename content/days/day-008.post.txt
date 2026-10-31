@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 8
+
+Struct
+- A type that groups related values together and is copied whenever you pass it around.
+- Example: "Make the point a struct, so each screen gets its own copy."
+
+Class
+- A type that groups related values together and is shared, so every variable points to the same object.
+- Example: "Make the player a class, so every screen sees the same score."
+
+Value Type
+- A type that is copied each time you assign it, so changing the copy never changes the original.
+- Example: "A struct is a value type, so editing the copy is safe."
+
+
+Quiz ①
+In this code, `b` is a copy of `a`, so what kind of type is `Cup`?
+a) Class
+b) Struct
+c) Value Type
+
+Quiz ②
+In this code, which word fits the blank to make `Point(x: 1, y: 2)` work?
+a) Struct
+b) Value Type
+c) Class
+
+Quiz ③
+In this code, which type lets `hero` and `buddy` share one score?
+a) Value Type
+b) Struct
+c) Class

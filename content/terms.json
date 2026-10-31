@@ -83,6 +83,18 @@
     "rawvalue": {
       "term": "Raw Value",
       "day": 7
+    },
+    "struct": {
+      "term": "Struct",
+      "day": 8
+    },
+    "class": {
+      "term": "Class",
+      "day": 8
+    },
+    "valuetype": {
+      "term": "Value Type",
+      "day": 8
     }
   }
 }
