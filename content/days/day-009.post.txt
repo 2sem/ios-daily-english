@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 9
+
+Protocol
+- A list of rules that says what properties and methods a type must have.
+- Example: "Let's write a protocol, so every screen follows the same rules."
+
+Extension
+- A way to add new methods to a type you already have, without editing its original code.
+- Example: "I added a small extension to Int, so we can double any number."
+
+Protocol Conformance
+- When a type promises to follow a protocol by providing everything the protocol asks for.
+- Example: "The compiler shows an error because Bird is missing its protocol conformance."
+
+
+Quiz ①
+In this code, what is it called when `Bird` promises to follow `Flyer`?
+a) Extension
+b) Protocol
+c) Protocol Conformance
+
+Quiz ②
+In this code, which word fits the blank to list the rules a type must follow?
+a) Protocol
+b) Protocol Conformance
+c) Extension
+
+Quiz ③
+In this code, which word fits the blank to add `shout()` to `String`?
+a) Protocol Conformance
+b) Extension
+c) Protocol

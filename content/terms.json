@@ -95,6 +95,18 @@
     "valuetype": {
       "term": "Value Type",
       "day": 8
+    },
+    "protocol": {
+      "term": "Protocol",
+      "day": 9
+    },
+    "extension": {
+      "term": "Extension",
+      "day": 9
+    },
+    "protocolconformance": {
+      "term": "Protocol Conformance",
+      "day": 9
     }
   }
 }

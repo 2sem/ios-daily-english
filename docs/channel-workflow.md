@@ -43,6 +43,7 @@ node scripts/facebook-upload.mjs content/days/day-NNN.json   # 6. Facebook Page 
 | Manager (Claude + the owner) | Day scope, review gates, approvals, publish time, music licence | everyone |
 | `content-creator` | Terms, definitions, examples, quizzes, title, description, tags, duplicate check | video-artist |
 | `video-artist` | Voice clips, timing, composition, music, render, snippet checks, thumbnail | youtube-uploader |
+| `skimmer` | Beginner-viewer skim of the day JSON (code/answer fit, undefined words, backticks, spoken fit); read-only, reports PASS/FIX | content-creator |
 | `youtube-uploader` | Private upload, schedule, status in the day JSON | facebook-uploader |
 | `facebook-uploader` | Facebook Page Reel from the same MP4 (Meta cross-posts to Instagram), friendly caption, status in the day JSON | manager |
 | `marketer` (shared agent) | Weekly review of Studio analytics: best publish time, title and thumbnail tests | content-creator |
@@ -87,6 +88,7 @@ Default time is 08:00 KST next day. Nothing is published before the step 6 appro
   silent read after "Now your turn." (no timer bar). Labels: Male voice / Female voice / Your turn.
 - Replay ("Fill in the blank"): the WHOLE conversation again, in order, as the same chat window (the `dialogue.code` card stays on the left). In every line each of the day's terms (and the line's `blanks`) is shown as a blank. Each line is read whole by its speaker (the conversation clip dNN, no cut pieces). A line with a blank is followed by a silent pause (0.5 x clip, min 1.2 s, scaled by the knob ladder) to say the missing words, then the blanked words pop in highlighted at the end of the pause; a line without a blank plays straight through. Intro: "Now you. Say the missing words." The dialogue is 10-12 lines because it plays twice; `timing-landscape.mjs` trims quiz seconds / pause scale / outro tail to land on 300 s and warns if it cannot (shorten the dialogue then). Legacy days (no `dialogue.code`, 18-20 lines) that cannot fit fall back to the old 3-line replay (`--replay picks` forces it). (Published Days 1-6 keep the old replays.)
 - Quiz questions that refer to code carry `quizzes[i].code` (2-5 lines, `___` = blank) shown in a code panel under the question. Word the question as one short sentence starting "In this code, ..."; do not use the prefix "Fill in the blank in this code:" (awkward when spoken). Days 3-4 are published and keep the old wording.
+- Code-blank quiz options use code casing (`protocol`, `extension`, `Bird`), not term-heading casing (`Protocol`); concept names that are not code words (`Protocol Conformance`) are asked as "what is it called...", never as a blank. Applies from Day 10; Day 9 and earlier keep their options.
 - Words that are code but also plain English (`from`, `to`, `index`, ...) must be written in backticks in the day JSON; backticked words render as code chips and are spoken without the backticks.
 - Inline Swift names in sentences (`Int`, `String`, `nil`, camelCase, `foo()`) render as neutral code chips; only the day's terms are coloured. The cold-open question colours the terms too.
 - **Review copy:** before any upload, export a reduced copy to `~/Downloads/dayNNN-landscape-review.mp4` (under 30 MB, so it can be sent by DM;
@@ -191,7 +193,7 @@ Default time is 08:00 KST next day. Nothing is published before the step 6 appro
 | `video/template/` | vertical composition template, fonts, GSAP, logo (copy per day) |
 | `video/out/`, `video/audio/`, `video/dayNNN/` | generated, gitignored |
 | `brand/` | `logo.png`, avatar and banner renders |
-| `.claude/agents/` | content-creator, video-artist, youtube-uploader, facebook-uploader |
+| `.claude/agents/` | content-creator, skimmer, video-artist, youtube-uploader, facebook-uploader |
 | `.claude/skills/new-day/` | `/new-day` manager workflow |
 
 ## Open items
