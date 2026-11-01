@@ -24,7 +24,7 @@ const theme = (day.theme ?? "").replace(/^\d+ terms on /, "");
 const blocks = [
   { type: "p", text: `Today's ${names.length} terms: ${theme}. ${D ? `Watch ${sp.A} and ${sp.B} in a chat-style code review: ${D.title}. ` : ""}(5 minutes, Swift code on screen).` },
   ...day.terms.flatMap((t, i) => [
-    { type: "h2", text: `Term ${i + 1}: ${t.term}` }, // never "1. Term": LinkedIn turns digit-dot lines into a numbered list
+    { type: "h2", text: t.term }, // bare term, no "Term N:" prefix (owner preference)
     { type: "ul", items: [t.definition, `"${t.example}"`] },
   ]),
   { type: "p", text: "Your turn: say each example out loud after the video, then try the 3-question quiz at the end. Comment your answers (1/2/3), I reply to every comment!" },

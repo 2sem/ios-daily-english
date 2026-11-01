@@ -40,7 +40,7 @@ Newsletter: https://www.linkedin.com/newsletters/ios-daily-english-7382287984366
 6. **Title.** Click the title field, type `title`.
 7. **Body.** Click the body (ProseMirror, `.ProseMirror`; coordinates shift once the cover loads, so screenshot first). To replace
    text: `javascript_tool` `e.focus(); document.execCommand('selectAll')` then `computer type`.
-   - Paragraphs: plain text. **Never start a line with `1. `** (auto numbered list swallows the lines after it). Use `Term 1: X`.
+   - Paragraphs: plain text. **Never start a line with `1. `** (auto numbered list swallows the lines after it). Term headings are the bare term (e.g. `Struct`), no "Term N:" prefix.
    - Bullets: type `- ` at line start; the definition and the example are two bullets. `\n\n` after the last bullet exits the list.
    - Do not add blank paragraphs for spacing (margins already exist; blank ones double the gap). Delete empty `P` nodes:
      select a collapsed range inside each and `document.execCommand('delete')`.
@@ -53,4 +53,4 @@ Newsletter: https://www.linkedin.com/newsletters/ios-daily-english-7382287984366
 ## Rules
 - Draft only, never publish. No Korean in the post. No link to a video that is not public (the new landscape upload comes after approval).
 - Quiz answers never appear. Do not paste personal data; use only the day JSON.
-- Same format every day, so editions look alike: intro paragraph, three `Term N: X` headings with two bullets each, closing line.
+- Same format every day, so editions look alike: intro paragraph, three bare-term headings with two bullets each, closing line.
