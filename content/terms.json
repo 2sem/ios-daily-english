@@ -107,6 +107,18 @@
     "protocolconformance": {
       "term": "Protocol Conformance",
       "day": 9
+    },
+    "generic": {
+      "term": "Generic",
+      "day": 10
+    },
+    "typeparameter": {
+      "term": "Type Parameter",
+      "day": 10
+    },
+    "genericconstraint": {
+      "term": "Generic Constraint",
+      "day": 10
     }
   }
 }

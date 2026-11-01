@@ -1,0 +1,232 @@
+{
+  "day": 10,
+  "phase": "1. Swift basics",
+  "theme": "3 terms on generics: one piece of code for many types",
+  "terms": [
+    {
+      "term": "Generic",
+      "definition": "Code that works with many types, so you write it only once.",
+      "example": "Let's make this function generic, so it works with any type.",
+      "code": "func pair<T>(_ a: T, _ b: T) -> [T] { [a, b] }\nprint(pair(1, 2))",
+      "output": "[1, 2]"
+    },
+    {
+      "term": "Type Parameter",
+      "definition": "A placeholder name, like `T`, for a type that is chosen when the code is used.",
+      "example": "I named the type parameter `T`, so the box can hold any type.",
+      "code": "struct Box<T> { var item: T }\nlet box = Box(item: \"Hi\")\nprint(box.item)",
+      "output": "Hi"
+    },
+    {
+      "term": "Generic Constraint",
+      "definition": "A rule that limits a generic to types that follow a protocol.",
+      "example": "We need a generic constraint here, because the compiler must compare two values.",
+      "code": "func biggest<T: Comparable>(_ a: T, _ b: T) -> T {\n    a > b ? a : b\n}\nprint(biggest(3, 7))",
+      "output": "7"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "In this code, what is it called when `T` must follow `Comparable`?",
+      "options": [
+        "Type Parameter",
+        "Generic",
+        "Generic Constraint"
+      ],
+      "answer": "c",
+      "code": "func biggest<T: Comparable>(_ a: T, _ b: T) -> T {\n    a > b ? a : b\n}"
+    },
+    {
+      "question": "In this code, what is `pair` called, since it works with any type?",
+      "options": [
+        "Generic Constraint",
+        "Generic",
+        "Type Parameter"
+      ],
+      "answer": "b",
+      "code": "func pair<T>(_ a: T, _ b: T) -> [T] {\n    [a, b]\n}"
+    },
+    {
+      "question": "In this code, what is `T` called?",
+      "options": [
+        "Generic",
+        "Generic Constraint",
+        "Type Parameter"
+      ],
+      "answer": "c",
+      "code": "struct Box<T> {\n    var item: T\n}"
+    }
+  ],
+  "video": {
+    "title": "Generic, Type Parameter & Generic Constraint in 2 minutes | iOS Daily English Day 10",
+    "description": "Learn to talk about generics in Swift: Generic, Type Parameter and Generic Constraint, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nGeneric - Code that works with many types, so you write it only once.\nType Parameter - A placeholder name, like `T`, for a type that is chosen when the code is used.\nGeneric Constraint - A rule that limits a generic to types that follow a protocol.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 10 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish #SwiftUI",
+    "tags": [
+      "generic",
+      "type parameter",
+      "generic constraint",
+      "swift generics",
+      "swift for beginners",
+      "swift basics",
+      "ios development",
+      "ios developer english",
+      "english for developers",
+      "learn english",
+      "iOS Daily English"
+    ],
+    "landscape": {
+      "title": "Swift Generic, Type Parameter & Generic Constraint in English | Chat | Day 10",
+      "description": "Explain Generic, Type Parameter and Generic Constraint in Swift by listening to a real code chat between two iOS devs.\n제네릭, 타입 파라미터, 제네릭 제약 표현을 영어 대화로 익혀요.\n\nGeneric - Code that works with many types, so you write it only once.\n한국어: 여러 타입에서 동작해서 한 번만 작성하면 되는 코드\n\nType Parameter - A placeholder name, like `T`, for a type that is chosen when the code is used.\n한국어: 코드를 사용할 때 정해지는 타입을 대신하는 자리표시 이름 (예: T)\n\nGeneric Constraint - A rule that limits a generic to types that follow a protocol.\n한국어: 제네릭이 특정 프로토콜을 따르는 타입만 받도록 제한하는 규칙\n\nIn this video, Mina and Jake turn two copy-pasted functions into one generic function, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 10 of the iOS Daily English series.\n\n#Swift #iOSDeveloper #EnglishForDevelopers",
+      "tags": [
+        "Generic",
+        "Type Parameter",
+        "Generic Constraint",
+        "swift generics",
+        "스위프트 제네릭",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "ios development",
+        "iOS Daily English"
+      ],
+      "youtubeId": "9i3PO6xaoYU",
+      "youtubeUrl": "https://youtu.be/9i3PO6xaoYU",
+      "privacy": "private",
+      "publishAt": "2026-11-02T23:00:00.000Z",
+      "uploaded": "2026-11-01T23:24:21.962Z",
+      "thumbnailSet": "2026-11-01T23:24:26.605Z",
+      "playlistAdded": "2026-11-01T23:24:28.415Z"
+    },
+    "voices": {
+      "narrator": "en-US-JennyNeural",
+      "example": "en-US-GuyNeural",
+      "exampleSlow": "en-US-JennyNeural",
+      "pattern": "random (female -> male)",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "One function, any type",
+    "setting": "Morning stand-up and code chat",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "B",
+        "text": "I wrote one function for `Int` and one for `String`, but they look the same.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "Make it generic. A generic function works with any type, so you write it once.",
+        "terms": [
+          "Generic"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "But how does it know the type?",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "You add a type parameter. Here `T` is the type parameter, a placeholder.",
+        "terms": [
+          "Type Parameter"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "So `T` can be `Int` or `String`?",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "Yes, but `a > b` needs a rule. Add a generic constraint: `T: Comparable`.",
+        "terms": [
+          "Generic Constraint"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Wait, why do we need a generic constraint?",
+        "terms": [
+          "Generic Constraint"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Not every type can be compared. Without it, the compiler shows an error.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Oh, I see. The type parameter is `T`, and the generic constraint limits it.",
+        "terms": [
+          "Type Parameter",
+          "Generic Constraint"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Right. Now your generic function works for numbers and text.",
+        "terms": [
+          "Generic"
+        ]
+      }
+    ],
+    "code": "func biggest<T: Comparable>(_ a: T, _ b: T) -> T {\n    a > b ? a : b\n}",
+    "codeFile": "Biggest.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "Generic",
+      "lines": [
+        {
+          "text": "Let's make this function generic, so it works with any type."
+        }
+      ],
+      "title": "Let's make this function generic, so it works with any type. Generic #Shorts",
+      "description": "Let's make this function generic, so it works with any type.\n\nGeneric - Code that works with many types, so you write it only once.\n한국어: 여러 타입에서 동작해서 한 번만 작성하면 되는 코드\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "Type Parameter",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "What does the T in Box<T> mean?"
+        },
+        {
+          "speaker": "B",
+          "text": "It is the type parameter."
+        }
+      ],
+      "title": "What does the T in Box<T> mean? It is the type parameter. Type Parameter #Shorts",
+      "description": "What does the T in Box<T> mean? / It is the type parameter.\n\nType Parameter - A placeholder name, like `T`, for a type that is chosen when the code is used.\n한국어: 코드를 사용할 때 정해지는 타입을 대신하는 자리표시 이름 (예: T)\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Generic Constraint",
+      "lines": [
+        {
+          "text": "Add a generic constraint, so T must be Comparable."
+        }
+      ],
+      "title": "Add a generic constraint, so T must be Comparable. Generic Constraint #Shorts",
+      "description": "Add a generic constraint, so T must be Comparable.\n\nGeneric Constraint - A rule that limits a generic to types that follow a protocol.\n한국어: 제네릭이 특정 프로토콜을 따르는 타입만 받도록 제한하는 규칙\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "One function, any type?"
+}
