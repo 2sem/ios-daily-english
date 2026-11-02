@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 10
+
+Generic
+- Code that works with many types, so you write it only once.
+- Example: "Let's make this function generic, so it works with any type."
+
+Type Parameter
+- A placeholder name, like `T`, for a type that is chosen when the code is used.
+- Example: "I named the type parameter `T`, so the box can hold any type."
+
+Generic Constraint
+- A rule that limits a generic to types that follow a protocol.
+- Example: "We need a generic constraint here, because the compiler must compare two values."
+
+
+Quiz ①
+In this code, what is it called when `T` must follow `Comparable`?
+a) Type Parameter
+b) Generic
+c) Generic Constraint
+
+Quiz ②
+In this code, what is `pair` called, since it works with any type?
+a) Generic Constraint
+b) Generic
+c) Type Parameter
+
+Quiz ③
+In this code, what is `T` called?
+a) Generic
+b) Generic Constraint
+c) Type Parameter
