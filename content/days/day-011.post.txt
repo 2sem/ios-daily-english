@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 11
+
+Throw
+- A keyword that stops a function and sends out an error.
+- Example: "Throw an error if the password is wrong."
+
+Try
+- A keyword you write before a call that can throw an error.
+- Example: "Add try before this call, because it can fail."
+
+Do-Catch
+- A block that runs risky code and handles any error it throws.
+- Example: "Wrap it in do-catch, so the app does not crash."
+
+
+Quiz ①
+In this code, which word goes in the blank before the call to `load`?
+a) throw
+b) try
+c) do-catch
+
+Quiz ②
+In this code, what is it called when the code handles a failure so the app does not crash?
+a) Do-Catch
+b) Throw
+c) Try
+
+Quiz ③
+In this code, which word sends out the error?
+a) do-catch
+b) try
+c) throw
