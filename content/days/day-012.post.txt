@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 12
+
+Stored Property
+- A variable or constant inside a type that keeps its own value.
+- Example: "Make `name` a stored property, so each user keeps their own name."
+
+Computed Property
+- A property that does not keep a value and works out its result each time you read it.
+- Example: "Make `total` a computed property, so it always matches the price and quantity."
+
+Property Observer
+- Code that runs right before or after a property changes its value.
+- Example: "Add a property observer, so the label updates when the score changes."
+
+
+Quiz ①
+In this code, what is `didSet` called, because it runs right after `level` changes?
+a) Property Observer
+b) Stored Property
+c) Computed Property
+
+Quiz ②
+In this code, what is `name` called, because it keeps its own value?
+a) Computed Property
+b) Property Observer
+c) Stored Property
+
+Quiz ③
+In this code, what is `total` called, because it works out its result each time you read it?
+a) Stored Property
+b) Computed Property
+c) Property Observer

@@ -131,6 +131,18 @@
     "docatch": {
       "term": "Do-Catch",
       "day": 11
+    },
+    "storedproperty": {
+      "term": "Stored Property",
+      "day": 12
+    },
+    "computedproperty": {
+      "term": "Computed Property",
+      "day": 12
+    },
+    "propertyobserver": {
+      "term": "Property Observer",
+      "day": 12
     }
   }
 }
