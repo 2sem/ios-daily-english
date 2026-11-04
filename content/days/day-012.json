@@ -1,0 +1,240 @@
+{
+  "day": 12,
+  "phase": "1. Swift basics",
+  "theme": "3 terms on properties: how a type keeps and works out values",
+  "terms": [
+    {
+      "term": "Stored Property",
+      "definition": "A variable or constant inside a type that keeps its own value.",
+      "example": "Make `name` a stored property, so each user keeps their own name.",
+      "code": "struct User {\n    var name = \"Mina\"\n}\nlet u = User()\nprint(u.name)",
+      "output": "Mina"
+    },
+    {
+      "term": "Computed Property",
+      "definition": "A property that does not keep a value and works out its result each time you read it.",
+      "example": "Make `total` a computed property, so it always matches the price and quantity.",
+      "code": "struct Cart {\n    var price = 10\n    var qty = 3\n    var total: Int { price * qty }\n}\nvar c = Cart()\nc.qty = 4\nprint(c.total)",
+      "output": "40"
+    },
+    {
+      "term": "Property Observer",
+      "definition": "Code that runs right before or after a property changes its value.",
+      "example": "Add a property observer, so the label updates when the score changes.",
+      "code": "struct Score {\n    var points = 0 {\n        didSet { print(\"Now \\(points)\") }\n    }\n}\nvar s = Score()\ns.points = 5",
+      "output": "Now 5"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "In this code, what is `didSet` called, because it runs right after `level` changes?",
+      "options": [
+        "Property Observer",
+        "Stored Property",
+        "Computed Property"
+      ],
+      "answer": "a",
+      "code": "struct Player {\n    var level = 1 {\n        didSet { print(\"Level up\") }\n    }\n}"
+    },
+    {
+      "question": "In this code, what is `name` called, because it keeps its own value?",
+      "options": [
+        "Computed Property",
+        "Property Observer",
+        "Stored Property"
+      ],
+      "answer": "c",
+      "code": "struct Profile {\n    var name = \"Jake\"\n}"
+    },
+    {
+      "question": "In this code, what is `total` called, because it works out its result each time you read it?",
+      "options": [
+        "Stored Property",
+        "Computed Property",
+        "Property Observer"
+      ],
+      "answer": "b",
+      "code": "struct Cart {\n    var qty = 1\n    var total: Int { qty * 10 }\n}"
+    }
+  ],
+  "video": {
+    "title": "Stored, Computed & Property Observer | iOS Daily English Day 12",
+    "description": "Learn to talk about Swift properties: Stored Property, Computed Property and Property Observer, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nStored Property - A variable or constant inside a type that keeps its own value.\nComputed Property - A property that does not keep a value and works out its result each time you read it.\nProperty Observer - Code that runs right before or after a property changes its value.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 12 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish #SwiftUI",
+    "tags": [
+      "stored property",
+      "computed property",
+      "property observer",
+      "swift properties",
+      "swift for beginners",
+      "swift basics",
+      "ios development",
+      "ios developer english",
+      "english for developers",
+      "learn english",
+      "iOS Daily English"
+    ],
+    "landscape": {
+      "title": "Swift Stored, Computed & Property Observer in English | Chat | Day 12",
+      "description": "Explain Stored Property, Computed Property and Property Observer in Swift by listening to a real code chat between two iOS devs.\n저장 프로퍼티, 계산 프로퍼티, 프로퍼티 옵저버 표현을 영어 대화로 익혀요.\n\nStored Property - A variable or constant inside a type that keeps its own value.\n한국어: 값을 직접 저장하는 타입 안의 변수 또는 상수\n\nComputed Property - A property that does not keep a value and works out its result each time you read it.\n한국어: 값을 저장하지 않고 읽을 때마다 결과를 계산하는 프로퍼티\n\nProperty Observer - Code that runs right before or after a property changes its value.\n한국어: 프로퍼티 값이 바뀌기 직전이나 직후에 실행되는 코드\n\nIn this video, Mina and Jake build a shopping cart total and react when the quantity changes, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 12 of the iOS Daily English series.\n\n#Swift #iOSDeveloper #EnglishForDevelopers",
+      "tags": [
+        "Stored Property",
+        "Computed Property",
+        "Property Observer",
+        "swift properties",
+        "스위프트 프로퍼티",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "ios development",
+        "iOS Daily English"
+      ],
+      "youtubeId": "nz2FZqIF1aQ",
+      "youtubeUrl": "https://youtu.be/nz2FZqIF1aQ",
+      "privacy": "private",
+      "publishAt": "2026-11-04T23:00:00.000Z",
+      "uploaded": "2026-11-03T23:21:10.308Z",
+      "thumbnailSet": "2026-11-03T23:21:14.483Z",
+      "playlistAdded": "2026-11-03T23:21:16.244Z"
+    },
+    "voices": {
+      "narrator": "en-US-GuyNeural",
+      "example": "en-US-JennyNeural",
+      "exampleSlow": "en-US-GuyNeural",
+      "pattern": "male -> female",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "The cart total",
+    "setting": "Morning stand-up and code chat",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "B",
+        "text": "I made `qty` a stored property in my `Cart` type.",
+        "terms": [
+          "Stored Property"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Good. A stored property keeps its own value.",
+        "terms": [
+          "Stored Property"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Now I need `total`. Should I save it too?",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "No, make it a computed property. It works out `qty * 10` each time.",
+        "terms": [
+          "Computed Property"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "So a computed property never gets out of date?",
+        "terms": [
+          "Computed Property"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Right. Change `qty`, and `total` is always correct.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "I also want a message when `qty` changes.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "Add a property observer. Use `didSet` after the value changes.",
+        "terms": [
+          "Property Observer"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "I wrote `willSet` first, but it runs before the change.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "Yes, use `didSet`. A property observer can run before or after.",
+        "terms": [
+          "Property Observer"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Great. Stored, computed, and observer, all in one type.",
+        "terms": [
+          "Stored Property",
+          "Computed Property",
+          "Property Observer"
+        ]
+      }
+    ],
+    "code": "struct Cart {\n    var qty = 1 {\n        didSet { print(\"Qty \\(qty)\") }\n    }\n    var total: Int { qty * 10 }\n}",
+    "codeFile": "Cart.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "Stored Property",
+      "lines": [
+        {
+          "text": "Make `name` a stored property, so each user keeps theirs."
+        }
+      ],
+      "title": "Make `name` a stored property, so each user keeps theirs. Stored Property #Shorts",
+      "description": "Make `name` a stored property, so each user keeps theirs.\n\nStored Property - A variable or constant inside a type that keeps its own value.\n한국어: 값을 직접 저장하는 타입 안의 변수 또는 상수\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "Computed Property",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Do we save the total?"
+        },
+        {
+          "speaker": "B",
+          "text": "No, make it a computed property."
+        }
+      ],
+      "title": "Do we save the total? No, make it a computed property. Computed Property #Shorts",
+      "description": "Do we save the total? / No, make it a computed property.\n\nComputed Property - A property that does not keep a value and works out its result each time you read it.\n한국어: 값을 저장하지 않고 읽을 때마다 결과를 계산하는 프로퍼티\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Property Observer",
+      "lines": [
+        {
+          "text": "Add a property observer, so the label updates on change."
+        }
+      ],
+      "title": "Add a property observer, so the label updates on change. Property Observer #Shorts",
+      "description": "Add a property observer, so the label updates on change.\n\nProperty Observer - Code that runs right before or after a property changes its value.\n한국어: 프로퍼티 값이 바뀌기 직전이나 직후에 실행되는 코드\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "Does it store or compute?"
+}
