@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 13
+
+Initializer
+- A special method that sets up a new value of a type before you use it.
+- Example: "Write an initializer, so every new user starts with a name."
+
+Memberwise Initializer
+- An initializer that Swift gives a struct for free, with one parameter for each property.
+- Example: "Use the memberwise initializer, so you do not write `init` by hand."
+
+Failable Initializer
+- An initializer that can return `nil` when it cannot create a valid value.
+- Example: "Make it a failable initializer, so a bad number returns `nil`."
+
+
+Quiz ①
+In this code, what is `init?` called, because it can return `nil`?
+a) Initializer
+b) Failable Initializer
+c) Memberwise Initializer
+
+Quiz ②
+In this code, what is `init` called, because it sets up a new `Task`?
+a) Memberwise Initializer
+b) Failable Initializer
+c) Initializer
+
+Quiz ③
+In this code, what does Swift give `Pet` for free, so `Pet(name: "Momo")` works?
+a) Memberwise Initializer
+b) Initializer
+c) Failable Initializer

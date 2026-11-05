@@ -1,0 +1,221 @@
+{
+  "day": 13,
+  "phase": "1. Swift basics",
+  "theme": "3 terms on initializers: how a type sets up a new value",
+  "terms": [
+    {
+      "term": "Initializer",
+      "definition": "A special method that sets up a new value of a type before you use it.",
+      "example": "Write an initializer, so every new user starts with a name.",
+      "code": "struct User {\n    var name: String\n    init(name: String) { self.name = name }\n}\nlet u = User(name: \"Mina\")\nprint(u.name)",
+      "output": "Mina"
+    },
+    {
+      "term": "Memberwise Initializer",
+      "definition": "An initializer that Swift gives a struct for free, with one parameter for each property.",
+      "example": "Use the memberwise initializer, so you do not write `init` by hand.",
+      "code": "struct Point {\n    var x: Int\n    var y: Int\n}\nlet p = Point(x: 2, y: 5)\nprint(p.x, p.y)",
+      "output": "2 5"
+    },
+    {
+      "term": "Failable Initializer",
+      "definition": "An initializer that can return `nil` when it cannot create a valid value.",
+      "example": "Make it a failable initializer, so a bad number returns `nil`.",
+      "code": "struct Age {\n    var value: Int\n    init?(_ n: Int) {\n        if n < 0 { return nil }; value = n }\n}\nprint(Age(-1) as Any)",
+      "output": "nil"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "In this code, what is `init?` called, because it can return `nil`?",
+      "options": [
+        "Initializer",
+        "Failable Initializer",
+        "Memberwise Initializer"
+      ],
+      "answer": "b",
+      "code": "struct Room {\n    var size: Int\n    init?(size: Int) {\n        if size < 0 { return nil }\n        self.size = size\n    }\n}"
+    },
+    {
+      "question": "In this code, what is `init` called, because it sets up a new `Task`?",
+      "options": [
+        "Memberwise Initializer",
+        "Failable Initializer",
+        "Initializer"
+      ],
+      "answer": "c",
+      "code": "struct Task {\n    var title: String\n    init(title: String) {\n        self.title = title\n    }\n}"
+    },
+    {
+      "question": "In this code, what does Swift give `Pet` for free, so `Pet(name: \"Momo\")` works?",
+      "options": [
+        "Memberwise Initializer",
+        "Initializer",
+        "Failable Initializer"
+      ],
+      "answer": "a",
+      "code": "struct Pet {\n    var name: String\n}\nlet pet = Pet(name: \"Momo\")"
+    }
+  ],
+  "video": {
+    "title": "Initializer, Memberwise & Failable Initializer | iOS Daily English Day 13",
+    "description": "Learn to talk about Swift initializers: Initializer, Memberwise Initializer and Failable Initializer, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nInitializer - A special method that sets up a new value of a type before you use it.\nMemberwise Initializer - An initializer that Swift gives a struct for free, with one parameter for each property.\nFailable Initializer - An initializer that can return `nil` when it cannot create a valid value.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 13 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish #SwiftUI",
+    "tags": [
+      "initializer",
+      "memberwise initializer",
+      "failable initializer",
+      "swift init",
+      "swift for beginners",
+      "swift basics",
+      "ios development",
+      "ios developer english",
+      "english for developers",
+      "learn english",
+      "iOS Daily English"
+    ],
+    "landscape": {
+      "title": "Swift Initializer, Memberwise & Failable Initializer in English | Chat | Day 13",
+      "description": "Explain Initializer, Memberwise Initializer and Failable Initializer in Swift by listening to a real code chat between two iOS devs.\n이니셜라이저, 멤버와이즈 이니셜라이저, 실패 가능한 이니셜라이저 표현을 영어 대화로 익혀요.\n\nInitializer - A special method that sets up a new value of a type before you use it.\n한국어: 타입의 새 값을 사용하기 전에 설정하는 특별한 메서드\n\nMemberwise Initializer - An initializer that Swift gives a struct for free, with one parameter for each property.\n한국어: Swift가 구조체에 자동으로 만들어 주는, 프로퍼티별 파라미터를 가진 이니셜라이저\n\nFailable Initializer - An initializer that can return `nil` when it cannot create a valid value.\n한국어: 유효한 값을 만들 수 없을 때 nil을 반환할 수 있는 이니셜라이저\n\nIn this video, Mina and Jake add an initializer to an `Age` type and handle bad input, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 13 of the iOS Daily English series.\n\n#Swift #iOSDeveloper #EnglishForDevelopers",
+      "tags": [
+        "Initializer",
+        "Memberwise Initializer",
+        "Failable Initializer",
+        "swift init",
+        "스위프트 이니셜라이저",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "ios development",
+        "iOS Daily English"
+      ],
+      "youtubeId": "XWjuXLPTDT0",
+      "youtubeUrl": "https://youtu.be/XWjuXLPTDT0",
+      "privacy": "private",
+      "publishAt": "2026-11-05T23:00:00.000Z",
+      "uploaded": "2026-11-04T23:13:39.057Z",
+      "thumbnailSet": "2026-11-04T23:13:48.454Z",
+      "playlistAdded": "2026-11-04T23:13:50.199Z"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "The Age check",
+    "setting": "Morning stand-up and code chat",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "B",
+        "text": "I added an initializer to `Age`, so it checks the number.",
+        "terms": [
+          "Initializer"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Good. An initializer sets up a new value before you use it.",
+        "terms": [
+          "Initializer"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "But now `Age(value: 5)` fails. I used the memberwise initializer before.",
+        "terms": [
+          "Memberwise Initializer"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Right. Swift gives a struct a memberwise initializer for free, but your own `init` removes it.",
+        "terms": [
+          "Memberwise Initializer"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "OK. What if the number is below zero?",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "Make it a failable initializer. Write `init?` and return `nil`.",
+        "terms": [
+          "Failable Initializer"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "So a failable initializer can give me `nil` instead of an `Age`?",
+        "terms": [
+          "Failable Initializer"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Exactly. Check for `nil` before you use it.",
+        "terms": []
+      }
+    ],
+    "code": "struct Age {\n    var value: Int\n    init?(_ v: Int) {\n        if v < 0 { return nil }\n        value = v }\n}",
+    "codeFile": "Age.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "Initializer",
+      "lines": [
+        {
+          "text": "Write an initializer, so every new user starts with a name."
+        }
+      ],
+      "title": "Write an initializer, so every new user starts with a name. Initializer #Shorts",
+      "description": "Write an initializer, so every new user starts with a name.\n\nInitializer - A special method that sets up a new value of a type before you use it.\n한국어: 타입의 새 값을 사용하기 전에 설정하는 특별한 메서드\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "Memberwise Initializer",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Did you write `init` for this struct?"
+        },
+        {
+          "speaker": "B",
+          "text": "No, I use the memberwise initializer."
+        }
+      ],
+      "title": "Did you write `init` for this struct? No, I use the memberwise initializer. Memberwise Initializer #Shorts",
+      "description": "Did you write `init` for this struct? / No, I use the memberwise initializer.\n\nMemberwise Initializer - An initializer that Swift gives a struct for free, with one parameter for each property.\n한국어: Swift가 구조체에 자동으로 만들어 주는, 프로퍼티별 파라미터를 가진 이니셜라이저\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Failable Initializer",
+      "lines": [
+        {
+          "text": "Make it a failable initializer, so bad input returns `nil`."
+        }
+      ],
+      "title": "Make it a failable initializer, so bad input returns `nil`. Failable Initializer #Shorts",
+      "description": "Make it a failable initializer, so bad input returns `nil`.\n\nFailable Initializer - An initializer that can return `nil` when it cannot create a valid value.\n한국어: 유효한 값을 만들 수 없을 때 nil을 반환할 수 있는 이니셜라이저\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "Who sets up your struct?"
+}

@@ -143,6 +143,18 @@
     "propertyobserver": {
       "term": "Property Observer",
       "day": 12
+    },
+    "initializer": {
+      "term": "Initializer",
+      "day": 13
+    },
+    "memberwiseinitializer": {
+      "term": "Memberwise Initializer",
+      "day": 13
+    },
+    "failableinitializer": {
+      "term": "Failable Initializer",
+      "day": 13
     }
   }
 }

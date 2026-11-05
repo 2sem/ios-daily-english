@@ -278,7 +278,7 @@
             tl.to(`${row} .st1`, { autoAlpha: 0, duration: 0.2 }, t0 + (items[k + 1] ? items[k + 1].typeAt + 0.3 : it.at + it.dur + 0.8));
           }
           if (DATA.lines[it.i].terms.length && document.querySelector(scene + " .chip")) {
-            tl.to(`${scene} .chip`, { opacity: 0.3, duration: 0.2 }, at);
+            tl.to(`${scene} .chip`, { opacity: 0.6, duration: 0.2 }, at);
             DATA.lines[it.i].terms.forEach((c) => tl.to(`${scene} .chip.c${c}`, { opacity: 1, duration: 0.2 }, at));
           }
         });
