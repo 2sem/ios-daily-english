@@ -1,0 +1,238 @@
+{
+  "day": 14,
+  "phase": "1. Swift basics",
+  "theme": "3 terms on methods: functions that belong to a type",
+  "terms": [
+    {
+      "term": "Method",
+      "definition": "A function that lives inside a type and works with that type's data.",
+      "example": "Add a method to `Counter`, so it can show its own count.",
+      "code": "struct Counter {\n    var count = 0\n    func show() { print(\"Count:\", count) }\n}\nlet c = Counter()\nc.show()",
+      "output": "Count: 0"
+    },
+    {
+      "term": "Mutating Method",
+      "definition": "A method on a struct that is allowed to change the struct's own properties.",
+      "example": "Mark it as a mutating method, so `add` can change `count`.",
+      "code": "struct Counter {\n    var count = 0\n    mutating func add() { count += 1 }\n}\nvar c = Counter()\nc.add()\nprint(c.count)",
+      "output": "1"
+    },
+    {
+      "term": "Type Method",
+      "definition": "A method that you call on the type itself, not on one value of it.",
+      "example": "Make it a type method, so you call `Math.double(4)` without a value.",
+      "code": "struct Math {\n    static func double(_ n: Int) -> Int { n * 2 }\n}\nprint(Math.double(4))",
+      "output": "8"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "In this code, what is `roll` called, because you call it on `Dice` itself?",
+      "options": [
+        "Mutating Method",
+        "Type Method",
+        "Method"
+      ],
+      "answer": "b",
+      "code": "struct Dice {\n    static func roll() -> Int { 4 }\n}\nlet n = Dice.roll()"
+    },
+    {
+      "question": "In this code, what is `drink` called, because it is a function inside `Cup`?",
+      "options": [
+        "Method",
+        "Type Method",
+        "Mutating Method"
+      ],
+      "answer": "a",
+      "code": "struct Cup {\n    var water = 3\n    func drink() -> Int { water - 1 }\n}\nlet cup = Cup()\nlet left = cup.drink()"
+    },
+    {
+      "question": "What is a struct method called when it changes the struct's own properties?",
+      "options": [
+        "Type Method",
+        "Method",
+        "Mutating Method"
+      ],
+      "answer": "c"
+    }
+  ],
+  "video": {
+    "title": "Method, Mutating Method & Type Method | iOS Daily English Day 14",
+    "description": "Learn to talk about Swift methods: Method, Mutating Method and Type Method, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nMethod - A function that lives inside a type and works with that type's data.\nMutating Method - A method on a struct that is allowed to change the struct's own properties.\nType Method - A method that you call on the type itself, not on one value of it.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 14 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish #SwiftUI",
+    "tags": [
+      "method",
+      "mutating method",
+      "type method",
+      "swift methods",
+      "swift for beginners",
+      "swift basics",
+      "ios development",
+      "ios developer english",
+      "english for developers",
+      "learn english",
+      "iOS Daily English"
+    ],
+    "landscape": {
+      "title": "Swift Method, Mutating Method & Type Method in English | Chat | Day 14",
+      "description": "Explain Method, Mutating Method and Type Method in Swift by listening to a real code chat between two iOS devs.\n메서드, 뮤테이팅 메서드, 타입 메서드 표현을 영어 대화로 익혀요.\n\nMethod - A function that lives inside a type and works with that type's data.\n한국어: 스위프트 타입 안에 있는 함수로, 그 타입의 데이터를 사용하는 메서드\n\nMutating Method - A method on a struct that is allowed to change the struct's own properties.\n한국어: 구조체 자신의 프로퍼티를 바꿀 수 있는 메서드\n\nType Method - A method that you call on the type itself, not on one value of it.\n한국어: 값이 아니라 타입 자체에서 호출하는 메서드\n\nIn this video, Mina and Jake add methods to a `Score` type and learn which one changes a value, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 14 of the iOS Daily English series.\n\n#Swift #iOSDeveloper #EnglishForDevelopers",
+      "tags": [
+        "Method",
+        "Mutating Method",
+        "Type Method",
+        "swift methods",
+        "스위프트 메서드",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "ios development",
+        "iOS Daily English"
+      ],
+      "youtubeId": "4n_2cMCKn6o",
+      "youtubeUrl": "https://youtu.be/4n_2cMCKn6o",
+      "privacy": "private",
+      "publishAt": "2026-11-06T23:00:00.000Z",
+      "uploaded": "2026-11-05T22:55:39.214Z",
+      "thumbnailSet": "2026-11-05T22:55:44.352Z",
+      "playlistAdded": "2026-11-05T22:55:46.141Z"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "The Score methods",
+    "setting": "Morning stand-up and code chat",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "B",
+        "text": "I added a method to `Score`, so it can show the points.",
+        "terms": [
+          "Method"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Nice. A method is just a function inside a type.",
+        "terms": [
+          "Method"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Now I want `add` to change `points`, but Swift shows an error.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "Make it a mutating method. A struct needs `mutating` to change itself.",
+        "terms": [
+          "Mutating Method"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Oh, I forgot. So a mutating method can change `points`?",
+        "terms": [
+          "Mutating Method"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Yes, but only on a `var`, not on a `let`.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Fine. Now I need the best score for every player.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "Then use a type method. You call `Score.best()` on the type.",
+        "terms": [
+          "Type Method"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "But I can call `add` on a value, right? Why not `best` too?",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "No. A type method belongs to the type, not to one value.",
+        "terms": [
+          "Type Method"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Got it. A method is for a value, a type method is for the type.",
+        "terms": [
+          "Method",
+          "Type Method"
+        ]
+      }
+    ],
+    "code": "struct Score {\n    var points = 0\n    func show() { print(points) }\n    mutating func add() { points += 1 }\n    static func best() -> Int { 100 }\n}",
+    "codeFile": "Score.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "Method",
+      "lines": [
+        {
+          "text": "Add a method to `Counter`, so it can show its own count."
+        }
+      ],
+      "title": "Add a method to `Counter`, so it can show its own count. Method #Shorts",
+      "description": "Add a method to `Counter`, so it can show its own count.\n\nMethod - A function that lives inside a type and works with that type's data.\n한국어: 스위프트 타입 안에 있는 함수로, 그 타입의 데이터를 사용하는 메서드\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "Mutating Method",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Why does `add` fail on my struct?"
+        },
+        {
+          "speaker": "B",
+          "text": "Make it a mutating method."
+        }
+      ],
+      "title": "Why does `add` fail on my struct? Make it a mutating method. Mutating Method #Shorts",
+      "description": "Why does `add` fail on my struct? / Make it a mutating method.\n\nMutating Method - A method on a struct that is allowed to change the struct's own properties.\n한국어: 구조체 자신의 프로퍼티를 바꿀 수 있는 메서드\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Type Method",
+      "lines": [
+        {
+          "text": "Make it a type method, so you call `Math.double(4)` without a value."
+        }
+      ],
+      "title": "Make it a type method, so you call `Math.double(4)` without a value. Type Method #Shorts",
+      "description": "Make it a type method, so you call `Math.double(4)` without a value.\n\nType Method - A method that you call on the type itself, not on one value of it.\n한국어: 값이 아니라 타입 자체에서 호출하는 메서드\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "Who owns this function?"
+}

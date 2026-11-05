@@ -155,6 +155,18 @@
     "failableinitializer": {
       "term": "Failable Initializer",
       "day": 13
+    },
+    "method": {
+      "term": "Method",
+      "day": 14
+    },
+    "mutatingmethod": {
+      "term": "Mutating Method",
+      "day": 14
+    },
+    "typemethod": {
+      "term": "Type Method",
+      "day": 14
     }
   }
 }
