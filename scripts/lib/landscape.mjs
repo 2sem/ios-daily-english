@@ -186,7 +186,7 @@ export function clipDurations(dir) {
 }
 
 // plain-text Swift highlighter for the code panel (same classes as the vertical template)
-const KW = new Set("func let var struct class enum protocol extension import return if else guard switch case default for in while do catch try throw throws rethrows async await self nil true false init private public static some any where as is defer".split(" "));
+const KW = new Set("func let var struct class enum protocol extension import return if else guard switch case default for in while do catch try throw throws rethrows async await self nil true false init private public static some any where as is defer mutating nonmutating final override lazy weak unowned subscript deinit get set willSet didSet fileprivate internal open convenience required typealias inout".split(" "));
 // String literal: text stays string-coloured, but the expression inside \( ... ) is highlighted as code
 function highlightString(s) {
   let out = "", from = 0;

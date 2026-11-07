@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 14
+
+Method
+- A function that lives inside a type and works with that type's data.
+- Example: "Add a method to `Counter`, so it can show its own count."
+
+Mutating Method
+- A method on a struct that is allowed to change the struct's own properties.
+- Example: "Mark it as a mutating method, so `add` can change `count`."
+
+Type Method
+- A method that you call on the type itself, not on one value of it.
+- Example: "Make it a type method, so you call `Math.double(4)` without a value."
+
+
+Quiz ①
+In this code, what is `roll` called, because you call it on `Dice` itself?
+a) Mutating Method
+b) Type Method
+c) Method
+
+Quiz ②
+In this code, what is `drink` called, because it is a function inside `Cup`?
+a) Method
+b) Type Method
+c) Mutating Method
+
+Quiz ③
+What is a struct method called when it changes the struct's own properties?
+a) Type Method
+b) Method
+c) Mutating Method
