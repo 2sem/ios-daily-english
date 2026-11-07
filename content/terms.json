@@ -167,6 +167,18 @@
     "typemethod": {
       "term": "Type Method",
       "day": 14
+    },
+    "typeproperty": {
+      "term": "Type Property",
+      "day": 15
+    },
+    "subscript": {
+      "term": "Subscript",
+      "day": 15
+    },
+    "deinitializer": {
+      "term": "Deinitializer",
+      "day": 15
     }
   }
 }

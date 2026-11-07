@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 15
+
+Type Property
+- A property that belongs to the type itself, so every value of that type shares it.
+- Example: "Make it a type property, so every `Game` shares one `maxPlayers`."
+
+Subscript
+- A shortcut that lets you read an item from a type with square brackets.
+- Example: "Add a subscript to `Team`, so you can write `team[1]`."
+
+Deinitializer
+- A block of code in a class that runs just before the object is removed from memory.
+- Example: "Put the cleanup in a deinitializer, so it runs when `Session` goes away."
+
+
+Quiz ①
+In this code, what is `limit` called, because it belongs to `Menu` itself?
+a) Subscript
+b) Deinitializer
+c) Type Property
+
+Quiz ②
+In this code, what is the block called that runs when `t` is set to `nil` and the object goes away?
+a) Type Property
+b) Deinitializer
+c) Subscript
+
+Quiz ③
+In this code, what is it called when you write `shelf[0]` to read the first book?
+a) Deinitializer
+b) Type Property
+c) Subscript
