@@ -1,0 +1,237 @@
+{
+  "day": 17,
+  "phase": "1. Swift basics",
+  "theme": "3 terms on class initializers: main, shortcut and must-have",
+  "terms": [
+    {
+      "term": "Designated Initializer",
+      "definition": "An initializer that sets every property of a class and is the main way to create it.",
+      "example": "Write a designated initializer, so `Chat` sets every property.",
+      "code": "class Chat {\n    var title: String\n    init(title: String) { self.title = title }\n}\nprint(Chat(title: \"Team\").title)",
+      "output": "Team"
+    },
+    {
+      "term": "Convenience Initializer",
+      "definition": "An initializer that is a shortcut and calls another initializer of the same class.",
+      "example": "Add a convenience initializer, so `Chat()` works with no arguments.",
+      "code": "class Chat {\n    var title: String\n    init(title: String) { self.title = title }\n    convenience init() { self.init(title: \"New\") }\n}\nprint(Chat().title)",
+      "output": "New"
+    },
+    {
+      "term": "Required Initializer",
+      "definition": "An initializer marked with a keyword that every subclass must also write.",
+      "example": "Mark it as a required initializer, so every subclass must write it.",
+      "code": "class Chat {\n    required init() {}\n}\nclass Group: Chat {\n    required init() { super.init(); print(\"Group\") }\n}\n_ = Group()",
+      "output": "Group"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "In this code, what is it called when `init()` is a shortcut that calls `init(title:)`?",
+      "options": [
+        "Designated Initializer",
+        "Required Initializer",
+        "Convenience Initializer"
+      ],
+      "answer": "c",
+      "code": "class Chat {\n    var title: String\n    init(title: String) { self.title = title }\n    ___ init() { self.init(title: \"New\") }\n}"
+    },
+    {
+      "question": "In this code, what is it called when every subclass of `Chat` must write `init()`?",
+      "options": [
+        "Required Initializer",
+        "Convenience Initializer",
+        "Designated Initializer"
+      ],
+      "answer": "a",
+      "code": "class Chat {\n    ___ init() {}\n}\nclass Group: Chat {}"
+    },
+    {
+      "question": "In this code, what is it called when `init(title:)` sets every property of `Chat`?",
+      "options": [
+        "Convenience Initializer",
+        "Designated Initializer",
+        "Required Initializer"
+      ],
+      "answer": "b",
+      "code": "class Chat {\n    var title: String\n    init(title: String) { self.title = title }\n}"
+    }
+  ],
+  "video": {
+    "title": "Designated Initializer, Convenience Initializer & Required Initializer | iOS Daily English Day 17",
+    "description": "Learn to talk about Swift class initializers: Designated Initializer, Convenience Initializer & Required Initializer, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nDesignated Initializer - An initializer that sets every property of a class and is the main way to create it.\nConvenience Initializer - An initializer that is a shortcut and calls another initializer of the same class.\nRequired Initializer - An initializer marked with a keyword that every subclass must also write.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 17 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish #SwiftUI",
+    "tags": [
+      "designated initializer",
+      "convenience initializer",
+      "required initializer",
+      "swift initializers",
+      "swift init",
+      "swift for beginners",
+      "swift basics",
+      "ios development",
+      "ios developer english",
+      "english for developers",
+      "learn english",
+      "iOS Daily English"
+    ],
+    "landscape": {
+      "title": "Swift Designated, Convenience & Required Initializers in English | Chat | Day 17",
+      "description": "Explain Designated Initializer, Convenience Initializer & Required Initializer in Swift by listening to a real code chat between two iOS devs.\n지정, 편의, 필수 초기화 메서드 표현을 영어 대화로 익혀요.\n\nDesignated Initializer - An initializer that sets every property of a class and is the main way to create it.\n한국어: 지정 초기화: 클래스의 모든 프로퍼티를 설정하는 기본 초기화 메서드\n\nConvenience Initializer - An initializer that is a shortcut and calls another initializer of the same class.\n한국어: 편의 초기화: 같은 클래스의 다른 초기화 메서드를 호출하는 지름길 초기화 메서드\n\nRequired Initializer - An initializer marked with a keyword that every subclass must also write.\n한국어: 필수 초기화: 모든 서브클래스가 반드시 구현해야 하는 초기화 메서드\n\nIn this video, Mina and Jake design the initializers of a `Chat` class and learn what each word does, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 17 of the iOS Daily English series.\n\n#Swift #iOSDeveloper #EnglishForDevelopers",
+      "tags": [
+        "Designated Initializer",
+        "Convenience Initializer",
+        "Required Initializer",
+        "swift initializers",
+        "스위프트 초기화",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "ios development",
+        "iOS Daily English"
+      ],
+      "youtubeId": "Vdu95RL7amU",
+      "youtubeUrl": "https://youtu.be/Vdu95RL7amU",
+      "privacy": "private",
+      "publishAt": "2026-11-09T23:00:00.000Z",
+      "uploaded": "2026-11-08T22:37:02.263Z",
+      "thumbnailSet": "2026-11-08T22:37:06.939Z",
+      "playlistAdded": "2026-11-08T22:37:08.884Z"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "The Chat initializers",
+    "setting": "Morning stand-up and code chat",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "B",
+        "text": "I need a `Chat` that starts with a title.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "Write a designated initializer. It sets every property of `Chat`.",
+        "terms": [
+          "Designated Initializer"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "So the designated initializer is `init(title:)`, right?",
+        "terms": [
+          "Designated Initializer"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Yes. Every other initializer must end up calling it.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Most chats start with the title \"New\". I hate typing it every time.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "Then add a convenience initializer. It calls `init(title:)` with \"New\".",
+        "terms": [
+          "Convenience Initializer"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Oh, so a convenience initializer is just a shortcut?",
+        "terms": [
+          "Convenience Initializer"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Right. Now `Chat()` works with no arguments.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Next week I will make a `GroupChat` subclass.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "Then mark `init(title:)` as a required initializer, so every subclass must write it.",
+        "terms": [
+          "Required Initializer"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Good. A required initializer keeps `GroupChat` safe.",
+        "terms": [
+          "Required Initializer"
+        ]
+      }
+    ],
+    "code": "class Chat {\n    var title: String\n    required init(title: String) { self.title = title }\n    convenience init() { self.init(title: \"New\") }\n}",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "Designated Initializer",
+      "lines": [
+        {
+          "text": "Write a designated initializer, so `Chat` sets every property."
+        }
+      ],
+      "title": "Write a designated initializer, so `Chat` sets every property. Designated Initializer #Shorts",
+      "description": "Write a designated initializer, so `Chat` sets every property.\n\nDesignated Initializer - An initializer that sets every property of a class and is the main way to create it.\n한국어: 지정 초기화: 클래스의 모든 프로퍼티를 설정하는 기본 초기화 메서드\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "Convenience Initializer",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Can `Chat()` skip the title?"
+        },
+        {
+          "speaker": "B",
+          "text": "Yes, add a convenience initializer."
+        }
+      ],
+      "title": "Can `Chat()` skip the title? Yes, add a convenience initializer. Convenience Initializer #Shorts",
+      "description": "Can `Chat()` skip the title? / Yes, add a convenience initializer.\n\nConvenience Initializer - An initializer that is a shortcut and calls another initializer of the same class.\n한국어: 편의 초기화: 같은 클래스의 다른 초기화 메서드를 호출하는 지름길 초기화 메서드\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Required Initializer",
+      "lines": [
+        {
+          "text": "Make it a required initializer, so every subclass writes it."
+        }
+      ],
+      "title": "Make it a required initializer, so every subclass writes it. Required Initializer #Shorts",
+      "description": "Make it a required initializer, so every subclass writes it.\n\nRequired Initializer - An initializer marked with a keyword that every subclass must also write.\n한국어: 필수 초기화: 모든 서브클래스가 반드시 구현해야 하는 초기화 메서드\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "Which init comes first?"
+}

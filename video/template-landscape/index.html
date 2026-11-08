@@ -310,7 +310,7 @@
         tl.to("#replay", { opacity: 0, duration: 0.4 }, R.start + R.dur - 0.4);
       }
 
-      // ---- quiz (the answer is never revealed) ----
+      // ---- quiz (answer marked only when the countdown ends) ----
       const QI = PLAN.quizIntro;
       tl.fromTo("#quiz-intro .kicker", { autoAlpha: 0, y: 20 }, { autoAlpha: 1, y: 0, duration: 0.4, ease: E }, QI.start);
       tl.fromTo("#quiz-intro .qbig", { autoAlpha: 0, y: 40, scale: 0.96 }, { autoAlpha: 1, y: 0, scale: 1, duration: 0.6, ease: E }, QI.start + 0.15);
@@ -337,6 +337,10 @@
         }
         const r = go + N;
         tl.fromTo(q(".clock b.done"), { autoAlpha: 0, scale: 0.6 }, { autoAlpha: 1, scale: 1, duration: 0.3, ease: "back.out(2)" }, r);
+        // reveal: highlight the correct option, dim the others (never before the countdown ends)
+        tl.to(q(".opt:not(.correct)"), { opacity: 0.28, duration: 0.4 }, r);
+        tl.to(q(".opt.correct"), { scale: 1.03, borderColor: "#43d68a", backgroundColor: "rgba(67,214,138,0.18)", duration: 0.4, ease: "back.out(2)" }, r);
+        tl.to(q(".opt.correct .letter"), { backgroundColor: "#43d68a", borderColor: "#43d68a", color: "#0b1020", duration: 0.3 }, r);
         tl.set(q(".tlabel:not(.up)"), { autoAlpha: 0 }, r);
         tl.fromTo(q(".tlabel.up"), { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.25 }, r);
         tl.to(id, { opacity: 0, duration: 0.35 }, t0 + Q.dur - 0.4);

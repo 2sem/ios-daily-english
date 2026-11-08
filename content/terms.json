@@ -191,6 +191,18 @@
     "final": {
       "term": "Final",
       "day": 16
+    },
+    "designatedinitializer": {
+      "term": "Designated Initializer",
+      "day": 17
+    },
+    "convenienceinitializer": {
+      "term": "Convenience Initializer",
+      "day": 17
+    },
+    "requiredinitializer": {
+      "term": "Required Initializer",
+      "day": 17
     }
   }
 }

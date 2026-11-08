@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 17
+
+Designated Initializer
+- An initializer that sets every property of a class and is the main way to create it.
+- Example: "Write a designated initializer, so `Chat` sets every property."
+
+Convenience Initializer
+- An initializer that is a shortcut and calls another initializer of the same class.
+- Example: "Add a convenience initializer, so `Chat()` works with no arguments."
+
+Required Initializer
+- An initializer marked with a keyword that every subclass must also write.
+- Example: "Mark it as a required initializer, so every subclass must write it."
+
+
+Quiz ①
+In this code, what is it called when `init()` is a shortcut that calls `init(title:)`?
+a) Designated Initializer
+b) Required Initializer
+c) Convenience Initializer
+
+Quiz ②
+In this code, what is it called when every subclass of `Chat` must write `init()`?
+a) Required Initializer
+b) Convenience Initializer
+c) Designated Initializer
+
+Quiz ③
+In this code, what is it called when `init(title:)` sets every property of `Chat`?
+a) Convenience Initializer
+b) Designated Initializer
+c) Required Initializer
