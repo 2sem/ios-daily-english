@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 16
+
+Inheritance
+- A feature that lets a class get the properties and methods of another class.
+- Example: "Use inheritance, so `GroupChat` gets everything from `Chat`."
+
+Override
+- A keyword that lets a subclass replace a method it got from its parent class.
+- Example: "Write the override keyword, so `Taxi` can replace `honk`."
+
+Final
+- A keyword that stops a class or method from being inherited or overridden.
+- Example: "Mark `Token` as final, so nobody can subclass it."
+
+
+Quiz ①
+In this code, which word goes in the blank so nobody can subclass `Token`?
+a) override
+b) inheritance
+c) final
+
+Quiz ②
+In this code, what is it called when `Square` gets everything from `Shape`?
+a) Final
+b) Inheritance
+c) Override
+
+Quiz ③
+In this code, which word goes in the blank so `Taxi` replaces `honk`?
+a) override
+b) final
+c) inheritance

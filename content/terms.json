@@ -179,6 +179,18 @@
     "deinitializer": {
       "term": "Deinitializer",
       "day": 15
+    },
+    "inheritance": {
+      "term": "Inheritance",
+      "day": 16
+    },
+    "override": {
+      "term": "Override",
+      "day": 16
+    },
+    "final": {
+      "term": "Final",
+      "day": 16
     }
   }
 }

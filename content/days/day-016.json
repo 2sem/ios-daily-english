@@ -1,0 +1,237 @@
+{
+  "day": 16,
+  "phase": "1. Swift basics",
+  "theme": "3 terms on class inheritance: reuse, replace and lock",
+  "terms": [
+    {
+      "term": "Inheritance",
+      "definition": "A feature that lets a class get the properties and methods of another class.",
+      "example": "Use inheritance, so `GroupChat` gets everything from `Chat`.",
+      "code": "class Animal {\n    var name = \"Rex\"\n}\nclass Dog: Animal {}\nprint(Dog().name)",
+      "output": "Rex"
+    },
+    {
+      "term": "Override",
+      "definition": "A keyword that lets a subclass replace a method it got from its parent class.",
+      "example": "Write the override keyword, so `Taxi` can replace `honk`.",
+      "code": "class Animal {\n    func sound() -> String { \"...\" }\n}\nclass Dog: Animal {\n    override func sound() -> String { \"Woof\" }\n}\nprint(Dog().sound())",
+      "output": "Woof"
+    },
+    {
+      "term": "Final",
+      "definition": "A keyword that stops a class or method from being inherited or overridden.",
+      "example": "Mark `Token` as final, so nobody can subclass it.",
+      "code": "final class Logger {\n    func log() { print(\"Saved\") }\n}\nLogger().log()",
+      "output": "Saved"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "In this code, which word goes in the blank so nobody can subclass `Token`?",
+      "options": [
+        "override",
+        "inheritance",
+        "final"
+      ],
+      "answer": "c",
+      "code": "___ class Token {\n    var value = \"abc\"\n}\nlet t = Token()"
+    },
+    {
+      "question": "In this code, what is it called when `Square` gets everything from `Shape`?",
+      "options": [
+        "Final",
+        "Inheritance",
+        "Override"
+      ],
+      "answer": "b",
+      "code": "class Shape {}\nclass Square: Shape {}\nlet s = Square()"
+    },
+    {
+      "question": "In this code, which word goes in the blank so `Taxi` replaces `honk`?",
+      "options": [
+        "override",
+        "final",
+        "inheritance"
+      ],
+      "answer": "a",
+      "code": "class Car {\n    func honk() -> String { \"Beep\" }\n}\nclass Taxi: Car {\n    ___ func honk() -> String { \"Honk\" }\n}"
+    }
+  ],
+  "video": {
+    "title": "Inheritance, Override & Final | iOS Daily English Day 16",
+    "description": "Learn to talk about Swift class inheritance: Inheritance, Override and Final, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nInheritance - A feature that lets a class get the properties and methods of another class.\nOverride - A keyword that lets a subclass replace a method it got from its parent class.\nFinal - A keyword that stops a class or method from being inherited or overridden.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 16 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish #SwiftUI",
+    "tags": [
+      "inheritance",
+      "override",
+      "final",
+      "swift inheritance",
+      "swift override",
+      "swift for beginners",
+      "swift basics",
+      "ios development",
+      "ios developer english",
+      "english for developers",
+      "learn english",
+      "iOS Daily English"
+    ],
+    "landscape": {
+      "title": "Swift Inheritance, Override & Final in English | Chat | Day 16",
+      "description": "Explain Inheritance, Override and Final in Swift by listening to a real code chat between two iOS devs.\n상속, 오버라이드, final 표현을 영어 대화로 익혀요.\n\nInheritance - A feature that lets a class get the properties and methods of another class.\n한국어: 타입 간 상속: 다른 클래스의 프로퍼티와 메서드를 물려받는 기능\n\nOverride - A keyword that lets a subclass replace a method it got from its parent class.\n한국어: 부모 클래스에서 받은 메서드를 서브클래스가 바꿔 쓰게 하는 키워드\n\nFinal - A keyword that stops a class or method from being inherited or overridden.\n한국어: 클래스나 메서드가 상속 또는 재정의되지 못하게 막는 키워드\n\nIn this video, Mina and Jake build a `GroupChat` from a `Chat` class and learn what each word does, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 16 of the iOS Daily English series.\n\n#Swift #iOSDeveloper #EnglishForDevelopers",
+      "tags": [
+        "Inheritance",
+        "Override",
+        "Final",
+        "swift inheritance",
+        "스위프트 상속",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "ios development",
+        "iOS Daily English"
+      ],
+      "youtubeId": "EzCNxMqkjiM",
+      "youtubeUrl": "https://youtu.be/EzCNxMqkjiM",
+      "privacy": "private",
+      "publishAt": "2026-11-08T23:00:00.000Z",
+      "uploaded": "2026-11-08T00:57:04.323Z",
+      "thumbnailSet": "2026-11-08T00:57:08.442Z",
+      "playlistAdded": "2026-11-08T00:57:10.186Z"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "The GroupChat class",
+    "setting": "Morning stand-up and code chat",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "B",
+        "text": "I want a `GroupChat` that works like `Chat`, with a new title.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "Use inheritance. `GroupChat` can inherit from `Chat`.",
+        "terms": [
+          "Inheritance"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "So with inheritance, I get all the `Chat` code for free?",
+        "terms": [
+          "Inheritance"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Yes. Now `title` must return \"Group\" for this chat.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "I will just change `title` inside `Chat`.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "No, that breaks every chat. Override it in `GroupChat` instead.",
+        "terms": [
+          "Override"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Oh, so override replaces the method only for the subclass?",
+        "terms": [
+          "Override"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Right. Write the `override` keyword before `func`.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Got it. Maybe someone will inherit from `GroupChat` later.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "Don't allow that. Mark it final, so nobody can subclass it.",
+        "terms": [
+          "Final"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Nice. Final tells the whole team this class ends here.",
+        "terms": [
+          "Final"
+        ]
+      }
+    ],
+    "code": "class Chat {\n    func title() -> String { \"Chat\" }\n}\nfinal class GroupChat: Chat {\n    override func title() -> String { \"Group\" }\n}",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "Inheritance",
+      "lines": [
+        {
+          "text": "Use inheritance, so `GroupChat` gets everything from `Chat`."
+        }
+      ],
+      "title": "Use inheritance, so `GroupChat` gets everything from `Chat`. Inheritance #Shorts",
+      "description": "Use inheritance, so `GroupChat` gets everything from `Chat`.\n\nInheritance - A feature that lets a class get the properties and methods of another class.\n한국어: 타입 간 상속: 다른 클래스의 프로퍼티와 메서드를 물려받는 기능\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "Override",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Can `Taxi` change `honk` from `Car`?"
+        },
+        {
+          "speaker": "B",
+          "text": "Yes, use override."
+        }
+      ],
+      "title": "Can `Taxi` change `honk` from `Car`? Yes, use override. Override #Shorts",
+      "description": "Can `Taxi` change `honk` from `Car`? / Yes, use override.\n\nOverride - A keyword that lets a subclass replace a method it got from its parent class.\n한국어: 부모 클래스에서 받은 메서드를 서브클래스가 바꿔 쓰게 하는 키워드\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Final",
+      "lines": [
+        {
+          "text": "Mark `Token` as final, so nobody can subclass it."
+        }
+      ],
+      "title": "Mark `Token` as final, so nobody can subclass it. Final #Shorts",
+      "description": "Mark `Token` as final, so nobody can subclass it.\n\nFinal - A keyword that stops a class or method from being inherited or overridden.\n한국어: 클래스나 메서드가 상속 또는 재정의되지 못하게 막는 키워드\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "Can you stop a subclass?"
+}
