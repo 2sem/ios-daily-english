@@ -166,8 +166,7 @@ If render prints `Failed to run ffmpeg -version`, just run it again (transient).
 ### Quiz
 - Countdown is 8 seconds per question (`QUIZ_SECONDS`; keep it 7–10s). Each quiz scene lasts `QUIZ_SECONDS + 3`.
 - Labels read "Quiz 1 of 3" (circled ①②③ are not in the bundled fonts).
-- **Never reveal the answer.** At the end the clock shows "?" and the line under the bar reads
-  "Time's up. Got it?". The outro ends with "Not sure? Watch it again." so viewers rewatch.
+- **Mark the answer only when the timer ends** (from Day 17): highlight the correct option, dim the others, the clock shows its letter instead of "?". Never before, never spoken. Earlier days keep the no-reveal version. The outro ends with "Not sure? Watch it again." so viewers rewatch.
 - If no quiz is given, write 3 questions: a different order than the terms, each term correct exactly once,
   options reshuffled, and a question never names its own answer.
 

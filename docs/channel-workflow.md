@@ -121,7 +121,7 @@ Default time is 08:00 KST next day. Nothing is published before the step 6 appro
 ### Video
 - Timing is derived from real clip lengths (`timing.mjs`), never fixed seconds. The example always gets its full reading time.
 - Per term: term spoken, definition spoken (diagram plays), code card + example (read twice), pause.
-- Quiz: question read, options on screen, then an 8 s countdown. The answer is never revealed ("Time's up. Got it?").
+- Quiz: question read, options on screen, then an 8 s countdown. When the timer ends the correct option is marked (highlighted, others dimmed; `quizzes[i].answer`) and the "?" clock turns into the answer letter. The answer is never spoken and never appears before the timer ends. Applies from Day 17; published/uploaded days keep the old no-reveal quiz.
 - Keep the right 250 px and bottom 200 px clear of important text (Shorts UI overlays them).
 - Channel logo (white rounded tile) appears in the intro and the outro only.
 - Code snippets are type-checked with `swiftc -typecheck`; real compiler messages are copied, never guessed. Plain `//` comments, no emoji.
