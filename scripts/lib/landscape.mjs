@@ -128,11 +128,25 @@ export function coldHook(day) {
 const two = (n) => String(n + 1).padStart(2, "0");
 export const dKey = (i) => `d${two(i)}`;
 
+// Spoken form of a text: backticks are dropped, and code spans holding ? or ! get those symbols (and dots) read aloud,
+// because the neural voices skip punctuation (`??` would be silent). Spans without ? or ! are read as written.
+const SYMBOLS = [["??", " double question mark "], ["?", " question mark "], ["!", " exclamation mark "], [".", " dot "]];
+export function spoken(text) {
+  return text
+    .replace(/`([^`]*)`/g, (_, code) => {
+      if (!/[?!]/.test(code)) return code;
+      let out = code.replaceAll('"', "");
+      for (const [sym, word] of SYMBOLS) out = out.replaceAll(sym, word);
+      return out.replace(/\s+/g, " ").trim();
+    })
+    .replaceAll("`", "");
+}
+
 // Every clip of a landscape video and of its hook shorts: key -> { text, voice, rate }
 export function buildClips(day, voices) {
   const R = { narrator: 170, example: 175, slow: 100, dialogue: 180 };
   const clips = {};
-  const add = (key, text, voice, rate) => (clips[key] = { text: text.replaceAll("`", ""), voice, rate });
+  const add = (key, text, voice, rate) => (clips[key] = { text: spoken(text), voice, rate });
   const names = day.terms.map((t) => t.term);
   add("cold-hook", coldHook(day), voices.narrator, R.narrator);
   add("cold-intro", `iOS Daily English. Day ${day.day}.`, voices.narrator, R.narrator);

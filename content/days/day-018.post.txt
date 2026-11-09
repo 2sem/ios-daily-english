@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 18
+
+Optional Chaining
+- A way to read a property or call a method on an optional, and get nil if the optional is nil.
+- Example: "Use optional chaining, so a missing `user` gives nil, not a crash."
+
+Nil-Coalescing Operator
+- The `??` operator, which gives a default value when an optional is nil.
+- Example: "Use the nil-coalescing operator, so a missing nickname becomes "Guest"."
+
+Force Unwrapping
+- Using `!` to take the value out of an optional, which crashes if it is nil.
+- Example: "Avoid force unwrapping here, because `user` can be nil and the app would crash."
+
+
+Quiz ①
+In this code, what is it called when `!` takes the value out and crashes if `nickname` is nil?
+a) Optional Chaining
+b) Force Unwrapping
+c) Nil-Coalescing Operator
+
+Quiz ②
+In this code, what is it called when `??` gives "Guest" if `nickname` is nil?
+a) Nil-Coalescing Operator
+b) Force Unwrapping
+c) Optional Chaining
+
+Quiz ③
+In this code, what is it called when `?.` stops and gives nil if `user` is nil?
+a) Force Unwrapping
+b) Nil-Coalescing Operator
+c) Optional Chaining

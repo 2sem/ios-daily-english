@@ -203,6 +203,18 @@
     "requiredinitializer": {
       "term": "Required Initializer",
       "day": 17
+    },
+    "optionalchaining": {
+      "term": "Optional Chaining",
+      "day": 18
+    },
+    "nilcoalescingoperator": {
+      "term": "Nil-Coalescing Operator",
+      "day": 18
+    },
+    "forceunwrapping": {
+      "term": "Force Unwrapping",
+      "day": 18
     }
   }
 }

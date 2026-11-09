@@ -1,0 +1,239 @@
+{
+  "day": 18,
+  "phase": "1. Swift basics",
+  "theme": "3 terms on handling optionals: safe access, default value and the risky shortcut",
+  "terms": [
+    {
+      "term": "Optional Chaining",
+      "definition": "A way to read a property or call a method on an optional, and get nil if the optional is nil.",
+      "example": "Use optional chaining, so a missing `user` gives nil, not a crash.",
+      "code": "let name: String? = \"Mina\"\nprint(name?.uppercased() as Any)",
+      "output": "Optional(\"MINA\")"
+    },
+    {
+      "term": "Nil-Coalescing Operator",
+      "definition": "The `??` operator, which gives a default value when an optional is nil.",
+      "example": "Use the nil-coalescing operator, so a missing nickname becomes \"Guest\".",
+      "code": "let nickname: String? = nil\nprint(nickname ?? \"Guest\")",
+      "output": "Guest"
+    },
+    {
+      "term": "Force Unwrapping",
+      "definition": "Using `!` to take the value out of an optional, which crashes if it is nil.",
+      "example": "Avoid force unwrapping here, because `user` can be nil and the app would crash.",
+      "code": "let nickname: String? = \"Mina\"\nprint(nickname!)",
+      "output": "Mina"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "In this code, what is it called when `!` takes the value out and crashes if `nickname` is nil?",
+      "options": [
+        "Optional Chaining",
+        "Force Unwrapping",
+        "Nil-Coalescing Operator"
+      ],
+      "answer": "b",
+      "code": "let nickname: String? = nil\nlet name = nickname!"
+    },
+    {
+      "question": "In this code, what is it called when `??` gives \"Guest\" if `nickname` is nil?",
+      "options": [
+        "Nil-Coalescing Operator",
+        "Force Unwrapping",
+        "Optional Chaining"
+      ],
+      "answer": "a",
+      "code": "let nickname: String? = nil\nlet name = nickname ?? \"Guest\""
+    },
+    {
+      "question": "In this code, what is it called when `?.` stops and gives nil if `user` is nil?",
+      "options": [
+        "Force Unwrapping",
+        "Nil-Coalescing Operator",
+        "Optional Chaining"
+      ],
+      "answer": "c",
+      "code": "struct User { var nickname: String? }\nlet user: User? = nil\nlet size = user?.nickname?.count"
+    }
+  ],
+  "video": {
+    "title": "Optional Chaining, Nil-Coalescing Operator & Force Unwrapping | iOS Daily English Day 18",
+    "description": "Learn to talk about Swift optionals beyond binding: Optional Chaining, Nil-Coalescing Operator & Force Unwrapping, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nOptional Chaining - A way to read a property or call a method on an optional, and get nil if the optional is nil.\nNil-Coalescing Operator - The `??` operator, which gives a default value when an optional is nil.\nForce Unwrapping - Using `!` to take the value out of an optional, which crashes if it is nil.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 18 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish #SwiftUI",
+    "tags": [
+      "optional chaining",
+      "nil-coalescing operator",
+      "force unwrapping",
+      "swift optionals",
+      "swift nil",
+      "swift for beginners",
+      "swift basics",
+      "ios development",
+      "ios developer english",
+      "english for developers",
+      "learn english",
+      "iOS Daily English"
+    ],
+    "landscape": {
+      "title": "Swift Optional Chaining, Nil-Coalescing & Force Unwrapping in English | Day 18",
+      "description": "Explain Optional Chaining, Nil-Coalescing Operator & Force Unwrapping in Swift by listening to a real code chat between two iOS devs.\n옵셔널 체이닝, 닐 병합 연산자, 강제 언래핑 표현을 영어 대화로 익혀요.\n\nOptional Chaining - A way to read a property or call a method on an optional, and get nil if the optional is nil.\n한국어: 옵셔널 체이닝: 옵셔널이 nil이면 nil을 돌려주며 안전하게 접근하는 방법\n\nNil-Coalescing Operator - The `??` operator, which gives a default value when an optional is nil.\n한국어: 닐 병합 연산자: 옵셔널이 nil일 때 기본값을 주는 `??` 연산자\n\nForce Unwrapping - Using `!` to take the value out of an optional, which crashes if it is nil.\n한국어: 강제 언래핑: `!`로 옵셔널 값을 꺼내는 방법, nil이면 앱이 크래시\n\nIn this video, Mina and Jake read a nickname from an optional `user` and learn which way is safe, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 18 of the iOS Daily English series.\n\n#Swift #iOSDeveloper #EnglishForDevelopers",
+      "tags": [
+        "Optional Chaining",
+        "Nil-Coalescing Operator",
+        "Force Unwrapping",
+        "swift optionals",
+        "스위프트 옵셔널",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "ios development",
+        "iOS Daily English"
+      ],
+      "youtubeId": "7XGApP37vV0",
+      "youtubeUrl": "https://youtu.be/7XGApP37vV0",
+      "privacy": "private",
+      "publishAt": "2026-11-10T23:00:00.000Z",
+      "uploaded": "2026-11-09T22:55:54.066Z",
+      "thumbnailSet": "2026-11-09T22:55:58.034Z",
+      "playlistAdded": "2026-11-09T22:55:59.804Z"
+    },
+    "voices": {
+      "narrator": "en-US-BrianNeural",
+      "example": "en-US-AriaNeural",
+      "exampleSlow": "en-US-BrianNeural",
+      "pattern": "random (male -> female)",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "The safe nickname",
+    "setting": "Morning stand-up and code chat",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "B",
+        "text": "Mina, `user` can be nil. How do I read the nickname safely?",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "Use optional chaining. Write `user?.nickname?.count`.",
+        "terms": [
+          "Optional Chaining"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "So optional chaining just returns nil if `user` is nil?",
+        "terms": [
+          "Optional Chaining"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Yes. The result is optional too.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "I want \"Guest\" when it is nil.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "Then add the nil-coalescing operator, like `user?.nickname ?? \"Guest\"`.",
+        "terms": [
+          "Nil-Coalescing Operator"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Nice. Can I write `user!.nickname` instead? It is shorter.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "No, that is force unwrapping. It crashes when `user` is nil.",
+        "terms": [
+          "Force Unwrapping"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Oh, so force unwrapping is risky.",
+        "terms": [
+          "Force Unwrapping"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Yes. The nil-coalescing operator is much safer.",
+        "terms": [
+          "Nil-Coalescing Operator"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Got it. I will use optional chaining first.",
+        "terms": [
+          "Optional Chaining"
+        ]
+      }
+    ],
+    "code": "struct User { var nickname: String? }\nlet user: User? = User(nickname: \"Mina\")\nlet size = user?.nickname?.count\nlet name = user?.nickname ?? \"Guest\"\nlet sure = user!.nickname",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "Optional Chaining",
+      "lines": [
+        {
+          "text": "Use optional chaining, so a missing `user` gives nil."
+        }
+      ],
+      "title": "Use optional chaining, so a missing `user` gives nil. Optional Chaining #Shorts",
+      "description": "Use optional chaining, so a missing `user` gives nil.\n\nOptional Chaining - A way to read a property or call a method on an optional, and get nil if the optional is nil.\n한국어: 옵셔널 체이닝: 옵셔널이 nil이면 nil을 돌려주며 안전하게 접근하는 방법\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "Nil-Coalescing Operator",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "What if the nickname is nil?"
+        },
+        {
+          "speaker": "B",
+          "text": "Use the nil-coalescing operator."
+        }
+      ],
+      "title": "What if the nickname is nil? Use the nil-coalescing operator. Nil-Coalescing Operator #Shorts",
+      "description": "What if the nickname is nil? / Use the nil-coalescing operator.\n\nNil-Coalescing Operator - The `??` operator, which gives a default value when an optional is nil.\n한국어: 닐 병합 연산자: 옵셔널이 nil일 때 기본값을 주는 `??` 연산자\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Force Unwrapping",
+      "lines": [
+        {
+          "text": "Avoid force unwrapping, because nil would crash the app."
+        }
+      ],
+      "title": "Avoid force unwrapping, because nil would crash the app. Force Unwrapping #Shorts",
+      "description": "Avoid force unwrapping, because nil would crash the app.\n\nForce Unwrapping - Using `!` to take the value out of an optional, which crashes if it is nil.\n한국어: 강제 언래핑: `!`로 옵셔널 값을 꺼내는 방법, nil이면 앱이 크래시\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "Which one is safe?"
+}
