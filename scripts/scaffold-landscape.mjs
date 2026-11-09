@@ -138,12 +138,12 @@ html += scene("quiz-intro", plan.quizIntro, `        <div class="kicker">Your tu
         <div class="qbig">Quiz time</div>
         <div class="intro-sub">${day.quizzes.length} questions · 8 seconds each</div>`);
 day.quizzes.forEach((q, i) => {
-  const clock = Array.from({ length: plan.quizzes[i].quizSeconds }, (_, k) => `<b>${plan.quizzes[i].quizSeconds - k}</b>`).join("") + `<b class="done">?</b>`;
+  const clock = Array.from({ length: plan.quizzes[i].quizSeconds }, (_, k) => `<b>${plan.quizzes[i].quizSeconds - k}</b>`).join("") + `<b class="done">${"abc"[Math.max(0, "abc".indexOf(String(q.answer).toLowerCase()))].toUpperCase()}</b>`;
   html += scene(`q${i + 1}`, plan.quizzes[i], `        <div class="qlabel">Quiz ${i + 1} of ${day.quizzes.length}</div>
         <div class="question${q.code ? " hc" : ""}">${codify(q.question)}</div>${qcode(q)}
         <div class="clock">${clock}</div>
         <div class="opts">
-${q.options.map((o, k) => `          <div class="opt"><div class="letter">${"abc"[k]}</div><div class="name">${esc(o)}</div></div>`).join("\n")}
+${q.options.map((o, k) => `          <div class="opt${"abc"[k] === String(q.answer).toLowerCase() ? " correct" : ""}"><div class="letter">${"abc"[k]}</div><div class="name">${esc(o)}</div></div>`).join("\n")}
         </div>
         <div class="timer"><i></i></div>
         <div class="tlabel">Answer before the bar runs out</div>
