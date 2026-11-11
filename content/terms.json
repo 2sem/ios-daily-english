@@ -215,6 +215,18 @@
     "forceunwrapping": {
       "term": "Force Unwrapping",
       "day": 18
+    },
+    "any": {
+      "term": "Any",
+      "day": 19
+    },
+    "typecasting": {
+      "term": "Type Casting",
+      "day": 19
+    },
+    "downcasting": {
+      "term": "Downcasting",
+      "day": 19
     }
   }
 }

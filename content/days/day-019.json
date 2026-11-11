@@ -1,0 +1,235 @@
+{
+  "day": 19,
+  "phase": "1. Swift basics",
+  "theme": "3 terms on working with mixed types: a type for anything, checking a type and casting to a specific type",
+  "terms": [
+    {
+      "term": "Any",
+      "definition": "A type that can hold a value of any type, so one array can mix numbers and text.",
+      "example": "Use `[Any]` here, because the array holds both numbers and text.",
+      "code": "let items: [Any] = [1, \"Mina\", true]\nprint(items.count)",
+      "output": "3"
+    },
+    {
+      "term": "Type Casting",
+      "definition": "A way to check the type of a value, or to treat it as another type, using `is` and `as?`.",
+      "example": "Use type casting to check whether this value is a `String` first.",
+      "code": "let value: Any = \"Swift\"\nprint(value is String)",
+      "output": "true"
+    },
+    {
+      "term": "Downcasting",
+      "definition": "A way to treat a value as a more specific type with `as?`, which gives nil if the cast fails.",
+      "example": "Use downcasting to get an `Int` out, and handle nil if it fails.",
+      "code": "let value: Any = 42\nif let number = value as? Int {\n    print(number + 1)\n}",
+      "output": "43"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "In this code, what is it called when `as?` tries to treat `value` as an `Int` and gives nil if it fails?",
+      "options": [
+        "Any",
+        "Type Casting",
+        "Downcasting"
+      ],
+      "answer": "c",
+      "code": "let value: Any = \"Swift\"\nlet n = value as? Int"
+    },
+    {
+      "question": "In this code, which type lets `items` hold an `Int` and a `String` together?",
+      "options": [
+        "Downcasting",
+        "Any",
+        "Type Casting"
+      ],
+      "answer": "b",
+      "code": "let items: [___] = [1, \"Mina\"]"
+    },
+    {
+      "question": "In this code, what is it called when `is` checks whether `value` is a `String`?",
+      "options": [
+        "Type Casting",
+        "Downcasting",
+        "Any"
+      ],
+      "answer": "a",
+      "code": "let value: Any = \"Swift\"\nlet ok = value is String"
+    }
+  ],
+  "video": {
+    "title": "Any, Type Casting & Downcasting | iOS Daily English Day 19",
+    "description": "Learn to talk about mixed types in Swift: Any, Type Casting & Downcasting, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nAny - A type that can hold a value of any type, so one array can mix numbers and text.\nType Casting - A way to check the type of a value, or to treat it as another type, using `is` and `as?`.\nDowncasting - A way to treat a value as a more specific type with `as?`, which gives nil if the cast fails.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 19 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish #SwiftUI",
+    "tags": [
+      "any",
+      "type casting",
+      "downcasting",
+      "swift any",
+      "swift as?",
+      "swift for beginners",
+      "swift basics",
+      "ios development",
+      "ios developer english",
+      "english for developers",
+      "learn english",
+      "iOS Daily English"
+    ],
+    "landscape": {
+      "title": "Swift Any, Type Casting & Downcasting in English | Day 19",
+      "description": "Explain Any, Type Casting & Downcasting in Swift by listening to a real code chat between two iOS devs.\nAny, 타입 캐스팅, 다운캐스팅 표현을 영어 대화로 익혀요.\n\nAny - A type that can hold a value of any type, so one array can mix numbers and text.\n한국어: Any: 어떤 타입의 값이든 담을 수 있는 타입\n\nType Casting - A way to check the type of a value, or to treat it as another type, using `is` and `as?`.\n한국어: 타입 캐스팅: `is`와 `as?`로 값의 타입을 확인하거나 다른 타입으로 다루는 방법\n\nDowncasting - A way to treat a value as a more specific type with `as?`, which gives nil if the cast fails.\n한국어: 다운캐스팅: `as?`로 값을 더 구체적인 타입으로 다루는 방법, 실패하면 nil\n\nIn this video, Mina and Jake sort an array of mixed values and learn how to check and cast each one, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 19 of the iOS Daily English series.\n\n#Swift #iOSDeveloper #EnglishForDevelopers",
+      "tags": [
+        "Any",
+        "Type Casting",
+        "Downcasting",
+        "swift type casting",
+        "스위프트 타입 캐스팅",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "ios development",
+        "iOS Daily English"
+      ]
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "The mixed array",
+    "setting": "Morning stand-up and code chat",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "B",
+        "text": "Mina, my `data` array has numbers and text. Which type can hold both?",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "Use Any. Write `[Any]`, like `let data: [Any]`.",
+        "terms": [
+          "Any"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "So Any means any type at all?",
+        "terms": [
+          "Any"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Yes. But then you must check the type before you use a value.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Is that type casting?",
+        "terms": [
+          "Type Casting"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Right. Type casting checks a value with `is`, like `first is String`.",
+        "terms": [
+          "Type Casting"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "So type casting only checks? I thought it changes the value.",
+        "terms": [
+          "Type Casting"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "To get an `Int` out, use downcasting: `first as? Int`.",
+        "terms": [
+          "Downcasting"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "What if `first` is not an `Int`?",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "Downcasting gives nil, so use `if let` to stay safe.",
+        "terms": [
+          "Downcasting"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Got it. Any is flexible, but I will use downcasting carefully.",
+        "terms": [
+          "Any",
+          "Downcasting"
+        ]
+      }
+    ],
+    "code": "let data: [Any] = [42, \"Mina\", 3.5]\nlet first = data[0]\nlet isText = first is String\nlet number = first as? Int",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "Any",
+      "lines": [
+        {
+          "text": "Use Any here, because the array mixes numbers and text."
+        }
+      ],
+      "title": "Use Any here, because the array mixes numbers and text. Any #Shorts",
+      "description": "Use Any here, because the array mixes numbers and text.\n\nAny - A type that can hold a value of any type, so one array can mix numbers and text.\n한국어: Any: 어떤 타입의 값이든 담을 수 있는 타입\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "Type Casting",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Is this value a `String`?"
+        },
+        {
+          "speaker": "B",
+          "text": "Check it with type casting."
+        }
+      ],
+      "title": "Is this value a `String`? Check it with type casting. Type Casting #Shorts",
+      "description": "Is this value a `String`? / Check it with type casting.\n\nType Casting - A way to check the type of a value, or to treat it as another type, using `is` and `as?`.\n한국어: 타입 캐스팅: `is`와 `as?`로 값의 타입을 확인하거나 다른 타입으로 다루는 방법\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Downcasting",
+      "lines": [
+        {
+          "text": "Use downcasting to get an `Int`, and handle nil."
+        }
+      ],
+      "title": "Use downcasting to get an `Int`, and handle nil. Downcasting #Shorts",
+      "description": "Use downcasting to get an `Int`, and handle nil.\n\nDowncasting - A way to treat a value as a more specific type with `as?`, which gives nil if the cast fails.\n한국어: 다운캐스팅: `as?`로 값을 더 구체적인 타입으로 다루는 방법, 실패하면 nil\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "Can you cast it?"
+}
