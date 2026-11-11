@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 19
+
+Any
+- A type that can hold a value of any type, so one array can mix numbers and text.
+- Example: "Use `[Any]` here, because the array holds both numbers and text."
+
+Type Casting
+- A way to check the type of a value, or to treat it as another type, using `is` and `as?`.
+- Example: "Use type casting to check whether this value is a `String` first."
+
+Downcasting
+- A way to treat a value as a more specific type with `as?`, which gives nil if the cast fails.
+- Example: "Use downcasting to get an `Int` out, and handle nil if it fails."
+
+
+Quiz ①
+In this code, what is it called when `as?` tries to treat `value` as an `Int` and gives nil if it fails?
+a) Any
+b) Type Casting
+c) Downcasting
+
+Quiz ②
+In this code, which type lets `items` hold an `Int` and a `String` together?
+a) Downcasting
+b) Any
+c) Type Casting
+
+Quiz ③
+In this code, what is it called when `is` checks whether `value` is a `String`?
+a) Type Casting
+b) Downcasting
+c) Any
