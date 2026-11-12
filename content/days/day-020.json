@@ -1,0 +1,241 @@
+{
+  "day": 20,
+  "phase": "1. Swift basics",
+  "theme": "3 terms on small building blocks: a range of values, a group of values and a new name for a type",
+  "terms": [
+    {
+      "term": "Range",
+      "definition": "A value that covers everything from a start to an end, written like `1...5`.",
+      "example": "Loop over a range from 1 to 5, and use each number once.",
+      "code": "for i in 1...3 {\n    print(i)\n}",
+      "output": "1\n2\n3"
+    },
+    {
+      "term": "Tuple",
+      "definition": "A value that groups several values together, and each part can have its own label.",
+      "example": "Return a tuple with the `name` and the `age`, so both travel together.",
+      "code": "let user = (name: \"Mina\", age: 28)\nprint(user.name)\nprint(user.age)",
+      "output": "Mina\n28"
+    },
+    {
+      "term": "Typealias",
+      "definition": "A way to give an existing type a new, clearer name.",
+      "example": "Add a typealias called `UserID`, so the code reads more clearly.",
+      "code": "typealias UserID = Int\nlet id: UserID = 42\nprint(id)",
+      "output": "42"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "In this code, which keyword gives `Int` the new name `Score`?",
+      "options": [
+        "range",
+        "tuple",
+        "typealias"
+      ],
+      "answer": "c",
+      "code": "___ Score = Int\nlet best: Score = 90"
+    },
+    {
+      "question": "In this code, what is it called when `name` and `age` are grouped in one value?",
+      "options": [
+        "Typealias",
+        "Tuple",
+        "Range"
+      ],
+      "answer": "b",
+      "code": "let user = (name: \"Mina\", age: 28)\nprint(user.age)"
+    },
+    {
+      "question": "In this code, what is it called when `1...5` covers the values from 1 to 5?",
+      "options": [
+        "Range",
+        "Typealias",
+        "Tuple"
+      ],
+      "answer": "a",
+      "code": "let days = 1...5\nfor day in days {\n    print(day)\n}"
+    }
+  ],
+  "video": {
+    "title": "Range, Tuple & Typealias in 2 minutes | iOS Daily English Day 20",
+    "description": "Learn to talk about small building blocks in Swift: Range, Tuple & Typealias, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nRange - A value that covers everything from a start to an end, written like `1...5`.\nTuple - A value that groups several values together, and each part can have its own label.\nTypealias - A way to give an existing type a new, clearer name.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 20 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish #SwiftUI",
+    "tags": [
+      "range",
+      "tuple",
+      "typealias",
+      "swift range",
+      "swift tuple",
+      "swift typealias",
+      "swift for beginners",
+      "swift basics",
+      "ios development",
+      "ios developer english",
+      "english for developers",
+      "learn english"
+    ],
+    "landscape": {
+      "title": "Swift Range, Tuple & Typealias in English | Day 20",
+      "description": "Explain Range, Tuple & Typealias in Swift by listening to a real code chat between two iOS devs.\nRange, 튜플, 타입별칭 표현을 영어 대화로 익혀요.\n\nRange - A value that covers everything from a start to an end, written like `1...5`.\n한국어: 레인지: `1...5`처럼 시작부터 끝까지의 값을 나타내는 값\n\nTuple - A value that groups several values together, and each part can have its own label.\n한국어: 튜플: 여러 값을 하나로 묶는 값, 각 부분에 이름을 붙일 수 있음\n\nTypealias - A way to give an existing type a new, clearer name.\n한국어: 타입별칭: 이미 있는 타입에 더 알기 쉬운 새 이름을 붙이는 방법\n\nIn this video, Mina and Jake write a score value with levels, labels and a clearer type name, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 20 of the iOS Daily English series.\n\n#Swift #iOSDeveloper #EnglishForDevelopers",
+      "tags": [
+        "Range",
+        "Tuple",
+        "Typealias",
+        "swift tuple",
+        "스위프트 튜플",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "ios development",
+        "iOS Daily English"
+      ],
+      "youtubeId": "vBRpTlra1Gs",
+      "youtubeUrl": "https://youtu.be/vBRpTlra1Gs",
+      "privacy": "private",
+      "publishAt": "2026-11-12T23:00:00.000Z",
+      "uploaded": "2026-11-12T09:58:43.230Z",
+      "thumbnailSet": "2026-11-12T09:58:47.520Z",
+      "playlistAdded": "2026-11-12T09:58:49.272Z"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "Levels and scores",
+    "setting": "Morning stand-up and code chat",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "B",
+        "text": "Mina, I need levels 1 to 3. How do I write that?",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "Use a Range. Write `1...3`, like `let levels = 1...3`.",
+        "terms": [
+          "Range"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "So a Range covers every number from the start to the end?",
+        "terms": [
+          "Range"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Yes. Now I want to return a name and a score together.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Can one value hold both?",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "Use a Tuple. Write `(name: String, score: Score)`.",
+        "terms": [
+          "Tuple"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Wait, what is `Score`? I only see `Int` in Swift.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "Good catch. It is a Typealias: `typealias Score = Int`.",
+        "terms": [
+          "Typealias"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "So a Typealias only gives `Int` a clearer name?",
+        "terms": [
+          "Typealias"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Right. Then read the Tuple part with `best.score`.",
+        "terms": [
+          "Tuple"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Nice. A Range, a Tuple and a Typealias make my code easier to read.",
+        "terms": [
+          "Range",
+          "Tuple",
+          "Typealias"
+        ]
+      }
+    ],
+    "code": "typealias Score = Int\nlet levels = 1...3\nlet best: (name: String, score: Score) = (\"Mina\", 90)\nlet top = best.score",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "Range",
+      "lines": [
+        {
+          "text": "Loop over a range from 1 to 5."
+        }
+      ],
+      "title": "Loop over a range from 1 to 5. Range #Shorts",
+      "description": "Loop over a range from 1 to 5.\n\nRange - A value that covers everything from a start to an end, written like `1...5`.\n한국어: 레인지: `1...5`처럼 시작부터 끝까지의 값을 나타내는 값\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "Tuple",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "How do I return `name` and `age` together?"
+        },
+        {
+          "speaker": "B",
+          "text": "Use a tuple."
+        }
+      ],
+      "title": "How do I return `name` and `age` together? Use a tuple. Tuple #Shorts",
+      "description": "How do I return `name` and `age` together? / Use a tuple.\n\nTuple - A value that groups several values together, and each part can have its own label.\n한국어: 튜플: 여러 값을 하나로 묶는 값, 각 부분에 이름을 붙일 수 있음\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Typealias",
+      "lines": [
+        {
+          "text": "Add a typealias called `UserID` for clearer code."
+        }
+      ],
+      "title": "Add a typealias called `UserID` for clearer code. Typealias #Shorts",
+      "description": "Add a typealias called `UserID` for clearer code.\n\nTypealias - A way to give an existing type a new, clearer name.\n한국어: 타입별칭: 이미 있는 타입에 더 알기 쉬운 새 이름을 붙이는 방법\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "Can you name it?"
+}
