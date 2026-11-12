@@ -239,6 +239,18 @@
     "typealias": {
       "term": "Typealias",
       "day": 20
+    },
+    "forinloop": {
+      "term": "For-In Loop",
+      "day": 21
+    },
+    "whileloop": {
+      "term": "While Loop",
+      "day": 21
+    },
+    "repeatwhileloop": {
+      "term": "Repeat-While Loop",
+      "day": 21
     }
   }
 }
