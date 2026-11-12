@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 20
+
+Range
+- A value that covers everything from a start to an end, written like `1...5`.
+- Example: "Loop over a range from 1 to 5, and use each number once."
+
+Tuple
+- A value that groups several values together, and each part can have its own label.
+- Example: "Return a tuple with the `name` and the `age`, so both travel together."
+
+Typealias
+- A way to give an existing type a new, clearer name.
+- Example: "Add a typealias called `UserID`, so the code reads more clearly."
+
+
+Quiz ①
+In this code, which keyword gives `Int` the new name `Score`?
+a) range
+b) tuple
+c) typealias
+
+Quiz ②
+In this code, what is it called when `name` and `age` are grouped in one value?
+a) Typealias
+b) Tuple
+c) Range
+
+Quiz ③
+In this code, what is it called when `1...5` covers the values from 1 to 5?
+a) Range
+b) Typealias
+c) Tuple

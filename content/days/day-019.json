@@ -89,7 +89,15 @@
         "swift",
         "ios development",
         "iOS Daily English"
-      ]
+      ],
+      "youtubeId": "IL1PvO7daxU",
+      "youtubeUrl": "https://youtu.be/IL1PvO7daxU",
+      "privacy": "public",
+      "publishAt": null,
+      "uploaded": "2026-11-12T09:58:14.765Z",
+      "thumbnailSet": "2026-11-12T09:58:21.795Z",
+      "playlistAdded": "2026-11-12T09:58:23.488Z",
+      "publishedAt": "2026-11-12T09:59:06.592Z"
     },
     "voices": {
       "narrator": "en-US-AvaNeural",

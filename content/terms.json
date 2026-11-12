@@ -227,6 +227,18 @@
     "downcasting": {
       "term": "Downcasting",
       "day": 19
+    },
+    "range": {
+      "term": "Range",
+      "day": 20
+    },
+    "tuple": {
+      "term": "Tuple",
+      "day": 20
+    },
+    "typealias": {
+      "term": "Typealias",
+      "day": 20
     }
   }
 }
