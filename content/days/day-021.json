@@ -1,0 +1,242 @@
+{
+  "day": 21,
+  "phase": "1. Swift basics",
+  "theme": "3 terms on repeating code: a loop over items, a loop with a first check and a loop with a last check",
+  "terms": [
+    {
+      "term": "For-In Loop",
+      "definition": "A loop that runs its body once for each item in a collection or range.",
+      "example": "Use a for-in loop to print each name in the `names` array.",
+      "code": "let names = [\"Mina\", \"Jake\"]\nfor name in names {\n    print(name)\n}",
+      "output": "Mina\nJake"
+    },
+    {
+      "term": "While Loop",
+      "definition": "A loop that checks a condition first, then runs its body again and again while the condition is true.",
+      "example": "Use a while loop to count down while `count` is above zero.",
+      "code": "var count = 3\nwhile count > 0 {\n    print(count)\n    count -= 1\n}",
+      "output": "3\n2\n1"
+    },
+    {
+      "term": "Repeat-While Loop",
+      "definition": "A loop that runs its body first, then checks a condition to decide whether to run again.",
+      "example": "Use a repeat-while loop, so the login code runs at least once.",
+      "code": "var tries = 0\nrepeat {\n    tries += 1\n    print(\"try \\(tries)\")\n} while tries < 2",
+      "output": "try 1\ntry 2"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "In this code, what is it called when the body runs once before `n < 3` is checked?",
+      "options": [
+        "While Loop",
+        "Repeat-While Loop",
+        "For-In Loop"
+      ],
+      "answer": "b",
+      "code": "var n = 5\nrepeat {\n    n += 1\n} while n < 3"
+    },
+    {
+      "question": "In this code, what is it called when the body runs once for each item in `colors`?",
+      "options": [
+        "Repeat-While Loop",
+        "While Loop",
+        "For-In Loop"
+      ],
+      "answer": "c",
+      "code": "let colors = [\"red\", \"blue\"]\nfor color in colors {\n    print(color)\n}"
+    },
+    {
+      "question": "In this code, what is it called when `n > 0` is checked before every run of the body?",
+      "options": [
+        "For-In Loop",
+        "While Loop",
+        "Repeat-While Loop"
+      ],
+      "answer": "b",
+      "code": "var n = 3\nwhile n > 0 {\n    n -= 1\n}"
+    }
+  ],
+  "video": {
+    "title": "For-In, While & Repeat-While Loops in 2 minutes | iOS Daily English Day 21",
+    "description": "Learn to talk about repeating code in Swift: For-In Loop, While Loop & Repeat-While Loop, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nFor-In Loop - A loop that runs its body once for each item in a collection or range.\nWhile Loop - A loop that checks a condition first, then runs its body again and again while the condition is true.\nRepeat-While Loop - A loop that runs its body first, then checks a condition to decide whether to run again.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 21 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish #SwiftUI",
+    "tags": [
+      "for-in loop",
+      "while loop",
+      "repeat-while loop",
+      "swift loops",
+      "swift for in",
+      "swift while",
+      "swift for beginners",
+      "swift basics",
+      "ios development",
+      "ios developer english",
+      "english for developers",
+      "learn english"
+    ],
+    "landscape": {
+      "title": "Swift For-In, While & Repeat-While Loops in English | Day 21",
+      "description": "Explain For-In Loop, While Loop & Repeat-While Loop in Swift by listening to a real code chat between two iOS devs.\nFor-In, While, Repeat-While 반복문 표현을 영어 대화로 익혀요.\n\nFor-In Loop - A loop that runs its body once for each item in a collection or range.\n한국어: For-In 루프: 컬렉션이나 범위의 항목마다 한 번씩 본문을 실행하는 반복문\n\nWhile Loop - A loop that checks a condition first, then runs its body again and again while the condition is true.\n한국어: While 루프: 먼저 조건을 확인하고, 조건이 참인 동안 본문을 계속 실행하는 반복문\n\nRepeat-While Loop - A loop that runs its body first, then checks a condition to decide whether to run again.\n한국어: Repeat-While 루프: 본문을 먼저 실행한 뒤 조건을 확인해 다시 실행할지 정하는 반복문\n\nIn this video, Mina and Jake print names, count down and run code at least once, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 21 of the iOS Daily English series.\n\n#Swift #iOSDeveloper #EnglishForDevelopers",
+      "tags": [
+        "For-In Loop",
+        "While Loop",
+        "Repeat-While Loop",
+        "swift loops",
+        "스위프트 반복문",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "ios development",
+        "iOS Daily English"
+      ],
+      "youtubeId": "8xdeu3YA76w",
+      "youtubeUrl": "https://youtu.be/8xdeu3YA76w",
+      "privacy": "private",
+      "publishAt": "2026-11-13T23:00:00.000Z",
+      "uploaded": "2026-11-12T22:44:43.991Z",
+      "thumbnailSet": "2026-11-12T22:44:48.286Z",
+      "playlistAdded": "2026-11-12T22:44:49.891Z"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "Loops in a chat",
+    "setting": "Morning stand-up and code chat",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "B",
+        "text": "Mina, I need to print every name in `names`. How do I do that?",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "Use a For-In Loop. Write `for name in names`, and it runs once for each name.",
+        "terms": [
+          "For-In Loop"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "So a For-In Loop visits every item in the array?",
+        "terms": [
+          "For-In Loop"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Yes. Now I want a countdown. Use a While Loop with `while count > 0`.",
+        "terms": [
+          "While Loop"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Does a While Loop check the condition before the first run?",
+        "terms": [
+          "While Loop"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Yes, it checks first, so it may run zero times.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "What if I need one run for sure?",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "Use a Repeat-While Loop. It runs the body first, then checks `count < 2`.",
+        "terms": [
+          "Repeat-While Loop"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Oh, I thought a Repeat-While Loop was the same as a While Loop.",
+        "terms": [
+          "Repeat-While Loop",
+          "While Loop"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Close, but the check comes after the body, not before.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Got it. A For-In Loop for items, a While Loop for a first check, a Repeat-While Loop for one sure run.",
+        "terms": [
+          "For-In Loop",
+          "While Loop",
+          "Repeat-While Loop"
+        ]
+      }
+    ],
+    "code": "let names = [\"Mina\", \"Jake\"]\nfor name in names { print(name) }\nvar count = 3\nwhile count > 0 { count -= 1 }\nrepeat { count += 1 } while count < 2",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "For-In Loop",
+      "lines": [
+        {
+          "text": "Use a for-in loop to print each name."
+        }
+      ],
+      "title": "Use a for-in loop to print each name. For-In Loop #Shorts",
+      "description": "Use a for-in loop to print each name.\n\nFor-In Loop - A loop that runs its body once for each item in a collection or range.\n한국어: For-In 루프: 컬렉션이나 범위의 항목마다 한 번씩 본문을 실행하는 반복문\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "While Loop",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "How do I count down from 3?"
+        },
+        {
+          "speaker": "B",
+          "text": "Use a while loop."
+        }
+      ],
+      "title": "How do I count down from 3? Use a while loop. While Loop #Shorts",
+      "description": "How do I count down from 3? / Use a while loop.\n\nWhile Loop - A loop that checks a condition first, then runs its body again and again while the condition is true.\n한국어: While 루프: 먼저 조건을 확인하고, 조건이 참인 동안 본문을 계속 실행하는 반복문\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Repeat-While Loop",
+      "lines": [
+        {
+          "text": "Use a repeat-while loop, so it runs at least once."
+        }
+      ],
+      "title": "Use a repeat-while loop, so it runs at least once. Repeat-While Loop #Shorts",
+      "description": "Use a repeat-while loop, so it runs at least once.\n\nRepeat-While Loop - A loop that runs its body first, then checks a condition to decide whether to run again.\n한국어: Repeat-While 루프: 본문을 먼저 실행한 뒤 조건을 확인해 다시 실행할지 정하는 반복문\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "Which loop runs first?"
+}

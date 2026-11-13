@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 21
+
+For-In Loop
+- A loop that runs its body once for each item in a collection or range.
+- Example: "Use a for-in loop to print each name in the `names` array."
+
+While Loop
+- A loop that checks a condition first, then runs its body again and again while the condition is true.
+- Example: "Use a while loop to count down while `count` is above zero."
+
+Repeat-While Loop
+- A loop that runs its body first, then checks a condition to decide whether to run again.
+- Example: "Use a repeat-while loop, so the login code runs at least once."
+
+
+Quiz ①
+In this code, what is it called when the body runs once before `n < 3` is checked?
+a) While Loop
+b) Repeat-While Loop
+c) For-In Loop
+
+Quiz ②
+In this code, what is it called when the body runs once for each item in `colors`?
+a) Repeat-While Loop
+b) While Loop
+c) For-In Loop
+
+Quiz ③
+In this code, what is it called when `n > 0` is checked before every run of the body?
+a) For-In Loop
+b) While Loop
+c) Repeat-While Loop

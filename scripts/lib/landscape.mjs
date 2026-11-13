@@ -128,13 +128,13 @@ export function coldHook(day) {
 const two = (n) => String(n + 1).padStart(2, "0");
 export const dKey = (i) => `d${two(i)}`;
 
-// Spoken form of a text: backticks are dropped, and code spans holding ? ! or range dots (... ..<) get those symbols (and dots) read aloud,
+// Spoken form of a text: backticks are dropped, and code spans holding ? ! or range dots (... ..<) or comparison signs (< >) get those symbols (and dots) read aloud,
 // because the neural voices skip punctuation (`??` would be silent). Spans without ? or ! are read as written.
-const SYMBOLS = [["...", " through "], ["..<", " up to "], ["??", " double question mark "], ["?", " question mark "], ["!", " exclamation mark "], [".", " dot "]];
+const SYMBOLS = [["...", " through "], ["..<", " up to "], [">=", " greater than or equal to "], ["<=", " less than or equal to "], [">", " greater than "], ["<", " less than "], ["??", " double question mark "], ["?", " question mark "], ["!", " exclamation mark "], [".", " dot "]];
 export function spoken(text) {
   return text
     .replace(/`([^`]*)`/g, (_, code) => {
-      if (!/[?!]|\.\.[.<]/.test(code)) return code;
+      if (!/[?!<>]|\.\.[.<]/.test(code)) return code;
       let out = code.replaceAll('"', "");
       for (const [sym, word] of SYMBOLS) out = out.replaceAll(sym, word);
       return out.replace(/\s+/g, " ").trim();
