@@ -1,0 +1,247 @@
+{
+  "day": 22,
+  "phase": "1. Swift basics",
+  "theme": "3 terms on loop control: ending a loop early, skipping one run and naming a loop to target it",
+  "terms": [
+    {
+      "term": "Break",
+      "definition": "A control-flow statement that ends a loop immediately and moves on to the code after it.",
+      "example": "Use breaks to stop the loop as soon as `score` is above 7.",
+      "code": "let scores = [3, 5, 9, 4]\nfor score in scores {\n    if score > 7 { break }\n    print(score)\n}",
+      "output": "3\n5"
+    },
+    {
+      "term": "Continue",
+      "definition": "A control-flow statement that skips the rest of the current run and starts the next one.",
+      "example": "Use continues to skip empty names and keep the loop going.",
+      "code": "let names = [\"Mina\", \"\", \"Jake\"]\nfor name in names {\n    if name.isEmpty { continue }\n    print(name)\n}",
+      "output": "Mina\nJake"
+    },
+    {
+      "term": "Labeled Statement",
+      "definition": "A control-flow statement that gives a loop a name, so `break` or `continue` can target that loop.",
+      "example": "Use labeled statements to leave the outer loop from inside the inner loop.",
+      "code": "outer: for row in 1...3 {\n    for col in 1...3 {\n        if row == 2 && col == 2 { break outer }\n        print(row, col)\n    }\n}",
+      "output": "1 1\n1 2\n1 3\n2 1"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "In this code, what is it called when an empty name is skipped and the loop moves on to the next name?",
+      "options": [
+        "Break",
+        "Labeled Statement",
+        "Continue"
+      ],
+      "answer": "c",
+      "code": "let names = [\"a\", \"\", \"c\"]\nfor name in names {\n    if name.isEmpty { continue }\n    print(name)\n}"
+    },
+    {
+      "question": "In this code, what is it called when `outer:` names the loop so the inner code can target it?",
+      "options": [
+        "Continue",
+        "Labeled Statement",
+        "Break"
+      ],
+      "answer": "b",
+      "code": "outer: for row in 1...3 {\n    for col in 1...3 {\n        if col == 2 { continue outer }\n        print(row, col)\n    }\n}"
+    },
+    {
+      "question": "In this code, what is it called when the loop ends completely as soon as `n` is 3?",
+      "options": [
+        "Labeled Statement",
+        "Break",
+        "Continue"
+      ],
+      "answer": "b",
+      "code": "for n in 1...5 {\n    if n == 3 { break }\n    print(n)\n}"
+    }
+  ],
+  "video": {
+    "title": "Break, Continue & Labeled Statement in 2 minutes | iOS Daily English Day 22",
+    "description": "Learn to talk about controlling loops in Swift: Break, Continue & Labeled Statement, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nBreak - A control-flow statement that ends a loop immediately and moves on to the code after it.\nContinue - A control-flow statement that skips the rest of the current run and starts the next one.\nLabeled Statement - A control-flow statement that gives a loop a name, so `break` or `continue` can target that loop.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 22 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish #SwiftUI",
+    "tags": [
+      "break",
+      "continue",
+      "labeled statement",
+      "swift loop control",
+      "swift break",
+      "swift continue",
+      "swift labeled loop",
+      "swift basics",
+      "ios development",
+      "ios developer english",
+      "english for developers",
+      "learn english"
+    ],
+    "landscape": {
+      "title": "Swift Break, Continue & Labeled Statement in English | Day 22",
+      "description": "Explain Break, Continue & Labeled Statement in Swift by listening to a real code chat between two iOS devs.\nBreak, Continue, 레이블 문 표현을 영어 대화로 익혀요.\n\nBreak - A control-flow statement that ends a loop immediately and moves on to the code after it.\n한국어: Break 루프: 반복문을 즉시 끝내고 그 뒤 코드로 넘어가는 제어 흐름 문\n\nContinue - A control-flow statement that skips the rest of the current run and starts the next one.\n한국어: Continue 루프: 현재 실행의 나머지를 건너뛰고 다음 실행을 시작하는 제어 흐름 문\n\nLabeled Statement - A control-flow statement that gives a loop a name, so `break` or `continue` can target that loop.\n한국어: 레이블 문: 반복문에 이름을 붙여 break나 continue가 그 반복문을 가리키게 하는 제어 흐름 문\n\nIn this video, Mina and Jake stop a loop early, skip a run and name a loop, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 22 of the iOS Daily English series.\n\n#Swift #iOSDeveloper #EnglishForDevelopers",
+      "tags": [
+        "Break",
+        "Continue",
+        "Labeled Statement",
+        "swift loop control",
+        "스위프트 반복문",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "ios development",
+        "iOS Daily English"
+      ],
+      "youtubeId": "XtX_g7gGmCM",
+      "youtubeUrl": "https://youtu.be/XtX_g7gGmCM",
+      "privacy": "private",
+      "publishAt": "2026-11-14T23:00:00.000Z",
+      "uploaded": "2026-11-14T00:24:39.885Z",
+      "thumbnailSet": "2026-11-14T00:24:44.414Z",
+      "playlistAdded": "2026-11-14T00:24:46.115Z"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "Loop control in a chat",
+    "setting": "Morning stand-up and code chat",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "B",
+        "text": "Mina, my loop checks every `score` in `rows`, but I want it to stop early.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "Use Break. When `score > 7`, Break leaves the loop right away.",
+        "terms": [
+          "Break"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "So Break ends the whole loop, not only one run?",
+        "terms": [
+          "Break"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Right. Some scores are `0`, and I want to skip those. Use Continue.",
+        "terms": [
+          "Continue"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Does Continue stop the loop too?",
+        "terms": [
+          "Continue"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "No. Continue skips the rest of this run and goes to the next `score`.",
+        "terms": [
+          "Continue"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "But I have two loops. Break only leaves the inner one, right?",
+        "terms": [
+          "Break"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Yes. Add a Labeled Statement. Write `search:` before the outer loop.",
+        "terms": [
+          "Labeled Statement"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Oh, a Labeled Statement gives the loop a name, so `break search` leaves the outer loop.",
+        "terms": [
+          "Labeled Statement"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Exactly. Continue can use that name too.",
+        "terms": [
+          "Continue"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Got it. Break to stop, Continue to skip, Labeled Statement to pick the loop.",
+        "terms": [
+          "Break",
+          "Continue",
+          "Labeled Statement"
+        ]
+      }
+    ],
+    "code": "let rows = [[1, 0], [8, 3]]\nsearch: for row in rows {\n    for score in row {\n        if score == 0 { continue }\n        if score > 7 { break search }\n    }\n}",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "Break",
+      "lines": [
+        {
+          "text": "Use breaks to stop the loop early."
+        }
+      ],
+      "title": "Use breaks to stop the loop early. Break #Shorts",
+      "description": "Use breaks to stop the loop early.\n\nBreak - A control-flow statement that ends a loop immediately and moves on to the code after it.\n한국어: Break 루프: 반복문을 즉시 끝내고 그 뒤 코드로 넘어가는 제어 흐름 문\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "Continue",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "How do I skip one bad item?"
+        },
+        {
+          "speaker": "B",
+          "text": "Use continue."
+        }
+      ],
+      "title": "How do I skip one bad item? Use continue. Continue #Shorts",
+      "description": "How do I skip one bad item? / Use continue.\n\nContinue - A control-flow statement that skips the rest of the current run and starts the next one.\n한국어: Continue 루프: 현재 실행의 나머지를 건너뛰고 다음 실행을 시작하는 제어 흐름 문\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Labeled Statement",
+      "lines": [
+        {
+          "text": "Use labeled statements to leave the outer loop."
+        }
+      ],
+      "title": "Use labeled statements to leave the outer loop. Labeled Statement #Shorts",
+      "description": "Use labeled statements to leave the outer loop.\n\nLabeled Statement - A control-flow statement that gives a loop a name, so `break` or `continue` can target that loop.\n한국어: 레이블 문: 반복문에 이름을 붙여 break나 continue가 그 반복문을 가리키게 하는 제어 흐름 문\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "Can you control a loop?"
+}

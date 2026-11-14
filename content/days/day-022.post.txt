@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 22
+
+Break
+- A control-flow statement that ends a loop immediately and moves on to the code after it.
+- Example: "Use breaks to stop the loop as soon as `score` is above 7."
+
+Continue
+- A control-flow statement that skips the rest of the current run and starts the next one.
+- Example: "Use continues to skip empty names and keep the loop going."
+
+Labeled Statement
+- A control-flow statement that gives a loop a name, so `break` or `continue` can target that loop.
+- Example: "Use labeled statements to leave the outer loop from inside the inner loop."
+
+
+Quiz ①
+In this code, what is it called when an empty name is skipped and the loop moves on to the next name?
+a) Break
+b) Labeled Statement
+c) Continue
+
+Quiz ②
+In this code, what is it called when `outer:` names the loop so the inner code can target it?
+a) Continue
+b) Labeled Statement
+c) Break
+
+Quiz ③
+In this code, what is it called when the loop ends completely as soon as `n` is 3?
+a) Labeled Statement
+b) Break
+c) Continue
