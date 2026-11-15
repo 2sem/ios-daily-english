@@ -130,7 +130,7 @@ export const dKey = (i) => `d${two(i)}`;
 
 // Spoken form of a text: backticks are dropped, and code spans holding ? ! or range dots (... ..<) or comparison signs (< >) get those symbols (and dots) read aloud,
 // because the neural voices skip punctuation (`??` would be silent). Spans without ? or ! are read as written.
-const SYMBOLS = [["...", " through "], ["..<", " up to "], [">=", " greater than or equal to "], ["<=", " less than or equal to "], [">", " greater than "], ["<", " less than "], ["??", " double question mark "], ["?", " question mark "], ["!", " exclamation mark "], [".", " dot "]];
+const SYMBOLS = [["...", " through "], ["..<", " up to "], [">=", " greater than or equal to "], ["<=", " less than or equal to "], [">", " greater than "], ["<", " less than "], ["??", " double question mark "], [":", " colon "], ["?", " question mark "], ["!", " exclamation mark "], [".", " dot "]];
 export function spoken(text) {
   return text
     .replace(/`([^`]*)`/g, (_, code) => {
