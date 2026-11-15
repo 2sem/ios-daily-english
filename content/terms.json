@@ -251,6 +251,18 @@
     "repeatwhileloop": {
       "term": "Repeat-While Loop",
       "day": 21
+    },
+    "break": {
+      "term": "Break",
+      "day": 22
+    },
+    "continue": {
+      "term": "Continue",
+      "day": 22
+    },
+    "labeledstatement": {
+      "term": "Labeled Statement",
+      "day": 22
     }
   }
 }
