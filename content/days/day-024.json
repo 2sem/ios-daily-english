@@ -1,0 +1,240 @@
+{
+  "day": 24,
+  "phase": "1. Swift basics",
+  "theme": "3 terms on flexible function parameters: a preset value, any number of values and changing the caller's variable",
+  "terms": [
+    {
+      "term": "Default Parameter",
+      "definition": "A parameter that has a preset value, used when the caller passes nothing for it.",
+      "example": "Use default parameters so callers can skip values that rarely change.",
+      "code": "func greet(name: String = \"Guest\") {\n    print(\"Hello, \\(name)\")\n}\ngreet()\ngreet(name: \"Mina\")",
+      "output": "Hello, Guest\nHello, Mina"
+    },
+    {
+      "term": "Variadic Parameter",
+      "definition": "A parameter that accepts zero or more values of the same type, written with three dots after the type.",
+      "example": "Use variadic parameters so we can pass any number of scores.",
+      "code": "func total(_ scores: Int...) -> Int {\n    var sum = 0\n    for score in scores { sum += score }\n    return sum\n}\nprint(total(3, 8, 5))",
+      "output": "16"
+    },
+    {
+      "term": "In-Out Parameter",
+      "definition": "A parameter that lets a function change the caller's variable, marked with `inout`.",
+      "example": "Use in-out parameters when the function must update the caller's variable.",
+      "code": "func addBonus(to score: inout Int) {\n    score += 10\n}\nvar score = 80\naddBonus(to: &score)\nprint(score)",
+      "output": "90"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "In this code, what is it called when `names` accepts any number of strings?",
+      "options": [
+        "In-Out Parameter",
+        "Variadic Parameter",
+        "Default Parameter"
+      ],
+      "answer": "b",
+      "code": "func invite(_ names: String...) {\n    print(names.count)\n}\ninvite(\"Mina\", \"Jake\", \"Sam\")"
+    },
+    {
+      "question": "In this code, what is it called when `count` lets the function change the caller's variable?",
+      "options": [
+        "Default Parameter",
+        "Variadic Parameter",
+        "In-Out Parameter"
+      ],
+      "answer": "c",
+      "code": "func reset(_ count: inout Int) {\n    count = 0\n}\nvar taps = 5\nreset(&taps)"
+    },
+    {
+      "question": "In this code, what is it called when `times` uses 3 because the caller passes nothing?",
+      "options": [
+        "Default Parameter",
+        "In-Out Parameter",
+        "Variadic Parameter"
+      ],
+      "answer": "a",
+      "code": "func retry(times: Int = 3) {\n    print(times)\n}\nretry()"
+    }
+  ],
+  "video": {
+    "title": "Default, Variadic & In-Out Parameters | iOS Daily English Day 24",
+    "description": "Learn to talk about flexible Swift functions: Default Parameter, Variadic Parameter & In-Out Parameter, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nDefault Parameter - A parameter that has a preset value, used when the caller passes nothing for it.\nVariadic Parameter - A parameter that accepts zero or more values of the same type, written with three dots after the type.\nIn-Out Parameter - A parameter that lets a function change the caller's variable, marked with `inout`.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 24 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish #SwiftUI",
+    "tags": [
+      "default parameter",
+      "variadic parameter",
+      "in-out parameter",
+      "swift inout",
+      "swift default parameter value",
+      "swift variadic",
+      "swift functions",
+      "swift basics",
+      "ios development",
+      "ios developer english",
+      "english for developers",
+      "learn english"
+    ],
+    "landscape": {
+      "title": "Swift Default, Variadic & In-Out Parameters in English | Day 24",
+      "description": "Explain Default Parameter, Variadic Parameter & In-Out Parameter in Swift by listening to a real code chat between two iOS devs.\n기본 매개변수, 가변 매개변수, 입출력 매개변수 표현을 영어 대화로 익혀요.\n\nDefault Parameter - A parameter that has a preset value, used when the caller passes nothing for it.\n한국어: 기본 매개변수: 호출할 때 값을 넘기지 않으면 미리 정해 둔 값을 쓰는 매개변수\n\nVariadic Parameter - A parameter that accepts zero or more values of the same type, written with three dots after the type.\n한국어: 가변 매개변수: 같은 타입의 값을 0개 이상 받을 수 있는 매개변수\n\nIn-Out Parameter - A parameter that lets a function change the caller's variable, marked with `inout`.\n한국어: 입출력 매개변수: 함수가 호출한 쪽의 변수를 직접 바꿀 수 있게 하는 매개변수\n\nIn this video, Mina and Jake clean up one function so it takes any number of points, skips a bonus and updates a total, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 24 of the iOS Daily English series.\n\n#Swift #iOSDeveloper #EnglishForDevelopers",
+      "tags": [
+        "Default Parameter",
+        "Variadic Parameter",
+        "In-Out Parameter",
+        "swift functions",
+        "swift basics",
+        "스위프트 기초",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "ios development",
+        "iOS Daily English"
+      ],
+      "youtubeId": "zIoMirHeDN8",
+      "youtubeUrl": "https://youtu.be/zIoMirHeDN8",
+      "privacy": "private",
+      "publishAt": "2026-11-16T23:00:00.000Z",
+      "uploaded": "2026-11-15T22:38:29.699Z",
+      "thumbnailSet": "2026-11-15T22:38:35.025Z",
+      "playlistAdded": "2026-11-15T22:38:36.604Z"
+    },
+    "voices": {
+      "narrator": "en-US-AndrewNeural",
+      "example": "en-US-JennyNeural",
+      "exampleSlow": "en-US-AndrewNeural",
+      "pattern": "random (male -> female)",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "Flexible functions in a chat",
+    "setting": "Afternoon code review chat",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "B",
+        "text": "Mina, my `add` function takes an array of `points`. Every call needs brackets.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "Make `points` a Variadic Parameter. Just write three dots after `Int`.",
+        "terms": [
+          "Variadic Parameter"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "So with a Variadic Parameter, I can pass one, five, or nothing?",
+        "terms": [
+          "Variadic Parameter"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Right. Inside, `points` is still an array.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Nice. Also, most calls pass zero for `bonus`.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "Then make `bonus` a Default Parameter, set to zero.",
+        "terms": [
+          "Default Parameter"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Hmm, I think a Default Parameter hides too much from the reader.",
+        "terms": [
+          "Default Parameter"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Not here. Zero is the normal case.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Fair. One more problem, my `total` never changes after the call.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "Make `score` an In-Out Parameter. It writes the new value back.",
+        "terms": [
+          "In-Out Parameter"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Got it. Variadic Parameter for many values, Default Parameter to skip one, In-Out Parameter to update mine.",
+        "terms": [
+          "Default Parameter",
+          "Variadic Parameter",
+          "In-Out Parameter"
+        ]
+      }
+    ],
+    "code": "var total = 10\nfunc add(_ points: Int..., bonus: Int = 0,\n         to score: inout Int) {\n    for point in points { score += point }\n    score += bonus\n}",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "Default Parameter",
+      "lines": [
+        {
+          "text": "Use default parameters so callers can skip rare values."
+        }
+      ],
+      "title": "Use default parameters so callers can skip rare values. Default Parameter #Shorts",
+      "description": "Use default parameters so callers can skip rare values.\n\nDefault Parameter - A parameter that has a preset value, used when the caller passes nothing for it.\n한국어: 기본 매개변수: 호출할 때 값을 넘기지 않으면 미리 정해 둔 값을 쓰는 매개변수\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "Variadic Parameter",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Can this function take any number of scores?"
+        },
+        {
+          "speaker": "B",
+          "text": "Yes, make it a variadic parameter."
+        }
+      ],
+      "title": "Can this function take any number of scores? Variadic Parameter #Shorts",
+      "description": "Can this function take any number of scores? / Yes, make it a variadic parameter.\n\nVariadic Parameter - A parameter that accepts zero or more values of the same type, written with three dots after the type.\n한국어: 가변 매개변수: 같은 타입의 값을 0개 이상 받을 수 있는 매개변수\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "In-Out Parameter",
+      "lines": [
+        {
+          "text": "Use in-out parameters to update the caller's variable."
+        }
+      ],
+      "title": "Use in-out parameters to update the caller's variable. In-Out Parameter #Shorts",
+      "description": "Use in-out parameters to update the caller's variable.\n\nIn-Out Parameter - A parameter that lets a function change the caller's variable, marked with `inout`.\n한국어: 입출력 매개변수: 함수가 호출한 쪽의 변수를 직접 바꿀 수 있게 하는 매개변수\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "Can you write flexible functions?"
+}
