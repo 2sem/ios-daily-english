@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 23
+
+Ternary Operator
+- An operator that picks one of two values by checking a condition, written as `condition ? a : b`.
+- Example: "Use ternary operators for short choices like `Pass` or `Retry`."
+
+Where Clause
+- A condition added to a loop or pattern that keeps only the items matching it.
+- Example: "Use where clauses to loop over only the scores above 4."
+
+Defer
+- A statement that holds code to run later, when the current scope is about to end.
+- Example: "Use defers to close the file, even if the function returns early."
+
+
+Quiz ①
+In this code, what is it called when the loop only visits names that are not empty?
+a) Defer
+b) Ternary Operator
+c) Where Clause
+
+Quiz ②
+In this code, what is it called when `print("Done")` is saved to run as the function ends?
+a) Where Clause
+b) Defer
+c) Ternary Operator
+
+Quiz ③
+In this code, what is it called when `? :` picks "Adult" or "Minor" from a condition?
+a) Ternary Operator
+b) Defer
+c) Where Clause

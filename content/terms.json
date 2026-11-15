@@ -263,6 +263,18 @@
     "labeledstatement": {
       "term": "Labeled Statement",
       "day": 22
+    },
+    "ternaryoperator": {
+      "term": "Ternary Operator",
+      "day": 23
+    },
+    "whereclause": {
+      "term": "Where Clause",
+      "day": 23
+    },
+    "defer": {
+      "term": "Defer",
+      "day": 23
     }
   }
 }

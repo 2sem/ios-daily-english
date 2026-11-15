@@ -1,0 +1,244 @@
+{
+  "day": 23,
+  "phase": "1. Swift basics",
+  "theme": "3 terms on writing tidy Swift: choosing a value in one line, filtering a loop and running cleanup code later",
+  "terms": [
+    {
+      "term": "Ternary Operator",
+      "definition": "An operator that picks one of two values by checking a condition, written as `condition ? a : b`.",
+      "example": "Use ternary operators for short choices like `Pass` or `Retry`.",
+      "code": "let score = 8\nlet result = score > 5 ? \"Pass\" : \"Retry\"\nprint(result)",
+      "output": "Pass"
+    },
+    {
+      "term": "Where Clause",
+      "definition": "A condition added to a loop or pattern that keeps only the items matching it.",
+      "example": "Use where clauses to loop over only the scores above 4.",
+      "code": "let scores = [3, 8, 5, 9]\nfor score in scores where score > 4 {\n    print(score)\n}",
+      "output": "8\n5\n9"
+    },
+    {
+      "term": "Defer",
+      "definition": "A statement that holds code to run later, when the current scope is about to end.",
+      "example": "Use defers to close the file, even if the function returns early.",
+      "code": "func save() {\n    defer { print(\"Close file\") }\n    print(\"Write data\")\n}\nsave()",
+      "output": "Write data\nClose file"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "In this code, what is it called when the loop only visits names that are not empty?",
+      "options": [
+        "Defer",
+        "Ternary Operator",
+        "Where Clause"
+      ],
+      "answer": "c",
+      "code": "let names = [\"Mina\", \"\", \"Jake\"]\nfor name in names where !name.isEmpty {\n    print(name)\n}"
+    },
+    {
+      "question": "In this code, what is it called when `print(\"Done\")` is saved to run as the function ends?",
+      "options": [
+        "Where Clause",
+        "Defer",
+        "Ternary Operator"
+      ],
+      "answer": "b",
+      "code": "func load() {\n    defer { print(\"Done\") }\n    print(\"Loading\")\n}"
+    },
+    {
+      "question": "In this code, what is it called when `? :` picks \"Adult\" or \"Minor\" from a condition?",
+      "options": [
+        "Ternary Operator",
+        "Defer",
+        "Where Clause"
+      ],
+      "answer": "a",
+      "code": "let age = 20\nlet label = age >= 18 ? \"Adult\" : \"Minor\""
+    }
+  ],
+  "video": {
+    "title": "Ternary Operator, Where Clause & Defer in 2 minutes | iOS Daily English Day 23",
+    "description": "Learn to talk about tidy Swift code: Ternary Operator, Where Clause & Defer, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nTernary Operator - An operator that picks one of two values by checking a condition, written as `condition ? a : b`.\nWhere Clause - A condition added to a loop or pattern that keeps only the items matching it.\nDefer - A statement that holds code to run later, when the current scope is about to end.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 23 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish #SwiftUI",
+    "tags": [
+      "ternary operator",
+      "where clause",
+      "defer",
+      "swift ternary",
+      "swift where",
+      "swift defer",
+      "swift basics",
+      "ios development",
+      "ios developer english",
+      "english for developers",
+      "learn english"
+    ],
+    "landscape": {
+      "title": "Swift Ternary Operator, Where Clause & Defer in English | Day 23",
+      "description": "Explain Ternary Operator, Where Clause & Defer in Swift by listening to a real code chat between two iOS devs.\n삼항 연산자, Where 절, Defer 표현을 영어 대화로 익혀요.\n\nTernary Operator - An operator that picks one of two values by checking a condition, written as `condition ? a : b`.\n한국어: 삼항 연산자: 조건에 따라 두 값 중 하나를 고르는 연산자\n\nWhere Clause - A condition added to a loop or pattern that keeps only the items matching it.\n한국어: Where 절: 반복문이나 패턴에 조건을 붙여 맞는 항목만 남기는 구문\n\nDefer - A statement that holds code to run later, when the current scope is about to end.\n한국어: Defer: 현재 범위가 끝나기 직전에 실행할 코드를 미리 등록하는 문\n\nIn this video, Mina and Jake filter a loop, choose a value in one line and run cleanup code, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 23 of the iOS Daily English series.\n\n#Swift #iOSDeveloper #EnglishForDevelopers",
+      "tags": [
+        "Ternary Operator",
+        "Where Clause",
+        "Defer",
+        "swift basics",
+        "스위프트 기초",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "ios development",
+        "iOS Daily English"
+      ],
+      "youtubeId": "VG2E1VvthEQ",
+      "youtubeUrl": "https://youtu.be/VG2E1VvthEQ",
+      "privacy": "private",
+      "publishAt": "2026-11-15T23:00:00.000Z",
+      "uploaded": "2026-11-15T01:00:46.358Z",
+      "thumbnailSet": "2026-11-15T01:00:51.079Z",
+      "playlistAdded": "2026-11-15T01:00:52.826Z"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "Tidy code in a chat",
+    "setting": "Morning stand-up and code chat",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "B",
+        "text": "Mina, my loop shows a label for every `score` in `scores`, but zero is not real data.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "Add a Where Clause. With `where score > 0`, the loop skips zero.",
+        "terms": [
+          "Where Clause"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "So the Where Clause filters the items before the loop body runs?",
+        "terms": [
+          "Where Clause"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Yes. Now for the label, use a Ternary Operator instead of a long if.",
+        "terms": [
+          "Ternary Operator"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Hmm, is a Ternary Operator better than an if?",
+        "terms": [
+          "Ternary Operator"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "For two short values, yes. `score > 5 ? \"high\" : \"low\"` is easy to read.",
+        "terms": [
+          "Ternary Operator"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "I see. Oh no, I forgot to print Done when `show` ends.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "Use Defer at the top. Defer runs its code when the function is about to end.",
+        "terms": [
+          "Defer"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Even if the function returns early?",
+        "terms": [
+          "Defer"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Yes, that is why Defer is great for cleanup.",
+        "terms": [
+          "Defer"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Got it. Where Clause to filter, Ternary Operator to choose, Defer to clean up.",
+        "terms": [
+          "Ternary Operator",
+          "Where Clause",
+          "Defer"
+        ]
+      }
+    ],
+    "code": "let scores = [3, 8, 0, 9]\nfunc show() {\n    defer { print(\"Done\") }\n    for score in scores where score > 0 {\n        print(score > 5 ? \"high\" : \"low\") }\n}",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "Ternary Operator",
+      "lines": [
+        {
+          "text": "Use ternary operators for short choices."
+        }
+      ],
+      "title": "Use ternary operators for short choices. Ternary Operator #Shorts",
+      "description": "Use ternary operators for short choices.\n\nTernary Operator - An operator that picks one of two values by checking a condition, written as `condition ? a : b`.\n한국어: 삼항 연산자: 조건에 따라 두 값 중 하나를 고르는 연산자\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "Where Clause",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "How do I skip some items?"
+        },
+        {
+          "speaker": "B",
+          "text": "Add a where clause."
+        }
+      ],
+      "title": "How do I skip some items? Add a where clause. Where Clause #Shorts",
+      "description": "How do I skip some items? / Add a where clause.\n\nWhere Clause - A condition added to a loop or pattern that keeps only the items matching it.\n한국어: Where 절: 반복문이나 패턴에 조건을 붙여 맞는 항목만 남기는 구문\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Defer",
+      "lines": [
+        {
+          "text": "Use defers to run cleanup when the function ends."
+        }
+      ],
+      "title": "Use defers to run cleanup when the function ends. Defer #Shorts",
+      "description": "Use defers to run cleanup when the function ends.\n\nDefer - A statement that holds code to run later, when the current scope is about to end.\n한국어: Defer: 현재 범위가 끝나기 직전에 실행할 코드를 미리 등록하는 문\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "Can you write tidy Swift?"
+}
