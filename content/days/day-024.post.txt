@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 24
+
+Default Parameter
+- A parameter that has a preset value, used when the caller passes nothing for it.
+- Example: "Use default parameters so callers can skip values that rarely change."
+
+Variadic Parameter
+- A parameter that accepts zero or more values of the same type, written with three dots after the type.
+- Example: "Use variadic parameters so we can pass any number of scores."
+
+In-Out Parameter
+- A parameter that lets a function change the caller's variable, marked with `inout`.
+- Example: "Use in-out parameters when the function must update the caller's variable."
+
+
+Quiz ①
+In this code, what is it called when `names` accepts any number of strings?
+a) In-Out Parameter
+b) Variadic Parameter
+c) Default Parameter
+
+Quiz ②
+In this code, what is it called when `count` lets the function change the caller's variable?
+a) Default Parameter
+b) Variadic Parameter
+c) In-Out Parameter
+
+Quiz ③
+In this code, what is it called when `times` uses 3 because the caller passes nothing?
+a) Default Parameter
+b) In-Out Parameter
+c) Variadic Parameter

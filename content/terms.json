@@ -275,6 +275,18 @@
     "defer": {
       "term": "Defer",
       "day": 23
+    },
+    "defaultparameter": {
+      "term": "Default Parameter",
+      "day": 24
+    },
+    "variadicparameter": {
+      "term": "Variadic Parameter",
+      "day": 24
+    },
+    "inoutparameter": {
+      "term": "In-Out Parameter",
+      "day": 24
     }
   }
 }

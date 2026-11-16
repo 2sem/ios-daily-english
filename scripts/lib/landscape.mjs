@@ -133,7 +133,9 @@ export const dKey = (i) => `d${two(i)}`;
 const SYMBOLS = [["...", " through "], ["..<", " up to "], [">=", " greater than or equal to "], ["<=", " less than or equal to "], [">", " greater than "], ["<", " less than "], ["??", " double question mark "], [":", " colon "], ["?", " question mark "], ["!", " exclamation mark "], [".", " dot "]];
 export function spoken(text) {
   return text
-    .replace(/`([^`]*)`/g, (_, code) => {
+    .replace(/`([^`]*)`/g, (_, raw) => {
+      // the keyword `inout` is said as two words, "in out" (written as one token the voices may run it together)
+      const code = raw.replace(/\binout\b/g, "in out");
       if (!/[?!<>]|\.\.[.<]/.test(code)) return code;
       let out = code.replaceAll('"', "");
       for (const [sym, word] of SYMBOLS) out = out.replaceAll(sym, word);
