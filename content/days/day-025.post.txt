@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 25
+
+Map
+- A collection method that changes every item and returns the results in a new array.
+- Example: "Use map to turn the user list into an array of names."
+
+Filter
+- A collection method that keeps only the items passing a test and returns them in a new array.
+- Example: "Use filter to keep only the unread messages."
+
+Reduce
+- A collection method that combines all the items into one value, starting from a first value.
+- Example: "Use reduce to add up every price in the cart."
+
+
+Quiz ①
+In this code, which method fills the blank to add all the numbers in `cart` into one `sum`?
+a) filter
+b) map
+c) reduce
+
+Quiz ②
+In this code, which method fills the blank to turn every word into its letter count?
+a) map
+b) reduce
+c) filter
+
+Quiz ③
+In this code, which method fills the blank to keep only the ages that are 18 or more?
+a) reduce
+b) filter
+c) map

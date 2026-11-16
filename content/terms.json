@@ -287,6 +287,18 @@
     "inoutparameter": {
       "term": "In-Out Parameter",
       "day": 24
+    },
+    "map": {
+      "term": "Map",
+      "day": 25
+    },
+    "filter": {
+      "term": "Filter",
+      "day": 25
+    },
+    "reduce": {
+      "term": "Reduce",
+      "day": 25
     }
   }
 }
