@@ -1,0 +1,246 @@
+{
+  "day": 25,
+  "phase": "1. Swift basics",
+  "theme": "3 terms on array methods that take a closure: change every item, keep some items and combine all items into one value",
+  "terms": [
+    {
+      "term": "Map",
+      "definition": "A collection method that changes every item and returns the results in a new array.",
+      "example": "Use map to turn the user list into an array of names.",
+      "code": "let names = [\"mina\", \"jake\"]\nlet loud = names.map { $0.uppercased() }\nprint(loud)",
+      "output": "[\"MINA\", \"JAKE\"]"
+    },
+    {
+      "term": "Filter",
+      "definition": "A collection method that keeps only the items passing a test and returns them in a new array.",
+      "example": "Use filter to keep only the unread messages.",
+      "code": "let scores = [40, 90, 75]\nlet passed = scores.filter { $0 >= 60 }\nprint(passed)",
+      "output": "[90, 75]"
+    },
+    {
+      "term": "Reduce",
+      "definition": "A collection method that combines all the items into one value, starting from a first value.",
+      "example": "Use reduce to add up every price in the cart.",
+      "code": "let prices = [3, 8, 5]\nlet total = prices.reduce(0) { $0 + $1 }\nprint(total)",
+      "output": "16"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "In this code, which method fills the blank to add all the numbers in `cart` into one `sum`?",
+      "options": [
+        "filter",
+        "map",
+        "reduce"
+      ],
+      "answer": "c",
+      "code": "let cart = [4, 6, 10]\nlet sum = cart.___(0) { $0 + $1 }\nprint(sum) // 20"
+    },
+    {
+      "question": "In this code, which method fills the blank to turn every word into its letter count?",
+      "options": [
+        "map",
+        "reduce",
+        "filter"
+      ],
+      "answer": "a",
+      "code": "let words = [\"hi\", \"swift\"]\nlet counts = words.___ { $0.count }\nprint(counts) // [2, 5]"
+    },
+    {
+      "question": "In this code, which method fills the blank to keep only the ages that are 18 or more?",
+      "options": [
+        "reduce",
+        "filter",
+        "map"
+      ],
+      "answer": "b",
+      "code": "let ages = [12, 30, 17, 45]\nlet adults = ages.___ { $0 >= 18 }\nprint(adults) // [30, 45]"
+    }
+  ],
+  "video": {
+    "title": "Map, Filter & Reduce in 2 minutes | iOS Daily English Day 25",
+    "description": "Learn to talk about Swift array methods that replace long loops: Map, Filter & Reduce, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nMap - A collection method that changes every item and returns the results in a new array.\nFilter - A collection method that keeps only the items passing a test and returns them in a new array.\nReduce - A collection method that combines all the items into one value, starting from a first value.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 25 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish #SwiftUI",
+    "tags": [
+      "swift map",
+      "swift filter",
+      "swift reduce",
+      "map filter reduce",
+      "higher-order functions",
+      "swift array methods",
+      "swift closures",
+      "swift basics",
+      "swift",
+      "ios development",
+      "ios developer english",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "Swift Map, Filter & Reduce in English | Day 25",
+      "description": "Explain Map, Filter & Reduce in Swift by listening to a real code chat between two iOS devs.\n맵, 필터, 리듀스 표현을 영어 대화로 익혀요.\n\nMap - A collection method that changes every item and returns the results in a new array.\n한국어: 맵: 모든 항목을 바꿔서 결과를 새 배열로 돌려주는 컬렉션 메서드\n\nFilter - A collection method that keeps only the items passing a test and returns them in a new array.\n한국어: 필터: 조건을 통과한 항목만 남겨 새 배열로 돌려주는 컬렉션 메서드\n\nReduce - A collection method that combines all the items into one value, starting from a first value.\n한국어: 리듀스: 시작 값에서 출발해 모든 항목을 하나의 값으로 합치는 컬렉션 메서드\n\nIn this video, Mina and Jake replace one long loop with three short lines that pick prices, change them and add them up, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 25 of the iOS Daily English series.\n\n#Swift #iOSDeveloper #EnglishForDevelopers",
+      "tags": [
+        "Map",
+        "Filter",
+        "Reduce",
+        "map filter reduce",
+        "swift array methods",
+        "swift basics",
+        "스위프트 기초",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "ios development",
+        "iOS Daily English"
+      ],
+      "youtubeId": "WOXV-jE4hPM",
+      "youtubeUrl": "https://youtu.be/WOXV-jE4hPM",
+      "privacy": "private",
+      "publishAt": "2026-11-17T23:00:00.000Z",
+      "uploaded": "2026-11-16T22:50:33.583Z",
+      "thumbnailSet": "2026-11-16T22:50:40.806Z",
+      "playlistAdded": "2026-11-16T22:50:42.510Z"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "One long loop, three short lines",
+    "setting": "Morning pair-programming chat",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "B",
+        "text": "Mina, my loop over `prices` is so long. It picks the big ones, halves them, then adds them up.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "Three steps, three methods. First, use Filter to keep the prices that are ten or more.",
+        "terms": [
+          "Filter"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "I tried Map for that, but I got an array of `true` and `false`.",
+        "terms": [
+          "Map"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "That's the mistake. Map changes every item. Filter keeps or drops items.",
+        "terms": [
+          "Map",
+          "Filter"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Oh, so Filter gives me `big`, with only three prices.",
+        "terms": [
+          "Filter"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Right. Now use Map on `big` to cut each price in half.",
+        "terms": [
+          "Map"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "And `prices` stays the same?",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "Yes, you get a new array, `sale`. Last, use Reduce to add everything into `total`.",
+        "terms": [
+          "Reduce"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Why does Reduce start with zero?",
+        "terms": [
+          "Reduce"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "That's the first value. Each price is added to it.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Got it. Filter to pick, Map to change, Reduce to combine.",
+        "terms": [
+          "Map",
+          "Filter",
+          "Reduce"
+        ]
+      }
+    ],
+    "code": "let prices = [12, 40, 8, 25]\nlet big = prices.filter { $0 >= 10 }\nlet sale = big.map { $0 / 2 }\nlet total = sale.reduce(0) { $0 + $1 }",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "Map",
+      "lines": [
+        {
+          "text": "Use map to turn users into an array of names."
+        }
+      ],
+      "title": "Use map to turn users into an array of names. Map #Shorts",
+      "description": "Use map to turn users into an array of names.\n\nMap - A collection method that changes every item and returns the results in a new array.\n한국어: 맵: 모든 항목을 바꿔서 결과를 새 배열로 돌려주는 컬렉션 메서드\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "Filter",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "How do I show only the unread messages?"
+        },
+        {
+          "speaker": "B",
+          "text": "Use filter on the array."
+        }
+      ],
+      "title": "How do I show only the unread messages? Filter #Shorts",
+      "description": "How do I show only the unread messages? / Use filter on the array.\n\nFilter - A collection method that keeps only the items passing a test and returns them in a new array.\n한국어: 필터: 조건을 통과한 항목만 남겨 새 배열로 돌려주는 컬렉션 메서드\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Reduce",
+      "lines": [
+        {
+          "text": "Use reduce to add up every price in the cart."
+        }
+      ],
+      "title": "Use reduce to add up every price in the cart. Reduce #Shorts",
+      "description": "Use reduce to add up every price in the cart.\n\nReduce - A collection method that combines all the items into one value, starting from a first value.\n한국어: 리듀스: 시작 값에서 출발해 모든 항목을 하나의 값으로 합치는 컬렉션 메서드\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "Can you replace a loop?"
+}
