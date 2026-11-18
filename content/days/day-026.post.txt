@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 26
+
+Sorted
+- A collection method that returns a new array with the items put in order.
+- Example: "Use sorted to show the highest scores first."
+
+CompactMap
+- A collection method that changes every item and drops the results that are nil.
+- Example: "Use compactMap to turn the text fields into numbers and skip the bad ones."
+
+FlatMap
+- A collection method that changes every item into a list and joins all the lists into one flat array.
+- Example: "Use flatMap to join every team's members into one list."
+
+
+Quiz ①
+In this code, which method fills the blank to join the inner arrays of `rows` into one flat array?
+a) sorted
+b) compactMap
+c) flatMap
+
+Quiz ②
+In this code, which method fills the blank to put the `prices` in order from low to high?
+a) flatMap
+b) sorted
+c) compactMap
+
+Quiz ③
+In this code, which method fills the blank to turn the strings into numbers and drop the bad one?
+a) compactMap
+b) flatMap
+c) sorted
