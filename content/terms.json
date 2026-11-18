@@ -299,6 +299,18 @@
     "reduce": {
       "term": "Reduce",
       "day": 25
+    },
+    "sorted": {
+      "term": "Sorted",
+      "day": 26
+    },
+    "compactmap": {
+      "term": "CompactMap",
+      "day": 26
+    },
+    "flatmap": {
+      "term": "FlatMap",
+      "day": 26
     }
   }
 }
