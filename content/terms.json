@@ -311,6 +311,18 @@
     "flatmap": {
       "term": "FlatMap",
       "day": 26
+    },
+    "enumerated": {
+      "term": "Enumerated",
+      "day": 27
+    },
+    "zip": {
+      "term": "Zip",
+      "day": 27
+    },
+    "higherorderfunction": {
+      "term": "Higher-Order Function",
+      "day": 27
     }
   }
 }

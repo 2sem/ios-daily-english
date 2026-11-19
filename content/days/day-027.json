@@ -1,0 +1,250 @@
+{
+  "day": 27,
+  "phase": "1. Swift basics",
+  "theme": "3 terms on looping and function tools: get positions, pair two lists and pass functions into functions",
+  "terms": [
+    {
+      "term": "Enumerated",
+      "definition": "A collection method that gives you each item together with its position number.",
+      "example": "Use enumerated to show the step number next to each task.",
+      "code": "let tasks = [\"Build\", \"Test\"]\nfor (step, task) in tasks.enumerated() {\n    print(step, task)\n}",
+      "output": "0 Build\n1 Test"
+    },
+    {
+      "term": "Zip",
+      "definition": "A function that walks through two sequences at the same time and pairs their items.",
+      "example": "Use zip to match each name with its score.",
+      "code": "let names = [\"Mina\", \"Jake\"]\nlet ids = [1, 2]\nprint(Array(zip(names, ids)))",
+      "output": "[(\"Mina\", 1), (\"Jake\", 2)]"
+    },
+    {
+      "term": "Higher-Order Function",
+      "definition": "A function that takes another function as input or returns one.",
+      "example": "Map is a higher-order function because it takes a closure.",
+      "code": "func apply(_ x: Int, using f: (Int) -> Int) -> Int {\n    f(x)\n}\nprint(apply(4) { $0 * 2 })",
+      "output": "8"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "In this code, which function fills the blank to pair each name with its score?",
+      "options": [
+        "enumerated",
+        "Higher-Order Function",
+        "zip"
+      ],
+      "answer": "c",
+      "code": "let names = [\"Mina\", \"Jake\"]\nlet scores = [90, 80]\nfor (n, s) in ___(names, scores) {\n    print(n, s)\n}"
+    },
+    {
+      "question": "What is it called when a function takes another function as input, like `map` does?",
+      "options": [
+        "Zip",
+        "Enumerated",
+        "Higher-Order Function"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "In this code, which method fills the blank to get each position number with its item?",
+      "options": [
+        "zip",
+        "enumerated",
+        "Higher-Order Function"
+      ],
+      "answer": "b",
+      "code": "let items = [\"a\", \"b\", \"c\"]\nfor (i, x) in items.___() {\n    print(i, x)\n}"
+    }
+  ],
+  "video": {
+    "title": "Enumerated, Zip & Higher-Order Function in 2 minutes | iOS Daily English Day 27",
+    "description": "Learn to talk about Swift looping and function tools: Enumerated, Zip & Higher-Order Function, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nEnumerated - A collection method that gives you each item together with its position number.\nZip - A function that walks through two sequences at the same time and pairs their items.\nHigher-Order Function - A function that takes another function as input or returns one.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 27 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish #SwiftUI",
+    "tags": [
+      "swift enumerated",
+      "swift zip",
+      "higher-order function",
+      "swift array methods",
+      "swift closures",
+      "swift loops",
+      "swift basics",
+      "swift",
+      "ios development",
+      "ios developer english",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "Swift Enumerated, Zip & Higher-Order Function in English | Day 27",
+      "description": "Explain Enumerated, Zip & Higher-Order Function in Swift by listening to a real code chat between two iOS devs.\n에뉴머레이티드, 집, 고차 함수 표현을 영어 대화로 익혀요.\n\nEnumerated - A collection method that gives you each item together with its position number.\n한국어: 에뉴머레이티드: 각 항목을 그 위치 번호와 함께 보여 주는 컬렉션 메서드\n\nZip - A function that walks through two sequences at the same time and pairs their items.\n한국어: 집: 두 시퀀스를 동시에 훑으면서 항목을 짝지어 주는 함수\n\nHigher-Order Function - A function that takes another function as input or returns one.\n한국어: 고차 함수: 다른 함수를 입력으로 받거나 함수를 돌려주는 함수\n\nIn this video, Mina and Jake number a list, pair two arrays and talk about functions that take functions, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 27 of the iOS Daily English series.\n\n#Swift #iOSDeveloper #EnglishForDevelopers",
+      "tags": [
+        "Enumerated",
+        "Zip",
+        "Higher-Order Function",
+        "swift enumerated",
+        "swift zip",
+        "swift basics",
+        "스위프트 기초",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "ios development",
+        "iOS Daily English"
+      ],
+      "youtubeId": "Ugcdg90jO2o",
+      "youtubeUrl": "https://youtu.be/Ugcdg90jO2o",
+      "privacy": "private",
+      "publishAt": "2026-11-19T23:00:00.000Z",
+      "uploaded": "2026-11-19T00:02:07.249Z",
+      "thumbnailSet": "2026-11-19T00:02:11.807Z",
+      "playlistAdded": "2026-11-19T00:02:13.421Z"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "Numbers, pairs and functions",
+    "setting": "Morning pair-programming chat",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "B",
+        "text": "Mina, I need the number of each name in my `names` list.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "Use Enumerated. It gives you each item with its position.",
+        "terms": [
+          "Enumerated"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "I wrote a counter by hand. Is Enumerated better?",
+        "terms": [
+          "Enumerated"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Yes, no manual counter. You get `i` and `n` in the loop.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Nice. But I also have `ids`. How do I match them with `names`?",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "Use Zip. It walks through both arrays and pairs the items.",
+        "terms": [
+          "Zip"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "So Zip also gives me the positions?",
+        "terms": [
+          "Zip"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "No, Enumerated gives positions. Zip only pairs two lists.",
+        "terms": [
+          "Enumerated",
+          "Zip"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Got it. And `map` takes a closure, so is it a Higher-Order Function?",
+        "terms": [
+          "Higher-Order Function"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Exactly. A Higher-Order Function takes or returns another function.",
+        "terms": [
+          "Higher-Order Function"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "So `ids.map` is a Higher-Order Function that makes `doubled`.",
+        "terms": [
+          "Higher-Order Function"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Right. Enumerated for positions, Zip for pairs.",
+        "terms": [
+          "Enumerated",
+          "Zip"
+        ]
+      }
+    ],
+    "code": "let names = [\"Mina\", \"Jake\"]\nlet ids = [1, 2]\nfor (i, n) in names.enumerated() { print(i, n) }\nlet pairs = Array(zip(names, ids))\nlet doubled = ids.map { $0 * 2 }",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "Enumerated",
+      "lines": [
+        {
+          "text": "Use enumerated to show the step number next to each task."
+        }
+      ],
+      "title": "Use enumerated to show the step number next to each task. Enumerated #Shorts",
+      "description": "Use enumerated to show the step number next to each task.\n\nEnumerated - A collection method that gives you each item together with its position number.\n한국어: 에뉴머레이티드: 각 항목을 그 위치 번호와 함께 보여 주는 컬렉션 메서드\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "Zip",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "How do I match names with scores?"
+        },
+        {
+          "speaker": "B",
+          "text": "Use zip and loop over both arrays."
+        }
+      ],
+      "title": "How do I match names with scores? Zip #Shorts",
+      "description": "How do I match names with scores? / Use zip and loop over both arrays.\n\nZip - A function that walks through two sequences at the same time and pairs their items.\n한국어: 집: 두 시퀀스를 동시에 훑으면서 항목을 짝지어 주는 함수\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Higher-Order Function",
+      "lines": [
+        {
+          "text": "Map is a higher-order function because it takes a closure."
+        }
+      ],
+      "title": "Map is a higher-order function because it takes a closure. Higher-Order Function #Shorts",
+      "description": "Map is a higher-order function because it takes a closure.\n\nHigher-Order Function - A function that takes another function as input or returns one.\n한국어: 고차 함수: 다른 함수를 입력으로 받거나 함수를 돌려주는 함수\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "Can you pair two arrays in English?"
+}

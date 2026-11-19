@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 27
+
+Enumerated
+- A collection method that gives you each item together with its position number.
+- Example: "Use enumerated to show the step number next to each task."
+
+Zip
+- A function that walks through two sequences at the same time and pairs their items.
+- Example: "Use zip to match each name with its score."
+
+Higher-Order Function
+- A function that takes another function as input or returns one.
+- Example: "Map is a higher-order function because it takes a closure."
+
+
+Quiz ①
+In this code, which function fills the blank to pair each name with its score?
+a) enumerated
+b) Higher-Order Function
+c) zip
+
+Quiz ②
+What is it called when a function takes another function as input, like `map` does?
+a) Zip
+b) Enumerated
+c) Higher-Order Function
+
+Quiz ③
+In this code, which method fills the blank to get each position number with its item?
+a) zip
+b) enumerated
+c) Higher-Order Function
