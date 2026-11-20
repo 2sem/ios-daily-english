@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 28
+
+Escaping Closure
+- A closure that a function keeps and calls later, after the function has returned.
+- Example: "Mark the completion handler as escaping, because we call it after the request finishes."
+
+Non-Escaping Closure
+- A closure that a function calls before it returns, which is the default in Swift.
+- Example: "This closure is non-escaping, so you don't need to write self inside it."
+
+Autoclosure
+- A closure that Swift makes automatically from an expression you pass as an argument.
+- Example: "The assert message uses an autoclosure, so Swift only builds the string if the check fails."
+
+
+Quiz ①
+What is it called when Swift wraps an expression like `a > b` in a closure for you?
+a) Non-Escaping Closure
+b) Autoclosure
+c) Escaping Closure
+
+Quiz ②
+In this code, what kind of closure is `work`, since it runs before `run` returns?
+a) Escaping Closure
+b) Autoclosure
+c) Non-Escaping Closure
+
+Quiz ③
+What do you call a closure that a function stores in an array and calls later?
+a) Escaping Closure
+b) Non-Escaping Closure
+c) Autoclosure

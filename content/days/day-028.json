@@ -1,0 +1,236 @@
+{
+  "day": 28,
+  "phase": "1. Swift basics",
+  "theme": "3 terms on deeper closures: closures that run later, closures that run right away and closures Swift writes for you",
+  "terms": [
+    {
+      "term": "Escaping Closure",
+      "definition": "A closure that a function keeps and calls later, after the function has returned.",
+      "example": "Mark the completion handler as escaping, because we call it after the request finishes.",
+      "code": "var handlers: [() -> Void] = []\nfunc save(_ done: @escaping () -> Void) {\n    handlers.append(done)\n}\nsave { print(\"Saved\") }\nhandlers[0]()",
+      "output": "Saved"
+    },
+    {
+      "term": "Non-Escaping Closure",
+      "definition": "A closure that a function calls before it returns, which is the default in Swift.",
+      "example": "This closure is non-escaping, so you don't need to write self inside it.",
+      "code": "func run(_ work: () -> Void) {\n    work()\n}\nrun { print(\"Done now\") }",
+      "output": "Done now"
+    },
+    {
+      "term": "Autoclosure",
+      "definition": "A closure that Swift makes automatically from an expression you pass as an argument.",
+      "example": "The assert message uses an autoclosure, so Swift only builds the string if the check fails.",
+      "code": "func log(_ msg: @autoclosure () -> String) {\n    print(msg())\n}\nlog(\"Count: \" + String(3))",
+      "output": "Count: 3"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What is it called when Swift wraps an expression like `a > b` in a closure for you?",
+      "options": [
+        "Non-Escaping Closure",
+        "Autoclosure",
+        "Escaping Closure"
+      ],
+      "answer": "b"
+    },
+    {
+      "question": "In this code, what kind of closure is `work`, since it runs before `run` returns?",
+      "options": [
+        "Escaping Closure",
+        "Autoclosure",
+        "Non-Escaping Closure"
+      ],
+      "answer": "c",
+      "code": "func run(_ work: () -> Void) {\n    work()\n}"
+    },
+    {
+      "question": "What do you call a closure that a function stores in an array and calls later?",
+      "options": [
+        "Escaping Closure",
+        "Non-Escaping Closure",
+        "Autoclosure"
+      ],
+      "answer": "a"
+    }
+  ],
+  "video": {
+    "title": "Escaping, Non-Escaping & Autoclosure | iOS Daily English Day 28",
+    "description": "Learn to talk about when Swift closures run: Escaping Closure, Non-Escaping Closure & Autoclosure, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nEscaping Closure - A closure that a function keeps and calls later, after the function has returned.\nNon-Escaping Closure - A closure that a function calls before it returns, which is the default in Swift.\nAutoclosure - A closure that Swift makes automatically from an expression you pass as an argument.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 28 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish #SwiftUI",
+    "tags": [
+      "escaping closure",
+      "non-escaping closure",
+      "autoclosure",
+      "swift @escaping",
+      "swift @autoclosure",
+      "swift closures",
+      "completion handler",
+      "swift basics",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "Swift Escaping Closure, Non-Escaping Closure & Autoclosure in English | Day 28",
+      "description": "Explain Escaping Closure, Non-Escaping Closure & Autoclosure in Swift by listening to a real code chat between two iOS devs.\n이스케이핑 클로저, 논이스케이핑 클로저, 오토클로저 표현을 영어 대화로 익혀요.\n\nEscaping Closure - A closure that a function keeps and calls later, after the function has returned.\n한국어: 이스케이핑 클로저: 함수가 끝난 뒤 나중에 호출되도록 보관되는 클로저\n\nNon-Escaping Closure - A closure that a function calls before it returns, which is the default in Swift.\n한국어: 논이스케이핑 클로저: 함수가 끝나기 전에 호출되는 클로저로, 스위프트의 기본값\n\nAutoclosure - A closure that Swift makes automatically from an expression you pass as an argument.\n한국어: 오토클로저: 인자로 넘긴 표현식을 스위프트가 자동으로 감싸 만든 클로저\n\nIn this video, Mina and Jake fix a closure error, talk about which closures run later and pass an expression without braces, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 28 of the iOS Daily English series.\n\n#Swift #iOSDeveloper #EnglishForDevelopers",
+      "tags": [
+        "Escaping Closure",
+        "Non-Escaping Closure",
+        "Autoclosure",
+        "swift @escaping",
+        "swift @autoclosure",
+        "swift closures",
+        "스위프트 기초",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "ios development",
+        "iOS Daily English"
+      ],
+      "youtubeId": "vIoNGoXF5bc",
+      "youtubeUrl": "https://youtu.be/vIoNGoXF5bc",
+      "privacy": "private",
+      "publishAt": "2026-11-20T23:00:00.000Z",
+      "uploaded": "2026-11-20T09:29:40.525Z",
+      "thumbnailSet": "2026-11-20T09:29:47.602Z",
+      "playlistAdded": "2026-11-20T09:29:49.530Z"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "Closures that run later",
+    "setting": "Afternoon code review chat",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "B",
+        "text": "Mina, `fetch` gives me an error when I store `done` in `handlers`.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "That's because `done` runs later. It has to be an Escaping Closure.",
+        "terms": [
+          "Escaping Closure"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "So I just add the escaping mark before the type?",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "Yes. An Escaping Closure can still run after `fetch` returns.",
+        "terms": [
+          "Escaping Closure"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Then should I mark the `forEach` closure too?",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "No, that one runs right away. It's a Non-Escaping Closure.",
+        "terms": [
+          "Non-Escaping Closure"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Wait, I thought every closure was escaping by default.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "It's the opposite. A closure parameter is a Non-Escaping Closure unless you mark it.",
+        "terms": [
+          "Non-Escaping Closure"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Got it. What about `check`? I pass `items.count > 2` without braces.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "That's an Autoclosure. Swift wraps the expression in a closure for you.",
+        "terms": [
+          "Autoclosure"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Nice, so an Autoclosure only runs when `check` calls `ok`.",
+        "terms": [
+          "Autoclosure"
+        ]
+      }
+    ],
+    "code": "var handlers: [() -> Void] = []\nfunc fetch(done: @escaping () -> Void) { handlers.append(done) }\nfunc check(_ ok: @autoclosure () -> Bool) { print(ok()) }\nlet items = [1, 2, 3]\nitems.forEach { print($0) }\ncheck(items.count > 2)",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "Escaping Closure",
+      "lines": [
+        {
+          "text": "Store the handler for later? Mark it as an escaping closure."
+        }
+      ],
+      "title": "Store the handler for later? Mark it as an escaping closure. Escaping Closure #Shorts",
+      "description": "Store the handler for later? Mark it as an escaping closure.\n\nEscaping Closure - A closure that a function keeps and calls later, after the function has returned.\n한국어: 이스케이핑 클로저: 함수가 끝난 뒤 나중에 호출되도록 보관되는 클로저\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "Non-Escaping Closure",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Do I need self inside this closure?"
+        },
+        {
+          "speaker": "B",
+          "text": "No, it's non-escaping. It runs right away."
+        }
+      ],
+      "title": "Do I need self inside this closure? Non-Escaping Closure #Shorts",
+      "description": "Do I need self inside this closure? / No, it's non-escaping. It runs right away.\n\nNon-Escaping Closure - A closure that a function calls before it returns, which is the default in Swift.\n한국어: 논이스케이핑 클로저: 함수가 끝나기 전에 호출되는 클로저로, 스위프트의 기본값\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Autoclosure",
+      "lines": [
+        {
+          "text": "With an autoclosure, the caller passes an expression, not braces."
+        }
+      ],
+      "title": "With an autoclosure, the caller passes an expression, not braces. Autoclosure #Shorts",
+      "description": "With an autoclosure, the caller passes an expression, not braces.\n\nAutoclosure - A closure that Swift makes automatically from an expression you pass as an argument.\n한국어: 오토클로저: 인자로 넘긴 표현식을 스위프트가 자동으로 감싸 만든 클로저\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "When does your closure run?"
+}
