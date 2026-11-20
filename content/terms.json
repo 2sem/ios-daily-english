@@ -323,6 +323,18 @@
     "higherorderfunction": {
       "term": "Higher-Order Function",
       "day": 27
+    },
+    "escapingclosure": {
+      "term": "Escaping Closure",
+      "day": 28
+    },
+    "nonescapingclosure": {
+      "term": "Non-Escaping Closure",
+      "day": 28
+    },
+    "autoclosure": {
+      "term": "Autoclosure",
+      "day": 28
     }
   }
 }
