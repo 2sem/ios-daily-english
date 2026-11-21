@@ -1,0 +1,229 @@
+{
+  "day": 30,
+  "phase": "1. Swift basics",
+  "theme": "3 terms on protocols that do more: adding shared methods to a protocol, giving requirements a fallback body, and leaving a type for each conformer to choose",
+  "terms": [
+    {
+      "term": "Protocol Extension",
+      "definition": "An extension that adds methods or computed properties to every type that adopts a protocol.",
+      "example": "I added a protocol extension on `Greeter`, so all our greeting types get `greet()` for free.",
+      "code": "protocol Greeter { var name: String { get } }\nextension Greeter {\n    func greet() { print(\"Hi, \\(name)\") }\n}\nstruct User: Greeter { let name = \"Mina\" }\nUser().greet()",
+      "output": "Hi, Mina"
+    },
+    {
+      "term": "Default Implementation",
+      "definition": "A method body in a protocol extension that a conforming type uses when it does not write its own.",
+      "example": "`Square` doesn't write `describe()`, so it falls back to the default implementation.",
+      "code": "protocol Shape { func describe() -> String }\nextension Shape {\n    func describe() -> String { \"A shape\" }\n}\nstruct Square: Shape {}\nprint(Square().describe())",
+      "output": "A shape"
+    },
+    {
+      "term": "Associated Type",
+      "definition": "A placeholder type name inside a protocol that each conforming type fills in with a real type.",
+      "example": "The protocol uses an associated type for `Item`, so each box decides what it stores.",
+      "code": "protocol Box {\n    associatedtype Item\n    var item: Item { get }\n}\nstruct IntBox: Box { let item = 7 }\nprint(IntBox().item)",
+      "output": "7"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What do you call a placeholder type inside a protocol that each conforming type fills in?",
+      "options": [
+        "Default Implementation",
+        "Associated Type",
+        "Protocol Extension"
+      ],
+      "answer": "b"
+    },
+    {
+      "question": "What does a conforming type use when it skips writing a required method itself?",
+      "options": [
+        "Associated Type",
+        "Protocol Extension",
+        "Default Implementation"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "What lets you add one new method to all conforming types in a single place?",
+      "options": [
+        "Protocol Extension",
+        "Default Implementation",
+        "Associated Type"
+      ],
+      "answer": "a"
+    }
+  ],
+  "video": {
+    "title": "Protocol Extension, Default Implementation & Associated Type | Day 30",
+    "description": "Learn to talk about protocols that do more than list rules: Protocol Extension, Default Implementation & Associated Type, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nProtocol Extension - An extension that adds methods or computed properties to every type that adopts a protocol.\nDefault Implementation - A method body in a protocol extension that a conforming type uses when it does not write its own.\nAssociated Type - A placeholder type name inside a protocol that each conforming type fills in with a real type.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 30 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish #SwiftUI",
+    "tags": [
+      "protocol extension",
+      "default implementation",
+      "associated type",
+      "swift protocols",
+      "associatedtype swift",
+      "protocol oriented programming",
+      "swift basics",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "Swift Protocol Extension, Default Implementation & Associated Type in English | Day 30",
+      "description": "Explain Protocol Extension, Default Implementation & Associated Type in Swift by listening to a real code chat between two iOS devs.\n프로토콜 익스텐션, 기본 구현, 연관 타입 표현을 영어 대화로 익혀요.\n\nProtocol Extension - An extension that adds methods or computed properties to every type that adopts a protocol.\n한국어: 프로토콜 익스텐션: 프로토콜을 채택한 모든 타입에 메서드나 계산 프로퍼티를 한 번에 추가하는 익스텐션\n\nDefault Implementation - A method body in a protocol extension that a conforming type uses when it does not write its own.\n한국어: 기본 구현: 채택한 타입이 직접 구현하지 않을 때 대신 쓰이는, 프로토콜 익스텐션 안의 메서드 본문\n\nAssociated Type - A placeholder type name inside a protocol that each conforming type fills in with a real type.\n한국어: 연관 타입: 프로토콜 안의 자리표시자 타입 이름으로, 채택한 타입이 실제 타입을 정해요\n\nIn this video, Mina and Jake find a method nobody wrote, override a fallback title and figure out what a protocol's placeholder type really is, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 30 of the iOS Daily English series.\n\n#Swift #iOSDeveloper #EnglishForDevelopers",
+      "tags": [
+        "Protocol Extension",
+        "Default Implementation",
+        "Associated Type",
+        "swift protocols",
+        "associatedtype swift",
+        "protocol oriented programming",
+        "스위프트 기초",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "ios development",
+        "iOS Daily English"
+      ],
+      "hook": "Can you explain these protocol terms in English?",
+      "youtubeId": "CI9G5ZNL9d4",
+      "youtubeUrl": "https://youtu.be/CI9G5ZNL9d4",
+      "privacy": "private",
+      "publishAt": "2026-11-22T23:00:00.000Z",
+      "uploaded": "2026-11-21T23:58:05.194Z",
+      "thumbnailSet": "2026-11-21T23:58:09.538Z",
+      "playlistAdded": "2026-11-21T23:58:11.222Z"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "A method nobody wrote",
+    "setting": "Afternoon pairing session",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "B",
+        "text": "Mina, `News` compiles, but I never wrote `title`. Why does it work?",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "The protocol extension on `Feed` gives `title` a default implementation.",
+        "terms": [
+          "Protocol Extension",
+          "Default Implementation"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Oh, so every type that adopts `Feed` gets `title` for free?",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "Yes. That's why a protocol extension is great for shared code.",
+        "terms": [
+          "Protocol Extension"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Can `News` replace the default implementation with its own?",
+        "terms": [
+          "Default Implementation"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Yes. Just write your own `title` inside `News`.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Got it. And what's `Item`? I thought protocols couldn't have generics.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "It's an associated type. Each conforming type decides what `Item` really is.",
+        "terms": [
+          "Associated Type"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "So I have to add `typealias Item = Int` inside `News`?",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "No need. Swift infers the associated type from `items`.",
+        "terms": [
+          "Associated Type"
+        ]
+      }
+    ],
+    "code": "protocol Feed {\n    associatedtype Item\n    func items() -> [Item]; func title() -> String\n}\nextension Feed { func title() -> String { \"Feed\" } }\nstruct News: Feed { func items() -> [Int] { [] } }",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "Protocol Extension",
+      "lines": [
+        {
+          "text": "Write it once in a protocol extension, and every conformer gets it."
+        }
+      ],
+      "title": "Write it once in a protocol extension, and every conformer gets it. Protocol Extension #Shorts",
+      "description": "Write it once in a protocol extension, and every conformer gets it.\n\nProtocol Extension - An extension that adds methods or computed properties to every type that adopts a protocol.\n한국어: 프로토콜 익스텐션: 프로토콜을 채택한 모든 타입에 메서드나 계산 프로퍼티를 한 번에 추가하는 익스텐션\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "Default Implementation",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Why does this struct compile without `describe()`?"
+        },
+        {
+          "speaker": "B",
+          "text": "It uses the default implementation from the extension."
+        }
+      ],
+      "title": "Why does this struct compile without describe()? Default Implementation #Shorts",
+      "description": "Why does this struct compile without describe()? / It uses the default implementation from the extension.\n\nDefault Implementation - A method body in a protocol extension that a conforming type uses when it does not write its own.\n한국어: 기본 구현: 채택한 타입이 직접 구현하지 않을 때 대신 쓰이는, 프로토콜 익스텐션 안의 메서드 본문\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Associated Type",
+      "lines": [
+        {
+          "text": "With an associated type, each conforming type picks its own `Item`."
+        }
+      ],
+      "title": "With an associated type, each conforming type picks its own Item. Associated Type #Shorts",
+      "description": "With an associated type, each conforming type picks its own Item.\n\nAssociated Type - A placeholder type name inside a protocol that each conforming type fills in with a real type.\n한국어: 연관 타입: 프로토콜 안의 자리표시자 타입 이름으로, 채택한 타입이 실제 타입을 정해요\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "Methods for free?"
+}

@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 30
+
+Protocol Extension
+- An extension that adds methods or computed properties to every type that adopts a protocol.
+- Example: "I added a protocol extension on `Greeter`, so all our greeting types get `greet()` for free."
+
+Default Implementation
+- A method body in a protocol extension that a conforming type uses when it does not write its own.
+- Example: "`Square` doesn't write `describe()`, so it falls back to the default implementation."
+
+Associated Type
+- A placeholder type name inside a protocol that each conforming type fills in with a real type.
+- Example: "The protocol uses an associated type for `Item`, so each box decides what it stores."
+
+
+Quiz ①
+What do you call a placeholder type inside a protocol that each conforming type fills in?
+a) Default Implementation
+b) Associated Type
+c) Protocol Extension
+
+Quiz ②
+What does a conforming type use when it skips writing a required method itself?
+a) Associated Type
+b) Protocol Extension
+c) Default Implementation
+
+Quiz ③
+What lets you add one new method to all conforming types in a single place?
+a) Protocol Extension
+b) Default Implementation
+c) Associated Type
