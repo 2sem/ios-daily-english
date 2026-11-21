@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 29
+
+Error Protocol
+- A protocol that a type adopts so its values can be thrown as errors.
+- Example: "Our `LoginError` enum conforms to the Error protocol, so we can throw its cases."
+
+Result Type
+- A type that holds either a success value or a failure error, so a function can return it instead of throwing.
+- Example: "The completion handler passes a Result type, so the caller switches on `.success` and `.failure`."
+
+Rethrows
+- A keyword that marks a function that throws only when the closure passed to it throws.
+- Example: "Mark the helper as rethrows, so callers with safe closures don't need `try`."
+
+
+Quiz ①
+What do you call a type that holds either a success value or a failure error?
+a) Rethrows
+b) Result Type
+c) Error Protocol
+
+Quiz ②
+What do you call a function that can only fail when the closure you pass to it fails?
+a) Error Protocol
+b) Result Type
+c) Rethrows
+
+Quiz ③
+What must your custom enum adopt before you can throw its cases?
+a) Error Protocol
+b) Rethrows
+c) Result Type
