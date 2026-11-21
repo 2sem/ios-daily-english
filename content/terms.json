@@ -335,6 +335,18 @@
     "autoclosure": {
       "term": "Autoclosure",
       "day": 28
+    },
+    "errorprotocol": {
+      "term": "Error Protocol",
+      "day": 29
+    },
+    "resulttype": {
+      "term": "Result Type",
+      "day": 29
+    },
+    "rethrows": {
+      "term": "Rethrows",
+      "day": 29
     }
   }
 }
