@@ -1,0 +1,235 @@
+{
+  "day": 29,
+  "phase": "1. Swift basics",
+  "theme": "3 terms on error handling follow-ups: making a type throwable, returning success or failure, and throwing only when a closure throws",
+  "terms": [
+    {
+      "term": "Error Protocol",
+      "definition": "A protocol that a type adopts so its values can be thrown as errors.",
+      "example": "Our `LoginError` enum conforms to the Error protocol, so we can throw its cases.",
+      "code": "enum LoginError: Error {\n    case wrongPassword\n}\nlet error: Error = LoginError.wrongPassword\nprint(error)",
+      "output": "wrongPassword"
+    },
+    {
+      "term": "Result Type",
+      "definition": "A type that holds either a success value or a failure error, so a function can return it instead of throwing.",
+      "example": "The completion handler passes a Result type, so the caller switches on `.success` and `.failure`.",
+      "code": "enum NetError: Error { case offline }\nfunc load(_ ok: Bool) -> Result<Int, NetError> {\n    ok ? .success(42) : .failure(.offline)\n}\nprint(load(true))",
+      "output": "success(42)"
+    },
+    {
+      "term": "Rethrows",
+      "definition": "A keyword that marks a function that throws only when the closure passed to it throws.",
+      "example": "Mark the helper as rethrows, so callers with safe closures don't need `try`.",
+      "code": "func twice(_ f: () throws -> Int) rethrows -> Int {\n    try f() * 2\n}\nprint(twice { 21 })",
+      "output": "42"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What do you call a type that holds either a success value or a failure error?",
+      "options": [
+        "Rethrows",
+        "Result Type",
+        "Error Protocol"
+      ],
+      "answer": "b"
+    },
+    {
+      "question": "What do you call a function that can only fail when the closure you pass to it fails?",
+      "options": [
+        "Error Protocol",
+        "Result Type",
+        "Rethrows"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "What must your custom enum adopt before you can throw its cases?",
+      "options": [
+        "Error Protocol",
+        "Rethrows",
+        "Result Type"
+      ],
+      "answer": "a"
+    }
+  ],
+  "video": {
+    "title": "Error Protocol, Result Type & Rethrows | iOS Daily English Day 29",
+    "description": "Learn to talk about Swift errors without throwing everywhere: Error Protocol, Result Type & Rethrows, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nError Protocol - A protocol that a type adopts so its values can be thrown as errors.\nResult Type - A type that holds either a success value or a failure error, so a function can return it instead of throwing.\nRethrows - A keyword that marks a function that throws only when the closure passed to it throws.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 29 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish #SwiftUI",
+    "tags": [
+      "error protocol",
+      "result type",
+      "rethrows",
+      "swift error handling",
+      "swift result",
+      "swift rethrows",
+      "custom error swift",
+      "swift basics",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "Swift Error Protocol, Result Type & Rethrows in English | Day 29",
+      "description": "Explain Error Protocol, Result Type & Rethrows in Swift by listening to a real code chat between two iOS devs.\n에러 프로토콜, Result 타입, rethrows 표현을 영어 대화로 익혀요.\n\nError Protocol - A protocol that a type adopts so its values can be thrown as errors.\n한국어: 에러 프로토콜: 타입이 채택하면 그 값을 에러로 던질 수 있게 해 주는 프로토콜\n\nResult Type - A type that holds either a success value or a failure error, so a function can return it instead of throwing.\n한국어: Result 타입: 성공 값 또는 실패 에러 중 하나를 담아, 던지는 대신 반환할 수 있게 하는 타입\n\nRethrows - A keyword that marks a function that throws only when the closure passed to it throws.\n한국어: rethrows: 전달받은 클로저가 에러를 던질 때만 함수도 에러를 던진다고 표시하는 키워드\n\nIn this video, Mina and Jake fix an enum that can't be thrown, return success or failure instead of throwing and call a helper without try, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 29 of the iOS Daily English series.\n\n#Swift #iOSDeveloper #EnglishForDevelopers",
+      "tags": [
+        "Error Protocol",
+        "Result Type",
+        "Rethrows",
+        "swift error handling",
+        "swift result",
+        "swift rethrows",
+        "스위프트 기초",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "ios development",
+        "iOS Daily English"
+      ],
+      "youtubeId": "xMnUuJbzA00",
+      "youtubeUrl": "https://youtu.be/xMnUuJbzA00",
+      "privacy": "private",
+      "publishAt": "2026-11-21T23:00:00.000Z",
+      "uploaded": "2026-11-21T04:41:55.047Z",
+      "thumbnailSet": "2026-11-21T04:41:59.142Z",
+      "playlistAdded": "2026-11-21T04:42:00.879Z"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "Errors you can return",
+    "setting": "Morning code review chat",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "B",
+        "text": "Mina, I can't throw `offline`. The compiler says `LoadError` doesn't conform to Error.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "Your enum needs the Error Protocol. Add it after `LoadError`.",
+        "terms": [
+          "Error Protocol"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Oh, I forgot. So any type with the Error Protocol can be thrown?",
+        "terms": [
+          "Error Protocol"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Right. Now look at `load`. It doesn't throw at all.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Yeah, it returns a Result Type with `success` or `failure`.",
+        "terms": [
+          "Result Type"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Exactly. A Result Type is handy when you pass the outcome to a completion handler.",
+        "terms": [
+          "Result Type"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Then why does `retry` need `try` inside? I thought it never throws.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "It can. It's marked Rethrows, so it throws only if `f` throws.",
+        "terms": [
+          "Rethrows"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "So the `print` line with `cached` needs no `try`?",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "Correct. With Rethrows, a closure that can't fail means no `try` at the call site.",
+        "terms": [
+          "Rethrows"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Nice. I'll use that for the cache helper too.",
+        "terms": []
+      }
+    ],
+    "code": "enum LoadError: Error { case offline }\nfunc load(_ ok: Bool) -> Result<String, LoadError> {\n    ok ? .success(\"Hi\") : .failure(.offline)\n}\nfunc retry(_ f: () throws -> String) rethrows -> String { try f() }\nprint(retry { \"cached\" })",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "Error Protocol",
+      "lines": [
+        {
+          "text": "Want to throw your enum? Make it conform to the Error protocol."
+        }
+      ],
+      "title": "Want to throw your enum? Make it conform to the Error protocol. Error Protocol #Shorts",
+      "description": "Want to throw your enum? Make it conform to the Error protocol.\n\nError Protocol - A protocol that a type adopts so its values can be thrown as errors.\n한국어: 에러 프로토콜: 타입이 채택하면 그 값을 에러로 던질 수 있게 해 주는 프로토콜\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "Result Type",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Should this function throw, or return something?"
+        },
+        {
+          "speaker": "B",
+          "text": "Return a Result type. The caller can switch on it."
+        }
+      ],
+      "title": "Should this function throw, or return something? Result Type #Shorts",
+      "description": "Should this function throw, or return something? / Return a Result type. The caller can switch on it.\n\nResult Type - A type that holds either a success value or a failure error, so a function can return it instead of throwing.\n한국어: Result 타입: 성공 값 또는 실패 에러 중 하나를 담아, 던지는 대신 반환할 수 있게 하는 타입\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Rethrows",
+      "lines": [
+        {
+          "text": "With rethrows, a safe closure means no `try` at the call site."
+        }
+      ],
+      "title": "With rethrows, a safe closure means no try at the call site. Rethrows #Shorts",
+      "description": "With rethrows, a safe closure means no try at the call site.\n\nRethrows - A keyword that marks a function that throws only when the closure passed to it throws.\n한국어: rethrows: 전달받은 클로저가 에러를 던질 때만 함수도 에러를 던진다고 표시하는 키워드\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "Throw it or return it?"
+}
