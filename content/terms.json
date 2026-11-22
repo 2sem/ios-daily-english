@@ -347,6 +347,18 @@
     "rethrows": {
       "term": "Rethrows",
       "day": 29
+    },
+    "protocolextension": {
+      "term": "Protocol Extension",
+      "day": 30
+    },
+    "defaultimplementation": {
+      "term": "Default Implementation",
+      "day": 30
+    },
+    "associatedtype": {
+      "term": "Associated Type",
+      "day": 30
     }
   }
 }
