@@ -1,0 +1,242 @@
+{
+  "day": 31,
+  "phase": "1. Swift basics",
+  "theme": "3 terms on protocols every value type should adopt: comparing for equality, storing in sets and dictionaries, and ordering for sorting",
+  "terms": [
+    {
+      "term": "Equatable",
+      "definition": "A protocol that lets a type check whether two of its values are equal with `==`.",
+      "example": "`Point` is Equatable, so I can check `a == b` in the unit test.",
+      "code": "struct Point: Equatable {\n    let x: Int\n    let y: Int\n}\nprint(Point(x: 1, y: 2) == Point(x: 1, y: 2))",
+      "output": "true"
+    },
+    {
+      "term": "Hashable",
+      "definition": "A protocol that lets a type be stored in a set or used as a dictionary key.",
+      "example": "I made `Tag` Hashable, so we can keep tags in a `Set`.",
+      "code": "struct Tag: Hashable { let name: String }\nlet tags: Set = [Tag(name: \"a\"), Tag(name: \"a\")]\nprint(tags.count)",
+      "output": "1"
+    },
+    {
+      "term": "Comparable",
+      "definition": "A protocol that lets a type order its values with `<` so they can be sorted.",
+      "example": "`Level` is Comparable, so `sorted()` works without a closure.",
+      "code": "struct Level: Comparable {\n    let value: Int\n    static func < (a: Level, b: Level) -> Bool {\n        a.value < b.value\n    }\n}\nprint(Level(value: 1) < Level(value: 3))",
+      "output": "true"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "In this code, which protocol lets `Level` values use `<`?",
+      "code": "struct Level: ___ {\n    let value: Int\n    static func < (a: Level, b: Level) -> Bool {\n        a.value < b.value\n    }\n}",
+      "options": [
+        "Equatable",
+        "Comparable",
+        "Hashable"
+      ],
+      "answer": "b"
+    },
+    {
+      "question": "What do you call the protocol that checks whether two values are the same with `==`?",
+      "options": [
+        "Equatable",
+        "Hashable",
+        "Comparable"
+      ],
+      "answer": "a"
+    },
+    {
+      "question": "What lets a type be an element of a `Set` or a key of a `Dictionary`?",
+      "options": [
+        "Comparable",
+        "Equatable",
+        "Hashable"
+      ],
+      "answer": "c"
+    }
+  ],
+  "video": {
+    "title": "Equatable, Hashable & Comparable | Day 31",
+    "description": "Learn to explain how Swift compares, stores and sorts your types: Equatable, Hashable & Comparable, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nEquatable - A protocol that lets a type check whether two of its values are equal with `==`.\nHashable - A protocol that lets a type be stored in a set or used as a dictionary key.\nComparable - A protocol that lets a type order its values with `<` so they can be sorted.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 31 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish #SwiftUI",
+    "tags": [
+      "equatable",
+      "hashable",
+      "comparable",
+      "swift equatable",
+      "swift hashable",
+      "swift comparable",
+      "swift protocols",
+      "swift basics",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "Swift Equatable, Hashable & Comparable in English | Day 31",
+      "description": "Explain Equatable, Hashable & Comparable in Swift by listening to a real code chat between two iOS devs.\n이퀘터블, 해셔블, 컴패러블 표현을 영어 대화로 익혀요.\n\nEquatable - A protocol that lets a type check whether two of its values are equal with `==`.\n한국어: 이퀘터블: `==`로 두 값이 같은지 비교할 수 있게 해 주는 프로토콜\n\nHashable - A protocol that lets a type be stored in a set or used as a dictionary key.\n한국어: 해셔블: 타입을 Set에 담거나 Dictionary의 키로 쓸 수 있게 해 주는 프로토콜\n\nComparable - A protocol that lets a type order its values with the less-than operator so they can be sorted.\n한국어: 컴패러블: less-than 연산자로 값의 순서를 정해 정렬할 수 있게 해 주는 프로토콜\n\nIn this video, Mina and Jake fix a red `Set`, argue whether equal is enough for sorting and add a less-than function, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 31 of the iOS Daily English series.\n\n#Swift #iOSDeveloper #EnglishForDevelopers",
+      "tags": [
+        "Equatable",
+        "Hashable",
+        "Comparable",
+        "swift protocols",
+        "swift set",
+        "swift sorted",
+        "스위프트 기초",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "ios development",
+        "iOS Daily English"
+      ],
+      "hook": "Can you explain these protocol terms in English?",
+      "youtubeId": "EokDrTAlvXU",
+      "youtubeUrl": "https://youtu.be/EokDrTAlvXU",
+      "privacy": "private",
+      "publishAt": "2026-11-23T23:00:00.000Z",
+      "uploaded": "2026-11-23T11:32:35.393Z",
+      "thumbnailSet": "2026-11-23T11:32:40.532Z",
+      "playlistAdded": "2026-11-23T11:32:42.111Z"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "Why is the set red?",
+    "setting": "Afternoon pairing session",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, why is your `Set` red? Did you forget something on `Tag`?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Yes, a `Set` needs Hashable, so I added it.",
+        "terms": [
+          "Hashable"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Good. Hashable also needs Equatable, but Swift writes `==` for you here.",
+        "terms": [
+          "Hashable",
+          "Equatable"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "So Equatable just checks if two tags are the same?",
+        "terms": [
+          "Equatable"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Right. It compares every property with `==`.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Then `tags.sorted()` should work too. Equatable is enough, right?",
+        "terms": [
+          "Equatable"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "No. Equatable only says same or not. Sorting needs Comparable.",
+        "terms": [
+          "Equatable",
+          "Comparable"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Oh, my mistake. So I add Comparable and write `<`?",
+        "terms": [
+          "Comparable"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Yes. You write one `<` function, and Swift gives you the other comparisons.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Nice. Now `name` decides the order, so a comes before b.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "Perfect. Hashable for sets, Comparable for sorting.",
+        "terms": [
+          "Hashable",
+          "Comparable"
+        ]
+      }
+    ],
+    "code": "struct Tag: Hashable, Comparable {\n    let name: String\n    static func < (a: Tag, b: Tag) -> Bool {\n        a.name < b.name }\n}\nlet tags = Set([Tag(name: \"b\"), Tag(name: \"a\")])",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "Equatable",
+      "lines": [
+        {
+          "text": "Make it Equatable, and `==` can compare two values."
+        }
+      ],
+      "title": "Make it Equatable, and == can compare two values. Equatable #Shorts",
+      "description": "Make it Equatable, and `==` can compare two values.\n\nEquatable - A protocol that lets a type check whether two of its values are equal with `==`.\n한국어: 이퀘터블: `==`로 두 값이 같은지 비교할 수 있게 해 주는 프로토콜\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "Hashable",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Why can't I put `Tag` in a `Set`?"
+        },
+        {
+          "speaker": "B",
+          "text": "It needs to be Hashable first."
+        }
+      ],
+      "title": "Why can't I put Tag in a Set? / It needs to be Hashable first. Hashable #Shorts",
+      "description": "Why can't I put `Tag` in a `Set`? / It needs to be Hashable first.\n\nHashable - A protocol that lets a type be stored in a set or used as a dictionary key.\n한국어: 해셔블: 타입을 Set에 담거나 Dictionary의 키로 쓸 수 있게 해 주는 프로토콜\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Comparable",
+      "lines": [
+        {
+          "text": "Once it's Comparable, `sorted()` just works."
+        }
+      ],
+      "title": "Once it's Comparable, sorted() just works. Comparable #Shorts",
+      "description": "Once it's Comparable, `sorted()` just works.\n\nComparable - A protocol that lets a type order its values with `<` so they can be sorted.\n한국어: 컴패러블: `<`로 값의 순서를 정해 정렬할 수 있게 해 주는 프로토콜\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "Compare, hash, sort?"
+}

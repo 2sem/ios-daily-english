@@ -359,6 +359,18 @@
     "associatedtype": {
       "term": "Associated Type",
       "day": 30
+    },
+    "equatable": {
+      "term": "Equatable",
+      "day": 31
+    },
+    "hashable": {
+      "term": "Hashable",
+      "day": 31
+    },
+    "comparable": {
+      "term": "Comparable",
+      "day": 31
     }
   }
 }
