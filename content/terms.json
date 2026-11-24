@@ -383,6 +383,18 @@
     "customstringconvertible": {
       "term": "CustomStringConvertible",
       "day": 32
+    },
+    "sequence": {
+      "term": "Sequence",
+      "day": 33
+    },
+    "collection": {
+      "term": "Collection",
+      "day": 33
+    },
+    "iteratorprotocol": {
+      "term": "IteratorProtocol",
+      "day": 33
     }
   }
 }
