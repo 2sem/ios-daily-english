@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 32
+
+CaseIterable
+- A protocol that lets a type list all of its cases in `allCases`, so you can loop over every case of an enum.
+- Example: "`Size` is CaseIterable, so I can loop over `Size.allCases` for the picker."
+
+Identifiable
+- A protocol that gives each value a stable `id`, so lists can tell items apart.
+- Example: "`User` is Identifiable, so the list can use its `id` to track each row."
+
+CustomStringConvertible
+- A protocol that lets a type control the text that `print` shows for its values.
+- Example: "I made `Pet` CustomStringConvertible, so `print` shows a clear name in the log."
+
+
+Quiz ①
+In this code, which protocol gives `User` a stable `id`?
+a) CaseIterable
+b) Identifiable
+c) CustomStringConvertible
+
+Quiz ②
+What do you call the protocol that lets a type choose the text `print` shows for it?
+a) CustomStringConvertible
+b) CaseIterable
+c) Identifiable
+
+Quiz ③
+What lets you loop over every case of an enum with `allCases`?
+a) Identifiable
+b) CustomStringConvertible
+c) CaseIterable
