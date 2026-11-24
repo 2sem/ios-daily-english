@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 31
+
+Equatable
+- A protocol that lets a type check whether two of its values are equal with `==`.
+- Example: "`Point` is Equatable, so I can check `a == b` in the unit test."
+
+Hashable
+- A protocol that lets a type be stored in a set or used as a dictionary key.
+- Example: "I made `Tag` Hashable, so we can keep tags in a `Set`."
+
+Comparable
+- A protocol that lets a type order its values with `<` so they can be sorted.
+- Example: "`Level` is Comparable, so `sorted()` works without a closure."
+
+
+Quiz ①
+In this code, which protocol lets `Level` values use `<`?
+a) Equatable
+b) Comparable
+c) Hashable
+
+Quiz ②
+What do you call the protocol that checks whether two values are the same with `==`?
+a) Equatable
+b) Hashable
+c) Comparable
+
+Quiz ③
+What lets a type be an element of a `Set` or a key of a `Dictionary`?
+a) Comparable
+b) Equatable
+c) Hashable
