@@ -1,0 +1,242 @@
+{
+  "day": 32,
+  "phase": "1. Swift basics",
+  "theme": "3 terms on standard-library protocols: listing enum cases, identifying items in a list, and customizing printed text",
+  "terms": [
+    {
+      "term": "CaseIterable",
+      "definition": "A protocol that lets a type list all of its cases in `allCases`, so you can loop over every case of an enum.",
+      "example": "`Size` is CaseIterable, so I can loop over `Size.allCases` for the picker.",
+      "code": "enum Size: CaseIterable {\n    case small, large\n}\nprint(Size.allCases.count)",
+      "output": "2"
+    },
+    {
+      "term": "Identifiable",
+      "definition": "A protocol that gives each value a stable `id`, so lists can tell items apart.",
+      "example": "`User` is Identifiable, so the list can use its `id` to track each row.",
+      "code": "struct User: Identifiable {\n    let id: Int\n    let name: String\n}\nprint(User(id: 7, name: \"Mina\").id)",
+      "output": "7"
+    },
+    {
+      "term": "CustomStringConvertible",
+      "definition": "A protocol that lets a type control the text that `print` shows for its values.",
+      "example": "I made `Pet` CustomStringConvertible, so `print` shows a clear name in the log.",
+      "code": "struct Pet: CustomStringConvertible {\n    let name: String\n    var description: String { \"Pet \\(name)\" }\n}\nprint(Pet(name: \"Momo\"))",
+      "output": "Pet Momo"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "In this code, which protocol gives `User` a stable `id`?",
+      "code": "struct User: ___ {\n    let id: Int\n    let name: String\n}",
+      "options": [
+        "CaseIterable",
+        "Identifiable",
+        "CustomStringConvertible"
+      ],
+      "answer": "b"
+    },
+    {
+      "question": "What do you call the protocol that lets a type choose the text `print` shows for it?",
+      "options": [
+        "CustomStringConvertible",
+        "CaseIterable",
+        "Identifiable"
+      ],
+      "answer": "a"
+    },
+    {
+      "question": "What lets you loop over every case of an enum with `allCases`?",
+      "options": [
+        "Identifiable",
+        "CustomStringConvertible",
+        "CaseIterable"
+      ],
+      "answer": "c"
+    }
+  ],
+  "video": {
+    "title": "CaseIterable, Identifiable & CustomStringConvertible | Day 32",
+    "description": "Learn to explain how Swift lists enum cases, identifies items and prints your types: CaseIterable, Identifiable & CustomStringConvertible, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nCaseIterable - A protocol that lets a type list all of its cases in `allCases`, so you can loop over every case of an enum.\nIdentifiable - A protocol that gives each value a stable `id`, so lists can tell items apart.\nCustomStringConvertible - A protocol that lets a type control the text that `print` shows for its values.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 32 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish #SwiftUI",
+    "tags": [
+      "caseiterable",
+      "identifiable",
+      "customstringconvertible",
+      "swift caseiterable",
+      "swift identifiable",
+      "swift protocols",
+      "swift basics",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "Swift CaseIterable, Identifiable & CustomStringConvertible | Day 32",
+      "description": "Explain CaseIterable, Identifiable & CustomStringConvertible in Swift by listening to a real code chat between two iOS devs.\n케이스 이터러블, 아이덴티파이어블, 커스텀 스트링 컨버터블 표현을 영어 대화로 익혀요.\n\nCaseIterable - A protocol that lets a type list all of its cases in `allCases`, so you can loop over every case of an enum.\n한국어: 케이스 이터러블: enum의 모든 case를 `allCases`로 나열할 수 있게 해 주는 프로토콜\n\nIdentifiable - A protocol that gives each value a stable `id`, so lists can tell items apart.\n한국어: 아이덴티파이어블: 각 값에 고유한 `id`를 부여해 목록에서 항목을 구분할 수 있게 해 주는 프로토콜\n\nCustomStringConvertible - A protocol that lets a type control the text that `print` shows for its values.\n한국어: 커스텀 스트링 컨버터블: `print`가 보여 주는 텍스트를 직접 정할 수 있게 해 주는 프로토콜\n\nIn this video, Mina and Jake fix a log message, add a loop over every tab and sort out which protocol gives an `id`, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 32 of the iOS Daily English series.\n\n#Swift #iOSDeveloper #EnglishForDevelopers",
+      "tags": [
+        "CaseIterable",
+        "Identifiable",
+        "CustomStringConvertible",
+        "swift protocols",
+        "swift enum",
+        "swift print",
+        "스위프트 기초",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "ios development",
+        "iOS Daily English"
+      ],
+      "hook": "Can you explain these protocol terms in English?",
+      "youtubeId": "sM4qBVI9rhY",
+      "youtubeUrl": "https://youtu.be/sM4qBVI9rhY",
+      "privacy": "private",
+      "publishAt": "2026-11-24T22:00:00Z",
+      "uploaded": "2026-11-24T11:07:05.582Z",
+      "thumbnailSet": "2026-11-24T11:07:09.418Z",
+      "playlistAdded": "2026-11-24T11:07:11.041Z"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "Why is the log plain?",
+    "setting": "Afternoon pairing session",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, why does the log say `Tab.home` as plain text?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Because I did not set `description` yet. I need CustomStringConvertible.",
+        "terms": [
+          "CustomStringConvertible"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Right. With CustomStringConvertible, `print` shows your own text.",
+        "terms": [
+          "CustomStringConvertible"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "OK, I return the `rawValue` with a label. Now it shows `Tab: home`.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "Nice. I want a button per tab. Can I loop over them?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Yes, add CaseIterable and use `allCases`.",
+        "terms": [
+          "CaseIterable"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Wait, I thought CaseIterable also gives each tab an `id`.",
+        "terms": [
+          "CaseIterable"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "My mistake. It only lists cases. Identifiable gives the `id`.",
+        "terms": [
+          "CaseIterable",
+          "Identifiable"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Got it. Identifiable lets a list tell tabs apart by `id`.",
+        "terms": [
+          "Identifiable"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Exactly. I return the `rawValue` as the `id`, so it is stable.",
+        "terms": [
+          "Identifiable"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Perfect. CaseIterable for the loop, Identifiable for the list.",
+        "terms": [
+          "CaseIterable",
+          "Identifiable"
+        ]
+      }
+    ],
+    "code": "enum Tab: String, CaseIterable, Identifiable,\n    CustomStringConvertible {\n    case home, search\n    var id: String { rawValue }\n    var description: String { \"Tab: \\(rawValue)\" }\n}",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "CaseIterable",
+      "lines": [
+        {
+          "text": "Make it CaseIterable, and `allCases` lists every case."
+        }
+      ],
+      "title": "Make it CaseIterable, and allCases lists every case. CaseIterable #Shorts",
+      "description": "Make it CaseIterable, and `allCases` lists every case.\n\nCaseIterable - A protocol that lets a type list all of its cases in `allCases`, so you can loop over every case of an enum.\n한국어: 케이스 이터러블: enum의 모든 case를 `allCases`로 나열할 수 있게 해 주는 프로토콜\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "Identifiable",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "How does the list tell rows apart?"
+        },
+        {
+          "speaker": "B",
+          "text": "Each one is Identifiable, with its own `id`."
+        }
+      ],
+      "title": "How does the list tell rows apart? / Each one is Identifiable. #Shorts",
+      "description": "How does the list tell rows apart? / Each one is Identifiable, with its own `id`.\n\nIdentifiable - A protocol that gives each value a stable `id`, so lists can tell items apart.\n한국어: 아이덴티파이어블: 각 값에 고유한 `id`를 부여해 목록에서 항목을 구분할 수 있게 해 주는 프로토콜\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "CustomStringConvertible",
+      "lines": [
+        {
+          "text": "CustomStringConvertible changes what `print` shows."
+        }
+      ],
+      "title": "CustomStringConvertible changes what print shows. CustomStringConvertible #Shorts",
+      "description": "CustomStringConvertible changes what `print` shows.\n\nCustomStringConvertible - A protocol that lets a type control the text that `print` shows for its values.\n한국어: 커스텀 스트링 컨버터블: `print`가 보여 주는 텍스트를 직접 정할 수 있게 해 주는 프로토콜\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "List, identify, print?"
+}

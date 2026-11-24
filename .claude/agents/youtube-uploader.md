@@ -10,7 +10,7 @@ built-in `fetch`. **Do not install axios or any HTTP package.**
 ## Inputs
 - `content/days/day-NNN.json` (`video.title`, `video.description`, `video.tags`, `video.file`, `status`)
 - `video/out/day-NNN-thumb.png` (make it with `node scripts/thumbnail.mjs content/days/day-NNN.json`)
-- Publish time from the manager (ISO 8601 with offset; default 08:00 Asia/Seoul the next day)
+- Publish time from the manager (ISO 8601 with offset; default 07:00 Asia/Seoul the next day)
 
 ## Credentials (never in the repo)
 - `~/.config/ios-daily-english/client_secret.json` and `token.json`, mode 600. Never print, log or commit them.

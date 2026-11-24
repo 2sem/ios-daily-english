@@ -50,7 +50,7 @@ node scripts/facebook-upload.mjs content/days/day-NNN.json   # 6. Facebook Page 
 
 The owner approves: the content (step 3) and the video and thumbnail (step 6). That approval, or an explicit
 "publish", also covers the YouTube upload and Facebook Reel: do not ask again about caption, time or licence.
-Default time is 08:00 KST next day. Nothing is published before the step 6 approval. Subagents never commit or push; the manager does.
+Default time is 07:00 KST next day. Nothing is published before the step 6 approval. Subagents never commit or push; the manager does.
 
 ## Rules that came out of review
 
@@ -132,7 +132,7 @@ Default time is 08:00 KST next day. Nothing is published before the step 6 appro
 - Confirm the license of any track before publishing. Add a credit line to the description if it requires one.
 
 ### Upload
-- Always upload **private**, scheduled with `--publish-at`. Default slot: 08:00 KST (commute).
+- Always upload **private**, scheduled with `--publish-at`. Default slot: 07:00 KST.
 - Shorts (normal days and hooks) upload with `notifySubscribers=false`; the landscape long video notifies (YouTube default). `--notify` forces true.
 - Never upload the same day twice (the script refuses when `youtube.videoId` is set).
 - No thumbnail API call for Shorts. `thumbnails.set` only fills the 16:9 slot (watch page, search); the Shorts tab and feed show

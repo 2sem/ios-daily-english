@@ -25,7 +25,7 @@ Full rules and commands: `docs/channel-workflow.md`.
 6. **Thumbnail.** `node scripts/thumbnail.mjs content/days/day-NNN.json --landscape` (set `thumbnailHook` in the day JSON for a short hook as the
    big text); show `video/out/day-NNN-thumb-landscape.png`.
 7. **Upload.** The user's approval of the video and thumbnail (or "approve" / "confirmed" / "publish") is the single publish
-   approval. Do not ask again about caption, time or licence. Use the stated time, else the default 08:00 KST next
+   approval. Do not ask again about caption, time or licence. Use the stated time, else the default 07:00 KST next
    day, and spawn `youtube-uploader` for the landscape video (private + `publishAt`, notifies subscribers, sets the landscape thumbnail
    through the API, joins the "iOS Daily English" playlist).
 8. **Facebook.** Only when a vertical video exists (the user asked for one): spawn `facebook-uploader` with the same time. Skipped by default.

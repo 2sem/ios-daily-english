@@ -371,6 +371,18 @@
     "comparable": {
       "term": "Comparable",
       "day": 31
+    },
+    "caseiterable": {
+      "term": "CaseIterable",
+      "day": 32
+    },
+    "identifiable": {
+      "term": "Identifiable",
+      "day": 32
+    },
+    "customstringconvertible": {
+      "term": "CustomStringConvertible",
+      "day": 32
     }
   }
 }
