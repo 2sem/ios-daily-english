@@ -395,6 +395,18 @@
     "iteratorprotocol": {
       "term": "IteratorProtocol",
       "day": 33
+    },
+    "private": {
+      "term": "Private",
+      "day": 34
+    },
+    "internal": {
+      "term": "Internal",
+      "day": 34
+    },
+    "public": {
+      "term": "Public",
+      "day": 34
     }
   }
 }

@@ -1,0 +1,243 @@
+{
+  "day": 34,
+  "phase": "1. Swift basics",
+  "theme": "3 terms on access control: hiding code inside a type, sharing it inside your module, and opening it to other modules",
+  "terms": [
+    {
+      "term": "Private",
+      "definition": "A keyword that hides a property or method from all code outside its own type.",
+      "example": "I made `cash` Private, so only `Wallet` can read it.",
+      "code": "struct Wallet {\n    private var cash = 50\n    func hasCash() -> Bool { cash > 0 }\n}\nprint(Wallet().hasCash())",
+      "output": "true"
+    },
+    {
+      "term": "Internal",
+      "definition": "A keyword for the default level that lets any code in your own module use a type, but hides it from other modules.",
+      "example": "`Tab` is Internal by default, so the whole app can use it.",
+      "code": "internal struct Tab {\n    var title = \"Home\"\n}\nprint(Tab().title)",
+      "output": "Home"
+    },
+    {
+      "term": "Public",
+      "definition": "A keyword that lets code in other modules use a type or member, as long as it is marked with it.",
+      "example": "I made `Badge` Public so the other framework can use it.",
+      "code": "public struct Badge {\n    public var count = 3\n    public init() {}\n}\nprint(Badge().count)",
+      "output": "3"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What do you call the default level that your whole module can use, but other modules cannot?",
+      "options": [
+        "Public",
+        "Internal",
+        "Private"
+      ],
+      "answer": "b"
+    },
+    {
+      "question": "What lets code in other modules use a type, once you mark it?",
+      "options": [
+        "Public",
+        "Private",
+        "Internal"
+      ],
+      "answer": "a"
+    },
+    {
+      "question": "In this code, which keyword hides `cash` from code outside `Wallet`?",
+      "code": "struct Wallet {\n    ___ var cash = 50\n}",
+      "options": [
+        "internal",
+        "public",
+        "private"
+      ],
+      "answer": "c"
+    }
+  ],
+  "video": {
+    "title": "Private, Internal & Public in Swift | Day 34",
+    "description": "Learn to explain who can see your code in Swift: Private, Internal & Public, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nPrivate - A keyword that hides a property or method from all code outside its own type.\nInternal - A keyword for the default level that lets any code in your own module use a type, but hides it from other modules.\nPublic - A keyword that lets code in other modules use a type or member, as long as it is marked with it.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 34 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish #SwiftUI",
+    "tags": [
+      "private",
+      "internal",
+      "public",
+      "swift access control",
+      "swift private",
+      "swift public",
+      "swift basics",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "Swift Private, Internal & Public Access Control | Day 34",
+      "description": "Explain Private, Internal & Public in Swift by listening to a real code chat between two iOS devs.\n프라이빗, 인터널, 퍼블릭 접근 수준 표현을 영어 대화로 익혀요.\n\nPrivate - A keyword that hides a property or method from all code outside its own type.\n한국어: 프라이빗: 자기 타입 바깥의 모든 코드에서 프로퍼티나 메서드를 숨기는 키워드\n\nInternal - A keyword for the default level that lets any code in your own module use a type, but hides it from other modules.\n한국어: 인터널: 같은 모듈 안의 모든 코드는 쓸 수 있고 다른 모듈에는 숨기는 기본 접근 수준 키워드\n\nPublic - A keyword that lets code in other modules use a type or member, as long as it is marked with it.\n한국어: 퍼블릭: 다른 모듈의 코드도 쓸 수 있게 열어 주는 접근 수준 키워드\n\nIn this video, Mina and Jake sort out why a property is hidden, what the default level is and what other modules can see, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 34 of the iOS Daily English series.\n\n#Swift #iOSDeveloper #EnglishForDevelopers",
+      "tags": [
+        "Private",
+        "Internal",
+        "Public",
+        "swift access control",
+        "swift private",
+        "swift public",
+        "스위프트 기초",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "ios development",
+        "iOS Daily English"
+      ],
+      "hook": "Can you explain these access levels in English?",
+      "youtubeId": "SKsAUmyXwsA",
+      "youtubeUrl": "https://youtu.be/SKsAUmyXwsA",
+      "privacy": "private",
+      "publishAt": "2026-11-26T22:00:00.000Z",
+      "uploaded": "2026-11-25T22:19:06.865Z",
+      "thumbnailSet": "2026-11-25T22:19:10.966Z",
+      "playlistAdded": "2026-11-25T22:19:12.936Z"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "Why is secret hidden?",
+    "setting": "Afternoon pairing session",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, why can't I read `secret` from `Badge`?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "It is Private, so only code inside `Badge` can use it.",
+        "terms": [
+          "Private"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "OK. And `label`? I did not write any keyword there.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Then it is Internal by default. Your whole app can see it.",
+        "terms": [
+          "Internal"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "So I make `Badge` Public and everything works?",
+        "terms": [
+          "Public"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Not everything. Each member needs its own keyword, like `count`.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "Right, `count` is Public, but `label` stays Internal.",
+        "terms": [
+          "Public",
+          "Internal"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Exactly. Another module can use only the Public parts.",
+        "terms": [
+          "Public"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "And `secret` stays Private, even inside the app?",
+        "terms": [
+          "Private"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Yes. Start with Private, then open it up when you need to.",
+        "terms": [
+          "Private"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Got it. Private first, Internal by default, Public for others.",
+        "terms": [
+          "Private",
+          "Internal",
+          "Public"
+        ]
+      }
+    ],
+    "code": "public struct Badge {\n    public var count = 3\n    private var secret = 7\n    var label = \"new\"\n}",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "Private",
+      "lines": [
+        {
+          "text": "Keep it Private until another type needs it."
+        }
+      ],
+      "title": "Keep it Private until another type needs it. #Shorts",
+      "description": "Keep it Private until another type needs it.\n\nPrivate - A keyword that hides a property or method from all code outside its own type.\n한국어: 프라이빗: 자기 타입 바깥의 모든 코드에서 프로퍼티나 메서드를 숨기는 키워드\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "Internal",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Which level is the default?"
+        },
+        {
+          "speaker": "B",
+          "text": "Internal, so your whole app can use it."
+        }
+      ],
+      "title": "Which level is the default? / Internal, so your whole app can use it. #Shorts",
+      "description": "Which level is the default? / Internal, so your whole app can use it.\n\nInternal - A keyword for the default level that lets any code in your own module use a type, but hides it from other modules.\n한국어: 인터널: 같은 모듈 안의 모든 코드는 쓸 수 있고 다른 모듈에는 숨기는 기본 접근 수준 키워드\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Public",
+      "lines": [
+        {
+          "text": "Mark it Public so other modules can use it."
+        }
+      ],
+      "title": "Mark it Public so other modules can use it. #Shorts",
+      "description": "Mark it Public so other modules can use it.\n\nPublic - A keyword that lets code in other modules use a type or member, as long as it is marked with it.\n한국어: 퍼블릭: 다른 모듈의 코드도 쓸 수 있게 열어 주는 접근 수준 키워드\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "Who can see it?"
+}

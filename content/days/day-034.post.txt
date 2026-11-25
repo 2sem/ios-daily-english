@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 34
+
+Private
+- A keyword that hides a property or method from all code outside its own type.
+- Example: "I made `cash` Private, so only `Wallet` can read it."
+
+Internal
+- A keyword for the default level that lets any code in your own module use a type, but hides it from other modules.
+- Example: "`Tab` is Internal by default, so the whole app can use it."
+
+Public
+- A keyword that lets code in other modules use a type or member, as long as it is marked with it.
+- Example: "I made `Badge` Public so the other framework can use it."
+
+
+Quiz ①
+What do you call the default level that your whole module can use, but other modules cannot?
+a) Public
+b) Internal
+c) Private
+
+Quiz ②
+What lets code in other modules use a type, once you mark it?
+a) Public
+b) Private
+c) Internal
+
+Quiz ③
+In this code, which keyword hides `cash` from code outside `Wallet`?
+a) internal
+b) public
+c) private
