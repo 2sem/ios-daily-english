@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 33
+
+Sequence
+- A protocol that lets a type hand out its values one at a time, so you can use it in a `for` loop.
+- Example: "`Steps` is a Sequence, so I can use it directly in a `for` loop."
+
+Collection
+- A protocol that lets a type be read many times by `index`, with a known `count` of items.
+- Example: "An array is a Collection, so I can read the second tab by its `index`."
+
+IteratorProtocol
+- A protocol that gives out values one by one with `next()` and returns `nil` when none are left.
+- Example: "My type follows IteratorProtocol, so `next()` returns `nil` after the last step."
+
+
+Quiz ①
+In this code, which protocol requires the `next()` method?
+a) Collection
+b) Sequence
+c) IteratorProtocol
+
+Quiz ②
+What do you call the protocol that lets a `for` loop step through the values of a type?
+a) Sequence
+b) IteratorProtocol
+c) Collection
+
+Quiz ③
+What adds reading items by `index` and a `count` on top of stepping through them?
+a) IteratorProtocol
+b) Collection
+c) Sequence

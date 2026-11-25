@@ -1,0 +1,242 @@
+{
+  "day": 33,
+  "phase": "1. Swift basics",
+  "theme": "3 terms on standard-library protocols: stepping through values, reading items by position, and handing out values one by one",
+  "terms": [
+    {
+      "term": "Sequence",
+      "definition": "A protocol that lets a type hand out its values one at a time, so you can use it in a `for` loop.",
+      "example": "`Steps` is a Sequence, so I can use it directly in a `for` loop.",
+      "code": "func total<S: Sequence<Int>>(_ s: S) -> Int {\n    var sum = 0\n    for n in s { sum += n }\n    return sum\n}\nprint(total(1...3))",
+      "output": "6"
+    },
+    {
+      "term": "Collection",
+      "definition": "A protocol that lets a type be read many times by `index`, with a known `count` of items.",
+      "example": "An array is a Collection, so I can read the second tab by its `index`.",
+      "code": "let tabs = [\"home\", \"search\", \"inbox\"]\nprint(tabs.count)\nprint(tabs[1])",
+      "output": "3\nsearch"
+    },
+    {
+      "term": "IteratorProtocol",
+      "definition": "A protocol that gives out values one by one with `next()` and returns `nil` when none are left.",
+      "example": "My type follows IteratorProtocol, so `next()` returns `nil` after the last step.",
+      "code": "var it = [10, 20].makeIterator()\nprint(it.next() ?? 0)\nprint(it.next() ?? 0)\nprint(it.next() as Any)",
+      "output": "10\n20\nnil"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "In this code, which protocol requires the `next()` method?",
+      "code": "struct Steps: ___ {\n    var n = 3\n    mutating func next() -> Int? { nil }\n}",
+      "options": [
+        "Collection",
+        "Sequence",
+        "IteratorProtocol"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "What do you call the protocol that lets a `for` loop step through the values of a type?",
+      "options": [
+        "Sequence",
+        "IteratorProtocol",
+        "Collection"
+      ],
+      "answer": "a"
+    },
+    {
+      "question": "What adds reading items by `index` and a `count` on top of stepping through them?",
+      "options": [
+        "IteratorProtocol",
+        "Collection",
+        "Sequence"
+      ],
+      "answer": "b"
+    }
+  ],
+  "video": {
+    "title": "Sequence, Collection & IteratorProtocol | Day 33",
+    "description": "Learn to explain how Swift steps through values, reads items by index and hands out values one by one: Sequence, Collection & IteratorProtocol, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nSequence - A protocol that lets a type hand out its values one at a time, so you can use it in a `for` loop.\nCollection - A protocol that lets a type be read many times by `index`, with a known `count` of items.\nIteratorProtocol - A protocol that gives out values one by one with `next()` and returns `nil` when none are left.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 33 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish #SwiftUI",
+    "tags": [
+      "sequence",
+      "collection",
+      "iteratorprotocol",
+      "swift sequence",
+      "swift collection",
+      "swift protocols",
+      "swift basics",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "Swift Sequence, Collection & IteratorProtocol | Day 33",
+      "description": "Explain Sequence, Collection & IteratorProtocol in Swift by listening to a real code chat between two iOS devs.\n시퀀스, 컬렉션, 이터레이터 프로토콜 표현을 영어 대화로 익혀요.\n\nSequence - A protocol that lets a type hand out its values one at a time, so you can use it in a `for` loop.\n한국어: 시퀀스: 값을 하나씩 내어 주어 `for` 루프에서 쓸 수 있게 해 주는 프로토콜\n\nCollection - A protocol that lets a type be read many times by `index`, with a known `count` of items.\n한국어: 컬렉션: `index`로 여러 번 읽을 수 있고 항목 `count`를 아는 타입을 위한 프로토콜\n\nIteratorProtocol - A protocol that gives out values one by one with `next()` and returns `nil` when none are left.\n한국어: 이터레이터 프로토콜: `next()`로 값을 하나씩 주고 더 없으면 `nil`을 돌려주는 프로토콜\n\nIn this video, Mina and Jake loop over a countdown, see how `next()` ends the loop and sort out when you need an `index`, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 33 of the iOS Daily English series.\n\n#Swift #iOSDeveloper #EnglishForDevelopers",
+      "tags": [
+        "Sequence",
+        "Collection",
+        "IteratorProtocol",
+        "swift protocols",
+        "swift for loop",
+        "swift array",
+        "스위프트 기초",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "ios development",
+        "iOS Daily English"
+      ],
+      "hook": "Can you explain these loop terms in English?",
+      "youtubeId": "jgE13CYg15k",
+      "youtubeUrl": "https://youtu.be/jgE13CYg15k",
+      "privacy": "private",
+      "publishAt": "2026-11-25T22:00:00.000Z",
+      "uploaded": "2026-11-24T22:33:41.600Z",
+      "thumbnailSet": "2026-11-24T22:33:45.949Z",
+      "playlistAdded": "2026-11-24T22:33:47.743Z"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "Can I loop over Steps?",
+    "setting": "Afternoon pairing session",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, can I use `Steps` in a `for` loop?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Yes, it is a Sequence, so a `for` loop can step through it.",
+        "terms": [
+          "Sequence"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "How does the Sequence know the next value?",
+        "terms": [
+          "Sequence"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "It uses IteratorProtocol. The `next()` method gives one value each time.",
+        "terms": [
+          "IteratorProtocol"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "And what happens when the values run out?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Then `next()` returns `nil`, and the loop stops. That is the IteratorProtocol rule.",
+        "terms": [
+          "IteratorProtocol"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Nice. Can I jump to the third step by `index`?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Not with a plain Sequence. For `index` you need Collection.",
+        "terms": [
+          "Sequence",
+          "Collection"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Wait, I thought a Sequence already gave me an `index`.",
+        "terms": [
+          "Sequence"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Not quite. Collection adds `index`, and you can read it many times.",
+        "terms": [
+          "Collection"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Got it. Sequence for the loop, Collection for the `index`.",
+        "terms": [
+          "Sequence",
+          "Collection"
+        ]
+      }
+    ],
+    "code": "struct Steps: Sequence, IteratorProtocol {\n    var n = 3\n    mutating func next() -> Int? {\n        defer { n -= 1 }; return n > 0 ? n : nil\n    }\n}",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "Sequence",
+      "lines": [
+        {
+          "text": "Make it a Sequence, and a `for` loop works."
+        }
+      ],
+      "title": "Make it a Sequence, and a for loop works. Sequence #Shorts",
+      "description": "Make it a Sequence, and a `for` loop works.\n\nSequence - A protocol that lets a type hand out its values one at a time, so you can use it in a `for` loop.\n한국어: 시퀀스: 값을 하나씩 내어 주어 `for` 루프에서 쓸 수 있게 해 주는 프로토콜\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "Collection",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Can I read the third item by `index`?"
+        },
+        {
+          "speaker": "B",
+          "text": "Yes, an array is a Collection."
+        }
+      ],
+      "title": "Can I read the third item by index? / An array is a Collection. #Shorts",
+      "description": "Can I read the third item by `index`? / Yes, an array is a Collection.\n\nCollection - A protocol that lets a type be read many times by `index`, with a known `count` of items.\n한국어: 컬렉션: `index`로 여러 번 읽을 수 있고 항목 `count`를 아는 타입을 위한 프로토콜\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "IteratorProtocol",
+      "lines": [
+        {
+          "text": "With IteratorProtocol, `next()` returns `nil` at the end."
+        }
+      ],
+      "title": "With IteratorProtocol, next() returns nil at the end. IteratorProtocol #Shorts",
+      "description": "With IteratorProtocol, `next()` returns `nil` at the end.\n\nIteratorProtocol - A protocol that gives out values one by one with `next()` and returns `nil` when none are left.\n한국어: 이터레이터 프로토콜: `next()`로 값을 하나씩 주고 더 없으면 `nil`을 돌려주는 프로토콜\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "Loop, index, next?"
+}
