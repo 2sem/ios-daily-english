@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 157
+
+Shadow
+- A soft dark copy behind a view that makes it look lifted from the screen.
+- Example: "Add a Shadow, so the card stands out."
+
+LinearGradient
+- A color effect that changes smoothly from one color to another along a straight line.
+- Example: "Use a LinearGradient from blue to purple for the header."
+
+Material
+- A blurred, see-through background that lets the content behind it shine through.
+- Example: "Put the controls on a Material, so the photo stays visible."
+
+
+Quiz ①
+What do you call a blurred, see-through background that lets the content behind it shine through?
+a) LinearGradient
+b) Material
+c) Shadow
+
+Quiz ②
+What do you call a soft dark copy behind a view that makes it look lifted?
+a) Material
+b) Shadow
+c) LinearGradient
+
+Quiz ③
+What do you call a color effect that changes smoothly from one color to another along a straight line?
+a) Shadow
+b) LinearGradient
+c) Material

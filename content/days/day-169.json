@@ -1,0 +1,239 @@
+{
+  "day": 169,
+  "phase": "4. SwiftUI",
+  "theme": "3 terms for passing values through SwiftUI views: down to children, up to the parent and listening for it",
+  "terms": [
+    {
+      "term": "EnvironmentKey",
+      "definition": "A protocol for a key that gives your own value a default in the environment.",
+      "example": "Add an EnvironmentKey for the theme.",
+      "code": "struct AccentKey: EnvironmentKey {\n    static let defaultValue = \"blue\"\n}",
+      "output": "// no output"
+    },
+    {
+      "term": "PreferenceKey",
+      "definition": "A protocol for a key that lets a child view send a value up to its parent.",
+      "example": "Use a PreferenceKey to send the width to the parent.",
+      "code": "struct WidthKey: PreferenceKey {\n    static let defaultValue: CGFloat = 0\n    static func reduce(value: inout CGFloat,\n        nextValue: () -> CGFloat) { value = nextValue() }\n}",
+      "output": "// no output"
+    },
+    {
+      "term": "onPreferenceChange",
+      "definition": "A modifier that runs code in a parent view when a preference value changes.",
+      "example": "Read the width in onPreferenceChange.",
+      "code": "Text(\"Hi\")\n    .preference(key: WidthKey.self, value: 50)\n    .onPreferenceChange(WidthKey.self) { w in\n        print(w)\n    }",
+      "output": "// no output"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What do you call a modifier that runs code in a parent view when a value sent up by its children is updated?",
+      "options": [
+        "PreferenceKey",
+        "onPreferenceChange",
+        "EnvironmentKey"
+      ],
+      "answer": "b"
+    },
+    {
+      "question": "What do you call a protocol that gives your own setting a default, and passes it down to child views?",
+      "options": [
+        "onPreferenceChange",
+        "EnvironmentKey",
+        "PreferenceKey"
+      ],
+      "answer": "b"
+    },
+    {
+      "question": "What do you call a protocol that lets a child view send a value up to its parent?",
+      "options": [
+        "EnvironmentKey",
+        "PreferenceKey",
+        "onPreferenceChange"
+      ],
+      "answer": "b"
+    }
+  ],
+  "video": {
+    "title": "EnvironmentKey, PreferenceKey & onPreferenceChange | Day 169",
+    "description": "Learn to explain how values travel through the SwiftUI view tree: EnvironmentKey, PreferenceKey & onPreferenceChange, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nEnvironmentKey - A protocol for a key that gives your own value a default in the environment.\nPreferenceKey - A protocol for a key that lets a child view send a value up to its parent.\nonPreferenceChange - A modifier that runs code in a parent view when a preference value changes.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 169 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "environmentkey",
+      "preferencekey",
+      "onpreferencechange",
+      "environmentkey",
+      "preferencekey",
+      "onpreferencechange",
+      "environmentkey",
+      "preferencekey",
+      "onpreferencechange",
+      "swiftui",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "SwiftUI EnvironmentKey, PreferenceKey & onPreferenceChange | Day 169",
+      "description": "Explain EnvironmentKey, PreferenceKey & onPreferenceChange in SwiftUI by listening to a real code chat between two iOS devs.\n인바이런먼트키, 프리퍼런스키, 온프리퍼런스체인지 표현을 영어 대화로 익혀요.\n\nEnvironmentKey - A protocol for a key that gives your own value a default in the environment.\n한국어: 인바이런먼트키: 내가 만든 값에 환경 속 기본값을 주는 키를 위한 프로토콜\n\nPreferenceKey - A protocol for a key that lets a child view send a value up to its parent.\n한국어: 프리퍼런스키: 자식 뷰가 부모 뷰로 값을 위로 보낼 수 있게 해 주는 키를 위한 프로토콜\n\nonPreferenceChange - A modifier that runs code in a parent view when a preference value changes.\n한국어: 온프리퍼런스체인지: 프리퍼런스 값이 바뀔 때 부모 뷰에서 코드를 실행하는 수정자\n\nIn this video, Mina and Jake share a theme value and a child width, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 169 of the iOS Daily English series.\n\n#Swift #SwiftUI #EnglishForDevelopers",
+      "tags": [
+        "EnvironmentKey",
+        "PreferenceKey",
+        "onPreferenceChange",
+        "environmentkey",
+        "preferencekey",
+        "onpreferencechange",
+        "SwiftUI",
+        "SwiftUI 기초",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "iOS Daily English"
+      ],
+      "hook": "Can you explain EnvironmentKey, PreferenceKey and onPreferenceChange in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "Up and down",
+    "setting": "SwiftUI data flow in the view tree",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, I want my own theme value in the environment, like the accent name.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Create an EnvironmentKey. It gives your own value a default in the environment.",
+        "terms": [
+          "EnvironmentKey"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Like `AccentKey` in the code, with `blue` as the default?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Yes. Every EnvironmentKey needs a default value.",
+        "terms": [
+          "EnvironmentKey"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Now a parent view must know the width of a child.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "The environment goes down, so you need a PreferenceKey. It lets a child send a value up to its parent.",
+        "terms": [
+          "PreferenceKey"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Is a PreferenceKey like an environment value?",
+        "terms": [
+          "PreferenceKey"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "It is the opposite direction. A PreferenceKey goes up, and an EnvironmentKey goes down.",
+        "terms": [
+          "EnvironmentKey",
+          "PreferenceKey"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "In the code, the child calls `.preference` with `WidthKey`.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Right. Then the parent listens with onPreferenceChange.",
+        "terms": [
+          "onPreferenceChange"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "What does onPreferenceChange do exactly?",
+        "terms": [
+          "onPreferenceChange"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "It runs code in the parent whenever the preference value changes.",
+        "terms": []
+      }
+    ],
+    "code": "struct AccentKey: EnvironmentKey {\n    static let defaultValue = \"blue\"\n}\nText(\"Hi\")\n    .preference(key: WidthKey.self, value: 50)\n    .onPreferenceChange(WidthKey.self) { _ in }",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "EnvironmentKey",
+      "lines": [
+        {
+          "text": "Add an EnvironmentKey for the theme."
+        }
+      ],
+      "title": "Add an EnvironmentKey for the theme. #Shorts",
+      "description": "Add an EnvironmentKey for the theme.\n\nEnvironmentKey - A protocol for a key that gives your own value a default in the environment.\n한국어: 인바이런먼트키: 내가 만든 값에 환경 속 기본값을 주는 키를 위한 프로토콜\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "PreferenceKey",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "How does a child send data up?"
+        },
+        {
+          "speaker": "B",
+          "text": "With a PreferenceKey."
+        }
+      ],
+      "title": "How does a child send data up? / With a PreferenceKey. #Shorts",
+      "description": "How does a child send data up? / With a PreferenceKey.\n\nPreferenceKey - A protocol for a key that lets a child view send a value up to its parent.\n한국어: 프리퍼런스키: 자식 뷰가 부모 뷰로 값을 위로 보낼 수 있게 해 주는 키를 위한 프로토콜\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "onPreferenceChange",
+      "lines": [
+        {
+          "text": "Read the width in onPreferenceChange."
+        }
+      ],
+      "title": "Read the width in onPreferenceChange. #Shorts",
+      "description": "Read the width in onPreferenceChange.\n\nonPreferenceChange - A modifier that runs code in a parent view when a preference value changes.\n한국어: 온프리퍼런스체인지: 프리퍼런스 값이 바뀔 때 부모 뷰에서 코드를 실행하는 수정자\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "How do SwiftUI values travel?"
+}

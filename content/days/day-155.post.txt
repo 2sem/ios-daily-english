@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 155
+
+Layout Priority
+- A number that tells a stack which view gets space first when there is not enough room.
+- Example: "Give the title a higher Layout Priority."
+
+ViewThatFits
+- A container that shows the first of its children that fits in the space it has.
+- Example: "Use ViewThatFits, so small phones get the short version."
+
+AnyLayout
+- A type that wraps any layout, so you can switch between layouts and still animate.
+- Example: "Wrap both versions in AnyLayout to animate the change."
+
+
+Quiz ①
+What do you call a type that wraps different layouts, so you can switch between them and animate?
+a) AnyLayout
+b) Layout Priority
+c) ViewThatFits
+
+Quiz ②
+What do you call a number that tells a stack which view gets space first?
+a) ViewThatFits
+b) AnyLayout
+c) Layout Priority
+
+Quiz ③
+What do you call a container that shows the first of its children that fits?
+a) ViewThatFits
+b) AnyLayout
+c) Layout Priority

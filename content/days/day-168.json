@@ -1,0 +1,238 @@
+{
+  "day": 168,
+  "phase": "4. SwiftUI",
+  "theme": "3 terms for smooth transitions between views: an id space, a moving match and a stepped animation",
+  "terms": [
+    {
+      "term": "Namespace",
+      "definition": "A property wrapper that creates an id space, so views can be matched by their ids.",
+      "example": "Pass the same Namespace to both views.",
+      "code": "struct Card: View {\n    @Namespace var ns\n    var body: some View { Text(\"Hi\") }\n}",
+      "output": "// no output"
+    },
+    {
+      "term": "MatchedGeometryEffect",
+      "definition": "A modifier that animates two views with the same id as if they were one view that moves.",
+      "example": "Use MatchedGeometryEffect for the photo transition.",
+      "code": "struct Hero: View {\n    @Namespace var ns\n    var body: some View {\n        Circle().matchedGeometryEffect(id: 1, in: ns)\n    }\n}",
+      "output": "// no output"
+    },
+    {
+      "term": "PhaseAnimator",
+      "definition": "A view that moves through a list of steps and animates from one step to the next.",
+      "example": "Use PhaseAnimator to make the badge pulse.",
+      "code": "PhaseAnimator([false, true]) { on in\n    Circle()\n        .scaleEffect(on ? 1.5 : 1)\n}",
+      "output": "// no output"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What do you call a modifier that animates two views with the same id as if they were one view moving?",
+      "options": [
+        "Namespace",
+        "MatchedGeometryEffect",
+        "PhaseAnimator"
+      ],
+      "answer": "b"
+    },
+    {
+      "question": "What do you call a view that moves through a list of steps and animates from one step to the next?",
+      "options": [
+        "MatchedGeometryEffect",
+        "PhaseAnimator",
+        "Namespace"
+      ],
+      "answer": "b"
+    },
+    {
+      "question": "What do you call a property wrapper that creates an id space, so views can be matched by id?",
+      "options": [
+        "PhaseAnimator",
+        "Namespace",
+        "MatchedGeometryEffect"
+      ],
+      "answer": "b"
+    }
+  ],
+  "video": {
+    "title": "Namespace, MatchedGeometryEffect & PhaseAnimator | Day 168",
+    "description": "Learn to explain how to animate views between screens in SwiftUI: Namespace, MatchedGeometryEffect & PhaseAnimator, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nNamespace - A property wrapper that creates an id space, so views can be matched by their ids.\nMatchedGeometryEffect - A modifier that animates two views with the same id as if they were one view that moves.\nPhaseAnimator - A view that moves through a list of steps and animates from one step to the next.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 168 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "namespace",
+      "matchedgeometryeffect",
+      "phaseanimator",
+      "namespace",
+      "matchedgeometryeffect",
+      "phaseanimator",
+      "namespace",
+      "matchedgeometryeffect",
+      "phaseanimator",
+      "swiftui",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "SwiftUI Namespace, MatchedGeometryEffect & PhaseAnimator | Day 168",
+      "description": "Explain Namespace, MatchedGeometryEffect & PhaseAnimator in SwiftUI by listening to a real code chat between two iOS devs.\n네임스페이스, 매치드지오메트리이펙트, 페이즈애니메이터 표현을 영어 대화로 익혀요.\n\nNamespace - A property wrapper that creates an id space, so views can be matched by their ids.\n한국어: 네임스페이스: 뷰들을 id로 짝지을 수 있게 id 공간을 만들어 주는 프로퍼티 래퍼\n\nMatchedGeometryEffect - A modifier that animates two views with the same id as if they were one view that moves.\n한국어: 매치드지오메트리이펙트: 같은 id를 가진 두 뷰를 하나의 뷰가 움직이는 것처럼 애니메이션하는 수정자\n\nPhaseAnimator - A view that moves through a list of steps and animates from one step to the next.\n한국어: 페이즈애니메이터: 여러 단계를 차례로 거치면서 한 단계에서 다음 단계로 애니메이션하는 뷰\n\nIn this video, Mina and Jake grow a thumbnail into a detail photo, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 168 of the iOS Daily English series.\n\n#Swift #SwiftUI #EnglishForDevelopers",
+      "tags": [
+        "Namespace",
+        "MatchedGeometryEffect",
+        "PhaseAnimator",
+        "namespace",
+        "matchedgeometryeffect",
+        "phaseanimator",
+        "SwiftUI",
+        "SwiftUI 기초",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "iOS Daily English"
+      ],
+      "hook": "Can you explain Namespace, MatchedGeometryEffect and PhaseAnimator in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "Grow the thumbnail",
+    "setting": "SwiftUI view transitions",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, I want the thumbnail to grow into the detail photo.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Use MatchedGeometryEffect. It animates two views with the same id as one view moving.",
+        "terms": [
+          "MatchedGeometryEffect"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Do both views in the MatchedGeometryEffect share the same `id`?",
+        "terms": [
+          "MatchedGeometryEffect"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Yes. They also need the same Namespace.",
+        "terms": [
+          "Namespace"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "What is a Namespace?",
+        "terms": [
+          "Namespace"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "A property wrapper that creates an id space, so views can be matched by their ids.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "I declared `@Namespace var ns` and passed `ns` to `in`.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Good. If the two views use different Namespace values, there is no match.",
+        "terms": [
+          "Namespace"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Now I want the circle to pulse, again and again.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "That is a job for PhaseAnimator. It moves through a list of steps and animates between them.",
+        "terms": [
+          "PhaseAnimator"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "So each step is just a value, like true and false?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Yes. The PhaseAnimator starts the next step when the animation ends.",
+        "terms": [
+          "PhaseAnimator"
+        ]
+      }
+    ],
+    "code": "struct Hero: View {\n    @Namespace var ns\n    var body: some View {\n        Circle().matchedGeometryEffect(id: 1, in: ns)\n    }\n}",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "Namespace",
+      "lines": [
+        {
+          "text": "Pass the same Namespace to both views."
+        }
+      ],
+      "title": "Pass the same Namespace to both views. #Shorts",
+      "description": "Pass the same Namespace to both views.\n\nNamespace - A property wrapper that creates an id space, so views can be matched by their ids.\n한국어: 네임스페이스: 뷰들을 id로 짝지을 수 있게 id 공간을 만들어 주는 프로퍼티 래퍼\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "MatchedGeometryEffect",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "How do I grow the thumbnail?"
+        },
+        {
+          "speaker": "B",
+          "text": "Use MatchedGeometryEffect."
+        }
+      ],
+      "title": "How do I grow the thumbnail? / Use MatchedGeometryEffect. #Shorts",
+      "description": "How do I grow the thumbnail? / Use MatchedGeometryEffect.\n\nMatchedGeometryEffect - A modifier that animates two views with the same id as if they were one view that moves.\n한국어: 매치드지오메트리이펙트: 같은 id를 가진 두 뷰를 하나의 뷰가 움직이는 것처럼 애니메이션하는 수정자\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "PhaseAnimator",
+      "lines": [
+        {
+          "text": "Use PhaseAnimator to make the badge pulse."
+        }
+      ],
+      "title": "Use PhaseAnimator to make the badge pulse. #Shorts",
+      "description": "Use PhaseAnimator to make the badge pulse.\n\nPhaseAnimator - A view that moves through a list of steps and animates from one step to the next.\n한국어: 페이즈애니메이터: 여러 단계를 차례로 거치면서 한 단계에서 다음 단계로 애니메이션하는 뷰\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "How do you animate between views?"
+}

@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 160
+
+Line Limit
+- A modifier that sets the maximum number of lines a text can use.
+- Example: "Set a Line Limit of two, so the title never gets too tall."
+
+Foreground Style
+- A modifier that sets the color or gradient used to draw text and shapes.
+- Example: "Use Foreground Style to make the price red."
+
+AttributedString
+- A string that stores styles, such as colors and links, for parts of the text.
+- Example: "Use an AttributedString for the link inside the sentence."
+
+
+Quiz ①
+What do you call a modifier that sets the maximum number of lines a text can use?
+a) Foreground Style
+b) AttributedString
+c) Line Limit
+
+Quiz ②
+What do you call a string that stores styles, such as colors and links, for parts of the text?
+a) Line Limit
+b) Foreground Style
+c) AttributedString
+
+Quiz ③
+What do you call a modifier that sets the color or gradient used to draw text and shapes?
+a) Line Limit
+b) Foreground Style
+c) AttributedString

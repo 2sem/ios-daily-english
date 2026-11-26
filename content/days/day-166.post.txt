@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 166
+
+Accessibility Value
+- A modifier that tells VoiceOver the current value of a control, such as 50 percent.
+- Example: "Add an Accessibility Value, so VoiceOver reads the percent."
+
+Accessibility Element
+- A modifier that groups child views into one item for VoiceOver.
+- Example: "Make the row one Accessibility Element, so VoiceOver reads it once."
+
+Accessibility Action
+- A modifier that adds a custom action that VoiceOver users can choose on a view.
+- Example: "Add an Accessibility Action for delete, so swiping is not required."
+
+
+Quiz ①
+What do you call a modifier that groups child views into one item for VoiceOver?
+a) Accessibility Element
+b) Accessibility Action
+c) Accessibility Value
+
+Quiz ②
+What do you call a modifier that adds a custom command that VoiceOver users can choose on a view?
+a) Accessibility Value
+b) Accessibility Element
+c) Accessibility Action
+
+Quiz ③
+What do you call a modifier that tells VoiceOver the current reading of a control, such as 50 percent?
+a) Accessibility Value
+b) Accessibility Element
+c) Accessibility Action

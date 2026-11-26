@@ -1,0 +1,238 @@
+{
+  "day": 154,
+  "phase": "4. SwiftUI",
+  "theme": "3 terms for rows and grids in SwiftUI: a lazy horizontal stack, a table-like container and a column description",
+  "terms": [
+    {
+      "term": "LazyHStack",
+      "definition": "A horizontal stack that creates its views only when they are about to appear on screen.",
+      "example": "Switch to a LazyHStack, because the row has 500 photos.",
+      "code": "ScrollView(.horizontal) {\n    LazyHStack {\n        ForEach(0..<100, id: \\.self) { Text(\"\\($0)\") }\n    }\n}",
+      "output": "// no output"
+    },
+    {
+      "term": "Grid",
+      "definition": "A container that arranges its rows and columns, so the cells line up like a table.",
+      "example": "Use a Grid for the price table, so the columns line up.",
+      "code": "Grid {\n    GridRow { Text(\"A\"); Text(\"B\") }\n    GridRow { Text(\"C\"); Text(\"D\") }\n}",
+      "output": "// no output"
+    },
+    {
+      "term": "GridItem",
+      "definition": "A description of one column or row in a lazy grid, including its size.",
+      "example": "Add a second GridItem to get two columns.",
+      "code": "let columns = [\n    GridItem(.flexible()),\n    GridItem(.fixed(80))\n]",
+      "output": "// no output"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What do you call a description of one column or row, including its size?",
+      "options": [
+        "Grid",
+        "GridItem",
+        "LazyHStack"
+      ],
+      "answer": "a"
+    },
+    {
+      "question": "What do you call a horizontal stack that creates its views only when they are about to appear?",
+      "options": [
+        "LazyHStack",
+        "Grid",
+        "GridItem"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "What do you call a container that arranges rows and columns, so the cells line up like a table?",
+      "options": [
+        "LazyHStack",
+        "Grid",
+        "GridItem"
+      ],
+      "answer": "a"
+    }
+  ],
+  "video": {
+    "title": "LazyHStack, Grid & GridItem | Day 154",
+    "description": "Learn to explain how to build rows and grids in SwiftUI: LazyHStack, Grid & GridItem, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nLazyHStack - A horizontal stack that creates its views only when they are about to appear on screen.\nGrid - A container that arranges its rows and columns, so the cells line up like a table.\nGridItem - A description of one column or row in a lazy grid, including its size.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 154 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "lazyhstack",
+      "grid",
+      "griditem",
+      "lazyhstack",
+      "grid",
+      "griditem",
+      "lazyhstack",
+      "grid",
+      "griditem",
+      "swiftui",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "SwiftUI LazyHStack, Grid & GridItem | Day 154",
+      "description": "Explain LazyHStack, Grid & GridItem in SwiftUI by listening to a real code chat between two iOS devs.\n레이지에이치스택, 그리드, 그리드아이템 표현을 영어 대화로 익혀요.\n\nLazyHStack - A horizontal stack that creates its views only when they are about to appear on screen.\n한국어: 레이지에이치스택: 화면에 나타나기 직전에만 뷰를 만드는 가로 스택\n\nGrid - A container that arranges its rows and columns, so the cells line up like a table.\n한국어: 그리드: 행과 열을 배치해서 셀들이 표처럼 정렬되게 하는 컨테이너\n\nGridItem - A description of one column or row in a lazy grid, including its size.\n한국어: 그리드아이템: 크기를 포함해 레이지 그리드의 열 하나 또는 행 하나를 설명하는 값\n\nIn this video, Mina and Jake speed up a photo row and build a price table, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 154 of the iOS Daily English series.\n\n#Swift #SwiftUI #EnglishForDevelopers",
+      "tags": [
+        "LazyHStack",
+        "Grid",
+        "GridItem",
+        "lazyhstack",
+        "grid",
+        "griditem",
+        "SwiftUI",
+        "SwiftUI 기초",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "iOS Daily English"
+      ],
+      "hook": "Can you explain LazyHStack, Grid and GridItem in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "Photo row and price table",
+    "setting": "SwiftUI rows and grids",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, my photo row has 500 images, and it opens slowly.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Do you use a plain horizontal stack?",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "Yes, inside a `ScrollView`.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Switch to a LazyHStack. It creates the views only when they are about to appear.",
+        "terms": [
+          "LazyHStack"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Nice, the LazyHStack is much faster. Now I want a table of prices with aligned columns.",
+        "terms": [
+          "LazyHStack"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Use a Grid. Each `GridRow` is a row, and the cells line up in columns.",
+        "terms": [
+          "Grid"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Does a Grid create its views lazily too?",
+        "terms": [
+          "Grid"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "No. A Grid creates all cells at once. For long data, use a lazy grid.",
+        "terms": [
+          "Grid"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "How do I set the columns for a lazy grid?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "With a GridItem. Each GridItem describes one column, with its size.",
+        "terms": [
+          "GridItem"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "So `.flexible()` makes that GridItem take the free space?",
+        "terms": [
+          "GridItem"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Yes. And `.fixed(80)` keeps the column at exactly 80 points.",
+        "terms": []
+      }
+    ],
+    "code": "ScrollView(.horizontal) { LazyHStack {} }\nGrid { GridRow { Text(\"B\") } }\nlet columns = [\n    GridItem(.fixed(80)),\n    GridItem(.flexible())]",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "LazyHStack",
+      "lines": [
+        {
+          "text": "A LazyHStack builds only the visible photos."
+        }
+      ],
+      "title": "A LazyHStack builds only the visible photos. #Shorts",
+      "description": "A LazyHStack builds only the visible photos.\n\nLazyHStack - A horizontal stack that creates its views only when they are about to appear on screen.\n한국어: 레이지에이치스택: 화면에 나타나기 직전에만 뷰를 만드는 가로 스택\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "Grid",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "How do I align my price table?"
+        },
+        {
+          "speaker": "B",
+          "text": "Use a Grid."
+        }
+      ],
+      "title": "How do I align my price table? / Use a Grid. #Shorts",
+      "description": "How do I align my price table? / Use a Grid.\n\nGrid - A container that arranges its rows and columns, so the cells line up like a table.\n한국어: 그리드: 행과 열을 배치해서 셀들이 표처럼 정렬되게 하는 컨테이너\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "GridItem",
+      "lines": [
+        {
+          "text": "Add one GridItem for each column."
+        }
+      ],
+      "title": "Add one GridItem for each column. #Shorts",
+      "description": "Add one GridItem for each column.\n\nGridItem - A description of one column or row in a lazy grid, including its size.\n한국어: 그리드아이템: 크기를 포함해 레이지 그리드의 열 하나 또는 행 하나를 설명하는 값\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "How do you build rows and grids?"
+}

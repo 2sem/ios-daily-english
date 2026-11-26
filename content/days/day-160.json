@@ -1,0 +1,237 @@
+{
+  "day": 160,
+  "phase": "4. SwiftUI",
+  "theme": "3 terms for styling text in SwiftUI: how many lines, which color and a string with styles inside",
+  "terms": [
+    {
+      "term": "Line Limit",
+      "definition": "A modifier that sets the maximum number of lines a text can use.",
+      "example": "Set a Line Limit of two, so the title never gets too tall.",
+      "code": "Text(\"A very long title for the card\")\n    .lineLimit(2)",
+      "output": "// no output"
+    },
+    {
+      "term": "Foreground Style",
+      "definition": "A modifier that sets the color or gradient used to draw text and shapes.",
+      "example": "Use Foreground Style to make the price red.",
+      "code": "Text(\"Sale\")\n    .foregroundStyle(.red)",
+      "output": "// no output"
+    },
+    {
+      "term": "AttributedString",
+      "definition": "A string that stores styles, such as colors and links, for parts of the text.",
+      "example": "Use an AttributedString for the link inside the sentence.",
+      "code": "var s = AttributedString(\"Hello World\")\nif let r = s.range(of: \"World\") {\n    s[r].foregroundColor = .red\n}",
+      "output": "// no output"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What do you call a modifier that sets the maximum number of lines a text can use?",
+      "options": [
+        "Foreground Style",
+        "AttributedString",
+        "Line Limit"
+      ],
+      "answer": "a"
+    },
+    {
+      "question": "What do you call a string that stores styles, such as colors and links, for parts of the text?",
+      "options": [
+        "Line Limit",
+        "Foreground Style",
+        "AttributedString"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "What do you call a modifier that sets the color or gradient used to draw text and shapes?",
+      "options": [
+        "Line Limit",
+        "Foreground Style",
+        "AttributedString"
+      ],
+      "answer": "a"
+    }
+  ],
+  "video": {
+    "title": "Line Limit, Foreground Style & AttributedString | Day 160",
+    "description": "Learn to explain how to style text in SwiftUI: Line Limit, Foreground Style & AttributedString, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nLine Limit - A modifier that sets the maximum number of lines a text can use.\nForeground Style - A modifier that sets the color or gradient used to draw text and shapes.\nAttributedString - A string that stores styles, such as colors and links, for parts of the text.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 160 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "line limit",
+      "foreground style",
+      "attributedstring",
+      "line limit",
+      "foreground style",
+      "attributedstring",
+      "line limit",
+      "foreground style",
+      "attributedstring",
+      "swiftui",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "SwiftUI Line Limit, Foreground Style & AttributedString | Day 160",
+      "description": "Explain Line Limit, Foreground Style & AttributedString in SwiftUI by listening to a real code chat between two iOS devs.\n라인 리미트, 포그라운드 스타일, 어트리뷰티드스트링 표현을 영어 대화로 익혀요.\n\nLine Limit - A modifier that sets the maximum number of lines a text can use.\n한국어: 라인 리미트: 텍스트가 쓸 수 있는 최대 줄 수를 정하는 수정자\n\nForeground Style - A modifier that sets the color or gradient used to draw text and shapes.\n한국어: 포그라운드 스타일: 텍스트와 도형을 그리는 데 쓰는 색이나 그라디언트를 정하는 수정자\n\nAttributedString - A string that stores styles, such as colors and links, for parts of the text.\n한국어: 어트리뷰티드스트링: 텍스트의 일부분에 색이나 링크 같은 스타일을 함께 저장하는 문자열\n\nIn this video, Mina and Jake shorten a long product title and color some text, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 160 of the iOS Daily English series.\n\n#Swift #SwiftUI #EnglishForDevelopers",
+      "tags": [
+        "Line Limit",
+        "Foreground Style",
+        "AttributedString",
+        "line limit",
+        "foreground style",
+        "attributedstring",
+        "SwiftUI",
+        "SwiftUI 기초",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "iOS Daily English"
+      ],
+      "hook": "Can you explain Line Limit, Foreground Style and AttributedString in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "The long product title",
+    "setting": "SwiftUI text styling",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, my product title is too long and pushes the price down.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Set a Line Limit. It is the maximum number of lines a text can use.",
+        "terms": [
+          "Line Limit"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "I wrote `.lineLimit(1)`, and now the title ends with three dots.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Right. The Line Limit cuts the text, so show the full name on the detail screen.",
+        "terms": [
+          "Line Limit"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Now I want colored text, and later a link inside the same text.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Use an AttributedString. It stores styles for parts of the text.",
+        "terms": [
+          "AttributedString"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Like `s.foregroundColor` in the code?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Yes. Then you show it with `Text(s)`.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "And what about `.foregroundStyle(.blue)` on the `Text`?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "That is Foreground Style. It sets the color for the whole view.",
+        "terms": [
+          "Foreground Style"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "So which one wins, the AttributedString or the Foreground Style?",
+        "terms": [
+          "Foreground Style",
+          "AttributedString"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "The style inside the AttributedString wins for that part of the text.",
+        "terms": [
+          "AttributedString"
+        ]
+      }
+    ],
+    "code": "var s = AttributedString(\"Sale today\")\ns.foregroundColor = .red\nText(s)\n    .foregroundStyle(.blue)\n    .lineLimit(1)",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "Line Limit",
+      "lines": [
+        {
+          "text": "Set a Line Limit of two for the title."
+        }
+      ],
+      "title": "Set a Line Limit of two for the title. #Shorts",
+      "description": "Set a Line Limit of two for the title.\n\nLine Limit - A modifier that sets the maximum number of lines a text can use.\n한국어: 라인 리미트: 텍스트가 쓸 수 있는 최대 줄 수를 정하는 수정자\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "Foreground Style",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "How do I make the price red?"
+        },
+        {
+          "speaker": "B",
+          "text": "Use Foreground Style."
+        }
+      ],
+      "title": "How do I make the price red? / Use Foreground Style. #Shorts",
+      "description": "How do I make the price red? / Use Foreground Style.\n\nForeground Style - A modifier that sets the color or gradient used to draw text and shapes.\n한국어: 포그라운드 스타일: 텍스트와 도형을 그리는 데 쓰는 색이나 그라디언트를 정하는 수정자\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "AttributedString",
+      "lines": [
+        {
+          "text": "Put the link in an AttributedString."
+        }
+      ],
+      "title": "Put the link in an AttributedString. #Shorts",
+      "description": "Put the link in an AttributedString.\n\nAttributedString - A string that stores styles, such as colors and links, for parts of the text.\n한국어: 어트리뷰티드스트링: 텍스트의 일부분에 색이나 링크 같은 스타일을 함께 저장하는 문자열\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "How do you style SwiftUI text?"
+}

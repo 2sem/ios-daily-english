@@ -1,0 +1,236 @@
+{
+  "day": 162,
+  "phase": "4. SwiftUI",
+  "theme": "3 terms for finding and updating list data: a search field, ideas while typing and pull down to update",
+  "terms": [
+    {
+      "term": "Searchable",
+      "definition": "A modifier that adds a search field to a screen and gives you the text the user types.",
+      "example": "Add Searchable, so users can find a name.",
+      "code": "struct Names: View {\n    @State var query = \"\"\n    var body: some View {\n        List {}.searchable(text: $query)\n    }\n}",
+      "output": "// no output"
+    },
+    {
+      "term": "Refreshable",
+      "definition": "A modifier that lets the user pull a list down to run async code that loads new data.",
+      "example": "Add Refreshable, so users can pull down to update.",
+      "code": "func reload() async {}\nList {}\n    .refreshable {\n        await reload()\n    }",
+      "output": "// no output"
+    },
+    {
+      "term": "Search Suggestions",
+      "definition": "A list of ideas that appears under the search field while the user types.",
+      "example": "Show Search Suggestions for the most popular names.",
+      "code": "List {}\n    .searchable(text: .constant(\"\"))\n    .searchSuggestions {\n        Text(\"Swift\").searchCompletion(\"Swift\")\n    }",
+      "output": "// no output"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What do you call a modifier that lets the user pull a list down to run async code?",
+      "options": [
+        "Searchable",
+        "Refreshable",
+        "Search Suggestions"
+      ],
+      "answer": "b"
+    },
+    {
+      "question": "What do you call a list of ideas that appears under the text field while the user types?",
+      "options": [
+        "Refreshable",
+        "Search Suggestions",
+        "Searchable"
+      ],
+      "answer": "b"
+    },
+    {
+      "question": "What do you call a modifier that adds a search field to a screen?",
+      "options": [
+        "Search Suggestions",
+        "Searchable",
+        "Refreshable"
+      ],
+      "answer": "b"
+    }
+  ],
+  "video": {
+    "title": "Searchable, Refreshable & Search Suggestions | Day 162",
+    "description": "Learn to explain how to search and update a list in SwiftUI: Searchable, Refreshable & Search Suggestions, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nSearchable - A modifier that adds a search field to a screen and gives you the text the user types.\nRefreshable - A modifier that lets the user pull a list down to run async code that loads new data.\nSearch Suggestions - A list of ideas that appears under the search field while the user types.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 162 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "searchable",
+      "refreshable",
+      "search suggestions",
+      "searchable",
+      "refreshable",
+      "search suggestions",
+      "searchable",
+      "refreshable",
+      "search suggestions",
+      "swiftui",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "SwiftUI Searchable, Refreshable & Search Suggestions | Day 162",
+      "description": "Explain Searchable, Refreshable & Search Suggestions in SwiftUI by listening to a real code chat between two iOS devs.\n서처블, 리프레셔블, 서치 서제스천 표현을 영어 대화로 익혀요.\n\nSearchable - A modifier that adds a search field to a screen and gives you the text the user types.\n한국어: 서처블: 화면에 검색 필드를 추가하고 사용자가 입력한 텍스트를 전달해 주는 수정자\n\nRefreshable - A modifier that lets the user pull a list down to run async code that loads new data.\n한국어: 리프레셔블: 사용자가 리스트를 아래로 당기면 새 데이터를 불러오는 비동기 코드를 실행하게 하는 수정자\n\nSearch Suggestions - A list of ideas that appears under the search field while the user types.\n한국어: 서치 서제스천: 사용자가 입력하는 동안 검색 필드 아래에 나타나는 추천 목록\n\nIn this video, Mina and Jake help users find a name in a long list, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 162 of the iOS Daily English series.\n\n#Swift #SwiftUI #EnglishForDevelopers",
+      "tags": [
+        "Searchable",
+        "Refreshable",
+        "Search Suggestions",
+        "searchable",
+        "refreshable",
+        "search suggestions",
+        "SwiftUI",
+        "SwiftUI 기초",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "iOS Daily English"
+      ],
+      "hook": "Can you explain Searchable, Refreshable and Search Suggestions in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "Find a name fast",
+    "setting": "SwiftUI search and refresh",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, my names list has 2000 rows, and users cannot find anything.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Add Searchable. It puts a search field on the screen and gives you the typed text.",
+        "terms": [
+          "Searchable"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "I added `.searchable(text:)`, and the field appears at the top.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Nice. Remember, Searchable only gives you the text. You must filter the list yourself.",
+        "terms": [
+          "Searchable"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Can I show ideas while the user types?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Yes, with Search Suggestions. It shows a list of ideas under the search field.",
+        "terms": [
+          "Search Suggestions"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Does `searchCompletion` fill the field when the user taps an idea?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Yes. That is the best part of Search Suggestions.",
+        "terms": [
+          "Search Suggestions"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "One more thing. The data is old, and the user wants to update it.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Add Refreshable. The user pulls the list down, and your async code runs.",
+        "terms": [
+          "Refreshable"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Like `await reload()` in the code?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Yes. The spinner stays until the Refreshable closure finishes.",
+        "terms": [
+          "Refreshable"
+        ]
+      }
+    ],
+    "code": "func reload() async {}\nList {}\n    .searchable(text: .constant(\"\"))\n    .searchSuggestions { Text(\"A\").searchCompletion(\"A\") }\n    .refreshable { await reload() }",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "Searchable",
+      "lines": [
+        {
+          "text": "Add Searchable to find a name."
+        }
+      ],
+      "title": "Add Searchable to find a name. #Shorts",
+      "description": "Add Searchable to find a name.\n\nSearchable - A modifier that adds a search field to a screen and gives you the text the user types.\n한국어: 서처블: 화면에 검색 필드를 추가하고 사용자가 입력한 텍스트를 전달해 주는 수정자\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "Refreshable",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "How do users update the list?"
+        },
+        {
+          "speaker": "B",
+          "text": "Add Refreshable."
+        }
+      ],
+      "title": "How do users update the list? / Add Refreshable. #Shorts",
+      "description": "How do users update the list? / Add Refreshable.\n\nRefreshable - A modifier that lets the user pull a list down to run async code that loads new data.\n한국어: 리프레셔블: 사용자가 리스트를 아래로 당기면 새 데이터를 불러오는 비동기 코드를 실행하게 하는 수정자\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Search Suggestions",
+      "lines": [
+        {
+          "text": "Search Suggestions help users while they type."
+        }
+      ],
+      "title": "Search Suggestions help users while they type. #Shorts",
+      "description": "Search Suggestions help users while they type.\n\nSearch Suggestions - A list of ideas that appears under the search field while the user types.\n한국어: 서치 서제스천: 사용자가 입력하는 동안 검색 필드 아래에 나타나는 추천 목록\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "How do you add search?"
+}

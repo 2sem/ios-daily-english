@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 168
+
+Namespace
+- A property wrapper that creates an id space, so views can be matched by their ids.
+- Example: "Pass the same Namespace to both views."
+
+MatchedGeometryEffect
+- A modifier that animates two views with the same id as if they were one view that moves.
+- Example: "Use MatchedGeometryEffect for the photo transition."
+
+PhaseAnimator
+- A view that moves through a list of steps and animates from one step to the next.
+- Example: "Use PhaseAnimator to make the badge pulse."
+
+
+Quiz ①
+What do you call a modifier that animates two views with the same id as if they were one view moving?
+a) Namespace
+b) MatchedGeometryEffect
+c) PhaseAnimator
+
+Quiz ②
+What do you call a view that moves through a list of steps and animates from one step to the next?
+a) MatchedGeometryEffect
+b) PhaseAnimator
+c) Namespace
+
+Quiz ③
+What do you call a property wrapper that creates an id space, so views can be matched by id?
+a) PhaseAnimator
+b) Namespace
+c) MatchedGeometryEffect

@@ -1799,6 +1799,246 @@
     "geometryreader": {
       "term": "GeometryReader",
       "day": 150
+    },
+    "observableobject": {
+      "term": "ObservableObject",
+      "day": 151
+    },
+    "published": {
+      "term": "Published",
+      "day": 151
+    },
+    "stateobject": {
+      "term": "StateObject",
+      "day": 151
+    },
+    "appstorage": {
+      "term": "AppStorage",
+      "day": 152
+    },
+    "scenestorage": {
+      "term": "SceneStorage",
+      "day": 152
+    },
+    "environmentobject": {
+      "term": "EnvironmentObject",
+      "day": 152
+    },
+    "scrollindicator": {
+      "term": "Scroll Indicator",
+      "day": 153
+    },
+    "scrollviewreader": {
+      "term": "ScrollViewReader",
+      "day": 153
+    },
+    "scrollposition": {
+      "term": "Scroll Position",
+      "day": 153
+    },
+    "lazyhstack": {
+      "term": "LazyHStack",
+      "day": 154
+    },
+    "grid": {
+      "term": "Grid",
+      "day": 154
+    },
+    "griditem": {
+      "term": "GridItem",
+      "day": 154
+    },
+    "layoutpriority": {
+      "term": "Layout Priority",
+      "day": 155
+    },
+    "viewthatfits": {
+      "term": "ViewThatFits",
+      "day": 155
+    },
+    "anylayout": {
+      "term": "AnyLayout",
+      "day": 155
+    },
+    "shape": {
+      "term": "Shape",
+      "day": 156
+    },
+    "stroke": {
+      "term": "Stroke",
+      "day": 156
+    },
+    "path": {
+      "term": "Path",
+      "day": 156
+    },
+    "shadow": {
+      "term": "Shadow",
+      "day": 157
+    },
+    "lineargradient": {
+      "term": "LinearGradient",
+      "day": 157
+    },
+    "material": {
+      "term": "Material",
+      "day": 157
+    },
+    "overlay": {
+      "term": "Overlay",
+      "day": 158
+    },
+    "clipshape": {
+      "term": "Clip Shape",
+      "day": 158
+    },
+    "mask": {
+      "term": "Mask",
+      "day": 158
+    },
+    "timelineview": {
+      "term": "TimelineView",
+      "day": 159
+    },
+    "drawinggroup": {
+      "term": "Drawing Group",
+      "day": 159
+    },
+    "graphicscontext": {
+      "term": "GraphicsContext",
+      "day": 159
+    },
+    "linelimit": {
+      "term": "Line Limit",
+      "day": 160
+    },
+    "foregroundstyle": {
+      "term": "Foreground Style",
+      "day": 160
+    },
+    "attributedstring": {
+      "term": "AttributedString",
+      "day": 160
+    },
+    "securefield": {
+      "term": "SecureField",
+      "day": 161
+    },
+    "submitlabel": {
+      "term": "Submit Label",
+      "day": 161
+    },
+    "focusstate": {
+      "term": "FocusState",
+      "day": 161
+    },
+    "searchable": {
+      "term": "Searchable",
+      "day": 162
+    },
+    "refreshable": {
+      "term": "Refreshable",
+      "day": 162
+    },
+    "searchsuggestions": {
+      "term": "Search Suggestions",
+      "day": 162
+    },
+    "menu": {
+      "term": "Menu",
+      "day": 163
+    },
+    "disclosuregroup": {
+      "term": "DisclosureGroup",
+      "day": 163
+    },
+    "contentunavailableview": {
+      "term": "ContentUnavailableView",
+      "day": 163
+    },
+    "sharelink": {
+      "term": "ShareLink",
+      "day": 164
+    },
+    "photospicker": {
+      "term": "PhotosPicker",
+      "day": 164
+    },
+    "transferable": {
+      "term": "Transferable",
+      "day": 164
+    },
+    "chart": {
+      "term": "Chart",
+      "day": 165
+    },
+    "barmark": {
+      "term": "BarMark",
+      "day": 165
+    },
+    "linemark": {
+      "term": "LineMark",
+      "day": 165
+    },
+    "accessibilityvalue": {
+      "term": "Accessibility Value",
+      "day": 166
+    },
+    "accessibilityelement": {
+      "term": "Accessibility Element",
+      "day": 166
+    },
+    "accessibilityaction": {
+      "term": "Accessibility Action",
+      "day": 166
+    },
+    "uihostingcontroller": {
+      "term": "UIHostingController",
+      "day": 167
+    },
+    "uiviewrepresentable": {
+      "term": "UIViewRepresentable",
+      "day": 167
+    },
+    "coordinator": {
+      "term": "Coordinator",
+      "day": 167
+    },
+    "namespace": {
+      "term": "Namespace",
+      "day": 168
+    },
+    "matchedgeometryeffect": {
+      "term": "MatchedGeometryEffect",
+      "day": 168
+    },
+    "phaseanimator": {
+      "term": "PhaseAnimator",
+      "day": 168
+    },
+    "environmentkey": {
+      "term": "EnvironmentKey",
+      "day": 169
+    },
+    "preferencekey": {
+      "term": "PreferenceKey",
+      "day": 169
+    },
+    "onpreferencechange": {
+      "term": "onPreferenceChange",
+      "day": 169
+    },
+    "appprotocol": {
+      "term": "App Protocol",
+      "day": 170
+    },
+    "windowgroup": {
+      "term": "WindowGroup",
+      "day": 170
+    },
+    "scenephase": {
+      "term": "ScenePhase",
+      "day": 170
     }
   }
 }

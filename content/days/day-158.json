@@ -1,0 +1,237 @@
+{
+  "day": 158,
+  "phase": "4. SwiftUI",
+  "theme": "3 terms for layering and cutting views in SwiftUI: a view on top, a rounded outline and a see-through cut",
+  "terms": [
+    {
+      "term": "Overlay",
+      "definition": "A modifier that puts another view in front of a view, at the same size.",
+      "example": "Add the badge as an Overlay on the avatar.",
+      "code": "Color.blue\n    .frame(width: 80, height: 80)\n    .overlay(Text(\"New\"))",
+      "output": "// no output"
+    },
+    {
+      "term": "Clip Shape",
+      "definition": "A modifier that cuts a view to the outline of a shape.",
+      "example": "Use Clip Shape with a circle for the avatar.",
+      "code": "Color.blue\n    .frame(width: 80, height: 80)\n    .clipShape(Circle())",
+      "output": "// no output"
+    },
+    {
+      "term": "Mask",
+      "definition": "A modifier that shows a view only where another view is not transparent.",
+      "example": "Use a Mask, so the gradient shows only inside the letters.",
+      "code": "Color.blue\n    .frame(width: 80, height: 80)\n    .mask(Text(\"Hi\").font(.largeTitle))",
+      "output": "// no output"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What do you call a modifier that cuts a view to a round or rounded outline?",
+      "options": [
+        "Mask",
+        "Overlay",
+        "Clip Shape"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "What do you call a modifier that shows a view only where another view is not transparent?",
+      "options": [
+        "Overlay",
+        "Clip Shape",
+        "Mask"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "What do you call a modifier that puts another view in front of a view, at the same size?",
+      "options": [
+        "Clip Shape",
+        "Mask",
+        "Overlay"
+      ],
+      "answer": "c"
+    }
+  ],
+  "video": {
+    "title": "Overlay, Clip Shape & Mask | Day 158",
+    "description": "Learn to explain how to layer and cut views in SwiftUI: Overlay, Clip Shape & Mask, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nOverlay - A modifier that puts another view in front of a view, at the same size.\nClip Shape - A modifier that cuts a view to the outline of a shape.\nMask - A modifier that shows a view only where another view is not transparent.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 158 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "overlay",
+      "clip shape",
+      "mask",
+      "overlay",
+      "clip shape",
+      "mask",
+      "overlay",
+      "clip shape",
+      "mask",
+      "swiftui",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "SwiftUI Overlay, Clip Shape & Mask | Day 158",
+      "description": "Explain Overlay, Clip Shape & Mask in SwiftUI by listening to a real code chat between two iOS devs.\n오버레이, 클립 셰이프, 마스크 표현을 영어 대화로 익혀요.\n\nOverlay - A modifier that puts another view in front of a view, at the same size.\n한국어: 오버레이: 어떤 뷰 앞에, 같은 크기로 다른 뷰를 올려 놓는 수정자\n\nClip Shape - A modifier that cuts a view to the outline of a shape.\n한국어: 클립 셰이프: 뷰를 도형의 윤곽선 모양으로 잘라 내는 수정자\n\nMask - A modifier that shows a view only where another view is not transparent.\n한국어: 마스크: 다른 뷰가 투명하지 않은 부분에서만 뷰를 보여 주는 수정자\n\nIn this video, Mina and Jake build a round avatar with a badge, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 158 of the iOS Daily English series.\n\n#Swift #SwiftUI #EnglishForDevelopers",
+      "tags": [
+        "Overlay",
+        "Clip Shape",
+        "Mask",
+        "overlay",
+        "clip shape",
+        "mask",
+        "SwiftUI",
+        "SwiftUI 기초",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "iOS Daily English"
+      ],
+      "hook": "Can you explain Overlay, Clip Shape and Mask in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "A round avatar",
+    "setting": "SwiftUI layering",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, I want a round avatar with a New badge on top.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Start with Clip Shape. It cuts the view to the outline of a shape.",
+        "terms": [
+          "Clip Shape"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "I used `.clipShape(Circle())`, and the corners are gone.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Perfect. Clip Shape works with any shape. Now put the badge over it with an Overlay.",
+        "terms": [
+          "Overlay",
+          "Clip Shape"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "What does Overlay do?",
+        "terms": [
+          "Overlay"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "It places another view in front, at the same size as the first view.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "So the New text sits in front of the blue view?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Yes. Be careful, the Overlay takes the size of the avatar.",
+        "terms": [
+          "Overlay"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Now I want pink color inside the letters of a title.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "That is a Mask. It shows a view only where the mask is not transparent.",
+        "terms": [
+          "Mask"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "So the pink color appears only inside the text?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Exactly. The Mask hides everything outside the letters.",
+        "terms": [
+          "Mask"
+        ]
+      }
+    ],
+    "code": "Color.blue\n    .frame(width: 80, height: 80)\n    .clipShape(Circle())\n    .overlay(Text(\"New\"))\nColor.pink\n    .mask(Text(\"Hi\").font(.largeTitle))",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "Overlay",
+      "lines": [
+        {
+          "text": "Add the badge as an Overlay."
+        }
+      ],
+      "title": "Add the badge as an Overlay. #Shorts",
+      "description": "Add the badge as an Overlay.\n\nOverlay - A modifier that puts another view in front of a view, at the same size.\n한국어: 오버레이: 어떤 뷰 앞에, 같은 크기로 다른 뷰를 올려 놓는 수정자\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "Clip Shape",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "How do I make the avatar round?"
+        },
+        {
+          "speaker": "B",
+          "text": "Use Clip Shape."
+        }
+      ],
+      "title": "How do I make the avatar round? / Use Clip Shape. #Shorts",
+      "description": "How do I make the avatar round? / Use Clip Shape.\n\nClip Shape - A modifier that cuts a view to the outline of a shape.\n한국어: 클립 셰이프: 뷰를 도형의 윤곽선 모양으로 잘라 내는 수정자\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Mask",
+      "lines": [
+        {
+          "text": "A Mask shows the color only inside the letters."
+        }
+      ],
+      "title": "A Mask shows the color only inside the letters. #Shorts",
+      "description": "A Mask shows the color only inside the letters.\n\nMask - A modifier that shows a view only where another view is not transparent.\n한국어: 마스크: 다른 뷰가 투명하지 않은 부분에서만 뷰를 보여 주는 수정자\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "How do you cut and layer views?"
+}

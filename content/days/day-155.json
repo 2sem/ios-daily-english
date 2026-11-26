@@ -1,0 +1,236 @@
+{
+  "day": 155,
+  "phase": "4. SwiftUI",
+  "theme": "3 terms for adaptive SwiftUI layouts: who gets space first, the first child that fits and switching layouts",
+  "terms": [
+    {
+      "term": "Layout Priority",
+      "definition": "A number that tells a stack which view gets space first when there is not enough room.",
+      "example": "Give the title a higher Layout Priority.",
+      "code": "HStack {\n    Text(\"A long title here\")\n        .layoutPriority(1)\n    Text(\"New\")\n}",
+      "output": "// no output"
+    },
+    {
+      "term": "ViewThatFits",
+      "definition": "A container that shows the first of its children that fits in the space it has.",
+      "example": "Use ViewThatFits, so small phones get the short version.",
+      "code": "ViewThatFits {\n    Text(\"A long welcome message\")\n    Text(\"Welcome\")\n}",
+      "output": "// no output"
+    },
+    {
+      "term": "AnyLayout",
+      "definition": "A type that wraps any layout, so you can switch between layouts and still animate.",
+      "example": "Wrap both versions in AnyLayout to animate the change.",
+      "code": "let wide = AnyLayout(HStackLayout())\nlet tall = AnyLayout(VStackLayout())\nlet isTall = false\nlet layout = isTall ? tall : wide\nlayout { Text(\"A\"); Text(\"B\") }",
+      "output": "// no output"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What do you call a type that wraps different layouts, so you can switch between them and animate?",
+      "options": [
+        "AnyLayout",
+        "Layout Priority",
+        "ViewThatFits"
+      ],
+      "answer": "a"
+    },
+    {
+      "question": "What do you call a number that tells a stack which view gets space first?",
+      "options": [
+        "ViewThatFits",
+        "AnyLayout",
+        "Layout Priority"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "What do you call a container that shows the first of its children that fits?",
+      "options": [
+        "ViewThatFits",
+        "AnyLayout",
+        "Layout Priority"
+      ],
+      "answer": "a"
+    }
+  ],
+  "video": {
+    "title": "Layout Priority, ViewThatFits & AnyLayout | Day 155",
+    "description": "Learn to explain how to adapt a SwiftUI layout to small screens: Layout Priority, ViewThatFits & AnyLayout, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nLayout Priority - A number that tells a stack which view gets space first when there is not enough room.\nViewThatFits - A container that shows the first of its children that fits in the space it has.\nAnyLayout - A type that wraps any layout, so you can switch between layouts and still animate.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 155 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "layout priority",
+      "viewthatfits",
+      "anylayout",
+      "layout priority",
+      "viewthatfits",
+      "anylayout",
+      "layout priority",
+      "viewthatfits",
+      "anylayout",
+      "swiftui",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "SwiftUI Layout Priority, ViewThatFits & AnyLayout | Day 155",
+      "description": "Explain Layout Priority, ViewThatFits & AnyLayout in SwiftUI by listening to a real code chat between two iOS devs.\n레이아웃 프라이오리티, 뷰댓핏츠, 애니레이아웃 표현을 영어 대화로 익혀요.\n\nLayout Priority - A number that tells a stack which view gets space first when there is not enough room.\n한국어: 레이아웃 프라이오리티: 공간이 부족할 때 스택이 어떤 뷰에게 먼저 공간을 줄지 알려 주는 숫자\n\nViewThatFits - A container that shows the first of its children that fits in the space it has.\n한국어: 뷰댓핏츠: 자식 뷰 중에서 가진 공간에 맞는 첫 번째 뷰를 보여 주는 컨테이너\n\nAnyLayout - A type that wraps any layout, so you can switch between layouts and still animate.\n한국어: 애니레이아웃: 어떤 레이아웃이든 감싸서, 레이아웃을 바꾸면서도 애니메이션을 줄 수 있게 하는 타입\n\nIn this video, Mina and Jake fix a cut-off title on small phones, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 155 of the iOS Daily English series.\n\n#Swift #SwiftUI #EnglishForDevelopers",
+      "tags": [
+        "Layout Priority",
+        "ViewThatFits",
+        "AnyLayout",
+        "layout priority",
+        "viewthatfits",
+        "anylayout",
+        "SwiftUI",
+        "SwiftUI 기초",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "iOS Daily English"
+      ],
+      "hook": "Can you explain Layout Priority, ViewThatFits and AnyLayout in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "The cut-off title",
+    "setting": "SwiftUI adaptive layout",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, on small phones my title is cut off next to the New badge.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Give the title a higher Layout Priority. The stack gives it space first.",
+        "terms": [
+          "Layout Priority"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "I wrote `.layoutPriority(1)`, and the title is complete now.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Good. Without a Layout Priority, both views fight for the same space.",
+        "terms": [
+          "Layout Priority"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "But on the smallest phone it still does not fit.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Then put two versions in a ViewThatFits. It shows the first child that fits.",
+        "terms": [
+          "ViewThatFits"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "So the horizontal one first, and the vertical one second?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Yes. The ViewThatFits checks them in that order.",
+        "terms": [
+          "ViewThatFits"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "How do I switch between them with an animation?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Wrap each layout in AnyLayout. You can change the layout and still animate.",
+        "terms": [
+          "AnyLayout"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "I already have both in the code. Is AnyLayout slow?",
+        "terms": [
+          "AnyLayout"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "No, not for normal screens.",
+        "terms": []
+      }
+    ],
+    "code": "let h = AnyLayout(HStackLayout())\nlet v = AnyLayout(VStackLayout())\nViewThatFits {\n    h { Text(\"Title\").layoutPriority(1); Text(\"New\") }\n    v { Text(\"Title\"); Text(\"New\") }\n}",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "Layout Priority",
+      "lines": [
+        {
+          "text": "Give the title a higher Layout Priority."
+        }
+      ],
+      "title": "Give the title a higher Layout Priority. #Shorts",
+      "description": "Give the title a higher Layout Priority.\n\nLayout Priority - A number that tells a stack which view gets space first when there is not enough room.\n한국어: 레이아웃 프라이오리티: 공간이 부족할 때 스택이 어떤 뷰에게 먼저 공간을 줄지 알려 주는 숫자\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "ViewThatFits",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "The text does not fit on small phones."
+        },
+        {
+          "speaker": "B",
+          "text": "Use ViewThatFits."
+        }
+      ],
+      "title": "The text does not fit on small phones. / Use ViewThatFits. #Shorts",
+      "description": "The text does not fit on small phones. / Use ViewThatFits.\n\nViewThatFits - A container that shows the first of its children that fits in the space it has.\n한국어: 뷰댓핏츠: 자식 뷰 중에서 가진 공간에 맞는 첫 번째 뷰를 보여 주는 컨테이너\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "AnyLayout",
+      "lines": [
+        {
+          "text": "AnyLayout lets you animate between two layouts."
+        }
+      ],
+      "title": "AnyLayout lets you animate between two layouts. #Shorts",
+      "description": "AnyLayout lets you animate between two layouts.\n\nAnyLayout - A type that wraps any layout, so you can switch between layouts and still animate.\n한국어: 애니레이아웃: 어떤 레이아웃이든 감싸서, 레이아웃을 바꾸면서도 애니메이션을 줄 수 있게 하는 타입\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "How do you fit small screens?"
+}

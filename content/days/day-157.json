@@ -1,0 +1,238 @@
+{
+  "day": 157,
+  "phase": "4. SwiftUI",
+  "theme": "3 terms for depth and color in SwiftUI: a lifted card, a smooth color change and a blurred background",
+  "terms": [
+    {
+      "term": "Shadow",
+      "definition": "A soft dark copy behind a view that makes it look lifted from the screen.",
+      "example": "Add a Shadow, so the card stands out.",
+      "code": "Text(\"Card\")\n    .padding()\n    .background(.white)\n    .shadow(radius: 8)",
+      "output": "// no output"
+    },
+    {
+      "term": "LinearGradient",
+      "definition": "A color effect that changes smoothly from one color to another along a straight line.",
+      "example": "Use a LinearGradient from blue to purple for the header.",
+      "code": "LinearGradient(\n    colors: [.blue, .purple],\n    startPoint: .top,\n    endPoint: .bottom\n)",
+      "output": "// no output"
+    },
+    {
+      "term": "Material",
+      "definition": "A blurred, see-through background that lets the content behind it shine through.",
+      "example": "Put the controls on a Material, so the photo stays visible.",
+      "code": "Text(\"Menu\")\n    .padding()\n    .background(.ultraThinMaterial)",
+      "output": "// no output"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What do you call a blurred, see-through background that lets the content behind it shine through?",
+      "options": [
+        "LinearGradient",
+        "Material",
+        "Shadow"
+      ],
+      "answer": "b"
+    },
+    {
+      "question": "What do you call a soft dark copy behind a view that makes it look lifted?",
+      "options": [
+        "Material",
+        "Shadow",
+        "LinearGradient"
+      ],
+      "answer": "b"
+    },
+    {
+      "question": "What do you call a color effect that changes smoothly from one color to another along a straight line?",
+      "options": [
+        "Shadow",
+        "LinearGradient",
+        "Material"
+      ],
+      "answer": "b"
+    }
+  ],
+  "video": {
+    "title": "Shadow, LinearGradient & Material | Day 157",
+    "description": "Learn to explain how to add depth and color to a SwiftUI card: Shadow, LinearGradient & Material, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nShadow - A soft dark copy behind a view that makes it look lifted from the screen.\nLinearGradient - A color effect that changes smoothly from one color to another along a straight line.\nMaterial - A blurred, see-through background that lets the content behind it shine through.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 157 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "shadow",
+      "lineargradient",
+      "material",
+      "shadow",
+      "lineargradient",
+      "material",
+      "shadow",
+      "lineargradient",
+      "material",
+      "swiftui",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "SwiftUI Shadow, LinearGradient & Material | Day 157",
+      "description": "Explain Shadow, LinearGradient & Material in SwiftUI by listening to a real code chat between two iOS devs.\n섀도, 리니어그레이디언트, 머티리얼 표현을 영어 대화로 익혀요.\n\nShadow - A soft dark copy behind a view that makes it look lifted from the screen.\n한국어: 섀도: 뷰 뒤에 깔리는 부드러운 어두운 복사본으로, 뷰가 떠 있는 것처럼 보이게 해 줘요\n\nLinearGradient - A color effect that changes smoothly from one color to another along a straight line.\n한국어: 리니어그레이디언트: 직선을 따라 한 색에서 다른 색으로 부드럽게 변하는 색 효과\n\nMaterial - A blurred, see-through background that lets the content behind it shine through.\n한국어: 머티리얼: 뒤에 있는 내용이 비쳐 보이는, 흐릿하고 투명한 배경\n\nIn this video, Mina and Jake make a flat card look nicer, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 157 of the iOS Daily English series.\n\n#Swift #SwiftUI #EnglishForDevelopers",
+      "tags": [
+        "Shadow",
+        "LinearGradient",
+        "Material",
+        "shadow",
+        "lineargradient",
+        "material",
+        "SwiftUI",
+        "SwiftUI 기초",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "iOS Daily English"
+      ],
+      "hook": "Can you explain Shadow, LinearGradient and Material in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "The flat card",
+    "setting": "SwiftUI depth and color",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, my card looks flat on the new background.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Add a Shadow. It is a soft dark copy behind the view, so the card looks lifted.",
+        "terms": [
+          "Shadow"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "I added `.shadow(radius: 8)`, and it looks better.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Good. Do not make the Shadow too dark.",
+        "terms": [
+          "Shadow"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "The background is only one color. Can I make it nicer?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Use a LinearGradient. It changes smoothly from one color to another along a line.",
+        "terms": [
+          "LinearGradient"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "I set `.top` and `.bottom` as the start and the end of the LinearGradient.",
+        "terms": [
+          "LinearGradient"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Great. Now the card needs a see-through look.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "Is that a Material?",
+        "terms": [
+          "Material"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Yes. A Material is a blurred background, and the content behind it shines through.",
+        "terms": [
+          "Material"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "I used `.ultraThinMaterial`. Is that the thinnest one?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Yes. A thicker Material shows less of the gradient behind it.",
+        "terms": [
+          "Material"
+        ]
+      }
+    ],
+    "code": "ZStack {\n    LinearGradient(colors: [.blue, .pink],\n        startPoint: .top, endPoint: .bottom)\n    Text(\"Card\").padding()\n        .background(.ultraThinMaterial)\n        .shadow(radius: 8) }",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "Shadow",
+      "lines": [
+        {
+          "text": "Add a Shadow, so the card stands out."
+        }
+      ],
+      "title": "Add a Shadow, so the card stands out. #Shorts",
+      "description": "Add a Shadow, so the card stands out.\n\nShadow - A soft dark copy behind a view that makes it look lifted from the screen.\n한국어: 섀도: 뷰 뒤에 깔리는 부드러운 어두운 복사본으로, 뷰가 떠 있는 것처럼 보이게 해 줘요\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "LinearGradient",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "The background is boring."
+        },
+        {
+          "speaker": "B",
+          "text": "Try a LinearGradient."
+        }
+      ],
+      "title": "The background is boring. / Try a LinearGradient. #Shorts",
+      "description": "The background is boring. / Try a LinearGradient.\n\nLinearGradient - A color effect that changes smoothly from one color to another along a straight line.\n한국어: 리니어그레이디언트: 직선을 따라 한 색에서 다른 색으로 부드럽게 변하는 색 효과\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Material",
+      "lines": [
+        {
+          "text": "Put the controls on a Material."
+        }
+      ],
+      "title": "Put the controls on a Material. #Shorts",
+      "description": "Put the controls on a Material.\n\nMaterial - A blurred, see-through background that lets the content behind it shine through.\n한국어: 머티리얼: 뒤에 있는 내용이 비쳐 보이는, 흐릿하고 투명한 배경\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "How do you make cards look good?"
+}

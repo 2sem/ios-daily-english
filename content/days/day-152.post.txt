@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 152
+
+AppStorage
+- A property wrapper that reads and writes a value in UserDefaults and updates the view when it changes.
+- Example: "Use AppStorage for the dark mode switch, so it survives a restart."
+
+SceneStorage
+- A property wrapper that saves a small value for each scene, so a screen can restore its state later.
+- Example: "Keep the selected tab in SceneStorage."
+
+EnvironmentObject
+- A property wrapper that reads an observable object that a parent view shared with all its children.
+- Example: "Read the cart with EnvironmentObject, so we skip the init chain."
+
+
+Quiz ①
+What do you call the property wrapper that saves a small value for each scene?
+a) EnvironmentObject
+b) AppStorage
+c) SceneStorage
+
+Quiz ②
+What do you call the property wrapper that reads an object a parent view shared with its children?
+a) AppStorage
+b) SceneStorage
+c) EnvironmentObject
+
+Quiz ③
+What do you call the property wrapper that reads and writes a value in UserDefaults?
+a) SceneStorage
+b) EnvironmentObject
+c) AppStorage

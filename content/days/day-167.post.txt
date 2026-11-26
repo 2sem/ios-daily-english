@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 167
+
+UIHostingController
+- A view controller that shows a SwiftUI view inside a UIKit app.
+- Example: "Wrap the new screen in a UIHostingController."
+
+UIViewRepresentable
+- A protocol that wraps a UIKit view, so you can use it inside SwiftUI.
+- Example: "Wrap the map in a UIViewRepresentable."
+
+Coordinator
+- An object inside a representable that receives UIKit delegate calls and talks back to SwiftUI.
+- Example: "Add a Coordinator to handle the delegate callbacks."
+
+
+Quiz ①
+What do you call the object inside a representable that receives UIKit delegate calls?
+a) Coordinator
+b) UIHostingController
+c) UIViewRepresentable
+
+Quiz ②
+What do you call the class that shows a SwiftUI view inside a UIKit app?
+a) UIViewRepresentable
+b) Coordinator
+c) UIHostingController
+
+Quiz ③
+What do you call the protocol that wraps an old UIKit component, so you can use it inside SwiftUI?
+a) UIViewRepresentable
+b) Coordinator
+c) UIHostingController

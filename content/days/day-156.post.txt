@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 156
+
+Shape
+- A protocol for a form that draws itself inside the space it is given.
+- Example: "Make the badge a custom Shape, so we can reuse it."
+
+Stroke
+- A line drawn along the edge of a shape, instead of filling the inside.
+- Example: "Add a Stroke, because the design only has an outline."
+
+Path
+- A list of lines and curves that you build step by step to draw a custom form.
+- Example: "Build the arrow as a Path, with three lines."
+
+
+Quiz ①
+What do you call a line drawn along the edge of a shape, instead of filling the inside?
+a) Shape
+b) Stroke
+c) Path
+
+Quiz ②
+What do you call a list of lines and curves that you build step by step?
+a) Stroke
+b) Path
+c) Shape
+
+Quiz ③
+What do you call a protocol for a form that draws itself inside the space it is given?
+a) Path
+b) Shape
+c) Stroke

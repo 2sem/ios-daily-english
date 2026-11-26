@@ -1,0 +1,236 @@
+{
+  "day": 167,
+  "phase": "4. SwiftUI",
+  "theme": "3 terms for mixing SwiftUI and UIKit: SwiftUI inside UIKit, UIKit inside SwiftUI and its helper object",
+  "terms": [
+    {
+      "term": "UIHostingController",
+      "definition": "A view controller that shows a SwiftUI view inside a UIKit app.",
+      "example": "Wrap the new screen in a UIHostingController.",
+      "code": "let host = UIHostingController(\n    rootView: Text(\"Hi\")\n)",
+      "output": "// no output"
+    },
+    {
+      "term": "UIViewRepresentable",
+      "definition": "A protocol that wraps a UIKit view, so you can use it inside SwiftUI.",
+      "example": "Wrap the map in a UIViewRepresentable.",
+      "code": "struct Spin: UIViewRepresentable {\n    func makeUIView(context: Context)\n        -> UIActivityIndicatorView { .init() }\n    func updateUIView(_ v: UIActivityIndicatorView,\n        context: Context) {}\n}",
+      "output": "// no output"
+    },
+    {
+      "term": "Coordinator",
+      "definition": "An object inside a representable that receives UIKit delegate calls and talks back to SwiftUI.",
+      "example": "Add a Coordinator to handle the delegate callbacks.",
+      "code": "struct F: UIViewRepresentable {\n    class Coordinator: NSObject {}\n    func makeCoordinator() -> Coordinator { .init() }\n    func makeUIView(context: Context) -> UIView { .init() }\n    func updateUIView(_ v: UIView, context: Context) {}\n}",
+      "output": "// no output"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What do you call the object inside a representable that receives UIKit delegate calls?",
+      "options": [
+        "Coordinator",
+        "UIHostingController",
+        "UIViewRepresentable"
+      ],
+      "answer": "a"
+    },
+    {
+      "question": "What do you call the class that shows a SwiftUI view inside a UIKit app?",
+      "options": [
+        "UIViewRepresentable",
+        "Coordinator",
+        "UIHostingController"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "What do you call the protocol that wraps an old UIKit component, so you can use it inside SwiftUI?",
+      "options": [
+        "UIViewRepresentable",
+        "Coordinator",
+        "UIHostingController"
+      ],
+      "answer": "a"
+    }
+  ],
+  "video": {
+    "title": "UIHostingController, UIViewRepresentable & Coordinator | Day 167",
+    "description": "Learn to explain how to mix SwiftUI and UIKit: UIHostingController, UIViewRepresentable & Coordinator, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nUIHostingController - A view controller that shows a SwiftUI view inside a UIKit app.\nUIViewRepresentable - A protocol that wraps a UIKit view, so you can use it inside SwiftUI.\nCoordinator - An object inside a representable that receives UIKit delegate calls and talks back to SwiftUI.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 167 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "uihostingcontroller",
+      "uiviewrepresentable",
+      "coordinator",
+      "uihostingcontroller",
+      "uiviewrepresentable",
+      "coordinator",
+      "uihostingcontroller",
+      "uiviewrepresentable",
+      "coordinator",
+      "swiftui",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "SwiftUI UIHostingController, UIViewRepresentable & Coordinator | Day 167",
+      "description": "Explain UIHostingController, UIViewRepresentable & Coordinator in SwiftUI by listening to a real code chat between two iOS devs.\nUIHostingController, UIViewRepresentable, 코디네이터 표현을 영어 대화로 익혀요.\n\nUIHostingController - A view controller that shows a SwiftUI view inside a UIKit app.\n한국어: UIHostingController: UIKit 앱 안에서 SwiftUI 뷰를 보여 주는 뷰 컨트롤러\n\nUIViewRepresentable - A protocol that wraps a UIKit view, so you can use it inside SwiftUI.\n한국어: UIViewRepresentable: UIKit 뷰를 감싸서 SwiftUI 안에서 쓸 수 있게 해 주는 프로토콜\n\nCoordinator - An object inside a representable that receives UIKit delegate calls and talks back to SwiftUI.\n한국어: 코디네이터: representable 안에서 UIKit 델리게이트 호출을 받아 SwiftUI로 다시 전달하는 객체\n\nIn this video, Mina and Jake add a UIKit map view to a new SwiftUI screen, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 167 of the iOS Daily English series.\n\n#Swift #SwiftUI #EnglishForDevelopers",
+      "tags": [
+        "UIHostingController",
+        "UIViewRepresentable",
+        "Coordinator",
+        "uihostingcontroller",
+        "uiviewrepresentable",
+        "coordinator",
+        "SwiftUI",
+        "SwiftUI 기초",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "iOS Daily English"
+      ],
+      "hook": "Can you explain UIHostingController, UIViewRepresentable and Coordinator in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "UIKit meets SwiftUI",
+    "setting": "SwiftUI and UIKit interop",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, our old app is UIKit, but my new screen is SwiftUI.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Use a UIHostingController. It is a view controller that shows a SwiftUI view in UIKit.",
+        "terms": [
+          "UIHostingController"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "I wrote `UIHostingController(rootView: Map())`, and it works.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Great. A UIHostingController can be pushed like any view controller.",
+        "terms": [
+          "UIHostingController"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Now the opposite. I need a UIKit map view inside SwiftUI.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Wrap it in a UIViewRepresentable. It is a protocol that turns a UIKit view into a SwiftUI view.",
+        "terms": [
+          "UIViewRepresentable"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "In `Map`, I return the view in `makeUIView`.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Right, and SwiftUI calls `updateUIView` when the state changes. Every UIViewRepresentable needs both.",
+        "terms": [
+          "UIViewRepresentable"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "How do I handle delegate callbacks from the UIKit view?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Use a Coordinator. It is an object that receives the delegate calls.",
+        "terms": [
+          "Coordinator"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "And how does SwiftUI create the Coordinator?",
+        "terms": [
+          "Coordinator"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "In `makeCoordinator`. Then you read it from `context`.",
+        "terms": []
+      }
+    ],
+    "code": "struct Map: UIViewRepresentable {\n    class Coordinator: NSObject {}\n    func makeCoordinator() -> Coordinator { .init() }\n    func makeUIView(context: Context) -> UIView { .init() }\n    func updateUIView(_ v: UIView, context: Context) {} }\nlet host = UIHostingController(rootView: Map())",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "UIHostingController",
+      "lines": [
+        {
+          "text": "Show it with a UIHostingController."
+        }
+      ],
+      "title": "Show it with a UIHostingController. #Shorts",
+      "description": "Show it with a UIHostingController.\n\nUIHostingController - A view controller that shows a SwiftUI view inside a UIKit app.\n한국어: UIHostingController: UIKit 앱 안에서 SwiftUI 뷰를 보여 주는 뷰 컨트롤러\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "UIViewRepresentable",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "How do I use a UIKit view?"
+        },
+        {
+          "speaker": "B",
+          "text": "Wrap it in a UIViewRepresentable."
+        }
+      ],
+      "title": "How do I use a UIKit view? / Wrap it in a UIViewRepresentable. #Shorts",
+      "description": "How do I use a UIKit view? / Wrap it in a UIViewRepresentable.\n\nUIViewRepresentable - A protocol that wraps a UIKit view, so you can use it inside SwiftUI.\n한국어: UIViewRepresentable: UIKit 뷰를 감싸서 SwiftUI 안에서 쓸 수 있게 해 주는 프로토콜\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Coordinator",
+      "lines": [
+        {
+          "text": "A Coordinator receives the delegate callbacks."
+        }
+      ],
+      "title": "A Coordinator receives the delegate callbacks. #Shorts",
+      "description": "A Coordinator receives the delegate callbacks.\n\nCoordinator - An object inside a representable that receives UIKit delegate calls and talks back to SwiftUI.\n한국어: 코디네이터: representable 안에서 UIKit 델리게이트 호출을 받아 SwiftUI로 다시 전달하는 객체\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "How do you mix UIKit and SwiftUI?"
+}

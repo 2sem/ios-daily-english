@@ -1,0 +1,240 @@
+{
+  "day": 151,
+  "phase": "4. SwiftUI",
+  "theme": "3 terms for shared data in SwiftUI: the observable class, its announcing property and the view that owns it",
+  "terms": [
+    {
+      "term": "ObservableObject",
+      "definition": "A protocol for a class whose changes can update the views that watch it.",
+      "example": "Make the Cart an ObservableObject, so the screen can watch it.",
+      "code": "class Cart: ObservableObject {\n    var items = 0\n}",
+      "output": "// no output"
+    },
+    {
+      "term": "Published",
+      "definition": "A property wrapper that announces every change of a property to the views that watch it.",
+      "example": "Add Published to the total, or the view will never update.",
+      "code": "class Cart: ObservableObject {\n    @Published var total = 0\n}",
+      "output": "// no output"
+    },
+    {
+      "term": "StateObject",
+      "definition": "A property wrapper that makes a view create and own an observable object for the whole life of the view.",
+      "example": "Use StateObject, so the view keeps the same Cart after a redraw.",
+      "code": "class Cart: ObservableObject {}\nstruct CartView: View {\n    @StateObject var cart = Cart()\n    var body: some View { Text(\"Hi\") }\n}",
+      "output": "// no output"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What do you call the property wrapper that makes a view create and own an observable object?",
+      "options": [
+        "Published",
+        "StateObject",
+        "ObservableObject"
+      ],
+      "answer": "b"
+    },
+    {
+      "question": "What do you call a protocol for a class whose changes can update the views that watch it?",
+      "options": [
+        "StateObject",
+        "ObservableObject",
+        "Published"
+      ],
+      "answer": "b"
+    },
+    {
+      "question": "What do you call the property wrapper that announces every change of a property to the views?",
+      "options": [
+        "ObservableObject",
+        "Published",
+        "StateObject"
+      ],
+      "answer": "b"
+    }
+  ],
+  "video": {
+    "title": "ObservableObject, Published & StateObject | Day 151",
+    "description": "Learn to explain how SwiftUI views watch a class: ObservableObject, Published & StateObject, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nObservableObject - A protocol for a class whose changes can update the views that watch it.\nPublished - A property wrapper that announces every change of a property to the views that watch it.\nStateObject - A property wrapper that makes a view create and own an observable object for the whole life of the view.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 151 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "observableobject",
+      "published",
+      "stateobject",
+      "observableobject",
+      "published",
+      "stateobject",
+      "observableobject",
+      "published",
+      "stateobject",
+      "swiftui",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "SwiftUI ObservableObject, Published & StateObject | Day 151",
+      "description": "Explain ObservableObject, Published & StateObject in SwiftUI by listening to a real code chat between two iOS devs.\n옵저버블오브젝트, 퍼블리시드, 스테이트오브젝트 표현을 영어 대화로 익혀요.\n\nObservableObject - A protocol for a class whose changes can update the views that watch it.\n한국어: 옵저버블오브젝트: 그것을 지켜보는 뷰를 갱신할 수 있게 해 주는, 클래스용 프로토콜\n\nPublished - A property wrapper that announces every change of a property to the views that watch it.\n한국어: 퍼블리시드: 프로퍼티가 바뀔 때마다 지켜보는 뷰에게 알려 주는 프로퍼티 래퍼\n\nStateObject - A property wrapper that makes a view create and own an observable object for the whole life of the view.\n한국어: 스테이트오브젝트: 뷰가 관찰 가능한 객체를 직접 만들고 뷰의 수명 동안 소유하게 하는 프로퍼티 래퍼\n\nIn this video, Mina and Jake fix a cart screen that does not update, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 151 of the iOS Daily English series.\n\n#Swift #SwiftUI #EnglishForDevelopers",
+      "tags": [
+        "ObservableObject",
+        "Published",
+        "StateObject",
+        "observableobject",
+        "published",
+        "stateobject",
+        "SwiftUI",
+        "SwiftUI 기초",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "iOS Daily English"
+      ],
+      "hook": "Can you explain ObservableObject, Published and StateObject in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "The cart will not update",
+    "setting": "SwiftUI shared data",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, my cart screen does not update when the total changes.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Is `Cart` an ObservableObject?",
+        "terms": [
+          "ObservableObject"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Yes. It is a class, and the view watches it.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Then check the property. Without Published, the view never hears about the change.",
+        "terms": [
+          "Published"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "I forgot it! Now I put Published before `total`.",
+        "terms": [
+          "Published"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Good. Every Published property tells the views when it changes.",
+        "terms": [
+          "Published"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "It updates now. My teammate says I should use a plain `var` for `cart`.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "No. A plain `var` creates a new `Cart` on every redraw. Use StateObject.",
+        "terms": [
+          "StateObject"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "So StateObject keeps one object alive for the view?",
+        "terms": [
+          "StateObject"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Yes. The view owns it, and the same object stays for the whole life of the view.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "That explains my reset bug. The total went back to zero.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Right. ObservableObject plus Published plus StateObject, and the screen is stable.",
+        "terms": [
+          "ObservableObject",
+          "Published",
+          "StateObject"
+        ]
+      }
+    ],
+    "code": "class Cart: ObservableObject {\n    @Published var total = 0\n}\nstruct V: View { @StateObject var cart = Cart()\n    var body: some View { Text(\"\\(cart.total)\") } }",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "ObservableObject",
+      "lines": [
+        {
+          "text": "Make the Cart an ObservableObject."
+        }
+      ],
+      "title": "Make the Cart an ObservableObject. #Shorts",
+      "description": "Make the Cart an ObservableObject.\n\nObservableObject - A protocol for a class whose changes can update the views that watch it.\n한국어: 옵저버블오브젝트: 그것을 지켜보는 뷰를 갱신할 수 있게 해 주는, 클래스용 프로토콜\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "Published",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Why does the view never update?"
+        },
+        {
+          "speaker": "B",
+          "text": "You forgot Published."
+        }
+      ],
+      "title": "Why does the view never update? / You forgot Published. #Shorts",
+      "description": "Why does the view never update? / You forgot Published.\n\nPublished - A property wrapper that announces every change of a property to the views that watch it.\n한국어: 퍼블리시드: 프로퍼티가 바뀔 때마다 지켜보는 뷰에게 알려 주는 프로퍼티 래퍼\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "StateObject",
+      "lines": [
+        {
+          "text": "Use StateObject so the view owns the object."
+        }
+      ],
+      "title": "Use StateObject so the view owns the object. #Shorts",
+      "description": "Use StateObject so the view owns the object.\n\nStateObject - A property wrapper that makes a view create and own an observable object for the whole life of the view.\n한국어: 스테이트오브젝트: 뷰가 관찰 가능한 객체를 직접 만들고 뷰의 수명 동안 소유하게 하는 프로퍼티 래퍼\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "Why won't your SwiftUI view update?"
+}

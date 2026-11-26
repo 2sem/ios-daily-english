@@ -1,0 +1,238 @@
+{
+  "day": 161,
+  "phase": "4. SwiftUI",
+  "theme": "3 terms for a SwiftUI login form: hidden typing, the return key text and the keyboard focus",
+  "terms": [
+    {
+      "term": "SecureField",
+      "definition": "A text field that hides what the user types, for example a password.",
+      "example": "Use a SecureField for the password.",
+      "code": "struct Login: View {\n    @State var pw = \"\"\n    var body: some View {\n        SecureField(\"Password\", text: $pw)\n    }\n}",
+      "output": "// no output"
+    },
+    {
+      "term": "Submit Label",
+      "definition": "A modifier that sets the text of the keyboard return key, such as Go or Next.",
+      "example": "Set the Submit Label to Next, so users move on faster.",
+      "code": "TextField(\"Name\", text: .constant(\"\"))\n    .submitLabel(.next)",
+      "output": "// no output"
+    },
+    {
+      "term": "FocusState",
+      "definition": "A property wrapper that tracks which field has the keyboard focus, and lets you change it.",
+      "example": "Use FocusState to open the keyboard on the first field.",
+      "code": "struct F: View {\n    @FocusState var on: Bool\n    var body: some View {\n        TextField(\"Hi\", text: .constant(\"\")).focused($on)\n    }\n}",
+      "output": "// no output"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What do you call the property wrapper that tracks which field has the keyboard focus?",
+      "options": [
+        "FocusState",
+        "SecureField",
+        "Submit Label"
+      ],
+      "answer": "a"
+    },
+    {
+      "question": "What do you call a text field that hides what the user types?",
+      "options": [
+        "Submit Label",
+        "FocusState",
+        "SecureField"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "What do you call a modifier that sets the text of the keyboard return key?",
+      "options": [
+        "Submit Label",
+        "FocusState",
+        "SecureField"
+      ],
+      "answer": "a"
+    }
+  ],
+  "video": {
+    "title": "SecureField, Submit Label & FocusState | Day 161",
+    "description": "Learn to explain how to build a login form in SwiftUI: SecureField, Submit Label & FocusState, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nSecureField - A text field that hides what the user types, for example a password.\nSubmit Label - A modifier that sets the text of the keyboard return key, such as Go or Next.\nFocusState - A property wrapper that tracks which field has the keyboard focus, and lets you change it.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 161 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "securefield",
+      "submit label",
+      "focusstate",
+      "securefield",
+      "submit label",
+      "focusstate",
+      "securefield",
+      "submit label",
+      "focusstate",
+      "swiftui",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "SwiftUI SecureField, Submit Label & FocusState | Day 161",
+      "description": "Explain SecureField, Submit Label & FocusState in SwiftUI by listening to a real code chat between two iOS devs.\n시큐어필드, 서브밋 레이블, 포커스스테이트 표현을 영어 대화로 익혀요.\n\nSecureField - A text field that hides what the user types, for example a password.\n한국어: 시큐어필드: 비밀번호처럼 사용자가 입력하는 내용을 숨겨 주는 텍스트 필드\n\nSubmit Label - A modifier that sets the text of the keyboard return key, such as Go or Next.\n한국어: 서브밋 레이블: 키보드의 리턴 키에 표시되는 글자(Go, Next 등)를 정하는 수정자\n\nFocusState - A property wrapper that tracks which field has the keyboard focus, and lets you change it.\n한국어: 포커스스테이트: 어느 필드에 키보드 포커스가 있는지 추적하고, 바꿀 수도 있게 해 주는 프로퍼티 래퍼\n\nIn this video, Mina and Jake fix a login screen that shows the password, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 161 of the iOS Daily English series.\n\n#Swift #SwiftUI #EnglishForDevelopers",
+      "tags": [
+        "SecureField",
+        "Submit Label",
+        "FocusState",
+        "securefield",
+        "submit label",
+        "focusstate",
+        "SwiftUI",
+        "SwiftUI 기초",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "iOS Daily English"
+      ],
+      "hook": "Can you explain SecureField, Submit Label and FocusState in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "The password is visible",
+    "setting": "SwiftUI login form",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, my login screen shows the password in plain text.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Use a SecureField. It hides what the user types.",
+        "terms": [
+          "SecureField"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "I changed it to a SecureField, and now I see only dots.",
+        "terms": [
+          "SecureField"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Good. Now look at the keyboard. Which Submit Label does it use?",
+        "terms": [
+          "Submit Label"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "The default, it says return. I want it to say Go.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Then change the Submit Label. It chooses the text of the return key, like Go or Next.",
+        "terms": [
+          "Submit Label"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "I wrote `.submitLabel(.go)`. Can I jump to the next field by myself?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Yes, with a FocusState. It tracks which field has the keyboard focus.",
+        "terms": [
+          "FocusState"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "And how do I change the focus?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "You set the FocusState value, like `f`, and the keyboard moves to that field.",
+        "terms": [
+          "FocusState"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "What if I never set the FocusState?",
+        "terms": [
+          "FocusState"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Then the user taps the field by hand. That is not nice for a login screen.",
+        "terms": []
+      }
+    ],
+    "code": "struct Login: View { @FocusState var f: Bool\n    var body: some View {\n        SecureField(\"Password\", text: .constant(\"\"))\n            .submitLabel(.go).focused($f)\n    } }",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "SecureField",
+      "lines": [
+        {
+          "text": "Use a SecureField for the password."
+        }
+      ],
+      "title": "Use a SecureField for the password. #Shorts",
+      "description": "Use a SecureField for the password.\n\nSecureField - A text field that hides what the user types, for example a password.\n한국어: 시큐어필드: 비밀번호처럼 사용자가 입력하는 내용을 숨겨 주는 텍스트 필드\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "Submit Label",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Can the return key say Go?"
+        },
+        {
+          "speaker": "B",
+          "text": "Set the Submit Label."
+        }
+      ],
+      "title": "Can the return key say Go? / Set the Submit Label. #Shorts",
+      "description": "Can the return key say Go? / Set the Submit Label.\n\nSubmit Label - A modifier that sets the text of the keyboard return key, such as Go or Next.\n한국어: 서브밋 레이블: 키보드의 리턴 키에 표시되는 글자(Go, Next 등)를 정하는 수정자\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "FocusState",
+      "lines": [
+        {
+          "text": "FocusState opens the keyboard on the first field."
+        }
+      ],
+      "title": "FocusState opens the keyboard on the first field. #Shorts",
+      "description": "FocusState opens the keyboard on the first field.\n\nFocusState - A property wrapper that tracks which field has the keyboard focus, and lets you change it.\n한국어: 포커스스테이트: 어느 필드에 키보드 포커스가 있는지 추적하고, 바꿀 수도 있게 해 주는 프로퍼티 래퍼\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "How do you build a login form?"
+}

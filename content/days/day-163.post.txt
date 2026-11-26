@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 163
+
+Menu
+- A button that opens a small list of actions when the user taps it.
+- Example: "Put the three sort buttons into a Menu."
+
+DisclosureGroup
+- A container that the user can open and close to show or hide its content.
+- Example: "Use a DisclosureGroup for the advanced filters."
+
+ContentUnavailableView
+- A view that explains why a screen is empty, for example when a search finds nothing.
+- Example: "Show a ContentUnavailableView when the list is empty."
+
+
+Quiz ①
+What do you call a view that explains why a screen is empty?
+a) DisclosureGroup
+b) ContentUnavailableView
+c) Menu
+
+Quiz ②
+What do you call a button that opens a small list of actions when the user taps it?
+a) ContentUnavailableView
+b) Menu
+c) DisclosureGroup
+
+Quiz ③
+What do you call a container that the user can open and close to show or hide its content?
+a) Menu
+b) DisclosureGroup
+c) ContentUnavailableView

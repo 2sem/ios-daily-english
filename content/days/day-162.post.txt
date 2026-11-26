@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 162
+
+Searchable
+- A modifier that adds a search field to a screen and gives you the text the user types.
+- Example: "Add Searchable, so users can find a name."
+
+Refreshable
+- A modifier that lets the user pull a list down to run async code that loads new data.
+- Example: "Add Refreshable, so users can pull down to update."
+
+Search Suggestions
+- A list of ideas that appears under the search field while the user types.
+- Example: "Show Search Suggestions for the most popular names."
+
+
+Quiz ①
+What do you call a modifier that lets the user pull a list down to run async code?
+a) Searchable
+b) Refreshable
+c) Search Suggestions
+
+Quiz ②
+What do you call a list of ideas that appears under the text field while the user types?
+a) Refreshable
+b) Search Suggestions
+c) Searchable
+
+Quiz ③
+What do you call a modifier that adds a search field to a screen?
+a) Search Suggestions
+b) Searchable
+c) Refreshable

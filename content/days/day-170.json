@@ -1,0 +1,236 @@
+{
+  "day": 170,
+  "phase": "4. SwiftUI",
+  "theme": "3 terms for the start of a SwiftUI app: the entry type, the window scene and the app state",
+  "terms": [
+    {
+      "term": "App Protocol",
+      "definition": "A protocol for the main type of a SwiftUI app, marked with @main, that describes its scenes.",
+      "example": "The App Protocol is where the app starts.",
+      "code": "@main\nstruct MyApp: App {\n    var body: some Scene {\n        WindowGroup { Text(\"Hi\") }\n    }\n}",
+      "output": "// no output"
+    },
+    {
+      "term": "WindowGroup",
+      "definition": "A scene that shows your root view in a window, and can open more windows on iPad and Mac.",
+      "example": "Put the main screen inside a WindowGroup.",
+      "code": "let scene = WindowGroup {\n    Text(\"Hi\")\n}",
+      "output": "// no output"
+    },
+    {
+      "term": "ScenePhase",
+      "definition": "An environment value that tells you if the scene is active, inactive or in the background.",
+      "example": "Watch ScenePhase, and save the draft in the background.",
+      "code": "struct Root: View {\n    @Environment(\\.scenePhase) var phase\n    var body: some View { Text(\"Hi\") }\n}",
+      "output": "// no output"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What do you call the scene that shows your root view, and can open more copies on iPad and Mac?",
+      "options": [
+        "ScenePhase",
+        "App Protocol",
+        "WindowGroup"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "What do you call an environment value that tells you if the app is active, inactive or in the background?",
+      "options": [
+        "App Protocol",
+        "WindowGroup",
+        "ScenePhase"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "What do you call the type marked with @main that starts a SwiftUI program and describes its scenes?",
+      "options": [
+        "WindowGroup",
+        "ScenePhase",
+        "App Protocol"
+      ],
+      "answer": "c"
+    }
+  ],
+  "video": {
+    "title": "App Protocol, WindowGroup & ScenePhase | Day 170",
+    "description": "Learn to explain how a SwiftUI app starts and reacts to its state: App Protocol, WindowGroup & ScenePhase, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nApp Protocol - A protocol for the main type of a SwiftUI app, marked with @main, that describes its scenes.\nWindowGroup - A scene that shows your root view in a window, and can open more windows on iPad and Mac.\nScenePhase - An environment value that tells you if the scene is active, inactive or in the background.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 170 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "app protocol",
+      "windowgroup",
+      "scenephase",
+      "app protocol",
+      "windowgroup",
+      "scenephase",
+      "app protocol",
+      "windowgroup",
+      "scenephase",
+      "swiftui",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "SwiftUI App Protocol, WindowGroup & ScenePhase | Day 170",
+      "description": "Explain App Protocol, WindowGroup & ScenePhase in SwiftUI by listening to a real code chat between two iOS devs.\n앱 프로토콜, 윈도우그룹, 씬페이즈 표현을 영어 대화로 익혀요.\n\nApp Protocol - A protocol for the main type of a SwiftUI app, marked with @main, that describes its scenes.\n한국어: 앱 프로토콜: @main이 붙은 SwiftUI 앱의 메인 타입을 위한 프로토콜로, 앱의 씬을 설명해요\n\nWindowGroup - A scene that shows your root view in a window, and can open more windows on iPad and Mac.\n한국어: 윈도우그룹: 루트 뷰를 창에 보여 주고, iPad와 Mac에서는 창을 더 열 수 있는 씬\n\nScenePhase - An environment value that tells you if the scene is active, inactive or in the background.\n한국어: 씬페이즈: 씬이 활성, 비활성, 백그라운드 중 어떤 상태인지 알려 주는 환경 값\n\nIn this video, Mina and Jake find the start of a new SwiftUI project and save data in the background, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 170 of the iOS Daily English series.\n\n#Swift #SwiftUI #EnglishForDevelopers",
+      "tags": [
+        "App Protocol",
+        "WindowGroup",
+        "ScenePhase",
+        "app protocol",
+        "windowgroup",
+        "scenephase",
+        "SwiftUI",
+        "SwiftUI 기초",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "iOS Daily English"
+      ],
+      "hook": "Can you explain App Protocol, WindowGroup and ScenePhase in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "Where does the app start?",
+    "setting": "SwiftUI app entry point",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, I started a new SwiftUI project, and I cannot find the old start file.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "The entry point is a type with the App Protocol, and it is marked with `@main`.",
+        "terms": [
+          "App Protocol"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Is that `MyApp` in the code?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Yes. The App Protocol asks for one thing, a `body` that returns scenes.",
+        "terms": [
+          "App Protocol"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "What is the scene in my code?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "A WindowGroup. It shows your root view in a window.",
+        "terms": [
+          "WindowGroup"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Can it open more than one window?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "On iPad and Mac, yes. Each window from the WindowGroup has its own state.",
+        "terms": [
+          "WindowGroup"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Now I want to save data when the app goes to the background.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Read ScenePhase from the environment. It tells you if the scene is active, inactive or in the background.",
+        "terms": [
+          "ScenePhase"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "And where do I react to it?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Watch the ScenePhase with a change handler, and save when the app is in the background.",
+        "terms": [
+          "ScenePhase"
+        ]
+      }
+    ],
+    "code": "@main\nstruct MyApp: App {\n    @Environment(\\.scenePhase) var phase\n    var body: some Scene { WindowGroup { Text(\"Hi\") } }\n}",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "App Protocol",
+      "lines": [
+        {
+          "text": "The App Protocol is where your app starts."
+        }
+      ],
+      "title": "The App Protocol is where your app starts. #Shorts",
+      "description": "The App Protocol is where your app starts.\n\nApp Protocol - A protocol for the main type of a SwiftUI app, marked with @main, that describes its scenes.\n한국어: 앱 프로토콜: @main이 붙은 SwiftUI 앱의 메인 타입을 위한 프로토콜로, 앱의 씬을 설명해요\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "WindowGroup",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Where does my root view go?"
+        },
+        {
+          "speaker": "B",
+          "text": "Inside a WindowGroup."
+        }
+      ],
+      "title": "Where does my root view go? / Inside a WindowGroup. #Shorts",
+      "description": "Where does my root view go? / Inside a WindowGroup.\n\nWindowGroup - A scene that shows your root view in a window, and can open more windows on iPad and Mac.\n한국어: 윈도우그룹: 루트 뷰를 창에 보여 주고, iPad와 Mac에서는 창을 더 열 수 있는 씬\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "ScenePhase",
+      "lines": [
+        {
+          "text": "Watch ScenePhase to save in the background."
+        }
+      ],
+      "title": "Watch ScenePhase to save in the background. #Shorts",
+      "description": "Watch ScenePhase to save in the background.\n\nScenePhase - An environment value that tells you if the scene is active, inactive or in the background.\n한국어: 씬페이즈: 씬이 활성, 비활성, 백그라운드 중 어떤 상태인지 알려 주는 환경 값\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "How does a SwiftUI app start?"
+}

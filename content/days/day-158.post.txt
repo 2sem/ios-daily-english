@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 158
+
+Overlay
+- A modifier that puts another view in front of a view, at the same size.
+- Example: "Add the badge as an Overlay on the avatar."
+
+Clip Shape
+- A modifier that cuts a view to the outline of a shape.
+- Example: "Use Clip Shape with a circle for the avatar."
+
+Mask
+- A modifier that shows a view only where another view is not transparent.
+- Example: "Use a Mask, so the gradient shows only inside the letters."
+
+
+Quiz ①
+What do you call a modifier that cuts a view to a round or rounded outline?
+a) Mask
+b) Overlay
+c) Clip Shape
+
+Quiz ②
+What do you call a modifier that shows a view only where another view is not transparent?
+a) Overlay
+b) Clip Shape
+c) Mask
+
+Quiz ③
+What do you call a modifier that puts another view in front of a view, at the same size?
+a) Clip Shape
+b) Mask
+c) Overlay

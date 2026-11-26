@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 151
+
+ObservableObject
+- A protocol for a class whose changes can update the views that watch it.
+- Example: "Make the Cart an ObservableObject, so the screen can watch it."
+
+Published
+- A property wrapper that announces every change of a property to the views that watch it.
+- Example: "Add Published to the total, or the view will never update."
+
+StateObject
+- A property wrapper that makes a view create and own an observable object for the whole life of the view.
+- Example: "Use StateObject, so the view keeps the same Cart after a redraw."
+
+
+Quiz ①
+What do you call the property wrapper that makes a view create and own an observable object?
+a) Published
+b) StateObject
+c) ObservableObject
+
+Quiz ②
+What do you call a protocol for a class whose changes can update the views that watch it?
+a) StateObject
+b) ObservableObject
+c) Published
+
+Quiz ③
+What do you call the property wrapper that announces every change of a property to the views?
+a) ObservableObject
+b) Published
+c) StateObject

@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 159
+
+TimelineView
+- A view that updates its content on a schedule, such as every second.
+- Example: "Wrap the clock in a TimelineView, so it ticks every second."
+
+Drawing Group
+- A modifier that draws a view and its children as one image with Metal, so complex drawing is faster.
+- Example: "Add Drawing Group, because the particles are slow."
+
+GraphicsContext
+- The drawing tool inside a Canvas that you use to fill shapes, strokes and text.
+- Example: "Call fill on the GraphicsContext to draw the face."
+
+
+Quiz ①
+What do you call the drawing tool inside a Canvas that fills shapes, strokes and text?
+a) TimelineView
+b) Drawing Group
+c) GraphicsContext
+
+Quiz ②
+What do you call a view that updates its content on a schedule, such as every second?
+a) Drawing Group
+b) GraphicsContext
+c) TimelineView
+
+Quiz ③
+What do you call a modifier that draws a view and its children as one image with Metal?
+a) GraphicsContext
+b) TimelineView
+c) Drawing Group

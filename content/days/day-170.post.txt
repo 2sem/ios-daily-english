@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 170
+
+App Protocol
+- A protocol for the main type of a SwiftUI app, marked with @main, that describes its scenes.
+- Example: "The App Protocol is where the app starts."
+
+WindowGroup
+- A scene that shows your root view in a window, and can open more windows on iPad and Mac.
+- Example: "Put the main screen inside a WindowGroup."
+
+ScenePhase
+- An environment value that tells you if the scene is active, inactive or in the background.
+- Example: "Watch ScenePhase, and save the draft in the background."
+
+
+Quiz ①
+What do you call the scene that shows your root view, and can open more copies on iPad and Mac?
+a) ScenePhase
+b) App Protocol
+c) WindowGroup
+
+Quiz ②
+What do you call an environment value that tells you if the app is active, inactive or in the background?
+a) App Protocol
+b) WindowGroup
+c) ScenePhase
+
+Quiz ③
+What do you call the type marked with @main that starts a SwiftUI program and describes its scenes?
+a) WindowGroup
+b) ScenePhase
+c) App Protocol

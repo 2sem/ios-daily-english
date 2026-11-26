@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 161
+
+SecureField
+- A text field that hides what the user types, for example a password.
+- Example: "Use a SecureField for the password."
+
+Submit Label
+- A modifier that sets the text of the keyboard return key, such as Go or Next.
+- Example: "Set the Submit Label to Next, so users move on faster."
+
+FocusState
+- A property wrapper that tracks which field has the keyboard focus, and lets you change it.
+- Example: "Use FocusState to open the keyboard on the first field."
+
+
+Quiz ①
+What do you call the property wrapper that tracks which field has the keyboard focus?
+a) FocusState
+b) SecureField
+c) Submit Label
+
+Quiz ②
+What do you call a text field that hides what the user types?
+a) Submit Label
+b) FocusState
+c) SecureField
+
+Quiz ③
+What do you call a modifier that sets the text of the keyboard return key?
+a) Submit Label
+b) FocusState
+c) SecureField

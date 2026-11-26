@@ -1,0 +1,237 @@
+{
+  "day": 166,
+  "phase": "4. SwiftUI",
+  "theme": "3 terms for VoiceOver in SwiftUI: the spoken reading, the grouped item and the custom command",
+  "terms": [
+    {
+      "term": "Accessibility Value",
+      "definition": "A modifier that tells VoiceOver the current value of a control, such as 50 percent.",
+      "example": "Add an Accessibility Value, so VoiceOver reads the percent.",
+      "code": "Slider(value: .constant(0.5))\n    .accessibilityValue(\"50 percent\")",
+      "output": "// no output"
+    },
+    {
+      "term": "Accessibility Element",
+      "definition": "A modifier that groups child views into one item for VoiceOver.",
+      "example": "Make the row one Accessibility Element, so VoiceOver reads it once.",
+      "code": "VStack {\n    Text(\"Mina\")\n    Text(\"iOS dev\")\n}\n.accessibilityElement(children: .combine)",
+      "output": "// no output"
+    },
+    {
+      "term": "Accessibility Action",
+      "definition": "A modifier that adds a custom action that VoiceOver users can choose on a view.",
+      "example": "Add an Accessibility Action for delete, so swiping is not required.",
+      "code": "Text(\"Message\")\n    .accessibilityAction(named: \"Delete\") {\n        print(\"Deleted\")\n    }",
+      "output": "// no output"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What do you call a modifier that groups child views into one item for VoiceOver?",
+      "options": [
+        "Accessibility Element",
+        "Accessibility Action",
+        "Accessibility Value"
+      ],
+      "answer": "a"
+    },
+    {
+      "question": "What do you call a modifier that adds a custom command that VoiceOver users can choose on a view?",
+      "options": [
+        "Accessibility Value",
+        "Accessibility Element",
+        "Accessibility Action"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "What do you call a modifier that tells VoiceOver the current reading of a control, such as 50 percent?",
+      "options": [
+        "Accessibility Value",
+        "Accessibility Element",
+        "Accessibility Action"
+      ],
+      "answer": "a"
+    }
+  ],
+  "video": {
+    "title": "Accessibility Value, Accessibility Element & Accessibility Action | Day 166",
+    "description": "Learn to explain how to improve VoiceOver in SwiftUI: Accessibility Value, Accessibility Element & Accessibility Action, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nAccessibility Value - A modifier that tells VoiceOver the current value of a control, such as 50 percent.\nAccessibility Element - A modifier that groups child views into one item for VoiceOver.\nAccessibility Action - A modifier that adds a custom action that VoiceOver users can choose on a view.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 166 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "accessibility value",
+      "accessibility element",
+      "accessibility action",
+      "accessibility value",
+      "accessibility element",
+      "accessibility action",
+      "accessibility value",
+      "accessibility element",
+      "accessibility action",
+      "swiftui",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "SwiftUI Accessibility Value, Accessibility Element & Accessibility Action | Day 166",
+      "description": "Explain Accessibility Value, Accessibility Element & Accessibility Action in SwiftUI by listening to a real code chat between two iOS devs.\n접근성 값, 접근성 엘리먼트, 접근성 액션 표현을 영어 대화로 익혀요.\n\nAccessibility Value - A modifier that tells VoiceOver the current value of a control, such as 50 percent.\n한국어: 접근성 값: 50퍼센트처럼 컨트롤의 현재 값을 VoiceOver에게 알려 주는 수정자\n\nAccessibility Element - A modifier that groups child views into one item for VoiceOver.\n한국어: 접근성 엘리먼트: 자식 뷰들을 VoiceOver용 하나의 항목으로 묶어 주는 수정자\n\nAccessibility Action - A modifier that adds a custom action that VoiceOver users can choose on a view.\n한국어: 접근성 액션: VoiceOver 사용자가 뷰에서 고를 수 있는 사용자 지정 동작을 추가하는 수정자\n\nIn this video, Mina and Jake fix how VoiceOver reads a volume row, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 166 of the iOS Daily English series.\n\n#Swift #SwiftUI #EnglishForDevelopers",
+      "tags": [
+        "Accessibility Value",
+        "Accessibility Element",
+        "Accessibility Action",
+        "accessibility value",
+        "accessibility element",
+        "accessibility action",
+        "SwiftUI",
+        "SwiftUI 기초",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "iOS Daily English"
+      ],
+      "hook": "Can you explain Accessibility Value, Accessibility Element and Accessibility Action in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "VoiceOver reads two items",
+    "setting": "SwiftUI accessibility",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, VoiceOver reads my volume row as two separate items.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Group them with an Accessibility Element. It makes the child views one item for VoiceOver.",
+        "terms": [
+          "Accessibility Element"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "I used `.combine`, and now it reads Volume 50 together.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Good. But the user does not know the unit yet.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "Can I add an Accessibility Value, like fifty percent?",
+        "terms": [
+          "Accessibility Value"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Yes. An Accessibility Value tells VoiceOver the current value of a control.",
+        "terms": [
+          "Accessibility Value"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Now, a user wants to mute without opening the screen.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Add an Accessibility Action. It is a custom action that a VoiceOver user can choose on the view.",
+        "terms": [
+          "Accessibility Action"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Like `Mute` in the code?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Yes. Name every Accessibility Action clearly, because VoiceOver reads the name.",
+        "terms": [
+          "Accessibility Action"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Should I test with VoiceOver on a device?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Always. The Accessibility Element and the Accessibility Value need real listening tests.",
+        "terms": [
+          "Accessibility Value",
+          "Accessibility Element"
+        ]
+      }
+    ],
+    "code": "VStack { Text(\"Volume\"); Text(\"50\") }\n    .accessibilityElement(children: .combine)\n    .accessibilityValue(\"50 percent\")\n    .accessibilityAction(named: \"Mute\") {}",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "Accessibility Value",
+      "lines": [
+        {
+          "text": "Add an Accessibility Value for the slider."
+        }
+      ],
+      "title": "Add an Accessibility Value for the slider. #Shorts",
+      "description": "Add an Accessibility Value for the slider.\n\nAccessibility Value - A modifier that tells VoiceOver the current value of a control, such as 50 percent.\n한국어: 접근성 값: 50퍼센트처럼 컨트롤의 현재 값을 VoiceOver에게 알려 주는 수정자\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "Accessibility Element",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "VoiceOver reads my row twice."
+        },
+        {
+          "speaker": "B",
+          "text": "Make it one Accessibility Element."
+        }
+      ],
+      "title": "VoiceOver reads my row twice. / Make it one Accessibility Element. #Shorts",
+      "description": "VoiceOver reads my row twice. / Make it one Accessibility Element.\n\nAccessibility Element - A modifier that groups child views into one item for VoiceOver.\n한국어: 접근성 엘리먼트: 자식 뷰들을 VoiceOver용 하나의 항목으로 묶어 주는 수정자\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Accessibility Action",
+      "lines": [
+        {
+          "text": "Add an Accessibility Action to delete."
+        }
+      ],
+      "title": "Add an Accessibility Action to delete. #Shorts",
+      "description": "Add an Accessibility Action to delete.\n\nAccessibility Action - A modifier that adds a custom action that VoiceOver users can choose on a view.\n한국어: 접근성 액션: VoiceOver 사용자가 뷰에서 고를 수 있는 사용자 지정 동작을 추가하는 수정자\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "How do you help VoiceOver users?"
+}

@@ -1,0 +1,236 @@
+{
+  "day": 163,
+  "phase": "4. SwiftUI",
+  "theme": "3 terms for compact SwiftUI screens: a pop-up list of actions, a section that opens and an empty state",
+  "terms": [
+    {
+      "term": "Menu",
+      "definition": "A button that opens a small list of actions when the user taps it.",
+      "example": "Put the three sort buttons into a Menu.",
+      "code": "Menu(\"Sort\") {\n    Button(\"Name\") {}\n    Button(\"Date\") {}\n}",
+      "output": "// no output"
+    },
+    {
+      "term": "DisclosureGroup",
+      "definition": "A container that the user can open and close to show or hide its content.",
+      "example": "Use a DisclosureGroup for the advanced filters.",
+      "code": "DisclosureGroup(\"Details\") {\n    Text(\"More text\")\n}",
+      "output": "// no output"
+    },
+    {
+      "term": "ContentUnavailableView",
+      "definition": "A view that explains why a screen is empty, for example when a search finds nothing.",
+      "example": "Show a ContentUnavailableView when the list is empty.",
+      "code": "ContentUnavailableView(\n    \"No results\",\n    systemImage: \"magnifyingglass\"\n)",
+      "output": "// no output"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What do you call a view that explains why a screen is empty?",
+      "options": [
+        "DisclosureGroup",
+        "ContentUnavailableView",
+        "Menu"
+      ],
+      "answer": "b"
+    },
+    {
+      "question": "What do you call a button that opens a small list of actions when the user taps it?",
+      "options": [
+        "ContentUnavailableView",
+        "Menu",
+        "DisclosureGroup"
+      ],
+      "answer": "b"
+    },
+    {
+      "question": "What do you call a container that the user can open and close to show or hide its content?",
+      "options": [
+        "Menu",
+        "DisclosureGroup",
+        "ContentUnavailableView"
+      ],
+      "answer": "b"
+    }
+  ],
+  "video": {
+    "title": "Menu, DisclosureGroup & ContentUnavailableView | Day 163",
+    "description": "Learn to explain how to keep SwiftUI screens compact and clear: Menu, DisclosureGroup & ContentUnavailableView, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nMenu - A button that opens a small list of actions when the user taps it.\nDisclosureGroup - A container that the user can open and close to show or hide its content.\nContentUnavailableView - A view that explains why a screen is empty, for example when a search finds nothing.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 163 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "menu",
+      "disclosuregroup",
+      "contentunavailableview",
+      "menu",
+      "disclosuregroup",
+      "contentunavailableview",
+      "menu",
+      "disclosuregroup",
+      "contentunavailableview",
+      "swiftui",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "SwiftUI Menu, DisclosureGroup & ContentUnavailableView | Day 163",
+      "description": "Explain Menu, DisclosureGroup & ContentUnavailableView in SwiftUI by listening to a real code chat between two iOS devs.\n메뉴, 디스클로저그룹, 컨텐트언어베일러블뷰 표현을 영어 대화로 익혀요.\n\nMenu - A button that opens a small list of actions when the user taps it.\n한국어: 메뉴: 사용자가 탭하면 작은 동작 목록을 펼쳐 주는 버튼\n\nDisclosureGroup - A container that the user can open and close to show or hide its content.\n한국어: 디스클로저그룹: 사용자가 열고 닫으면서 내용을 보여 주거나 숨길 수 있는 컨테이너\n\nContentUnavailableView - A view that explains why a screen is empty, for example when a search finds nothing.\n한국어: 컨텐트언어베일러블뷰: 검색 결과가 없을 때처럼 화면이 비어 있는 이유를 설명해 주는 뷰\n\nIn this video, Mina and Jake clean up a crowded toolbar and an empty screen, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 163 of the iOS Daily English series.\n\n#Swift #SwiftUI #EnglishForDevelopers",
+      "tags": [
+        "Menu",
+        "DisclosureGroup",
+        "ContentUnavailableView",
+        "menu",
+        "disclosuregroup",
+        "contentunavailableview",
+        "SwiftUI",
+        "SwiftUI 기초",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "iOS Daily English"
+      ],
+      "hook": "Can you explain Menu, DisclosureGroup and ContentUnavailableView in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "A crowded toolbar",
+    "setting": "SwiftUI compact screens",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, my toolbar has five buttons, and it looks crowded.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Put them into a Menu. It opens a small list of actions when the user taps it.",
+        "terms": [
+          "Menu"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "I made a Menu called `Sort`, and the toolbar is clean now.",
+        "terms": [
+          "Menu"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Good. Next, your filter screen is long, right?",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "Yes. I want the filters to open and close.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Use a DisclosureGroup. The user taps the arrow to show or hide the content.",
+        "terms": [
+          "DisclosureGroup"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Is the DisclosureGroup closed at the start?",
+        "terms": [
+          "DisclosureGroup"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Yes, unless you pass a binding for the open state.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "When the filters find nothing, the screen is empty and confusing.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Show a ContentUnavailableView. It explains why the screen is empty.",
+        "terms": [
+          "ContentUnavailableView"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Can I add a title and an icon?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Yes. The ContentUnavailableView in the code has the title `No results` and a magnifying glass icon.",
+        "terms": [
+          "ContentUnavailableView"
+        ]
+      }
+    ],
+    "code": "Menu(\"Sort\") { Button(\"Name\") {} }\nDisclosureGroup(\"Filters\") { Text(\"Only new\") }\nContentUnavailableView(\n    \"No results\",\n    systemImage: \"magnifyingglass\"\n)",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "Menu",
+      "lines": [
+        {
+          "text": "Put the sort buttons into a Menu."
+        }
+      ],
+      "title": "Put the sort buttons into a Menu. #Shorts",
+      "description": "Put the sort buttons into a Menu.\n\nMenu - A button that opens a small list of actions when the user taps it.\n한국어: 메뉴: 사용자가 탭하면 작은 동작 목록을 펼쳐 주는 버튼\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "DisclosureGroup",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "The filters take too much space."
+        },
+        {
+          "speaker": "B",
+          "text": "Use a DisclosureGroup."
+        }
+      ],
+      "title": "The filters take too much space. / Use a DisclosureGroup. #Shorts",
+      "description": "The filters take too much space. / Use a DisclosureGroup.\n\nDisclosureGroup - A container that the user can open and close to show or hide its content.\n한국어: 디스클로저그룹: 사용자가 열고 닫으면서 내용을 보여 주거나 숨길 수 있는 컨테이너\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "ContentUnavailableView",
+      "lines": [
+        {
+          "text": "Show a ContentUnavailableView for empty results."
+        }
+      ],
+      "title": "Show a ContentUnavailableView for empty results. #Shorts",
+      "description": "Show a ContentUnavailableView for empty results.\n\nContentUnavailableView - A view that explains why a screen is empty, for example when a search finds nothing.\n한국어: 컨텐트언어베일러블뷰: 검색 결과가 없을 때처럼 화면이 비어 있는 이유를 설명해 주는 뷰\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "How do you handle empty screens?"
+}

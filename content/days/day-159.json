@@ -1,0 +1,236 @@
+{
+  "day": 159,
+  "phase": "4. SwiftUI",
+  "theme": "3 terms for animated drawing in SwiftUI: a scheduled view, a one-image render and the drawing tool of a Canvas",
+  "terms": [
+    {
+      "term": "TimelineView",
+      "definition": "A view that updates its content on a schedule, such as every second.",
+      "example": "Wrap the clock in a TimelineView, so it ticks every second.",
+      "code": "TimelineView(.periodic(from: .now, by: 1)) { t in\n    Text(\"\\(t.date)\")\n}",
+      "output": "// no output"
+    },
+    {
+      "term": "Drawing Group",
+      "definition": "A modifier that draws a view and its children as one image with Metal, so complex drawing is faster.",
+      "example": "Add Drawing Group, because the particles are slow.",
+      "code": "ZStack {\n    Circle()\n    Circle().offset(x: 20)\n}\n.drawingGroup()",
+      "output": "// no output"
+    },
+    {
+      "term": "GraphicsContext",
+      "definition": "The drawing tool inside a Canvas that you use to fill shapes, strokes and text.",
+      "example": "Call fill on the GraphicsContext to draw the face.",
+      "code": "Canvas { context, size in\n    let r = CGRect(origin: .zero, size: size)\n    context.fill(Path(r), with: .color(.blue))\n}",
+      "output": "// no output"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What do you call the drawing tool inside a Canvas that fills shapes, strokes and text?",
+      "options": [
+        "TimelineView",
+        "Drawing Group",
+        "GraphicsContext"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "What do you call a view that updates its content on a schedule, such as every second?",
+      "options": [
+        "Drawing Group",
+        "GraphicsContext",
+        "TimelineView"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "What do you call a modifier that draws a view and its children as one image with Metal?",
+      "options": [
+        "GraphicsContext",
+        "TimelineView",
+        "Drawing Group"
+      ],
+      "answer": "c"
+    }
+  ],
+  "video": {
+    "title": "TimelineView, Drawing Group & GraphicsContext | Day 159",
+    "description": "Learn to explain how to draw animated graphics in SwiftUI: TimelineView, Drawing Group & GraphicsContext, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nTimelineView - A view that updates its content on a schedule, such as every second.\nDrawing Group - A modifier that draws a view and its children as one image with Metal, so complex drawing is faster.\nGraphicsContext - The drawing tool inside a Canvas that you use to fill shapes, strokes and text.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 159 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "timelineview",
+      "drawing group",
+      "graphicscontext",
+      "timelineview",
+      "drawing group",
+      "graphicscontext",
+      "timelineview",
+      "drawing group",
+      "graphicscontext",
+      "swiftui",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "SwiftUI TimelineView, Drawing Group & GraphicsContext | Day 159",
+      "description": "Explain TimelineView, Drawing Group & GraphicsContext in SwiftUI by listening to a real code chat between two iOS devs.\n타임라인뷰, 드로잉 그룹, 그래픽스컨텍스트 표현을 영어 대화로 익혀요.\n\nTimelineView - A view that updates its content on a schedule, such as every second.\n한국어: 타임라인뷰: 정해진 일정에 따라(예: 1초마다) 내용을 갱신하는 뷰\n\nDrawing Group - A modifier that draws a view and its children as one image with Metal, so complex drawing is faster.\n한국어: 드로잉 그룹: 뷰와 자식 뷰를 Metal로 하나의 이미지처럼 그려서 복잡한 그리기를 빠르게 해 주는 수정자\n\nGraphicsContext - The drawing tool inside a Canvas that you use to fill shapes, strokes and text.\n한국어: 그래픽스컨텍스트: Canvas 안에서 도형과 선과 텍스트를 그릴 때 쓰는 그리기 도구\n\nIn this video, Mina and Jake animate a clock face drawn in a Canvas, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 159 of the iOS Daily English series.\n\n#Swift #SwiftUI #EnglishForDevelopers",
+      "tags": [
+        "TimelineView",
+        "Drawing Group",
+        "GraphicsContext",
+        "timelineview",
+        "drawing group",
+        "graphicscontext",
+        "SwiftUI",
+        "SwiftUI 기초",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "iOS Daily English"
+      ],
+      "hook": "Can you explain TimelineView, Drawing Group and GraphicsContext in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "The clock face",
+    "setting": "SwiftUI animated drawing",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, I draw a clock face with a Canvas, but it never changes.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "A Canvas draws once. Wrap it in a TimelineView, and it updates on a schedule.",
+        "terms": [
+          "TimelineView"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Like `.animation` in the code?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Yes. That schedule updates the TimelineView on every frame.",
+        "terms": [
+          "TimelineView"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Now, how do I draw inside the Canvas?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "With the GraphicsContext. It is the drawing tool that fills shapes, strokes and text.",
+        "terms": [
+          "GraphicsContext"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Is it the `context` in the closure?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Yes. Call `fill` on the GraphicsContext with a Path and a color.",
+        "terms": [
+          "GraphicsContext"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "My animation is slow when I draw thousands of shapes.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Add Drawing Group. It draws the view as one image with Metal.",
+        "terms": [
+          "Drawing Group"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Does Drawing Group change how it looks?",
+        "terms": [
+          "Drawing Group"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Sometimes, with blur and shadows. Test it on a real device.",
+        "terms": []
+      }
+    ],
+    "code": "TimelineView(.animation) { _ in\n    Canvas { context, size in\n        context.fill(Path(.infinite), with: .color(.red))\n    }\n}\n.drawingGroup()",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "TimelineView",
+      "lines": [
+        {
+          "text": "A TimelineView redraws the clock every second."
+        }
+      ],
+      "title": "A TimelineView redraws the clock every second. #Shorts",
+      "description": "A TimelineView redraws the clock every second.\n\nTimelineView - A view that updates its content on a schedule, such as every second.\n한국어: 타임라인뷰: 정해진 일정에 따라(예: 1초마다) 내용을 갱신하는 뷰\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "Drawing Group",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "My drawing is slow."
+        },
+        {
+          "speaker": "B",
+          "text": "Try Drawing Group."
+        }
+      ],
+      "title": "My drawing is slow. / Try Drawing Group. #Shorts",
+      "description": "My drawing is slow. / Try Drawing Group.\n\nDrawing Group - A modifier that draws a view and its children as one image with Metal, so complex drawing is faster.\n한국어: 드로잉 그룹: 뷰와 자식 뷰를 Metal로 하나의 이미지처럼 그려서 복잡한 그리기를 빠르게 해 주는 수정자\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "GraphicsContext",
+      "lines": [
+        {
+          "text": "Call fill on the GraphicsContext."
+        }
+      ],
+      "title": "Call fill on the GraphicsContext. #Shorts",
+      "description": "Call fill on the GraphicsContext.\n\nGraphicsContext - The drawing tool inside a Canvas that you use to fill shapes, strokes and text.\n한국어: 그래픽스컨텍스트: Canvas 안에서 도형과 선과 텍스트를 그릴 때 쓰는 그리기 도구\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "How do you animate drawings?"
+}

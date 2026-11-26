@@ -1,0 +1,236 @@
+{
+  "day": 152,
+  "phase": "4. SwiftUI",
+  "theme": "3 terms for saving and sharing data in SwiftUI: a stored setting, a per-scene value and a shared object",
+  "terms": [
+    {
+      "term": "AppStorage",
+      "definition": "A property wrapper that reads and writes a value in UserDefaults and updates the view when it changes.",
+      "example": "Use AppStorage for the dark mode switch, so it survives a restart.",
+      "code": "struct Settings: View {\n    @AppStorage(\"dark\") var dark = false\n    var body: some View {\n        Toggle(\"Dark\", isOn: $dark)\n    }\n}",
+      "output": "// no output"
+    },
+    {
+      "term": "SceneStorage",
+      "definition": "A property wrapper that saves a small value for each scene, so a screen can restore its state later.",
+      "example": "Keep the selected tab in SceneStorage.",
+      "code": "struct Root: View {\n    @SceneStorage(\"tab\") var tab = 0\n    var body: some View { Text(\"\\(tab)\") }\n}",
+      "output": "// no output"
+    },
+    {
+      "term": "EnvironmentObject",
+      "definition": "A property wrapper that reads an observable object that a parent view shared with all its children.",
+      "example": "Read the cart with EnvironmentObject, so we skip the init chain.",
+      "code": "class Cart: ObservableObject {}\nstruct Badge: View {\n    @EnvironmentObject var cart: Cart\n    var body: some View { Text(\"Cart\") }\n}",
+      "output": "// no output"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What do you call the property wrapper that saves a small value for each scene?",
+      "options": [
+        "EnvironmentObject",
+        "AppStorage",
+        "SceneStorage"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "What do you call the property wrapper that reads an object a parent view shared with its children?",
+      "options": [
+        "AppStorage",
+        "SceneStorage",
+        "EnvironmentObject"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "What do you call the property wrapper that reads and writes a value in UserDefaults?",
+      "options": [
+        "SceneStorage",
+        "EnvironmentObject",
+        "AppStorage"
+      ],
+      "answer": "c"
+    }
+  ],
+  "video": {
+    "title": "AppStorage, SceneStorage & EnvironmentObject | Day 152",
+    "description": "Learn to explain how SwiftUI saves and shares data: AppStorage, SceneStorage & EnvironmentObject, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nAppStorage - A property wrapper that reads and writes a value in UserDefaults and updates the view when it changes.\nSceneStorage - A property wrapper that saves a small value for each scene, so a screen can restore its state later.\nEnvironmentObject - A property wrapper that reads an observable object that a parent view shared with all its children.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 152 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "appstorage",
+      "scenestorage",
+      "environmentobject",
+      "appstorage",
+      "scenestorage",
+      "environmentobject",
+      "appstorage",
+      "scenestorage",
+      "environmentobject",
+      "swiftui",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "SwiftUI AppStorage, SceneStorage & EnvironmentObject | Day 152",
+      "description": "Explain AppStorage, SceneStorage & EnvironmentObject in SwiftUI by listening to a real code chat between two iOS devs.\n앱스토리지, 씬스토리지, 인바이런먼트오브젝트 표현을 영어 대화로 익혀요.\n\nAppStorage - A property wrapper that reads and writes a value in UserDefaults and updates the view when it changes.\n한국어: 앱스토리지: UserDefaults의 값을 읽고 쓰며, 값이 바뀌면 뷰도 갱신해 주는 프로퍼티 래퍼\n\nSceneStorage - A property wrapper that saves a small value for each scene, so a screen can restore its state later.\n한국어: 씬스토리지: 화면이 나중에 상태를 복원할 수 있도록 씬마다 작은 값을 저장해 주는 프로퍼티 래퍼\n\nEnvironmentObject - A property wrapper that reads an observable object that a parent view shared with all its children.\n한국어: 인바이런먼트오브젝트: 부모 뷰가 모든 자식 뷰에게 공유한 관찰 가능한 객체를 읽는 프로퍼티 래퍼\n\nIn this video, Mina and Jake keep a settings switch and a selected tab after a restart, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 152 of the iOS Daily English series.\n\n#Swift #SwiftUI #EnglishForDevelopers",
+      "tags": [
+        "AppStorage",
+        "SceneStorage",
+        "EnvironmentObject",
+        "appstorage",
+        "scenestorage",
+        "environmentobject",
+        "SwiftUI",
+        "SwiftUI 기초",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "iOS Daily English"
+      ],
+      "hook": "Can you explain AppStorage, SceneStorage and EnvironmentObject in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "Keep my settings",
+    "setting": "SwiftUI storage",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, my settings switch forgets its value when I restart the app.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Use AppStorage. It reads and writes a value in UserDefaults, and the view updates too.",
+        "terms": [
+          "AppStorage"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "I added AppStorage for `dark`, and it stays now!",
+        "terms": [
+          "AppStorage"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Nice. Does anything else reset?",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "Yes, the selected tab goes back to zero when the system closes the scene.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "That is a job for SceneStorage. It saves a small value for each scene.",
+        "terms": [
+          "SceneStorage"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Can I save the whole cart with SceneStorage?",
+        "terms": [
+          "SceneStorage"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "No, only small values. Keep the cart in a shared object.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "How do all the screens get the `Cart`?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Put it in the environment, and read it with EnvironmentObject in each child view.",
+        "terms": [
+          "EnvironmentObject"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "What if I forget to share it from the parent?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "The app crashes when a view reads the EnvironmentObject. Share it first.",
+        "terms": [
+          "EnvironmentObject"
+        ]
+      }
+    ],
+    "code": "class Cart: ObservableObject {}\nstruct Home: View {\n    @AppStorage(\"dark\") var dark = false\n    @SceneStorage(\"tab\") var tab = 0\n    @EnvironmentObject var cart: Cart\n    var body: some View { Text(\"Hi\") } }",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "AppStorage",
+      "lines": [
+        {
+          "text": "Use AppStorage for the dark mode switch."
+        }
+      ],
+      "title": "Use AppStorage for the dark mode switch. #Shorts",
+      "description": "Use AppStorage for the dark mode switch.\n\nAppStorage - A property wrapper that reads and writes a value in UserDefaults and updates the view when it changes.\n한국어: 앱스토리지: UserDefaults의 값을 읽고 쓰며, 값이 바뀌면 뷰도 갱신해 주는 프로퍼티 래퍼\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "SceneStorage",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Where do I keep the selected tab?"
+        },
+        {
+          "speaker": "B",
+          "text": "In SceneStorage."
+        }
+      ],
+      "title": "Where do I keep the selected tab? / In SceneStorage. #Shorts",
+      "description": "Where do I keep the selected tab? / In SceneStorage.\n\nSceneStorage - A property wrapper that saves a small value for each scene, so a screen can restore its state later.\n한국어: 씬스토리지: 화면이 나중에 상태를 복원할 수 있도록 씬마다 작은 값을 저장해 주는 프로퍼티 래퍼\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "EnvironmentObject",
+      "lines": [
+        {
+          "text": "Read the cart with EnvironmentObject."
+        }
+      ],
+      "title": "Read the cart with EnvironmentObject. #Shorts",
+      "description": "Read the cart with EnvironmentObject.\n\nEnvironmentObject - A property wrapper that reads an observable object that a parent view shared with all its children.\n한국어: 인바이런먼트오브젝트: 부모 뷰가 모든 자식 뷰에게 공유한 관찰 가능한 객체를 읽는 프로퍼티 래퍼\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "How do you keep SwiftUI data?"
+}

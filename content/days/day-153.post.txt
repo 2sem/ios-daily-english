@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 153
+
+Scroll Indicator
+- The thin bar that appears at the edge of a scroll view while the user scrolls.
+- Example: "Hide the Scroll Indicator, because the design has no bar."
+
+ScrollViewReader
+- A container that gives you a proxy, so you can scroll to any view that has an id.
+- Example: "Wrap the list in a ScrollViewReader to build a jump to top button."
+
+Scroll Position
+- A modifier that binds the id of the visible view, so you can read and change where the scroll view is.
+- Example: "Save the Scroll Position, so the feed opens where the user stopped."
+
+
+Quiz ①
+What do you call the container that gives you a proxy to scroll to a view with an id?
+a) Scroll Indicator
+b) ScrollViewReader
+c) Scroll Position
+
+Quiz ②
+What do you call the modifier that binds the id of the visible view?
+a) ScrollViewReader
+b) Scroll Position
+c) Scroll Indicator
+
+Quiz ③
+What do you call the thin bar at the edge of a scroll view while the user scrolls?
+a) Scroll Position
+b) Scroll Indicator
+c) ScrollViewReader

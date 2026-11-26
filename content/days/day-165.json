@@ -1,0 +1,237 @@
+{
+  "day": 165,
+  "phase": "4. SwiftUI",
+  "theme": "3 terms for charts in SwiftUI: the chart view, the bar element and the trend element",
+  "terms": [
+    {
+      "term": "Chart",
+      "definition": "A view from the Charts framework that draws your data as marks.",
+      "example": "Put the steps into a Chart on the home screen.",
+      "code": "let steps = [3, 5, 4]\nChart(steps, id: \\.self) { n in\n    BarMark(x: .value(\"N\", n), y: .value(\"V\", n))\n}",
+      "output": "// no output"
+    },
+    {
+      "term": "BarMark",
+      "definition": "A mark that draws one bar for a value, for example steps per day.",
+      "example": "Use a BarMark for each day.",
+      "code": "BarMark(\n    x: .value(\"Day\", \"Mon\"),\n    y: .value(\"Steps\", 4000)\n)",
+      "output": "// no output"
+    },
+    {
+      "term": "LineMark",
+      "definition": "A mark that connects values with a line, to show a trend over time.",
+      "example": "Switch to a LineMark to show the trend.",
+      "code": "LineMark(\n    x: .value(\"Day\", 1),\n    y: .value(\"Steps\", 4000)\n)",
+      "output": "// no output"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What do you call an element that connects the values to show a trend over time?",
+      "options": [
+        "Chart",
+        "BarMark",
+        "LineMark"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "What do you call the main view that draws your data as shapes and lines?",
+      "options": [
+        "BarMark",
+        "LineMark",
+        "Chart"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "What do you call an element that draws one rectangle for a value, for example steps per day?",
+      "options": [
+        "LineMark",
+        "Chart",
+        "BarMark"
+      ],
+      "answer": "c"
+    }
+  ],
+  "video": {
+    "title": "Chart, BarMark & LineMark | Day 165",
+    "description": "Learn to explain how to draw charts in SwiftUI: Chart, BarMark & LineMark, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nChart - A view from the Charts framework that draws your data as marks.\nBarMark - A mark that draws one bar for a value, for example steps per day.\nLineMark - A mark that connects values with a line, to show a trend over time.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 165 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "chart",
+      "barmark",
+      "linemark",
+      "chart",
+      "barmark",
+      "linemark",
+      "chart",
+      "barmark",
+      "linemark",
+      "swiftui",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "SwiftUI Chart, BarMark & LineMark | Day 165",
+      "description": "Explain Chart, BarMark & LineMark in SwiftUI by listening to a real code chat between two iOS devs.\n차트, 바마크, 라인마크 표현을 영어 대화로 익혀요.\n\nChart - A view from the Charts framework that draws your data as marks.\n한국어: 차트: 데이터를 마크로 그려 주는 Charts 프레임워크의 뷰\n\nBarMark - A mark that draws one bar for a value, for example steps per day.\n한국어: 바마크: 하루 걸음 수처럼 값 하나를 막대 하나로 그려 주는 마크\n\nLineMark - A mark that connects values with a line, to show a trend over time.\n한국어: 라인마크: 시간에 따른 추세를 보여 주기 위해 값들을 선으로 이어 주는 마크\n\nIn this video, Mina and Jake build a chart of daily steps, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 165 of the iOS Daily English series.\n\n#Swift #SwiftUI #EnglishForDevelopers",
+      "tags": [
+        "Chart",
+        "BarMark",
+        "LineMark",
+        "chart",
+        "barmark",
+        "linemark",
+        "SwiftUI",
+        "SwiftUI 기초",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "iOS Daily English"
+      ],
+      "hook": "Can you explain Chart, BarMark and LineMark in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "Daily steps chart",
+    "setting": "SwiftUI charts",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, the product owner wants a graph of daily steps.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Import the Charts framework, and use a Chart. It draws your data as marks.",
+        "terms": [
+          "Chart"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Do I need a third-party package?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "No. Chart is part of Apple's Charts framework.",
+        "terms": [
+          "Chart"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "How do I show one bar for every day?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Add a BarMark. It draws one bar for a value, like steps per day.",
+        "terms": [
+          "BarMark"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "In the code, `x` and `y` are both `n`. Is that okay?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Only for a test. In a real app, `x` is the day and `y` is the steps.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "Now the owner wants a trend line, not bars.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Use a LineMark. It connects the values with a line, so you see the trend.",
+        "terms": [
+          "LineMark"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Can I use a BarMark and a LineMark together?",
+        "terms": [
+          "BarMark",
+          "LineMark"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Yes. A Chart can hold many marks. Just keep it readable.",
+        "terms": [
+          "Chart"
+        ]
+      }
+    ],
+    "code": "let steps = [3, 5, 4]\nChart(steps, id: \\.self) { n in\n    BarMark(x: .value(\"N\", n), y: .value(\"V\", n))\n    LineMark(x: .value(\"N\", n), y: .value(\"V\", n))\n}",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "Chart",
+      "lines": [
+        {
+          "text": "Put the daily steps into a Chart."
+        }
+      ],
+      "title": "Put the daily steps into a Chart. #Shorts",
+      "description": "Put the daily steps into a Chart.\n\nChart - A view from the Charts framework that draws your data as marks.\n한국어: 차트: 데이터를 마크로 그려 주는 Charts 프레임워크의 뷰\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "BarMark",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "How do I draw one bar per day?"
+        },
+        {
+          "speaker": "B",
+          "text": "Add a BarMark."
+        }
+      ],
+      "title": "How do I draw one bar per day? / Add a BarMark. #Shorts",
+      "description": "How do I draw one bar per day? / Add a BarMark.\n\nBarMark - A mark that draws one bar for a value, for example steps per day.\n한국어: 바마크: 하루 걸음 수처럼 값 하나를 막대 하나로 그려 주는 마크\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "LineMark",
+      "lines": [
+        {
+          "text": "A LineMark shows the trend over time."
+        }
+      ],
+      "title": "A LineMark shows the trend over time. #Shorts",
+      "description": "A LineMark shows the trend over time.\n\nLineMark - A mark that connects values with a line, to show a trend over time.\n한국어: 라인마크: 시간에 따른 추세를 보여 주기 위해 값들을 선으로 이어 주는 마크\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "How do you draw a chart?"
+}

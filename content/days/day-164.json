@@ -1,0 +1,238 @@
+{
+  "day": 164,
+  "phase": "4. SwiftUI",
+  "theme": "3 terms for sharing and picking content in SwiftUI: the share button, the photo chooser and the convertible type",
+  "terms": [
+    {
+      "term": "ShareLink",
+      "definition": "A control that opens the share sheet, so the user can send a link, text or image.",
+      "example": "Add a ShareLink to the quote screen.",
+      "code": "ShareLink(\n    \"Share\",\n    item: URL(string: \"https://apple.com\")!\n)",
+      "output": "// no output"
+    },
+    {
+      "term": "PhotosPicker",
+      "definition": "A control that lets the user choose photos from their library.",
+      "example": "Use a PhotosPicker for the profile photo.",
+      "code": "struct Pick: View {\n    @State var item: PhotosPickerItem?\n    var body: some View {\n        PhotosPicker(\"Choose\", selection: $item)\n    }\n}",
+      "output": "// no output"
+    },
+    {
+      "term": "Transferable",
+      "definition": "A protocol that tells SwiftUI how to convert your type for sharing, copying or loading.",
+      "example": "Make the Note Transferable, so we can share it.",
+      "code": "struct Note: Transferable {\n    var text: String\n    static var transferRepresentation:\n        some TransferRepresentation {\n        ProxyRepresentation(exporting: \\.text) }\n}",
+      "output": "// no output"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What do you call a control that lets the user choose photos from their library?",
+      "options": [
+        "Transferable",
+        "ShareLink",
+        "PhotosPicker"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "What do you call a protocol that tells SwiftUI how to convert your type for sharing, copying or loading?",
+      "options": [
+        "ShareLink",
+        "PhotosPicker",
+        "Transferable"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "What do you call a control that opens the share sheet to send a link, text or image?",
+      "options": [
+        "PhotosPicker",
+        "Transferable",
+        "ShareLink"
+      ],
+      "answer": "c"
+    }
+  ],
+  "video": {
+    "title": "ShareLink, PhotosPicker & Transferable | Day 164",
+    "description": "Learn to explain how to share and pick content in SwiftUI: ShareLink, PhotosPicker & Transferable, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nShareLink - A control that opens the share sheet, so the user can send a link, text or image.\nPhotosPicker - A control that lets the user choose photos from their library.\nTransferable - A protocol that tells SwiftUI how to convert your type for sharing, copying or loading.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 164 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "sharelink",
+      "photospicker",
+      "transferable",
+      "sharelink",
+      "photospicker",
+      "transferable",
+      "sharelink",
+      "photospicker",
+      "transferable",
+      "swiftui",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "SwiftUI ShareLink, PhotosPicker & Transferable | Day 164",
+      "description": "Explain ShareLink, PhotosPicker & Transferable in SwiftUI by listening to a real code chat between two iOS devs.\n셰어링크, 포토스피커, 트랜스퍼러블 표현을 영어 대화로 익혀요.\n\nShareLink - A control that opens the share sheet, so the user can send a link, text or image.\n한국어: 셰어링크: 사용자가 링크나 텍스트, 이미지를 보낼 수 있게 공유 시트를 열어 주는 컨트롤\n\nPhotosPicker - A control that lets the user choose photos from their library.\n한국어: 포토스피커: 사용자가 사진 보관함에서 사진을 고를 수 있게 해 주는 컨트롤\n\nTransferable - A protocol that tells SwiftUI how to convert your type for sharing, copying or loading.\n한국어: 트랜스퍼러블: 공유, 복사, 불러오기를 위해 내 타입을 변환하는 방법을 SwiftUI에 알려 주는 프로토콜\n\nIn this video, Mina and Jake add sharing and a profile photo picker, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 164 of the iOS Daily English series.\n\n#Swift #SwiftUI #EnglishForDevelopers",
+      "tags": [
+        "ShareLink",
+        "PhotosPicker",
+        "Transferable",
+        "sharelink",
+        "photospicker",
+        "transferable",
+        "SwiftUI",
+        "SwiftUI 기초",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "iOS Daily English"
+      ],
+      "hook": "Can you explain ShareLink, PhotosPicker and Transferable in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "Share a quote",
+    "setting": "SwiftUI sharing",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, I want users to share a quote from my app.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Use a ShareLink. It opens the share sheet for a link, text or image.",
+        "terms": [
+          "ShareLink"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "I wrote `ShareLink(item: \"Hello\")`, and it works.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "That works because String is Transferable already.",
+        "terms": [
+          "Transferable"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "What does Transferable mean?",
+        "terms": [
+          "Transferable"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "It is a protocol. It tells SwiftUI how to convert your type for sharing, copying or loading.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "So my own type needs Transferable too, before I share it?",
+        "terms": [
+          "Transferable"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Yes. Without it, the ShareLink cannot accept your type.",
+        "terms": [
+          "ShareLink"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Next, the profile screen needs a photo from the library. I heard about PhotosPicker.",
+        "terms": [
+          "PhotosPicker"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Yes, use a PhotosPicker. The user chooses photos, and you do not need a permission prompt.",
+        "terms": [
+          "PhotosPicker"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Great. Is the `selection` a photo already?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "No, it is only an item. You load the image data from it later.",
+        "terms": []
+      }
+    ],
+    "code": "PhotosPicker(\"Pick\", selection: .constant(nil))\nShareLink(item: \"Hello\")",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "ShareLink",
+      "lines": [
+        {
+          "text": "Add a ShareLink to the quote screen."
+        }
+      ],
+      "title": "Add a ShareLink to the quote screen. #Shorts",
+      "description": "Add a ShareLink to the quote screen.\n\nShareLink - A control that opens the share sheet, so the user can send a link, text or image.\n한국어: 셰어링크: 사용자가 링크나 텍스트, 이미지를 보낼 수 있게 공유 시트를 열어 주는 컨트롤\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "PhotosPicker",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "How do users choose a photo?"
+        },
+        {
+          "speaker": "B",
+          "text": "Use a PhotosPicker."
+        }
+      ],
+      "title": "How do users choose a photo? / Use a PhotosPicker. #Shorts",
+      "description": "How do users choose a photo? / Use a PhotosPicker.\n\nPhotosPicker - A control that lets the user choose photos from their library.\n한국어: 포토스피커: 사용자가 사진 보관함에서 사진을 고를 수 있게 해 주는 컨트롤\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Transferable",
+      "lines": [
+        {
+          "text": "Make the Note Transferable to share it."
+        }
+      ],
+      "title": "Make the Note Transferable to share it. #Shorts",
+      "description": "Make the Note Transferable to share it.\n\nTransferable - A protocol that tells SwiftUI how to convert your type for sharing, copying or loading.\n한국어: 트랜스퍼러블: 공유, 복사, 불러오기를 위해 내 타입을 변환하는 방법을 SwiftUI에 알려 주는 프로토콜\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "How do you share in SwiftUI?"
+}

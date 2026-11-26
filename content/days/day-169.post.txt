@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 169
+
+EnvironmentKey
+- A protocol for a key that gives your own value a default in the environment.
+- Example: "Add an EnvironmentKey for the theme."
+
+PreferenceKey
+- A protocol for a key that lets a child view send a value up to its parent.
+- Example: "Use a PreferenceKey to send the width to the parent."
+
+onPreferenceChange
+- A modifier that runs code in a parent view when a preference value changes.
+- Example: "Read the width in onPreferenceChange."
+
+
+Quiz ①
+What do you call a modifier that runs code in a parent view when a value sent up by its children is updated?
+a) PreferenceKey
+b) onPreferenceChange
+c) EnvironmentKey
+
+Quiz ②
+What do you call a protocol that gives your own setting a default, and passes it down to child views?
+a) onPreferenceChange
+b) EnvironmentKey
+c) PreferenceKey
+
+Quiz ③
+What do you call a protocol that lets a child view send a value up to its parent?
+a) EnvironmentKey
+b) PreferenceKey
+c) onPreferenceChange

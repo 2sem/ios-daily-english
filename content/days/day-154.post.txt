@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 154
+
+LazyHStack
+- A horizontal stack that creates its views only when they are about to appear on screen.
+- Example: "Switch to a LazyHStack, because the row has 500 photos."
+
+Grid
+- A container that arranges its rows and columns, so the cells line up like a table.
+- Example: "Use a Grid for the price table, so the columns line up."
+
+GridItem
+- A description of one column or row in a lazy grid, including its size.
+- Example: "Add a second GridItem to get two columns."
+
+
+Quiz ①
+What do you call a description of one column or row, including its size?
+a) Grid
+b) GridItem
+c) LazyHStack
+
+Quiz ②
+What do you call a horizontal stack that creates its views only when they are about to appear?
+a) LazyHStack
+b) Grid
+c) GridItem
+
+Quiz ③
+What do you call a container that arranges rows and columns, so the cells line up like a table?
+a) LazyHStack
+b) Grid
+c) GridItem

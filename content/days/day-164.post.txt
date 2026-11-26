@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 164
+
+ShareLink
+- A control that opens the share sheet, so the user can send a link, text or image.
+- Example: "Add a ShareLink to the quote screen."
+
+PhotosPicker
+- A control that lets the user choose photos from their library.
+- Example: "Use a PhotosPicker for the profile photo."
+
+Transferable
+- A protocol that tells SwiftUI how to convert your type for sharing, copying or loading.
+- Example: "Make the Note Transferable, so we can share it."
+
+
+Quiz ①
+What do you call a control that lets the user choose photos from their library?
+a) Transferable
+b) ShareLink
+c) PhotosPicker
+
+Quiz ②
+What do you call a protocol that tells SwiftUI how to convert your type for sharing, copying or loading?
+a) ShareLink
+b) PhotosPicker
+c) Transferable
+
+Quiz ③
+What do you call a control that opens the share sheet to send a link, text or image?
+a) PhotosPicker
+b) Transferable
+c) ShareLink

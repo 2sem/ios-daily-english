@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 165
+
+Chart
+- A view from the Charts framework that draws your data as marks.
+- Example: "Put the steps into a Chart on the home screen."
+
+BarMark
+- A mark that draws one bar for a value, for example steps per day.
+- Example: "Use a BarMark for each day."
+
+LineMark
+- A mark that connects values with a line, to show a trend over time.
+- Example: "Switch to a LineMark to show the trend."
+
+
+Quiz ①
+What do you call an element that connects the values to show a trend over time?
+a) Chart
+b) BarMark
+c) LineMark
+
+Quiz ②
+What do you call the main view that draws your data as shapes and lines?
+a) BarMark
+b) LineMark
+c) Chart
+
+Quiz ③
+What do you call an element that draws one rectangle for a value, for example steps per day?
+a) LineMark
+b) Chart
+c) BarMark

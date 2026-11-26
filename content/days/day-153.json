@@ -1,0 +1,236 @@
+{
+  "day": 153,
+  "phase": "4. SwiftUI",
+  "theme": "3 terms for scrolling in SwiftUI: the bar, the jump helper and the visible position",
+  "terms": [
+    {
+      "term": "Scroll Indicator",
+      "definition": "The thin bar that appears at the edge of a scroll view while the user scrolls.",
+      "example": "Hide the Scroll Indicator, because the design has no bar.",
+      "code": "ScrollView {\n    Text(\"Long list\")\n}\n.scrollIndicators(.hidden)",
+      "output": "// no output"
+    },
+    {
+      "term": "ScrollViewReader",
+      "definition": "A container that gives you a proxy, so you can scroll to any view that has an id.",
+      "example": "Wrap the list in a ScrollViewReader to build a jump to top button.",
+      "code": "ScrollViewReader { proxy in\n    Button(\"Top\") {\n        proxy.scrollTo(0)\n    }\n}",
+      "output": "// no output"
+    },
+    {
+      "term": "Scroll Position",
+      "definition": "A modifier that binds the id of the visible view, so you can read and change where the scroll view is.",
+      "example": "Save the Scroll Position, so the feed opens where the user stopped.",
+      "code": "struct Feed: View {\n    @State var id: Int?\n    var body: some View {\n        ScrollView {}.scrollPosition(id: $id)\n    }\n}",
+      "output": "// no output"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What do you call the container that gives you a proxy to scroll to a view with an id?",
+      "options": [
+        "Scroll Indicator",
+        "ScrollViewReader",
+        "Scroll Position"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "What do you call the modifier that binds the id of the visible view?",
+      "options": [
+        "ScrollViewReader",
+        "Scroll Position",
+        "Scroll Indicator"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "What do you call the thin bar at the edge of a scroll view while the user scrolls?",
+      "options": [
+        "Scroll Position",
+        "Scroll Indicator",
+        "ScrollViewReader"
+      ],
+      "answer": "c"
+    }
+  ],
+  "video": {
+    "title": "Scroll Indicator, ScrollViewReader & Scroll Position | Day 153",
+    "description": "Learn to explain how scrolling works in SwiftUI: Scroll Indicator, ScrollViewReader & Scroll Position, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nScroll Indicator - The thin bar that appears at the edge of a scroll view while the user scrolls.\nScrollViewReader - A container that gives you a proxy, so you can scroll to any view that has an id.\nScroll Position - A modifier that binds the id of the visible view, so you can read and change where the scroll view is.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 153 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "scroll indicator",
+      "scrollviewreader",
+      "scroll position",
+      "scroll indicator",
+      "scrollviewreader",
+      "scroll position",
+      "scroll indicator",
+      "scrollviewreader",
+      "scroll position",
+      "swiftui",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "SwiftUI Scroll Indicator, ScrollViewReader & Scroll Position | Day 153",
+      "description": "Explain Scroll Indicator, ScrollViewReader & Scroll Position in SwiftUI by listening to a real code chat between two iOS devs.\n스크롤 인디케이터, 스크롤뷰리더, 스크롤 포지션 표현을 영어 대화로 익혀요.\n\nScroll Indicator - The thin bar that appears at the edge of a scroll view while the user scrolls.\n한국어: 스크롤 인디케이터: 사용자가 스크롤할 때 스크롤 뷰 가장자리에 나타나는 얇은 막대\n\nScrollViewReader - A container that gives you a proxy, so you can scroll to any view that has an id.\n한국어: 스크롤뷰리더: id가 있는 어떤 뷰로든 스크롤할 수 있게 프록시를 주는 컨테이너\n\nScroll Position - A modifier that binds the id of the visible view, so you can read and change where the scroll view is.\n한국어: 스크롤 포지션: 보이는 뷰의 id를 바인딩해서 스크롤 뷰의 현재 위치를 읽고 바꿀 수 있게 하는 수정자\n\nIn this video, Mina and Jake hide the scroll bar and add a jump to top button, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 153 of the iOS Daily English series.\n\n#Swift #SwiftUI #EnglishForDevelopers",
+      "tags": [
+        "Scroll Indicator",
+        "ScrollViewReader",
+        "Scroll Position",
+        "scroll indicator",
+        "scrollviewreader",
+        "scroll position",
+        "SwiftUI",
+        "SwiftUI 기초",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "iOS Daily English"
+      ],
+      "hook": "Can you explain Scroll Indicator, ScrollViewReader and Scroll Position in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "Hide the scroll bar",
+    "setting": "SwiftUI scrolling",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, my feed shows a scroll bar on the right, and the design does not have it.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Hide the Scroll Indicator. Add `.scrollIndicators(.hidden)` to the `ScrollView`.",
+        "terms": [
+          "Scroll Indicator"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Done. The Scroll Indicator is gone.",
+        "terms": [
+          "Scroll Indicator"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Now I need a button that jumps back to the top.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Wrap the content in a ScrollViewReader. It gives you a proxy, and the proxy can scroll to any view with an id.",
+        "terms": [
+          "ScrollViewReader"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Can the ScrollViewReader also tell me where I am now?",
+        "terms": [
+          "ScrollViewReader"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "No. For that, use Scroll Position.",
+        "terms": [
+          "Scroll Position"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "How does it work?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "You bind the `id` of the visible view. When the user scrolls, the Scroll Position changes.",
+        "terms": [
+          "Scroll Position"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "And if I change the `id` in code?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Then the list scrolls to that view. Give each row its own `id`.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "Perfect, I'll try that now.",
+        "terms": []
+      }
+    ],
+    "code": "ScrollView {}\n    .scrollIndicators(.hidden)\n    .scrollPosition(id: .constant(1))",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "Scroll Indicator",
+      "lines": [
+        {
+          "text": "Hide the Scroll Indicator in the feed."
+        }
+      ],
+      "title": "Hide the Scroll Indicator in the feed. #Shorts",
+      "description": "Hide the Scroll Indicator in the feed.\n\nScroll Indicator - The thin bar that appears at the edge of a scroll view while the user scrolls.\n한국어: 스크롤 인디케이터: 사용자가 스크롤할 때 스크롤 뷰 가장자리에 나타나는 얇은 막대\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "ScrollViewReader",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "How do I jump to the top?"
+        },
+        {
+          "speaker": "B",
+          "text": "Use a ScrollViewReader."
+        }
+      ],
+      "title": "How do I jump to the top? / Use a ScrollViewReader. #Shorts",
+      "description": "How do I jump to the top? / Use a ScrollViewReader.\n\nScrollViewReader - A container that gives you a proxy, so you can scroll to any view that has an id.\n한국어: 스크롤뷰리더: id가 있는 어떤 뷰로든 스크롤할 수 있게 프록시를 주는 컨테이너\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Scroll Position",
+      "lines": [
+        {
+          "text": "Save the Scroll Position for the next launch."
+        }
+      ],
+      "title": "Save the Scroll Position for the next launch. #Shorts",
+      "description": "Save the Scroll Position for the next launch.\n\nScroll Position - A modifier that binds the id of the visible view, so you can read and change where the scroll view is.\n한국어: 스크롤 포지션: 보이는 뷰의 id를 바인딩해서 스크롤 뷰의 현재 위치를 읽고 바꿀 수 있게 하는 수정자\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "How do you control scrolling?"
+}
