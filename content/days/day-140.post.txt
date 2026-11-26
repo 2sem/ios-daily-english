@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 140
+
+Color Scheme
+- The setting that tells whether the app looks light or dark.
+- Example: "Check the Color Scheme before you pick the card color."
+
+Dismiss Action
+- An action that closes the current sheet or screen.
+- Example: "Call the Dismiss Action when the user taps Close."
+
+Environment Value
+- A piece of shared information that SwiftUI keeps for every view, such as the locale.
+- Example: "Read the font size from an Environment Value."
+
+
+Quiz ①
+What do you call the action that closes the current sheet or screen?
+a) Environment Value
+b) Color Scheme
+c) Dismiss Action
+
+Quiz ②
+What do you call a piece of shared information that SwiftUI keeps for every view, such as the locale?
+a) Color Scheme
+b) Dismiss Action
+c) Environment Value
+
+Quiz ③
+What do you call the setting that tells whether the app looks light or dark?
+a) Dismiss Action
+b) Environment Value
+c) Color Scheme

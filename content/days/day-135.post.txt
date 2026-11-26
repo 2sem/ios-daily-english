@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 135
+
+State
+- A property wrapper that lets a view store a value and redraw when it changes.
+- Example: "Store the counter in State, so the screen updates."
+
+Binding
+- A two-way link to a value that another view owns.
+- Example: "Pass a Binding to the child view, so it can edit the name."
+
+Source of Truth
+- The one place that owns a value, so every other view reads it from there.
+- Example: "The parent view is the Source of Truth for the name."
+
+
+Quiz ①
+What do you call the one place that owns a value, so every other view reads it from there?
+a) State
+b) Binding
+c) Source of Truth
+
+Quiz ②
+What do you call the property wrapper that lets a view store a value and redraw when it changes?
+a) Binding
+b) Source of Truth
+c) State
+
+Quiz ③
+What do you call a two-way link to a value that another view owns?
+a) Source of Truth
+b) State
+c) Binding

@@ -1,0 +1,236 @@
+{
+  "day": 142,
+  "phase": "4. SwiftUI",
+  "theme": "3 terms for a SwiftUI navigation screen: the title, the button bar and the target",
+  "terms": [
+    {
+      "term": "Navigation Title",
+      "definition": "The title that a screen shows in the navigation bar.",
+      "example": "Set the Navigation Title to Notes.",
+      "code": "List { Text(\"Note\") }\n    .navigationTitle(\"Notes\")",
+      "output": "// no output"
+    },
+    {
+      "term": "Toolbar",
+      "definition": "The bar area where you place buttons for a screen.",
+      "example": "Put the add button in the Toolbar.",
+      "code": "Text(\"Notes\")\n    .toolbar {\n        Button(\"Add\") { }\n    }",
+      "output": "// no output"
+    },
+    {
+      "term": "Navigation Destination",
+      "definition": "A modifier that tells the stack which screen to show for a type of value.",
+      "example": "Add a Navigation Destination for the note type.",
+      "code": "Text(\"Notes\")\n    .navigationDestination(for: Int.self) { n in\n        Text(\"Note \\(n)\")\n    }",
+      "output": "// no output"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What do you call the bar area where you place buttons for a screen?",
+      "options": [
+        "Toolbar",
+        "Navigation Destination",
+        "Navigation Title"
+      ],
+      "answer": "a"
+    },
+    {
+      "question": "What do you call the modifier that tells the stack which screen to show for a type of value?",
+      "options": [
+        "Navigation Title",
+        "Toolbar",
+        "Navigation Destination"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "What do you call the title that a screen shows at the top in the navigation bar?",
+      "options": [
+        "Navigation Title",
+        "Toolbar",
+        "Navigation Destination"
+      ],
+      "answer": "a"
+    }
+  ],
+  "video": {
+    "title": "Navigation Title, Toolbar & Navigation Destination | Day 142",
+    "description": "Learn to explain how to set up a SwiftUI navigation screen: Navigation Title, Toolbar & Navigation Destination, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nNavigation Title - The title that a screen shows in the navigation bar.\nToolbar - The bar area where you place buttons for a screen.\nNavigation Destination - A modifier that tells the stack which screen to show for a type of value.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 142 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "navigation title",
+      "toolbar",
+      "navigation destination",
+      "navigation title",
+      "toolbar",
+      "navigation destination",
+      "navigation title",
+      "toolbar",
+      "navigation destination",
+      "swiftui",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "SwiftUI Navigation Title, Toolbar & Navigation Destination | Day 142",
+      "description": "Explain Navigation Title, Toolbar & Navigation Destination in SwiftUI by listening to a real code chat between two iOS devs.\n내비게이션 타이틀, 툴바, 내비게이션 데스티네이션 표현을 영어 대화로 익혀요.\n\nNavigation Title - The title that a screen shows in the navigation bar.\n한국어: 내비게이션 타이틀: 화면이 내비게이션 바에 보여 주는 제목\n\nToolbar - The bar area where you place buttons for a screen.\n한국어: 툴바: 화면의 버튼을 놓는 바 영역\n\nNavigation Destination - A modifier that tells the stack which screen to show for a type of value.\n한국어: 내비게이션 데스티네이션: 값의 타입마다 어떤 화면을 보여 줄지 스택에 알려 주는 모디파이어\n\nIn this video, Mina and Jake give the notes screen a title and an add button, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 142 of the iOS Daily English series.\n\n#Swift #SwiftUI #EnglishForDevelopers",
+      "tags": [
+        "Navigation Title",
+        "Toolbar",
+        "Navigation Destination",
+        "navigation title",
+        "toolbar",
+        "navigation destination",
+        "SwiftUI",
+        "SwiftUI 기초",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "iOS Daily English"
+      ],
+      "hook": "Can you explain Navigation Title, Toolbar and Navigation Destination in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "Title and add button",
+    "setting": "SwiftUI navigation screens",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, my notes screen needs a title and an add button.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Set a Navigation Title, like `Notes` in the code.",
+        "terms": [
+          "Navigation Title"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Where does the Navigation Title appear?",
+        "terms": [
+          "Navigation Title"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "In the navigation bar at the top of the screen.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "And the add button?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Put it in a Toolbar. A Toolbar is the area where you place buttons for the screen.",
+        "terms": [
+          "Toolbar"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "I put the Button directly in the screen, and it appeared in the middle.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Yes. A Button inside the Toolbar goes to the bar. Outside, it is a normal view.",
+        "terms": [
+          "Toolbar"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "How do I open a note when the user taps a link?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Add a Navigation Destination for the type of value, like `Int` in the code.",
+        "terms": [
+          "Navigation Destination"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "So the stack knows which screen to show for each value.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Exactly. One Navigation Destination can serve many links.",
+        "terms": [
+          "Navigation Destination"
+        ]
+      }
+    ],
+    "code": "Text(\"Notes\")\n    .navigationTitle(\"Notes\")\n    .toolbar { Button(\"Add\") { } }\n    .navigationDestination(for: Int.self) { _ in\n        Text(\"Note\")\n    }",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "Navigation Title",
+      "lines": [
+        {
+          "text": "Set the Navigation Title to Notes."
+        }
+      ],
+      "title": "Set the Navigation Title to Notes. #Shorts",
+      "description": "Set the Navigation Title to Notes.\n\nNavigation Title - The title that a screen shows in the navigation bar.\n한국어: 내비게이션 타이틀: 화면이 내비게이션 바에 보여 주는 제목\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "Toolbar",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Where do I put the add button?"
+        },
+        {
+          "speaker": "B",
+          "text": "In the Toolbar."
+        }
+      ],
+      "title": "Where do I put the add button? / In the Toolbar. #Shorts",
+      "description": "Where do I put the add button? / In the Toolbar.\n\nToolbar - The bar area where you place buttons for a screen.\n한국어: 툴바: 화면의 버튼을 놓는 바 영역\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Navigation Destination",
+      "lines": [
+        {
+          "text": "Add a Navigation Destination for each type."
+        }
+      ],
+      "title": "Add a Navigation Destination for each type. #Shorts",
+      "description": "Add a Navigation Destination for each type.\n\nNavigation Destination - A modifier that tells the stack which screen to show for a type of value.\n한국어: 내비게이션 데스티네이션: 값의 타입마다 어떤 화면을 보여 줄지 스택에 알려 주는 모디파이어\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "What does a navigation screen need?"
+}

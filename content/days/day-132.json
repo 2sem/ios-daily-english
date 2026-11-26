@@ -1,0 +1,245 @@
+{
+  "day": 132,
+  "phase": "4. SwiftUI",
+  "theme": "3 terms for SwiftUI layout containers: columns, rows and layers",
+  "terms": [
+    {
+      "term": "VStack",
+      "definition": "A container that places views in a vertical line, from top to bottom.",
+      "example": "Put the title and the subtitle in a VStack.",
+      "code": "VStack {\n    Text(\"Mina\")\n    Text(\"iOS developer\")\n}",
+      "output": "// no output"
+    },
+    {
+      "term": "HStack",
+      "definition": "A container that places views in a horizontal line, from left to right.",
+      "example": "Use an HStack for the icon and the label.",
+      "code": "HStack {\n    Image(systemName: \"star\")\n    Text(\"4.8\")\n}",
+      "output": "// no output"
+    },
+    {
+      "term": "ZStack",
+      "definition": "A container that layers views on top of each other, from back to front.",
+      "example": "Use a ZStack to put the badge on top of the photo.",
+      "code": "ZStack {\n    Color.yellow\n    Text(\"Sale\")\n}",
+      "output": "// no output"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What do you call the container that places views in a row, from left to right?",
+      "options": [
+        "VStack",
+        "HStack",
+        "ZStack"
+      ],
+      "answer": "b"
+    },
+    {
+      "question": "What do you call the container that layers views on top of each other?",
+      "options": [
+        "HStack",
+        "ZStack",
+        "VStack"
+      ],
+      "answer": "b"
+    },
+    {
+      "question": "What do you call the container that places views in a column, from top to bottom?",
+      "options": [
+        "ZStack",
+        "VStack",
+        "HStack"
+      ],
+      "answer": "b"
+    }
+  ],
+  "video": {
+    "title": "VStack, HStack & ZStack | Day 132",
+    "description": "Learn to explain the SwiftUI stacks that arrange views: VStack, HStack & ZStack, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nVStack - A container that places views in a vertical line, from top to bottom.\nHStack - A container that places views in a horizontal line, from left to right.\nZStack - A container that layers views on top of each other, from back to front.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 132 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "vstack",
+      "hstack",
+      "zstack",
+      "vstack",
+      "hstack",
+      "zstack",
+      "vstack",
+      "hstack",
+      "zstack",
+      "swiftui",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "SwiftUI VStack, HStack & ZStack | Day 132",
+      "description": "Explain VStack, HStack & ZStack in SwiftUI by listening to a real code chat between two iOS devs.\n브이스택, 에이치스택, 지스택 표현을 영어 대화로 익혀요.\n\nVStack - A container that places views in a vertical line, from top to bottom.\n한국어: 브이스택: 뷰를 위에서 아래로 세로로 놓는 컨테이너\n\nHStack - A container that places views in a horizontal line, from left to right.\n한국어: 에이치스택: 뷰를 왼쪽에서 오른쪽으로 가로로 놓는 컨테이너\n\nZStack - A container that layers views on top of each other, from back to front.\n한국어: 지스택: 뷰를 뒤에서 앞으로 겹쳐 놓는 컨테이너\n\nIn this video, Mina and Jake fix a messy profile card, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 132 of the iOS Daily English series.\n\n#Swift #SwiftUI #EnglishForDevelopers",
+      "tags": [
+        "VStack",
+        "HStack",
+        "ZStack",
+        "vstack",
+        "hstack",
+        "zstack",
+        "SwiftUI",
+        "SwiftUI 기초",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "iOS Daily English"
+      ],
+      "hook": "Can you explain VStack, HStack and ZStack in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "A messy profile card",
+    "setting": "SwiftUI stacks",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, my profile card is a mess. All the texts are on top of each other.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Which container did you use?",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "A ZStack, like in the code.",
+        "terms": [
+          "ZStack"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "A ZStack layers views on top of each other. That is why they overlap.",
+        "terms": [
+          "ZStack"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "So how do I put the name and the job in a column?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Use a VStack. It places views from top to bottom.",
+        "terms": [
+          "VStack"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "And the rating, 4 stars, should be in a row.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "That is an HStack. It places views from left to right.",
+        "terms": [
+          "HStack"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Can I put the HStack inside the VStack?",
+        "terms": [
+          "VStack",
+          "HStack"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Yes. Move the HStack into the VStack, and keep the ZStack only for the blue background.",
+        "terms": [
+          "VStack",
+          "HStack",
+          "ZStack"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Oh, so the ZStack is for layers, not for layout.",
+        "terms": [
+          "ZStack"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Right. VStack for columns, HStack for rows, ZStack for layers.",
+        "terms": [
+          "VStack",
+          "HStack",
+          "ZStack"
+        ]
+      }
+    ],
+    "code": "ZStack {\n    Color.blue\n    VStack { Text(\"Mina\"); Text(\"Dev\") }\n    HStack { Text(\"4\"); Text(\"stars\") }\n}",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "VStack",
+      "lines": [
+        {
+          "text": "Use a VStack to put the name above the job."
+        }
+      ],
+      "title": "Use a VStack to put the name above the job. #Shorts",
+      "description": "Use a VStack to put the name above the job.\n\nVStack - A container that places views in a vertical line, from top to bottom.\n한국어: 브이스택: 뷰를 위에서 아래로 세로로 놓는 컨테이너\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "HStack",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "How do I put an icon next to text?"
+        },
+        {
+          "speaker": "B",
+          "text": "Use an HStack."
+        }
+      ],
+      "title": "How do I put an icon next to text? / Use an HStack. #Shorts",
+      "description": "How do I put an icon next to text? / Use an HStack.\n\nHStack - A container that places views in a horizontal line, from left to right.\n한국어: 에이치스택: 뷰를 왼쪽에서 오른쪽으로 가로로 놓는 컨테이너\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "ZStack",
+      "lines": [
+        {
+          "text": "A ZStack puts text on top of an image."
+        }
+      ],
+      "title": "A ZStack puts text on top of an image. #Shorts",
+      "description": "A ZStack puts text on top of an image.\n\nZStack - A container that layers views on top of each other, from back to front.\n한국어: 지스택: 뷰를 뒤에서 앞으로 겹쳐 놓는 컨테이너\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "How do you stack views in SwiftUI?"
+}

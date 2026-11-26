@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 141
+
+NavigationStack
+- A container that lets the user move forward through screens and go back.
+- Example: "Wrap the home screen in a NavigationStack."
+
+NavigationLink
+- A view that the user taps to go to another screen.
+- Example: "Add a NavigationLink to the detail screen."
+
+Navigation Path
+- A list of values that stores which screens are on the stack.
+- Example: "Append a value to the Navigation Path to open a screen."
+
+
+Quiz ①
+What do you call a list of values that stores which screens are on the stack?
+a) NavigationStack
+b) NavigationLink
+c) Navigation Path
+
+Quiz ②
+What do you call the container that lets the user move forward through screens and go back?
+a) NavigationLink
+b) Navigation Path
+c) NavigationStack
+
+Quiz ③
+What do you call a view that the user taps to go to another screen?
+a) Navigation Path
+b) NavigationStack
+c) NavigationLink

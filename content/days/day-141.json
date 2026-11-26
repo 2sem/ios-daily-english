@@ -1,0 +1,240 @@
+{
+  "day": 141,
+  "phase": "4. SwiftUI",
+  "theme": "3 terms for moving between SwiftUI screens: the container, the tap and the route",
+  "terms": [
+    {
+      "term": "NavigationStack",
+      "definition": "A container that lets the user move forward through screens and go back.",
+      "example": "Wrap the home screen in a NavigationStack.",
+      "code": "NavigationStack {\n    Text(\"Home\")\n}",
+      "output": "// no output"
+    },
+    {
+      "term": "NavigationLink",
+      "definition": "A view that the user taps to go to another screen.",
+      "example": "Add a NavigationLink to the detail screen.",
+      "code": "NavigationStack {\n    NavigationLink(\"Details\") {\n        Text(\"Detail screen\")\n    }\n}",
+      "output": "// no output"
+    },
+    {
+      "term": "Navigation Path",
+      "definition": "A list of values that stores which screens are on the stack.",
+      "example": "Append a value to the Navigation Path to open a screen.",
+      "code": "struct Root: View {\n    @State private var path = NavigationPath()\n    var body: some View {\n        NavigationStack(path: $path) { Text(\"Hi\") }\n    }\n}",
+      "output": "// no output"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What do you call a list of values that stores which screens are on the stack?",
+      "options": [
+        "NavigationStack",
+        "NavigationLink",
+        "Navigation Path"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "What do you call the container that lets the user move forward through screens and go back?",
+      "options": [
+        "NavigationLink",
+        "Navigation Path",
+        "NavigationStack"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "What do you call a view that the user taps to go to another screen?",
+      "options": [
+        "Navigation Path",
+        "NavigationStack",
+        "NavigationLink"
+      ],
+      "answer": "c"
+    }
+  ],
+  "video": {
+    "title": "NavigationStack, NavigationLink & Navigation Path | Day 141",
+    "description": "Learn to explain how to move between screens in SwiftUI: NavigationStack, NavigationLink & Navigation Path, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nNavigationStack - A container that lets the user move forward through screens and go back.\nNavigationLink - A view that the user taps to go to another screen.\nNavigation Path - A list of values that stores which screens are on the stack.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 141 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "navigationstack",
+      "navigationlink",
+      "navigation path",
+      "navigationstack",
+      "navigationlink",
+      "navigation path",
+      "navigationstack",
+      "navigationlink",
+      "navigation path",
+      "swiftui",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "SwiftUI NavigationStack, NavigationLink & Navigation Path | Day 141",
+      "description": "Explain NavigationStack, NavigationLink & Navigation Path in SwiftUI by listening to a real code chat between two iOS devs.\n내비게이션스택, 내비게이션링크, 내비게이션 패스 표현을 영어 대화로 익혀요.\n\nNavigationStack - A container that lets the user move forward through screens and go back.\n한국어: 내비게이션스택: 사용자가 화면을 앞으로 이동하고 뒤로 돌아오게 하는 컨테이너\n\nNavigationLink - A view that the user taps to go to another screen.\n한국어: 내비게이션링크: 사용자가 탭하면 다른 화면으로 이동하는 뷰\n\nNavigation Path - A list of values that stores which screens are on the stack.\n한국어: 내비게이션 패스: 스택에 어떤 화면이 쌓여 있는지 저장하는 값의 목록\n\nIn this video, Mina and Jake add a second screen to an app, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 141 of the iOS Daily English series.\n\n#Swift #SwiftUI #EnglishForDevelopers",
+      "tags": [
+        "NavigationStack",
+        "NavigationLink",
+        "Navigation Path",
+        "navigationstack",
+        "navigationlink",
+        "navigation path",
+        "SwiftUI",
+        "SwiftUI 기초",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "iOS Daily English"
+      ],
+      "hook": "Can you explain NavigationStack, NavigationLink and Navigation Path in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "A second screen",
+    "setting": "SwiftUI navigation",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, I need a second screen in my app.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Wrap the first screen in a NavigationStack. It lets the user move forward and go back.",
+        "terms": [
+          "NavigationStack"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "How does the user go to the next screen?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Use a NavigationLink. The user taps it, and the next screen slides in.",
+        "terms": [
+          "NavigationLink"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "I added a NavigationLink without a NavigationStack, and it did nothing.",
+        "terms": [
+          "NavigationStack",
+          "NavigationLink"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Yes. A NavigationLink only works inside a NavigationStack.",
+        "terms": [
+          "NavigationStack",
+          "NavigationLink"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Now I want to open a screen from code, not from a tap.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Use a Navigation Path. It stores the values for the screens on the stack.",
+        "terms": [
+          "Navigation Path"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "How do I push a screen with it?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Append a value to the Navigation Path, like `path.append` in the code. The stack shows it.",
+        "terms": [
+          "Navigation Path"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "And to go back?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Remove the last value from the Navigation Path. The stack goes back one screen.",
+        "terms": [
+          "Navigation Path"
+        ]
+      }
+    ],
+    "code": "var path = NavigationPath()\npath.append(\"Details\")\nNavigationStack {\n    NavigationLink(\"Details\") { Text(\"Next\") }\n}",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "NavigationStack",
+      "lines": [
+        {
+          "text": "Wrap the screen in a NavigationStack."
+        }
+      ],
+      "title": "Wrap the screen in a NavigationStack. #Shorts",
+      "description": "Wrap the screen in a NavigationStack.\n\nNavigationStack - A container that lets the user move forward through screens and go back.\n한국어: 내비게이션스택: 사용자가 화면을 앞으로 이동하고 뒤로 돌아오게 하는 컨테이너\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "NavigationLink",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "How do I open the next screen?"
+        },
+        {
+          "speaker": "B",
+          "text": "Use a NavigationLink."
+        }
+      ],
+      "title": "How do I open the next screen? / Use a NavigationLink. #Shorts",
+      "description": "How do I open the next screen? / Use a NavigationLink.\n\nNavigationLink - A view that the user taps to go to another screen.\n한국어: 내비게이션링크: 사용자가 탭하면 다른 화면으로 이동하는 뷰\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Navigation Path",
+      "lines": [
+        {
+          "text": "The Navigation Path stores the open screens."
+        }
+      ],
+      "title": "The Navigation Path stores the open screens. #Shorts",
+      "description": "The Navigation Path stores the open screens.\n\nNavigation Path - A list of values that stores which screens are on the stack.\n한국어: 내비게이션 패스: 스택에 어떤 화면이 쌓여 있는지 저장하는 값의 목록\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "How do you open the next screen?"
+}

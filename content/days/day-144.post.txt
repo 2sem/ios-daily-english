@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 144
+
+Alert
+- A small window that shows a short message and waits for the answer.
+- Example: "Show an Alert before the app deletes the note."
+
+Confirmation Dialog
+- A list of choices that slides up from the bottom to confirm an action.
+- Example: "Use a Confirmation Dialog for Delete, Archive and Cancel."
+
+Popover
+- A small floating panel that points to the view that opened it.
+- Example: "Show the help text in a Popover."
+
+
+Quiz ①
+What do you call a list of choices that slides up from the bottom to confirm an action?
+a) Alert
+b) Confirmation Dialog
+c) Popover
+
+Quiz ②
+What do you call a small floating panel that points to the view that opened it?
+a) Confirmation Dialog
+b) Popover
+c) Alert
+
+Quiz ③
+What do you call a small window that shows a short message and waits for the answer?
+a) Popover
+b) Alert
+c) Confirmation Dialog

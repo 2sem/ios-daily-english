@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 139
+
+View Model
+- A class that holds the data and the logic for one screen.
+- Example: "Move the loading code into a View Model."
+
+Observable
+- A macro that makes a class tell SwiftUI when its properties change.
+- Example: "Mark the class as Observable, so the screen updates."
+
+Bindable
+- A property wrapper that creates bindings to the properties of a model that you pass in.
+- Example: "Add Bindable to the property, so the text field can edit the title."
+
+
+Quiz ①
+What do you call the property wrapper that lets you create bindings to the properties of a model that you pass in?
+a) Observable
+b) Bindable
+c) View Model
+
+Quiz ②
+What do you call a class that holds the data and the logic for one screen?
+a) Bindable
+b) View Model
+c) Observable
+
+Quiz ③
+What do you call the macro that makes a class tell SwiftUI when its properties change?
+a) View Model
+b) Observable
+c) Bindable

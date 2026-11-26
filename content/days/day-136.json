@@ -1,0 +1,242 @@
+{
+  "day": 136,
+  "phase": "4. SwiftUI",
+  "theme": "3 terms for SwiftUI input controls: on or off, a number and one choice",
+  "terms": [
+    {
+      "term": "Toggle",
+      "definition": "A switch that the user turns on or off.",
+      "example": "Add a Toggle for the sound setting.",
+      "code": "Toggle(\"Sound\", isOn: .constant(true))",
+      "output": "// no output"
+    },
+    {
+      "term": "Slider",
+      "definition": "A control that lets the user pick a number by dragging.",
+      "example": "Use a Slider for the volume.",
+      "code": "Slider(value: .constant(0.5), in: 0...1)",
+      "output": "// no output"
+    },
+    {
+      "term": "Picker",
+      "definition": "A control that lets the user choose one option from a list.",
+      "example": "Use a Picker to choose Easy or Hard.",
+      "code": "Picker(\"Level\", selection: .constant(1)) {\n    Text(\"Easy\").tag(1)\n    Text(\"Hard\").tag(2)\n}",
+      "output": "// no output"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What do you call a control that lets the user pick a number by dragging?",
+      "options": [
+        "Slider",
+        "Picker",
+        "Toggle"
+      ],
+      "answer": "a"
+    },
+    {
+      "question": "What do you call a control that lets the user choose one option from a list?",
+      "options": [
+        "Toggle",
+        "Slider",
+        "Picker"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "What do you call a switch that the user turns on or off?",
+      "options": [
+        "Toggle",
+        "Slider",
+        "Picker"
+      ],
+      "answer": "a"
+    }
+  ],
+  "video": {
+    "title": "Toggle, Slider & Picker | Day 136",
+    "description": "Learn to explain the SwiftUI controls on a settings screen: Toggle, Slider & Picker, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nToggle - A switch that the user turns on or off.\nSlider - A control that lets the user pick a number by dragging.\nPicker - A control that lets the user choose one option from a list.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 136 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "toggle",
+      "slider",
+      "picker",
+      "toggle",
+      "slider",
+      "picker",
+      "toggle",
+      "slider",
+      "picker",
+      "swiftui",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "SwiftUI Toggle, Slider & Picker | Day 136",
+      "description": "Explain Toggle, Slider & Picker in SwiftUI by listening to a real code chat between two iOS devs.\n토글, 슬라이더, 피커 표현을 영어 대화로 익혀요.\n\nToggle - A switch that the user turns on or off.\n한국어: 토글: 사용자가 켜고 끄는 스위치\n\nSlider - A control that lets the user pick a number by dragging.\n한국어: 슬라이더: 사용자가 끌어서 숫자를 고르는 컨트롤\n\nPicker - A control that lets the user choose one option from a list.\n한국어: 피커: 사용자가 목록에서 옵션 하나를 고르는 컨트롤\n\nIn this video, Mina and Jake build a settings screen, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 136 of the iOS Daily English series.\n\n#Swift #SwiftUI #EnglishForDevelopers",
+      "tags": [
+        "Toggle",
+        "Slider",
+        "Picker",
+        "toggle",
+        "slider",
+        "picker",
+        "SwiftUI",
+        "SwiftUI 기초",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "iOS Daily English"
+      ],
+      "hook": "Can you explain Toggle, Slider and Picker in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "The settings screen",
+    "setting": "SwiftUI controls",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, I am building a settings screen. I need a switch for sound.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Use a Toggle. It is on or off.",
+        "terms": [
+          "Toggle"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "How does the Toggle know its value?",
+        "terms": [
+          "Toggle"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "You give it a Binding. In the code I use a constant, only for a demo.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "I also want a volume control.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Use a Slider. The user drags to pick a number, like from 0 to 1.",
+        "terms": [
+          "Slider"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "I used a Slider for the level, Easy or Hard, but it feels wrong.",
+        "terms": [
+          "Slider"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Right, a Slider is for numbers. To choose one option, use a Picker.",
+        "terms": [
+          "Slider",
+          "Picker"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "What do I put inside the Picker?",
+        "terms": [
+          "Picker"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Views with a tag, like the two Text views. The tag is the value you select.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "So the Toggle is for on or off, and the Picker is for one choice.",
+        "terms": [
+          "Toggle",
+          "Picker"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Yes. And the Slider is for a number in a range.",
+        "terms": [
+          "Slider"
+        ]
+      }
+    ],
+    "code": "Toggle(\"Sound\", isOn: .constant(true))\nSlider(value: .constant(0.5), in: 0...1)\nPicker(\"Level\", selection: .constant(1)) {\n    Text(\"Easy\").tag(1)\n    Text(\"Hard\").tag(2)\n}",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-conversation",
+      "term": "Toggle",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "How do I add an on and off switch?"
+        },
+        {
+          "speaker": "B",
+          "text": "Use a Toggle."
+        }
+      ],
+      "title": "How do I add an on and off switch? / Use a Toggle. #Shorts",
+      "description": "How do I add an on and off switch? / Use a Toggle.\n\nToggle - A switch that the user turns on or off.\n한국어: 토글: 사용자가 켜고 끄는 스위치\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Slider",
+      "lines": [
+        {
+          "text": "Use a Slider to change the volume."
+        }
+      ],
+      "title": "Use a Slider to change the volume. #Shorts",
+      "description": "Use a Slider to change the volume.\n\nSlider - A control that lets the user pick a number by dragging.\n한국어: 슬라이더: 사용자가 끌어서 숫자를 고르는 컨트롤\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Picker",
+      "lines": [
+        {
+          "text": "A Picker lets you choose one option."
+        }
+      ],
+      "title": "A Picker lets you choose one option. #Shorts",
+      "description": "A Picker lets you choose one option.\n\nPicker - A control that lets the user choose one option from a list.\n한국어: 피커: 사용자가 목록에서 옵션 하나를 고르는 컨트롤\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "Which control fits your setting?"
+}

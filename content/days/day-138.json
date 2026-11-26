@@ -1,0 +1,241 @@
+{
+  "day": 138,
+  "phase": "4. SwiftUI",
+  "theme": "3 terms for SwiftUI containers: a settings form and two lazy layouts",
+  "terms": [
+    {
+      "term": "Form",
+      "definition": "A container that groups controls for a settings or input screen.",
+      "example": "Put the switches in a Form.",
+      "code": "Form {\n    Toggle(\"Sound\", isOn: .constant(true))\n    Button(\"Reset\") { }\n}",
+      "output": "// no output"
+    },
+    {
+      "term": "LazyVStack",
+      "definition": "A vertical stack that creates its views only when they scroll into view.",
+      "example": "Use a LazyVStack for the long feed.",
+      "code": "ScrollView {\n    LazyVStack {\n        ForEach(0..<100) { Text(\"Row \\($0)\") }\n    }\n}",
+      "output": "// no output"
+    },
+    {
+      "term": "LazyVGrid",
+      "definition": "A grid that fills columns with views and creates them only when they scroll into view.",
+      "example": "Show the photos in a LazyVGrid with two columns.",
+      "code": "let columns = [GridItem(), GridItem()]\nLazyVGrid(columns: columns) {\n    Text(\"A\")\n    Text(\"B\")\n}",
+      "output": "// no output"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What do you call a column container that creates its views only when they scroll into view?",
+      "options": [
+        "Form",
+        "LazyVStack",
+        "LazyVGrid"
+      ],
+      "answer": "b"
+    },
+    {
+      "question": "What do you call a grid that fills columns with views and creates them only when needed?",
+      "options": [
+        "LazyVStack",
+        "LazyVGrid",
+        "Form"
+      ],
+      "answer": "b"
+    },
+    {
+      "question": "What do you call a container that groups controls for a settings or input screen?",
+      "options": [
+        "LazyVGrid",
+        "Form",
+        "LazyVStack"
+      ],
+      "answer": "b"
+    }
+  ],
+  "video": {
+    "title": "Form, LazyVStack & LazyVGrid | Day 138",
+    "description": "Learn to explain SwiftUI containers for settings, feeds and photo grids: Form, LazyVStack & LazyVGrid, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nForm - A container that groups controls for a settings or input screen.\nLazyVStack - A vertical stack that creates its views only when they scroll into view.\nLazyVGrid - A grid that fills columns with views and creates them only when they scroll into view.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 138 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "form",
+      "lazyvstack",
+      "lazyvgrid",
+      "form",
+      "lazyvstack",
+      "lazyvgrid",
+      "form",
+      "lazyvstack",
+      "lazyvgrid",
+      "swiftui",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "SwiftUI Form, LazyVStack & LazyVGrid | Day 138",
+      "description": "Explain Form, LazyVStack & LazyVGrid in SwiftUI by listening to a real code chat between two iOS devs.\n폼, 레이지브이스택, 레이지브이그리드 표현을 영어 대화로 익혀요.\n\nForm - A container that groups controls for a settings or input screen.\n한국어: 폼: 설정이나 입력 화면을 위해 컨트롤을 묶는 컨테이너\n\nLazyVStack - A vertical stack that creates its views only when they scroll into view.\n한국어: 레이지브이스택: 화면에 스크롤되어 들어올 때만 뷰를 만드는 세로 스택\n\nLazyVGrid - A grid that fills columns with views and creates them only when they scroll into view.\n한국어: 레이지브이그리드: 열에 뷰를 채우고 스크롤되어 들어올 때만 만드는 격자\n\nIn this video, Mina and Jake choose the right container for each screen, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 138 of the iOS Daily English series.\n\n#Swift #SwiftUI #EnglishForDevelopers",
+      "tags": [
+        "Form",
+        "LazyVStack",
+        "LazyVGrid",
+        "form",
+        "lazyvstack",
+        "lazyvgrid",
+        "SwiftUI",
+        "SwiftUI 기초",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "iOS Daily English"
+      ],
+      "hook": "Can you explain Form, LazyVStack and LazyVGrid in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "Pick the container",
+    "setting": "SwiftUI containers",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, I have a long screen of settings. Which container should I use?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Use a Form. It groups controls like switches and pickers in the standard settings style.",
+        "terms": [
+          "Form"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Good. Next is a feed with a thousand rows.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Use a LazyVStack inside a ScrollView.",
+        "terms": [
+          "LazyVStack"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Why Lazy? A normal VStack worked in my test.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "A VStack builds every row at once. A LazyVStack builds a row only when it scrolls into view.",
+        "terms": [
+          "LazyVStack"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "I see. And for photos in two columns?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Use a LazyVGrid with two `GridItem` values, like in the code.",
+        "terms": [
+          "LazyVGrid"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "I put a Form inside the LazyVGrid, and it looked strange.",
+        "terms": [
+          "Form",
+          "LazyVGrid"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "A Form is for settings. For photos, put simple views in the LazyVGrid.",
+        "terms": [
+          "Form",
+          "LazyVGrid"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "So the LazyVGrid is lazy like the LazyVStack?",
+        "terms": [
+          "LazyVStack",
+          "LazyVGrid"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Yes. Both create views only when they are needed, so scrolling stays smooth.",
+        "terms": []
+      }
+    ],
+    "code": "Form { Text(\"Settings\") }\nScrollView { LazyVStack { Text(\"Row\") } }\nLazyVGrid(columns: [GridItem(), GridItem()]) {\n    Text(\"A\")\n    Text(\"B\")\n}",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "Form",
+      "lines": [
+        {
+          "text": "Put the settings controls in a Form."
+        }
+      ],
+      "title": "Put the settings controls in a Form. #Shorts",
+      "description": "Put the settings controls in a Form.\n\nForm - A container that groups controls for a settings or input screen.\n한국어: 폼: 설정이나 입력 화면을 위해 컨트롤을 묶는 컨테이너\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "LazyVStack",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "My long feed is slow."
+        },
+        {
+          "speaker": "B",
+          "text": "Switch to a LazyVStack."
+        }
+      ],
+      "title": "My long feed is slow. / Switch to a LazyVStack. #Shorts",
+      "description": "My long feed is slow. / Switch to a LazyVStack.\n\nLazyVStack - A vertical stack that creates its views only when they scroll into view.\n한국어: 레이지브이스택: 화면에 스크롤되어 들어올 때만 뷰를 만드는 세로 스택\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "LazyVGrid",
+      "lines": [
+        {
+          "text": "A LazyVGrid shows photos in columns."
+        }
+      ],
+      "title": "A LazyVGrid shows photos in columns. #Shorts",
+      "description": "A LazyVGrid shows photos in columns.\n\nLazyVGrid - A grid that fills columns with views and creates them only when they scroll into view.\n한국어: 레이지브이그리드: 열에 뷰를 채우고 스크롤되어 들어올 때만 만드는 격자\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "Which container fits your screen?"
+}

@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 138
+
+Form
+- A container that groups controls for a settings or input screen.
+- Example: "Put the switches in a Form."
+
+LazyVStack
+- A vertical stack that creates its views only when they scroll into view.
+- Example: "Use a LazyVStack for the long feed."
+
+LazyVGrid
+- A grid that fills columns with views and creates them only when they scroll into view.
+- Example: "Show the photos in a LazyVGrid with two columns."
+
+
+Quiz ①
+What do you call a column container that creates its views only when they scroll into view?
+a) Form
+b) LazyVStack
+c) LazyVGrid
+
+Quiz ②
+What do you call a grid that fills columns with views and creates them only when needed?
+a) LazyVStack
+b) LazyVGrid
+c) Form
+
+Quiz ③
+What do you call a container that groups controls for a settings or input screen?
+a) LazyVGrid
+b) Form
+c) LazyVStack

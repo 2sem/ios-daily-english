@@ -1,0 +1,242 @@
+{
+  "day": 135,
+  "phase": "4. SwiftUI",
+  "theme": "3 terms for data in SwiftUI: the stored value, the link to it and the single owner",
+  "terms": [
+    {
+      "term": "State",
+      "definition": "A property wrapper that lets a view store a value and redraw when it changes.",
+      "example": "Store the counter in State, so the screen updates.",
+      "code": "struct Counter: View {\n    @State private var count = 0\n    var body: some View {\n        Button(\"\\(count)\") { count += 1 }\n    }\n}",
+      "output": "// no output"
+    },
+    {
+      "term": "Binding",
+      "definition": "A two-way link to a value that another view owns.",
+      "example": "Pass a Binding to the child view, so it can edit the name.",
+      "code": "struct SoundRow: View {\n    @Binding var isOn: Bool\n    var body: some View {\n        Toggle(\"Sound\", isOn: $isOn)\n    }\n}",
+      "output": "// no output"
+    },
+    {
+      "term": "Source of Truth",
+      "definition": "The one place that owns a value, so every other view reads it from there.",
+      "example": "The parent view is the Source of Truth for the name.",
+      "code": "struct Parent: View {\n    @State private var name = \"Mina\"\n    var body: some View {\n        TextField(\"Name\", text: $name)\n    }\n}",
+      "output": "// no output"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What do you call the one place that owns a value, so every other view reads it from there?",
+      "options": [
+        "State",
+        "Binding",
+        "Source of Truth"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "What do you call the property wrapper that lets a view store a value and redraw when it changes?",
+      "options": [
+        "Binding",
+        "Source of Truth",
+        "State"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "What do you call a two-way link to a value that another view owns?",
+      "options": [
+        "Source of Truth",
+        "State",
+        "Binding"
+      ],
+      "answer": "c"
+    }
+  ],
+  "video": {
+    "title": "State, Binding & Source of Truth | Day 135",
+    "description": "Learn to explain how a SwiftUI view keeps and shares a value: State, Binding & Source of Truth, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nState - A property wrapper that lets a view store a value and redraw when it changes.\nBinding - A two-way link to a value that another view owns.\nSource of Truth - The one place that owns a value, so every other view reads it from there.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 135 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "state",
+      "binding",
+      "source of truth",
+      "state",
+      "binding",
+      "source of truth",
+      "state",
+      "binding",
+      "source of truth",
+      "swiftui",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "SwiftUI State, Binding & Source of Truth | Day 135",
+      "description": "Explain State, Binding & Source of Truth in SwiftUI by listening to a real code chat between two iOS devs.\n스테이트, 바인딩, 소스 오브 트루스 표현을 영어 대화로 익혀요.\n\nState - A property wrapper that lets a view store a value and redraw when it changes.\n한국어: 스테이트: 뷰가 값을 저장하고 값이 바뀌면 화면을 다시 그리게 하는 프로퍼티 래퍼\n\nBinding - A two-way link to a value that another view owns.\n한국어: 바인딩: 다른 뷰가 가진 값에 읽고 쓸 수 있게 연결하는 양방향 링크\n\nSource of Truth - The one place that owns a value, so every other view reads it from there.\n한국어: 소스 오브 트루스: 값을 하나만 소유해서 다른 모든 뷰가 그곳에서 읽게 하는 유일한 장소\n\nIn this video, Mina and Jake keep a sound switch in sync, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 135 of the iOS Daily English series.\n\n#Swift #SwiftUI #EnglishForDevelopers",
+      "tags": [
+        "State",
+        "Binding",
+        "Source of Truth",
+        "state",
+        "binding",
+        "source of truth",
+        "SwiftUI",
+        "SwiftUI 기초",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "iOS Daily English"
+      ],
+      "hook": "Can you explain State, Binding and Source of Truth in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "The sound switch",
+    "setting": "SwiftUI data",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, I want the sound switch to remember its value.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Store it in State, like `isOn` in the code.",
+        "terms": [
+          "State"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Why not a normal property?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "A struct cannot change its own properties. State keeps the value outside, and SwiftUI redraws when it changes.",
+        "terms": [
+          "State"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "And what is the `$` in front of `isOn`?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "It creates a Binding. A Binding lets the Toggle read and write `isOn`.",
+        "terms": [
+          "Binding"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "So the Toggle has its own copy?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "No. That is the Source of Truth rule: one owner, and everyone else gets a Binding.",
+        "terms": [
+          "Binding",
+          "Source of Truth"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "I made a second State for the same switch in a child view. It broke.",
+        "terms": [
+          "State"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Now you have two copies, so there is no single Source of Truth.",
+        "terms": [
+          "Source of Truth"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "I will delete it and pass a Binding down instead.",
+        "terms": [
+          "Binding"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Good. State at the top, Binding below.",
+        "terms": [
+          "State",
+          "Binding"
+        ]
+      }
+    ],
+    "code": "struct Settings: View {\n    @State private var isOn = true\n    var body: some View {\n        Toggle(\"Sound\", isOn: $isOn)\n    }\n}",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "State",
+      "lines": [
+        {
+          "text": "Store the value in State, and the screen updates."
+        }
+      ],
+      "title": "Store the value in State, and the screen updates. #Shorts",
+      "description": "Store the value in State, and the screen updates.\n\nState - A property wrapper that lets a view store a value and redraw when it changes.\n한국어: 스테이트: 뷰가 값을 저장하고 값이 바뀌면 화면을 다시 그리게 하는 프로퍼티 래퍼\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "Binding",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "How does the child edit the value?"
+        },
+        {
+          "speaker": "B",
+          "text": "Pass it a Binding."
+        }
+      ],
+      "title": "How does the child edit the value? / Pass it a Binding. #Shorts",
+      "description": "How does the child edit the value? / Pass it a Binding.\n\nBinding - A two-way link to a value that another view owns.\n한국어: 바인딩: 다른 뷰가 가진 값에 읽고 쓸 수 있게 연결하는 양방향 링크\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Source of Truth",
+      "lines": [
+        {
+          "text": "Keep one Source of Truth for each value."
+        }
+      ],
+      "title": "Keep one Source of Truth for each value. #Shorts",
+      "description": "Keep one Source of Truth for each value.\n\nSource of Truth - The one place that owns a value, so every other view reads it from there.\n한국어: 소스 오브 트루스: 값을 하나만 소유해서 다른 모든 뷰가 그곳에서 읽게 하는 유일한 장소\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "Where does your SwiftUI data live?"
+}

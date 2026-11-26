@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 146
+
+Transition
+- The animation that a view uses when it appears or disappears.
+- Example: "Add a Transition, so the banner slides in."
+
+Implicit Animation
+- An animation that a view runs by itself whenever a watched value changes.
+- Example: "Use an Implicit Animation, so the circle grows smoothly."
+
+Explicit Animation
+- An animation that you start yourself for one specific change.
+- Example: "Use an Explicit Animation when the user taps the button."
+
+
+Quiz ①
+What do you call an animation that a view runs by itself whenever a watched value changes?
+a) Explicit Animation
+b) Transition
+c) Implicit Animation
+
+Quiz ②
+What do you call an animation that you start yourself for one specific change?
+a) Transition
+b) Implicit Animation
+c) Explicit Animation
+
+Quiz ③
+What do you call the animation that a view uses when it appears or disappears?
+a) Implicit Animation
+b) Explicit Animation
+c) Transition

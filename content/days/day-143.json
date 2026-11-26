@@ -1,0 +1,239 @@
+{
+  "day": 143,
+  "phase": "4. SwiftUI",
+  "theme": "3 terms for showing a screen on top of another: the slide-up, the cover and the stop height",
+  "terms": [
+    {
+      "term": "Sheet",
+      "definition": "A screen that slides up over the current one, and the user can swipe it down.",
+      "example": "Show the note editor in a Sheet.",
+      "code": "Button(\"Open\") { }\n    .sheet(isPresented: .constant(false)) {\n        Text(\"Hello\")\n    }",
+      "output": "// no output"
+    },
+    {
+      "term": "Full Screen Cover",
+      "definition": "A screen that slides up and covers the whole screen, with no swipe to close.",
+      "example": "Use a Full Screen Cover for the login screen.",
+      "code": "Button(\"Open\") { }\n    .fullScreenCover(isPresented: .constant(false)) {\n        Text(\"Hello\")\n    }",
+      "output": "// no output"
+    },
+    {
+      "term": "Presentation Detent",
+      "definition": "A height that a sheet can stop at, such as medium or large.",
+      "example": "Add a Presentation Detent, so the sheet opens at half height.",
+      "code": "Text(\"Hello\")\n    .presentationDetents([.medium, .large])",
+      "output": "// no output"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What do you call a height that a sheet can stop at, such as medium or large?",
+      "options": [
+        "Presentation Detent",
+        "Sheet",
+        "Full Screen Cover"
+      ],
+      "answer": "a"
+    },
+    {
+      "question": "What do you call a screen that slides up over the current one, and the user can swipe it down?",
+      "options": [
+        "Full Screen Cover",
+        "Presentation Detent",
+        "Sheet"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "What do you call a screen that slides up and covers the whole screen, with no swipe to close?",
+      "options": [
+        "Full Screen Cover",
+        "Presentation Detent",
+        "Sheet"
+      ],
+      "answer": "a"
+    }
+  ],
+  "video": {
+    "title": "Sheet, Full Screen Cover & Presentation Detent | Day 143",
+    "description": "Learn to explain how to present a screen over another in SwiftUI: Sheet, Full Screen Cover & Presentation Detent, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nSheet - A screen that slides up over the current one, and the user can swipe it down.\nFull Screen Cover - A screen that slides up and covers the whole screen, with no swipe to close.\nPresentation Detent - A height that a sheet can stop at, such as medium or large.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 143 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "sheet",
+      "full screen cover",
+      "presentation detent",
+      "sheet",
+      "full screen cover",
+      "presentation detent",
+      "sheet",
+      "full screen cover",
+      "presentation detent",
+      "swiftui",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "SwiftUI Sheet, Full Screen Cover & Presentation Detent | Day 143",
+      "description": "Explain Sheet, Full Screen Cover & Presentation Detent in SwiftUI by listening to a real code chat between two iOS devs.\n시트, 풀 스크린 커버, 프레젠테이션 디텐트 표현을 영어 대화로 익혀요.\n\nSheet - A screen that slides up over the current one, and the user can swipe it down.\n한국어: 시트: 현재 화면 위로 올라오고 사용자가 아래로 밀어 닫을 수 있는 화면\n\nFull Screen Cover - A screen that slides up and covers the whole screen, with no swipe to close.\n한국어: 풀 스크린 커버: 올라와서 화면 전체를 덮고, 밀어서 닫을 수 없는 화면\n\nPresentation Detent - A height that a sheet can stop at, such as medium or large.\n한국어: 프레젠테이션 디텐트: 시트가 멈출 수 있는 높이. 예를 들어 중간이나 크게\n\nIn this video, Mina and Jake slide up a note editor, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 143 of the iOS Daily English series.\n\n#Swift #SwiftUI #EnglishForDevelopers",
+      "tags": [
+        "Sheet",
+        "Full Screen Cover",
+        "Presentation Detent",
+        "sheet",
+        "full screen cover",
+        "presentation detent",
+        "SwiftUI",
+        "SwiftUI 기초",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "iOS Daily English"
+      ],
+      "hook": "Can you explain Sheet, Full Screen Cover and Presentation Detent in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "Slide up the editor",
+    "setting": "SwiftUI presentation",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, I want the note editor to slide up from the bottom.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Use a Sheet. It slides up over the current screen.",
+        "terms": [
+          "Sheet"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "The user can still see the screen behind it.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Yes, and they can swipe the Sheet down to close it.",
+        "terms": [
+          "Sheet"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Now I want a login screen that covers everything.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Use a Full Screen Cover. It covers the whole screen, and there is no swipe to close.",
+        "terms": [
+          "Full Screen Cover"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Then how does the user close a Full Screen Cover?",
+        "terms": [
+          "Full Screen Cover"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "You need a Button that dismisses it. Do not forget that.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "My Sheet is too tall. It hides the whole list.",
+        "terms": [
+          "Sheet"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Add a Presentation Detent. Use `.medium`, and the Sheet stops at half height.",
+        "terms": [
+          "Sheet",
+          "Presentation Detent"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Can the user still pull it up?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Yes. With `.medium` and `.large` in the code, the Presentation Detent has two stops.",
+        "terms": [
+          "Presentation Detent"
+        ]
+      }
+    ],
+    "code": "Button(\"Open\") { }\n    .sheet(isPresented: .constant(true)) {\n        Text(\"Hello\")\n            .presentationDetents([.medium, .large])\n    }\n    .fullScreenCover(isPresented: .constant(false)) { }",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "Sheet",
+      "lines": [
+        {
+          "text": "Show the editor in a Sheet."
+        }
+      ],
+      "title": "Show the editor in a Sheet. #Shorts",
+      "description": "Show the editor in a Sheet.\n\nSheet - A screen that slides up over the current one, and the user can swipe it down.\n한국어: 시트: 현재 화면 위로 올라오고 사용자가 아래로 밀어 닫을 수 있는 화면\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "Full Screen Cover",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "I need a screen that covers everything."
+        },
+        {
+          "speaker": "B",
+          "text": "Use a Full Screen Cover."
+        }
+      ],
+      "title": "I need a screen that covers everything. / Use a Full Screen Cover. #Shorts",
+      "description": "I need a screen that covers everything. / Use a Full Screen Cover.\n\nFull Screen Cover - A screen that slides up and covers the whole screen, with no swipe to close.\n한국어: 풀 스크린 커버: 올라와서 화면 전체를 덮고, 밀어서 닫을 수 없는 화면\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Presentation Detent",
+      "lines": [
+        {
+          "text": "A Presentation Detent sets the sheet height."
+        }
+      ],
+      "title": "A Presentation Detent sets the sheet height. #Shorts",
+      "description": "A Presentation Detent sets the sheet height.\n\nPresentation Detent - A height that a sheet can stop at, such as medium or large.\n한국어: 프레젠테이션 디텐트: 시트가 멈출 수 있는 높이. 예를 들어 중간이나 크게\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "How do you show a screen on top?"
+}

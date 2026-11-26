@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 133
+
+Spacer
+- A flexible view that pushes other views apart by taking all the free space.
+- Example: "Add a Spacer to push the Edit button to the right."
+
+Padding
+- The extra space that you add around a view.
+- Example: "Add some Padding, so the text does not touch the edge."
+
+Alignment
+- The rule that decides how views line up inside a stack.
+- Example: "Change the Alignment to leading, so the text starts on the left."
+
+
+Quiz ①
+What do you call the rule that decides how views line up inside a stack?
+a) Padding
+b) Alignment
+c) Spacer
+
+Quiz ②
+What do you call a flexible view that pushes other views apart by taking all the free space?
+a) Alignment
+b) Spacer
+c) Padding
+
+Quiz ③
+What do you call the extra space that you add around a view?
+a) Spacer
+b) Padding
+c) Alignment

@@ -1,0 +1,243 @@
+{
+  "day": 144,
+  "phase": "4. SwiftUI",
+  "theme": "3 terms for asking the user a question: a message, a list of choices and a floating panel",
+  "terms": [
+    {
+      "term": "Alert",
+      "definition": "A small window that shows a short message and waits for the answer.",
+      "example": "Show an Alert before the app deletes the note.",
+      "code": "Button(\"Delete\") { }\n    .alert(\"Sure?\", isPresented: .constant(false)) {\n        Button(\"OK\") { }\n    }",
+      "output": "// no output"
+    },
+    {
+      "term": "Confirmation Dialog",
+      "definition": "A list of choices that slides up from the bottom to confirm an action.",
+      "example": "Use a Confirmation Dialog for Delete, Archive and Cancel.",
+      "code": "Button(\"Delete\") { }\n    .confirmationDialog(\"Delete?\",\n        isPresented: .constant(false)) {\n        Button(\"Delete\", role: .destructive) { }\n    }",
+      "output": "// no output"
+    },
+    {
+      "term": "Popover",
+      "definition": "A small floating panel that points to the view that opened it.",
+      "example": "Show the help text in a Popover.",
+      "code": "Button(\"Info\") { }\n    .popover(isPresented: .constant(false)) {\n        Text(\"Tip\")\n    }",
+      "output": "// no output"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What do you call a list of choices that slides up from the bottom to confirm an action?",
+      "options": [
+        "Alert",
+        "Confirmation Dialog",
+        "Popover"
+      ],
+      "answer": "b"
+    },
+    {
+      "question": "What do you call a small floating panel that points to the view that opened it?",
+      "options": [
+        "Confirmation Dialog",
+        "Popover",
+        "Alert"
+      ],
+      "answer": "b"
+    },
+    {
+      "question": "What do you call a small window that shows a short message and waits for the answer?",
+      "options": [
+        "Popover",
+        "Alert",
+        "Confirmation Dialog"
+      ],
+      "answer": "b"
+    }
+  ],
+  "video": {
+    "title": "Alert, Confirmation Dialog & Popover | Day 144",
+    "description": "Learn to explain how to ask the user a question in SwiftUI: Alert, Confirmation Dialog & Popover, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nAlert - A small window that shows a short message and waits for the answer.\nConfirmation Dialog - A list of choices that slides up from the bottom to confirm an action.\nPopover - A small floating panel that points to the view that opened it.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 144 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "alert",
+      "confirmation dialog",
+      "popover",
+      "alert",
+      "confirmation dialog",
+      "popover",
+      "alert",
+      "confirmation dialog",
+      "popover",
+      "swiftui",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "SwiftUI Alert, Confirmation Dialog & Popover | Day 144",
+      "description": "Explain Alert, Confirmation Dialog & Popover in SwiftUI by listening to a real code chat between two iOS devs.\n얼럿, 컨펌메이션 다이얼로그, 팝오버 표현을 영어 대화로 익혀요.\n\nAlert - A small window that shows a short message and waits for the answer.\n한국어: 얼럿: 짧은 메시지를 보여 주고 사용자의 답을 기다리는 작은 창\n\nConfirmation Dialog - A list of choices that slides up from the bottom to confirm an action.\n한국어: 컨펌메이션 다이얼로그: 동작을 확인하기 위해 아래에서 올라오는 선택지 목록\n\nPopover - A small floating panel that points to the view that opened it.\n한국어: 팝오버: 자신을 연 뷰를 가리키며 떠 있는 작은 패널\n\nIn this video, Mina and Jake ask before a note is deleted, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 144 of the iOS Daily English series.\n\n#Swift #SwiftUI #EnglishForDevelopers",
+      "tags": [
+        "Alert",
+        "Confirmation Dialog",
+        "Popover",
+        "alert",
+        "confirmation dialog",
+        "popover",
+        "SwiftUI",
+        "SwiftUI 기초",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "iOS Daily English"
+      ],
+      "hook": "Can you explain Alert, Confirmation Dialog and Popover in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "Are you sure?",
+    "setting": "SwiftUI prompts",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, the user taps Delete, and the note is gone at once.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Ask first. Show an Alert with a short message, like `Sure?` in the code.",
+        "terms": [
+          "Alert"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "An Alert is a small window in the middle, right?",
+        "terms": [
+          "Alert"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Yes. It is good for a message that needs one answer.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "What if I want Delete, Archive and Cancel?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Use a Confirmation Dialog. It shows a list of choices that slides up from the bottom.",
+        "terms": [
+          "Confirmation Dialog"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "I put five choices into an Alert, and it looked crowded.",
+        "terms": [
+          "Alert"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Yes, move them to a Confirmation Dialog. An Alert should stay short.",
+        "terms": [
+          "Alert",
+          "Confirmation Dialog"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "On iPad, the Confirmation Dialog looks like a bubble.",
+        "terms": [
+          "Confirmation Dialog"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "That is a Popover. It is a small floating panel that points to its button.",
+        "terms": [
+          "Popover"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Can I use a Popover on iPhone?",
+        "terms": [
+          "Popover"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "You can, but a Popover is most useful on iPad, because there is more space.",
+        "terms": [
+          "Popover"
+        ]
+      }
+    ],
+    "code": "let off = Binding.constant(false)\nButton(\"Delete\") { }\n    .alert(\"Sure?\", isPresented: off) { }\n    .confirmationDialog(\"Delete?\", isPresented: off) { }\n    .popover(isPresented: off) { Text(\"Tip\") }",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "Alert",
+      "lines": [
+        {
+          "text": "Show an Alert before you delete the note."
+        }
+      ],
+      "title": "Show an Alert before you delete the note. #Shorts",
+      "description": "Show an Alert before you delete the note.\n\nAlert - A small window that shows a short message and waits for the answer.\n한국어: 얼럿: 짧은 메시지를 보여 주고 사용자의 답을 기다리는 작은 창\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "Confirmation Dialog",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "I have three choices for the user."
+        },
+        {
+          "speaker": "B",
+          "text": "Use a Confirmation Dialog."
+        }
+      ],
+      "title": "I have three choices for the user. / Use a Confirmation Dialog. #Shorts",
+      "description": "I have three choices for the user. / Use a Confirmation Dialog.\n\nConfirmation Dialog - A list of choices that slides up from the bottom to confirm an action.\n한국어: 컨펌메이션 다이얼로그: 동작을 확인하기 위해 아래에서 올라오는 선택지 목록\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Popover",
+      "lines": [
+        {
+          "text": "A Popover points to its button."
+        }
+      ],
+      "title": "A Popover points to its button. #Shorts",
+      "description": "A Popover points to its button.\n\nPopover - A small floating panel that points to the view that opened it.\n한국어: 팝오버: 자신을 연 뷰를 가리키며 떠 있는 작은 패널\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "How do you ask the user a question?"
+}

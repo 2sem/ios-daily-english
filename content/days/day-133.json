@@ -1,0 +1,240 @@
+{
+  "day": 133,
+  "phase": "4. SwiftUI",
+  "theme": "3 terms for space in SwiftUI layout: the pusher, the margin and the line-up rule",
+  "terms": [
+    {
+      "term": "Spacer",
+      "definition": "A flexible view that pushes other views apart by taking all the free space.",
+      "example": "Add a Spacer to push the Edit button to the right.",
+      "code": "HStack {\n    Text(\"Mina\")\n    Spacer()\n    Text(\"Edit\")\n}",
+      "output": "// no output"
+    },
+    {
+      "term": "Padding",
+      "definition": "The extra space that you add around a view.",
+      "example": "Add some Padding, so the text does not touch the edge.",
+      "code": "Text(\"Hello\")\n    .padding()\n    .background(.yellow)",
+      "output": "// no output"
+    },
+    {
+      "term": "Alignment",
+      "definition": "The rule that decides how views line up inside a stack.",
+      "example": "Change the Alignment to leading, so the text starts on the left.",
+      "code": "VStack(alignment: .leading) {\n    Text(\"Title\")\n    Text(\"A longer subtitle\")\n}",
+      "output": "// no output"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What do you call the rule that decides how views line up inside a stack?",
+      "options": [
+        "Padding",
+        "Alignment",
+        "Spacer"
+      ],
+      "answer": "b"
+    },
+    {
+      "question": "What do you call a flexible view that pushes other views apart by taking all the free space?",
+      "options": [
+        "Alignment",
+        "Spacer",
+        "Padding"
+      ],
+      "answer": "b"
+    },
+    {
+      "question": "What do you call the extra space that you add around a view?",
+      "options": [
+        "Spacer",
+        "Padding",
+        "Alignment"
+      ],
+      "answer": "b"
+    }
+  ],
+  "video": {
+    "title": "Spacer, Padding & Alignment | Day 133",
+    "description": "Learn to explain how to control space in a SwiftUI layout: Spacer, Padding & Alignment, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nSpacer - A flexible view that pushes other views apart by taking all the free space.\nPadding - The extra space that you add around a view.\nAlignment - The rule that decides how views line up inside a stack.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 133 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "spacer",
+      "padding",
+      "alignment",
+      "spacer",
+      "padding",
+      "alignment",
+      "spacer",
+      "padding",
+      "alignment",
+      "swiftui",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "SwiftUI Spacer, Padding & Alignment | Day 133",
+      "description": "Explain Spacer, Padding & Alignment in SwiftUI by listening to a real code chat between two iOS devs.\n스페이서, 패딩, 얼라인먼트 표현을 영어 대화로 익혀요.\n\nSpacer - A flexible view that pushes other views apart by taking all the free space.\n한국어: 스페이서: 남는 공간을 모두 차지해서 다른 뷰를 밀어내는 유연한 뷰\n\nPadding - The extra space that you add around a view.\n한국어: 패딩: 뷰 주위에 더하는 여분의 공간\n\nAlignment - The rule that decides how views line up inside a stack.\n한국어: 얼라인먼트: 스택 안에서 뷰를 어떻게 정렬할지 정하는 규칙\n\nIn this video, Mina and Jake fix the spacing of a profile row, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 133 of the iOS Daily English series.\n\n#Swift #SwiftUI #EnglishForDevelopers",
+      "tags": [
+        "Spacer",
+        "Padding",
+        "Alignment",
+        "spacer",
+        "padding",
+        "alignment",
+        "SwiftUI",
+        "SwiftUI 기초",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "iOS Daily English"
+      ],
+      "hook": "Can you explain Spacer, Padding and Alignment in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "Fix the profile row",
+    "setting": "SwiftUI spacing",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, the Edit button sticks to the name. I want it on the far right.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Add a Spacer between them, like in the code.",
+        "terms": [
+          "Spacer"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "What does a Spacer do?",
+        "terms": [
+          "Spacer"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "It takes all the free space, so it pushes the Edit button to the edge.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "Now the card touches the screen edges.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Add Padding. It puts space around the card.",
+        "terms": [
+          "Padding"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Can I use Padding on one side only?",
+        "terms": [
+          "Padding"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Yes. The code limits the Padding to `.horizontal`, so only the left and right sides get space.",
+        "terms": [
+          "Padding"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "The subtitle is in the middle, but I want it on the left.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Set the Alignment of the VStack to `.leading`.",
+        "terms": [
+          "Alignment"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Does that Alignment also move the HStack?",
+        "terms": [
+          "Alignment"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "No. Alignment only controls how views line up inside that one stack.",
+        "terms": [
+          "Alignment"
+        ]
+      }
+    ],
+    "code": "VStack(alignment: .leading) {\n    HStack { Text(\"Mina\"); Spacer(); Text(\"Edit\") }\n    Text(\"iOS developer\")\n}\n.padding(.horizontal)",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "Spacer",
+      "lines": [
+        {
+          "text": "Add a Spacer to push the button to the right."
+        }
+      ],
+      "title": "Add a Spacer to push the button to the right. #Shorts",
+      "description": "Add a Spacer to push the button to the right.\n\nSpacer - A flexible view that pushes other views apart by taking all the free space.\n한국어: 스페이서: 남는 공간을 모두 차지해서 다른 뷰를 밀어내는 유연한 뷰\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "Padding",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "The text touches the edge."
+        },
+        {
+          "speaker": "B",
+          "text": "Add some Padding."
+        }
+      ],
+      "title": "The text touches the edge. / Add some Padding. #Shorts",
+      "description": "The text touches the edge. / Add some Padding.\n\nPadding - The extra space that you add around a view.\n한국어: 패딩: 뷰 주위에 더하는 여분의 공간\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Alignment",
+      "lines": [
+        {
+          "text": "Set the Alignment to leading."
+        }
+      ],
+      "title": "Set the Alignment to leading. #Shorts",
+      "description": "Set the Alignment to leading.\n\nAlignment - The rule that decides how views line up inside a stack.\n한국어: 얼라인먼트: 스택 안에서 뷰를 어떻게 정렬할지 정하는 규칙\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "How do you fix spacing in SwiftUI?"
+}

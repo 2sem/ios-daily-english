@@ -1,0 +1,239 @@
+{
+  "day": 149,
+  "phase": "4. SwiftUI",
+  "theme": "3 terms for reacting to a view's life: it appears, a value changes and async work starts",
+  "terms": [
+    {
+      "term": "onAppear",
+      "definition": "A modifier that runs code when a view appears on screen.",
+      "example": "Log the screen name in onAppear.",
+      "code": "Text(\"Hi\")\n    .onAppear { print(\"Appeared\") }",
+      "output": "// no output"
+    },
+    {
+      "term": "onChange",
+      "definition": "A modifier that runs code when a watched value changes.",
+      "example": "Save the draft in onChange when the text changes.",
+      "code": "var name = \"Mina\"\nText(name)\n    .onChange(of: name) {\n        print(\"Changed\")\n    }",
+      "output": "// no output"
+    },
+    {
+      "term": "Task Modifier",
+      "definition": "A modifier that starts async work when a view appears and cancels it when the view goes away.",
+      "example": "Load the notes in a Task Modifier.",
+      "code": "Text(\"Loading\")\n    .task {\n        try? await Task.sleep(for: .seconds(1))\n        print(\"Done\")\n    }",
+      "output": "// no output"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What do you call the modifier that starts async work when a view appears and cancels it when the view goes away?",
+      "options": [
+        "Task Modifier",
+        "onAppear",
+        "onChange"
+      ],
+      "answer": "a"
+    },
+    {
+      "question": "What do you call the modifier that runs code when a view shows up on screen?",
+      "options": [
+        "onChange",
+        "Task Modifier",
+        "onAppear"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "What do you call the modifier that runs code when a watched value changes?",
+      "options": [
+        "onChange",
+        "Task Modifier",
+        "onAppear"
+      ],
+      "answer": "a"
+    }
+  ],
+  "video": {
+    "title": "onAppear, onChange & Task Modifier | Day 149",
+    "description": "Learn to explain how a SwiftUI view reacts to appearing and changes: onAppear, onChange & Task Modifier, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nonAppear - A modifier that runs code when a view appears on screen.\nonChange - A modifier that runs code when a watched value changes.\nTask Modifier - A modifier that starts async work when a view appears and cancels it when the view goes away.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 149 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "onappear",
+      "onchange",
+      "task modifier",
+      "onappear",
+      "onchange",
+      "task modifier",
+      "onappear",
+      "onchange",
+      "task modifier",
+      "swiftui",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "SwiftUI onAppear, onChange & Task Modifier | Day 149",
+      "description": "Explain onAppear, onChange & Task Modifier in SwiftUI by listening to a real code chat between two iOS devs.\n온어피어, 온체인지, 태스크 모디파이어 표현을 영어 대화로 익혀요.\n\nonAppear - A modifier that runs code when a view appears on screen.\n한국어: 온어피어: 뷰가 화면에 나타날 때 코드를 실행하는 모디파이어\n\nonChange - A modifier that runs code when a watched value changes.\n한국어: 온체인지: 지켜보는 값이 바뀔 때 코드를 실행하는 모디파이어\n\nTask Modifier - A modifier that starts async work when a view appears and cancels it when the view goes away.\n한국어: 태스크 모디파이어: 뷰가 나타날 때 비동기 작업을 시작하고 사라지면 취소하는 모디파이어\n\nIn this video, Mina and Jake run code when a screen opens or a name changes, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 149 of the iOS Daily English series.\n\n#Swift #SwiftUI #EnglishForDevelopers",
+      "tags": [
+        "onAppear",
+        "onChange",
+        "Task Modifier",
+        "onappear",
+        "onchange",
+        "task modifier",
+        "SwiftUI",
+        "SwiftUI 기초",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "iOS Daily English"
+      ],
+      "hook": "Can you explain onAppear, onChange and Task Modifier in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "React to a screen",
+    "setting": "SwiftUI view lifecycle",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, I want to print a message when the screen opens.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Use onAppear. It runs code when the view appears on screen.",
+        "terms": [
+          "onAppear"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Does onAppear run only once?",
+        "terms": [
+          "onAppear"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "No. It runs every time the view appears, for example when the user comes back.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "Now I want to react when the name changes.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Use onChange with the value to watch, like `name` in the code.",
+        "terms": [
+          "onChange"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "I used onAppear to check the name, but it never saw the new name.",
+        "terms": [
+          "onAppear"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Right. onAppear runs only when the view shows. For changes, use onChange.",
+        "terms": [
+          "onAppear",
+          "onChange"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "And I need to load data from the network.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Use the Task Modifier. It starts async work when the view appears.",
+        "terms": [
+          "Task Modifier"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "What happens if the user leaves before it finishes?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "The Task Modifier cancels the work for you. That makes it a good fit for loading.",
+        "terms": [
+          "Task Modifier"
+        ]
+      }
+    ],
+    "code": "var name = \"Mina\"\nText(name)\n    .onAppear { print(\"Appeared\") }\n    .onChange(of: name) { print(\"Changed\") }\n    .task { try? await Task.sleep(for: .seconds(1)) }",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "onAppear",
+      "lines": [
+        {
+          "text": "Log the screen name in onAppear."
+        }
+      ],
+      "title": "Log the screen name in onAppear. #Shorts",
+      "description": "Log the screen name in onAppear.\n\nonAppear - A modifier that runs code when a view appears on screen.\n한국어: 온어피어: 뷰가 화면에 나타날 때 코드를 실행하는 모디파이어\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "onChange",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "How do I react to a new value?"
+        },
+        {
+          "speaker": "B",
+          "text": "Use onChange."
+        }
+      ],
+      "title": "How do I react to a new value? / Use onChange. #Shorts",
+      "description": "How do I react to a new value? / Use onChange.\n\nonChange - A modifier that runs code when a watched value changes.\n한국어: 온체인지: 지켜보는 값이 바뀔 때 코드를 실행하는 모디파이어\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Task Modifier",
+      "lines": [
+        {
+          "text": "Load the data in a Task Modifier."
+        }
+      ],
+      "title": "Load the data in a Task Modifier. #Shorts",
+      "description": "Load the data in a Task Modifier.\n\nTask Modifier - A modifier that starts async work when a view appears and cancels it when the view goes away.\n한국어: 태스크 모디파이어: 뷰가 나타날 때 비동기 작업을 시작하고 사라지면 취소하는 모디파이어\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "When does your view run code?"
+}

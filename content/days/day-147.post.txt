@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 147
+
+Tap Gesture
+- A gesture that runs code when the user taps a view.
+- Example: "Add a Tap Gesture to the photo."
+
+Drag Gesture
+- A gesture that tracks the finger while it moves across a view.
+- Example: "Use a Drag Gesture to move the card."
+
+Magnify Gesture
+- A gesture that tracks two fingers moving apart or together, to zoom.
+- Example: "Use a Magnify Gesture to zoom the photo."
+
+
+Quiz ①
+What do you call a gesture that tracks two fingers moving apart or together, to zoom?
+a) Tap Gesture
+b) Drag Gesture
+c) Magnify Gesture
+
+Quiz ②
+What do you call a gesture that runs code when the user taps a view?
+a) Drag Gesture
+b) Magnify Gesture
+c) Tap Gesture
+
+Quiz ③
+What do you call a gesture that tracks the finger while it moves across a view?
+a) Magnify Gesture
+b) Tap Gesture
+c) Drag Gesture

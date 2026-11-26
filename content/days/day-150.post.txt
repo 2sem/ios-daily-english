@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 150
+
+Custom View
+- A struct of your own that conforms to View, so you can reuse it like a built-in view.
+- Example: "Move the profile header into a Custom View."
+
+ViewBuilder
+- An attribute that lets a closure return several views without a return keyword.
+- Example: "Use ViewBuilder, so the card can hold any content."
+
+GeometryReader
+- A container that gives its content the size of the space it has.
+- Example: "Wrap the image in a GeometryReader to read the width."
+
+
+Quiz ①
+What do you call the attribute that lets a closure return several views without a return keyword?
+a) Custom View
+b) ViewBuilder
+c) GeometryReader
+
+Quiz ②
+What do you call a container that gives its content the size of the space it has?
+a) ViewBuilder
+b) GeometryReader
+c) Custom View
+
+Quiz ③
+What do you call a struct of your own that conforms to View, so you can reuse it?
+a) GeometryReader
+b) Custom View
+c) ViewBuilder

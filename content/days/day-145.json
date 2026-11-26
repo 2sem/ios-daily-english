@@ -1,0 +1,241 @@
+{
+  "day": 145,
+  "phase": "4. SwiftUI",
+  "theme": "3 terms for tabs in SwiftUI: the container, the icon and the chosen tab",
+  "terms": [
+    {
+      "term": "TabView",
+      "definition": "A container that shows one area at a time and lets the user switch with a bar.",
+      "example": "Use a TabView for Home, Search and Profile.",
+      "code": "TabView {\n    Text(\"Home\")\n    Text(\"Search\")\n}",
+      "output": "// no output"
+    },
+    {
+      "term": "Tab Item",
+      "definition": "The icon and the title that a child view shows in the tab bar.",
+      "example": "Add a Tab Item with a house icon.",
+      "code": "Text(\"Home\")\n    .tabItem {\n        Label(\"Home\", systemImage: \"house\")\n    }",
+      "output": "// no output"
+    },
+    {
+      "term": "Tab Selection",
+      "definition": "The value that decides which tab is shown.",
+      "example": "Store the Tab Selection in State, so you can switch tabs from code.",
+      "code": "struct Root: View {\n    @State private var tab = 1\n    var body: some View {\n        TabView(selection: $tab) { Text(\"A\").tag(1) }\n    }\n}",
+      "output": "// no output"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What do you call the value that decides which tab is shown?",
+      "options": [
+        "Tab Item",
+        "Tab Selection",
+        "TabView"
+      ],
+      "answer": "b"
+    },
+    {
+      "question": "What do you call the container that shows one area at a time and lets the user switch with a bar?",
+      "options": [
+        "Tab Selection",
+        "TabView",
+        "Tab Item"
+      ],
+      "answer": "b"
+    },
+    {
+      "question": "What do you call the icon and the title that a child view shows in the bottom bar?",
+      "options": [
+        "TabView",
+        "Tab Item",
+        "Tab Selection"
+      ],
+      "answer": "b"
+    }
+  ],
+  "video": {
+    "title": "TabView, Tab Item & Tab Selection | Day 145",
+    "description": "Learn to explain how to build a tab bar in SwiftUI: TabView, Tab Item & Tab Selection, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nTabView - A container that shows one area at a time and lets the user switch with a bar.\nTab Item - The icon and the title that a child view shows in the tab bar.\nTab Selection - The value that decides which tab is shown.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 145 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "tabview",
+      "tab item",
+      "tab selection",
+      "tabview",
+      "tab item",
+      "tab selection",
+      "tabview",
+      "tab item",
+      "tab selection",
+      "swiftui",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "SwiftUI TabView, Tab Item & Tab Selection | Day 145",
+      "description": "Explain TabView, Tab Item & Tab Selection in SwiftUI by listening to a real code chat between two iOS devs.\n탭뷰, 탭 아이템, 탭 셀렉션 표현을 영어 대화로 익혀요.\n\nTabView - A container that shows one area at a time and lets the user switch with a bar.\n한국어: 탭뷰: 한 번에 한 영역을 보여 주고 바로 전환할 수 있게 하는 컨테이너\n\nTab Item - The icon and the title that a child view shows in the tab bar.\n한국어: 탭 아이템: 자식 뷰가 탭 바에 보여 주는 아이콘과 제목\n\nTab Selection - The value that decides which tab is shown.\n한국어: 탭 셀렉션: 어떤 탭을 보여 줄지 정하는 값\n\nIn this video, Mina and Jake add a tab bar with Home and Search, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 145 of the iOS Daily English series.\n\n#Swift #SwiftUI #EnglishForDevelopers",
+      "tags": [
+        "TabView",
+        "Tab Item",
+        "Tab Selection",
+        "tabview",
+        "tab item",
+        "tab selection",
+        "SwiftUI",
+        "SwiftUI 기초",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "iOS Daily English"
+      ],
+      "hook": "Can you explain TabView, Tab Item and Tab Selection in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "A tab bar",
+    "setting": "SwiftUI tabs",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, my app needs three main areas, like Home and Search.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Use a TabView. It shows one area at a time, with a bar at the bottom.",
+        "terms": [
+          "TabView"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "How do I put an icon on each tab?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Add a Tab Item to each child view. It defines the icon in the bar.",
+        "terms": [
+          "Tab Item"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "I forgot the Tab Item on the second area, and the tab looked empty.",
+        "terms": [
+          "Tab Item"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Yes. Every child of the TabView needs its own Tab Item.",
+        "terms": [
+          "TabView",
+          "Tab Item"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Can I switch tabs from code?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Yes, use a Tab Selection. Give each child a `tag`, then bind the TabView to a value.",
+        "terms": [
+          "TabView",
+          "Tab Selection"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "So changing the value changes the tab.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Right. The Tab Selection can be a number, like `1` in the code.",
+        "terms": [
+          "Tab Selection"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Does the bar also show which tab is selected?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Yes, the TabView highlights the tab that matches the Tab Selection.",
+        "terms": [
+          "TabView",
+          "Tab Selection"
+        ]
+      }
+    ],
+    "code": "TabView(selection: .constant(1)) {\n    Text(\"Home\")\n        .tabItem { Image(systemName: \"house\") }\n        .tag(1)\n}",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "TabView",
+      "lines": [
+        {
+          "text": "Use a TabView for the main areas."
+        }
+      ],
+      "title": "Use a TabView for the main areas. #Shorts",
+      "description": "Use a TabView for the main areas.\n\nTabView - A container that shows one area at a time and lets the user switch with a bar.\n한국어: 탭뷰: 한 번에 한 영역을 보여 주고 바로 전환할 수 있게 하는 컨테이너\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "Tab Item",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Why is my tab empty?"
+        },
+        {
+          "speaker": "B",
+          "text": "You forgot the Tab Item."
+        }
+      ],
+      "title": "Why is my tab empty? / You forgot the Tab Item. #Shorts",
+      "description": "Why is my tab empty? / You forgot the Tab Item.\n\nTab Item - The icon and the title that a child view shows in the tab bar.\n한국어: 탭 아이템: 자식 뷰가 탭 바에 보여 주는 아이콘과 제목\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Tab Selection",
+      "lines": [
+        {
+          "text": "Change the Tab Selection to switch tabs."
+        }
+      ],
+      "title": "Change the Tab Selection to switch tabs. #Shorts",
+      "description": "Change the Tab Selection to switch tabs.\n\nTab Selection - The value that decides which tab is shown.\n한국어: 탭 셀렉션: 어떤 탭을 보여 줄지 정하는 값\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "How do you build a tab bar?"
+}

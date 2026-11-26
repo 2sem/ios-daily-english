@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 145
+
+TabView
+- A container that shows one area at a time and lets the user switch with a bar.
+- Example: "Use a TabView for Home, Search and Profile."
+
+Tab Item
+- The icon and the title that a child view shows in the tab bar.
+- Example: "Add a Tab Item with a house icon."
+
+Tab Selection
+- The value that decides which tab is shown.
+- Example: "Store the Tab Selection in State, so you can switch tabs from code."
+
+
+Quiz ①
+What do you call the value that decides which tab is shown?
+a) Tab Item
+b) Tab Selection
+c) TabView
+
+Quiz ②
+What do you call the container that shows one area at a time and lets the user switch with a bar?
+a) Tab Selection
+b) TabView
+c) Tab Item
+
+Quiz ③
+What do you call the icon and the title that a child view shows in the bottom bar?
+a) TabView
+b) Tab Item
+c) Tab Selection

@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 131
+
+View
+- A piece of the screen that you describe in SwiftUI.
+- Example: "Create a new View for the profile header."
+
+Body
+- The property where a SwiftUI struct describes what it shows.
+- Example: "Keep the Body short, and move extra code into small views."
+
+Modifier
+- A method that changes how something on screen looks and returns a new view.
+- Example: "Add a Modifier to make the text bold."
+
+
+Quiz ①
+What do you call a method like `.font` that changes how a view looks and returns a new one?
+a) Modifier
+b) View
+c) Body
+
+Quiz ②
+What do you call a piece of the screen that you describe in SwiftUI?
+a) Body
+b) Modifier
+c) View
+
+Quiz ③
+What do you call the property where a SwiftUI struct describes what it shows?
+a) Body
+b) Modifier
+c) View

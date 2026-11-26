@@ -1,0 +1,239 @@
+{
+  "day": 137,
+  "phase": "4. SwiftUI",
+  "theme": "3 terms for lists in SwiftUI: the scrolling rows, the repeater and the group",
+  "terms": [
+    {
+      "term": "List",
+      "definition": "A scrolling view that shows rows of data in a column.",
+      "example": "Show the notes in a List.",
+      "code": "List {\n    Text(\"Mina\")\n    Text(\"Jake\")\n}",
+      "output": "// no output"
+    },
+    {
+      "term": "ForEach",
+      "definition": "A view that creates one view for each item in a collection.",
+      "example": "Use ForEach to create a row for every note.",
+      "code": "let names = [\"Mina\", \"Jake\"]\nForEach(names, id: \\.self) { name in\n    Text(name)\n}",
+      "output": "// no output"
+    },
+    {
+      "term": "Section",
+      "definition": "A group of rows with an optional header and footer.",
+      "example": "Put the pinned notes in their own Section.",
+      "code": "Section(\"Team\") {\n    Text(\"Mina\")\n    Text(\"Jake\")\n}",
+      "output": "// no output"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What do you call a group of rows with an optional header and footer?",
+      "options": [
+        "Section",
+        "List",
+        "ForEach"
+      ],
+      "answer": "a"
+    },
+    {
+      "question": "What do you call a scrolling view that shows rows of data in a column?",
+      "options": [
+        "ForEach",
+        "Section",
+        "List"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "What do you call a view that creates one view per item in a collection?",
+      "options": [
+        "ForEach",
+        "Section",
+        "List"
+      ],
+      "answer": "a"
+    }
+  ],
+  "video": {
+    "title": "List, ForEach & Section | Day 137",
+    "description": "Learn to explain how to show rows of data in SwiftUI: List, ForEach & Section, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nList - A scrolling view that shows rows of data in a column.\nForEach - A view that creates one view for each item in a collection.\nSection - A group of rows with an optional header and footer.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 137 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "list",
+      "foreach",
+      "section",
+      "list",
+      "foreach",
+      "section",
+      "list",
+      "foreach",
+      "section",
+      "swiftui",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "SwiftUI List, ForEach & Section | Day 137",
+      "description": "Explain List, ForEach & Section in SwiftUI by listening to a real code chat between two iOS devs.\n리스트, 포어치, 섹션 표현을 영어 대화로 익혀요.\n\nList - A scrolling view that shows rows of data in a column.\n한국어: 리스트: 데이터 행을 세로로 보여 주는 스크롤 뷰\n\nForEach - A view that creates one view for each item in a collection.\n한국어: 포어치: 컬렉션의 항목마다 뷰를 하나씩 만드는 뷰\n\nSection - A group of rows with an optional header and footer.\n한국어: 섹션: 머리글과 바닥글을 붙일 수 있는 행의 묶음\n\nIn this video, Mina and Jake show a team in a list, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 137 of the iOS Daily English series.\n\n#Swift #SwiftUI #EnglishForDevelopers",
+      "tags": [
+        "List",
+        "ForEach",
+        "Section",
+        "list",
+        "foreach",
+        "section",
+        "SwiftUI",
+        "SwiftUI 기초",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "iOS Daily English"
+      ],
+      "hook": "Can you explain List, ForEach and Section in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "Show the team",
+    "setting": "SwiftUI lists",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, I want to show the team members in a scrolling screen.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Use a List. It shows rows in a column and scrolls by itself.",
+        "terms": [
+          "List"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "I wrote a Text for every name. That is a lot of code.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Use ForEach. It creates one view for each item in the array.",
+        "terms": [
+          "ForEach"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "The code has `id: \\.self`. What does that mean?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "It tells ForEach how to identify each item. Here the name is the identity.",
+        "terms": [
+          "ForEach"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "What if two people have the same name?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Then you have a problem. The ids must be unique, so use a real id.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "OK. I also want a header above the names.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Wrap the ForEach in a Section, like `Team` in the code.",
+        "terms": [
+          "ForEach",
+          "Section"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Does the List need the Section?",
+        "terms": [
+          "List",
+          "Section"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "No. But a Section makes the List easier to read.",
+        "terms": [
+          "List",
+          "Section"
+        ]
+      }
+    ],
+    "code": "let names = [\"Mina\", \"Jake\"]\nList {\n    Section(\"Team\") {\n        ForEach(names, id: \\.self) { Text($0) }\n    }\n}",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "List",
+      "lines": [
+        {
+          "text": "Show the notes in a List."
+        }
+      ],
+      "title": "Show the notes in a List. #Shorts",
+      "description": "Show the notes in a List.\n\nList - A scrolling view that shows rows of data in a column.\n한국어: 리스트: 데이터 행을 세로로 보여 주는 스크롤 뷰\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "ForEach",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "How do I make a row for every item?"
+        },
+        {
+          "speaker": "B",
+          "text": "Use ForEach."
+        }
+      ],
+      "title": "How do I make a row for every item? / Use ForEach. #Shorts",
+      "description": "How do I make a row for every item? / Use ForEach.\n\nForEach - A view that creates one view for each item in a collection.\n한국어: 포어치: 컬렉션의 항목마다 뷰를 하나씩 만드는 뷰\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Section",
+      "lines": [
+        {
+          "text": "Put the pinned notes in a Section."
+        }
+      ],
+      "title": "Put the pinned notes in a Section. #Shorts",
+      "description": "Put the pinned notes in a Section.\n\nSection - A group of rows with an optional header and footer.\n한국어: 섹션: 머리글과 바닥글을 붙일 수 있는 행의 묶음\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "How do you show many rows in SwiftUI?"
+}

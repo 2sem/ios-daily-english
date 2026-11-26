@@ -1559,6 +1559,246 @@
     "largetitle": {
       "term": "Large Title",
       "day": 130
+    },
+    "view": {
+      "term": "View",
+      "day": 131
+    },
+    "body": {
+      "term": "Body",
+      "day": 131
+    },
+    "modifier": {
+      "term": "Modifier",
+      "day": 131
+    },
+    "vstack": {
+      "term": "VStack",
+      "day": 132
+    },
+    "hstack": {
+      "term": "HStack",
+      "day": 132
+    },
+    "zstack": {
+      "term": "ZStack",
+      "day": 132
+    },
+    "spacer": {
+      "term": "Spacer",
+      "day": 133
+    },
+    "padding": {
+      "term": "Padding",
+      "day": 133
+    },
+    "alignment": {
+      "term": "Alignment",
+      "day": 133
+    },
+    "image": {
+      "term": "Image",
+      "day": 134
+    },
+    "label": {
+      "term": "Label",
+      "day": 134
+    },
+    "button": {
+      "term": "Button",
+      "day": 134
+    },
+    "state": {
+      "term": "State",
+      "day": 135
+    },
+    "binding": {
+      "term": "Binding",
+      "day": 135
+    },
+    "sourceoftruth": {
+      "term": "Source of Truth",
+      "day": 135
+    },
+    "toggle": {
+      "term": "Toggle",
+      "day": 136
+    },
+    "slider": {
+      "term": "Slider",
+      "day": 136
+    },
+    "picker": {
+      "term": "Picker",
+      "day": 136
+    },
+    "form": {
+      "term": "Form",
+      "day": 138
+    },
+    "lazyvstack": {
+      "term": "LazyVStack",
+      "day": 138
+    },
+    "lazyvgrid": {
+      "term": "LazyVGrid",
+      "day": 138
+    },
+    "viewmodel": {
+      "term": "View Model",
+      "day": 139
+    },
+    "observable": {
+      "term": "Observable",
+      "day": 139
+    },
+    "bindable": {
+      "term": "Bindable",
+      "day": 139
+    },
+    "colorscheme": {
+      "term": "Color Scheme",
+      "day": 140
+    },
+    "dismissaction": {
+      "term": "Dismiss Action",
+      "day": 140
+    },
+    "environmentvalue": {
+      "term": "Environment Value",
+      "day": 140
+    },
+    "list": {
+      "term": "List",
+      "day": 137
+    },
+    "foreach": {
+      "term": "ForEach",
+      "day": 137
+    },
+    "section": {
+      "term": "Section",
+      "day": 137
+    },
+    "navigationstack": {
+      "term": "NavigationStack",
+      "day": 141
+    },
+    "navigationlink": {
+      "term": "NavigationLink",
+      "day": 141
+    },
+    "navigationpath": {
+      "term": "Navigation Path",
+      "day": 141
+    },
+    "navigationtitle": {
+      "term": "Navigation Title",
+      "day": 142
+    },
+    "toolbar": {
+      "term": "Toolbar",
+      "day": 142
+    },
+    "navigationdestination": {
+      "term": "Navigation Destination",
+      "day": 142
+    },
+    "sheet": {
+      "term": "Sheet",
+      "day": 143
+    },
+    "fullscreencover": {
+      "term": "Full Screen Cover",
+      "day": 143
+    },
+    "presentationdetent": {
+      "term": "Presentation Detent",
+      "day": 143
+    },
+    "alert": {
+      "term": "Alert",
+      "day": 144
+    },
+    "confirmationdialog": {
+      "term": "Confirmation Dialog",
+      "day": 144
+    },
+    "popover": {
+      "term": "Popover",
+      "day": 144
+    },
+    "tabview": {
+      "term": "TabView",
+      "day": 145
+    },
+    "tabitem": {
+      "term": "Tab Item",
+      "day": 145
+    },
+    "tabselection": {
+      "term": "Tab Selection",
+      "day": 145
+    },
+    "transition": {
+      "term": "Transition",
+      "day": 146
+    },
+    "implicitanimation": {
+      "term": "Implicit Animation",
+      "day": 146
+    },
+    "explicitanimation": {
+      "term": "Explicit Animation",
+      "day": 146
+    },
+    "tapgesture": {
+      "term": "Tap Gesture",
+      "day": 147
+    },
+    "draggesture": {
+      "term": "Drag Gesture",
+      "day": 147
+    },
+    "magnifygesture": {
+      "term": "Magnify Gesture",
+      "day": 147
+    },
+    "preview": {
+      "term": "Preview",
+      "day": 148
+    },
+    "canvas": {
+      "term": "Canvas",
+      "day": 148
+    },
+    "sampledata": {
+      "term": "Sample Data",
+      "day": 148
+    },
+    "onappear": {
+      "term": "onAppear",
+      "day": 149
+    },
+    "onchange": {
+      "term": "onChange",
+      "day": 149
+    },
+    "taskmodifier": {
+      "term": "Task Modifier",
+      "day": 149
+    },
+    "customview": {
+      "term": "Custom View",
+      "day": 150
+    },
+    "viewbuilder": {
+      "term": "ViewBuilder",
+      "day": 150
+    },
+    "geometryreader": {
+      "term": "GeometryReader",
+      "day": 150
     }
   }
 }

@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 136
+
+Toggle
+- A switch that the user turns on or off.
+- Example: "Add a Toggle for the sound setting."
+
+Slider
+- A control that lets the user pick a number by dragging.
+- Example: "Use a Slider for the volume."
+
+Picker
+- A control that lets the user choose one option from a list.
+- Example: "Use a Picker to choose Easy or Hard."
+
+
+Quiz ①
+What do you call a control that lets the user pick a number by dragging?
+a) Slider
+b) Picker
+c) Toggle
+
+Quiz ②
+What do you call a control that lets the user choose one option from a list?
+a) Toggle
+b) Slider
+c) Picker
+
+Quiz ③
+What do you call a switch that the user turns on or off?
+a) Toggle
+b) Slider
+c) Picker

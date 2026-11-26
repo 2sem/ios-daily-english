@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 143
+
+Sheet
+- A screen that slides up over the current one, and the user can swipe it down.
+- Example: "Show the note editor in a Sheet."
+
+Full Screen Cover
+- A screen that slides up and covers the whole screen, with no swipe to close.
+- Example: "Use a Full Screen Cover for the login screen."
+
+Presentation Detent
+- A height that a sheet can stop at, such as medium or large.
+- Example: "Add a Presentation Detent, so the sheet opens at half height."
+
+
+Quiz ①
+What do you call a height that a sheet can stop at, such as medium or large?
+a) Presentation Detent
+b) Sheet
+c) Full Screen Cover
+
+Quiz ②
+What do you call a screen that slides up over the current one, and the user can swipe it down?
+a) Full Screen Cover
+b) Presentation Detent
+c) Sheet
+
+Quiz ③
+What do you call a screen that slides up and covers the whole screen, with no swipe to close?
+a) Full Screen Cover
+b) Presentation Detent
+c) Sheet

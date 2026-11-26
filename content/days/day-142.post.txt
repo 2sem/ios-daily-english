@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 142
+
+Navigation Title
+- The title that a screen shows in the navigation bar.
+- Example: "Set the Navigation Title to Notes."
+
+Toolbar
+- The bar area where you place buttons for a screen.
+- Example: "Put the add button in the Toolbar."
+
+Navigation Destination
+- A modifier that tells the stack which screen to show for a type of value.
+- Example: "Add a Navigation Destination for the note type."
+
+
+Quiz ①
+What do you call the bar area where you place buttons for a screen?
+a) Toolbar
+b) Navigation Destination
+c) Navigation Title
+
+Quiz ②
+What do you call the modifier that tells the stack which screen to show for a type of value?
+a) Navigation Title
+b) Toolbar
+c) Navigation Destination
+
+Quiz ③
+What do you call the title that a screen shows at the top in the navigation bar?
+a) Navigation Title
+b) Toolbar
+c) Navigation Destination

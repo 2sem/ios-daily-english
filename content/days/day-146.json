@@ -1,0 +1,237 @@
+{
+  "day": 146,
+  "phase": "4. SwiftUI",
+  "theme": "3 terms for SwiftUI animation: appearing, following a value and starting it yourself",
+  "terms": [
+    {
+      "term": "Transition",
+      "definition": "The animation that a view uses when it appears or disappears.",
+      "example": "Add a Transition, so the banner slides in.",
+      "code": "var big = false\nVStack {\n    if big { Text(\"Big\").transition(.slide) }\n}",
+      "output": "// no output"
+    },
+    {
+      "term": "Implicit Animation",
+      "definition": "An animation that a view runs by itself whenever a watched value changes.",
+      "example": "Use an Implicit Animation, so the circle grows smoothly.",
+      "code": "var big = false\nCircle()\n    .scaleEffect(big ? 2 : 1)\n    .animation(.easeInOut, value: big)",
+      "output": "// no output"
+    },
+    {
+      "term": "Explicit Animation",
+      "definition": "An animation that you start yourself for one specific change.",
+      "example": "Use an Explicit Animation when the user taps the button.",
+      "code": "var big = false\nButton(\"Grow\") {\n    withAnimation { big.toggle() }\n}",
+      "output": "// no output"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What do you call an animation that a view runs by itself whenever a watched value changes?",
+      "options": [
+        "Explicit Animation",
+        "Transition",
+        "Implicit Animation"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "What do you call an animation that you start yourself for one specific change?",
+      "options": [
+        "Transition",
+        "Implicit Animation",
+        "Explicit Animation"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "What do you call the animation that a view uses when it appears or disappears?",
+      "options": [
+        "Implicit Animation",
+        "Explicit Animation",
+        "Transition"
+      ],
+      "answer": "c"
+    }
+  ],
+  "video": {
+    "title": "Transition, Implicit Animation & Explicit Animation | Day 146",
+    "description": "Learn to explain how to animate a SwiftUI view: Transition, Implicit Animation & Explicit Animation, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nTransition - The animation that a view uses when it appears or disappears.\nImplicit Animation - An animation that a view runs by itself whenever a watched value changes.\nExplicit Animation - An animation that you start yourself for one specific change.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 146 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "transition",
+      "implicit animation",
+      "explicit animation",
+      "transition",
+      "implicit animation",
+      "explicit animation",
+      "transition",
+      "implicit animation",
+      "explicit animation",
+      "swiftui",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "SwiftUI Transition, Implicit Animation & Explicit Animation | Day 146",
+      "description": "Explain Transition, Implicit Animation & Explicit Animation in SwiftUI by listening to a real code chat between two iOS devs.\n트랜지션, 암시적 애니메이션, 명시적 애니메이션 표현을 영어 대화로 익혀요.\n\nTransition - The animation that a view uses when it appears or disappears.\n한국어: 트랜지션: 뷰가 나타나거나 사라질 때 쓰는 애니메이션\n\nImplicit Animation - An animation that a view runs by itself whenever a watched value changes.\n한국어: 암시적 애니메이션: 지켜보는 값이 바뀔 때마다 뷰가 스스로 실행하는 애니메이션\n\nExplicit Animation - An animation that you start yourself for one specific change.\n한국어: 명시적 애니메이션: 특정한 변경 하나에 대해 직접 시작하는 애니메이션\n\nIn this video, Mina and Jake make a circle grow smoothly, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 146 of the iOS Daily English series.\n\n#Swift #SwiftUI #EnglishForDevelopers",
+      "tags": [
+        "Transition",
+        "Implicit Animation",
+        "Explicit Animation",
+        "transition",
+        "implicit animation",
+        "explicit animation",
+        "SwiftUI",
+        "SwiftUI 기초",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "iOS Daily English"
+      ],
+      "hook": "Can you explain Transition, Implicit Animation and Explicit Animation in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "A smooth circle",
+    "setting": "SwiftUI animation",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, the circle jumps to the new size. I want it smooth.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Add an Implicit Animation. Use `.animation` with the value it should watch.",
+        "terms": [
+          "Implicit Animation"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Why do I need `value: big`?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "The Implicit Animation runs only when that value changes. Without it, too many things animate.",
+        "terms": [
+          "Implicit Animation"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "OK. Now the Big text appears with no effect.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Use a Transition. It decides how a view appears and disappears.",
+        "terms": [
+          "Transition"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "I added `.transition(.slide)`, but nothing slides.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "A Transition needs an animation, and the view must be added or removed with `if`.",
+        "terms": [
+          "Transition"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Can I start the animation from the button instead?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Yes, that is an Explicit Animation. Wrap the change in `withAnimation`.",
+        "terms": [
+          "Explicit Animation"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "What is the difference?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "An Implicit Animation follows a value. An Explicit Animation follows one change that you choose.",
+        "terms": [
+          "Implicit Animation",
+          "Explicit Animation"
+        ]
+      }
+    ],
+    "code": "var big = false\nButton(\"Grow\") { withAnimation { big.toggle() } }\nCircle().scaleEffect(big ? 2 : 1)\n    .animation(.easeInOut, value: big)\nif big { Text(\"Big\").transition(.slide) }",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "Transition",
+      "lines": [
+        {
+          "text": "Add a Transition, so the banner slides in."
+        }
+      ],
+      "title": "Add a Transition, so the banner slides in. #Shorts",
+      "description": "Add a Transition, so the banner slides in.\n\nTransition - The animation that a view uses when it appears or disappears.\n한국어: 트랜지션: 뷰가 나타나거나 사라질 때 쓰는 애니메이션\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Implicit Animation",
+      "lines": [
+        {
+          "text": "An Implicit Animation follows a value."
+        }
+      ],
+      "title": "An Implicit Animation follows a value. #Shorts",
+      "description": "An Implicit Animation follows a value.\n\nImplicit Animation - An animation that a view runs by itself whenever a watched value changes.\n한국어: 암시적 애니메이션: 지켜보는 값이 바뀔 때마다 뷰가 스스로 실행하는 애니메이션\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "Explicit Animation",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Can I animate just this tap?"
+        },
+        {
+          "speaker": "B",
+          "text": "Yes, use an Explicit Animation."
+        }
+      ],
+      "title": "Can I animate just this tap? / Yes, use an Explicit Animation. #Shorts",
+      "description": "Can I animate just this tap? / Yes, use an Explicit Animation.\n\nExplicit Animation - An animation that you start yourself for one specific change.\n한국어: 명시적 애니메이션: 특정한 변경 하나에 대해 직접 시작하는 애니메이션\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "How do you animate in SwiftUI?"
+}

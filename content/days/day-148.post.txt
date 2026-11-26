@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 148
+
+Preview
+- A live picture of a view that Xcode shows while you write code.
+- Example: "Check the layout in a Preview before you run the app."
+
+Canvas
+- The Xcode panel next to your code that shows the previews.
+- Example: "Open the Canvas to see the screen while you type."
+
+Sample Data
+- Fake values that you give a view, so a preview has something to show.
+- Example: "Add Sample Data, so the Preview shows a full note."
+
+
+Quiz ①
+What do you call the Xcode panel next to your code that shows the previews?
+a) Canvas
+b) Sample Data
+c) Preview
+
+Quiz ②
+What do you call fake values that you give a view, so a preview has something to show?
+a) Preview
+b) Canvas
+c) Sample Data
+
+Quiz ③
+What do you call a live picture of a view that Xcode shows while you write code?
+a) Preview
+b) Canvas
+c) Sample Data

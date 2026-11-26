@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 134
+
+Image
+- A view that shows a picture or an SF Symbol.
+- Example: "Show the avatar in an Image at the top."
+
+Label
+- A view that shows an icon together with a title.
+- Example: "Use a Label for the Favorites row."
+
+Button
+- A view that the user taps to run some code.
+- Example: "Add a Button that saves the note."
+
+
+Quiz ①
+What do you call a view that shows an icon together with a title?
+a) Button
+b) Image
+c) Label
+
+Quiz ②
+What do you call a view that the user taps to run some code?
+a) Image
+b) Label
+c) Button
+
+Quiz ③
+What do you call a view that shows a picture or an SF Symbol?
+a) Label
+b) Button
+c) Image

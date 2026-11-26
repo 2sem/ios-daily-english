@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 132
+
+VStack
+- A container that places views in a vertical line, from top to bottom.
+- Example: "Put the title and the subtitle in a VStack."
+
+HStack
+- A container that places views in a horizontal line, from left to right.
+- Example: "Use an HStack for the icon and the label."
+
+ZStack
+- A container that layers views on top of each other, from back to front.
+- Example: "Use a ZStack to put the badge on top of the photo."
+
+
+Quiz ①
+What do you call the container that places views in a row, from left to right?
+a) VStack
+b) HStack
+c) ZStack
+
+Quiz ②
+What do you call the container that layers views on top of each other?
+a) HStack
+b) ZStack
+c) VStack
+
+Quiz ③
+What do you call the container that places views in a column, from top to bottom?
+a) ZStack
+b) VStack
+c) HStack

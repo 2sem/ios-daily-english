@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 137
+
+List
+- A scrolling view that shows rows of data in a column.
+- Example: "Show the notes in a List."
+
+ForEach
+- A view that creates one view for each item in a collection.
+- Example: "Use ForEach to create a row for every note."
+
+Section
+- A group of rows with an optional header and footer.
+- Example: "Put the pinned notes in their own Section."
+
+
+Quiz ①
+What do you call a group of rows with an optional header and footer?
+a) Section
+b) List
+c) ForEach
+
+Quiz ②
+What do you call a scrolling view that shows rows of data in a column?
+a) ForEach
+b) Section
+c) List
+
+Quiz ③
+What do you call a view that creates one view per item in a collection?
+a) ForEach
+b) Section
+c) List

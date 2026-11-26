@@ -1,0 +1,245 @@
+{
+  "day": 148,
+  "phase": "4. SwiftUI",
+  "theme": "3 terms for checking SwiftUI screens fast: the live picture, its panel and the fake data",
+  "terms": [
+    {
+      "term": "Preview",
+      "definition": "A live picture of a view that Xcode shows while you write code.",
+      "example": "Check the layout in a Preview before you run the app.",
+      "code": "#Preview {\n    Text(\"Hello\")\n}",
+      "output": "// no output"
+    },
+    {
+      "term": "Canvas",
+      "definition": "The Xcode panel next to your code that shows the previews.",
+      "example": "Open the Canvas to see the screen while you type.",
+      "code": "#Preview(\"Dark\") {\n    Text(\"Hello\")\n        .preferredColorScheme(.dark)\n}",
+      "output": "// no output"
+    },
+    {
+      "term": "Sample Data",
+      "definition": "Fake values that you give a view, so a preview has something to show.",
+      "example": "Add Sample Data, so the Preview shows a full note.",
+      "code": "struct Note { var title: String }\nlet sample = Note(title: \"Buy milk\")\n#Preview { Text(sample.title) }",
+      "output": "// no output"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What do you call the Xcode panel next to your code that shows the previews?",
+      "options": [
+        "Canvas",
+        "Sample Data",
+        "Preview"
+      ],
+      "answer": "a"
+    },
+    {
+      "question": "What do you call fake values that you give a view, so a preview has something to show?",
+      "options": [
+        "Preview",
+        "Canvas",
+        "Sample Data"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "What do you call a live picture of a view that Xcode shows while you write code?",
+      "options": [
+        "Preview",
+        "Canvas",
+        "Sample Data"
+      ],
+      "answer": "a"
+    }
+  ],
+  "video": {
+    "title": "Preview, Canvas & Sample Data | Day 148",
+    "description": "Learn to explain how to check a SwiftUI screen without running the app: Preview, Canvas & Sample Data, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nPreview - A live picture of a view that Xcode shows while you write code.\nCanvas - The Xcode panel next to your code that shows the previews.\nSample Data - Fake values that you give a view, so a preview has something to show.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 148 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "preview",
+      "canvas",
+      "sample data",
+      "preview",
+      "canvas",
+      "sample data",
+      "preview",
+      "canvas",
+      "sample data",
+      "swiftui",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "SwiftUI Preview, Canvas & Sample Data | Day 148",
+      "description": "Explain Preview, Canvas & Sample Data in SwiftUI by listening to a real code chat between two iOS devs.\n프리뷰, 캔버스, 샘플 데이터 표현을 영어 대화로 익혀요.\n\nPreview - A live picture of a view that Xcode shows while you write code.\n한국어: 프리뷰: 코드를 쓰는 동안 Xcode가 보여 주는 뷰의 실시간 미리보기\n\nCanvas - The Xcode panel next to your code that shows the previews.\n한국어: 캔버스: 코드 옆에서 프리뷰를 보여 주는 Xcode 패널\n\nSample Data - Fake values that you give a view, so a preview has something to show.\n한국어: 샘플 데이터: 프리뷰에 보여 줄 내용이 있도록 뷰에 주는 가짜 값\n\nIn this video, Mina and Jake stop running the app to see a screen, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 148 of the iOS Daily English series.\n\n#Swift #SwiftUI #EnglishForDevelopers",
+      "tags": [
+        "Preview",
+        "Canvas",
+        "Sample Data",
+        "preview",
+        "canvas",
+        "sample data",
+        "SwiftUI",
+        "SwiftUI 기초",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "iOS Daily English"
+      ],
+      "hook": "Can you explain Preview, Canvas and Sample Data in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "Stop running the app",
+    "setting": "SwiftUI previews",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, I run the app every time to see my screen. It is slow.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Use a Preview. It shows a live picture of your view while you type.",
+        "terms": [
+          "Preview"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Where do I see it?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "In the Canvas, the panel next to the code. If it is closed, open it from the Editor menu.",
+        "terms": [
+          "Canvas"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "My Preview crashes because the note is missing.",
+        "terms": [
+          "Preview"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Give the Preview Sample Data. A fake note, like `sample` in the code.",
+        "terms": [
+          "Preview",
+          "Sample Data"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Should the Sample Data come from the real server?",
+        "terms": [
+          "Sample Data"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "No. Use fixed values, so the Canvas always loads fast.",
+        "terms": [
+          "Canvas"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Can I see dark mode too?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Yes. Name a second Preview, like `Dark`, and it gets its own tab in the Canvas.",
+        "terms": [
+          "Preview",
+          "Canvas"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "So one Preview for each important state.",
+        "terms": [
+          "Preview"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Exactly. A small Preview with Sample Data makes UI work much faster.",
+        "terms": [
+          "Preview",
+          "Sample Data"
+        ]
+      }
+    ],
+    "code": "struct Note { var title: String }\nlet sample = Note(title: \"Buy milk\")\n#Preview(\"Dark\") {\n    Text(sample.title)\n        .preferredColorScheme(.dark)\n}",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "Preview",
+      "lines": [
+        {
+          "text": "Check the layout in a Preview."
+        }
+      ],
+      "title": "Check the layout in a Preview. #Shorts",
+      "description": "Check the layout in a Preview.\n\nPreview - A live picture of a view that Xcode shows while you write code.\n한국어: 프리뷰: 코드를 쓰는 동안 Xcode가 보여 주는 뷰의 실시간 미리보기\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "Canvas",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Where do I see the preview?"
+        },
+        {
+          "speaker": "B",
+          "text": "In the Canvas."
+        }
+      ],
+      "title": "Where do I see the preview? / In the Canvas. #Shorts",
+      "description": "Where do I see the preview? / In the Canvas.\n\nCanvas - The Xcode panel next to your code that shows the previews.\n한국어: 캔버스: 코드 옆에서 프리뷰를 보여 주는 Xcode 패널\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Sample Data",
+      "lines": [
+        {
+          "text": "Add Sample Data to your Preview."
+        }
+      ],
+      "title": "Add Sample Data to your Preview. #Shorts",
+      "description": "Add Sample Data to your Preview.\n\nSample Data - Fake values that you give a view, so a preview has something to show.\n한국어: 샘플 데이터: 프리뷰에 보여 줄 내용이 있도록 뷰에 주는 가짜 값\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "How do you see a screen without running?"
+}

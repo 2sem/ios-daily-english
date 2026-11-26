@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 149
+
+onAppear
+- A modifier that runs code when a view appears on screen.
+- Example: "Log the screen name in onAppear."
+
+onChange
+- A modifier that runs code when a watched value changes.
+- Example: "Save the draft in onChange when the text changes."
+
+Task Modifier
+- A modifier that starts async work when a view appears and cancels it when the view goes away.
+- Example: "Load the notes in a Task Modifier."
+
+
+Quiz ①
+What do you call the modifier that starts async work when a view appears and cancels it when the view goes away?
+a) Task Modifier
+b) onAppear
+c) onChange
+
+Quiz ②
+What do you call the modifier that runs code when a view shows up on screen?
+a) onChange
+b) Task Modifier
+c) onAppear
+
+Quiz ③
+What do you call the modifier that runs code when a watched value changes?
+a) onChange
+b) Task Modifier
+c) onAppear

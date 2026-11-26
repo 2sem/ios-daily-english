@@ -1,0 +1,248 @@
+{
+  "day": 131,
+  "phase": "4. SwiftUI",
+  "theme": "3 terms to start SwiftUI: the screen piece, the property that describes it, and the method that styles it",
+  "terms": [
+    {
+      "term": "View",
+      "definition": "A piece of the screen that you describe in SwiftUI.",
+      "example": "Create a new View for the profile header.",
+      "code": "struct Hello: View {\n    var body: some View {\n        Text(\"Hello\")\n    }\n}",
+      "output": "// no output"
+    },
+    {
+      "term": "Body",
+      "definition": "The property where a SwiftUI struct describes what it shows.",
+      "example": "Keep the Body short, and move extra code into small views.",
+      "code": "struct Title: View {\n    var body: some View {\n        Text(\"Daily English\")\n    }\n}",
+      "output": "// no output"
+    },
+    {
+      "term": "Modifier",
+      "definition": "A method that changes how something on screen looks and returns a new view.",
+      "example": "Add a Modifier to make the text bold.",
+      "code": "Text(\"Swift\")\n    .font(.largeTitle)\n    .bold()",
+      "output": "// no output"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What do you call a method like `.font` that changes how a view looks and returns a new one?",
+      "options": [
+        "Modifier",
+        "View",
+        "Body"
+      ],
+      "answer": "a"
+    },
+    {
+      "question": "What do you call a piece of the screen that you describe in SwiftUI?",
+      "options": [
+        "Body",
+        "Modifier",
+        "View"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "What do you call the property where a SwiftUI struct describes what it shows?",
+      "options": [
+        "Body",
+        "Modifier",
+        "View"
+      ],
+      "answer": "a"
+    }
+  ],
+  "video": {
+    "title": "View, Body & Modifier | Day 131",
+    "description": "Learn to explain the first building blocks of SwiftUI: View, Body & Modifier, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nView - A piece of the screen that you describe in SwiftUI.\nBody - The property where a SwiftUI struct describes what it shows.\nModifier - A method that changes how something on screen looks and returns a new view.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 131 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "view",
+      "body",
+      "modifier",
+      "view",
+      "body",
+      "modifier",
+      "swiftui view",
+      "body property",
+      "view modifier",
+      "swiftui",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "SwiftUI View, Body & Modifier | Day 131",
+      "description": "Explain View, Body & Modifier in SwiftUI by listening to a real code chat between two iOS devs.\n뷰, 바디, 모디파이어 표현을 영어 대화로 익혀요.\n\nView - A piece of the screen that you describe in SwiftUI.\n한국어: 뷰: SwiftUI로 설명하는 화면의 한 조각\n\nBody - The property where a SwiftUI struct describes what it shows.\n한국어: 바디: SwiftUI 구조체가 무엇을 보여 줄지 설명하는 프로퍼티\n\nModifier - A method that changes how something on screen looks and returns a new view.\n한국어: 모디파이어: 화면 요소의 모양을 바꾸고 새 뷰를 돌려주는 메서드\n\nIn this video, Mina and Jake build a first SwiftUI screen, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 131 of the iOS Daily English series.\n\n#Swift #SwiftUI #EnglishForDevelopers",
+      "tags": [
+        "View",
+        "Body",
+        "Modifier",
+        "swiftui view",
+        "body property",
+        "view modifier",
+        "SwiftUI",
+        "SwiftUI 기초",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "iOS Daily English"
+      ],
+      "hook": "Can you explain View, Body and Modifier in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "My first SwiftUI screen",
+    "setting": "SwiftUI basics",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, I am new to SwiftUI. What is a View?",
+        "terms": [
+          "View"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "A View is a piece of the screen. You write it as a struct, like `Hello` in the code.",
+        "terms": [
+          "View"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Where do I put the content?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "In the Body. Every View needs a `body` property.",
+        "terms": [
+          "View",
+          "Body"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "So the Body returns the text I want to show?",
+        "terms": [
+          "Body"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Yes. The Body describes what the View shows, nothing more.",
+        "terms": [
+          "View",
+          "Body"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "I want bigger text. Can I change `Text` itself?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "No, add a Modifier. A Modifier like `.font` returns a new View.",
+        "terms": [
+          "View",
+          "Modifier"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "I wrote the Modifier after the closing brace, and it failed.",
+        "terms": [
+          "Modifier"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Put the Modifier right after the `Text`, on the next line. The order matters.",
+        "terms": [
+          "Modifier"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Got it. Each Modifier wraps the View before it.",
+        "terms": [
+          "View",
+          "Modifier"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Exactly. That is why the Body stays short and easy to read.",
+        "terms": [
+          "Body"
+        ]
+      }
+    ],
+    "code": "struct Hello: View {\n    var body: some View {\n        Text(\"Hello\")\n            .font(.title)\n    }\n}",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "View",
+      "lines": [
+        {
+          "text": "Every screen in SwiftUI is a View."
+        }
+      ],
+      "title": "Every screen in SwiftUI is a View. #Shorts",
+      "description": "Every screen in SwiftUI is a View.\n\nView - A piece of the screen that you describe in SwiftUI.\n한국어: 뷰: SwiftUI로 설명하는 화면의 한 조각\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "Body",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Where do I put my content?"
+        },
+        {
+          "speaker": "B",
+          "text": "Inside the Body."
+        }
+      ],
+      "title": "Where do I put my content? / Inside the Body. #Shorts",
+      "description": "Where do I put my content? / Inside the Body.\n\nBody - The property where a SwiftUI struct describes what it shows.\n한국어: 바디: SwiftUI 구조체가 무엇을 보여 줄지 설명하는 프로퍼티\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Modifier",
+      "lines": [
+        {
+          "text": "Add a Modifier to change the font."
+        }
+      ],
+      "title": "Add a Modifier to change the font. #Shorts",
+      "description": "Add a Modifier to change the font.\n\nModifier - A method that changes how something on screen looks and returns a new view.\n한국어: 모디파이어: 화면 요소의 모양을 바꾸고 새 뷰를 돌려주는 메서드\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "How do you build a SwiftUI screen?"
+}

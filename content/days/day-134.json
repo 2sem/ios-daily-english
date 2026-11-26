@@ -1,0 +1,244 @@
+{
+  "day": 134,
+  "phase": "4. SwiftUI",
+  "theme": "3 terms for the most common SwiftUI controls: a picture, an icon with a title and a tap target",
+  "terms": [
+    {
+      "term": "Image",
+      "definition": "A view that shows a picture or an SF Symbol.",
+      "example": "Show the avatar in an Image at the top.",
+      "code": "Image(systemName: \"star.fill\")\n    .foregroundStyle(.yellow)",
+      "output": "// no output"
+    },
+    {
+      "term": "Label",
+      "definition": "A view that shows an icon together with a title.",
+      "example": "Use a Label for the Favorites row.",
+      "code": "Label(\"Favorites\", systemImage: \"star\")",
+      "output": "// no output"
+    },
+    {
+      "term": "Button",
+      "definition": "A view that the user taps to run some code.",
+      "example": "Add a Button that saves the note.",
+      "code": "Button(\"Save\") {\n    print(\"Saved\")\n}",
+      "output": "// no output"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What do you call a view that shows an icon together with a title?",
+      "options": [
+        "Button",
+        "Image",
+        "Label"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "What do you call a view that the user taps to run some code?",
+      "options": [
+        "Image",
+        "Label",
+        "Button"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "What do you call a view that shows a picture or an SF Symbol?",
+      "options": [
+        "Label",
+        "Button",
+        "Image"
+      ],
+      "answer": "c"
+    }
+  ],
+  "video": {
+    "title": "Image, Label & Button | Day 134",
+    "description": "Learn to explain the basic views of a SwiftUI profile screen: Image, Label & Button, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nImage - A view that shows a picture or an SF Symbol.\nLabel - A view that shows an icon together with a title.\nButton - A view that the user taps to run some code.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 134 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "image",
+      "label",
+      "button",
+      "image",
+      "label",
+      "button",
+      "image",
+      "label",
+      "button",
+      "swiftui",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "SwiftUI Image, Label & Button | Day 134",
+      "description": "Explain Image, Label & Button in SwiftUI by listening to a real code chat between two iOS devs.\n이미지, 레이블, 버튼 표현을 영어 대화로 익혀요.\n\nImage - A view that shows a picture or an SF Symbol.\n한국어: 이미지: 사진이나 SF 심볼을 보여 주는 뷰\n\nLabel - A view that shows an icon together with a title.\n한국어: 레이블: 아이콘과 제목을 함께 보여 주는 뷰\n\nButton - A view that the user taps to run some code.\n한국어: 버튼: 사용자가 탭하면 코드를 실행하는 뷰\n\nIn this video, Mina and Jake build a profile screen, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 134 of the iOS Daily English series.\n\n#Swift #SwiftUI #EnglishForDevelopers",
+      "tags": [
+        "Image",
+        "Label",
+        "Button",
+        "image",
+        "label",
+        "button",
+        "SwiftUI",
+        "SwiftUI 기초",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "iOS Daily English"
+      ],
+      "hook": "Can you explain Image, Label and Button in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "The profile screen",
+    "setting": "SwiftUI basic views",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, I need an avatar on the profile screen.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Use an Image. Give it the asset name, like `avatar` in the code.",
+        "terms": [
+          "Image"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Can an Image also show an icon?",
+        "terms": [
+          "Image"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Yes, but for an icon with text, I prefer a Label.",
+        "terms": [
+          "Label"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "What is the difference?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "A Label shows an icon and a title together. An Image shows only the picture.",
+        "terms": [
+          "Image",
+          "Label"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Now I need a Save button.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Use a Button. The first argument is the title, and the closure runs on tap.",
+        "terms": [
+          "Button"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "I tapped the Button, but nothing changed on screen.",
+        "terms": [
+          "Button"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Your closure only prints. Add real code there.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "Can I put a Label inside a Button?",
+        "terms": [
+          "Label",
+          "Button"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Yes. A Button with a Label is a very common pattern. Then the Image stays for photos.",
+        "terms": [
+          "Image",
+          "Label",
+          "Button"
+        ]
+      }
+    ],
+    "code": "Image(\"avatar\")\nLabel(\"Likes\", systemImage: \"heart\")\nButton(\"Save\") { print(\"Saved\") }",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "Image",
+      "lines": [
+        {
+          "text": "Show the photo in an Image."
+        }
+      ],
+      "title": "Show the photo in an Image. #Shorts",
+      "description": "Show the photo in an Image.\n\nImage - A view that shows a picture or an SF Symbol.\n한국어: 이미지: 사진이나 SF 심볼을 보여 주는 뷰\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Label",
+      "lines": [
+        {
+          "text": "A Label shows an icon and a title."
+        }
+      ],
+      "title": "A Label shows an icon and a title. #Shorts",
+      "description": "A Label shows an icon and a title.\n\nLabel - A view that shows an icon together with a title.\n한국어: 레이블: 아이콘과 제목을 함께 보여 주는 뷰\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "Button",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "How do I react to a tap?"
+        },
+        {
+          "speaker": "B",
+          "text": "Use a Button."
+        }
+      ],
+      "title": "How do I react to a tap? / Use a Button. #Shorts",
+      "description": "How do I react to a tap? / Use a Button.\n\nButton - A view that the user taps to run some code.\n한국어: 버튼: 사용자가 탭하면 코드를 실행하는 뷰\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "Which views do you use every day?"
+}

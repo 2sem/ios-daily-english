@@ -1,0 +1,240 @@
+{
+  "day": 139,
+  "phase": "4. SwiftUI",
+  "theme": "3 terms for models in SwiftUI: the screen class, the macro and the wrapper that binds it",
+  "terms": [
+    {
+      "term": "View Model",
+      "definition": "A class that holds the data and the logic for one screen.",
+      "example": "Move the loading code into a View Model.",
+      "code": "@Observable\nclass NoteViewModel {\n    var title = \"\"\n    func clear() { title = \"\" }\n}",
+      "output": "// no output"
+    },
+    {
+      "term": "Observable",
+      "definition": "A macro that makes a class tell SwiftUI when its properties change.",
+      "example": "Mark the class as Observable, so the screen updates.",
+      "code": "@Observable\nclass Counter {\n    var count = 0\n}",
+      "output": "// no output"
+    },
+    {
+      "term": "Bindable",
+      "definition": "A property wrapper that creates bindings to the properties of a model that you pass in.",
+      "example": "Add Bindable to the property, so the text field can edit the title.",
+      "code": "struct Editor: View {\n    @Bindable var note: Note\n    var body: some View {\n        TextField(\"Title\", text: $note.title)\n    }\n}",
+      "output": "// no output"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What do you call the property wrapper that lets you create bindings to the properties of a model that you pass in?",
+      "options": [
+        "Observable",
+        "Bindable",
+        "View Model"
+      ],
+      "answer": "b"
+    },
+    {
+      "question": "What do you call a class that holds the data and the logic for one screen?",
+      "options": [
+        "Bindable",
+        "View Model",
+        "Observable"
+      ],
+      "answer": "b"
+    },
+    {
+      "question": "What do you call the macro that makes a class tell SwiftUI when its properties change?",
+      "options": [
+        "View Model",
+        "Observable",
+        "Bindable"
+      ],
+      "answer": "b"
+    }
+  ],
+  "video": {
+    "title": "View Model, Observable & Bindable | Day 139",
+    "description": "Learn to explain how a SwiftUI screen uses a model class: View Model, Observable & Bindable, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nView Model - A class that holds the data and the logic for one screen.\nObservable - A macro that makes a class tell SwiftUI when its properties change.\nBindable - A property wrapper that creates bindings to the properties of a model that you pass in.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 139 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "view model",
+      "observable",
+      "bindable",
+      "view model",
+      "observable",
+      "bindable",
+      "view model",
+      "observable",
+      "bindable",
+      "swiftui",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "SwiftUI View Model, Observable & Bindable | Day 139",
+      "description": "Explain View Model, Observable & Bindable in SwiftUI by listening to a real code chat between two iOS devs.\n뷰 모델, 옵저버블, 바인더블 표현을 영어 대화로 익혀요.\n\nView Model - A class that holds the data and the logic for one screen.\n한국어: 뷰 모델: 한 화면의 데이터와 로직을 가지고 있는 클래스\n\nObservable - A macro that makes a class tell SwiftUI when its properties change.\n한국어: 옵저버블: 클래스의 프로퍼티가 바뀌면 SwiftUI에 알리게 하는 매크로\n\nBindable - A property wrapper that creates bindings to the properties of a model that you pass in.\n한국어: 바인더블: 전달받은 모델의 프로퍼티에 바인딩을 만들어 주는 프로퍼티 래퍼\n\nIn this video, Mina and Jake move a note into a model class, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 139 of the iOS Daily English series.\n\n#Swift #SwiftUI #EnglishForDevelopers",
+      "tags": [
+        "View Model",
+        "Observable",
+        "Bindable",
+        "view model",
+        "observable",
+        "bindable",
+        "SwiftUI",
+        "SwiftUI 기초",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "iOS Daily English"
+      ],
+      "hook": "Can you explain View Model, Observable and Bindable in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "Move data into a model",
+    "setting": "SwiftUI models",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, I moved my note data into a class named `Note`.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Good. Many teams call that a View Model, a class that holds the data and the logic for a screen.",
+        "terms": [
+          "View Model"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "How does SwiftUI know when `Note` changes?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Mark the class as Observable. Then SwiftUI redraws any view that reads its properties.",
+        "terms": [
+          "Observable"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "I forgot the Observable macro at first, and the screen never updated.",
+        "terms": [
+          "Observable"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Yes, without Observable the View Model is only a plain class.",
+        "terms": [
+          "View Model",
+          "Observable"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Now the text field needs `$note.title`, but I get an error.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Add Bindable to the property. Bindable creates bindings to the properties of an Observable model.",
+        "terms": [
+          "Observable",
+          "Bindable"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "So that is how `$note.title` works.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Right. State is for values the view owns. Bindable is for a model that you pass in.",
+        "terms": [
+          "Bindable"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Should every screen have its own View Model?",
+        "terms": [
+          "View Model"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Not always. Use one when the screen has real logic. Otherwise State is enough.",
+        "terms": []
+      }
+    ],
+    "code": "struct Editor: View {\n    @Bindable var note: Note\n    var body: some View {\n        TextField(\"Title\", text: $note.title)\n    }\n}",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "View Model",
+      "lines": [
+        {
+          "text": "Put the screen logic in a View Model."
+        }
+      ],
+      "title": "Put the screen logic in a View Model. #Shorts",
+      "description": "Put the screen logic in a View Model.\n\nView Model - A class that holds the data and the logic for one screen.\n한국어: 뷰 모델: 한 화면의 데이터와 로직을 가지고 있는 클래스\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Observable",
+      "lines": [
+        {
+          "text": "Mark the class as Observable."
+        }
+      ],
+      "title": "Mark the class as Observable. #Shorts",
+      "description": "Mark the class as Observable.\n\nObservable - A macro that makes a class tell SwiftUI when its properties change.\n한국어: 옵저버블: 클래스의 프로퍼티가 바뀌면 SwiftUI에 알리게 하는 매크로\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "Bindable",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "I cannot use a dollar sign on my model."
+        },
+        {
+          "speaker": "B",
+          "text": "Add Bindable."
+        }
+      ],
+      "title": "I cannot use a dollar sign on my model. / Add Bindable. #Shorts",
+      "description": "I cannot use a dollar sign on my model. / Add Bindable.\n\nBindable - A property wrapper that creates bindings to the properties of a model that you pass in.\n한국어: 바인더블: 전달받은 모델의 프로퍼티에 바인딩을 만들어 주는 프로퍼티 래퍼\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "Where does your screen logic live?"
+}

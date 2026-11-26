@@ -1,0 +1,238 @@
+{
+  "day": 150,
+  "phase": "4. SwiftUI",
+  "theme": "3 terms for reusable SwiftUI code: your own view, the builder attribute and a size reader",
+  "terms": [
+    {
+      "term": "Custom View",
+      "definition": "A struct of your own that conforms to View, so you can reuse it like a built-in view.",
+      "example": "Move the profile header into a Custom View.",
+      "code": "struct Pill: View {\n    var title: String\n    var body: some View {\n        Text(title)\n    }\n}",
+      "output": "// no output"
+    },
+    {
+      "term": "ViewBuilder",
+      "definition": "An attribute that lets a closure return several views without a return keyword.",
+      "example": "Use ViewBuilder, so the card can hold any content.",
+      "code": "struct Box<Content: View>: View {\n    @ViewBuilder var content: Content\n    var body: some View { content }\n}",
+      "output": "// no output"
+    },
+    {
+      "term": "GeometryReader",
+      "definition": "A container that gives its content the size of the space it has.",
+      "example": "Wrap the image in a GeometryReader to read the width.",
+      "code": "GeometryReader { geo in\n    Text(\"\\(Int(geo.size.width))\")\n}",
+      "output": "// no output"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What do you call the attribute that lets a closure return several views without a return keyword?",
+      "options": [
+        "Custom View",
+        "ViewBuilder",
+        "GeometryReader"
+      ],
+      "answer": "b"
+    },
+    {
+      "question": "What do you call a container that gives its content the size of the space it has?",
+      "options": [
+        "ViewBuilder",
+        "GeometryReader",
+        "Custom View"
+      ],
+      "answer": "b"
+    },
+    {
+      "question": "What do you call a struct of your own that conforms to View, so you can reuse it?",
+      "options": [
+        "GeometryReader",
+        "Custom View",
+        "ViewBuilder"
+      ],
+      "answer": "b"
+    }
+  ],
+  "video": {
+    "title": "Custom View, ViewBuilder & GeometryReader | Day 150",
+    "description": "Learn to explain how to build reusable SwiftUI views: Custom View, ViewBuilder & GeometryReader, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nCustom View - A struct of your own that conforms to View, so you can reuse it like a built-in view.\nViewBuilder - An attribute that lets a closure return several views without a return keyword.\nGeometryReader - A container that gives its content the size of the space it has.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 150 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "custom view",
+      "viewbuilder",
+      "geometryreader",
+      "custom view",
+      "viewbuilder",
+      "geometryreader",
+      "custom view",
+      "viewbuilder",
+      "geometryreader",
+      "swiftui",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "SwiftUI Custom View, ViewBuilder & GeometryReader | Day 150",
+      "description": "Explain Custom View, ViewBuilder & GeometryReader in SwiftUI by listening to a real code chat between two iOS devs.\n커스텀 뷰, 뷰빌더, 지오메트리리더 표현을 영어 대화로 익혀요.\n\nCustom View - A struct of your own that conforms to View, so you can reuse it like a built-in view.\n한국어: 커스텀 뷰: View를 따르는 직접 만든 구조체로, 기본 뷰처럼 재사용할 수 있어요\n\nViewBuilder - An attribute that lets a closure return several views without a return keyword.\n한국어: 뷰빌더: 클로저가 return 없이 여러 뷰를 돌려줄 수 있게 하는 어트리뷰트\n\nGeometryReader - A container that gives its content the size of the space it has.\n한국어: 지오메트리리더: 자신이 가진 공간의 크기를 내용물에게 알려 주는 컨테이너\n\nIn this video, Mina and Jake reuse a profile header on three screens, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 150 of the iOS Daily English series.\n\n#Swift #SwiftUI #EnglishForDevelopers",
+      "tags": [
+        "Custom View",
+        "ViewBuilder",
+        "GeometryReader",
+        "custom view",
+        "viewbuilder",
+        "geometryreader",
+        "SwiftUI",
+        "SwiftUI 기초",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "iOS Daily English"
+      ],
+      "hook": "Can you explain Custom View, ViewBuilder and GeometryReader in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "Reuse the header",
+    "setting": "SwiftUI reuse",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, my profile header code is long, and I use it on three screens.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Make it a Custom View. It is your own struct that conforms to View.",
+        "terms": [
+          "Custom View"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Like `Pill` in the code?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Yes. Every Custom View can be reused like a built-in view.",
+        "terms": [
+          "Custom View"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Inside the body I return two views, and Swift does not complain. Why?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Because of ViewBuilder. It lets a closure return several views without `return`.",
+        "terms": [
+          "ViewBuilder"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Is ViewBuilder always active?",
+        "terms": [
+          "ViewBuilder"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "In `body` and in the closures of stacks, yes. In your own functions, you add it yourself.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "I want the second view to know its available size.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Use a GeometryReader. It gives its content the size of the space it has.",
+        "terms": [
+          "GeometryReader"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "I used a GeometryReader around everything, and my layout became strange.",
+        "terms": [
+          "GeometryReader"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "It takes all the space it can get. Use GeometryReader only where you really need the size.",
+        "terms": [
+          "GeometryReader"
+        ]
+      }
+    ],
+    "code": "struct Pill: View {\n    @ViewBuilder var body: some View {\n        Text(\"Hi\")\n        GeometryReader { _ in Text(\"Mina\") }\n    }\n}",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "Custom View",
+      "lines": [
+        {
+          "text": "Move the header into a Custom View."
+        }
+      ],
+      "title": "Move the header into a Custom View. #Shorts",
+      "description": "Move the header into a Custom View.\n\nCustom View - A struct of your own that conforms to View, so you can reuse it like a built-in view.\n한국어: 커스텀 뷰: View를 따르는 직접 만든 구조체로, 기본 뷰처럼 재사용할 수 있어요\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "ViewBuilder",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Why can I return two views?"
+        },
+        {
+          "speaker": "B",
+          "text": "Because of ViewBuilder."
+        }
+      ],
+      "title": "Why can I return two views? / Because of ViewBuilder. #Shorts",
+      "description": "Why can I return two views? / Because of ViewBuilder.\n\nViewBuilder - An attribute that lets a closure return several views without a return keyword.\n한국어: 뷰빌더: 클로저가 return 없이 여러 뷰를 돌려줄 수 있게 하는 어트리뷰트\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "GeometryReader",
+      "lines": [
+        {
+          "text": "A GeometryReader tells you the available size."
+        }
+      ],
+      "title": "A GeometryReader tells you the available size. #Shorts",
+      "description": "A GeometryReader tells you the available size.\n\nGeometryReader - A container that gives its content the size of the space it has.\n한국어: 지오메트리리더: 자신이 가진 공간의 크기를 내용물에게 알려 주는 컨테이너\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "How do you reuse SwiftUI code?"
+}

@@ -1,0 +1,241 @@
+{
+  "day": 147,
+  "phase": "4. SwiftUI",
+  "theme": "3 terms for touch in SwiftUI: a tap, a finger drag and a two-finger zoom",
+  "terms": [
+    {
+      "term": "Tap Gesture",
+      "definition": "A gesture that runs code when the user taps a view.",
+      "example": "Add a Tap Gesture to the photo.",
+      "code": "Text(\"Tap me\")\n    .onTapGesture { print(\"Tapped\") }",
+      "output": "// no output"
+    },
+    {
+      "term": "Drag Gesture",
+      "definition": "A gesture that tracks the finger while it moves across a view.",
+      "example": "Use a Drag Gesture to move the card.",
+      "code": "let drag = DragGesture()\n    .onChanged { v in print(v.translation) }",
+      "output": "// no output"
+    },
+    {
+      "term": "Magnify Gesture",
+      "definition": "A gesture that tracks two fingers moving apart or together, to zoom.",
+      "example": "Use a Magnify Gesture to zoom the photo.",
+      "code": "let zoom = MagnifyGesture()\n    .onChanged { _ in print(\"Zoom\") }",
+      "output": "// no output"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What do you call a gesture that tracks two fingers moving apart or together, to zoom?",
+      "options": [
+        "Tap Gesture",
+        "Drag Gesture",
+        "Magnify Gesture"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "What do you call a gesture that runs code when the user taps a view?",
+      "options": [
+        "Drag Gesture",
+        "Magnify Gesture",
+        "Tap Gesture"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "What do you call a gesture that tracks the finger while it moves across a view?",
+      "options": [
+        "Magnify Gesture",
+        "Tap Gesture",
+        "Drag Gesture"
+      ],
+      "answer": "c"
+    }
+  ],
+  "video": {
+    "title": "Tap Gesture, Drag Gesture & Magnify Gesture | Day 147",
+    "description": "Learn to explain how a SwiftUI view reacts to touch: Tap Gesture, Drag Gesture & Magnify Gesture, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nTap Gesture - A gesture that runs code when the user taps a view.\nDrag Gesture - A gesture that tracks the finger while it moves across a view.\nMagnify Gesture - A gesture that tracks two fingers moving apart or together, to zoom.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 147 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "tap gesture",
+      "drag gesture",
+      "magnify gesture",
+      "tap gesture",
+      "drag gesture",
+      "magnify gesture",
+      "tap gesture",
+      "drag gesture",
+      "magnify gesture",
+      "swiftui",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "SwiftUI Tap Gesture, Drag Gesture & Magnify Gesture | Day 147",
+      "description": "Explain Tap Gesture, Drag Gesture & Magnify Gesture in SwiftUI by listening to a real code chat between two iOS devs.\n탭 제스처, 드래그 제스처, 매그니파이 제스처 표현을 영어 대화로 익혀요.\n\nTap Gesture - A gesture that runs code when the user taps a view.\n한국어: 탭 제스처: 사용자가 뷰를 탭하면 코드를 실행하는 제스처\n\nDrag Gesture - A gesture that tracks the finger while it moves across a view.\n한국어: 드래그 제스처: 손가락이 뷰 위를 움직이는 동안 따라가는 제스처\n\nMagnify Gesture - A gesture that tracks two fingers moving apart or together, to zoom.\n한국어: 매그니파이 제스처: 두 손가락이 벌어지거나 모이는 것을 따라가서 확대하는 제스처\n\nIn this video, Mina and Jake make a photo viewer react to touch, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 147 of the iOS Daily English series.\n\n#Swift #SwiftUI #EnglishForDevelopers",
+      "tags": [
+        "Tap Gesture",
+        "Drag Gesture",
+        "Magnify Gesture",
+        "tap gesture",
+        "drag gesture",
+        "magnify gesture",
+        "SwiftUI",
+        "SwiftUI 기초",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "iOS Daily English"
+      ],
+      "hook": "Can you explain Tap Gesture, Drag Gesture and Magnify Gesture in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "A touch-friendly photo",
+    "setting": "SwiftUI gestures",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, the photo viewer should react to touch.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Start with a Tap Gesture. It runs code when the user taps the view.",
+        "terms": [
+          "Tap Gesture"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "I used a Button first, but the photo is not a button.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Right. Add a Tap Gesture to any view, like `.onTapGesture` in the code.",
+        "terms": [
+          "Tap Gesture"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Can the user move the photo with a finger?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Yes, add a Drag Gesture. It tracks the finger while it moves across the view.",
+        "terms": [
+          "Drag Gesture"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "And I want to zoom with two fingers.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "That is a Magnify Gesture. It tracks two fingers moving apart or together.",
+        "terms": [
+          "Magnify Gesture"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "I added the Drag Gesture and the Magnify Gesture, but only one works.",
+        "terms": [
+          "Drag Gesture",
+          "Magnify Gesture"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Two gestures on one view can compete. Test them one by one, or combine them.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "So the Tap Gesture is the easy one.",
+        "terms": [
+          "Tap Gesture"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Yes. Start with the Tap Gesture, then add a Drag Gesture or a Magnify Gesture.",
+        "terms": [
+          "Tap Gesture",
+          "Drag Gesture",
+          "Magnify Gesture"
+        ]
+      }
+    ],
+    "code": "Text(\"Photo\")\n    .onTapGesture { print(\"Tapped\") }\n    .gesture(DragGesture().onEnded { _ in })\n    .gesture(MagnifyGesture().onEnded { _ in })",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "Tap Gesture",
+      "lines": [
+        {
+          "text": "Add a Tap Gesture to the photo."
+        }
+      ],
+      "title": "Add a Tap Gesture to the photo. #Shorts",
+      "description": "Add a Tap Gesture to the photo.\n\nTap Gesture - A gesture that runs code when the user taps a view.\n한국어: 탭 제스처: 사용자가 뷰를 탭하면 코드를 실행하는 제스처\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "Drag Gesture",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "How do I move the card?"
+        },
+        {
+          "speaker": "B",
+          "text": "Use a Drag Gesture."
+        }
+      ],
+      "title": "How do I move the card? / Use a Drag Gesture. #Shorts",
+      "description": "How do I move the card? / Use a Drag Gesture.\n\nDrag Gesture - A gesture that tracks the finger while it moves across a view.\n한국어: 드래그 제스처: 손가락이 뷰 위를 움직이는 동안 따라가는 제스처\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Magnify Gesture",
+      "lines": [
+        {
+          "text": "Use a Magnify Gesture to zoom."
+        }
+      ],
+      "title": "Use a Magnify Gesture to zoom. #Shorts",
+      "description": "Use a Magnify Gesture to zoom.\n\nMagnify Gesture - A gesture that tracks two fingers moving apart or together, to zoom.\n한국어: 매그니파이 제스처: 두 손가락이 벌어지거나 모이는 것을 따라가서 확대하는 제스처\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "How does a view react to touch?"
+}
