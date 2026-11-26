@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 251
+
+Grand Central Dispatch
+- A system library that runs your work on queues and manages the threads for you.
+- Example: "Grand Central Dispatch manages the threads for us."
+
+Serial Queue
+- A queue that runs one task at a time, in the order the tasks were added.
+- Example: "Use a serial queue to keep the order."
+
+Concurrent Queue
+- A queue that can start several tasks at the same time without waiting for earlier ones.
+- Example: "A concurrent queue is great for heavy work."
+
+
+Quiz ①
+What do you call a queue that can start several tasks at the same time without waiting for earlier ones?
+a) Concurrent Queue
+b) Grand Central Dispatch
+c) Serial Queue
+
+Quiz ②
+What do you call a system library that runs your work on queues and manages the threads for you?
+a) Serial Queue
+b) Grand Central Dispatch
+c) Concurrent Queue
+
+Quiz ③
+What do you call a queue that runs one task at a time, in the order the tasks were added?
+a) Grand Central Dispatch
+b) Concurrent Queue
+c) Serial Queue

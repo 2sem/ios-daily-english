@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 262
+
+Continuation
+- An object that lets old callback code resume a paused `async` function with a result.
+- Example: "A continuation connects old callbacks to new async code."
+
+withCheckedContinuation
+- A function that turns a callback into an `async` call and checks that you resume only once.
+- Example: "Wrap the callback in withCheckedContinuation."
+
+withCheckedThrowingContinuation
+- A function that turns a failing callback into a throwing `async` call.
+- Example: "Use withCheckedThrowingContinuation when the callback can fail."
+
+
+Quiz ①
+What do you call a function that turns a callback into an `async` call and checks that you resume only once?
+a) Continuation
+b) withCheckedThrowingContinuation
+c) withCheckedContinuation
+
+Quiz ②
+What do you call an object that lets old callback code resume a paused `async` function with a result?
+a) withCheckedContinuation
+b) Continuation
+c) withCheckedThrowingContinuation
+
+Quiz ③
+What do you call a function that turns a failing callback into a throwing `async` call?
+a) withCheckedThrowingContinuation
+b) Continuation
+c) withCheckedContinuation

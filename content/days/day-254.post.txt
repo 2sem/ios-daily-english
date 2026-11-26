@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 254
+
+Thread
+- A single path of execution inside a process, where code runs one step at a time.
+- Example: "Each thread runs its own steps in order."
+
+Run Loop
+- A loop that waits for events such as timers and input, then runs the work for each one.
+- Example: "The run loop wakes up when an event arrives."
+
+Dispatch Barrier
+- A task on a concurrent queue that waits for earlier tasks, runs alone, then lets later tasks start.
+- Example: "Wrap every write in a dispatch barrier."
+
+
+Quiz ①
+What do you call a single path of execution inside a process, where code runs one step at a time?
+a) Thread
+b) Run Loop
+c) Dispatch Barrier
+
+Quiz ②
+What do you call a task on a concurrent queue that waits for earlier tasks, runs alone, then lets later tasks start?
+a) Thread
+b) Run Loop
+c) Dispatch Barrier
+
+Quiz ③
+What do you call a loop that waits for events such as timers and input, then runs the work for each one?
+a) Thread
+b) Run Loop
+c) Dispatch Barrier

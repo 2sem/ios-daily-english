@@ -1,0 +1,231 @@
+{
+  "day": 262,
+  "phase": "6. Concurrency",
+  "theme": "Continuations: bridging callbacks to async/await",
+  "terms": [
+    {
+      "term": "Continuation",
+      "definition": "An object that lets old callback code resume a paused `async` function with a result.",
+      "example": "A continuation connects old callbacks to new async code.",
+      "code": "let n = await withCheckedContinuation { c in\n    c.resume(returning: 7)\n}\nprint(n)",
+      "output": "7"
+    },
+    {
+      "term": "withCheckedContinuation",
+      "definition": "A function that turns a callback into an `async` call and checks that you resume only once.",
+      "example": "Wrap the callback in withCheckedContinuation.",
+      "code": "func old(_ f: (String) -> Void) { f(\"cached\") }\nlet s = await withCheckedContinuation { c in\n    old { c.resume(returning: $0) }\n}\nprint(s)",
+      "output": "cached"
+    },
+    {
+      "term": "withCheckedThrowingContinuation",
+      "definition": "A function that turns a failing callback into a throwing `async` call.",
+      "example": "Use withCheckedThrowingContinuation when the callback can fail.",
+      "code": "struct Oops: Error {}\nfunc fail() async throws -> Int {\n    try await withCheckedThrowingContinuation {\n        $0.resume(throwing: Oops()) }\n}\nprint((try? await fail()) ?? -1)",
+      "output": "-1"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What do you call a function that turns a callback into an `async` call and checks that you resume only once?",
+      "options": [
+        "Continuation",
+        "withCheckedThrowingContinuation",
+        "withCheckedContinuation"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "What do you call an object that lets old callback code resume a paused `async` function with a result?",
+      "options": [
+        "withCheckedContinuation",
+        "Continuation",
+        "withCheckedThrowingContinuation"
+      ],
+      "answer": "b"
+    },
+    {
+      "question": "What do you call a function that turns a failing callback into a throwing `async` call?",
+      "options": [
+        "withCheckedThrowingContinuation",
+        "Continuation",
+        "withCheckedContinuation"
+      ],
+      "answer": "a"
+    }
+  ],
+  "video": {
+    "title": "Continuation, withCheckedContinuation & withCheckedThrowingContinuation | Day 262",
+    "description": "Learn to explain how old callback code becomes async code: Continuation, withCheckedContinuation & withCheckedThrowingContinuation, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nContinuation - An object that lets old callback code resume a paused `async` function with a result.\nwithCheckedContinuation - A function that turns a callback into an `async` call and checks that you resume only once.\nwithCheckedThrowingContinuation - A function that turns a failing callback into a throwing `async` call.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 262 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "Continuation",
+      "withCheckedContinuation",
+      "withCheckedThrowingContinuation",
+      "continuation",
+      "withcheckedcontinuation",
+      "withcheckedthrowingcontinuation",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "iOS Continuation, withCheckedContinuation & withCheckedThrowingContinuation | Day 262",
+      "description": "Explain Continuation, withCheckedContinuation & withCheckedThrowingContinuation in iOS by listening to a real code chat between two iOS devs.\nContinuation, withCheckedContinuation, withCheckedThrowingContinuation 표현을 영어 대화로 익혀요.\n\nContinuation - An object that lets old callback code resume a paused `async` function with a result.\n한국어: Continuation: 오래된 콜백 코드가 멈춘 async 함수를 결과와 함께 다시 시작하게 하는 객체\n\nwithCheckedContinuation - A function that turns a callback into an `async` call and checks that you resume only once.\n한국어: withCheckedContinuation: 콜백을 async 호출로 바꾸고 한 번만 재개하는지 검사해 주는 함수\n\nwithCheckedThrowingContinuation - A function that turns a failing callback into a throwing `async` call.\n한국어: withCheckedThrowingContinuation: 실패할 수 있는 콜백을 에러를 던지는 async 호출로 바꿔 주는 함수\n\nIn this video, Mina and Jake talk about turning an old callback function into something you can await, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 262 of the iOS Daily English series.\n\n#Swift #SwiftConcurrency #EnglishForDevelopers",
+      "tags": [
+        "Continuation",
+        "withCheckedContinuation",
+        "withCheckedThrowingContinuation",
+        "Swift concurrency",
+        "iOS 동시성",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "iOS Daily English"
+      ],
+      "hook": "Can you explain Continuation, withCheckedContinuation and withCheckedThrowingContinuation in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "The old callback",
+    "setting": "An old API that still uses a callback",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, I have an old function with a callback. How can I use it with await?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Wrap it in withCheckedContinuation. It turns the callback into an async call.",
+        "terms": [
+          "withCheckedContinuation"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "In your example, what is `c`?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "That is the continuation. A continuation lets the old code resume the paused async function.",
+        "terms": [
+          "Continuation"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "When do I resume it?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Inside the callback, exactly once. withCheckedContinuation warns you if you forget or resume twice.",
+        "terms": [
+          "withCheckedContinuation"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "My old callback can fail with an error, though.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Then use withCheckedThrowingContinuation. With that you can resume with an error.",
+        "terms": [
+          "withCheckedThrowingContinuation"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "And does withCheckedThrowingContinuation need try?",
+        "terms": [
+          "withCheckedThrowingContinuation"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Yes. The error is thrown at the await line, so you can use try and catch.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "Great. A continuation connects old and new code.",
+        "terms": [
+          "Continuation"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Exactly. Do not store a continuation and forget it, because the function waits forever.",
+        "terms": [
+          "Continuation"
+        ]
+      }
+    ],
+    "code": "func old(_ f: (String) -> Void) { f(\"cached\") }\nlet s = await withCheckedContinuation { c in\n    old { c.resume(returning: $0) }\n}\nprint(s)",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "Continuation",
+      "lines": [
+        {
+          "text": "A continuation connects old callbacks to new async code."
+        }
+      ],
+      "title": "A continuation connects old callbacks to new async code. #Shorts",
+      "description": "A continuation connects old callbacks to new async code.\n\nContinuation - An object that lets old callback code resume a paused `async` function with a result.\n한국어: Continuation: 오래된 콜백 코드가 멈춘 async 함수를 결과와 함께 다시 시작하게 하는 객체\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "withCheckedContinuation",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Can I await this callback?"
+        },
+        {
+          "speaker": "B",
+          "text": "Yes, use withCheckedContinuation."
+        }
+      ],
+      "title": "Can I await this callback? / Yes, use withCheckedContinuation. #Shorts",
+      "description": "Can I await this callback? / Yes, use withCheckedContinuation.\n\nwithCheckedContinuation - A function that turns a callback into an `async` call and checks that you resume only once.\n한국어: withCheckedContinuation: 콜백을 async 호출로 바꾸고 한 번만 재개하는지 검사해 주는 함수\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "withCheckedThrowingContinuation",
+      "lines": [
+        {
+          "text": "Use withCheckedThrowingContinuation when the callback can fail."
+        }
+      ],
+      "title": "Use withCheckedThrowingContinuation when the callback can fail. #Shorts",
+      "description": "Use withCheckedThrowingContinuation when the callback can fail.\n\nwithCheckedThrowingContinuation - A function that turns a failing callback into a throwing `async` call.\n한국어: withCheckedThrowingContinuation: 실패할 수 있는 콜백을 에러를 던지는 async 호출로 바꿔 주는 함수\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "Old callback? Make it awaitable."
+}

@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 258
+
+Async Function
+- A function marked `async` that can pause while it waits for a result.
+- Example: "Mark the function as an async function."
+
+Await
+- A keyword that marks where an `async` call may pause until its result is ready.
+- Example: "Add await before the call."
+
+Suspension Point
+- A place in `async` code where the function may pause and let other work run.
+- Example: "Each await is a suspension point."
+
+
+Quiz ①
+What do you call a place in `async` code where the function may pause and let other work run?
+a) Async Function
+b) Suspension Point
+c) Await
+
+Quiz ②
+What do you call a keyword that marks where an `async` call may pause until its result is ready?
+a) Async Function
+b) Suspension Point
+c) Await
+
+Quiz ③
+What do you call a function marked `async` that can pause while it waits for a result?
+a) Async Function
+b) Await
+c) Suspension Point

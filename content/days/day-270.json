@@ -1,0 +1,231 @@
+{
+  "day": 270,
+  "phase": "6. Concurrency",
+  "theme": "Swift 6 migration: language mode, strict concurrency, unchecked Sendable",
+  "terms": [
+    {
+      "term": "Language Mode",
+      "definition": "A setting that picks which Swift version's rules the compiler follows, such as Swift 5 or Swift 6.",
+      "example": "Switch the target to the Swift 6 language mode.",
+      "code": "// swift-tools-version: 6.0\nimport PackageDescription\nlet package = Package(name: \"Kit\",\n    targets: [.target(name: \"Kit\")],\n    swiftLanguageModes: [.v6])",
+      "output": "// no output"
+    },
+    {
+      "term": "Strict Concurrency",
+      "definition": "A compiler setting that checks your code for data races and warns about unsafe sharing.",
+      "example": "Turn on strict concurrency to find data races.",
+      "code": "// swift-tools-version: 6.0\nimport PackageDescription\nlet package = Package(name: \"Kit\", targets: [\n    .target(name: \"Kit\", swiftSettings: [\n        .enableUpcomingFeature(\n            \"StrictConcurrency\")])])",
+      "output": "// no output"
+    },
+    {
+      "term": "Unchecked Sendable",
+      "definition": "A promise to the compiler that a type is safe to share, even though the compiler cannot check it.",
+      "example": "Use unchecked Sendable only when a lock protects the data.",
+      "code": "import Foundation\nfinal class Cache: @unchecked Sendable {\n    let lock = NSLock(); var items = [\"a\"]\n}\nlet c = Cache()\nc.lock.withLock { print(c.items) }",
+      "output": "[\"a\"]"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What do you call a compiler setting that checks your code for data races and warns about unsafe sharing?",
+      "options": [
+        "Language Mode",
+        "Strict Concurrency",
+        "Unchecked Sendable"
+      ],
+      "answer": "b"
+    },
+    {
+      "question": "What do you call a promise to the compiler that a type is safe to share, even though the compiler cannot check it?",
+      "options": [
+        "Language Mode",
+        "Strict Concurrency",
+        "Unchecked Sendable"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "What do you call a setting that picks which Swift version's rules the compiler follows, such as Swift 5 or Swift 6?",
+      "options": [
+        "Language Mode",
+        "Strict Concurrency",
+        "Unchecked Sendable"
+      ],
+      "answer": "a"
+    }
+  ],
+  "video": {
+    "title": "Language Mode, Strict Concurrency & Unchecked Sendable | Day 270",
+    "description": "Learn to explain how to move a project step by step to Swift 6 concurrency checking: Language Mode, Strict Concurrency & Unchecked Sendable, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nLanguage Mode - A setting that picks which Swift version's rules the compiler follows, such as Swift 5 or Swift 6.\nStrict Concurrency - A compiler setting that checks your code for data races and warns about unsafe sharing.\nUnchecked Sendable - A promise to the compiler that a type is safe to share, even though the compiler cannot check it.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 270 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "Language Mode",
+      "Strict Concurrency",
+      "Unchecked Sendable",
+      "language mode",
+      "strict concurrency",
+      "unchecked sendable",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "iOS Language Mode, Strict Concurrency & Unchecked Sendable | Day 270",
+      "description": "Explain Language Mode, Strict Concurrency & Unchecked Sendable in iOS by listening to a real code chat between two iOS devs.\nLanguage Mode, Strict Concurrency, Unchecked Sendable 표현을 영어 대화로 익혀요.\n\nLanguage Mode - A setting that picks which Swift version's rules the compiler follows, such as Swift 5 or Swift 6.\n한국어: Language Mode: 컴파일러가 따를 Swift 버전 규칙(Swift 5 또는 6 등)을 고르는 설정\n\nStrict Concurrency - A compiler setting that checks your code for data races and warns about unsafe sharing.\n한국어: Strict Concurrency: 데이터 레이스를 검사하고 안전하지 않은 공유에 경고하는 컴파일러 설정\n\nUnchecked Sendable - A promise to the compiler that a type is safe to share, even though the compiler cannot check it.\n한국어: Unchecked Sendable: 컴파일러가 검사할 수 없어도 타입이 공유에 안전하다고 컴파일러에게 하는 약속\n\nIn this video, Mina and Jake talk about fifty errors after switching to Swift 6 and how to fix them step by step, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 270 of the iOS Daily English series.\n\n#Swift #SwiftConcurrency #EnglishForDevelopers",
+      "tags": [
+        "Language Mode",
+        "Strict Concurrency",
+        "Unchecked Sendable",
+        "Swift concurrency",
+        "iOS 동시성",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "iOS Daily English"
+      ],
+      "hook": "Can you explain Language Mode, Strict Concurrency and Unchecked Sendable in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "Fifty errors in Swift 6",
+    "setting": "A project that just switched to Swift 6",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, I switched our app to the Swift 6 language mode, and now I see fifty errors.",
+        "terms": [
+          "Language Mode"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "A language mode picks which Swift version's rules the compiler follows. Swift 6 mode is much stricter.",
+        "terms": [
+          "Language Mode"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Can I turn on the checks step by step?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Yes. Strict concurrency is a compiler setting that checks for data races. You can enable it first as warnings.",
+        "terms": [
+          "Strict Concurrency"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Good. One error says `Cache` is not Sendable.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Because it has a changing property. Is anything protecting `items`?",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "No. But all the tasks run one after another, I think.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Do not guess. Add a lock, and then mark the class as unchecked Sendable.",
+        "terms": [
+          "Unchecked Sendable"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "What does unchecked Sendable mean?",
+        "terms": [
+          "Unchecked Sendable"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "It is a promise to the compiler that the type is safe to share, even though the compiler cannot check it.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "That sounds dangerous.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "It is, so use unchecked Sendable rarely, and keep the language mode and strict concurrency settings on.",
+        "terms": [
+          "Language Mode",
+          "Strict Concurrency",
+          "Unchecked Sendable"
+        ]
+      }
+    ],
+    "code": "import Foundation\nfinal class Cache: @unchecked Sendable {\n    var items = [String]()\n}\nlet cache = Cache()\nTask { cache.items.append(\"a\") }",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "Language Mode",
+      "lines": [
+        {
+          "text": "Switch the target to the Swift 6 language mode."
+        }
+      ],
+      "title": "Switch the target to the Swift 6 language mode. #Shorts",
+      "description": "Switch the target to the Swift 6 language mode.\n\nLanguage Mode - A setting that picks which Swift version's rules the compiler follows, such as Swift 5 or Swift 6.\n한국어: Language Mode: 컴파일러가 따를 Swift 버전 규칙(Swift 5 또는 6 등)을 고르는 설정\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "Strict Concurrency",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Can I turn on checks slowly?"
+        },
+        {
+          "speaker": "B",
+          "text": "Yes, use strict concurrency first."
+        }
+      ],
+      "title": "Can I turn on checks slowly? / Yes, use strict concurrency first. #Shorts",
+      "description": "Can I turn on checks slowly? / Yes, use strict concurrency first.\n\nStrict Concurrency - A compiler setting that checks your code for data races and warns about unsafe sharing.\n한국어: Strict Concurrency: 데이터 레이스를 검사하고 안전하지 않은 공유에 경고하는 컴파일러 설정\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Unchecked Sendable",
+      "lines": [
+        {
+          "text": "Use unchecked Sendable only when a lock protects the data."
+        }
+      ],
+      "title": "Use unchecked Sendable only when a lock protects the data. #Shorts",
+      "description": "Use unchecked Sendable only when a lock protects the data.\n\nUnchecked Sendable - A promise to the compiler that a type is safe to share, even though the compiler cannot check it.\n한국어: Unchecked Sendable: 컴파일러가 검사할 수 없어도 타입이 공유에 안전하다고 컴파일러에게 하는 약속\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "Swift 6 errors? Go step by step."
+}

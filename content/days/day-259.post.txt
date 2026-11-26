@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 259
+
+Task
+- A unit of `async` work that runs on its own and can be awaited for its result.
+- Example: "Create a Task to start the async work."
+
+Executor
+- An object that decides where and when a task's code runs, such as a queue or a thread.
+- Example: "An executor decides where the code runs."
+
+Cooperative Thread Pool
+- A small, fixed group of threads that Swift shares among all `async` work.
+- Example: "The cooperative thread pool never grows too big."
+
+
+Quiz ①
+What do you call a unit of `async` work that runs on its own and can be awaited for its result?
+a) Executor
+b) Cooperative Thread Pool
+c) Task
+
+Quiz ②
+What do you call a small, fixed group of threads that Swift shares among all `async` work?
+a) Cooperative Thread Pool
+b) Task
+c) Executor
+
+Quiz ③
+What do you call an object that decides where and when a task's code runs, such as a queue or a thread?
+a) Task
+b) Executor
+c) Cooperative Thread Pool

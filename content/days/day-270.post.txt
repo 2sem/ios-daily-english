@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 270
+
+Language Mode
+- A setting that picks which Swift version's rules the compiler follows, such as Swift 5 or Swift 6.
+- Example: "Switch the target to the Swift 6 language mode."
+
+Strict Concurrency
+- A compiler setting that checks your code for data races and warns about unsafe sharing.
+- Example: "Turn on strict concurrency to find data races."
+
+Unchecked Sendable
+- A promise to the compiler that a type is safe to share, even though the compiler cannot check it.
+- Example: "Use unchecked Sendable only when a lock protects the data."
+
+
+Quiz ①
+What do you call a compiler setting that checks your code for data races and warns about unsafe sharing?
+a) Language Mode
+b) Strict Concurrency
+c) Unchecked Sendable
+
+Quiz ②
+What do you call a promise to the compiler that a type is safe to share, even though the compiler cannot check it?
+a) Language Mode
+b) Strict Concurrency
+c) Unchecked Sendable
+
+Quiz ③
+What do you call a setting that picks which Swift version's rules the compiler follows, such as Swift 5 or Swift 6?
+a) Language Mode
+b) Strict Concurrency
+c) Unchecked Sendable

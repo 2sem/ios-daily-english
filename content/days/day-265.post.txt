@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 265
+
+MainActor
+- A special actor that runs its code on the main thread, where UI work belongs.
+- Example: "Mark the view model with MainActor."
+
+Nonisolated
+- A keyword that lets an actor's member run without isolation, so callers do not need `await`.
+- Example: "Make the label property nonisolated."
+
+Global Actor
+- An actor that you can attach to many types and functions, so all of them run in one shared place.
+- Example: "A global actor can protect code across many files."
+
+
+Quiz ①
+What do you call a keyword that lets an actor's member run without isolation, so callers do not need `await`?
+a) MainActor
+b) Global Actor
+c) Nonisolated
+
+Quiz ②
+What do you call an actor that you can attach to many types and functions, so all of them run in one shared place?
+a) Global Actor
+b) MainActor
+c) Nonisolated
+
+Quiz ③
+What do you call a special actor that runs its code on the main thread, where UI work belongs?
+a) Nonisolated
+b) MainActor
+c) Global Actor

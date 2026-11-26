@@ -1,0 +1,230 @@
+{
+  "day": 255,
+  "phase": "6. Concurrency",
+  "theme": "Race conditions, deadlocks and thread safety",
+  "terms": [
+    {
+      "term": "Race Condition",
+      "definition": "A bug where the result changes because two threads use the same data at the same time.",
+      "example": "A race condition made the counter wrong.",
+      "code": "var balance = 100\nlet readA = balance  // thread A reads 100\nlet readB = balance  // thread B reads 100\nbalance = readA + 50; balance = readB + 20\nprint(balance)",
+      "output": "120"
+    },
+    {
+      "term": "Thread Safety",
+      "definition": "A property of code that many threads can use at once without breaking its data.",
+      "example": "Thread safety protects the shared counter.",
+      "code": "import Foundation\nlet q = DispatchQueue(label: \"safe\")\nvar count = 0\nfor _ in 1...100 { q.async { count += 1 } }\nq.sync { print(count) }",
+      "output": "100"
+    },
+    {
+      "term": "Deadlock",
+      "definition": "A freeze where tasks wait for each other forever, so none of them can continue.",
+      "example": "A deadlock froze the whole app.",
+      "code": "import Foundation\nlet gate = DispatchSemaphore(value: 0)\n// nobody ever calls gate.signal()\nlet r = gate.wait(timeout: .now() + 0.1)\nprint(r == .timedOut ? \"stuck\" : \"free\")",
+      "output": "stuck"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What do you call a property of code that many threads can use at once without breaking its data?",
+      "options": [
+        "Race Condition",
+        "Thread Safety",
+        "Deadlock"
+      ],
+      "answer": "b"
+    },
+    {
+      "question": "What do you call a freeze where tasks wait for each other forever, so none of them can continue?",
+      "options": [
+        "Deadlock",
+        "Race Condition",
+        "Thread Safety"
+      ],
+      "answer": "a"
+    },
+    {
+      "question": "What do you call a bug where the result changes because two threads use the same data at the same time?",
+      "options": [
+        "Thread Safety",
+        "Deadlock",
+        "Race Condition"
+      ],
+      "answer": "c"
+    }
+  ],
+  "video": {
+    "title": "Race Condition, Thread Safety & Deadlock | Day 255",
+    "description": "Learn to explain why concurrent code gives wrong or frozen results: Race Condition, Thread Safety & Deadlock, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nRace Condition - A bug where the result changes because two threads use the same data at the same time.\nThread Safety - A property of code that many threads can use at once without breaking its data.\nDeadlock - A freeze where tasks wait for each other forever, so none of them can continue.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 255 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "Race Condition",
+      "Thread Safety",
+      "Deadlock",
+      "race condition",
+      "thread safety",
+      "deadlock",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "iOS Race Condition, Thread Safety & Deadlock | Day 255",
+      "description": "Explain Race Condition, Thread Safety & Deadlock in iOS by listening to a real code chat between two iOS devs.\nRace Condition, Thread Safety, Deadlock 표현을 영어 대화로 익혀요.\n\nRace Condition - A bug where the result changes because two threads use the same data at the same time.\n한국어: Race Condition: 두 스레드가 같은 데이터를 동시에 써서 결과가 달라지는 버그\n\nThread Safety - A property of code that many threads can use at once without breaking its data.\n한국어: Thread Safety: 여러 스레드가 동시에 써도 데이터가 망가지지 않는 코드의 성질\n\nDeadlock - A freeze where tasks wait for each other forever, so none of them can continue.\n한국어: Deadlock: 작업들이 서로를 영원히 기다려 아무도 진행하지 못하는 멈춤 상태\n\nIn this video, Mina and Jake talk about a like counter that shows different numbers each time, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 255 of the iOS Daily English series.\n\n#Swift #SwiftConcurrency #EnglishForDevelopers",
+      "tags": [
+        "Race Condition",
+        "Thread Safety",
+        "Deadlock",
+        "Swift concurrency",
+        "iOS 동시성",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "iOS Daily English"
+      ],
+      "hook": "Can you explain Race Condition, Thread Safety and Deadlock in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "The wrong counter",
+    "setting": "A like counter with a wrong total",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, my `likes` counter shows 41 sometimes, and 42 other times.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "That sounds like a race condition. Two threads change `likes` at the same time.",
+        "terms": [
+          "Race Condition"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "But each one only adds one.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Each thread reads the old number first, so one update gets lost. That is a race condition.",
+        "terms": [
+          "Race Condition"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "How do I fix it?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Make the counter safe. Thread safety means many threads can use it without breaking the data.",
+        "terms": [
+          "Thread Safety"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "I will use a lock, then.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Careful! If two tasks hold locks and wait for each other, you get a deadlock.",
+        "terms": [
+          "Deadlock"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "What is a deadlock exactly?",
+        "terms": [
+          "Deadlock"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "A freeze. Every task waits for another one, so nobody can continue.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "Okay. I want thread safety without a deadlock.",
+        "terms": [
+          "Thread Safety",
+          "Deadlock"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Then keep the lock short and simple.",
+        "terms": []
+      }
+    ],
+    "code": "import Foundation\nvar likes = 0\nlet q = DispatchQueue.global()\nq.async { likes += 1 }\nq.async { likes += 1 }",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "Race Condition",
+      "lines": [
+        {
+          "text": "A race condition made the counter wrong."
+        }
+      ],
+      "title": "A race condition made the counter wrong. #Shorts",
+      "description": "A race condition made the counter wrong.\n\nRace Condition - A bug where the result changes because two threads use the same data at the same time.\n한국어: Race Condition: 두 스레드가 같은 데이터를 동시에 써서 결과가 달라지는 버그\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "Thread Safety",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Is this counter ready for many threads?"
+        },
+        {
+          "speaker": "B",
+          "text": "Not without thread safety."
+        }
+      ],
+      "title": "Is this counter ready for many threads? / Not without thread safety. #Shorts",
+      "description": "Is this counter ready for many threads? / Not without thread safety.\n\nThread Safety - A property of code that many threads can use at once without breaking its data.\n한국어: Thread Safety: 여러 스레드가 동시에 써도 데이터가 망가지지 않는 코드의 성질\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Deadlock",
+      "lines": [
+        {
+          "text": "A deadlock froze the whole app."
+        }
+      ],
+      "title": "A deadlock froze the whole app. #Shorts",
+      "description": "A deadlock froze the whole app.\n\nDeadlock - A freeze where tasks wait for each other forever, so none of them can continue.\n한국어: Deadlock: 작업들이 서로를 영원히 기다려 아무도 진행하지 못하는 멈춤 상태\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "41 or 42? That is a race condition."
+}

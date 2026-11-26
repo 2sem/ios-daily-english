@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 269
+
+Actor Hop
+- A switch of a task from one actor's executor to another when it awaits a call on that actor.
+- Example: "Each actor hop costs a little time."
+
+Isolated Parameter
+- A function parameter marked `isolated`, so the function runs inside that actor's isolation.
+- Example: "Make it an isolated parameter to skip the await."
+
+Sending Parameter
+- A parameter marked `sending`, which hands the value over so the caller cannot use it afterward.
+- Example: "Pass a new object through a sending parameter."
+
+
+Quiz ①
+What do you call a switch of a task from one actor's executor to another when it awaits a call on that actor?
+a) Actor Hop
+b) Isolated Parameter
+c) Sending Parameter
+
+Quiz ②
+What do you call a parameter marked `sending`, which hands the value over so the caller cannot use it afterward?
+a) Actor Hop
+b) Sending Parameter
+c) Isolated Parameter
+
+Quiz ③
+What do you call a function parameter marked `isolated`, so the function runs inside that actor's isolation?
+a) Actor Hop
+b) Sending Parameter
+c) Isolated Parameter

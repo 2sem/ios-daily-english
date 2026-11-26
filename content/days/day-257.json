@@ -1,0 +1,223 @@
+{
+  "day": 257,
+  "phase": "6. Concurrency",
+  "theme": "OperationQueue: block operations and dependencies",
+  "terms": [
+    {
+      "term": "Block Operation",
+      "definition": "A ready-made operation that runs one or more blocks of code when it starts.",
+      "example": "Wrap the work in a block operation.",
+      "code": "import Foundation\nlet op = BlockOperation { print(\"hello\") }\nop.start()\nprint(op.isFinished)",
+      "output": "hello\ntrue"
+    },
+    {
+      "term": "Operation Queue",
+      "definition": "A queue that runs operation objects and lets you set how many run at once.",
+      "example": "Add the work to the operation queue.",
+      "code": "import Foundation\nlet queue = OperationQueue()\nqueue.maxConcurrentOperationCount = 1\nqueue.addOperation { print(\"first\") }\nqueue.addOperation { print(\"second\") }\nqueue.waitUntilAllOperationsAreFinished()",
+      "output": "first\nsecond"
+    },
+    {
+      "term": "Operation Dependency",
+      "definition": "A rule that makes one operation wait until another operation has finished.",
+      "example": "An operation dependency keeps the right order.",
+      "code": "import Foundation\nlet a = BlockOperation { print(\"download\") }\nlet b = BlockOperation { print(\"show\") }\nb.addDependency(a)\nlet q = OperationQueue()\nq.addOperations([b, a], waitUntilFinished: true)",
+      "output": "download\nshow"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What do you call a queue that runs operation objects and lets you set how many run at once?",
+      "options": [
+        "Operation Queue",
+        "Block Operation",
+        "Operation Dependency"
+      ],
+      "answer": "a"
+    },
+    {
+      "question": "What do you call a ready-made operation that runs one or more blocks of code when it starts?",
+      "options": [
+        "Operation Queue",
+        "Block Operation",
+        "Operation Dependency"
+      ],
+      "answer": "b"
+    },
+    {
+      "question": "What do you call a rule that makes one operation wait until another operation has finished?",
+      "options": [
+        "Block Operation",
+        "Operation Queue",
+        "Operation Dependency"
+      ],
+      "answer": "c"
+    }
+  ],
+  "video": {
+    "title": "Block Operation, Operation Queue & Operation Dependency | Day 257",
+    "description": "Learn to explain how to order and limit work with operations: Block Operation, Operation Queue & Operation Dependency, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nBlock Operation - A ready-made operation that runs one or more blocks of code when it starts.\nOperation Queue - A queue that runs operation objects and lets you set how many run at once.\nOperation Dependency - A rule that makes one operation wait until another operation has finished.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 257 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "Block Operation",
+      "Operation Queue",
+      "Operation Dependency",
+      "block operation",
+      "operation queue",
+      "operation dependency",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "iOS Block Operation, Operation Queue & Operation Dependency | Day 257",
+      "description": "Explain Block Operation, Operation Queue & Operation Dependency in iOS by listening to a real code chat between two iOS devs.\nBlock Operation, Operation Queue, Operation Dependency 표현을 영어 대화로 익혀요.\n\nBlock Operation - A ready-made operation that runs one or more blocks of code when it starts.\n한국어: Block Operation: 시작될 때 하나 이상의 코드 블록을 실행하는 기성 오퍼레이션\n\nOperation Queue - A queue that runs operation objects and lets you set how many run at once.\n한국어: Operation Queue: 오퍼레이션 객체를 실행하고 동시에 몇 개를 실행할지 정할 수 있는 큐\n\nOperation Dependency - A rule that makes one operation wait until another operation has finished.\n한국어: Operation Dependency: 한 오퍼레이션이 다른 오퍼레이션이 끝날 때까지 기다리게 하는 규칙\n\nIn this video, Mina and Jake talk about downloading a file and then showing it in the right order, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 257 of the iOS Daily English series.\n\n#Swift #SwiftConcurrency #EnglishForDevelopers",
+      "tags": [
+        "Block Operation",
+        "Operation Queue",
+        "Operation Dependency",
+        "Swift concurrency",
+        "iOS 동시성",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "iOS Daily English"
+      ],
+      "hook": "Can you explain Block Operation, Operation Queue and Operation Dependency in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "Download, then show",
+    "setting": "Work that must run in a fixed order",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, I need to download a file and then show it on screen. How do I order the work?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Use an operation queue. An operation queue runs operation objects and can limit how many run at once.",
+        "terms": [
+          "Operation Queue"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "What goes into the queue?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "A block operation is the easiest one. It runs a block of code when it starts, like `get` in your code.",
+        "terms": [
+          "Block Operation"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "And what makes `show` wait for `get`?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "An operation dependency. It makes one operation wait until another has finished.",
+        "terms": [
+          "Operation Dependency"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "I added `show.addDependency(get)`, but nothing runs.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "You never added the operations to the queue. A block operation does not start by itself there.",
+        "terms": [
+          "Block Operation"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Oh no, my mistake. I only set `maxConcurrentOperationCount`.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Add both to the operation queue, and the operation dependency does the rest.",
+        "terms": [
+          "Operation Queue",
+          "Operation Dependency"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "It works! First get, then show.",
+        "terms": []
+      }
+    ],
+    "code": "import Foundation\nlet queue = OperationQueue()\nqueue.maxConcurrentOperationCount = 1\nlet get = BlockOperation { print(\"get\") }\nlet show = BlockOperation { print(\"show\") }\nshow.addDependency(get)",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "Block Operation",
+      "lines": [
+        {
+          "text": "Wrap the work in a block operation."
+        }
+      ],
+      "title": "Wrap the work in a block operation. #Shorts",
+      "description": "Wrap the work in a block operation.\n\nBlock Operation - A ready-made operation that runs one or more blocks of code when it starts.\n한국어: Block Operation: 시작될 때 하나 이상의 코드 블록을 실행하는 기성 오퍼레이션\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "Operation Queue",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Where do I add the operations?"
+        },
+        {
+          "speaker": "B",
+          "text": "Add them to the operation queue."
+        }
+      ],
+      "title": "Where do I add the operations? / Add them to the operation queue. #Shorts",
+      "description": "Where do I add the operations? / Add them to the operation queue.\n\nOperation Queue - A queue that runs operation objects and lets you set how many run at once.\n한국어: Operation Queue: 오퍼레이션 객체를 실행하고 동시에 몇 개를 실행할지 정할 수 있는 큐\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Operation Dependency",
+      "lines": [
+        {
+          "text": "An operation dependency keeps the right order."
+        }
+      ],
+      "title": "An operation dependency keeps the right order. #Shorts",
+      "description": "An operation dependency keeps the right order.\n\nOperation Dependency - A rule that makes one operation wait until another operation has finished.\n한국어: Operation Dependency: 한 오퍼레이션이 다른 오퍼레이션이 끝날 때까지 기다리게 하는 규칙\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "Download first, then show. Use a dependency."
+}

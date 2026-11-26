@@ -1,0 +1,231 @@
+{
+  "day": 269,
+  "phase": "6. Concurrency",
+  "theme": "Actor hops, isolated parameters and sending parameters",
+  "terms": [
+    {
+      "term": "Actor Hop",
+      "definition": "A switch of a task from one actor's executor to another when it awaits a call on that actor.",
+      "example": "Each actor hop costs a little time.",
+      "code": "actor Cache { func get() -> Int { 1 } }\n@MainActor func show() async {\n    let v = await Cache().get()  // actor hop\n    print(v)\n}\nawait show()",
+      "output": "1"
+    },
+    {
+      "term": "Isolated Parameter",
+      "definition": "A function parameter marked `isolated`, so the function runs inside that actor's isolation.",
+      "example": "Make it an isolated parameter to skip the await.",
+      "code": "actor Counter { var n = 0 }\nfunc bump(_ c: isolated Counter) { c.n += 1 }\nlet c = Counter()\nawait bump(c)\nprint(await c.n)",
+      "output": "1"
+    },
+    {
+      "term": "Sending Parameter",
+      "definition": "A parameter marked `sending`, which hands the value over so the caller cannot use it afterward.",
+      "example": "Pass a new object through a sending parameter.",
+      "code": "class Note { var text = \"hi\" }\nactor Inbox {\n    func take(_ n: sending Note) {\n        print(n.text) }\n}\nawait Inbox().take(Note())",
+      "output": "hi"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What do you call a switch of a task from one actor's executor to another when it awaits a call on that actor?",
+      "options": [
+        "Actor Hop",
+        "Isolated Parameter",
+        "Sending Parameter"
+      ],
+      "answer": "a"
+    },
+    {
+      "question": "What do you call a parameter marked `sending`, which hands the value over so the caller cannot use it afterward?",
+      "options": [
+        "Actor Hop",
+        "Sending Parameter",
+        "Isolated Parameter"
+      ],
+      "answer": "b"
+    },
+    {
+      "question": "What do you call a function parameter marked `isolated`, so the function runs inside that actor's isolation?",
+      "options": [
+        "Actor Hop",
+        "Sending Parameter",
+        "Isolated Parameter"
+      ],
+      "answer": "c"
+    }
+  ],
+  "video": {
+    "title": "Actor Hop, Isolated Parameter & Sending Parameter | Day 269",
+    "description": "Learn to explain how to reduce actor hops and hand values to actors safely: Actor Hop, Isolated Parameter & Sending Parameter, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nActor Hop - A switch of a task from one actor's executor to another when it awaits a call on that actor.\nIsolated Parameter - A function parameter marked `isolated`, so the function runs inside that actor's isolation.\nSending Parameter - A parameter marked `sending`, which hands the value over so the caller cannot use it afterward.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 269 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "Actor Hop",
+      "Isolated Parameter",
+      "Sending Parameter",
+      "actor hop",
+      "isolated parameter",
+      "sending parameter",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "iOS Actor Hop, Isolated Parameter & Sending Parameter | Day 269",
+      "description": "Explain Actor Hop, Isolated Parameter & Sending Parameter in iOS by listening to a real code chat between two iOS devs.\nActor Hop, Isolated Parameter, Sending Parameter 표현을 영어 대화로 익혀요.\n\nActor Hop - A switch of a task from one actor's executor to another when it awaits a call on that actor.\n한국어: Actor Hop: 다른 액터의 호출을 await할 때 태스크가 한 액터의 실행기에서 다른 곳으로 옮겨 가는 것\n\nIsolated Parameter - A function parameter marked `isolated`, so the function runs inside that actor's isolation.\n한국어: Isolated Parameter: isolated로 표시되어 함수가 그 액터의 격리 안에서 실행되게 하는 매개변수\n\nSending Parameter - A parameter marked `sending`, which hands the value over so the caller cannot use it afterward.\n한국어: Sending Parameter: sending으로 표시되어 값을 넘기고 호출한 쪽은 그 뒤에 쓸 수 없게 하는 매개변수\n\nIn this video, Mina and Jake talk about too many awaits on an actor and how to pass a class safely, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 269 of the iOS Daily English series.\n\n#Swift #SwiftConcurrency #EnglishForDevelopers",
+      "tags": [
+        "Actor Hop",
+        "Isolated Parameter",
+        "Sending Parameter",
+        "Swift concurrency",
+        "iOS 동시성",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "iOS Daily English"
+      ],
+      "hook": "Can you explain Actor Hop, Isolated Parameter and Sending Parameter in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "Too many hops",
+    "setting": "A loop with many awaits on one actor",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, my loop changes `c.n` with ten separate await calls, and it feels slow.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Each await call is an actor hop. An actor hop switches the task to the actor's executor.",
+        "terms": [
+          "Actor Hop"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Can I avoid the hops?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Use an isolated parameter, like in `bump`. An isolated parameter runs the whole function inside the actor.",
+        "terms": [
+          "Isolated Parameter"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "So with an isolated parameter I do not need await inside `bump`?",
+        "terms": [
+          "Isolated Parameter"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Right. You pay for one actor hop at the call, and then the loop is free.",
+        "terms": [
+          "Actor Hop"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Nice. What about passing a class into an actor?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "A class is not safe to share, so use a sending parameter.",
+        "terms": [
+          "Sending Parameter"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "What does a sending parameter do?",
+        "terms": [
+          "Sending Parameter"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "It hands the value over to the actor. After that the caller cannot use it again.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "That prevents two places from changing the same object.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Exactly. The compiler checks every sending parameter for you.",
+        "terms": [
+          "Sending Parameter"
+        ]
+      }
+    ],
+    "code": "actor Counter { var n = 0 }\nfunc bump(_ c: isolated Counter) {\n    c.n += 1\n}\nlet c = Counter()\nawait bump(c)",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "Actor Hop",
+      "lines": [
+        {
+          "text": "Each actor hop costs a little time."
+        }
+      ],
+      "title": "Each actor hop costs a little time. #Shorts",
+      "description": "Each actor hop costs a little time.\n\nActor Hop - A switch of a task from one actor's executor to another when it awaits a call on that actor.\n한국어: Actor Hop: 다른 액터의 호출을 await할 때 태스크가 한 액터의 실행기에서 다른 곳으로 옮겨 가는 것\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "Isolated Parameter",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "How do I avoid many awaits?"
+        },
+        {
+          "speaker": "B",
+          "text": "Use an isolated parameter."
+        }
+      ],
+      "title": "How do I avoid many awaits? / Use an isolated parameter. #Shorts",
+      "description": "How do I avoid many awaits? / Use an isolated parameter.\n\nIsolated Parameter - A function parameter marked `isolated`, so the function runs inside that actor's isolation.\n한국어: Isolated Parameter: isolated로 표시되어 함수가 그 액터의 격리 안에서 실행되게 하는 매개변수\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Sending Parameter",
+      "lines": [
+        {
+          "text": "Pass a new object through a sending parameter."
+        }
+      ],
+      "title": "Pass a new object through a sending parameter. #Shorts",
+      "description": "Pass a new object through a sending parameter.\n\nSending Parameter - A parameter marked `sending`, which hands the value over so the caller cannot use it afterward.\n한국어: Sending Parameter: sending으로 표시되어 값을 넘기고 호출한 쪽은 그 뒤에 쓸 수 없게 하는 매개변수\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "Ten awaits? Try an isolated parameter."
+}

@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 257
+
+Block Operation
+- A ready-made operation that runs one or more blocks of code when it starts.
+- Example: "Wrap the work in a block operation."
+
+Operation Queue
+- A queue that runs operation objects and lets you set how many run at once.
+- Example: "Add the work to the operation queue."
+
+Operation Dependency
+- A rule that makes one operation wait until another operation has finished.
+- Example: "An operation dependency keeps the right order."
+
+
+Quiz ①
+What do you call a queue that runs operation objects and lets you set how many run at once?
+a) Operation Queue
+b) Block Operation
+c) Operation Dependency
+
+Quiz ②
+What do you call a ready-made operation that runs one or more blocks of code when it starts?
+a) Operation Queue
+b) Block Operation
+c) Operation Dependency
+
+Quiz ③
+What do you call a rule that makes one operation wait until another operation has finished?
+a) Block Operation
+b) Operation Queue
+c) Operation Dependency

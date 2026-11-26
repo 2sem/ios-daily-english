@@ -1,0 +1,223 @@
+{
+  "day": 253,
+  "phase": "6. Concurrency",
+  "theme": "Dispatch groups, work items and semaphores",
+  "terms": [
+    {
+      "term": "Dispatch Work Item",
+      "definition": "A block of work packed in an object that you can run, wait for or cancel later.",
+      "example": "Cancel the dispatch work item before it starts.",
+      "code": "import Foundation\nlet item = DispatchWorkItem { print(\"run\") }\nitem.cancel()\nitem.perform()\nprint(item.isCancelled)",
+      "output": "true"
+    },
+    {
+      "term": "Dispatch Group",
+      "definition": "An object that tracks several tasks and tells you when all of them are done.",
+      "example": "Add every upload to one dispatch group.",
+      "code": "import Foundation\nlet group = DispatchGroup()\nlet q = DispatchQueue.global()\nfor _ in 1...3 { q.async(group: group) { } }\ngroup.wait()\nprint(\"all done\")",
+      "output": "all done"
+    },
+    {
+      "term": "Dispatch Semaphore",
+      "definition": "A counter that lets only a fixed number of tasks use a resource at the same time.",
+      "example": "A dispatch semaphore limits the uploads to two.",
+      "code": "import Foundation\nlet sem = DispatchSemaphore(value: 1)\nsem.wait()\nprint(\"inside\")\nsem.signal()\nprint(\"free\")",
+      "output": "inside\nfree"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What do you call a counter that lets only a fixed number of tasks use a resource at the same time?",
+      "options": [
+        "Dispatch Work Item",
+        "Dispatch Group",
+        "Dispatch Semaphore"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "What do you call an object that tracks several tasks and tells you when all of them are done?",
+      "options": [
+        "Dispatch Group",
+        "Dispatch Work Item",
+        "Dispatch Semaphore"
+      ],
+      "answer": "a"
+    },
+    {
+      "question": "What do you call a block of work packed in an object that you can run, wait for or cancel later?",
+      "options": [
+        "Dispatch Group",
+        "Dispatch Work Item",
+        "Dispatch Semaphore"
+      ],
+      "answer": "b"
+    }
+  ],
+  "video": {
+    "title": "Dispatch Work Item, Dispatch Group & Dispatch Semaphore | Day 253",
+    "description": "Learn to explain how to wait for many tasks and limit how many run: Dispatch Work Item, Dispatch Group & Dispatch Semaphore, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nDispatch Work Item - A block of work packed in an object that you can run, wait for or cancel later.\nDispatch Group - An object that tracks several tasks and tells you when all of them are done.\nDispatch Semaphore - A counter that lets only a fixed number of tasks use a resource at the same time.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 253 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "Dispatch Work Item",
+      "Dispatch Group",
+      "Dispatch Semaphore",
+      "dispatch work item",
+      "dispatch group",
+      "dispatch semaphore",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "iOS Dispatch Work Item, Dispatch Group & Dispatch Semaphore | Day 253",
+      "description": "Explain Dispatch Work Item, Dispatch Group & Dispatch Semaphore in iOS by listening to a real code chat between two iOS devs.\nDispatch Work Item, Dispatch Group, Dispatch Semaphore 표현을 영어 대화로 익혀요.\n\nDispatch Work Item - A block of work packed in an object that you can run, wait for or cancel later.\n한국어: Dispatch Work Item: 나중에 실행, 대기, 취소할 수 있도록 객체로 포장한 작업 블록\n\nDispatch Group - An object that tracks several tasks and tells you when all of them are done.\n한국어: Dispatch Group: 여러 작업을 추적하고 모두 끝났을 때 알려 주는 객체\n\nDispatch Semaphore - A counter that lets only a fixed number of tasks use a resource at the same time.\n한국어: Dispatch Semaphore: 정해진 개수의 작업만 같은 자원을 동시에 쓰게 하는 카운터\n\nIn this video, Mina and Jake talk about uploading photos and showing a message when all of them are done, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 253 of the iOS Daily English series.\n\n#Swift #SwiftConcurrency #EnglishForDevelopers",
+      "tags": [
+        "Dispatch Work Item",
+        "Dispatch Group",
+        "Dispatch Semaphore",
+        "Swift concurrency",
+        "iOS 동시성",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "iOS Daily English"
+      ],
+      "hook": "Can you explain Dispatch Work Item, Dispatch Group and Dispatch Semaphore in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "Three photo uploads",
+    "setting": "Uploading photos with a progress message",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "I need to upload three photos and then show a message when all of them are done.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Use a dispatch group. A dispatch group tracks several tasks and tells you when they finish.",
+        "terms": [
+          "Dispatch Group"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Where do I put the upload code?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Wrap it in a dispatch work item, like `item` in your code, and add it to the group.",
+        "terms": [
+          "Dispatch Work Item"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Why not use a plain closure?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "A dispatch work item is an object, so you can cancel it before it starts.",
+        "terms": [
+          "Dispatch Work Item"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Nice. And what if the server allows only two uploads at once?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Then add a dispatch semaphore. It is a counter that limits how many tasks use the resource.",
+        "terms": [
+          "Dispatch Semaphore"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "I thought `notify` waits for the semaphore too.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "No, the dispatch group only counts its own tasks. The dispatch semaphore is a separate tool.",
+        "terms": [
+          "Dispatch Group",
+          "Dispatch Semaphore"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Got it. The group tells me when we finish, and the semaphore limits the work.",
+        "terms": []
+      }
+    ],
+    "code": "import Foundation\nlet group = DispatchGroup()\nlet q = DispatchQueue.global()\nlet item = DispatchWorkItem { print(\"upload\") }\nq.async(group: group, execute: item)\ngroup.notify(queue: .main) { print(\"done\") }",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "Dispatch Work Item",
+      "lines": [
+        {
+          "text": "Cancel the dispatch work item before it starts."
+        }
+      ],
+      "title": "Cancel the dispatch work item before it starts. #Shorts",
+      "description": "Cancel the dispatch work item before it starts.\n\nDispatch Work Item - A block of work packed in an object that you can run, wait for or cancel later.\n한국어: Dispatch Work Item: 나중에 실행, 대기, 취소할 수 있도록 객체로 포장한 작업 블록\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "Dispatch Group",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "How do I know all tasks finished?"
+        },
+        {
+          "speaker": "B",
+          "text": "Add them to a dispatch group."
+        }
+      ],
+      "title": "How do I know all tasks finished? / Add them to a dispatch group. #Shorts",
+      "description": "How do I know all tasks finished? / Add them to a dispatch group.\n\nDispatch Group - An object that tracks several tasks and tells you when all of them are done.\n한국어: Dispatch Group: 여러 작업을 추적하고 모두 끝났을 때 알려 주는 객체\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Dispatch Semaphore",
+      "lines": [
+        {
+          "text": "A dispatch semaphore limits the uploads to two."
+        }
+      ],
+      "title": "A dispatch semaphore limits the uploads to two. #Shorts",
+      "description": "A dispatch semaphore limits the uploads to two.\n\nDispatch Semaphore - A counter that lets only a fixed number of tasks use a resource at the same time.\n한국어: Dispatch Semaphore: 정해진 개수의 작업만 같은 자원을 동시에 쓰게 하는 카운터\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "Wait for all tasks. Limit the rest."
+}

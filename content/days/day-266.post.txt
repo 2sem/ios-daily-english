@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 266
+
+Data Race
+- A bug where two threads touch the same memory at once and at least one of them writes.
+- Example: "A data race can crash the app."
+
+Sendable
+- A protocol that marks a type as safe to pass between concurrent tasks.
+- Example: "Make the model Sendable before you pass it."
+
+Isolation Boundary
+- The line between two actors or tasks, where values must be safe to share before they cross.
+- Example: "Passing a class across an isolation boundary needs care."
+
+
+Quiz ①
+What do you call the line between two actors or tasks, where values must be safe to share before they cross?
+a) Isolation Boundary
+b) Data Race
+c) Sendable
+
+Quiz ②
+What do you call a bug where two threads touch the same memory at once and at least one of them writes?
+a) Sendable
+b) Isolation Boundary
+c) Data Race
+
+Quiz ③
+What do you call a protocol that marks a type as safe to pass between concurrent tasks?
+a) Data Race
+b) Sendable
+c) Isolation Boundary

@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 260
+
+Async Let
+- A way to start a child task now and read its result later with `await`.
+- Example: "Use async let to start both requests."
+
+Task Group
+- A group of child tasks that run together while you collect each result.
+- Example: "A task group can add tasks in a loop."
+
+Structured Concurrency
+- A style where child tasks live inside their parent, so the parent finishes only after they do.
+- Example: "Structured concurrency keeps child work inside its parent."
+
+
+Quiz ①
+What do you call a group of child tasks that run together while you collect each result?
+a) Task Group
+b) Async Let
+c) Structured Concurrency
+
+Quiz ②
+What do you call a style where child tasks live inside their parent, so the parent finishes only after they do?
+a) Async Let
+b) Task Group
+c) Structured Concurrency
+
+Quiz ③
+What do you call a way to start a child task now and read its result later with `await`?
+a) Task Group
+b) Async Let
+c) Structured Concurrency

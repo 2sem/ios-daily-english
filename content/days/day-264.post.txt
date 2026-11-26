@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 264
+
+Actor
+- A type that protects its own data by letting only one task use it at a time.
+- Example: "Use an actor to protect the shared counter."
+
+Actor Isolation
+- The rule that only code inside an actor can touch its data directly, while others must use `await`.
+- Example: "Actor isolation forces other code to use await."
+
+Reentrancy
+- A behavior where an actor can run other calls while one call waits at an `await`, so its state may change.
+- Example: "Reentrancy means state can change at an await."
+
+
+Quiz ①
+What do you call a type that protects its own data by letting only one task use it at a time?
+a) Actor Isolation
+b) Actor
+c) Reentrancy
+
+Quiz ②
+What do you call a behavior where an actor can run other calls while one call waits at an `await`, so its state may change?
+a) Actor
+b) Actor Isolation
+c) Reentrancy
+
+Quiz ③
+What do you call the rule that only code inside an actor can touch its data directly, while others must use `await`?
+a) Actor Isolation
+b) Actor
+c) Reentrancy

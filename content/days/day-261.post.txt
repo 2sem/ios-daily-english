@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 261
+
+Task Cancellation
+- A request that tells a task to stop its work as soon as it can.
+- Example: "Task cancellation tells the work to stop."
+
+CancellationError
+- An error that Swift throws to show that a task was cancelled.
+- Example: "Catch CancellationError and stop quietly."
+
+Cancellation Handler
+- A closure that runs right away when a task is cancelled, even while the task is waiting.
+- Example: "Add a cancellation handler to close the connection."
+
+
+Quiz ①
+What do you call a closure that runs right away when a task is cancelled, even while the task is waiting?
+a) Task Cancellation
+b) Cancellation Handler
+c) CancellationError
+
+Quiz ②
+What do you call a request that tells a task to stop its work as soon as it can?
+a) Task Cancellation
+b) CancellationError
+c) Cancellation Handler
+
+Quiz ③
+What do you call an error that Swift throws to show that a task was cancelled?
+a) Task Cancellation
+b) Cancellation Handler
+c) CancellationError

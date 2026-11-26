@@ -1,0 +1,229 @@
+{
+  "day": 259,
+  "phase": "6. Concurrency",
+  "theme": "Tasks, executors and the cooperative thread pool",
+  "terms": [
+    {
+      "term": "Task",
+      "definition": "A unit of `async` work that runs on its own and can be awaited for its result.",
+      "example": "Create a Task to start the async work.",
+      "code": "let task = Task { 6 * 7 }\nprint(await task.value)",
+      "output": "42"
+    },
+    {
+      "term": "Executor",
+      "definition": "An object that decides where and when a task's code runs, such as a queue or a thread.",
+      "example": "An executor decides where the code runs.",
+      "code": "let e = MainActor.sharedUnownedExecutor\nprint(type(of: e))",
+      "output": "UnownedSerialExecutor"
+    },
+    {
+      "term": "Cooperative Thread Pool",
+      "definition": "A small, fixed group of threads that Swift shares among all `async` work.",
+      "example": "The cooperative thread pool never grows too big.",
+      "code": "import Foundation\nlet cores = ProcessInfo.processInfo\n    .activeProcessorCount\nprint(cores > 0)  // pool size follows cores",
+      "output": "true"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What do you call a unit of `async` work that runs on its own and can be awaited for its result?",
+      "options": [
+        "Executor",
+        "Cooperative Thread Pool",
+        "Task"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "What do you call a small, fixed group of threads that Swift shares among all `async` work?",
+      "options": [
+        "Cooperative Thread Pool",
+        "Task",
+        "Executor"
+      ],
+      "answer": "a"
+    },
+    {
+      "question": "What do you call an object that decides where and when a task's code runs, such as a queue or a thread?",
+      "options": [
+        "Task",
+        "Executor",
+        "Cooperative Thread Pool"
+      ],
+      "answer": "b"
+    }
+  ],
+  "video": {
+    "title": "Task, Executor & Cooperative Thread Pool | Day 259",
+    "description": "Learn to explain where async work runs and who decides: Task, Executor & Cooperative Thread Pool, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nTask - A unit of `async` work that runs on its own and can be awaited for its result.\nExecutor - An object that decides where and when a task's code runs, such as a queue or a thread.\nCooperative Thread Pool - A small, fixed group of threads that Swift shares among all `async` work.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 259 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "Task",
+      "Executor",
+      "Cooperative Thread Pool",
+      "task",
+      "executor",
+      "cooperative thread pool",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "iOS Task, Executor & Cooperative Thread Pool | Day 259",
+      "description": "Explain Task, Executor & Cooperative Thread Pool in iOS by listening to a real code chat between two iOS devs.\nTask, Executor, Cooperative Thread Pool 표현을 영어 대화로 익혀요.\n\nTask - A unit of `async` work that runs on its own and can be awaited for its result.\n한국어: Task: 스스로 실행되며 결과를 await로 기다릴 수 있는 async 작업 단위\n\nExecutor - An object that decides where and when a task's code runs, such as a queue or a thread.\n한국어: Executor: 큐나 스레드처럼 태스크의 코드가 어디서 언제 실행될지 정하는 객체\n\nCooperative Thread Pool - A small, fixed group of threads that Swift shares among all `async` work.\n한국어: Cooperative Thread Pool: Swift가 모든 async 작업에 나누어 쓰는 작고 고정된 스레드 그룹\n\nIn this video, Mina and Jake talk about when a task runs and how many threads Swift uses, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 259 of the iOS Daily English series.\n\n#Swift #SwiftConcurrency #EnglishForDevelopers",
+      "tags": [
+        "Task",
+        "Executor",
+        "Cooperative Thread Pool",
+        "Swift concurrency",
+        "iOS 동시성",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "iOS Daily English"
+      ],
+      "hook": "Can you explain Task, Executor and Cooperative Thread Pool in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "Where does it run?",
+    "setting": "Questions about where async work runs",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, I wrote a Task, but I do not know when it runs.",
+        "terms": [
+          "Task"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "A Task is a unit of async work. It starts on its own, and you can await its result.",
+        "terms": [
+          "Task"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Which thread does it use?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "That depends on the executor. An executor decides where and when the code runs.",
+        "terms": [
+          "Executor"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Is an executor the same as a thread?",
+        "terms": [
+          "Executor"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "No. It can be a queue or a thread. Swift picks one for you.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "Can I create a thousand tasks and get a thousand threads?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "No. Swift uses the cooperative thread pool, a small group of threads that all async work shares.",
+        "terms": [
+          "Cooperative Thread Pool"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Why so small?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Too many threads waste memory and slow the app down. The cooperative thread pool avoids that.",
+        "terms": [
+          "Cooperative Thread Pool"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Then I will not block it with long loops. Thanks!",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Good. Waiting with await is fine, but blocking is not.",
+        "terms": []
+      }
+    ],
+    "code": "let task = Task {\n    print(\"loading\")\n    return 5\n}\nprint(await task.value)",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "Task",
+      "lines": [
+        {
+          "text": "Create a Task to start the async work."
+        }
+      ],
+      "title": "Create a Task to start the async work. #Shorts",
+      "description": "Create a Task to start the async work.\n\nTask - A unit of `async` work that runs on its own and can be awaited for its result.\n한국어: Task: 스스로 실행되며 결과를 await로 기다릴 수 있는 async 작업 단위\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "Executor",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Who chooses the thread?"
+        },
+        {
+          "speaker": "B",
+          "text": "The executor does."
+        }
+      ],
+      "title": "Who chooses the thread? / The executor does. #Shorts",
+      "description": "Who chooses the thread? / The executor does.\n\nExecutor - An object that decides where and when a task's code runs, such as a queue or a thread.\n한국어: Executor: 큐나 스레드처럼 태스크의 코드가 어디서 언제 실행될지 정하는 객체\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Cooperative Thread Pool",
+      "lines": [
+        {
+          "text": "The cooperative thread pool never grows too big."
+        }
+      ],
+      "title": "The cooperative thread pool never grows too big. #Shorts",
+      "description": "The cooperative thread pool never grows too big.\n\nCooperative Thread Pool - A small, fixed group of threads that Swift shares among all `async` work.\n한국어: Cooperative Thread Pool: Swift가 모든 async 작업에 나누어 쓰는 작고 고정된 스레드 그룹\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "A thousand tasks, but not a thousand threads."
+}

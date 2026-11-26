@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 253
+
+Dispatch Work Item
+- A block of work packed in an object that you can run, wait for or cancel later.
+- Example: "Cancel the dispatch work item before it starts."
+
+Dispatch Group
+- An object that tracks several tasks and tells you when all of them are done.
+- Example: "Add every upload to one dispatch group."
+
+Dispatch Semaphore
+- A counter that lets only a fixed number of tasks use a resource at the same time.
+- Example: "A dispatch semaphore limits the uploads to two."
+
+
+Quiz ①
+What do you call a counter that lets only a fixed number of tasks use a resource at the same time?
+a) Dispatch Work Item
+b) Dispatch Group
+c) Dispatch Semaphore
+
+Quiz ②
+What do you call an object that tracks several tasks and tells you when all of them are done?
+a) Dispatch Group
+b) Dispatch Work Item
+c) Dispatch Semaphore
+
+Quiz ③
+What do you call a block of work packed in an object that you can run, wait for or cancel later?
+a) Dispatch Group
+b) Dispatch Work Item
+c) Dispatch Semaphore

@@ -1,0 +1,229 @@
+{
+  "day": 267,
+  "phase": "6. Concurrency",
+  "theme": "Task sleep, task yield and task local values",
+  "terms": [
+    {
+      "term": "Task Sleep",
+      "definition": "A call that pauses the current task for a set time without blocking its thread.",
+      "example": "Use task sleep to wait one second.",
+      "code": "let start = ContinuousClock.now\ntry await Task.sleep(for: .milliseconds(50))\nlet took = ContinuousClock.now - start\nprint(took >= .milliseconds(50))",
+      "output": "true"
+    },
+    {
+      "term": "Task Yield",
+      "definition": "A call that lets the current task step aside so other tasks can run first.",
+      "example": "Call task yield inside a long loop.",
+      "code": "let t = Task {\n    await Task.yield()\n    return \"back\"\n}\nprint(await t.value)",
+      "output": "back"
+    },
+    {
+      "term": "Task Local Value",
+      "definition": "A value that is attached to a task and can be read by its child tasks.",
+      "example": "A task local value follows the child tasks.",
+      "code": "enum Ctx { @TaskLocal static var user = \"none\" }\nawait Ctx.$user.withValue(\"Mina\") {\n    print(Ctx.user)\n}\nprint(Ctx.user)",
+      "output": "Mina\nnone"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What do you call a call that lets the current task step aside so other tasks can run first?",
+      "options": [
+        "Task Sleep",
+        "Task Yield",
+        "Task Local Value"
+      ],
+      "answer": "b"
+    },
+    {
+      "question": "What do you call a call that pauses the current task for a set time without blocking its thread?",
+      "options": [
+        "Task Sleep",
+        "Task Yield",
+        "Task Local Value"
+      ],
+      "answer": "a"
+    },
+    {
+      "question": "What do you call a value that is attached to a task and can be read by its child tasks?",
+      "options": [
+        "Task Sleep",
+        "Task Yield",
+        "Task Local Value"
+      ],
+      "answer": "c"
+    }
+  ],
+  "video": {
+    "title": "Task Sleep, Task Yield & Task Local Value | Day 267",
+    "description": "Learn to explain how to wait politely and share context between tasks: Task Sleep, Task Yield & Task Local Value, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nTask Sleep - A call that pauses the current task for a set time without blocking its thread.\nTask Yield - A call that lets the current task step aside so other tasks can run first.\nTask Local Value - A value that is attached to a task and can be read by its child tasks.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 267 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "Task Sleep",
+      "Task Yield",
+      "Task Local Value",
+      "task sleep",
+      "task yield",
+      "task local value",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "iOS Task Sleep, Task Yield & Task Local Value | Day 267",
+      "description": "Explain Task Sleep, Task Yield & Task Local Value in iOS by listening to a real code chat between two iOS devs.\nTask Sleep, Task Yield, Task Local Value 표현을 영어 대화로 익혀요.\n\nTask Sleep - A call that pauses the current task for a set time without blocking its thread.\n한국어: Task Sleep: 스레드를 막지 않고 현재 태스크를 정해진 시간 동안 멈추는 호출\n\nTask Yield - A call that lets the current task step aside so other tasks can run first.\n한국어: Task Yield: 현재 태스크가 잠시 비켜서 다른 태스크가 먼저 실행되게 하는 호출\n\nTask Local Value - A value that is attached to a task and can be read by its child tasks.\n한국어: Task Local Value: 태스크에 붙어 있고 자식 태스크가 읽을 수 있는 값\n\nIn this video, Mina and Jake talk about waiting without blocking and sharing a user name with child code, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 267 of the iOS Daily English series.\n\n#Swift #SwiftConcurrency #EnglishForDevelopers",
+      "tags": [
+        "Task Sleep",
+        "Task Yield",
+        "Task Local Value",
+        "Swift concurrency",
+        "iOS 동시성",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "iOS Daily English"
+      ],
+      "hook": "Can you explain Task Sleep, Task Yield and Task Local Value in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "Wait without blocking",
+    "setting": "A slow loader and a long loop",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, my loader waits with a `while` loop, and the app feels slow.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Do not wait in a loop. Use task sleep. Task sleep pauses the current task without blocking its thread.",
+        "terms": [
+          "Task Sleep"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Does it block the thread like the old `sleep` call?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "No. With task sleep the thread is free for other work. The task only pauses.",
+        "terms": [
+          "Task Sleep"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "And my other loop does heavy math for ten seconds.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Then call task yield now and then. Task yield lets other tasks run first.",
+        "terms": [
+          "Task Yield"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Will task yield make my loop slower?",
+        "terms": [
+          "Task Yield"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "A little, but the app stays responsive. That is a good trade.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "I also want to pass the user name to child code without a parameter.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Use a task local value. A task local value is attached to the task, and child tasks can read it.",
+        "terms": [
+          "Task Local Value"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Like `Ctx.user` in my code?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Yes. A task local value is great for logging and request IDs.",
+        "terms": [
+          "Task Local Value"
+        ]
+      }
+    ],
+    "code": "enum Ctx { @TaskLocal static var user = \"none\" }\nfunc work() async {\n    try? await Task.sleep(for: .seconds(1))\n    await Task.yield()\n}",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "Task Sleep",
+      "lines": [
+        {
+          "text": "Use task sleep to wait one second."
+        }
+      ],
+      "title": "Use task sleep to wait one second. #Shorts",
+      "description": "Use task sleep to wait one second.\n\nTask Sleep - A call that pauses the current task for a set time without blocking its thread.\n한국어: Task Sleep: 스레드를 막지 않고 현재 태스크를 정해진 시간 동안 멈추는 호출\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "Task Yield",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "How do I let other tasks run?"
+        },
+        {
+          "speaker": "B",
+          "text": "Call task yield."
+        }
+      ],
+      "title": "How do I let other tasks run? / Call task yield. #Shorts",
+      "description": "How do I let other tasks run? / Call task yield.\n\nTask Yield - A call that lets the current task step aside so other tasks can run first.\n한국어: Task Yield: 현재 태스크가 잠시 비켜서 다른 태스크가 먼저 실행되게 하는 호출\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Task Local Value",
+      "lines": [
+        {
+          "text": "A task local value follows the child tasks."
+        }
+      ],
+      "title": "A task local value follows the child tasks. #Shorts",
+      "description": "A task local value follows the child tasks.\n\nTask Local Value - A value that is attached to a task and can be read by its child tasks.\n한국어: Task Local Value: 태스크에 붙어 있고 자식 태스크가 읽을 수 있는 값\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "Wait without blocking the thread."
+}

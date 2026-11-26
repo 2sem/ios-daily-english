@@ -1,0 +1,234 @@
+{
+  "day": 258,
+  "phase": "6. Concurrency",
+  "theme": "async/await: async functions and suspension points",
+  "terms": [
+    {
+      "term": "Async Function",
+      "definition": "A function marked `async` that can pause while it waits for a result.",
+      "example": "Mark the function as an async function.",
+      "code": "func load() async -> Int {\n    return 42\n}\nprint(await load())",
+      "output": "42"
+    },
+    {
+      "term": "Await",
+      "definition": "A keyword that marks where an `async` call may pause until its result is ready.",
+      "example": "Add await before the call.",
+      "code": "func double(_ n: Int) async -> Int { n * 2 }\nlet result = await double(21)\nprint(result)",
+      "output": "42"
+    },
+    {
+      "term": "Suspension Point",
+      "definition": "A place in `async` code where the function may pause and let other work run.",
+      "example": "Each await is a suspension point.",
+      "code": "func step() async { print(\"step\") }\nawait step()  // suspension point\nprint(\"after\")",
+      "output": "step\nafter"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What do you call a place in `async` code where the function may pause and let other work run?",
+      "options": [
+        "Async Function",
+        "Suspension Point",
+        "Await"
+      ],
+      "answer": "b"
+    },
+    {
+      "question": "What do you call a keyword that marks where an `async` call may pause until its result is ready?",
+      "options": [
+        "Async Function",
+        "Suspension Point",
+        "Await"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "What do you call a function marked `async` that can pause while it waits for a result?",
+      "options": [
+        "Async Function",
+        "Await",
+        "Suspension Point"
+      ],
+      "answer": "a"
+    }
+  ],
+  "video": {
+    "title": "Async Function, Await & Suspension Point | Day 258",
+    "description": "Learn to read and explain basic async/await code: Async Function, Await & Suspension Point, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nAsync Function - A function marked `async` that can pause while it waits for a result.\nAwait - A keyword that marks where an `async` call may pause until its result is ready.\nSuspension Point - A place in `async` code where the function may pause and let other work run.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 258 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "Async Function",
+      "Await",
+      "Suspension Point",
+      "async function",
+      "await",
+      "suspension point",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "iOS Async Function, Await & Suspension Point | Day 258",
+      "description": "Explain Async Function, Await & Suspension Point in iOS by listening to a real code chat between two iOS devs.\nAsync Function, Await, Suspension Point 표현을 영어 대화로 익혀요.\n\nAsync Function - A function marked `async` that can pause while it waits for a result.\n한국어: Async Function: 결과를 기다리는 동안 일시 중지될 수 있도록 async로 표시한 함수\n\nAwait - A keyword that marks where an `async` call may pause until its result is ready.\n한국어: Await: async 호출이 결과가 준비될 때까지 멈출 수 있는 지점을 표시하는 키워드\n\nSuspension Point - A place in `async` code where the function may pause and let other work run.\n한국어: Suspension Point: async 코드에서 함수가 멈추고 다른 작업이 실행될 수 있는 지점\n\nIn this video, Mina and Jake talk about an error when calling a function that can pause, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 258 of the iOS Daily English series.\n\n#Swift #SwiftConcurrency #EnglishForDevelopers",
+      "tags": [
+        "Async Function",
+        "Await",
+        "Suspension Point",
+        "Swift concurrency",
+        "iOS 동시성",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "iOS Daily English"
+      ],
+      "hook": "Can you explain Async Function, Await and Suspension Point in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "The missing await",
+    "setting": "A call that Xcode will not accept",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, Xcode gives me an error when I call `fetchName`.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Is it an async function? In your code it is marked with `async`.",
+        "terms": [
+          "Async Function"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Yes. What does that mean?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "An async function can pause while it waits for a result.",
+        "terms": [
+          "Async Function"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "So how do I call it?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "You need await before the call. Await marks where the call may pause.",
+        "terms": [
+          "Await"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Where does the code actually pause?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "At each suspension point. Here it is the line with await.",
+        "terms": [
+          "Await",
+          "Suspension Point"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Does the app freeze at a suspension point?",
+        "terms": [
+          "Suspension Point"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "No. The function pauses, but other work can run in the meantime.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "That is clever. So every await is a suspension point?",
+        "terms": [
+          "Await",
+          "Suspension Point"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Yes, and every async function needs await to be called.",
+        "terms": [
+          "Async Function",
+          "Await"
+        ]
+      }
+    ],
+    "code": "func fetchName() async -> String {\n    \"Mina\"\n}\nlet name = await fetchName()\nprint(name)",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "Async Function",
+      "lines": [
+        {
+          "text": "Mark the function as an async function."
+        }
+      ],
+      "title": "Mark the function as an async function. #Shorts",
+      "description": "Mark the function as an async function.\n\nAsync Function - A function marked `async` that can pause while it waits for a result.\n한국어: Async Function: 결과를 기다리는 동안 일시 중지될 수 있도록 async로 표시한 함수\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "Await",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Xcode asks for a keyword here."
+        },
+        {
+          "speaker": "B",
+          "text": "Add await before the call."
+        }
+      ],
+      "title": "Xcode asks for a keyword here. / Add await before the call. #Shorts",
+      "description": "Xcode asks for a keyword here. / Add await before the call.\n\nAwait - A keyword that marks where an `async` call may pause until its result is ready.\n한국어: Await: async 호출이 결과가 준비될 때까지 멈출 수 있는 지점을 표시하는 키워드\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Suspension Point",
+      "lines": [
+        {
+          "text": "Each await is a suspension point."
+        }
+      ],
+      "title": "Each await is a suspension point. #Shorts",
+      "description": "Each await is a suspension point.\n\nSuspension Point - A place in `async` code where the function may pause and let other work run.\n한국어: Suspension Point: async 코드에서 함수가 멈추고 다른 작업이 실행될 수 있는 지점\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "Every await can pause your code."
+}

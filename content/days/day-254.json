@@ -1,0 +1,231 @@
+{
+  "day": 254,
+  "phase": "6. Concurrency",
+  "theme": "Threads, run loops and dispatch barriers",
+  "terms": [
+    {
+      "term": "Thread",
+      "definition": "A single path of execution inside a process, where code runs one step at a time.",
+      "example": "Each thread runs its own steps in order.",
+      "code": "import Foundation\nlet done = DispatchSemaphore(value: 0)\nlet t = Thread {\n    print(\"in a thread\"); done.signal()\n}\nt.start(); done.wait()",
+      "output": "in a thread"
+    },
+    {
+      "term": "Run Loop",
+      "definition": "A loop that waits for events such as timers and input, then runs the work for each one.",
+      "example": "The run loop wakes up when an event arrives.",
+      "code": "import Foundation\nlet loop = RunLoop.current\nloop.perform { print(\"handled event\") }\nloop.run(until: Date(timeIntervalSinceNow: 0.1))",
+      "output": "handled event"
+    },
+    {
+      "term": "Dispatch Barrier",
+      "definition": "A task on a concurrent queue that waits for earlier tasks, runs alone, then lets later tasks start.",
+      "example": "Wrap every write in a dispatch barrier.",
+      "code": "import Foundation\nlet q = DispatchQueue(label: \"rw\",\n    attributes: .concurrent)\nq.async { print(\"read\") }\nq.async(flags: .barrier) { print(\"write\") }\nq.sync { print(\"read after\") }",
+      "output": "read\nwrite\nread after"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What do you call a single path of execution inside a process, where code runs one step at a time?",
+      "options": [
+        "Thread",
+        "Run Loop",
+        "Dispatch Barrier"
+      ],
+      "answer": "a"
+    },
+    {
+      "question": "What do you call a task on a concurrent queue that waits for earlier tasks, runs alone, then lets later tasks start?",
+      "options": [
+        "Thread",
+        "Run Loop",
+        "Dispatch Barrier"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "What do you call a loop that waits for events such as timers and input, then runs the work for each one?",
+      "options": [
+        "Thread",
+        "Run Loop",
+        "Dispatch Barrier"
+      ],
+      "answer": "b"
+    }
+  ],
+  "video": {
+    "title": "Thread, Run Loop & Dispatch Barrier | Day 254",
+    "description": "Learn to explain where code runs and how to protect a shared cache: Thread, Run Loop & Dispatch Barrier, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nThread - A single path of execution inside a process, where code runs one step at a time.\nRun Loop - A loop that waits for events such as timers and input, then runs the work for each one.\nDispatch Barrier - A task on a concurrent queue that waits for earlier tasks, runs alone, then lets later tasks start.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 254 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "Thread",
+      "Run Loop",
+      "Dispatch Barrier",
+      "thread",
+      "run loop",
+      "dispatch barrier",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "iOS Thread, Run Loop & Dispatch Barrier | Day 254",
+      "description": "Explain Thread, Run Loop & Dispatch Barrier in iOS by listening to a real code chat between two iOS devs.\nThread, Run Loop, Dispatch Barrier 표현을 영어 대화로 익혀요.\n\nThread - A single path of execution inside a process, where code runs one step at a time.\n한국어: Thread: 프로세스 안에서 코드를 한 단계씩 실행하는 하나의 실행 경로\n\nRun Loop - A loop that waits for events such as timers and input, then runs the work for each one.\n한국어: Run Loop: 타이머나 입력 같은 이벤트를 기다렸다가 각각의 작업을 실행하는 반복 구조\n\nDispatch Barrier - A task on a concurrent queue that waits for earlier tasks, runs alone, then lets later tasks start.\n한국어: Dispatch Barrier: 동시 큐에서 앞선 작업을 기다린 뒤 혼자 실행되고 그다음 작업을 시작시키는 작업\n\nIn this video, Mina and Jake talk about a cache that many places read and write, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 254 of the iOS Daily English series.\n\n#Swift #SwiftConcurrency #EnglishForDevelopers",
+      "tags": [
+        "Thread",
+        "Run Loop",
+        "Dispatch Barrier",
+        "Swift concurrency",
+        "iOS 동시성",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "iOS Daily English"
+      ],
+      "hook": "Can you explain Thread, Run Loop and Dispatch Barrier in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "The shared cache",
+    "setting": "A cache with many readers and one writer",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, I read the cache from many places, but I also write to it sometimes.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Then keep the cache behind a concurrent queue and use a dispatch barrier for writes.",
+        "terms": [
+          "Dispatch Barrier"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "What does a dispatch barrier do?",
+        "terms": [
+          "Dispatch Barrier"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "It waits for earlier tasks, runs alone, and then lets later tasks start.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "Does it start a new thread for the write?",
+        "terms": [
+          "Thread"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "No. A thread is a path where code runs one step at a time, and the queue chooses it.",
+        "terms": [
+          "Thread"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "I see. And what is the run loop in my app?",
+        "terms": [
+          "Run Loop"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "A run loop waits for events like timers and touches, and then runs the work for each event.",
+        "terms": [
+          "Run Loop"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Can I write to `cache` from the run loop?",
+        "terms": [
+          "Run Loop"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Yes, but still use a dispatch barrier. Reads on another thread may happen at the same time.",
+        "terms": [
+          "Thread",
+          "Dispatch Barrier"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Okay, I will wrap every write in a dispatch barrier.",
+        "terms": [
+          "Dispatch Barrier"
+        ]
+      }
+    ],
+    "code": "import Foundation\nvar cache = [String: Int]()\nlet q = DispatchQueue(label: \"c\",\n    attributes: .concurrent)\nq.async(flags: .barrier) { cache[\"a\"] = 1 }",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "Thread",
+      "lines": [
+        {
+          "text": "Each thread runs its own steps in order."
+        }
+      ],
+      "title": "Each thread runs its own steps in order. #Shorts",
+      "description": "Each thread runs its own steps in order.\n\nThread - A single path of execution inside a process, where code runs one step at a time.\n한국어: Thread: 프로세스 안에서 코드를 한 단계씩 실행하는 하나의 실행 경로\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "Run Loop",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "What waits for events in my app?"
+        },
+        {
+          "speaker": "B",
+          "text": "The run loop does."
+        }
+      ],
+      "title": "What waits for events in my app? / The run loop does. #Shorts",
+      "description": "What waits for events in my app? / The run loop does.\n\nRun Loop - A loop that waits for events such as timers and input, then runs the work for each one.\n한국어: Run Loop: 타이머나 입력 같은 이벤트를 기다렸다가 각각의 작업을 실행하는 반복 구조\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Dispatch Barrier",
+      "lines": [
+        {
+          "text": "Wrap every write in a dispatch barrier."
+        }
+      ],
+      "title": "Wrap every write in a dispatch barrier. #Shorts",
+      "description": "Wrap every write in a dispatch barrier.\n\nDispatch Barrier - A task on a concurrent queue that waits for earlier tasks, runs alone, then lets later tasks start.\n한국어: Dispatch Barrier: 동시 큐에서 앞선 작업을 기다린 뒤 혼자 실행되고 그다음 작업을 시작시키는 작업\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "Many readers, one writer: use a barrier."
+}

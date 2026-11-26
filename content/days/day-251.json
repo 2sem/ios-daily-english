@@ -1,0 +1,229 @@
+{
+  "day": 251,
+  "phase": "6. Concurrency",
+  "theme": "Grand Central Dispatch: serial and concurrent queues",
+  "terms": [
+    {
+      "term": "Grand Central Dispatch",
+      "definition": "A system library that runs your work on queues and manages the threads for you.",
+      "example": "Grand Central Dispatch manages the threads for us.",
+      "code": "import Foundation\nlet queue = DispatchQueue(label: \"work\")\nqueue.async { print(\"on a queue\") }\nqueue.sync { print(\"done\") }",
+      "output": "on a queue\ndone"
+    },
+    {
+      "term": "Serial Queue",
+      "definition": "A queue that runs one task at a time, in the order the tasks were added.",
+      "example": "Use a serial queue to keep the order.",
+      "code": "import Foundation\nlet q = DispatchQueue(label: \"serial\")\nfor i in 1...3 {\n    q.async { print(\"task\", i) }\n}\nq.sync { }",
+      "output": "task 1\ntask 2\ntask 3"
+    },
+    {
+      "term": "Concurrent Queue",
+      "definition": "A queue that can start several tasks at the same time without waiting for earlier ones.",
+      "example": "A concurrent queue is great for heavy work.",
+      "code": "import Foundation\nlet q = DispatchQueue(label: \"c\",\n    attributes: .concurrent)\nlet g = DispatchGroup()\nq.async(group: g) { print(\"ready\") }\ng.wait()",
+      "output": "ready"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What do you call a queue that can start several tasks at the same time without waiting for earlier ones?",
+      "options": [
+        "Concurrent Queue",
+        "Grand Central Dispatch",
+        "Serial Queue"
+      ],
+      "answer": "a"
+    },
+    {
+      "question": "What do you call a system library that runs your work on queues and manages the threads for you?",
+      "options": [
+        "Serial Queue",
+        "Grand Central Dispatch",
+        "Concurrent Queue"
+      ],
+      "answer": "b"
+    },
+    {
+      "question": "What do you call a queue that runs one task at a time, in the order the tasks were added?",
+      "options": [
+        "Grand Central Dispatch",
+        "Concurrent Queue",
+        "Serial Queue"
+      ],
+      "answer": "c"
+    }
+  ],
+  "video": {
+    "title": "Grand Central Dispatch, Serial Queue & Concurrent Queue | Day 251",
+    "description": "Learn to explain how Swift runs work on queues: Grand Central Dispatch, Serial Queue & Concurrent Queue, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nGrand Central Dispatch - A system library that runs your work on queues and manages the threads for you.\nSerial Queue - A queue that runs one task at a time, in the order the tasks were added.\nConcurrent Queue - A queue that can start several tasks at the same time without waiting for earlier ones.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 251 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "Grand Central Dispatch",
+      "Serial Queue",
+      "Concurrent Queue",
+      "grand central dispatch",
+      "serial queue",
+      "concurrent queue",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "iOS Grand Central Dispatch, Serial Queue & Concurrent Queue | Day 251",
+      "description": "Explain Grand Central Dispatch, Serial Queue & Concurrent Queue in iOS by listening to a real code chat between two iOS devs.\nGrand Central Dispatch, Serial Queue, Concurrent Queue 표현을 영어 대화로 익혀요.\n\nGrand Central Dispatch - A system library that runs your work on queues and manages the threads for you.\n한국어: Grand Central Dispatch: 작업을 큐에서 실행하고 스레드 관리를 대신해 주는 시스템 라이브러리\n\nSerial Queue - A queue that runs one task at a time, in the order the tasks were added.\n한국어: Serial Queue: 한 번에 하나의 작업만, 추가된 순서대로 실행하는 큐\n\nConcurrent Queue - A queue that can start several tasks at the same time without waiting for earlier ones.\n한국어: Concurrent Queue: 앞선 작업이 끝나기를 기다리지 않고 여러 작업을 동시에 시작할 수 있는 큐\n\nIn this video, Mina and Jake talk about a log that prints in a strange order and how queues decide the order, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 251 of the iOS Daily English series.\n\n#Swift #SwiftConcurrency #EnglishForDevelopers",
+      "tags": [
+        "Grand Central Dispatch",
+        "Serial Queue",
+        "Concurrent Queue",
+        "Swift concurrency",
+        "iOS 동시성",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "iOS Daily English"
+      ],
+      "hook": "Can you explain Grand Central Dispatch, Serial Queue and Concurrent Queue in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "The mixed-up logs",
+    "setting": "A log that prints in a strange order",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, my log lines look mixed up. I use Grand Central Dispatch, but I am not sure how it works.",
+        "terms": [
+          "Grand Central Dispatch"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Grand Central Dispatch runs your work on queues and manages the threads for you. Which queue is `q`?",
+        "terms": [
+          "Grand Central Dispatch"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "I wrote `DispatchQueue(label: \"log\")`, so I think it is a serial queue.",
+        "terms": [
+          "Serial Queue"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Right. A serial queue runs one task at a time, in the order you add them.",
+        "terms": [
+          "Serial Queue"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "So the first line always prints first?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Yes. On a serial queue the order is safe.",
+        "terms": [
+          "Serial Queue"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Then I will make `q` concurrent, because it is faster.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Wait, not so fast. A concurrent queue starts tasks together, so the order can change.",
+        "terms": [
+          "Concurrent Queue"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Ah, that is why my old logs were mixed up. I used one before.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Use a serial queue for logs, and a concurrent queue for heavy work.",
+        "terms": [
+          "Serial Queue",
+          "Concurrent Queue"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Good plan. Grand Central Dispatch makes both easy.",
+        "terms": [
+          "Grand Central Dispatch"
+        ]
+      }
+    ],
+    "code": "import Foundation\nlet q = DispatchQueue(label: \"log\")\nq.async { print(\"one\") }\nq.async { print(\"two\") }",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "Grand Central Dispatch",
+      "lines": [
+        {
+          "text": "Grand Central Dispatch manages the threads for us."
+        }
+      ],
+      "title": "Grand Central Dispatch manages the threads for us. #Shorts",
+      "description": "Grand Central Dispatch manages the threads for us.\n\nGrand Central Dispatch - A system library that runs your work on queues and manages the threads for you.\n한국어: Grand Central Dispatch: 작업을 큐에서 실행하고 스레드 관리를 대신해 주는 시스템 라이브러리\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "Serial Queue",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Why are my tasks in order?"
+        },
+        {
+          "speaker": "B",
+          "text": "You use a serial queue."
+        }
+      ],
+      "title": "Why are my tasks in order? / You use a serial queue. #Shorts",
+      "description": "Why are my tasks in order? / You use a serial queue.\n\nSerial Queue - A queue that runs one task at a time, in the order the tasks were added.\n한국어: Serial Queue: 한 번에 하나의 작업만, 추가된 순서대로 실행하는 큐\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Concurrent Queue",
+      "lines": [
+        {
+          "text": "A concurrent queue is great for heavy work."
+        }
+      ],
+      "title": "A concurrent queue is great for heavy work. #Shorts",
+      "description": "A concurrent queue is great for heavy work.\n\nConcurrent Queue - A queue that can start several tasks at the same time without waiting for earlier ones.\n한국어: Concurrent Queue: 앞선 작업이 끝나기를 기다리지 않고 여러 작업을 동시에 시작할 수 있는 큐\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "Serial or concurrent? Pick your queue."
+}

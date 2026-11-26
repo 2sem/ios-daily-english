@@ -1,0 +1,235 @@
+{
+  "day": 264,
+  "phase": "6. Concurrency",
+  "theme": "Actors: isolation and reentrancy",
+  "terms": [
+    {
+      "term": "Actor",
+      "definition": "A type that protects its own data by letting only one task use it at a time.",
+      "example": "Use an actor to protect the shared counter.",
+      "code": "actor Counter {\n    var value = 0\n    func add() { value += 1 }\n}\nlet c = Counter(); await c.add()\nprint(await c.value)",
+      "output": "1"
+    },
+    {
+      "term": "Actor Isolation",
+      "definition": "The rule that only code inside an actor can touch its data directly, while others must use `await`.",
+      "example": "Actor isolation forces other code to use await.",
+      "code": "actor Bank { var money = 10 }\nlet bank = Bank()\n// bank.money += 1  // error: needs await\nprint(await bank.money)",
+      "output": "10"
+    },
+    {
+      "term": "Reentrancy",
+      "definition": "A behavior where an actor can run other calls while one call waits at an `await`, so its state may change.",
+      "example": "Reentrancy means state can change at an await.",
+      "code": "actor A {\n    var n = 0; func set() { n = 99 }\n    func go(_ f: (A) async -> Void) async {\n        n = 1; await f(self); print(n) }\n}\nawait A().go { await $0.set() }",
+      "output": "99"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What do you call a type that protects its own data by letting only one task use it at a time?",
+      "options": [
+        "Actor Isolation",
+        "Actor",
+        "Reentrancy"
+      ],
+      "answer": "b"
+    },
+    {
+      "question": "What do you call a behavior where an actor can run other calls while one call waits at an `await`, so its state may change?",
+      "options": [
+        "Actor",
+        "Actor Isolation",
+        "Reentrancy"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "What do you call the rule that only code inside an actor can touch its data directly, while others must use `await`?",
+      "options": [
+        "Actor Isolation",
+        "Actor",
+        "Reentrancy"
+      ],
+      "answer": "a"
+    }
+  ],
+  "video": {
+    "title": "Actor, Actor Isolation & Reentrancy | Day 264",
+    "description": "Learn to explain how actors protect data and where they can surprise you: Actor, Actor Isolation & Reentrancy, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nActor - A type that protects its own data by letting only one task use it at a time.\nActor Isolation - The rule that only code inside an actor can touch its data directly, while others must use `await`.\nReentrancy - A behavior where an actor can run other calls while one call waits at an `await`, so its state may change.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 264 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "Actor",
+      "Actor Isolation",
+      "Reentrancy",
+      "actor",
+      "actor isolation",
+      "reentrancy",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "iOS Actor, Actor Isolation & Reentrancy | Day 264",
+      "description": "Explain Actor, Actor Isolation & Reentrancy in iOS by listening to a real code chat between two iOS devs.\nActor, Actor Isolation, Reentrancy 표현을 영어 대화로 익혀요.\n\nActor - A type that protects its own data by letting only one task use it at a time.\n한국어: Actor: 한 번에 하나의 태스크만 사용하게 해서 자신의 데이터를 보호하는 타입\n\nActor Isolation - The rule that only code inside an actor can touch its data directly, while others must use `await`.\n한국어: Actor Isolation: 액터 안의 코드만 데이터를 직접 만질 수 있고 나머지는 await를 써야 하는 규칙\n\nReentrancy - A behavior where an actor can run other calls while one call waits at an `await`, so its state may change.\n한국어: Reentrancy: 한 호출이 await에서 기다리는 동안 액터가 다른 호출을 실행해 상태가 바뀔 수 있는 동작\n\nIn this video, Mina and Jake talk about a counter moved into an actor and a bug after an await, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 264 of the iOS Daily English series.\n\n#Swift #SwiftConcurrency #EnglishForDevelopers",
+      "tags": [
+        "Actor",
+        "Actor Isolation",
+        "Reentrancy",
+        "Swift concurrency",
+        "iOS 동시성",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "iOS Daily English"
+      ],
+      "hook": "Can you explain Actor, Actor Isolation and Reentrancy in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "Coins in an actor",
+    "setting": "A counter that moved into an actor",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, I moved my `coins` counter into an actor, and now the compiler wants await everywhere.",
+        "terms": [
+          "Actor"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "That is actor isolation. Only code inside the actor can touch `coins` directly.",
+        "terms": [
+          "Actor",
+          "Actor Isolation"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Why is that good?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "An actor lets only one task use its data at a time, so the data stays safe.",
+        "terms": [
+          "Actor"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Can I read `wallet.coins` without await? It is only a number.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "No. Actor isolation does not allow it, even for a simple read. Use await.",
+        "terms": [
+          "Actor Isolation"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "OK. But is the actor always safe inside a long function?",
+        "terms": [
+          "Actor"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Be careful with reentrancy. At each await, other calls can run on the actor.",
+        "terms": [
+          "Actor",
+          "Reentrancy"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "So `coins` can change while my function waits?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Yes. That is reentrancy. Check your values again after an await.",
+        "terms": [
+          "Reentrancy"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "I forgot that. Last week I read `coins` before an await and used it after.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "That is the classic reentrancy bug. Read it again after the await.",
+        "terms": [
+          "Reentrancy"
+        ]
+      }
+    ],
+    "code": "actor Wallet {\n    var coins = 10\n    func spend() { coins -= 1 }\n}\nlet wallet = Wallet()\nawait wallet.spend()",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "Actor",
+      "lines": [
+        {
+          "text": "Use an actor to protect the shared counter."
+        }
+      ],
+      "title": "Use an actor to protect the shared counter. #Shorts",
+      "description": "Use an actor to protect the shared counter.\n\nActor - A type that protects its own data by letting only one task use it at a time.\n한국어: Actor: 한 번에 하나의 태스크만 사용하게 해서 자신의 데이터를 보호하는 타입\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "Actor Isolation",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Why does the compiler want await?"
+        },
+        {
+          "speaker": "B",
+          "text": "That is actor isolation."
+        }
+      ],
+      "title": "Why does the compiler want await? / That is actor isolation. #Shorts",
+      "description": "Why does the compiler want await? / That is actor isolation.\n\nActor Isolation - The rule that only code inside an actor can touch its data directly, while others must use `await`.\n한국어: Actor Isolation: 액터 안의 코드만 데이터를 직접 만질 수 있고 나머지는 await를 써야 하는 규칙\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Reentrancy",
+      "lines": [
+        {
+          "text": "Reentrancy means state can change at an await."
+        }
+      ],
+      "title": "Reentrancy means state can change at an await. #Shorts",
+      "description": "Reentrancy means state can change at an await.\n\nReentrancy - A behavior where an actor can run other calls while one call waits at an `await`, so its state may change.\n한국어: Reentrancy: 한 호출이 await에서 기다리는 동안 액터가 다른 호출을 실행해 상태가 바뀔 수 있는 동작\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "Actors are safe, but await can change state."
+}

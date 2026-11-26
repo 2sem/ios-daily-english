@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 255
+
+Race Condition
+- A bug where the result changes because two threads use the same data at the same time.
+- Example: "A race condition made the counter wrong."
+
+Thread Safety
+- A property of code that many threads can use at once without breaking its data.
+- Example: "Thread safety protects the shared counter."
+
+Deadlock
+- A freeze where tasks wait for each other forever, so none of them can continue.
+- Example: "A deadlock froze the whole app."
+
+
+Quiz ①
+What do you call a property of code that many threads can use at once without breaking its data?
+a) Race Condition
+b) Thread Safety
+c) Deadlock
+
+Quiz ②
+What do you call a freeze where tasks wait for each other forever, so none of them can continue?
+a) Deadlock
+b) Race Condition
+c) Thread Safety
+
+Quiz ③
+What do you call a bug where the result changes because two threads use the same data at the same time?
+a) Thread Safety
+b) Deadlock
+c) Race Condition

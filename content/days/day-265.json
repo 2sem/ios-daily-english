@@ -1,0 +1,236 @@
+{
+  "day": 265,
+  "phase": "6. Concurrency",
+  "theme": "MainActor, nonisolated and global actors",
+  "terms": [
+    {
+      "term": "MainActor",
+      "definition": "A special actor that runs its code on the main thread, where UI work belongs.",
+      "example": "Mark the view model with MainActor.",
+      "code": "@MainActor\nfunc updateUI() { print(\"on main actor\") }\nawait updateUI()",
+      "output": "on main actor"
+    },
+    {
+      "term": "Nonisolated",
+      "definition": "A keyword that lets an actor's member run without isolation, so callers do not need `await`.",
+      "example": "Make the label property nonisolated.",
+      "code": "actor User {\n    nonisolated var label: String { \"User\" }\n}\nprint(User().label)",
+      "output": "User"
+    },
+    {
+      "term": "Global Actor",
+      "definition": "An actor that you can attach to many types and functions, so all of them run in one shared place.",
+      "example": "A global actor can protect code across many files.",
+      "code": "@globalActor actor Store {\n    static let shared = Store()\n}\n@Store func save() { print(\"saved\") }\nawait save()",
+      "output": "saved"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What do you call a keyword that lets an actor's member run without isolation, so callers do not need `await`?",
+      "options": [
+        "MainActor",
+        "Global Actor",
+        "Nonisolated"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "What do you call an actor that you can attach to many types and functions, so all of them run in one shared place?",
+      "options": [
+        "Global Actor",
+        "MainActor",
+        "Nonisolated"
+      ],
+      "answer": "a"
+    },
+    {
+      "question": "What do you call a special actor that runs its code on the main thread, where UI work belongs?",
+      "options": [
+        "Nonisolated",
+        "MainActor",
+        "Global Actor"
+      ],
+      "answer": "b"
+    }
+  ],
+  "video": {
+    "title": "MainActor, Nonisolated & Global Actor | Day 265",
+    "description": "Learn to explain where UI code runs and how to opt out of isolation: MainActor, Nonisolated & Global Actor, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nMainActor - A special actor that runs its code on the main thread, where UI work belongs.\nNonisolated - A keyword that lets an actor's member run without isolation, so callers do not need `await`.\nGlobal Actor - An actor that you can attach to many types and functions, so all of them run in one shared place.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 265 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "MainActor",
+      "Nonisolated",
+      "Global Actor",
+      "mainactor",
+      "nonisolated",
+      "global actor",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "iOS MainActor, Nonisolated & Global Actor | Day 265",
+      "description": "Explain MainActor, Nonisolated & Global Actor in iOS by listening to a real code chat between two iOS devs.\nMainActor, Nonisolated, Global Actor 표현을 영어 대화로 익혀요.\n\nMainActor - A special actor that runs its code on the main thread, where UI work belongs.\n한국어: MainActor: UI 작업이 속한 메인 스레드에서 코드를 실행하는 특별한 액터\n\nNonisolated - A keyword that lets an actor's member run without isolation, so callers do not need `await`.\n한국어: Nonisolated: 액터 멤버를 격리 없이 실행하게 해서 호출하는 쪽이 await를 쓰지 않아도 되게 하는 키워드\n\nGlobal Actor - An actor that you can attach to many types and functions, so all of them run in one shared place.\n한국어: Global Actor: 여러 타입과 함수에 붙여서 모두 같은 한 곳에서 실행되게 하는 액터\n\nIn this video, Mina and Jake talk about a view model that must update the screen on the main thread, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 265 of the iOS Daily English series.\n\n#Swift #SwiftConcurrency #EnglishForDevelopers",
+      "tags": [
+        "MainActor",
+        "Nonisolated",
+        "Global Actor",
+        "Swift concurrency",
+        "iOS 동시성",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "iOS Daily English"
+      ],
+      "hook": "Can you explain MainActor, Nonisolated and Global Actor in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "The view model warning",
+    "setting": "A view model that updates the screen",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, my view model updates the screen from a background task, and Xcode shows a warning.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "UI work belongs on the main thread. Mark the class with MainActor, like `ViewModel` in your code.",
+        "terms": [
+          "MainActor"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "What does MainActor do?",
+        "terms": [
+          "MainActor"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "MainActor is a special actor that runs its code on the main thread.",
+        "terms": [
+          "MainActor"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "But `id()` does not touch the screen. Do I need await to call it?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Not if it is nonisolated. Nonisolated lets a member run without isolation.",
+        "terms": [
+          "Nonisolated"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "So callers do not need await for it?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Right. But a nonisolated function cannot read `title`.",
+        "terms": [
+          "Nonisolated"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Makes sense. Can I use MainActor for other types too?",
+        "terms": [
+          "MainActor"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Yes. MainActor is a global actor, and a global actor works for many types and functions.",
+        "terms": [
+          "MainActor",
+          "Global Actor"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Can I make my own global actor?",
+        "terms": [
+          "Global Actor"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Yes, mark an actor with `@globalActor`. But MainActor is enough for UI.",
+        "terms": [
+          "MainActor"
+        ]
+      }
+    ],
+    "code": "@MainActor\nfinal class ViewModel {\n    var title = \"\"\n    nonisolated func id() -> Int { 1 }\n}",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "MainActor",
+      "lines": [
+        {
+          "text": "Mark the view model with MainActor."
+        }
+      ],
+      "title": "Mark the view model with MainActor. #Shorts",
+      "description": "Mark the view model with MainActor.\n\nMainActor - A special actor that runs its code on the main thread, where UI work belongs.\n한국어: MainActor: UI 작업이 속한 메인 스레드에서 코드를 실행하는 특별한 액터\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "Nonisolated",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Why no await for this member?"
+        },
+        {
+          "speaker": "B",
+          "text": "It is nonisolated."
+        }
+      ],
+      "title": "Why no await for this member? / It is nonisolated. #Shorts",
+      "description": "Why no await for this member? / It is nonisolated.\n\nNonisolated - A keyword that lets an actor's member run without isolation, so callers do not need `await`.\n한국어: Nonisolated: 액터 멤버를 격리 없이 실행하게 해서 호출하는 쪽이 await를 쓰지 않아도 되게 하는 키워드\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Global Actor",
+      "lines": [
+        {
+          "text": "A global actor can protect code across many files."
+        }
+      ],
+      "title": "A global actor can protect code across many files. #Shorts",
+      "description": "A global actor can protect code across many files.\n\nGlobal Actor - An actor that you can attach to many types and functions, so all of them run in one shared place.\n한국어: Global Actor: 여러 타입과 함수에 붙여서 모두 같은 한 곳에서 실행되게 하는 액터\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "UI code belongs on MainActor."
+}

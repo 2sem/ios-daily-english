@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 263
+
+For-Await Loop
+- A loop written as `for await` that waits for each next value to arrive.
+- Example: "A for-await loop waits for each value."
+
+AsyncSequence
+- A sequence whose values arrive over time, so you read them with `await`.
+- Example: "An AsyncSequence delivers values over time."
+
+AsyncStream
+- A ready-made stream of values over time that you fill with `yield` and close with `finish`.
+- Example: "Build an AsyncStream to publish location updates."
+
+
+Quiz ①
+What do you call a ready-made stream of values over time that you fill with `yield` and close with `finish`?
+a) AsyncStream
+b) For-Await Loop
+c) AsyncSequence
+
+Quiz ②
+What do you call a sequence whose values arrive over time, so you read them with `await`?
+a) For-Await Loop
+b) AsyncSequence
+c) AsyncStream
+
+Quiz ③
+What do you call a loop written as `for await` that waits for each next value to arrive?
+a) AsyncSequence
+b) AsyncStream
+c) For-Await Loop

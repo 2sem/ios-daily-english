@@ -1,0 +1,229 @@
+{
+  "day": 260,
+  "phase": "6. Concurrency",
+  "theme": "Parallel async work: async let, task groups and structured concurrency",
+  "terms": [
+    {
+      "term": "Async Let",
+      "definition": "A way to start a child task now and read its result later with `await`.",
+      "example": "Use async let to start both requests.",
+      "code": "func a() async -> Int { 1 }\nfunc b() async -> Int { 2 }\nasync let x = a()\nasync let y = b()\nprint(await x + y)",
+      "output": "3"
+    },
+    {
+      "term": "Task Group",
+      "definition": "A group of child tasks that run together while you collect each result.",
+      "example": "A task group can add tasks in a loop.",
+      "code": "let sum = await withTaskGroup(of: Int.self) {\n    for n in 1...3 { $0.addTask { n * n } }\n    return await $0.reduce(0, +)\n}\nprint(sum)",
+      "output": "14"
+    },
+    {
+      "term": "Structured Concurrency",
+      "definition": "A style where child tasks live inside their parent, so the parent finishes only after they do.",
+      "example": "Structured concurrency keeps child work inside its parent.",
+      "code": "func parent() async {\n    async let child = 10\n    print(\"parent waits\")\n    print(await child)\n}\nawait parent()",
+      "output": "parent waits\n10"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What do you call a group of child tasks that run together while you collect each result?",
+      "options": [
+        "Task Group",
+        "Async Let",
+        "Structured Concurrency"
+      ],
+      "answer": "a"
+    },
+    {
+      "question": "What do you call a style where child tasks live inside their parent, so the parent finishes only after they do?",
+      "options": [
+        "Async Let",
+        "Task Group",
+        "Structured Concurrency"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "What do you call a way to start a child task now and read its result later with `await`?",
+      "options": [
+        "Task Group",
+        "Async Let",
+        "Structured Concurrency"
+      ],
+      "answer": "b"
+    }
+  ],
+  "video": {
+    "title": "Async Let, Task Group & Structured Concurrency | Day 260",
+    "description": "Learn to explain how to run async work in parallel safely: Async Let, Task Group & Structured Concurrency, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nAsync Let - A way to start a child task now and read its result later with `await`.\nTask Group - A group of child tasks that run together while you collect each result.\nStructured Concurrency - A style where child tasks live inside their parent, so the parent finishes only after they do.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 260 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "Async Let",
+      "Task Group",
+      "Structured Concurrency",
+      "async let",
+      "task group",
+      "structured concurrency",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "iOS Async Let, Task Group & Structured Concurrency | Day 260",
+      "description": "Explain Async Let, Task Group & Structured Concurrency in iOS by listening to a real code chat between two iOS devs.\nAsync Let, Task Group, Structured Concurrency 표현을 영어 대화로 익혀요.\n\nAsync Let - A way to start a child task now and read its result later with `await`.\n한국어: Async Let: 자식 태스크를 지금 시작하고 결과는 나중에 await로 읽는 방법\n\nTask Group - A group of child tasks that run together while you collect each result.\n한국어: Task Group: 함께 실행되는 자식 태스크 묶음으로, 각 결과를 모아 주는 그룹\n\nStructured Concurrency - A style where child tasks live inside their parent, so the parent finishes only after they do.\n한국어: Structured Concurrency: 자식 태스크가 부모 안에 머물러 부모가 자식이 끝난 뒤에만 끝나는 방식\n\nIn this video, Mina and Jake talk about loading a user and many images at the same time, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 260 of the iOS Daily English series.\n\n#Swift #SwiftConcurrency #EnglishForDevelopers",
+      "tags": [
+        "Async Let",
+        "Task Group",
+        "Structured Concurrency",
+        "Swift concurrency",
+        "iOS 동시성",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "iOS Daily English"
+      ],
+      "hook": "Can you explain Async Let, Task Group and Structured Concurrency in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "Load it all at once",
+    "setting": "A screen that loads data too slowly",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, my screen loads the user and the posts one after another, and it feels slow.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Use async let. It starts a child task now, and you read the result later with await.",
+        "terms": [
+          "Async Let"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Like `user` and `posts` in my code?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Yes. Both start right away, and they run at the same time.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "What if I have twenty images, not just two?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Then use a task group. A task group lets you add child tasks in a loop and collect each result.",
+        "terms": [
+          "Task Group"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Do I need to stop the child tasks myself if the screen closes?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "No. That is structured concurrency. The child tasks live inside their parent.",
+        "terms": [
+          "Structured Concurrency"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "So the parent waits for them?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Yes, the parent finishes only after the children do. That is the rule of structured concurrency.",
+        "terms": [
+          "Structured Concurrency"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "That sounds safe. I will try async let first.",
+        "terms": [
+          "Async Let"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Good. And use a task group when the number of tasks changes.",
+        "terms": [
+          "Task Group"
+        ]
+      }
+    ],
+    "code": "func loadUser() async -> String { \"Mina\" }\nfunc loadPosts() async -> Int { 3 }\nasync let user = loadUser()\nasync let posts = loadPosts()\nprint(await user, await posts)",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "Async Let",
+      "lines": [
+        {
+          "text": "Use async let to start both requests."
+        }
+      ],
+      "title": "Use async let to start both requests. #Shorts",
+      "description": "Use async let to start both requests.\n\nAsync Let - A way to start a child task now and read its result later with `await`.\n한국어: Async Let: 자식 태스크를 지금 시작하고 결과는 나중에 await로 읽는 방법\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "Task Group",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "How do I load twenty images?"
+        },
+        {
+          "speaker": "B",
+          "text": "Use a task group."
+        }
+      ],
+      "title": "How do I load twenty images? / Use a task group. #Shorts",
+      "description": "How do I load twenty images? / Use a task group.\n\nTask Group - A group of child tasks that run together while you collect each result.\n한국어: Task Group: 함께 실행되는 자식 태스크 묶음으로, 각 결과를 모아 주는 그룹\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Structured Concurrency",
+      "lines": [
+        {
+          "text": "Structured concurrency keeps child work inside its parent."
+        }
+      ],
+      "title": "Structured concurrency keeps child work inside its parent. #Shorts",
+      "description": "Structured concurrency keeps child work inside its parent.\n\nStructured Concurrency - A style where child tasks live inside their parent, so the parent finishes only after they do.\n한국어: Structured Concurrency: 자식 태스크가 부모 안에 머물러 부모가 자식이 끝난 뒤에만 끝나는 방식\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "Load both at once with async let."
+}

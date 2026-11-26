@@ -1,0 +1,235 @@
+{
+  "day": 268,
+  "phase": "6. Concurrency",
+  "theme": "Child, unstructured and detached tasks",
+  "terms": [
+    {
+      "term": "Child Task",
+      "definition": "A task that belongs to a parent task and ends before its parent does.",
+      "example": "A child task ends before its parent.",
+      "code": "let r = await withTaskGroup(of: Int.self) {\n    $0.addTask { print(\"child runs\"); return 1 }\n    return await $0.next()\n}\nprint(r ?? 0)",
+      "output": "child runs\n1"
+    },
+    {
+      "term": "Unstructured Task",
+      "definition": "A task made with `Task { }` that is not tied to a parent scope but inherits the actor and priority of its creator.",
+      "example": "An unstructured task needs manual cancellation.",
+      "code": "func start() -> Task<Void, Never> {\n    Task { print(\"saving\") }\n}\nawait start().value",
+      "output": "saving"
+    },
+    {
+      "term": "Detached Task",
+      "definition": "A task that inherits nothing from its creator: not the actor, the priority or the task-local values.",
+      "example": "A detached task ignores the current actor.",
+      "code": "import Foundation\nfunc m() -> Bool { Thread.isMainThread }\n@MainActor func run() async {\n    await Task.detached { print(m()) }.value\n}\nawait run()",
+      "output": "false"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What do you call a task that inherits nothing from its creator: not the actor, the priority or the task-local values?",
+      "options": [
+        "Child Task",
+        "Unstructured Task",
+        "Detached Task"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "What do you call a task made with `Task { }` that is not tied to a parent scope but inherits the actor and priority of its creator?",
+      "options": [
+        "Child Task",
+        "Unstructured Task",
+        "Detached Task"
+      ],
+      "answer": "b"
+    },
+    {
+      "question": "What do you call a task that belongs to a parent task and ends before its parent does?",
+      "options": [
+        "Child Task",
+        "Unstructured Task",
+        "Detached Task"
+      ],
+      "answer": "a"
+    }
+  ],
+  "video": {
+    "title": "Child Task, Unstructured Task & Detached Task | Day 268",
+    "description": "Learn to explain the three ways to start a task and what each one inherits: Child Task, Unstructured Task & Detached Task, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nChild Task - A task that belongs to a parent task and ends before its parent does.\nUnstructured Task - A task made with `Task { }` that is not tied to a parent scope but inherits the actor and priority of its creator.\nDetached Task - A task that inherits nothing from its creator: not the actor, the priority or the task-local values.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 268 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "Child Task",
+      "Unstructured Task",
+      "Detached Task",
+      "child task",
+      "unstructured task",
+      "detached task",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "iOS Child Task, Unstructured Task & Detached Task | Day 268",
+      "description": "Explain Child Task, Unstructured Task & Detached Task in iOS by listening to a real code chat between two iOS devs.\nChild Task, Unstructured Task, Detached Task 표현을 영어 대화로 익혀요.\n\nChild Task - A task that belongs to a parent task and ends before its parent does.\n한국어: Child Task: 부모 태스크에 속하며 부모보다 먼저 끝나는 태스크\n\nUnstructured Task - A task made with `Task { }` that is not tied to a parent scope but inherits the actor and priority of its creator.\n한국어: Unstructured Task: Task { }로 만들며 부모 범위에 묶이지 않지만 만든 쪽의 액터와 우선순위를 물려받는 태스크\n\nDetached Task - A task that inherits nothing from its creator: not the actor, the priority or the task-local values.\n한국어: Detached Task: 액터, 우선순위, 태스크 로컬 값 등 만든 쪽의 것을 아무것도 물려받지 않는 태스크\n\nIn this video, Mina and Jake talk about three ways to start work and which one is right, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 268 of the iOS Daily English series.\n\n#Swift #SwiftConcurrency #EnglishForDevelopers",
+      "tags": [
+        "Child Task",
+        "Unstructured Task",
+        "Detached Task",
+        "Swift concurrency",
+        "iOS 동시성",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "iOS Daily English"
+      ],
+      "hook": "Can you explain Child Task, Unstructured Task and Detached Task in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "Three ways to start work",
+    "setting": "A function that starts work in three ways",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, I start work in three different ways in `run`. Which one is right?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Let us see. The first one, `async let`, makes a child task.",
+        "terms": [
+          "Child Task"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "What is a child task?",
+        "terms": [
+          "Child Task"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "A child task belongs to a parent task and ends before its parent does.",
+        "terms": [
+          "Child Task"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "And the second line, `Task { }`?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "That is an unstructured task. It is not tied to the parent scope, but it inherits the actor and priority.",
+        "terms": [
+          "Unstructured Task"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "So if `run` ends, the unstructured task keeps going?",
+        "terms": [
+          "Unstructured Task"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Yes, and you must cancel it yourself. A child task is cancelled with its parent.",
+        "terms": [
+          "Child Task"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Then what is `Task.detached` for?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "A detached task inherits nothing. No actor, no priority, no task-local values.",
+        "terms": [
+          "Detached Task"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "I used a detached task for UI work, and the screen updated on the wrong thread.",
+        "terms": [
+          "Detached Task"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "That is a common mistake. Use a detached task only when you really need a fresh start.",
+        "terms": [
+          "Detached Task"
+        ]
+      }
+    ],
+    "code": "func photos() async {}\nfunc run() async {\n    async let p: Void = photos()\n    Task { await photos() }\n    Task.detached { await photos() }\n}",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "Child Task",
+      "lines": [
+        {
+          "text": "A child task ends before its parent."
+        }
+      ],
+      "title": "A child task ends before its parent. #Shorts",
+      "description": "A child task ends before its parent.\n\nChild Task - A task that belongs to a parent task and ends before its parent does.\n한국어: Child Task: 부모 태스크에 속하며 부모보다 먼저 끝나는 태스크\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "Unstructured Task",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Does it end with its parent?"
+        },
+        {
+          "speaker": "B",
+          "text": "No, an unstructured task keeps going."
+        }
+      ],
+      "title": "Does it end with its parent? / No, an unstructured task keeps going. #Shorts",
+      "description": "Does it end with its parent? / No, an unstructured task keeps going.\n\nUnstructured Task - A task made with `Task { }` that is not tied to a parent scope but inherits the actor and priority of its creator.\n한국어: Unstructured Task: Task { }로 만들며 부모 범위에 묶이지 않지만 만든 쪽의 액터와 우선순위를 물려받는 태스크\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Detached Task",
+      "lines": [
+        {
+          "text": "A detached task ignores the current actor."
+        }
+      ],
+      "title": "A detached task ignores the current actor. #Shorts",
+      "description": "A detached task ignores the current actor.\n\nDetached Task - A task that inherits nothing from its creator: not the actor, the priority or the task-local values.\n한국어: Detached Task: 액터, 우선순위, 태스크 로컬 값 등 만든 쪽의 것을 아무것도 물려받지 않는 태스크\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "Child, unstructured or detached?"
+}

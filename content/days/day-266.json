@@ -1,0 +1,238 @@
+{
+  "day": 266,
+  "phase": "6. Concurrency",
+  "theme": "Data races, Sendable and isolation boundaries",
+  "terms": [
+    {
+      "term": "Data Race",
+      "definition": "A bug where two threads touch the same memory at once and at least one of them writes.",
+      "example": "A data race can crash the app.",
+      "code": "actor Items {\n    var list: [Int] = []\n    func add(_ n: Int) { list.append(n) }\n}\nlet items = Items(); await items.add(1)\nprint(await items.list)  // no data race",
+      "output": "[1]"
+    },
+    {
+      "term": "Sendable",
+      "definition": "A protocol that marks a type as safe to pass between concurrent tasks.",
+      "example": "Make the model Sendable before you pass it.",
+      "code": "struct Point: Sendable { let x, y: Int }\nlet p = Point(x: 1, y: 2)\nlet task = Task { p.x + p.y }\nprint(await task.value)",
+      "output": "3"
+    },
+    {
+      "term": "Isolation Boundary",
+      "definition": "The line between two actors or tasks, where values must be safe to share before they cross.",
+      "example": "Passing a class across an isolation boundary needs care.",
+      "code": "struct Note: Sendable { let text: String }\nactor Inbox { func put(_ n: Note) {} }\nlet box = Inbox()\nawait box.put(Note(text: \"hi\"))  // crosses\nprint(\"crossed\")",
+      "output": "crossed"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What do you call the line between two actors or tasks, where values must be safe to share before they cross?",
+      "options": [
+        "Isolation Boundary",
+        "Data Race",
+        "Sendable"
+      ],
+      "answer": "a"
+    },
+    {
+      "question": "What do you call a bug where two threads touch the same memory at once and at least one of them writes?",
+      "options": [
+        "Sendable",
+        "Isolation Boundary",
+        "Data Race"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "What do you call a protocol that marks a type as safe to pass between concurrent tasks?",
+      "options": [
+        "Data Race",
+        "Sendable",
+        "Isolation Boundary"
+      ],
+      "answer": "b"
+    }
+  ],
+  "video": {
+    "title": "Data Race, Sendable & Isolation Boundary | Day 266",
+    "description": "Learn to explain why Swift asks for Sendable types: Data Race, Sendable & Isolation Boundary, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nData Race - A bug where two threads touch the same memory at once and at least one of them writes.\nSendable - A protocol that marks a type as safe to pass between concurrent tasks.\nIsolation Boundary - The line between two actors or tasks, where values must be safe to share before they cross.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 266 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "Data Race",
+      "Sendable",
+      "Isolation Boundary",
+      "data race",
+      "sendable",
+      "isolation boundary",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "iOS Data Race, Sendable & Isolation Boundary | Day 266",
+      "description": "Explain Data Race, Sendable & Isolation Boundary in iOS by listening to a real code chat between two iOS devs.\nData Race, Sendable, Isolation Boundary 표현을 영어 대화로 익혀요.\n\nData Race - A bug where two threads touch the same memory at once and at least one of them writes.\n한국어: Data Race: 두 스레드가 같은 메모리를 동시에 만지고 그중 하나 이상이 쓰는 버그\n\nSendable - A protocol that marks a type as safe to pass between concurrent tasks.\n한국어: Sendable: 타입이 동시 태스크 사이에서 안전하게 전달될 수 있음을 표시하는 프로토콜\n\nIsolation Boundary - The line between two actors or tasks, where values must be safe to share before they cross.\n한국어: Isolation Boundary: 두 액터나 태스크 사이의 경계로, 넘기기 전에 값이 공유에 안전해야 하는 지점\n\nIn this video, Mina and Jake talk about a warning that a class is not Sendable and what a data race is, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 266 of the iOS Daily English series.\n\n#Swift #SwiftConcurrency #EnglishForDevelopers",
+      "tags": [
+        "Data Race",
+        "Sendable",
+        "Isolation Boundary",
+        "Swift concurrency",
+        "iOS 동시성",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "iOS Daily English"
+      ],
+      "hook": "Can you explain Data Race, Sendable and Isolation Boundary in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "The Sendable warning",
+    "setting": "A class that two tasks change at once",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, Xcode warns me that `Box` is not Sendable. What does that mean?",
+        "terms": [
+          "Sendable"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Sendable marks a type as safe to pass between tasks. A class with a changing property is not safe.",
+        "terms": [
+          "Sendable"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Why not?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Look at your two tasks. Both change `box.n` at the same time. That is a data race.",
+        "terms": [
+          "Data Race"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "A data race sounds like a race condition.",
+        "terms": [
+          "Data Race"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "It is close. A data race means two threads touch the same memory at once, and one of them writes.",
+        "terms": [
+          "Data Race"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "And where does Sendable check this?",
+        "terms": [
+          "Sendable"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "At the isolation boundary. That is the line between two tasks or actors.",
+        "terms": [
+          "Isolation Boundary"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "So an isolation boundary is where a value moves from one place to another?",
+        "terms": [
+          "Isolation Boundary"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Yes. Values that cross an isolation boundary must be Sendable.",
+        "terms": [
+          "Sendable",
+          "Isolation Boundary"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Then I will make `Box` an actor, or use a struct.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Good idea. Structs with simple values are often Sendable.",
+        "terms": [
+          "Sendable"
+        ]
+      }
+    ],
+    "code": "final class Box { var n = 0 }\nlet box = Box()\nTask { box.n += 1 }\nTask { box.n += 1 }",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "Data Race",
+      "lines": [
+        {
+          "text": "A data race can crash the app."
+        }
+      ],
+      "title": "A data race can crash the app. #Shorts",
+      "description": "A data race can crash the app.\n\nData Race - A bug where two threads touch the same memory at once and at least one of them writes.\n한국어: Data Race: 두 스레드가 같은 메모리를 동시에 만지고 그중 하나 이상이 쓰는 버그\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "Sendable",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Is this type safe to share?"
+        },
+        {
+          "speaker": "B",
+          "text": "Only if it is Sendable."
+        }
+      ],
+      "title": "Is this type safe to share? / Only if it is Sendable. #Shorts",
+      "description": "Is this type safe to share? / Only if it is Sendable.\n\nSendable - A protocol that marks a type as safe to pass between concurrent tasks.\n한국어: Sendable: 타입이 동시 태스크 사이에서 안전하게 전달될 수 있음을 표시하는 프로토콜\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Isolation Boundary",
+      "lines": [
+        {
+          "text": "Passing a class across an isolation boundary needs care."
+        }
+      ],
+      "title": "Passing a class across an isolation boundary needs care. #Shorts",
+      "description": "Passing a class across an isolation boundary needs care.\n\nIsolation Boundary - The line between two actors or tasks, where values must be safe to share before they cross.\n한국어: Isolation Boundary: 두 액터나 태스크 사이의 경계로, 넘기기 전에 값이 공유에 안전해야 하는 지점\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "Not Sendable? You may have a data race."
+}

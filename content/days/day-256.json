@@ -1,0 +1,233 @@
+{
+  "day": 256,
+  "phase": "6. Concurrency",
+  "theme": "Locks: critical sections, NSLock and os_unfair_lock",
+  "terms": [
+    {
+      "term": "Critical Section",
+      "definition": "A part of the code that only one thread may run at a time.",
+      "example": "Keep the critical section short.",
+      "code": "import Foundation\nlet lock = NSLock()\nvar total = 0\nlock.lock()\ntotal += 10  // critical section\nlock.unlock(); print(total)",
+      "output": "10"
+    },
+    {
+      "term": "NSLock",
+      "definition": "A lock object that lets one thread at a time enter protected code and makes the others wait.",
+      "example": "Protect the counter with an NSLock.",
+      "code": "import Foundation\nlet lock = NSLock()\nlock.withLock { print(\"locked\") }\nprint(\"unlocked\")",
+      "output": "locked\nunlocked"
+    },
+    {
+      "term": "os_unfair_lock",
+      "definition": "A fast, low-level lock from the `os` module that must stay at one memory address.",
+      "example": "Never copy an os_unfair_lock value.",
+      "code": "import os\nvar lock = os_unfair_lock()\nos_unfair_lock_lock(&lock)\nprint(\"locked\")\nos_unfair_lock_unlock(&lock)",
+      "output": "locked"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What do you call a fast, low-level lock from the `os` module that must stay at one memory address?",
+      "options": [
+        "Critical Section",
+        "NSLock",
+        "os_unfair_lock"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "What do you call a part of the code that only one thread may run at a time?",
+      "options": [
+        "NSLock",
+        "Critical Section",
+        "os_unfair_lock"
+      ],
+      "answer": "b"
+    },
+    {
+      "question": "What do you call a lock object that lets one thread at a time enter protected code and makes the others wait?",
+      "options": [
+        "NSLock",
+        "Critical Section",
+        "os_unfair_lock"
+      ],
+      "answer": "a"
+    }
+  ],
+  "video": {
+    "title": "Critical Section, NSLock & os_unfair_lock | Day 256",
+    "description": "Learn to explain how a lock protects shared data: Critical Section, NSLock & os_unfair_lock, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nCritical Section - A part of the code that only one thread may run at a time.\nNSLock - A lock object that lets one thread at a time enter protected code and makes the others wait.\nos_unfair_lock - A fast, low-level lock from the `os` module that must stay at one memory address.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 256 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "Critical Section",
+      "NSLock",
+      "os_unfair_lock",
+      "critical section",
+      "nslock",
+      "os_unfair_lock",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "iOS Critical Section, NSLock & os_unfair_lock | Day 256",
+      "description": "Explain Critical Section, NSLock & os_unfair_lock in iOS by listening to a real code chat between two iOS devs.\nCritical Section, NSLock, os_unfair_lock 표현을 영어 대화로 익혀요.\n\nCritical Section - A part of the code that only one thread may run at a time.\n한국어: Critical Section: 한 번에 하나의 스레드만 실행할 수 있는 코드 구간\n\nNSLock - A lock object that lets one thread at a time enter protected code and makes the others wait.\n한국어: NSLock: 한 번에 한 스레드만 보호된 코드에 들어가게 하고 나머지는 기다리게 하는 락 객체\n\nos_unfair_lock - A fast, low-level lock from the `os` module that must stay at one memory address.\n한국어: os_unfair_lock: os 모듈의 빠른 저수준 락으로, 하나의 메모리 주소에 그대로 있어야 함\n\nIn this video, Mina and Jake talk about a lock around a list and whether a faster lock is worth it, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 256 of the iOS Daily English series.\n\n#Swift #SwiftConcurrency #EnglishForDevelopers",
+      "tags": [
+        "Critical Section",
+        "NSLock",
+        "os_unfair_lock",
+        "Swift concurrency",
+        "iOS 동시성",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "iOS Daily English"
+      ],
+      "hook": "Can you explain Critical Section, NSLock and os_unfair_lock in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "The slow lock",
+    "setting": "A lock that a teammate calls too slow",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, I added a lock around `items`, but my teammate says it is too slow.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "What code is inside the lock?",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "Only `items.append`. That is my critical section.",
+        "terms": [
+          "Critical Section"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Good. A critical section is a part of the code that only one thread may run at a time. Keep it short.",
+        "terms": [
+          "Critical Section"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "I use NSLock because it is simple.",
+        "terms": [
+          "NSLock"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "NSLock is fine for most apps. It lets one thread in and makes the others wait.",
+        "terms": [
+          "NSLock"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "My teammate wants os_unfair_lock instead. Is it better?",
+        "terms": [
+          "os_unfair_lock"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "It is faster, but it is low level. You must not copy an os_unfair_lock value.",
+        "terms": [
+          "os_unfair_lock"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Why not?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "The lock must stay at one memory address. Copying it breaks the critical section.",
+        "terms": [
+          "Critical Section"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Then I keep NSLock. Easy to read is better.",
+        "terms": [
+          "NSLock"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Agreed. Measure first, then change.",
+        "terms": []
+      }
+    ],
+    "code": "import Foundation\nlet lock = NSLock()\nvar items = [String]()\nlock.lock()\nitems.append(\"a\")\nlock.unlock()",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "Critical Section",
+      "lines": [
+        {
+          "text": "Keep the critical section short."
+        }
+      ],
+      "title": "Keep the critical section short. #Shorts",
+      "description": "Keep the critical section short.\n\nCritical Section - A part of the code that only one thread may run at a time.\n한국어: Critical Section: 한 번에 하나의 스레드만 실행할 수 있는 코드 구간\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "NSLock",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Is this lock too heavy?"
+        },
+        {
+          "speaker": "B",
+          "text": "No, an NSLock is fine here."
+        }
+      ],
+      "title": "Is this lock too heavy? / No, an NSLock is fine here. #Shorts",
+      "description": "Is this lock too heavy? / No, an NSLock is fine here.\n\nNSLock - A lock object that lets one thread at a time enter protected code and makes the others wait.\n한국어: NSLock: 한 번에 한 스레드만 보호된 코드에 들어가게 하고 나머지는 기다리게 하는 락 객체\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "os_unfair_lock",
+      "lines": [
+        {
+          "text": "Never copy an os_unfair_lock value."
+        }
+      ],
+      "title": "Never copy an os_unfair_lock value. #Shorts",
+      "description": "Never copy an os_unfair_lock value.\n\nos_unfair_lock - A fast, low-level lock from the `os` module that must stay at one memory address.\n한국어: os_unfair_lock: os 모듈의 빠른 저수준 락으로, 하나의 메모리 주소에 그대로 있어야 함\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "Lock it short: critical section tips."
+}

@@ -2999,6 +2999,246 @@
     "circulardependency": {
       "term": "Circular Dependency",
       "day": 250
+    },
+    "grandcentraldispatch": {
+      "term": "Grand Central Dispatch",
+      "day": 251
+    },
+    "serialqueue": {
+      "term": "Serial Queue",
+      "day": 251
+    },
+    "concurrentqueue": {
+      "term": "Concurrent Queue",
+      "day": 251
+    },
+    "globalqueue": {
+      "term": "Global Queue",
+      "day": 252
+    },
+    "asynchronouscall": {
+      "term": "Asynchronous Call",
+      "day": 252
+    },
+    "synchronouscall": {
+      "term": "Synchronous Call",
+      "day": 252
+    },
+    "dispatchworkitem": {
+      "term": "Dispatch Work Item",
+      "day": 253
+    },
+    "dispatchgroup": {
+      "term": "Dispatch Group",
+      "day": 253
+    },
+    "dispatchsemaphore": {
+      "term": "Dispatch Semaphore",
+      "day": 253
+    },
+    "thread": {
+      "term": "Thread",
+      "day": 254
+    },
+    "runloop": {
+      "term": "Run Loop",
+      "day": 254
+    },
+    "dispatchbarrier": {
+      "term": "Dispatch Barrier",
+      "day": 254
+    },
+    "racecondition": {
+      "term": "Race Condition",
+      "day": 255
+    },
+    "threadsafety": {
+      "term": "Thread Safety",
+      "day": 255
+    },
+    "deadlock": {
+      "term": "Deadlock",
+      "day": 255
+    },
+    "criticalsection": {
+      "term": "Critical Section",
+      "day": 256
+    },
+    "nslock": {
+      "term": "NSLock",
+      "day": 256
+    },
+    "osunfairlock": {
+      "term": "os_unfair_lock",
+      "day": 256
+    },
+    "blockoperation": {
+      "term": "Block Operation",
+      "day": 257
+    },
+    "operationqueue": {
+      "term": "Operation Queue",
+      "day": 257
+    },
+    "operationdependency": {
+      "term": "Operation Dependency",
+      "day": 257
+    },
+    "asyncfunction": {
+      "term": "Async Function",
+      "day": 258
+    },
+    "await": {
+      "term": "Await",
+      "day": 258
+    },
+    "suspensionpoint": {
+      "term": "Suspension Point",
+      "day": 258
+    },
+    "task": {
+      "term": "Task",
+      "day": 259
+    },
+    "executor": {
+      "term": "Executor",
+      "day": 259
+    },
+    "cooperativethreadpool": {
+      "term": "Cooperative Thread Pool",
+      "day": 259
+    },
+    "asynclet": {
+      "term": "Async Let",
+      "day": 260
+    },
+    "taskgroup": {
+      "term": "Task Group",
+      "day": 260
+    },
+    "structuredconcurrency": {
+      "term": "Structured Concurrency",
+      "day": 260
+    },
+    "taskcancellation": {
+      "term": "Task Cancellation",
+      "day": 261
+    },
+    "cancellationerror": {
+      "term": "CancellationError",
+      "day": 261
+    },
+    "cancellationhandler": {
+      "term": "Cancellation Handler",
+      "day": 261
+    },
+    "continuation": {
+      "term": "Continuation",
+      "day": 262
+    },
+    "withcheckedcontinuation": {
+      "term": "withCheckedContinuation",
+      "day": 262
+    },
+    "withcheckedthrowingcontinuation": {
+      "term": "withCheckedThrowingContinuation",
+      "day": 262
+    },
+    "forawaitloop": {
+      "term": "For-Await Loop",
+      "day": 263
+    },
+    "asyncsequence": {
+      "term": "AsyncSequence",
+      "day": 263
+    },
+    "asyncstream": {
+      "term": "AsyncStream",
+      "day": 263
+    },
+    "actor": {
+      "term": "Actor",
+      "day": 264
+    },
+    "actorisolation": {
+      "term": "Actor Isolation",
+      "day": 264
+    },
+    "reentrancy": {
+      "term": "Reentrancy",
+      "day": 264
+    },
+    "mainactor": {
+      "term": "MainActor",
+      "day": 265
+    },
+    "nonisolated": {
+      "term": "Nonisolated",
+      "day": 265
+    },
+    "globalactor": {
+      "term": "Global Actor",
+      "day": 265
+    },
+    "datarace": {
+      "term": "Data Race",
+      "day": 266
+    },
+    "sendable": {
+      "term": "Sendable",
+      "day": 266
+    },
+    "isolationboundary": {
+      "term": "Isolation Boundary",
+      "day": 266
+    },
+    "tasksleep": {
+      "term": "Task Sleep",
+      "day": 267
+    },
+    "taskyield": {
+      "term": "Task Yield",
+      "day": 267
+    },
+    "tasklocalvalue": {
+      "term": "Task Local Value",
+      "day": 267
+    },
+    "childtask": {
+      "term": "Child Task",
+      "day": 268
+    },
+    "unstructuredtask": {
+      "term": "Unstructured Task",
+      "day": 268
+    },
+    "detachedtask": {
+      "term": "Detached Task",
+      "day": 268
+    },
+    "actorhop": {
+      "term": "Actor Hop",
+      "day": 269
+    },
+    "isolatedparameter": {
+      "term": "Isolated Parameter",
+      "day": 269
+    },
+    "sendingparameter": {
+      "term": "Sending Parameter",
+      "day": 269
+    },
+    "languagemode": {
+      "term": "Language Mode",
+      "day": 270
+    },
+    "strictconcurrency": {
+      "term": "Strict Concurrency",
+      "day": 270
+    },
+    "uncheckedsendable": {
+      "term": "Unchecked Sendable",
+      "day": 270
     }
   }
 }

@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 256
+
+Critical Section
+- A part of the code that only one thread may run at a time.
+- Example: "Keep the critical section short."
+
+NSLock
+- A lock object that lets one thread at a time enter protected code and makes the others wait.
+- Example: "Protect the counter with an NSLock."
+
+os_unfair_lock
+- A fast, low-level lock from the `os` module that must stay at one memory address.
+- Example: "Never copy an os_unfair_lock value."
+
+
+Quiz ①
+What do you call a fast, low-level lock from the `os` module that must stay at one memory address?
+a) Critical Section
+b) NSLock
+c) os_unfair_lock
+
+Quiz ②
+What do you call a part of the code that only one thread may run at a time?
+a) NSLock
+b) Critical Section
+c) os_unfair_lock
+
+Quiz ③
+What do you call a lock object that lets one thread at a time enter protected code and makes the others wait?
+a) NSLock
+b) Critical Section
+c) os_unfair_lock

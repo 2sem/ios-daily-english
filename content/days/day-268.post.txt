@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 268
+
+Child Task
+- A task that belongs to a parent task and ends before its parent does.
+- Example: "A child task ends before its parent."
+
+Unstructured Task
+- A task made with `Task { }` that is not tied to a parent scope but inherits the actor and priority of its creator.
+- Example: "An unstructured task needs manual cancellation."
+
+Detached Task
+- A task that inherits nothing from its creator: not the actor, the priority or the task-local values.
+- Example: "A detached task ignores the current actor."
+
+
+Quiz ①
+What do you call a task that inherits nothing from its creator: not the actor, the priority or the task-local values?
+a) Child Task
+b) Unstructured Task
+c) Detached Task
+
+Quiz ②
+What do you call a task made with `Task { }` that is not tied to a parent scope but inherits the actor and priority of its creator?
+a) Child Task
+b) Unstructured Task
+c) Detached Task
+
+Quiz ③
+What do you call a task that belongs to a parent task and ends before its parent does?
+a) Child Task
+b) Unstructured Task
+c) Detached Task

@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 252
+
+Global Queue
+- A queue that the system provides and shares with every app, ready to use.
+- Example: "Run the heavy work on a global queue."
+
+Asynchronous Call
+- A call that returns right away and lets the work finish later.
+- Example: "An asynchronous call does not block the screen."
+
+Synchronous Call
+- A call that makes the caller wait until the work is finished.
+- Example: "A synchronous call blocks the caller."
+
+
+Quiz ①
+What do you call a call that returns right away and lets the work finish later?
+a) Global Queue
+b) Asynchronous Call
+c) Synchronous Call
+
+Quiz ②
+What do you call a queue that the system provides and shares with every app, ready to use?
+a) Asynchronous Call
+b) Synchronous Call
+c) Global Queue
+
+Quiz ③
+What do you call a call that makes the caller wait until the work is finished?
+a) Synchronous Call
+b) Global Queue
+c) Asynchronous Call

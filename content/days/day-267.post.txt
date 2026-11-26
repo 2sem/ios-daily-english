@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 267
+
+Task Sleep
+- A call that pauses the current task for a set time without blocking its thread.
+- Example: "Use task sleep to wait one second."
+
+Task Yield
+- A call that lets the current task step aside so other tasks can run first.
+- Example: "Call task yield inside a long loop."
+
+Task Local Value
+- A value that is attached to a task and can be read by its child tasks.
+- Example: "A task local value follows the child tasks."
+
+
+Quiz ①
+What do you call a call that lets the current task step aside so other tasks can run first?
+a) Task Sleep
+b) Task Yield
+c) Task Local Value
+
+Quiz ②
+What do you call a call that pauses the current task for a set time without blocking its thread?
+a) Task Sleep
+b) Task Yield
+c) Task Local Value
+
+Quiz ③
+What do you call a value that is attached to a task and can be read by its child tasks?
+a) Task Sleep
+b) Task Yield
+c) Task Local Value
