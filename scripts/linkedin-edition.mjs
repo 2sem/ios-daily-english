@@ -29,6 +29,8 @@ const blocks = [
     { type: "ul", items: [t.definition, `"${t.example}"`] },
   ]),
   { type: "p", text: "Your turn: say each example out loud after the video, then try the 3-question quiz at the end. Comment your answers (1/2/3), I reply to every comment!" },
+  // Day 34+: the video is not public when the edition is drafted, so point to the public playlist instead (owner rule).
+  ...(day.day >= 34 ? [{ type: "p", text: "Watch the full iOS Daily English series on YouTube: https://www.youtube.com/playlist?list=PLUB5sT2vMlgk" }] : []),
 ];
 
 // Share text shown above the edition in the feed ("인맥에게 뉴스레터 소개…").
