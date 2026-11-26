@@ -1,0 +1,229 @@
+{
+  "day": 79,
+  "phase": "2. Swift in depth",
+  "theme": "3 terms on positions in a string: the special index type strings use, moving that index a number of steps, and the crash you get when a position does not exist",
+  "terms": [
+    {
+      "term": "String Index",
+      "definition": "The position type a string uses instead of an `Int`, because characters can take up different amounts of memory.",
+      "example": "You can't use 0 here, a string needs a String Index like `startIndex`.",
+      "code": "let word = \"Swift\"\nlet i = word.startIndex\nprint(word[i])",
+      "output": "S"
+    },
+    {
+      "term": "Index Offset",
+      "definition": "Moving an index a number of steps from another index, written in Swift with `index(_:offsetBy:)`.",
+      "example": "An Index Offset of 3 from `startIndex` gives you the fourth character.",
+      "code": "let w = \"Swift\"\nlet i = w.index(w.startIndex, offsetBy: 2)\nprint(w[i])",
+      "output": "i"
+    },
+    {
+      "term": "Index Out of Range",
+      "definition": "The crash you get when you read a position that does not exist in an array or string.",
+      "example": "The app hit Index Out of Range because the list was empty.",
+      "code": "let scores = [3, 9, 5]\nlet i = 3\nprint(scores.indices.contains(i))",
+      "output": "false"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "In this code, what goes wrong on the last line?",
+      "code": "let scores = [3, 9, 5]\nprint(scores[3])",
+      "options": [
+        "Index Offset",
+        "String Index",
+        "Index Out of Range"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "Which position type do you need to read one character from a string?",
+      "options": [
+        "String Index",
+        "Index Out of Range",
+        "Index Offset"
+      ],
+      "answer": "a"
+    },
+    {
+      "question": "What do you call moving an index a number of steps forward from another index?",
+      "options": [
+        "Index Out of Range",
+        "Index Offset",
+        "String Index"
+      ],
+      "answer": "b"
+    }
+  ],
+  "video": {
+    "title": "String Index, Index Offset & Index Out of Range | Day 79",
+    "description": "Learn to explain string positions in Swift: String Index, Index Offset & Index Out of Range, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nString Index - The position type a string uses instead of an `Int`, because characters can take up different amounts of memory.\nIndex Offset - Moving an index a number of steps from another index, written in Swift with `index(_:offsetBy:)`.\nIndex Out of Range - The crash you get when you read a position that does not exist in an array or string.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 79 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "string index",
+      "index offset",
+      "index out of range",
+      "swift string",
+      "startindex",
+      "offsetby",
+      "swift in depth",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "Swift String Index, Index Offset & Index Out of Range | Day 79",
+      "description": "Explain String Index, Index Offset & Index Out of Range in Swift by listening to a real code chat between two iOS devs.\n문자열 인덱스, 인덱스 오프셋, 인덱스 범위 초과 표현을 영어 대화로 익혀요.\n\nString Index - The position type a string uses instead of an `Int`, because characters can take up different amounts of memory.\n한국어: 문자열 인덱스: 문자마다 차지하는 메모리 크기가 달라서 문자열이 `Int` 대신 쓰는 위치 타입\n\nIndex Offset - Moving an index a number of steps from another index, written in Swift with `index(_:offsetBy:)`.\n한국어: 인덱스 오프셋: 어떤 인덱스에서 정해진 칸 수만큼 인덱스를 옮기는 것으로, Swift에서는 `index(_:offsetBy:)`로 씀\n\nIndex Out of Range - The crash you get when you read a position that does not exist in an array or string.\n한국어: 인덱스 범위 초과: 배열이나 문자열에 존재하지 않는 위치를 읽을 때 생기는 크래시\n\nIn this video, Mina and Jake ask why a string can't be read with a number, walk an index forward and find the one input that still crashes, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 79 of the iOS Daily English series.\n\n#Swift #iOSDeveloper #EnglishForDevelopers",
+      "tags": [
+        "String Index",
+        "Index Offset",
+        "Index Out of Range",
+        "index(_:offsetBy:)",
+        "startIndex",
+        "String",
+        "스위프트 심화",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "ios development",
+        "iOS Daily English"
+      ],
+      "hook": "Why can't you read a string with a number? Can you explain it in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "Why not just a number?",
+    "setting": "Text helper review",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, why can't `at` just use `n` as the index?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Strings don't use `Int` positions. A String Index is its own type.",
+        "terms": [
+          "String Index"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Because characters can have different sizes?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Exactly. So you start at `startIndex` and move with an Index Offset.",
+        "terms": [
+          "Index Offset"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "And `offsetBy` walks `n` characters forward?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Yes. That's why an Index Offset on a string takes longer for a big `n`.",
+        "terms": [
+          "Index Offset"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "What does the `guard` protect against?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Index Out of Range. Without it, a big `n` crashes the app.",
+        "terms": [
+          "Index Out of Range"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "But a negative `n` still gets past it.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Good catch, that's Index Out of Range too. Check that `n` isn't negative.",
+        "terms": [
+          "Index Out of Range"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "So a String Index comes from an offset, and both ends get checked.",
+        "terms": [
+          "String Index"
+        ]
+      }
+    ],
+    "code": "func at(_ n: Int, in s: String) -> Character? {\n    guard n < s.count else { return nil }\n    let i = s.index(s.startIndex, offsetBy: n)\n    return s[i]\n}",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "String Index",
+      "lines": [
+        {
+          "text": "Strings don't take an Int, they need a String Index."
+        }
+      ],
+      "title": "Strings don't take an Int, they need a String Index. #Shorts",
+      "description": "Strings don't take an Int, they need a String Index.\n\nString Index - The position type a string uses instead of an `Int`, because characters can take up different amounts of memory.\n한국어: 문자열 인덱스: 문자마다 차지하는 메모리 크기가 달라서 문자열이 `Int` 대신 쓰는 위치 타입\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "Index Offset",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "How do I get the third character?"
+        },
+        {
+          "speaker": "B",
+          "text": "Use an Index Offset of 2 from the start."
+        }
+      ],
+      "title": "How do I get the third character? / Use an Index Offset of 2 from the start. #Shorts",
+      "description": "How do I get the third character? / Use an Index Offset of 2 from the start.\n\nIndex Offset - Moving an index a number of steps from another index, written in Swift with `index(_:offsetBy:)`.\n한국어: 인덱스 오프셋: 어떤 인덱스에서 정해진 칸 수만큼 인덱스를 옮기는 것으로, Swift에서는 `index(_:offsetBy:)`로 씀\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Index Out of Range",
+      "lines": [
+        {
+          "text": "An empty list plus index zero means Index Out of Range."
+        }
+      ],
+      "title": "An empty list plus index zero means Index Out of Range. #Shorts",
+      "description": "An empty list plus index zero means Index Out of Range.\n\nIndex Out of Range - The crash you get when you read a position that does not exist in an array or string.\n한국어: 인덱스 범위 초과: 배열이나 문자열에 존재하지 않는 위치를 읽을 때 생기는 크래시\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "Why not just a number?"
+}

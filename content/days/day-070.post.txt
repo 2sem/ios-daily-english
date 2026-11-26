@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 70
+
+Fatal Error
+- A call to `fatalError` that always stops the app, in every build, for code that should never be reached.
+- Example: "That `default` case can't happen, so a Fatal Error with a clear message is fine."
+
+Assertion
+- A check written with `assert` that stops the app when its condition is false, but only in debug builds.
+- Example: "Add an Assertion here, so we notice the bad value while testing."
+
+Precondition
+- A check written with `precondition` that stops the app when its condition is false, even in release builds.
+- Example: "A wrong index would corrupt the data, so use a Precondition, not an assert."
+
+
+Quiz ①
+In this code, which check would you add on the comment line, so it runs only in debug builds?
+a) Precondition
+b) Assertion
+c) Fatal Error
+
+Quiz ②
+Which check keeps working in release builds and stops the app when its condition is false?
+a) Precondition
+b) Fatal Error
+c) Assertion
+
+Quiz ③
+Which call always stops the app, in every build, without checking any condition?
+a) Assertion
+b) Precondition
+c) Fatal Error

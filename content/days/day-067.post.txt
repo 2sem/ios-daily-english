@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 67
+
+MutableCollection
+- A collection protocol that lets you change items in place through the subscript, for example with `swapAt`.
+- Example: "`Array` is a MutableCollection, so sort it in place instead of making a copy."
+
+BidirectionalCollection
+- A collection protocol that can step backward as well as forward, which gives you `last` and `reversed`.
+- Example: "Make it generic over BidirectionalCollection, because we need `last`."
+
+RandomAccessCollection
+- A collection protocol that promises jumping to any index, or measuring the distance, takes one step.
+- Example: "`String` isn't a RandomAccessCollection, so jumping to the middle is slow."
+
+
+Quiz ①
+Which collection protocol promises that jumping to any index takes one step?
+a) BidirectionalCollection
+b) MutableCollection
+c) RandomAccessCollection
+
+Quiz ②
+In this code, which protocol lets `reset` write into the collection?
+a) MutableCollection
+b) RandomAccessCollection
+c) BidirectionalCollection
+
+Quiz ③
+Which protocol adds stepping backward to a collection, so it can offer `last`?
+a) RandomAccessCollection
+b) BidirectionalCollection
+c) MutableCollection

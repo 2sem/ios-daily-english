@@ -1,0 +1,227 @@
+{
+  "day": 68,
+  "phase": "2. Swift in depth",
+  "theme": "3 terms on literals: text written straight into code, the protocol that turns quoted text into your own type, and the protocol that does the same for square brackets",
+  "terms": [
+    {
+      "term": "String Literal",
+      "definition": "Text written directly in your code between double quotes, like \"Mina\".",
+      "example": "Move that String Literal into a constant, it's repeated in five places.",
+      "code": "let name = \"Mina\"   // a string literal\nlet empty = \"\"      // also a literal\nprint(name.count, empty.isEmpty)",
+      "output": "4 true"
+    },
+    {
+      "term": "ExpressibleByStringLiteral",
+      "definition": "A protocol that lets a type be created straight from quoted text, by adding `init(stringLiteral:)`.",
+      "example": "Make `Endpoint` ExpressibleByStringLiteral, so we can write the path as plain text.",
+      "code": "struct Tag: ExpressibleByStringLiteral {\n    let text: String\n    init(stringLiteral s: String) {\n        text = \"#\" + s }\n}\nlet tag: Tag = \"swift\"; print(tag.text)",
+      "output": "#swift"
+    },
+    {
+      "term": "ExpressibleByArrayLiteral",
+      "definition": "A protocol that lets a type be created from square brackets, like an array, by adding `init(arrayLiteral:)`.",
+      "example": "`Set` is ExpressibleByArrayLiteral, that's why the brackets work.",
+      "code": "struct Scores: ExpressibleByArrayLiteral {\n    let all: [Int]\n    init(arrayLiteral a: Int...) { all = a }\n}\nlet s: Scores = [7, 9, 4]\nprint(s.all.max() ?? 0)",
+      "output": "9"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "Which protocol lets you assign quoted text straight to your own type?",
+      "options": [
+        "ExpressibleByArrayLiteral",
+        "String Literal",
+        "ExpressibleByStringLiteral"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "In this code, what do you call the text written directly between the quotes?",
+      "code": "let greeting = \"Good morning\"\nprint(greeting)",
+      "options": [
+        "String Literal",
+        "ExpressibleByStringLiteral",
+        "ExpressibleByArrayLiteral"
+      ],
+      "answer": "a"
+    },
+    {
+      "question": "Which protocol lets your own type be created from square brackets, like an array?",
+      "options": [
+        "ExpressibleByStringLiteral",
+        "ExpressibleByArrayLiteral",
+        "String Literal"
+      ],
+      "answer": "b"
+    }
+  ],
+  "video": {
+    "title": "String Literal & the Expressible By Literal Protocols | Day 68",
+    "description": "Learn to explain literals in Swift: String Literal, ExpressibleByStringLiteral & ExpressibleByArrayLiteral, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nString Literal - Text written directly in your code between double quotes, like \"Mina\".\nExpressibleByStringLiteral - A protocol that lets a type be created straight from quoted text, by adding `init(stringLiteral:)`.\nExpressibleByArrayLiteral - A protocol that lets a type be created from square brackets, like an array, by adding `init(arrayLiteral:)`.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 68 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "string literal",
+      "expressiblebystringliteral",
+      "expressiblebyarrayliteral",
+      "swift literals",
+      "array literal",
+      "swift protocols",
+      "swift in depth",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "Swift String Literal, ExpressibleByStringLiteral & ExpressibleByArrayLiteral | Day 68",
+      "description": "Explain String Literal, ExpressibleByStringLiteral & ExpressibleByArrayLiteral in Swift by listening to a real code chat between two iOS devs.\n문자열 리터럴, ExpressibleByStringLiteral, ExpressibleByArrayLiteral 표현을 영어 대화로 익혀요.\n\nString Literal - Text written directly in your code between double quotes, like \"Mina\".\n한국어: 문자열 리터럴: \"Mina\"처럼 코드에 큰따옴표로 직접 쓴 텍스트\n\nExpressibleByStringLiteral - A protocol that lets a type be created straight from quoted text, by adding `init(stringLiteral:)`.\n한국어: ExpressibleByStringLiteral: `init(stringLiteral:)`를 추가해서 따옴표 텍스트로 바로 타입을 만들 수 있게 하는 프로토콜\n\nExpressibleByArrayLiteral - A protocol that lets a type be created from square brackets, like an array, by adding `init(arrayLiteral:)`.\n한국어: ExpressibleByArrayLiteral: `init(arrayLiteral:)`를 추가해서 배열처럼 대괄호로 타입을 만들 수 있게 하는 프로토콜\n\nIn this video, Mina and Jake find out how a plain string becomes an endpoint and why a set can be written with square brackets, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 68 of the iOS Daily English series.\n\n#Swift #iOSDeveloper #EnglishForDevelopers",
+      "tags": [
+        "String Literal",
+        "ExpressibleByStringLiteral",
+        "ExpressibleByArrayLiteral",
+        "swift literals",
+        "array literal",
+        "swift protocols",
+        "스위프트 심화",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "ios development",
+        "iOS Daily English"
+      ],
+      "hook": "How can a plain string become your own type? Can you explain it in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "A string that isn't a String",
+    "setting": "Networking layer review",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, `feed` is an `Endpoint`, but we assign it a plain string. How?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "That's a String Literal. And `Endpoint` conforms to ExpressibleByStringLiteral.",
+        "terms": [
+          "String Literal",
+          "ExpressibleByStringLiteral"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "So Swift calls that `init` for me?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Yes. With ExpressibleByStringLiteral, any String Literal can become an `Endpoint`.",
+        "terms": [
+          "ExpressibleByStringLiteral",
+          "String Literal"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Nice, that's much shorter to write.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "And look at `ids`. It's a `Set`, but it uses square brackets.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "Wait, isn't that an array?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "No. `Set` conforms to ExpressibleByArrayLiteral, so brackets can build it.",
+        "terms": [
+          "ExpressibleByArrayLiteral"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "So the duplicate 2 just disappears from `ids`?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Right. ExpressibleByArrayLiteral only builds the `Set`. The set rules still apply.",
+        "terms": [
+          "ExpressibleByArrayLiteral"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Got it. Quotes and brackets can build my own types too.",
+        "terms": []
+      }
+    ],
+    "code": "struct Endpoint: ExpressibleByStringLiteral {\n    let path: String\n    init(stringLiteral s: String) { path = s }\n}\nlet feed: Endpoint = \"/feed\"\nlet ids: Set<Int> = [1, 2, 2]",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "String Literal",
+      "lines": [
+        {
+          "text": "A String Literal is just text between quotes in your code."
+        }
+      ],
+      "title": "A String Literal is just text between quotes in your code. #Shorts",
+      "description": "A String Literal is just text between quotes in your code.\n\nString Literal - Text written directly in your code between double quotes, like \"Mina\".\n한국어: 문자열 리터럴: \"Mina\"처럼 코드에 큰따옴표로 직접 쓴 텍스트\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "ExpressibleByStringLiteral",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "How is a plain string an `Endpoint`?"
+        },
+        {
+          "speaker": "B",
+          "text": "It's ExpressibleByStringLiteral."
+        }
+      ],
+      "title": "How is a plain string an `Endpoint`? / It's ExpressibleByStringLiteral. #Shorts",
+      "description": "How is a plain string an `Endpoint`? / It's ExpressibleByStringLiteral.\n\nExpressibleByStringLiteral - A protocol that lets a type be created straight from quoted text, by adding `init(stringLiteral:)`.\n한국어: ExpressibleByStringLiteral: `init(stringLiteral:)`를 추가해서 따옴표 텍스트로 바로 타입을 만들 수 있게 하는 프로토콜\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "ExpressibleByArrayLiteral",
+      "lines": [
+        {
+          "text": "Brackets build a `Set` because it's ExpressibleByArrayLiteral."
+        }
+      ],
+      "title": "Brackets build a `Set` because it's ExpressibleByArrayLiteral. #Shorts",
+      "description": "Brackets build a `Set` because it's ExpressibleByArrayLiteral.\n\nExpressibleByArrayLiteral - A protocol that lets a type be created from square brackets, like an array, by adding `init(arrayLiteral:)`.\n한국어: ExpressibleByArrayLiteral: `init(arrayLiteral:)`를 추가해서 배열처럼 대괄호로 타입을 만들 수 있게 하는 프로토콜\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "A string that isn't a String?"
+}

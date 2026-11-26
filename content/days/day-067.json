@@ -1,0 +1,229 @@
+{
+  "day": 67,
+  "phase": "2. Swift in depth",
+  "theme": "3 terms on collection protocols: a collection you can write into, one you can walk backward, and one where jumping to any index takes one step",
+  "terms": [
+    {
+      "term": "MutableCollection",
+      "definition": "A collection protocol that lets you change items in place through the subscript, for example with `swapAt`.",
+      "example": "`Array` is a MutableCollection, so sort it in place instead of making a copy.",
+      "code": "var nums = [3, 1, 2]\nnums[0] = 9        // write by index\nnums.swapAt(0, 2)  // swap two items\nprint(nums)",
+      "output": "[2, 1, 9]"
+    },
+    {
+      "term": "BidirectionalCollection",
+      "definition": "A collection protocol that can step backward as well as forward, which gives you `last` and `reversed`.",
+      "example": "Make it generic over BidirectionalCollection, because we need `last`.",
+      "code": "let word = \"Swift\"\nlet i = word.index(before: word.endIndex)\nprint(word[i])\nprint(String(word.reversed()))",
+      "output": "t\ntfiwS"
+    },
+    {
+      "term": "RandomAccessCollection",
+      "definition": "A collection protocol that promises jumping to any index, or measuring the distance, takes one step.",
+      "example": "`String` isn't a RandomAccessCollection, so jumping to the middle is slow.",
+      "code": "func mid<C: RandomAccessCollection>(_ c: C)\n    -> C.Element {\n    let i = c.index(c.startIndex,\n        offsetBy: c.count / 2)\n    return c[i] }\nprint(mid([1, 2, 3, 4, 5]))",
+      "output": "3"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "Which collection protocol promises that jumping to any index takes one step?",
+      "options": [
+        "BidirectionalCollection",
+        "MutableCollection",
+        "RandomAccessCollection"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "In this code, which protocol lets `reset` write into the collection?",
+      "code": "func reset<C: ___>(_ c: inout C,\n    to v: C.Element) {\n    c[c.startIndex] = v\n}",
+      "options": [
+        "MutableCollection",
+        "RandomAccessCollection",
+        "BidirectionalCollection"
+      ],
+      "answer": "a"
+    },
+    {
+      "question": "Which protocol adds stepping backward to a collection, so it can offer `last`?",
+      "options": [
+        "RandomAccessCollection",
+        "BidirectionalCollection",
+        "MutableCollection"
+      ],
+      "answer": "b"
+    }
+  ],
+  "video": {
+    "title": "Collection Protocols: Mutable, Bidirectional, RandomAccess | Day 67",
+    "description": "Learn to explain collection protocols in Swift: MutableCollection, BidirectionalCollection & RandomAccessCollection, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nMutableCollection - A collection protocol that lets you change items in place through the subscript, for example with `swapAt`.\nBidirectionalCollection - A collection protocol that can step backward as well as forward, which gives you `last` and `reversed`.\nRandomAccessCollection - A collection protocol that promises jumping to any index, or measuring the distance, takes one step.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 67 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "mutablecollection",
+      "bidirectionalcollection",
+      "randomaccesscollection",
+      "swift collections",
+      "swift generics",
+      "swift protocols",
+      "swift in depth",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "Swift MutableCollection, BidirectionalCollection & RandomAccessCollection | Day 67",
+      "description": "Explain MutableCollection, BidirectionalCollection & RandomAccessCollection in Swift by listening to a real code chat between two iOS devs.\nMutableCollection, BidirectionalCollection, RandomAccessCollection 표현을 영어 대화로 익혀요.\n\nMutableCollection - A collection protocol that lets you change items in place through the subscript, for example with `swapAt`.\n한국어: MutableCollection: 서브스크립트로 항목을 제자리에서 바꿀 수 있게 해 주는 컬렉션 프로토콜 (예: `swapAt`)\n\nBidirectionalCollection - A collection protocol that can step backward as well as forward, which gives you `last` and `reversed`.\n한국어: BidirectionalCollection: 앞뿐 아니라 뒤로도 이동할 수 있어 `last`와 `reversed`를 쓸 수 있는 컬렉션 프로토콜\n\nRandomAccessCollection - A collection protocol that promises jumping to any index, or measuring the distance, takes one step.\n한국어: RandomAccessCollection: 어떤 인덱스로 건너뛰거나 거리를 재는 일이 한 번에 끝난다고 약속하는 컬렉션 프로토콜\n\nIn this video, Mina and Jake find out why `last` was missing, why the middle lookup needs a stronger protocol and why an array can swap items but a string cannot, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 67 of the iOS Daily English series.\n\n#Swift #iOSDeveloper #EnglishForDevelopers",
+      "tags": [
+        "MutableCollection",
+        "BidirectionalCollection",
+        "RandomAccessCollection",
+        "swift collections",
+        "collection protocols",
+        "swift generics",
+        "스위프트 심화",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "ios development",
+        "iOS Daily English"
+      ],
+      "hook": "Why doesn't Collection have last? Can you explain it in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "Where did last go?",
+    "setting": "Generic helpers review",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, `newest` used `Collection` first, and `last` wasn't there. Why?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "A plain Collection only walks forward. `last` needs a BidirectionalCollection.",
+        "terms": [
+          "BidirectionalCollection"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Because it has to step back from the end?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Exactly. A BidirectionalCollection can move both ways, like `String` or `Array`.",
+        "terms": [
+          "BidirectionalCollection"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Then why is `middle` a RandomAccessCollection, not just bidirectional?",
+        "terms": [
+          "RandomAccessCollection"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "On a RandomAccessCollection, jumping with `offsetBy` takes one step.",
+        "terms": [
+          "RandomAccessCollection"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "And on a `String`, it would walk character by character?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Right. That's slow for long text.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "Last thing. Why can I call `swapAt` on `feed`?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "`Array` is a MutableCollection, so you can change items in place.",
+        "terms": [
+          "MutableCollection"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Got it. A `String` isn't a MutableCollection, so I can't swap its characters.",
+        "terms": [
+          "MutableCollection"
+        ]
+      }
+    ],
+    "code": "func newest<C: BidirectionalCollection>(\n    _ c: C) -> C.Element? { c.last }\nfunc middle<C: RandomAccessCollection>(\n    _ c: C) -> C.Element { c[c.index(\n    c.startIndex, offsetBy: c.count / 2)] }\nvar feed = [3, 1, 2]; feed.swapAt(0, 1)",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "MutableCollection",
+      "lines": [
+        {
+          "text": "A MutableCollection lets you change items in place."
+        }
+      ],
+      "title": "A MutableCollection lets you change items in place. #Shorts",
+      "description": "A MutableCollection lets you change items in place.\n\nMutableCollection - A collection protocol that lets you change items in place through the subscript, for example with `swapAt`.\n한국어: MutableCollection: 서브스크립트로 항목을 제자리에서 바꿀 수 있게 해 주는 컬렉션 프로토콜 (예: `swapAt`)\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "BidirectionalCollection",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Why can't I use `last` here?"
+        },
+        {
+          "speaker": "B",
+          "text": "You need a BidirectionalCollection for that."
+        }
+      ],
+      "title": "Why can't I use `last` here? / You need a BidirectionalCollection for that. #Shorts",
+      "description": "Why can't I use `last` here? / You need a BidirectionalCollection for that.\n\nBidirectionalCollection - A collection protocol that can step backward as well as forward, which gives you `last` and `reversed`.\n한국어: BidirectionalCollection: 앞뿐 아니라 뒤로도 이동할 수 있어 `last`와 `reversed`를 쓸 수 있는 컬렉션 프로토콜\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "RandomAccessCollection",
+      "lines": [
+        {
+          "text": "A RandomAccessCollection jumps to any index in one step."
+        }
+      ],
+      "title": "A RandomAccessCollection jumps to any index in one step. #Shorts",
+      "description": "A RandomAccessCollection jumps to any index in one step.\n\nRandomAccessCollection - A collection protocol that promises jumping to any index, or measuring the distance, takes one step.\n한국어: RandomAccessCollection: 어떤 인덱스로 건너뛰거나 거리를 재는 일이 한 번에 끝난다고 약속하는 컬렉션 프로토콜\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "Where did last go?"
+}

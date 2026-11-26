@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 73
+
+Descending Order
+- Sorting from the largest value to the smallest, so the biggest item comes first.
+- Example: "Show the scores in Descending Order, so the winner is at the top."
+
+Stable Sort
+- A sort that keeps items that compare as equal in the same order they had before sorting.
+- Example: "Swift's `sort` is a Stable Sort, so messages with the same time keep their order."
+
+Strict Weak Ordering
+- The rule a sort comparison must follow, for example an item never comes before itself.
+- Example: "Less than or equal isn't a Strict Weak Ordering, so the sort result isn't guaranteed."
+
+
+Quiz ①
+What do you call a sort that keeps equal items in the order they came in?
+a) Strict Weak Ordering
+b) Stable Sort
+c) Descending Order
+
+Quiz ②
+Which rule says a sort comparison must never put an item before itself?
+a) Descending Order
+b) Stable Sort
+c) Strict Weak Ordering
+
+Quiz ③
+In this code, which order puts the biggest score first?
+a) Descending Order
+b) Strict Weak Ordering
+c) Stable Sort

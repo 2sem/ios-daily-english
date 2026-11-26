@@ -1,0 +1,233 @@
+{
+  "day": 72,
+  "phase": "2. Swift in depth",
+  "theme": "3 terms on how long an object lives: the span from creation to release, a function that keeps an object alive through a closure, and a reference that skips automatic memory management",
+  "terms": [
+    {
+      "term": "Object Lifetime",
+      "definition": "The time between creating a class instance and freeing it, which ends when no strong reference is left.",
+      "example": "Check the Object Lifetime here, the cache outlives the screen that made it.",
+      "code": "class Box { deinit { print(\"freed\") } }\nvar b: Box? = Box()\nprint(b != nil)\nb = nil\nprint(b == nil)",
+      "output": "true\nfreed\ntrue"
+    },
+    {
+      "term": "withExtendedLifetime",
+      "definition": "A function that keeps an object alive at least until the closure you pass it has finished.",
+      "example": "Wrap the call in withExtendedLifetime, or the delegate might be freed too early.",
+      "code": "class Token { deinit { print(\"freed\") } }\nfunc run() {\n    let t = Token()\n    withExtendedLifetime(t) {\n        print(\"working\") } }\nrun()",
+      "output": "working\nfreed"
+    },
+    {
+      "term": "Unmanaged",
+      "definition": "A wrapper for a class reference that skips automatic retain and release, so you manage the memory yourself.",
+      "example": "The C callback only takes a raw pointer, so we pass the view model through Unmanaged.",
+      "code": "class Cat {}\nlet cat = Cat()\nlet u = Unmanaged.passUnretained(cat)\nlet raw = u.toOpaque()\nlet back = Unmanaged<Cat>.fromOpaque(raw)\nprint(back.takeUnretainedValue() === cat)",
+      "output": "true"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "Which type wraps a class reference so Swift stops retaining and releasing it for you?",
+      "options": [
+        "withExtendedLifetime",
+        "Object Lifetime",
+        "Unmanaged"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "What do you call the time from when an object is created until it is freed?",
+      "options": [
+        "Object Lifetime",
+        "Unmanaged",
+        "withExtendedLifetime"
+      ],
+      "answer": "a"
+    },
+    {
+      "question": "In this code, which function keeps `t` alive until the closure finishes?",
+      "code": "func run() {\n    let t = Token()\n    ___(t) { print(\"working\") }\n}",
+      "options": [
+        "Unmanaged",
+        "withExtendedLifetime",
+        "Object Lifetime"
+      ],
+      "answer": "b"
+    }
+  ],
+  "video": {
+    "title": "Object Lifetime, withExtendedLifetime & Unmanaged | Day 72",
+    "description": "Learn to explain how long objects live in Swift: Object Lifetime, withExtendedLifetime & Unmanaged, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nObject Lifetime - The time between creating a class instance and freeing it, which ends when no strong reference is left.\nwithExtendedLifetime - A function that keeps an object alive at least until the closure you pass it has finished.\nUnmanaged - A wrapper for a class reference that skips automatic retain and release, so you manage the memory yourself.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 72 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "object lifetime",
+      "withextendedlifetime",
+      "unmanaged",
+      "swift arc",
+      "swift memory",
+      "deinit",
+      "swift in depth",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "Swift Object Lifetime, withExtendedLifetime & Unmanaged | Day 72",
+      "description": "Explain Object Lifetime, withExtendedLifetime & Unmanaged in Swift by listening to a real code chat between two iOS devs.\n객체 수명, withExtendedLifetime, Unmanaged 표현을 영어 대화로 익혀요.\n\nObject Lifetime - The time between creating a class instance and freeing it, which ends when no strong reference is left.\n한국어: 객체 수명: 클래스 인스턴스가 만들어져서 해제될 때까지의 시간으로, 강한 참조가 하나도 남지 않으면 끝남\n\nwithExtendedLifetime - A function that keeps an object alive at least until the closure you pass it has finished.\n한국어: withExtendedLifetime: 넘겨준 클로저가 끝날 때까지 객체가 최소한 살아 있도록 보장하는 함수\n\nUnmanaged - A wrapper for a class reference that skips automatic retain and release, so you manage the memory yourself.\n한국어: Unmanaged: 자동 retain과 release를 건너뛰는 클래스 참조 래퍼로, 메모리 관리를 직접 해야 함\n\nIn this video, Mina and Jake ask why a call is wrapped in a closure, find out that scope is not the same as lifetime and see what an Unmanaged reference does not do, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 72 of the iOS Daily English series.\n\n#Swift #iOSDeveloper #EnglishForDevelopers",
+      "tags": [
+        "Object Lifetime",
+        "withExtendedLifetime",
+        "Unmanaged",
+        "ARC",
+        "deinit",
+        "swift memory",
+        "스위프트 심화",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "ios development",
+        "iOS Daily English"
+      ],
+      "hook": "Still in scope, but already freed? Can you explain it in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "In scope, but alive?",
+    "setting": "Bridge code review",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, why does `run` wrap `send` in withExtendedLifetime?",
+        "terms": [
+          "withExtendedLifetime"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Because `send` only gets an Unmanaged reference. That doesn't keep `s` alive.",
+        "terms": [
+          "Unmanaged"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "But `s` stays in scope until the closing brace.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Scope isn't Object Lifetime. Swift only promises `s` lives until its last use.",
+        "terms": [
+          "Object Lifetime"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "And the last use is `passUnretained`?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Right. After that, Swift may free `s`, even inside `run`.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "So `send` might get a freed object?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Exactly. withExtendedLifetime keeps `s` alive until the closure finishes.",
+        "terms": [
+          "withExtendedLifetime"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Then why use Unmanaged at all? Just pass `s`.",
+        "terms": [
+          "Unmanaged"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "C APIs often want a raw pointer. Unmanaged gives one with no retain, so Object Lifetime is our job.",
+        "terms": [
+          "Unmanaged",
+          "Object Lifetime"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Got it. Unmanaged doesn't hold it, so withExtendedLifetime has to.",
+        "terms": [
+          "Unmanaged",
+          "withExtendedLifetime"
+        ]
+      }
+    ],
+    "code": "final class Session {}\nfunc send(_ u: Unmanaged<Session>) {}\nfunc run() {\n    let s = Session()\n    let u = Unmanaged.passUnretained(s)\n    withExtendedLifetime(s) { send(u) } }",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "Object Lifetime",
+      "lines": [
+        {
+          "text": "Scope isn't Object Lifetime, Swift can free it after its last use."
+        }
+      ],
+      "title": "Scope isn't Object Lifetime, Swift can free it after its last use. #Shorts",
+      "description": "Scope isn't Object Lifetime, Swift can free it after its last use.\n\nObject Lifetime - The time between creating a class instance and freeing it, which ends when no strong reference is left.\n한국어: 객체 수명: 클래스 인스턴스가 만들어져서 해제될 때까지의 시간으로, 강한 참조가 하나도 남지 않으면 끝남\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "withExtendedLifetime",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Could this object die mid-call?"
+        },
+        {
+          "speaker": "B",
+          "text": "Not inside withExtendedLifetime."
+        }
+      ],
+      "title": "Could this object die mid-call? / Not inside withExtendedLifetime. #Shorts",
+      "description": "Could this object die mid-call? / Not inside withExtendedLifetime.\n\nwithExtendedLifetime - A function that keeps an object alive at least until the closure you pass it has finished.\n한국어: withExtendedLifetime: 넘겨준 클로저가 끝날 때까지 객체가 최소한 살아 있도록 보장하는 함수\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Unmanaged",
+      "lines": [
+        {
+          "text": "Unmanaged skips the retain, so memory is your job now."
+        }
+      ],
+      "title": "Unmanaged skips the retain, so memory is your job now. #Shorts",
+      "description": "Unmanaged skips the retain, so memory is your job now.\n\nUnmanaged - A wrapper for a class reference that skips automatic retain and release, so you manage the memory yourself.\n한국어: Unmanaged: 자동 retain과 release를 건너뛰는 클래스 참조 래퍼로, 메모리 관리를 직접 해야 함\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "In scope, but alive?"
+}

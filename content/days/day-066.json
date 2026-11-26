@@ -1,0 +1,229 @@
+{
+  "day": 66,
+  "phase": "2. Swift in depth",
+  "theme": "3 terms on enums in depth: a pattern that matches one case and pulls out its values, an enum that contains itself, and the keyword that lets it compile",
+  "terms": [
+    {
+      "term": "Enum Case Pattern",
+      "definition": "A pattern like `.circle(let r)` that matches one enum case and pulls out its associated values.",
+      "example": "Use an Enum Case Pattern in `if case`, you don't need a full `switch` here.",
+      "code": "enum Shape { case circle(Int), box(Int) }\nlet s = Shape.circle(2)\nif case .circle(let r) = s {\n    print(\"radius\", r)\n}",
+      "output": "radius 2"
+    },
+    {
+      "term": "Recursive Enum",
+      "definition": "An enum with a case that holds a value of the same enum, like a folder that holds folders.",
+      "example": "The comment thread is a Recursive Enum, so replies can hold replies.",
+      "code": "enum Node { case file(String), dir([Node]) }\nlet root = Node.dir([.file(\"a\"), .dir([])])\nif case .dir(let kids) = root {\n    print(kids.count)\n}",
+      "output": "2"
+    },
+    {
+      "term": "Indirect Enum",
+      "definition": "An enum, or a single case, marked `indirect`, so Swift stores the nested values behind a pointer.",
+      "example": "Make it an Indirect Enum, otherwise the compiler can't work out its size.",
+      "code": "indirect enum Chain {\n    case end\n    case link(Int, Chain)\n}\nlet c = Chain.link(1, .link(2, .end))\nif case .link(let n, _) = c { print(n) }",
+      "output": "1"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What do you call an enum that has a case holding a value of the same enum?",
+      "options": [
+        "Indirect Enum",
+        "Recursive Enum",
+        "Enum Case Pattern"
+      ],
+      "answer": "b"
+    },
+    {
+      "question": "In this code, what do you call `.box(let w)` after `if case`?",
+      "code": "enum Shape { case circle(Int), box(Int) }\nlet s = Shape.box(3)\nif case .box(let w) = s { print(w) }",
+      "options": [
+        "Enum Case Pattern",
+        "Indirect Enum",
+        "Recursive Enum"
+      ],
+      "answer": "a"
+    },
+    {
+      "question": "What do you call an enum marked with a keyword, so its nested values are stored behind a pointer?",
+      "options": [
+        "Recursive Enum",
+        "Enum Case Pattern",
+        "Indirect Enum"
+      ],
+      "answer": "c"
+    }
+  ],
+  "video": {
+    "title": "Enum Case Pattern, Recursive Enum & Indirect Enum | Day 66",
+    "description": "Learn to explain enums in depth: Enum Case Pattern, Recursive Enum & Indirect Enum, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nEnum Case Pattern - A pattern like `.circle(let r)` that matches one enum case and pulls out its associated values.\nRecursive Enum - An enum with a case that holds a value of the same enum, like a folder that holds folders.\nIndirect Enum - An enum, or a single case, marked `indirect`, so Swift stores the nested values behind a pointer.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 66 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "enum case pattern",
+      "recursive enum",
+      "indirect enum",
+      "swift enum",
+      "if case let",
+      "swift indirect",
+      "swift in depth",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "Swift Enum Case Pattern, Recursive Enum & Indirect Enum | Day 66",
+      "description": "Explain Enum Case Pattern, Recursive Enum & Indirect Enum in Swift by listening to a real code chat between two iOS devs.\n열거형 케이스 패턴, 재귀 열거형, indirect 열거형 표현을 영어 대화로 익혀요.\n\nEnum Case Pattern - A pattern like `.circle(let r)` that matches one enum case and pulls out its associated values.\n한국어: 열거형 케이스 패턴: `.circle(let r)`처럼 열거형의 한 케이스와 맞춰 보고 연관값을 꺼내는 패턴\n\nRecursive Enum - An enum with a case that holds a value of the same enum, like a folder that holds folders.\n한국어: 재귀 열거형: 폴더 안의 폴더처럼, 케이스가 같은 열거형의 값을 담는 열거형\n\nIndirect Enum - An enum, or a single case, marked `indirect`, so Swift stores the nested values behind a pointer.\n한국어: indirect 열거형: `indirect`로 표시해서 Swift가 중첩된 값을 포인터 뒤에 저장하게 한 열거형이나 케이스\n\nIn this video, Mina and Jake find out why a message type that holds replies would not compile, how one keyword fixes it and how to read only the replies, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 66 of the iOS Daily English series.\n\n#Swift #iOSDeveloper #EnglishForDevelopers",
+      "tags": [
+        "Enum Case Pattern",
+        "Recursive Enum",
+        "Indirect Enum",
+        "swift enum",
+        "indirect",
+        "if case let",
+        "스위프트 심화",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "ios development",
+        "iOS Daily English"
+      ],
+      "hook": "An enum inside itself? Can you explain it in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "An enum inside itself?",
+    "setting": "Chat feature pairing",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, without `indirect`, `Msg` didn't compile. Why?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "`reply` holds another `Msg`. That makes it a Recursive Enum.",
+        "terms": [
+          "Recursive Enum"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "An enum inside itself? Sounds endless.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "The compiler thinks so too. It can't work out the size of a Recursive Enum.",
+        "terms": [
+          "Recursive Enum"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "So `indirect` fixes that?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Yes. An Indirect Enum stores those cases on the heap, behind a pointer.",
+        "terms": [
+          "Indirect Enum"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Do I need an Indirect Enum for every case?",
+        "terms": [
+          "Indirect Enum"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "No, you can mark just `reply`. The whole enum is simply shorter.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "And the `if case` line reads only replies?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Right. That's an Enum Case Pattern. It matches `reply` and pulls out `t`.",
+        "terms": [
+          "Enum Case Pattern"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Got it. An Enum Case Pattern picks a case, and `indirect` lets it nest.",
+        "terms": [
+          "Enum Case Pattern"
+        ]
+      }
+    ],
+    "code": "indirect enum Msg {\n    case text(String)\n    case reply(String, to: Msg)\n}\nlet m = Msg.reply(\"Agreed\", to: .text(\"LGTM\"))\nif case .reply(let t, _) = m { print(t) }",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "Enum Case Pattern",
+      "lines": [
+        {
+          "text": "An Enum Case Pattern matches one case and grabs its values."
+        }
+      ],
+      "title": "An Enum Case Pattern matches one case and grabs its values. #Shorts",
+      "description": "An Enum Case Pattern matches one case and grabs its values.\n\nEnum Case Pattern - A pattern like `.circle(let r)` that matches one enum case and pulls out its associated values.\n한국어: 열거형 케이스 패턴: `.circle(let r)`처럼 열거형의 한 케이스와 맞춰 보고 연관값을 꺼내는 패턴\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "Recursive Enum",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "A reply that holds a reply?"
+        },
+        {
+          "speaker": "B",
+          "text": "Yes, it's a Recursive Enum."
+        }
+      ],
+      "title": "A reply that holds a reply? / Yes, it's a Recursive Enum. #Shorts",
+      "description": "A reply that holds a reply? / Yes, it's a Recursive Enum.\n\nRecursive Enum - An enum with a case that holds a value of the same enum, like a folder that holds folders.\n한국어: 재귀 열거형: 폴더 안의 폴더처럼, 케이스가 같은 열거형의 값을 담는 열거형\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Indirect Enum",
+      "lines": [
+        {
+          "text": "No `indirect`, no Indirect Enum, no build."
+        }
+      ],
+      "title": "No `indirect`, no Indirect Enum, no build. #Shorts",
+      "description": "No `indirect`, no Indirect Enum, no build.\n\nIndirect Enum - An enum, or a single case, marked `indirect`, so Swift stores the nested values behind a pointer.\n한국어: indirect 열거형: `indirect`로 표시해서 Swift가 중첩된 값을 포인터 뒤에 저장하게 한 열거형이나 케이스\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "An enum inside itself?"
+}

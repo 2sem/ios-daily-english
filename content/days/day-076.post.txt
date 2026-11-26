@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 76
+
+JSONEncoder
+- A Foundation class that turns an `Encodable` value into JSON data.
+- Example: "Use one JSONEncoder for the whole API client, so every request looks the same."
+
+Output Formatting
+- An encoder setting that changes how the JSON text looks, like sorted keys or pretty printing.
+- Example: "Turn on sorted keys in Output Formatting, or the snapshot diff is pure noise."
+
+Date Encoding Strategy
+- An encoder setting that decides how a `Date` is written in JSON, like a number or text.
+- Example: "The backend wants text dates, so change the Date Encoding Strategy."
+
+
+Quiz ①
+Which setting decides whether a `Date` becomes a number or ISO 8601 text in the JSON?
+a) Output Formatting
+b) JSONEncoder
+c) Date Encoding Strategy
+
+Quiz ②
+Which Foundation class turns an `Encodable` value into JSON data?
+a) JSONEncoder
+b) Date Encoding Strategy
+c) Output Formatting
+
+Quiz ③
+Which setting can sort the keys or pretty print the JSON text?
+a) Date Encoding Strategy
+b) Output Formatting
+c) JSONEncoder

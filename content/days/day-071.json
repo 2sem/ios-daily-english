@@ -1,0 +1,229 @@
+{
+  "day": 71,
+  "phase": "2. Swift in depth",
+  "theme": "3 terms on hashing: the number a set uses to find an item, the object that mixes properties into that number, and two different values that end up with the same number",
+  "terms": [
+    {
+      "term": "Hash Value",
+      "definition": "An integer made from a value that lets sets and dictionaries find it fast, and equal values always share it.",
+      "example": "Never save a Hash Value to disk, it changes every time the app launches.",
+      "code": "let a = \"swift\".hashValue\nlet b = \"swift\".hashValue\nprint(a == b) // same value, same hash",
+      "output": "true"
+    },
+    {
+      "term": "Hasher",
+      "definition": "The object passed to `hash(into:)` that mixes the properties you give it with `combine` into one hash value.",
+      "example": "Only feed `id` into the Hasher, that's enough to tell users apart.",
+      "code": "struct Point: Hashable {\n    let x: Int, y: Int\n    func hash(into h: inout Hasher) {\n        h.combine(x); h.combine(y) }\n}\nprint(Set([Point(x: 1, y: 2)]).count)",
+      "output": "1"
+    },
+    {
+      "term": "Hash Collision",
+      "definition": "When two different values get the same hash value; it still works, but lookups get slower.",
+      "example": "An empty `hash(into:)` makes every item a Hash Collision, so the set gets slow.",
+      "code": "struct Bad: Hashable {\n    let id: Int\n    func hash(into h: inout Hasher) {}\n}\nlet s: Set = [Bad(id: 1), Bad(id: 2)]\nprint(s.count) // still correct, just slower",
+      "output": "2"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "In this code, what happens between two different `Bad` values, since they all get the same hash?",
+      "code": "struct Bad: Hashable {\n    let id: Int\n    func hash(into h: inout Hasher) {}\n}",
+      "options": [
+        "Hash Value",
+        "Hash Collision",
+        "Hasher"
+      ],
+      "answer": "b"
+    },
+    {
+      "question": "What do you call the object you feed properties into with `combine`?",
+      "options": [
+        "Hasher",
+        "Hash Value",
+        "Hash Collision"
+      ],
+      "answer": "a"
+    },
+    {
+      "question": "What do you call the number a set uses to find an item fast?",
+      "options": [
+        "Hash Collision",
+        "Hasher",
+        "Hash Value"
+      ],
+      "answer": "c"
+    }
+  ],
+  "video": {
+    "title": "Hash Value, Hasher & Hash Collision | Day 71",
+    "description": "Learn to explain hashing in Swift: Hash Value, Hasher & Hash Collision, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nHash Value - An integer made from a value that lets sets and dictionaries find it fast, and equal values always share it.\nHasher - The object passed to `hash(into:)` that mixes the properties you give it with `combine` into one hash value.\nHash Collision - When two different values get the same hash value; it still works, but lookups get slower.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 71 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "hash value",
+      "hasher",
+      "hash collision",
+      "hashable",
+      "swift set",
+      "swift dictionary",
+      "swift in depth",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "Swift Hash Value, Hasher & Hash Collision | Day 71",
+      "description": "Explain Hash Value, Hasher & Hash Collision in Swift by listening to a real code chat between two iOS devs.\n해시 값, Hasher, 해시 충돌 표현을 영어 대화로 익혀요.\n\nHash Value - An integer made from a value that lets sets and dictionaries find it fast, and equal values always share it.\n한국어: 해시 값: 값으로 만든 정수로, 세트와 딕셔너리가 빠르게 찾을 때 씀. 같은 값은 항상 같은 해시 값을 가짐\n\nHasher - The object passed to `hash(into:)` that mixes the properties you give it with `combine` into one hash value.\n한국어: Hasher: `hash(into:)`에 전달되어 `combine`으로 넣은 프로퍼티들을 하나의 해시 값으로 섞는 객체\n\nHash Collision - When two different values get the same hash value; it still works, but lookups get slower.\n한국어: 해시 충돌: 서로 다른 두 값이 같은 해시 값을 갖는 것으로, 동작은 하지만 검색이 느려짐\n\nIn this video, Mina and Jake read a custom hash method, ask why it skips the name and find out what happens when two users share a hash, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 71 of the iOS Daily English series.\n\n#Swift #iOSDeveloper #EnglishForDevelopers",
+      "tags": [
+        "Hash Value",
+        "Hasher",
+        "Hash Collision",
+        "Hashable",
+        "hash(into:)",
+        "swift set",
+        "스위프트 심화",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "ios development",
+        "iOS Daily English"
+      ],
+      "hook": "Same hash, different users? Can you explain it in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "Same hash, different users",
+    "setting": "Model code review",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, why does `User` write its own `hash` method?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "It controls the Hash Value. Sets use it to find items fast.",
+        "terms": [
+          "Hash Value"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "And what's `h`?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "A Hasher. `combine` feeds it properties and mixes them into one number.",
+        "terms": [
+          "Hasher"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "But it only gets `id`, not `name`. Is that a bug?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "No. Giving the Hasher fewer fields than the equality check is fine.",
+        "terms": [
+          "Hasher"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "So users with the same `id` but different names share a Hash Value?",
+        "terms": [
+          "Hash Value"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Yes, that's a Hash Collision. The set compares them for equality and keeps both.",
+        "terms": [
+          "Hash Collision"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "So nothing breaks?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Nothing breaks, but every Hash Collision makes lookups a bit slower.",
+        "terms": [
+          "Hash Collision"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Got it. Equal users hash the same, but a matching hash doesn't mean equal.",
+        "terms": []
+      }
+    ],
+    "code": "struct User: Hashable {\n    let id: Int, name: String\n    func hash(into h: inout Hasher) {\n        h.combine(id) }\n}\nlet seen: Set<User> = []",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "Hash Value",
+      "lines": [
+        {
+          "text": "Equal values always share the same Hash Value."
+        }
+      ],
+      "title": "Equal values always share the same Hash Value. #Shorts",
+      "description": "Equal values always share the same Hash Value.\n\nHash Value - An integer made from a value that lets sets and dictionaries find it fast, and equal values always share it.\n한국어: 해시 값: 값으로 만든 정수로, 세트와 딕셔너리가 빠르게 찾을 때 씀. 같은 값은 항상 같은 해시 값을 가짐\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "Hasher",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Why only `id` in `hash(into:)`?"
+        },
+        {
+          "speaker": "B",
+          "text": "The Hasher doesn't need every field."
+        }
+      ],
+      "title": "Why only `id` in `hash(into:)`? / The Hasher doesn't need every field. #Shorts",
+      "description": "Why only `id` in `hash(into:)`? / The Hasher doesn't need every field.\n\nHasher - The object passed to `hash(into:)` that mixes the properties you give it with `combine` into one hash value.\n한국어: Hasher: `hash(into:)`에 전달되어 `combine`으로 넣은 프로퍼티들을 하나의 해시 값으로 섞는 객체\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Hash Collision",
+      "lines": [
+        {
+          "text": "A Hash Collision won't break your set, just slow it down."
+        }
+      ],
+      "title": "A Hash Collision won't break your set, just slow it down. #Shorts",
+      "description": "A Hash Collision won't break your set, just slow it down.\n\nHash Collision - When two different values get the same hash value; it still works, but lookups get slower.\n한국어: 해시 충돌: 서로 다른 두 값이 같은 해시 값을 갖는 것으로, 동작은 하지만 검색이 느려짐\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "Same hash, different users?"
+}

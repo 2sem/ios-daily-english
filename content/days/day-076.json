@@ -1,0 +1,228 @@
+{
+  "day": 76,
+  "phase": "2. Swift in depth",
+  "theme": "3 terms on turning values into JSON: the Foundation encoder, the setting that sorts or pretty prints the output, and the setting that decides how dates are written",
+  "terms": [
+    {
+      "term": "JSONEncoder",
+      "definition": "A Foundation class that turns an `Encodable` value into JSON data.",
+      "example": "Use one JSONEncoder for the whole API client, so every request looks the same.",
+      "code": "import Foundation\nstruct P: Encodable { let x = 1 }\nlet data = try! JSONEncoder().encode(P())\nprint(String(decoding: data, as: UTF8.self))",
+      "output": "{\"x\":1}"
+    },
+    {
+      "term": "Output Formatting",
+      "definition": "An encoder setting that changes how the JSON text looks, like sorted keys or pretty printing.",
+      "example": "Turn on sorted keys in Output Formatting, or the snapshot diff is pure noise.",
+      "code": "import Foundation\nstruct P: Encodable { let b = 2, a = 1 }\nlet e = JSONEncoder()\ne.outputFormatting = .sortedKeys\nlet d = try! e.encode(P())\nprint(String(decoding: d, as: UTF8.self))",
+      "output": "{\"a\":1,\"b\":2}"
+    },
+    {
+      "term": "Date Encoding Strategy",
+      "definition": "An encoder setting that decides how a `Date` is written in JSON, like a number or text.",
+      "example": "The backend wants text dates, so change the Date Encoding Strategy.",
+      "code": "import Foundation\nlet e = JSONEncoder()\ne.dateEncodingStrategy = .iso8601\nlet t = Date(timeIntervalSince1970: 0)\nlet d = try! e.encode([t])\nprint(String(decoding: d, as: UTF8.self))",
+      "output": "[\"1970-01-01T00:00:00Z\"]"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "Which setting decides whether a `Date` becomes a number or ISO 8601 text in the JSON?",
+      "options": [
+        "Output Formatting",
+        "JSONEncoder",
+        "Date Encoding Strategy"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "Which Foundation class turns an `Encodable` value into JSON data?",
+      "options": [
+        "JSONEncoder",
+        "Date Encoding Strategy",
+        "Output Formatting"
+      ],
+      "answer": "a"
+    },
+    {
+      "question": "Which setting can sort the keys or pretty print the JSON text?",
+      "options": [
+        "Date Encoding Strategy",
+        "Output Formatting",
+        "JSONEncoder"
+      ],
+      "answer": "b"
+    }
+  ],
+  "video": {
+    "title": "JSONEncoder, Output Formatting & Date Encoding Strategy | Day 76",
+    "description": "Learn to explain JSON encoding settings in Swift: JSONEncoder, Output Formatting & Date Encoding Strategy, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nJSONEncoder - A Foundation class that turns an `Encodable` value into JSON data.\nOutput Formatting - An encoder setting that changes how the JSON text looks, like sorted keys or pretty printing.\nDate Encoding Strategy - An encoder setting that decides how a `Date` is written in JSON, like a number or text.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 76 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "jsonencoder",
+      "output formatting",
+      "date encoding strategy",
+      "swift codable",
+      "swift json",
+      "iso8601",
+      "swift in depth",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "Swift JSONEncoder, Output Formatting & Date Encoding Strategy | Day 76",
+      "description": "Explain JSONEncoder, Output Formatting & Date Encoding Strategy in Swift by listening to a real code chat between two iOS devs.\nJSONEncoder, 출력 형식, 날짜 인코딩 전략 표현을 영어 대화로 익혀요.\n\nJSONEncoder - A Foundation class that turns an `Encodable` value into JSON data.\n한국어: JSONEncoder: `Encodable` 값을 JSON 데이터로 바꿔 주는 Foundation 클래스\n\nOutput Formatting - An encoder setting that changes how the JSON text looks, like sorted keys or pretty printing.\n한국어: 출력 형식: 키 정렬이나 보기 좋은 들여쓰기처럼 JSON 텍스트의 모양을 바꾸는 인코더 설정\n\nDate Encoding Strategy - An encoder setting that decides how a `Date` is written in JSON, like a number or text.\n한국어: 날짜 인코딩 전략: `Date`를 JSON에 숫자로 쓸지 문자열로 쓸지 정하는 인코더 설정\n\nIn this video, Mina and Jake find out why the server gets a date as a huge number, where that number starts counting and why a snapshot test kept failing, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 76 of the iOS Daily English series.\n\n#Swift #iOSDeveloper #EnglishForDevelopers",
+      "tags": [
+        "JSONEncoder",
+        "Output Formatting",
+        "Date Encoding Strategy",
+        "outputFormatting",
+        "dateEncodingStrategy",
+        "Codable",
+        "스위프트 심화",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "ios development",
+        "iOS Daily English"
+      ],
+      "hook": "Why is our date a huge number? Can you explain it in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "Why is the date a number?",
+    "setting": "API client review",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, the backend team says `at` arrives as a huge number.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "That's the default Date Encoding Strategy: seconds since 2001.",
+        "terms": [
+          "Date Encoding Strategy"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Wait, 2001? Not 1970?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Yep, Apple's reference date. The server wants ISO 8601 text.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "So I change the Date Encoding Strategy to ISO 8601?",
+        "terms": [
+          "Date Encoding Strategy"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Right. Set it once on `encoder`.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "And why is Output Formatting already set?",
+        "terms": [
+          "Output Formatting"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "For sorted keys. Without it, JSONEncoder doesn't promise any key order.",
+        "terms": [
+          "JSONEncoder"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Oh, that's why our snapshot test kept failing!",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Yes. That Output Formatting makes the same event give the same JSON.",
+        "terms": [
+          "Output Formatting"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Great. One JSONEncoder, ISO dates, and sorted keys.",
+        "terms": [
+          "JSONEncoder"
+        ]
+      }
+    ],
+    "code": "import Foundation\nstruct Event: Encodable { let at: Date }\nlet encoder = JSONEncoder()\nencoder.outputFormatting = .sortedKeys\nlet e = Event(at: Date())\nlet json = try encoder.encode(e)",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "JSONEncoder",
+      "lines": [
+        {
+          "text": "Share one JSONEncoder, so every request is encoded the same way."
+        }
+      ],
+      "title": "Share one JSONEncoder, so every request is encoded the same way. #Shorts",
+      "description": "Share one JSONEncoder, so every request is encoded the same way.\n\nJSONEncoder - A Foundation class that turns an `Encodable` value into JSON data.\n한국어: JSONEncoder: `Encodable` 값을 JSON 데이터로 바꿔 주는 Foundation 클래스\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "Output Formatting",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Why do the keys keep moving?"
+        },
+        {
+          "speaker": "B",
+          "text": "Add sorted keys to Output Formatting."
+        }
+      ],
+      "title": "Why do the keys keep moving? / Add sorted keys to Output Formatting. #Shorts",
+      "description": "Why do the keys keep moving? / Add sorted keys to Output Formatting.\n\nOutput Formatting - An encoder setting that changes how the JSON text looks, like sorted keys or pretty printing.\n한국어: 출력 형식: 키 정렬이나 보기 좋은 들여쓰기처럼 JSON 텍스트의 모양을 바꾸는 인코더 설정\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Date Encoding Strategy",
+      "lines": [
+        {
+          "text": "A huge date number means you forgot the Date Encoding Strategy."
+        }
+      ],
+      "title": "A huge date number means you forgot the Date Encoding Strategy. #Shorts",
+      "description": "A huge date number means you forgot the Date Encoding Strategy.\n\nDate Encoding Strategy - An encoder setting that decides how a `Date` is written in JSON, like a number or text.\n한국어: 날짜 인코딩 전략: `Date`를 JSON에 숫자로 쓸지 문자열로 쓸지 정하는 인코더 설정\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "Why is the date a number?"
+}

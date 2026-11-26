@@ -1,0 +1,230 @@
+{
+  "day": 75,
+  "phase": "2. Swift in depth",
+  "theme": "3 terms on copying objects: a copy that shares the objects inside, a copy that duplicates them too, and the Foundation protocol a class adopts to copy itself",
+  "terms": [
+    {
+      "term": "Shallow Copy",
+      "definition": "A copy that duplicates only the outer value, so the class instances inside are still shared with the original.",
+      "example": "Copying the cart is only a Shallow Copy, the items are still the same objects.",
+      "code": "class Box { var n = 1 }\nlet a = [Box()]\nlet b = a // copies the references\nb[0].n = 9\nprint(a[0].n)",
+      "output": "9"
+    },
+    {
+      "term": "Deep Copy",
+      "definition": "A copy that also duplicates every object inside, so changing the copy never touches the original.",
+      "example": "Make a Deep Copy before editing, or the undo history changes too.",
+      "code": "class Box { var n = 1 }\nlet a = [Box()]\nlet b = a.map { old in\n    let c = Box(); c.n = old.n; return c }\nb[0].n = 9\nprint(a[0].n)",
+      "output": "1"
+    },
+    {
+      "term": "NSCopying",
+      "definition": "A Foundation protocol a class adopts to say how a new, separate copy of it is made in `copy(with:)`.",
+      "example": "Our `Document` class adopts NSCopying, so every copy is a separate instance.",
+      "code": "import Foundation\nfinal class Box: NSCopying {\n    var n = 1\n    func copy(with z: NSZone? = nil) -> Any {\n        let c = Box(); c.n = n; return c } }\nlet a = Box(); print(a === a.copy() as! Box)",
+      "output": "false"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "Which Foundation protocol lets a class decide how a separate copy of it is made?",
+      "options": [
+        "Deep Copy",
+        "NSCopying",
+        "Shallow Copy"
+      ],
+      "answer": "b"
+    },
+    {
+      "question": "In this code, what kind of copy is `b`, since changing it also changes `a`?",
+      "code": "class Box { var n = 1 }\nlet a = [Box()]\nlet b = a\nb[0].n = 9",
+      "options": [
+        "NSCopying",
+        "Deep Copy",
+        "Shallow Copy"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "What do you call a copy that also duplicates every object inside, so nothing is shared?",
+      "options": [
+        "Deep Copy",
+        "Shallow Copy",
+        "NSCopying"
+      ],
+      "answer": "a"
+    }
+  ],
+  "video": {
+    "title": "Shallow Copy, Deep Copy & NSCopying | Day 75",
+    "description": "Learn to explain copying objects in Swift: Shallow Copy, Deep Copy & NSCopying, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nShallow Copy - A copy that duplicates only the outer value, so the class instances inside are still shared with the original.\nDeep Copy - A copy that also duplicates every object inside, so changing the copy never touches the original.\nNSCopying - A Foundation protocol a class adopts to say how a new, separate copy of it is made in `copy(with:)`.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 75 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "shallow copy",
+      "deep copy",
+      "nscopying",
+      "swift copy",
+      "value vs reference",
+      "swift class",
+      "swift in depth",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "Swift Shallow Copy, Deep Copy & NSCopying | Day 75",
+      "description": "Explain Shallow Copy, Deep Copy & NSCopying in Swift by listening to a real code chat between two iOS devs.\n얕은 복사, 깊은 복사, NSCopying 표현을 영어 대화로 익혀요.\n\nShallow Copy - A copy that duplicates only the outer value, so the class instances inside are still shared with the original.\n한국어: 얕은 복사: 바깥 값만 복제해서 안에 든 클래스 인스턴스는 원본과 계속 공유하는 복사\n\nDeep Copy - A copy that also duplicates every object inside, so changing the copy never touches the original.\n한국어: 깊은 복사: 안에 든 객체까지 모두 복제해서 복사본을 바꿔도 원본에는 영향이 없는 복사\n\nNSCopying - A Foundation protocol a class adopts to say how a new, separate copy of it is made in `copy(with:)`.\n한국어: NSCopying: 클래스가 `copy(with:)`에서 자신의 새롭고 독립된 복사본을 만드는 방법을 정하기 위해 채택하는 Foundation 프로토콜\n\nIn this video, Mina and Jake duplicate a playlist, watch the original change too and pick a way to really copy the songs, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 75 of the iOS Daily English series.\n\n#Swift #iOSDeveloper #EnglishForDevelopers",
+      "tags": [
+        "Shallow Copy",
+        "Deep Copy",
+        "NSCopying",
+        "copy(with:)",
+        "value type",
+        "reference type",
+        "스위프트 심화",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "ios development",
+        "iOS Daily English"
+      ],
+      "hook": "I edited the copy and the original changed. Can you explain why in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "Why did mine change?",
+    "setting": "Playlist code review",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, I renamed a song in `dupe`, and `mine` changed too.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "`Playlist` is a struct, but `Song` is a class. That's a Shallow Copy.",
+        "terms": [
+          "Shallow Copy"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Wait, didn't copying the struct copy everything?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "It copied the array, but the array holds references to the same songs.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "So both playlists point at one `Song`?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Exactly. A Shallow Copy shares the objects inside.",
+        "terms": [
+          "Shallow Copy"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Then I need a Deep Copy, with new `Song` objects.",
+        "terms": [
+          "Deep Copy"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Right. Make `Song` adopt NSCopying and copy each song.",
+        "terms": [
+          "NSCopying"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Why not just change `Song` to a struct?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "That works too. If `Song` must stay a class, use NSCopying.",
+        "terms": [
+          "NSCopying"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Got it. NSCopying gives each song a twin, and `dupe` becomes a Deep Copy.",
+        "terms": [
+          "NSCopying",
+          "Deep Copy"
+        ]
+      }
+    ],
+    "code": "final class Song { var title = \"Intro\" }\nstruct Playlist { var songs: [Song] }\nlet mine = Playlist(songs: [Song()])\nlet dupe = mine\ndupe.songs[0].title = \"Outro\"\nprint(mine.songs[0].title)",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "Shallow Copy",
+      "lines": [
+        {
+          "text": "A struct full of classes only gives you a Shallow Copy."
+        }
+      ],
+      "title": "A struct full of classes only gives you a Shallow Copy. #Shorts",
+      "description": "A struct full of classes only gives you a Shallow Copy.\n\nShallow Copy - A copy that duplicates only the outer value, so the class instances inside are still shared with the original.\n한국어: 얕은 복사: 바깥 값만 복제해서 안에 든 클래스 인스턴스는 원본과 계속 공유하는 복사\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "Deep Copy",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Why did the original change?"
+        },
+        {
+          "speaker": "B",
+          "text": "You needed a Deep Copy, not a shallow one."
+        }
+      ],
+      "title": "Why did the original change? / You needed a Deep Copy, not a shallow one. #Shorts",
+      "description": "Why did the original change? / You needed a Deep Copy, not a shallow one.\n\nDeep Copy - A copy that also duplicates every object inside, so changing the copy never touches the original.\n한국어: 깊은 복사: 안에 든 객체까지 모두 복제해서 복사본을 바꿔도 원본에는 영향이 없는 복사\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "NSCopying",
+      "lines": [
+        {
+          "text": "Adopt NSCopying when a class needs a real copy."
+        }
+      ],
+      "title": "Adopt NSCopying when a class needs a real copy. #Shorts",
+      "description": "Adopt NSCopying when a class needs a real copy.\n\nNSCopying - A Foundation protocol a class adopts to say how a new, separate copy of it is made in `copy(with:)`.\n한국어: NSCopying: 클래스가 `copy(with:)`에서 자신의 새롭고 독립된 복사본을 만드는 방법을 정하기 위해 채택하는 Foundation 프로토콜\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "Why did mine change?"
+}

@@ -1,0 +1,229 @@
+{
+  "day": 69,
+  "phase": "2. Swift in depth",
+  "theme": "3 terms on errors in depth: passing an error up to the caller, naming the exact error type a function throws, and the return type of a function that never returns",
+  "terms": [
+    {
+      "term": "Error Propagation",
+      "definition": "Passing an error up to the caller with `try`, instead of catching it where it happens.",
+      "example": "Let Error Propagation do the work, and catch it once in the view model.",
+      "code": "struct Missing: Error {}\nfunc read() throws -> Int { throw Missing() }\nfunc load() throws -> Int { try read() + 1 }\ndo { print(try load()) } catch {\n    print(\"caught\", error) }",
+      "output": "caught Missing()"
+    },
+    {
+      "term": "Typed Throws",
+      "definition": "Writing the error type in parentheses after `throws`, so callers know exactly which error can come out.",
+      "example": "With Typed Throws, the `catch` block already knows it's a `SyncError`.",
+      "code": "enum NetError: Error { case offline }\nfunc fetch() throws(NetError) -> Int {\n    throw .offline\n}\ndo { _ = try fetch() } catch {\n    print(error == .offline) }",
+      "output": "true"
+    },
+    {
+      "term": "Never Type",
+      "definition": "The return type `Never`, for a function that never returns, like `fatalError`, so it can end a `guard`.",
+      "example": "`stop` returns the Never Type, so the compiler knows the code after it can't run.",
+      "code": "func fail(_ msg: String) -> Never {\n    fatalError(msg)\n}\nlet n: Int? = 3\nguard let value = n else { fail(\"missing\") }\nprint(value)",
+      "output": "3"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "In this code, what do you call `throws` with an error type in parentheses?",
+      "code": "enum NetError: Error { case offline }\nfunc fetch() throws(NetError) -> Int {\n    throw .offline\n}",
+      "options": [
+        "Error Propagation",
+        "Typed Throws",
+        "Never Type"
+      ],
+      "answer": "b"
+    },
+    {
+      "question": "What is the return type of a function that never returns, like `fatalError`, called?",
+      "options": [
+        "Never Type",
+        "Error Propagation",
+        "Typed Throws"
+      ],
+      "answer": "a"
+    },
+    {
+      "question": "What do you call passing an error up to the caller with `try`, instead of catching it?",
+      "options": [
+        "Typed Throws",
+        "Never Type",
+        "Error Propagation"
+      ],
+      "answer": "c"
+    }
+  ],
+  "video": {
+    "title": "Error Propagation, Typed Throws & Never Type | Day 69",
+    "description": "Learn to explain errors in depth: Error Propagation, Typed Throws & Never Type, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nError Propagation - Passing an error up to the caller with `try`, instead of catching it where it happens.\nTyped Throws - Writing the error type in parentheses after `throws`, so callers know exactly which error can come out.\nNever Type - The return type `Never`, for a function that never returns, like `fatalError`, so it can end a `guard`.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 69 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "error propagation",
+      "typed throws",
+      "never type",
+      "swift errors",
+      "swift 6",
+      "fatalerror",
+      "swift in depth",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "Swift Error Propagation, Typed Throws & Never Type | Day 69",
+      "description": "Explain Error Propagation, Typed Throws & Never Type in Swift by listening to a real code chat between two iOS devs.\n에러 전파, 타입 지정 throws, Never 타입 표현을 영어 대화로 익혀요.\n\nError Propagation - Passing an error up to the caller with `try`, instead of catching it where it happens.\n한국어: 에러 전파: 에러가 난 곳에서 잡지 않고 `try`로 호출한 쪽에 넘기는 것\n\nTyped Throws - Writing the error type in parentheses after `throws`, so callers know exactly which error can come out.\n한국어: 타입 지정 throws: `throws` 뒤 괄호에 에러 타입을 적어서, 호출하는 쪽이 어떤 에러가 나올지 정확히 알게 하는 것\n\nNever Type - The return type `Never`, for a function that never returns, like `fatalError`, so it can end a `guard`.\n한국어: Never 타입: `fatalError`처럼 절대 돌아오지 않는 함수의 반환 타입 `Never`로, `guard`를 끝낼 수 있음\n\nIn this video, Mina and Jake follow an error with no catch up to the caller, name its exact type and meet a function that never returns, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 69 of the iOS Daily English series.\n\n#Swift #iOSDeveloper #EnglishForDevelopers",
+      "tags": [
+        "Error Propagation",
+        "Typed Throws",
+        "Never Type",
+        "swift errors",
+        "Swift 6",
+        "fatalError",
+        "스위프트 심화",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "ios development",
+        "iOS Daily English"
+      ],
+      "hook": "No catch? Where does the error go? Can you explain it in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "Where does the error go?",
+    "setting": "Sync code review",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, `sync` has no catch. Where does the error go?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Up to the caller. That's Error Propagation. `try` just passes it along.",
+        "terms": [
+          "Error Propagation"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "So whoever calls `sync` has to handle it?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Yes. Error Propagation stops at the first `do` and `catch`.",
+        "terms": [
+          "Error Propagation"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "And why does `throws` have `SyncError` in parentheses?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "That's Typed Throws. The caller knows the exact error type.",
+        "terms": [
+          "Typed Throws"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "So `catch` gets a `SyncError`, not just any error?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Right. With Typed Throws, you can switch over the cases.",
+        "terms": [
+          "Typed Throws"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "And `stop` returns `Never`? What does that mean?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "It's the Never Type. The function never returns, it just ends the app.",
+        "terms": [
+          "Never Type"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Got it. So I'd use the Never Type only for states that should be impossible.",
+        "terms": [
+          "Never Type"
+        ]
+      }
+    ],
+    "code": "enum SyncError: Error { case offline }\nfunc upload() throws(SyncError) { throw .offline }\nfunc sync() throws(SyncError) { try upload() }\nfunc stop() -> Never { fatalError(\"bad state\") }",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-conversation",
+      "term": "Error Propagation",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "There's no catch here. Is that a bug?"
+        },
+        {
+          "speaker": "B",
+          "text": "No, it's Error Propagation. The caller catches it."
+        }
+      ],
+      "title": "There's no catch here. Is that a bug? / No, it's Error Propagation. The caller catches it. #Shorts",
+      "description": "There's no catch here. Is that a bug? / No, it's Error Propagation. The caller catches it.\n\nError Propagation - Passing an error up to the caller with `try`, instead of catching it where it happens.\n한국어: 에러 전파: 에러가 난 곳에서 잡지 않고 `try`로 호출한 쪽에 넘기는 것\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Typed Throws",
+      "lines": [
+        {
+          "text": "Typed Throws tells the caller the exact error type."
+        }
+      ],
+      "title": "Typed Throws tells the caller the exact error type. #Shorts",
+      "description": "Typed Throws tells the caller the exact error type.\n\nTyped Throws - Writing the error type in parentheses after `throws`, so callers know exactly which error can come out.\n한국어: 타입 지정 throws: `throws` 뒤 괄호에 에러 타입을 적어서, 호출하는 쪽이 어떤 에러가 나올지 정확히 알게 하는 것\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Never Type",
+      "lines": [
+        {
+          "text": "A function with the Never Type never comes back."
+        }
+      ],
+      "title": "A function with the Never Type never comes back. #Shorts",
+      "description": "A function with the Never Type never comes back.\n\nNever Type - The return type `Never`, for a function that never returns, like `fatalError`, so it can end a `guard`.\n한국어: Never 타입: `fatalError`처럼 절대 돌아오지 않는 함수의 반환 타입 `Never`로, `guard`를 끝낼 수 있음\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "No catch? Where does it go?"
+}

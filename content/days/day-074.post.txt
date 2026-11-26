@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 74
+
+Runtime Type
+- The real type of a value while the app runs, which can be more specific than the type it was declared with.
+- Example: "The array is declared as `[Animal]`, but the Runtime Type of the first item is `Dog`."
+
+Metatype
+- The type of a type, written like `Dog.Type`, whose value `Dog.self` lets you pass a type around like any other value.
+- Example: "Pass the Metatype into `register`, so the factory knows which type to create."
+
+Mirror
+- A Swift type that lets code look at the stored properties of any value, with their names and values, while the app runs.
+- Example: "The debug screen uses a Mirror, so new properties show up without extra code."
+
+
+Quiz ①
+Which type lets code list the stored properties of any value while the app runs?
+a) Runtime Type
+b) Mirror
+c) Metatype
+
+Quiz ②
+In this code, what do you call the type that the last line prints?
+a) Metatype
+b) Mirror
+c) Runtime Type
+
+Quiz ③
+What do you call the type of a type, like `Dog.Type`?
+a) Metatype
+b) Runtime Type
+c) Mirror

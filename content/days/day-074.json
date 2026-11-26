@@ -1,0 +1,229 @@
+{
+  "day": 74,
+  "phase": "2. Swift in depth",
+  "theme": "3 terms on looking at types while the app runs: the real type behind a value, the type of a type, and a tool that lists a value's properties",
+  "terms": [
+    {
+      "term": "Runtime Type",
+      "definition": "The real type of a value while the app runs, which can be more specific than the type it was declared with.",
+      "example": "The array is declared as `[Animal]`, but the Runtime Type of the first item is `Dog`.",
+      "code": "class Animal {}\nclass Dog: Animal {}\nlet pet: Animal = Dog()\nprint(type(of: pet))",
+      "output": "Dog"
+    },
+    {
+      "term": "Metatype",
+      "definition": "The type of a type, written like `Dog.Type`, whose value `Dog.self` lets you pass a type around like any other value.",
+      "example": "Pass the Metatype into `register`, so the factory knows which type to create.",
+      "code": "struct Dog { static let sound = \"woof\" }\nlet t: Dog.Type = Dog.self\nprint(t.sound)",
+      "output": "woof"
+    },
+    {
+      "term": "Mirror",
+      "definition": "A Swift type that lets code look at the stored properties of any value, with their names and values, while the app runs.",
+      "example": "The debug screen uses a Mirror, so new properties show up without extra code.",
+      "code": "struct User { let name = \"Mina\", age = 30 }\nlet m = Mirror(reflecting: User())\nfor child in m.children {\n    print(child.label ?? \"\", child.value)\n}",
+      "output": "name Mina\nage 30"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "Which type lets code list the stored properties of any value while the app runs?",
+      "options": [
+        "Runtime Type",
+        "Mirror",
+        "Metatype"
+      ],
+      "answer": "b"
+    },
+    {
+      "question": "In this code, what do you call the type that the last line prints?",
+      "code": "class Animal {}\nclass Dog: Animal {}\nlet pet: Animal = Dog()\nprint(type(of: pet))",
+      "options": [
+        "Metatype",
+        "Mirror",
+        "Runtime Type"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "What do you call the type of a type, like `Dog.Type`?",
+      "options": [
+        "Metatype",
+        "Runtime Type",
+        "Mirror"
+      ],
+      "answer": "a"
+    }
+  ],
+  "video": {
+    "title": "Runtime Type, Metatype & Mirror | Day 74",
+    "description": "Learn to explain how Swift looks at types while the app runs: Runtime Type, Metatype & Mirror, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nRuntime Type - The real type of a value while the app runs, which can be more specific than the type it was declared with.\nMetatype - The type of a type, written like `Dog.Type`, whose value `Dog.self` lets you pass a type around like any other value.\nMirror - A Swift type that lets code look at the stored properties of any value, with their names and values, while the app runs.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 74 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "runtime type",
+      "metatype",
+      "mirror",
+      "type(of:)",
+      "swift reflection",
+      "swift types",
+      "swift in depth",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "Swift Runtime Type, Metatype & Mirror | Day 74",
+      "description": "Explain Runtime Type, Metatype & Mirror in Swift by listening to a real code chat between two iOS devs.\n런타임 타입, 메타타입, Mirror 표현을 영어 대화로 익혀요.\n\nRuntime Type - The real type of a value while the app runs, which can be more specific than the type it was declared with.\n한국어: 런타임 타입: 앱이 실행되는 동안 값이 실제로 가진 타입으로, 선언된 타입보다 더 구체적일 수 있음\n\nMetatype - The type of a type, written like `Dog.Type`, whose value `Dog.self` lets you pass a type around like any other value.\n한국어: 메타타입: 타입의 타입으로 `Dog.Type`처럼 쓰며, 그 값인 `Dog.self`로 타입을 다른 값처럼 넘길 수 있음\n\nMirror - A Swift type that lets code look at the stored properties of any value, with their names and values, while the app runs.\n한국어: Mirror: 앱이 실행되는 동안 어떤 값이든 저장 프로퍼티의 이름과 값을 들여다볼 수 있게 해 주는 Swift 타입\n\nIn this video, Mina and Jake read a debug logger, find out what a type looks like as a value and decide where a Mirror does not belong, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 74 of the iOS Daily English series.\n\n#Swift #iOSDeveloper #EnglishForDevelopers",
+      "tags": [
+        "Runtime Type",
+        "Metatype",
+        "Mirror",
+        "type(of:)",
+        "reflection",
+        "swift Any",
+        "스위프트 심화",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "ios development",
+        "iOS Daily English"
+      ],
+      "hook": "Declared as Any, printed as Order. Can you explain it in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "What does log print?",
+    "setting": "Debug tool review",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, what does `log` print for an `Order`?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "First the Runtime Type. `x` is declared as `Any`, but it prints `Order`.",
+        "terms": [
+          "Runtime Type"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "So that call gives back a string?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "No, it gives a Metatype, the type itself as a value.",
+        "terms": [
+          "Metatype"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "And the loop after that?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "That's a Mirror. It reads the stored properties while the app runs.",
+        "terms": [
+          "Mirror"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "So it prints `id` 7 and `paid` true?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Yes, each child has a `label` and a `value`.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "Could we use a Mirror to save orders to disk?",
+        "terms": [
+          "Mirror"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "I wouldn't. It's built for debuggers and playgrounds, not saving data.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "Got it. Runtime Type for the real type, Metatype as its value, and Mirror for the properties.",
+        "terms": [
+          "Runtime Type",
+          "Metatype",
+          "Mirror"
+        ]
+      }
+    ],
+    "code": "struct Order { let id = 7, paid = true }\nfunc log(_ x: Any) {\n    print(type(of: x))\n    for c in Mirror(reflecting: x).children {\n        print(c.label ?? \"?\", c.value) } }\nlog(Order())",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "Runtime Type",
+      "lines": [
+        {
+          "text": "Declared as `Any`, but the Runtime Type is still `Order`."
+        }
+      ],
+      "title": "Declared as `Any`, but the Runtime Type is still `Order`. #Shorts",
+      "description": "Declared as `Any`, but the Runtime Type is still `Order`.\n\nRuntime Type - The real type of a value while the app runs, which can be more specific than the type it was declared with.\n한국어: 런타임 타입: 앱이 실행되는 동안 값이 실제로 가진 타입으로, 선언된 타입보다 더 구체적일 수 있음\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "Metatype",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "How do I pass a type as a value?"
+        },
+        {
+          "speaker": "B",
+          "text": "Use its Metatype, like `Dog.self`."
+        }
+      ],
+      "title": "How do I pass a type as a value? / Use its Metatype, like `Dog.self`. #Shorts",
+      "description": "How do I pass a type as a value? / Use its Metatype, like `Dog.self`.\n\nMetatype - The type of a type, written like `Dog.Type`, whose value `Dog.self` lets you pass a type around like any other value.\n한국어: 메타타입: 타입의 타입으로 `Dog.Type`처럼 쓰며, 그 값인 `Dog.self`로 타입을 다른 값처럼 넘길 수 있음\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Mirror",
+      "lines": [
+        {
+          "text": "A Mirror lists every stored property, great for debug logs."
+        }
+      ],
+      "title": "A Mirror lists every stored property, great for debug logs. #Shorts",
+      "description": "A Mirror lists every stored property, great for debug logs.\n\nMirror - A Swift type that lets code look at the stored properties of any value, with their names and values, while the app runs.\n한국어: Mirror: 앱이 실행되는 동안 어떤 값이든 저장 프로퍼티의 이름과 값을 들여다볼 수 있게 해 주는 Swift 타입\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "Declared Any, prints Order?"
+}

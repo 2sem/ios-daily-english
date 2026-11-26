@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 77
+
+Explicit Self
+- Writing `self.` in front of a property inside an escaping closure, which a class requires so you can see the capture.
+- Example: "The compiler wants Explicit Self here, because this closure outlives the method."
+
+Weak Self
+- Writing `[weak self]` in a closure's capture list, so the closure does not keep its object alive.
+- Example: "Use Weak Self in that network callback, or the view model never gets freed."
+
+Implicit Self
+- Leaving out `self.` inside a closure, allowed after `[self]` in the capture list or after `guard let self`.
+- Example: "After `guard let self`, Implicit Self is fine, so drop all those `self.` prefixes."
+
+
+Quiz ①
+Which capture stops a closure from keeping its object alive?
+a) Implicit Self
+b) Explicit Self
+c) Weak Self
+
+Quiz ②
+In this code, what do you call using `n` with no prefix inside the closure?
+a) Implicit Self
+b) Weak Self
+c) Explicit Self
+
+Quiz ③
+What do you call writing `self.` in front of a property inside an escaping closure?
+a) Weak Self
+b) Explicit Self
+c) Implicit Self

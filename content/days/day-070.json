@@ -1,0 +1,233 @@
+{
+  "day": 70,
+  "phase": "2. Swift in depth",
+  "theme": "3 terms on stopping the app on purpose: a crash that always happens, a check that runs only in debug builds, and a check that stays in release builds",
+  "terms": [
+    {
+      "term": "Fatal Error",
+      "definition": "A call to `fatalError` that always stops the app, in every build, for code that should never be reached.",
+      "example": "That `default` case can't happen, so a Fatal Error with a clear message is fine.",
+      "code": "func name(_ n: Int) -> String {\n    if n == 1 { return \"one\" }\n    fatalError(\"unexpected \\(n)\")\n}\nprint(name(1))",
+      "output": "one"
+    },
+    {
+      "term": "Assertion",
+      "definition": "A check written with `assert` that stops the app when its condition is false, but only in debug builds.",
+      "example": "Add an Assertion here, so we notice the bad value while testing.",
+      "code": "func setVolume(_ v: Int) {\n    assert(v >= 0, \"negative volume\")\n    print(\"volume\", v)\n}\nsetVolume(5)",
+      "output": "volume 5"
+    },
+    {
+      "term": "Precondition",
+      "definition": "A check written with `precondition` that stops the app when its condition is false, even in release builds.",
+      "example": "A wrong index would corrupt the data, so use a Precondition, not an assert.",
+      "code": "func pick(_ a: [Int], _ i: Int) -> Int {\n    precondition(i < a.count, \"bad index\")\n    return a[i]\n}\nprint(pick([4, 5, 6], 1))",
+      "output": "5"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "In this code, which check would you add on the comment line, so it runs only in debug builds?",
+      "code": "func setVolume(_ v: Int) {\n    // check that v >= 0 here\n    print(\"volume\", v)\n}",
+      "options": [
+        "Precondition",
+        "Assertion",
+        "Fatal Error"
+      ],
+      "answer": "b"
+    },
+    {
+      "question": "Which check keeps working in release builds and stops the app when its condition is false?",
+      "options": [
+        "Precondition",
+        "Fatal Error",
+        "Assertion"
+      ],
+      "answer": "a"
+    },
+    {
+      "question": "Which call always stops the app, in every build, without checking any condition?",
+      "options": [
+        "Assertion",
+        "Precondition",
+        "Fatal Error"
+      ],
+      "answer": "c"
+    }
+  ],
+  "video": {
+    "title": "Fatal Error, Assertion & Precondition | Day 70",
+    "description": "Learn to explain safety checks in Swift: Fatal Error, Assertion & Precondition, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nFatal Error - A call to `fatalError` that always stops the app, in every build, for code that should never be reached.\nAssertion - A check written with `assert` that stops the app when its condition is false, but only in debug builds.\nPrecondition - A check written with `precondition` that stops the app when its condition is false, even in release builds.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 70 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "fatal error",
+      "assertion",
+      "precondition",
+      "fatalerror",
+      "assert swift",
+      "swift debugging",
+      "swift in depth",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "Swift Fatal Error, Assertion & Precondition | Day 70",
+      "description": "Explain Fatal Error, Assertion & Precondition in Swift by listening to a real code chat between two iOS devs.\n치명적 오류, 단언문, 전제 조건 표현을 영어 대화로 익혀요.\n\nFatal Error - A call to `fatalError` that always stops the app, in every build, for code that should never be reached.\n한국어: 치명적 오류: 어떤 빌드에서든 항상 앱을 멈추는 `fatalError` 호출로, 절대 도달하면 안 되는 코드에 씀\n\nAssertion - A check written with `assert` that stops the app when its condition is false, but only in debug builds.\n한국어: 단언문: 조건이 거짓이면 앱을 멈추지만 디버그 빌드에서만 동작하는 `assert` 검사\n\nPrecondition - A check written with `precondition` that stops the app when its condition is false, even in release builds.\n한국어: 전제 조건: 조건이 거짓이면 릴리스 빌드에서도 앱을 멈추는 `precondition` 검사\n\nIn this video, Mina and Jake find out why one function has two checks, which one disappears in the App Store build and when crashing on purpose is the right call, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 70 of the iOS Daily English series.\n\n#Swift #iOSDeveloper #EnglishForDevelopers",
+      "tags": [
+        "Fatal Error",
+        "Assertion",
+        "Precondition",
+        "fatalError",
+        "assert",
+        "precondition swift",
+        "스위프트 심화",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "ios development",
+        "iOS Daily English"
+      ],
+      "hook": "Two checks, one function. Can you explain the difference in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "Why two checks?",
+    "setting": "Player code review",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, `play` has two checks. Why not just one?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "They behave differently. The first one is an Assertion. It only runs in debug builds.",
+        "terms": [
+          "Assertion"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "So in the App Store build, it's gone?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Yes. An Assertion catches our own mistakes while we test.",
+        "terms": [
+          "Assertion"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "And the Precondition stays in release?",
+        "terms": [
+          "Precondition"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Right. A Precondition still crashes for users if the `rate` is too high.",
+        "terms": [
+          "Precondition"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Isn't crashing for users bad?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Playing with broken data is worse. A Precondition stops it early.",
+        "terms": [
+          "Precondition"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "OK. And `unknownMode` just calls `fatalError`?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Yes. A Fatal Error always crashes, in every build, with no condition to check.",
+        "terms": [
+          "Fatal Error"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Got it. Assertion for testing, Precondition for release, and Fatal Error when it can never happen.",
+        "terms": [
+          "Assertion",
+          "Precondition",
+          "Fatal Error"
+        ]
+      }
+    ],
+    "code": "func play(rate: Double) {\n    assert(rate > 0, \"rate must be positive\")\n    precondition(rate <= 3, \"rate too high\")\n}\nfunc unknownMode() -> Never {\n    fatalError(\"unknown mode\") }",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "Fatal Error",
+      "lines": [
+        {
+          "text": "A Fatal Error crashes in every build, no questions asked."
+        }
+      ],
+      "title": "A Fatal Error crashes in every build, no questions asked. #Shorts",
+      "description": "A Fatal Error crashes in every build, no questions asked.\n\nFatal Error - A call to `fatalError` that always stops the app, in every build, for code that should never be reached.\n한국어: 치명적 오류: 어떤 빌드에서든 항상 앱을 멈추는 `fatalError` 호출로, 절대 도달하면 안 되는 코드에 씀\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "Assertion",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Will this check crash for users?"
+        },
+        {
+          "speaker": "B",
+          "text": "No, an Assertion only runs in debug."
+        }
+      ],
+      "title": "Will this check crash for users? / No, an Assertion only runs in debug. #Shorts",
+      "description": "Will this check crash for users? / No, an Assertion only runs in debug.\n\nAssertion - A check written with `assert` that stops the app when its condition is false, but only in debug builds.\n한국어: 단언문: 조건이 거짓이면 앱을 멈추지만 디버그 빌드에서만 동작하는 `assert` 검사\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Precondition",
+      "lines": [
+        {
+          "text": "A Precondition still guards you in the release build."
+        }
+      ],
+      "title": "A Precondition still guards you in the release build. #Shorts",
+      "description": "A Precondition still guards you in the release build.\n\nPrecondition - A check written with `precondition` that stops the app when its condition is false, even in release builds.\n한국어: 전제 조건: 조건이 거짓이면 릴리스 빌드에서도 앱을 멈추는 `precondition` 검사\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "Why two checks?"
+}

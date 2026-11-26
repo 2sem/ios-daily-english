@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 68
+
+String Literal
+- Text written directly in your code between double quotes, like "Mina".
+- Example: "Move that String Literal into a constant, it's repeated in five places."
+
+ExpressibleByStringLiteral
+- A protocol that lets a type be created straight from quoted text, by adding `init(stringLiteral:)`.
+- Example: "Make `Endpoint` ExpressibleByStringLiteral, so we can write the path as plain text."
+
+ExpressibleByArrayLiteral
+- A protocol that lets a type be created from square brackets, like an array, by adding `init(arrayLiteral:)`.
+- Example: "`Set` is ExpressibleByArrayLiteral, that's why the brackets work."
+
+
+Quiz ①
+Which protocol lets you assign quoted text straight to your own type?
+a) ExpressibleByArrayLiteral
+b) String Literal
+c) ExpressibleByStringLiteral
+
+Quiz ②
+In this code, what do you call the text written directly between the quotes?
+a) String Literal
+b) ExpressibleByStringLiteral
+c) ExpressibleByArrayLiteral
+
+Quiz ③
+Which protocol lets your own type be created from square brackets, like an array?
+a) ExpressibleByStringLiteral
+b) ExpressibleByArrayLiteral
+c) String Literal

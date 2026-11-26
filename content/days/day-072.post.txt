@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 72
+
+Object Lifetime
+- The time between creating a class instance and freeing it, which ends when no strong reference is left.
+- Example: "Check the Object Lifetime here, the cache outlives the screen that made it."
+
+withExtendedLifetime
+- A function that keeps an object alive at least until the closure you pass it has finished.
+- Example: "Wrap the call in withExtendedLifetime, or the delegate might be freed too early."
+
+Unmanaged
+- A wrapper for a class reference that skips automatic retain and release, so you manage the memory yourself.
+- Example: "The C callback only takes a raw pointer, so we pass the view model through Unmanaged."
+
+
+Quiz ①
+Which type wraps a class reference so Swift stops retaining and releasing it for you?
+a) withExtendedLifetime
+b) Object Lifetime
+c) Unmanaged
+
+Quiz ②
+What do you call the time from when an object is created until it is freed?
+a) Object Lifetime
+b) Unmanaged
+c) withExtendedLifetime
+
+Quiz ③
+In this code, which function keeps `t` alive until the closure finishes?
+a) Unmanaged
+b) withExtendedLifetime
+c) Object Lifetime

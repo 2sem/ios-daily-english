@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 66
+
+Enum Case Pattern
+- A pattern like `.circle(let r)` that matches one enum case and pulls out its associated values.
+- Example: "Use an Enum Case Pattern in `if case`, you don't need a full `switch` here."
+
+Recursive Enum
+- An enum with a case that holds a value of the same enum, like a folder that holds folders.
+- Example: "The comment thread is a Recursive Enum, so replies can hold replies."
+
+Indirect Enum
+- An enum, or a single case, marked `indirect`, so Swift stores the nested values behind a pointer.
+- Example: "Make it an Indirect Enum, otherwise the compiler can't work out its size."
+
+
+Quiz ①
+What do you call an enum that has a case holding a value of the same enum?
+a) Indirect Enum
+b) Recursive Enum
+c) Enum Case Pattern
+
+Quiz ②
+In this code, what do you call `.box(let w)` after `if case`?
+a) Enum Case Pattern
+b) Indirect Enum
+c) Recursive Enum
+
+Quiz ③
+What do you call an enum marked with a keyword, so its nested values are stored behind a pointer?
+a) Recursive Enum
+b) Enum Case Pattern
+c) Indirect Enum

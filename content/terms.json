@@ -779,6 +779,186 @@
     "genericsubscript": {
       "term": "Generic Subscript",
       "day": 65
+    },
+    "enumcasepattern": {
+      "term": "Enum Case Pattern",
+      "day": 66
+    },
+    "recursiveenum": {
+      "term": "Recursive Enum",
+      "day": 66
+    },
+    "indirectenum": {
+      "term": "Indirect Enum",
+      "day": 66
+    },
+    "mutablecollection": {
+      "term": "MutableCollection",
+      "day": 67
+    },
+    "bidirectionalcollection": {
+      "term": "BidirectionalCollection",
+      "day": 67
+    },
+    "randomaccesscollection": {
+      "term": "RandomAccessCollection",
+      "day": 67
+    },
+    "stringliteral": {
+      "term": "String Literal",
+      "day": 68
+    },
+    "expressiblebystringliteral": {
+      "term": "ExpressibleByStringLiteral",
+      "day": 68
+    },
+    "expressiblebyarrayliteral": {
+      "term": "ExpressibleByArrayLiteral",
+      "day": 68
+    },
+    "errorpropagation": {
+      "term": "Error Propagation",
+      "day": 69
+    },
+    "typedthrows": {
+      "term": "Typed Throws",
+      "day": 69
+    },
+    "nevertype": {
+      "term": "Never Type",
+      "day": 69
+    },
+    "fatalerror": {
+      "term": "Fatal Error",
+      "day": 70
+    },
+    "assertion": {
+      "term": "Assertion",
+      "day": 70
+    },
+    "precondition": {
+      "term": "Precondition",
+      "day": 70
+    },
+    "hashvalue": {
+      "term": "Hash Value",
+      "day": 71
+    },
+    "hasher": {
+      "term": "Hasher",
+      "day": 71
+    },
+    "hashcollision": {
+      "term": "Hash Collision",
+      "day": 71
+    },
+    "objectlifetime": {
+      "term": "Object Lifetime",
+      "day": 72
+    },
+    "withextendedlifetime": {
+      "term": "withExtendedLifetime",
+      "day": 72
+    },
+    "unmanaged": {
+      "term": "Unmanaged",
+      "day": 72
+    },
+    "descendingorder": {
+      "term": "Descending Order",
+      "day": 73
+    },
+    "stablesort": {
+      "term": "Stable Sort",
+      "day": 73
+    },
+    "strictweakordering": {
+      "term": "Strict Weak Ordering",
+      "day": 73
+    },
+    "runtimetype": {
+      "term": "Runtime Type",
+      "day": 74
+    },
+    "metatype": {
+      "term": "Metatype",
+      "day": 74
+    },
+    "mirror": {
+      "term": "Mirror",
+      "day": 74
+    },
+    "shallowcopy": {
+      "term": "Shallow Copy",
+      "day": 75
+    },
+    "deepcopy": {
+      "term": "Deep Copy",
+      "day": 75
+    },
+    "nscopying": {
+      "term": "NSCopying",
+      "day": 75
+    },
+    "jsonencoder": {
+      "term": "JSONEncoder",
+      "day": 76
+    },
+    "outputformatting": {
+      "term": "Output Formatting",
+      "day": 76
+    },
+    "dateencodingstrategy": {
+      "term": "Date Encoding Strategy",
+      "day": 76
+    },
+    "explicitself": {
+      "term": "Explicit Self",
+      "day": 77
+    },
+    "weakself": {
+      "term": "Weak Self",
+      "day": 77
+    },
+    "implicitself": {
+      "term": "Implicit Self",
+      "day": 77
+    },
+    "whitespace": {
+      "term": "Whitespace",
+      "day": 78
+    },
+    "characterset": {
+      "term": "CharacterSet",
+      "day": 78
+    },
+    "caseinsensitivecomparison": {
+      "term": "Case Insensitive Comparison",
+      "day": 78
+    },
+    "stringindex": {
+      "term": "String Index",
+      "day": 79
+    },
+    "indexoffset": {
+      "term": "Index Offset",
+      "day": 79
+    },
+    "indexoutofrange": {
+      "term": "Index Out of Range",
+      "day": 79
+    },
+    "wholemoduleoptimization": {
+      "term": "Whole Module Optimization",
+      "day": 80
+    },
+    "genericspecialization": {
+      "term": "Generic Specialization",
+      "day": 80
+    },
+    "inlinable": {
+      "term": "Inlinable",
+      "day": 80
     }
   }
 }

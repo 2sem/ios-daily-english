@@ -79,7 +79,7 @@ html,body{width:1280px;height:720px;overflow:hidden;background:#0b0f1a;color:#ee
 .code{font-family:JB,monospace;font-size:31px;color:#cfd8ea;background:rgba(255,255,255,.08);border-radius:8px;padding:0 8px}
 </style></head><body><div class="bg"></div>
 <div class="top"><img src="file://${logo}"><div class="k">iOS Daily English</div><div class="badge">Day ${day.day}</div></div>
-<div class="l"><div class="h">${day.linkedinHook || "Code review English"}</div><div class="sub">${day.terms.map((t, i) => `<span style="color:${colors[i]};white-space:nowrap">${t.term}</span>`).join(" · ")}</div></div>
+<div class="l"><div class="h">${day.linkedinHook || "Code review English"}</div><div class="sub"${day.terms.map((t) => t.term).join(" · ").length > 48 ? ' style="font-size:34px"' : ""}>${day.terms.map((t, i) => `<span style="color:${colors[i]};white-space:nowrap">${t.term}</span>`).join(" · ")}</div></div>
 <div class="chat">${[[day.terms[0], "Mina", ""], [day.terms[2], "Jake", " r"]].map(([t, who, cls], i) => `<div class="m${cls}"><div class="who">${who}</div><div class="b">${esc(t.example).replace(new RegExp(`\\b(${t.term}s?)\\b`, "gi"), (m) => `<span class="hl" style="color:${colors[i * 2]}">${m}</span>`).replace(/`([^`]+)`/g, '<span class="code">$1</span>')}</div></div>`).join("")}</div>
 </body></html>`;
 const html = linkedin ? linkedinHtml : landscape ? landscapeHtml : `<!doctype html><html><head><meta charset="utf-8"><style>

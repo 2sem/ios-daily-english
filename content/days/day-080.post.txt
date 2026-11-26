@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 80
+
+Whole Module Optimization
+- A build mode where the compiler optimizes all files of a module together.
+- Example: "Release builds use Whole Module Optimization, so they take longer but run faster."
+
+Generic Specialization
+- When the optimizer copies a generic function for one exact type, so it runs faster.
+- Example: "Generic Specialization only happens with optimization on, so measure in a release build."
+
+Inlinable
+- An attribute, written `@inlinable`, that puts a public function's body in the module's interface so other modules can optimize it.
+- Example: "Mark the helper Inlinable, the app calls it from another module in a hot loop."
+
+
+Quiz ①
+In this code, what does the optimizer do when it makes a version of `twice` just for `Int`?
+a) Whole Module Optimization
+b) Inlinable
+c) Generic Specialization
+
+Quiz ②
+Which attribute lets other modules see and optimize a public function's body?
+a) Inlinable
+b) Generic Specialization
+c) Whole Module Optimization
+
+Quiz ③
+Which build mode lets the compiler optimize all files of one module together?
+a) Generic Specialization
+b) Whole Module Optimization
+c) Inlinable

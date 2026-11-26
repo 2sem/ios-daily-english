@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 71
+
+Hash Value
+- An integer made from a value that lets sets and dictionaries find it fast, and equal values always share it.
+- Example: "Never save a Hash Value to disk, it changes every time the app launches."
+
+Hasher
+- The object passed to `hash(into:)` that mixes the properties you give it with `combine` into one hash value.
+- Example: "Only feed `id` into the Hasher, that's enough to tell users apart."
+
+Hash Collision
+- When two different values get the same hash value; it still works, but lookups get slower.
+- Example: "An empty `hash(into:)` makes every item a Hash Collision, so the set gets slow."
+
+
+Quiz ①
+In this code, what happens between two different `Bad` values, since they all get the same hash?
+a) Hash Value
+b) Hash Collision
+c) Hasher
+
+Quiz ②
+What do you call the object you feed properties into with `combine`?
+a) Hasher
+b) Hash Value
+c) Hash Collision
+
+Quiz ③
+What do you call the number a set uses to find an item fast?
+a) Hash Collision
+b) Hasher
+c) Hash Value

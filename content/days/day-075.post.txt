@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 75
+
+Shallow Copy
+- A copy that duplicates only the outer value, so the class instances inside are still shared with the original.
+- Example: "Copying the cart is only a Shallow Copy, the items are still the same objects."
+
+Deep Copy
+- A copy that also duplicates every object inside, so changing the copy never touches the original.
+- Example: "Make a Deep Copy before editing, or the undo history changes too."
+
+NSCopying
+- A Foundation protocol a class adopts to say how a new, separate copy of it is made in `copy(with:)`.
+- Example: "Our `Document` class adopts NSCopying, so every copy is a separate instance."
+
+
+Quiz ①
+Which Foundation protocol lets a class decide how a separate copy of it is made?
+a) Deep Copy
+b) NSCopying
+c) Shallow Copy
+
+Quiz ②
+In this code, what kind of copy is `b`, since changing it also changes `a`?
+a) NSCopying
+b) Deep Copy
+c) Shallow Copy
+
+Quiz ③
+What do you call a copy that also duplicates every object inside, so nothing is shared?
+a) Deep Copy
+b) Shallow Copy
+c) NSCopying

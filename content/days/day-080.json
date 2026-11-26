@@ -1,0 +1,232 @@
+{
+  "day": 80,
+  "phase": "2. Swift in depth",
+  "theme": "3 terms on how the compiler makes Swift fast: optimizing a whole module at once, making a type-specific copy of generic code, and letting other modules see a function's body",
+  "terms": [
+    {
+      "term": "Whole Module Optimization",
+      "definition": "A build mode where the compiler optimizes all files of a module together.",
+      "example": "Release builds use Whole Module Optimization, so they take longer but run faster.",
+      "code": "// Build setting: Compilation Mode\n//   Whole Module (swiftc -wmo)\nfunc area(w: Int, h: Int) -> Int { w * h }\nprint(area(w: 3, h: 4))",
+      "output": "12"
+    },
+    {
+      "term": "Generic Specialization",
+      "definition": "When the optimizer copies a generic function for one exact type, so it runs faster.",
+      "example": "Generic Specialization only happens with optimization on, so measure in a release build.",
+      "code": "func twice<T: Numeric>(_ x: T) -> T { x + x }\n// with -O, an Int-only copy is made\nprint(twice(21))",
+      "output": "42"
+    },
+    {
+      "term": "Inlinable",
+      "definition": "An attribute, written `@inlinable`, that puts a public function's body in the module's interface so other modules can optimize it.",
+      "example": "Mark the helper Inlinable, the app calls it from another module in a hot loop.",
+      "code": "@inlinable\npublic func clamp(_ x: Int) -> Int {\n    min(max(x, 0), 100)\n}\nprint(clamp(250))",
+      "output": "100"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "In this code, what does the optimizer do when it makes a version of `twice` just for `Int`?",
+      "code": "func twice<T: Numeric>(_ x: T) -> T { x + x }\nprint(twice(21))",
+      "options": [
+        "Whole Module Optimization",
+        "Inlinable",
+        "Generic Specialization"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "Which attribute lets other modules see and optimize a public function's body?",
+      "options": [
+        "Inlinable",
+        "Generic Specialization",
+        "Whole Module Optimization"
+      ],
+      "answer": "a"
+    },
+    {
+      "question": "Which build mode lets the compiler optimize all files of one module together?",
+      "options": [
+        "Generic Specialization",
+        "Whole Module Optimization",
+        "Inlinable"
+      ],
+      "answer": "b"
+    }
+  ],
+  "video": {
+    "title": "Whole Module Optimization, Generic Specialization & Inlinable | Day 80",
+    "description": "Learn to explain how the optimizer speeds up generic code in Swift: Whole Module Optimization, Generic Specialization & Inlinable, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nWhole Module Optimization - A build mode where the compiler optimizes all files of a module together.\nGeneric Specialization - When the optimizer copies a generic function for one exact type, so it runs faster.\nInlinable - An attribute, written `@inlinable`, that puts a public function's body in the module's interface so other modules can optimize it.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 80 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "whole module optimization",
+      "generic specialization",
+      "inlinable",
+      "swift performance",
+      "swift optimization",
+      "swift generics",
+      "swift in depth",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "Swift Whole Module Optimization, Generic Specialization & Inlinable | Day 80",
+      "description": "Explain Whole Module Optimization, Generic Specialization & Inlinable in Swift by listening to a real code chat between two iOS devs.\n전체 모듈 최적화, 제네릭 특수화, Inlinable 표현을 영어 대화로 익혀요.\n\nWhole Module Optimization - A build mode where the compiler optimizes all files of a module together.\n한국어: 전체 모듈 최적화: 컴파일러가 한 모듈의 모든 파일을 함께 최적화하는 빌드 모드\n\nGeneric Specialization - When the optimizer copies a generic function for one exact type, so it runs faster.\n한국어: 제네릭 특수화: 최적화기가 제네릭 함수를 특정 타입 전용으로 복사해서 더 빠르게 돌게 하는 것\n\nInlinable - An attribute, written `@inlinable`, that puts a public function's body in the module's interface so other modules can optimize it.\n한국어: Inlinable: `@inlinable`로 쓰는 속성으로, public 함수의 본문을 모듈 인터페이스에 넣어 다른 모듈이 최적화할 수 있게 함\n\nIn this video, Mina and Jake find out why a generic helper from a package was slow in the app and how one attribute lets the optimizer do its job, to close Phase 2, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 80 of the iOS Daily English series.\n\n#Swift #iOSDeveloper #EnglishForDevelopers",
+      "tags": [
+        "Whole Module Optimization",
+        "Generic Specialization",
+        "Inlinable",
+        "@inlinable",
+        "swift performance",
+        "generics",
+        "스위프트 심화",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "ios development",
+        "iOS Daily English"
+      ],
+      "hook": "Same generic code, slow in the app. Can you explain why in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "Why was total slow?",
+    "setting": "Performance review",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, why did you mark `total` as Inlinable?",
+        "terms": [
+          "Inlinable"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "The app calls it from another module, MathKit.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "And it was slow before?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Yes. Without it, the app usually sees only the signature, not the body.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "So no Generic Specialization?",
+        "terms": [
+          "Generic Specialization"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Right. Generic Specialization needs the body to build a version for one exact type.",
+        "terms": [
+          "Generic Specialization"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Doesn't Whole Module Optimization fix that?",
+        "terms": [
+          "Whole Module Optimization"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Only within MathKit. Whole Module Optimization can't see our app.",
+        "terms": [
+          "Whole Module Optimization"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "So Inlinable shares the body with other modules.",
+        "terms": [
+          "Inlinable"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Yes, but then the body is public, so change it carefully.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "Got it. Inlinable crosses the module line, then Generic Specialization does the rest.",
+        "terms": [
+          "Inlinable",
+          "Generic Specialization"
+        ]
+      }
+    ],
+    "code": "// In the MathKit package\n@inlinable\npublic func total<T: Numeric>(_ xs: [T]) -> T {\n    xs.reduce(0, +)\n}",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "Whole Module Optimization",
+      "lines": [
+        {
+          "text": "Whole Module Optimization sees every file, but only in one module."
+        }
+      ],
+      "title": "Whole Module Optimization sees every file, but only in one module. #Shorts",
+      "description": "Whole Module Optimization sees every file, but only in one module.\n\nWhole Module Optimization - A build mode where the compiler optimizes all files of a module together.\n한국어: 전체 모듈 최적화: 컴파일러가 한 모듈의 모든 파일을 함께 최적화하는 빌드 모드\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "Generic Specialization",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Why is this generic code fast in release?"
+        },
+        {
+          "speaker": "B",
+          "text": "Generic Specialization made an Int-only copy."
+        }
+      ],
+      "title": "Why is this generic code fast in release? / Generic Specialization made an Int-only copy. #Shorts",
+      "description": "Why is this generic code fast in release? / Generic Specialization made an Int-only copy.\n\nGeneric Specialization - When the optimizer copies a generic function for one exact type, so it runs faster.\n한국어: 제네릭 특수화: 최적화기가 제네릭 함수를 특정 타입 전용으로 복사해서 더 빠르게 돌게 하는 것\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Inlinable",
+      "lines": [
+        {
+          "text": "Mark it Inlinable, so other modules can optimize the body."
+        }
+      ],
+      "title": "Mark it Inlinable, so other modules can optimize the body. #Shorts",
+      "description": "Mark it Inlinable, so other modules can optimize the body.\n\nInlinable - An attribute, written `@inlinable`, that puts a public function's body in the module's interface so other modules can optimize it.\n한국어: Inlinable: `@inlinable`로 쓰는 속성으로, public 함수의 본문을 모듈 인터페이스에 넣어 다른 모듈이 최적화할 수 있게 함\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "Why was total slow?"
+}

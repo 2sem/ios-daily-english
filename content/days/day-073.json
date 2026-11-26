@@ -1,0 +1,228 @@
+{
+  "day": 73,
+  "phase": "2. Swift in depth",
+  "theme": "3 terms on sorting rules: largest first, keeping ties in their old order, and the rule every sort comparison has to follow",
+  "terms": [
+    {
+      "term": "Descending Order",
+      "definition": "Sorting from the largest value to the smallest, so the biggest item comes first.",
+      "example": "Show the scores in Descending Order, so the winner is at the top.",
+      "code": "let scores = [3, 9, 5]\nprint(scores.sorted(by: >))",
+      "output": "[9, 5, 3]"
+    },
+    {
+      "term": "Stable Sort",
+      "definition": "A sort that keeps items that compare as equal in the same order they had before sorting.",
+      "example": "Swift's `sort` is a Stable Sort, so messages with the same time keep their order.",
+      "code": "let words = [\"bb\", \"a\", \"cc\", \"d\"]\nlet s = words.sorted { $0.count < $1.count }\nprint(s)",
+      "output": "[\"a\", \"d\", \"bb\", \"cc\"]"
+    },
+    {
+      "term": "Strict Weak Ordering",
+      "definition": "The rule a sort comparison must follow, for example an item never comes before itself.",
+      "example": "Less than or equal isn't a Strict Weak Ordering, so the sort result isn't guaranteed.",
+      "code": "let before: (Int, Int) -> Bool = { $0 < $1 }\nprint(before(2, 2)) // must be false\nprint([3, 1, 2].sorted(by: before))",
+      "output": "false\n[1, 2, 3]"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What do you call a sort that keeps equal items in the order they came in?",
+      "options": [
+        "Strict Weak Ordering",
+        "Stable Sort",
+        "Descending Order"
+      ],
+      "answer": "b"
+    },
+    {
+      "question": "Which rule says a sort comparison must never put an item before itself?",
+      "options": [
+        "Descending Order",
+        "Stable Sort",
+        "Strict Weak Ordering"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "In this code, which order puts the biggest score first?",
+      "code": "let scores = [3, 9, 5]\nprint(scores.sorted(by: >))",
+      "options": [
+        "Descending Order",
+        "Strict Weak Ordering",
+        "Stable Sort"
+      ],
+      "answer": "a"
+    }
+  ],
+  "video": {
+    "title": "Descending Order, Stable Sort & Strict Weak Ordering | Day 73",
+    "description": "Learn to explain sorting rules in Swift: Descending Order, Stable Sort & Strict Weak Ordering, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nDescending Order - Sorting from the largest value to the smallest, so the biggest item comes first.\nStable Sort - A sort that keeps items that compare as equal in the same order they had before sorting.\nStrict Weak Ordering - The rule a sort comparison must follow, for example an item never comes before itself.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 73 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "descending order",
+      "stable sort",
+      "strict weak ordering",
+      "swift sort",
+      "swift sorted",
+      "sorting algorithm",
+      "swift in depth",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "Swift Descending Order, Stable Sort & Strict Weak Ordering | Day 73",
+      "description": "Explain Descending Order, Stable Sort & Strict Weak Ordering in Swift by listening to a real code chat between two iOS devs.\n내림차순, 안정 정렬, 엄격한 약순서 표현을 영어 대화로 익혀요.\n\nDescending Order - Sorting from the largest value to the smallest, so the biggest item comes first.\n한국어: 내림차순: 가장 큰 값에서 가장 작은 값 순서로 정렬해서 가장 큰 항목이 맨 앞에 오는 것\n\nStable Sort - A sort that keeps items that compare as equal in the same order they had before sorting.\n한국어: 안정 정렬: 같다고 비교되는 항목들의 원래 순서를 정렬 후에도 그대로 유지하는 정렬\n\nStrict Weak Ordering - The rule a sort comparison must follow, for example an item never comes before itself.\n한국어: 엄격한 약순서: 정렬 비교가 지켜야 하는 규칙으로, 예를 들어 어떤 항목도 자기 자신보다 앞에 올 수 없음\n\nIn this video, Mina and Jake review a song ranking, find a comparison that breaks the sorting rules and see why ties stay in place anyway, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 73 of the iOS Daily English series.\n\n#Swift #iOSDeveloper #EnglishForDevelopers",
+      "tags": [
+        "Descending Order",
+        "Stable Sort",
+        "Strict Weak Ordering",
+        "sorted(by:)",
+        "swift sort",
+        "areInIncreasingOrder",
+        "스위프트 심화",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "ios development",
+        "iOS Daily English"
+      ],
+      "hook": "One extra symbol breaks the sorting rules. Can you explain why in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "Greater or equal?",
+    "setting": "Ranking code review",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, can you check `top`? Most played songs first.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Sure, that's Descending Order. But why greater than or equal?",
+        "terms": [
+          "Descending Order"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "So songs with the same `plays` keep their order.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "That breaks the rule. Swift's sort needs a Strict Weak Ordering.",
+        "terms": [
+          "Strict Weak Ordering"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "What does that mean in plain words?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "A song must never come before itself, but greater or equal says it does.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "Oh. So what happens then?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "The order isn't guaranteed. Use greater than, a real Strict Weak Ordering.",
+        "terms": [
+          "Strict Weak Ordering"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "But then I lose the order of the ties.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "No, `sorted` is a Stable Sort. Ties stay in the order they came in.",
+        "terms": [
+          "Stable Sort"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Nice. Greater than for Descending Order, and the Stable Sort handles ties.",
+        "terms": [
+          "Descending Order",
+          "Stable Sort"
+        ]
+      }
+    ],
+    "code": "struct Song { let title: String, plays: Int }\nfunc top(_ s: [Song]) -> [Song] {\n    s.sorted { $0.plays >= $1.plays } }",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "Descending Order",
+      "lines": [
+        {
+          "text": "Leaderboards use Descending Order, the best score goes first."
+        }
+      ],
+      "title": "Leaderboards use Descending Order, the best score goes first. #Shorts",
+      "description": "Leaderboards use Descending Order, the best score goes first.\n\nDescending Order - Sorting from the largest value to the smallest, so the biggest item comes first.\n한국어: 내림차순: 가장 큰 값에서 가장 작은 값 순서로 정렬해서 가장 큰 항목이 맨 앞에 오는 것\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "Stable Sort",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Will ties get shuffled?"
+        },
+        {
+          "speaker": "B",
+          "text": "No, Swift's sort is a Stable Sort."
+        }
+      ],
+      "title": "Will ties get shuffled? / No, Swift's sort is a Stable Sort. #Shorts",
+      "description": "Will ties get shuffled? / No, Swift's sort is a Stable Sort.\n\nStable Sort - A sort that keeps items that compare as equal in the same order they had before sorting.\n한국어: 안정 정렬: 같다고 비교되는 항목들의 원래 순서를 정렬 후에도 그대로 유지하는 정렬\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Strict Weak Ordering",
+      "lines": [
+        {
+          "text": "Greater or equal breaks the Strict Weak Ordering rule."
+        }
+      ],
+      "title": "Greater or equal breaks the Strict Weak Ordering rule. #Shorts",
+      "description": "Greater or equal breaks the Strict Weak Ordering rule.\n\nStrict Weak Ordering - The rule a sort comparison must follow, for example an item never comes before itself.\n한국어: 엄격한 약순서: 정렬 비교가 지켜야 하는 규칙으로, 예를 들어 어떤 항목도 자기 자신보다 앞에 올 수 없음\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "Greater or equal?"
+}

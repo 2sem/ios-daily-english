@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 69
+
+Error Propagation
+- Passing an error up to the caller with `try`, instead of catching it where it happens.
+- Example: "Let Error Propagation do the work, and catch it once in the view model."
+
+Typed Throws
+- Writing the error type in parentheses after `throws`, so callers know exactly which error can come out.
+- Example: "With Typed Throws, the `catch` block already knows it's a `SyncError`."
+
+Never Type
+- The return type `Never`, for a function that never returns, like `fatalError`, so it can end a `guard`.
+- Example: "`stop` returns the Never Type, so the compiler knows the code after it can't run."
+
+
+Quiz ①
+In this code, what do you call `throws` with an error type in parentheses?
+a) Error Propagation
+b) Typed Throws
+c) Never Type
+
+Quiz ②
+What is the return type of a function that never returns, like `fatalError`, called?
+a) Never Type
+b) Error Propagation
+c) Typed Throws
+
+Quiz ③
+What do you call passing an error up to the caller with `try`, instead of catching it?
+a) Typed Throws
+b) Never Type
+c) Error Propagation

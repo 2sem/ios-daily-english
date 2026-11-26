@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 78
+
+Whitespace
+- Characters you can't see, like spaces, tabs and newlines, that often sneak into user input.
+- Example: "The login failed because the email had Whitespace at the end."
+
+CharacterSet
+- A Foundation type that describes a group of characters, often used to trim them from the ends of a string.
+- Example: "Pass a CharacterSet with the hash sign, so tags come back without it."
+
+Case Insensitive Comparison
+- Comparing two strings while ignoring the difference between capital and small letters.
+- Example: "Usernames need a Case Insensitive Comparison, or `Mina` and `mina` both get in."
+
+
+Quiz ①
+In this code, what kind of comparison treats `a` and `b` as the same?
+a) CharacterSet
+b) Case Insensitive Comparison
+c) Whitespace
+
+Quiz ②
+What do you call spaces, tabs and newlines in a string?
+a) Case Insensitive Comparison
+b) CharacterSet
+c) Whitespace
+
+Quiz ③
+Which Foundation type names a group of characters to trim from a string?
+a) CharacterSet
+b) Whitespace
+c) Case Insensitive Comparison

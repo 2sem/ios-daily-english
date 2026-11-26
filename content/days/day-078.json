@@ -1,0 +1,229 @@
+{
+  "day": 78,
+  "phase": "2. Swift in depth",
+  "theme": "3 terms on cleaning up text input: the invisible spaces and newlines around it, the Foundation type that names a group of characters to trim, and comparing text while ignoring capital letters",
+  "terms": [
+    {
+      "term": "Whitespace",
+      "definition": "Characters you can't see, like spaces, tabs and newlines, that often sneak into user input.",
+      "example": "The login failed because the email had Whitespace at the end.",
+      "code": "let s = \" hi \\n\"\nprint(s.filter { !$0.isWhitespace })",
+      "output": "hi"
+    },
+    {
+      "term": "CharacterSet",
+      "definition": "A Foundation type that describes a group of characters, often used to trim them from the ends of a string.",
+      "example": "Pass a CharacterSet with the hash sign, so tags come back without it.",
+      "code": "import Foundation\nlet raw = \"  #swift!  \"\nlet junk = CharacterSet(charactersIn: \"#! \")\nprint(raw.trimmingCharacters(in: junk))",
+      "output": "swift"
+    },
+    {
+      "term": "Case Insensitive Comparison",
+      "definition": "Comparing two strings while ignoring the difference between capital and small letters.",
+      "example": "Usernames need a Case Insensitive Comparison, or `Mina` and `mina` both get in.",
+      "code": "import Foundation\nlet a = \"Swift\", b = \"SWIFT\"\nprint(a == b)\nlet r = a.caseInsensitiveCompare(b)\nprint(r == .orderedSame)",
+      "output": "false\ntrue"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "In this code, what kind of comparison treats `a` and `b` as the same?",
+      "code": "import Foundation\nlet a = \"Swift\", b = \"SWIFT\"\nlet r = a.caseInsensitiveCompare(b)",
+      "options": [
+        "CharacterSet",
+        "Case Insensitive Comparison",
+        "Whitespace"
+      ],
+      "answer": "b"
+    },
+    {
+      "question": "What do you call spaces, tabs and newlines in a string?",
+      "options": [
+        "Case Insensitive Comparison",
+        "CharacterSet",
+        "Whitespace"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "Which Foundation type names a group of characters to trim from a string?",
+      "options": [
+        "CharacterSet",
+        "Whitespace",
+        "Case Insensitive Comparison"
+      ],
+      "answer": "a"
+    }
+  ],
+  "video": {
+    "title": "Whitespace, CharacterSet & Case Insensitive Comparison | Day 78",
+    "description": "Learn to explain cleaning up text input in Swift: Whitespace, CharacterSet & Case Insensitive Comparison, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nWhitespace - Characters you can't see, like spaces, tabs and newlines, that often sneak into user input.\nCharacterSet - A Foundation type that describes a group of characters, often used to trim them from the ends of a string.\nCase Insensitive Comparison - Comparing two strings while ignoring the difference between capital and small letters.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 78 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "whitespace",
+      "characterset",
+      "case insensitive comparison",
+      "trimmingcharacters",
+      "swift string",
+      "user input",
+      "swift in depth",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "Swift Whitespace, CharacterSet & Case Insensitive Comparison | Day 78",
+      "description": "Explain Whitespace, CharacterSet & Case Insensitive Comparison in Swift by listening to a real code chat between two iOS devs.\n공백 문자, CharacterSet, 대소문자 무시 비교 표현을 영어 대화로 익혀요.\n\nWhitespace - Characters you can't see, like spaces, tabs and newlines, that often sneak into user input.\n한국어: 공백 문자: 스페이스, 탭, 줄바꿈처럼 눈에 보이지 않는 문자로, 사용자 입력에 자주 섞여 들어옴\n\nCharacterSet - A Foundation type that describes a group of characters, often used to trim them from the ends of a string.\n한국어: CharacterSet: 문자들의 묶음을 나타내는 Foundation 타입으로, 문자열 양 끝에서 잘라낼 문자를 정할 때 자주 씀\n\nCase Insensitive Comparison - Comparing two strings while ignoring the difference between capital and small letters.\n한국어: 대소문자 무시 비교: 대문자와 소문자의 차이를 무시하고 두 문자열을 비교하는 것\n\nIn this video, Mina and Jake find out how a taken username slipped through sign-up, trim the invisible characters and compare names without caring about capitals, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 78 of the iOS Daily English series.\n\n#Swift #iOSDeveloper #EnglishForDevelopers",
+      "tags": [
+        "Whitespace",
+        "CharacterSet",
+        "Case Insensitive Comparison",
+        "trimmingCharacters",
+        "caseInsensitiveCompare",
+        "String",
+        "스위프트 심화",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "ios development",
+        "iOS Daily English"
+      ],
+      "hook": "MINA got a name that mina already had. Can you explain why in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "The name was taken",
+    "setting": "Sign-up bug review",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, a user typed `input` and got the name `mina`, which was already taken.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Two problems. First, there's Whitespace around it: spaces and a newline.",
+        "terms": [
+          "Whitespace"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Can't `trimmingCharacters` clean that up for us?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Yes, if you give it a CharacterSet. `whitespacesAndNewlines` covers both.",
+        "terms": [
+          "CharacterSet"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Does it remove the Whitespace in the middle too?",
+        "terms": [
+          "Whitespace"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "No, only at the start and the end. The middle stays as it is.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "OK. And the second problem?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Capitals. `MINA` and `mina` aren't equal strings.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "So we need a Case Insensitive Comparison.",
+        "terms": [
+          "Case Insensitive Comparison"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Right. `caseInsensitiveCompare` treats them as the same, so the name counts as taken.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "Got it. Trim the Whitespace with a CharacterSet, then use a Case Insensitive Comparison.",
+        "terms": [
+          "Whitespace",
+          "CharacterSet",
+          "Case Insensitive Comparison"
+        ]
+      }
+    ],
+    "code": "import Foundation\nlet taken = \"mina\"\nlet input = \"  MINA \\n\"\nlet name = input.trimmingCharacters(\n    in: .whitespacesAndNewlines)\nlet r = name.caseInsensitiveCompare(taken)",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "Whitespace",
+      "lines": [
+        {
+          "text": "Always trim Whitespace before you check an email."
+        }
+      ],
+      "title": "Always trim Whitespace before you check an email. #Shorts",
+      "description": "Always trim Whitespace before you check an email.\n\nWhitespace - Characters you can't see, like spaces, tabs and newlines, that often sneak into user input.\n한국어: 공백 문자: 스페이스, 탭, 줄바꿈처럼 눈에 보이지 않는 문자로, 사용자 입력에 자주 섞여 들어옴\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "CharacterSet",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "How do I strip the hash signs?"
+        },
+        {
+          "speaker": "B",
+          "text": "Trim them with a CharacterSet."
+        }
+      ],
+      "title": "How do I strip the hash signs? / Trim them with a CharacterSet. #Shorts",
+      "description": "How do I strip the hash signs? / Trim them with a CharacterSet.\n\nCharacterSet - A Foundation type that describes a group of characters, often used to trim them from the ends of a string.\n한국어: CharacterSet: 문자들의 묶음을 나타내는 Foundation 타입으로, 문자열 양 끝에서 잘라낼 문자를 정할 때 자주 씀\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Case Insensitive Comparison",
+      "lines": [
+        {
+          "text": "Usernames need a Case Insensitive Comparison, MINA is mina."
+        }
+      ],
+      "title": "Usernames need a Case Insensitive Comparison, MINA is mina. #Shorts",
+      "description": "Usernames need a Case Insensitive Comparison, MINA is mina.\n\nCase Insensitive Comparison - Comparing two strings while ignoring the difference between capital and small letters.\n한국어: 대소문자 무시 비교: 대문자와 소문자의 차이를 무시하고 두 문자열을 비교하는 것\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "MINA or mina?"
+}

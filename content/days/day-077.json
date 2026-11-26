@@ -1,0 +1,230 @@
+{
+  "day": 77,
+  "phase": "2. Swift in depth",
+  "theme": "3 terms on self inside escaping closures: writing self in front of a property, capturing self weakly, and the cases where you may leave self out",
+  "terms": [
+    {
+      "term": "Explicit Self",
+      "definition": "Writing `self.` in front of a property inside an escaping closure, which a class requires so you can see the capture.",
+      "example": "The compiler wants Explicit Self here, because this closure outlives the method.",
+      "code": "class Counter {\n    var n = 0\n    func make() -> () -> Void {\n        { self.n += 1 } } }\nlet c = Counter(); let f = c.make()\nf(); print(c.n)",
+      "output": "1"
+    },
+    {
+      "term": "Weak Self",
+      "definition": "Writing `[weak self]` in a closure's capture list, so the closure does not keep its object alive.",
+      "example": "Use Weak Self in that network callback, or the view model never gets freed.",
+      "code": "class Counter {\n    var n = 0\n    func make() -> () -> Void {\n        { [weak self] in self?.n += 1 } } }\nlet c = Counter(); let f = c.make()\nf(); f(); print(c.n)",
+      "output": "2"
+    },
+    {
+      "term": "Implicit Self",
+      "definition": "Leaving out `self.` inside a closure, allowed after `[self]` in the capture list or after `guard let self`.",
+      "example": "After `guard let self`, Implicit Self is fine, so drop all those `self.` prefixes.",
+      "code": "class Counter {\n    var n = 0\n    func make() -> () -> Void {\n        { [self] in n += 1 } } }\nlet c = Counter(); let f = c.make()\nf(); print(c.n)",
+      "output": "1"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "Which capture stops a closure from keeping its object alive?",
+      "options": [
+        "Implicit Self",
+        "Explicit Self",
+        "Weak Self"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "In this code, what do you call using `n` with no prefix inside the closure?",
+      "code": "class Counter {\n    var n = 0\n    func make() -> () -> Void {\n        { [self] in n += 1 } } }",
+      "options": [
+        "Implicit Self",
+        "Weak Self",
+        "Explicit Self"
+      ],
+      "answer": "a"
+    },
+    {
+      "question": "What do you call writing `self.` in front of a property inside an escaping closure?",
+      "options": [
+        "Weak Self",
+        "Explicit Self",
+        "Implicit Self"
+      ],
+      "answer": "b"
+    }
+  ],
+  "video": {
+    "title": "Explicit Self, Weak Self & Implicit Self | Day 77",
+    "description": "Learn to explain self in escaping closures in Swift: Explicit Self, Weak Self & Implicit Self, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nExplicit Self - Writing `self.` in front of a property inside an escaping closure, which a class requires so you can see the capture.\nWeak Self - Writing `[weak self]` in a closure's capture list, so the closure does not keep its object alive.\nImplicit Self - Leaving out `self.` inside a closure, allowed after `[self]` in the capture list or after `guard let self`.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 77 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "explicit self",
+      "weak self",
+      "implicit self",
+      "guard let self",
+      "escaping closure",
+      "swift closures",
+      "swift in depth",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "Swift Explicit Self, Weak Self & Implicit Self | Day 77",
+      "description": "Explain Explicit Self, Weak Self & Implicit Self in Swift by listening to a real code chat between two iOS devs.\n명시적 self, 약한 self, 암시적 self 표현을 영어 대화로 익혀요.\n\nExplicit Self - Writing `self.` in front of a property inside an escaping closure, which a class requires so you can see the capture.\n한국어: 명시적 self: 이스케이핑 클로저 안에서 프로퍼티 앞에 `self.`를 쓰는 것으로, 클래스는 캡처가 보이도록 이것을 요구함\n\nWeak Self - Writing `[weak self]` in a closure's capture list, so the closure does not keep its object alive.\n한국어: 약한 self: 클로저 캡처 목록에 `[weak self]`를 써서 클로저가 객체를 살려 두지 않게 하는 것\n\nImplicit Self - Leaving out `self.` inside a closure, allowed after `[self]` in the capture list or after `guard let self`.\n한국어: 암시적 self: 캡처 목록에 `[self]`를 쓰거나 `guard let self` 이후에 클로저 안에서 `self.`를 생략하는 것\n\nIn this video, Mina and Jake spot a closure that uses a property without self, find out why it still compiles and decide whether to write self anyway, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 77 of the iOS Daily English series.\n\n#Swift #iOSDeveloper #EnglishForDevelopers",
+      "tags": [
+        "Explicit Self",
+        "Weak Self",
+        "Implicit Self",
+        "[weak self]",
+        "guard let self",
+        "escaping closure",
+        "스위프트 심화",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "ios development",
+        "iOS Daily English"
+      ],
+      "hook": "No self in the closure, and it still compiles. Can you explain why in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "Where did self go?",
+    "setting": "Player code review",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, `start` uses `title` without `self`. Is that allowed in an escaping closure?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Usually not. A class needs Explicit Self there, so you see the capture.",
+        "terms": [
+          "Explicit Self"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "So why does this one compile?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Because of `guard let self`. After it, Implicit Self is allowed.",
+        "terms": [
+          "Implicit Self"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "And what does Weak Self do first?",
+        "terms": [
+          "Weak Self"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Weak Self captures the player weakly, so the closure doesn't keep it alive.",
+        "terms": [
+          "Weak Self"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "So if the screen closes, `self` becomes `nil`?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Yes, and the `guard` just returns. Nothing is printed.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "Should I still write Explicit Self, for clarity?",
+        "terms": [
+          "Explicit Self"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Your call. Some teams prefer it, but with Weak Self and guard, Implicit Self reads fine.",
+        "terms": [
+          "Weak Self",
+          "Implicit Self"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "OK, I'll keep it short then.",
+        "terms": []
+      }
+    ],
+    "code": "final class Player {\n    var title = \"Intro\"\n    func load(_ done: @escaping () -> Void) {}\n    func start() { load { [weak self] in\n        guard let self else { return }\n        print(title) } } }",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "Explicit Self",
+      "lines": [
+        {
+          "text": "Escaping closure in a class? Swift wants Explicit Self."
+        }
+      ],
+      "title": "Escaping closure in a class? Swift wants Explicit Self. #Shorts",
+      "description": "Escaping closure in a class? Swift wants Explicit Self.\n\nExplicit Self - Writing `self.` in front of a property inside an escaping closure, which a class requires so you can see the capture.\n한국어: 명시적 self: 이스케이핑 클로저 안에서 프로퍼티 앞에 `self.`를 쓰는 것으로, 클래스는 캡처가 보이도록 이것을 요구함\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "Weak Self",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Why is the view model never freed?"
+        },
+        {
+          "speaker": "B",
+          "text": "Your callback needs Weak Self."
+        }
+      ],
+      "title": "Why is the view model never freed? / Your callback needs Weak Self. #Shorts",
+      "description": "Why is the view model never freed? / Your callback needs Weak Self.\n\nWeak Self - Writing `[weak self]` in a closure's capture list, so the closure does not keep its object alive.\n한국어: 약한 self: 클로저 캡처 목록에 `[weak self]`를 써서 클로저가 객체를 살려 두지 않게 하는 것\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Implicit Self",
+      "lines": [
+        {
+          "text": "After guard let self, Implicit Self keeps the closure short."
+        }
+      ],
+      "title": "After guard let self, Implicit Self keeps the closure short. #Shorts",
+      "description": "After guard let self, Implicit Self keeps the closure short.\n\nImplicit Self - Leaving out `self.` inside a closure, allowed after `[self]` in the capture list or after `guard let self`.\n한국어: 암시적 self: 캡처 목록에 `[self]`를 쓰거나 `guard let self` 이후에 클로저 안에서 `self.`를 생략하는 것\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "Where did self go?"
+}

@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 79
+
+String Index
+- The position type a string uses instead of an `Int`, because characters can take up different amounts of memory.
+- Example: "You can't use 0 here, a string needs a String Index like `startIndex`."
+
+Index Offset
+- Moving an index a number of steps from another index, written in Swift with `index(_:offsetBy:)`.
+- Example: "An Index Offset of 3 from `startIndex` gives you the fourth character."
+
+Index Out of Range
+- The crash you get when you read a position that does not exist in an array or string.
+- Example: "The app hit Index Out of Range because the list was empty."
+
+
+Quiz ①
+In this code, what goes wrong on the last line?
+a) Index Offset
+b) String Index
+c) Index Out of Range
+
+Quiz ②
+Which position type do you need to read one character from a string?
+a) String Index
+b) Index Out of Range
+c) Index Offset
+
+Quiz ③
+What do you call moving an index a number of steps forward from another index?
+a) Index Out of Range
+b) Index Offset
+c) String Index
