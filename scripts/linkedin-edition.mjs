@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 // Prepares one LinkedIn newsletter edition for a day: title, body blocks and the media files (English only, no digit-dot numbering).
 //   node scripts/linkedin-edition.mjs content/days/day-003.json [--no-media] [--package]
-// --package: also writes ~/Downloads/linkedin-editions/dayNNN/ (title, body .txt/.html, feed post text, thumbnail, video).
+// --package: also writes linkedin-editions/dayNNN/ (repo root, gitignored) (title, body .txt/.html, feed post text, thumbnail, video).
 // Prints JSON { title, blocks[], files{} }. blocks: {type:"p"|"h2"|"ul", text|items[]}.
 // Media: full video + LinkedIn thumbnail (built here with thumbnail.mjs --linkedin) copied to ~/Downloads (the owner attaches them), and a small review cover
 // video/out/dayNNN-linkedin-small.mp4 (720p, under 9.5 MB, because the browser file-upload tool caps at 10 MB).
@@ -69,7 +69,7 @@ if (!process.argv.includes("--no-media")) {
 }
 if (process.argv.includes("--package")) {
   // One folder per day with everything needed to schedule the edition by hand in a couple of minutes.
-  const pkg = join(homedir(), "Downloads", "linkedin-editions", `day${n3}`);
+  const pkg = join(root, "linkedin-editions", `day${n3}`);
   mkdirSync(pkg, { recursive: true });
   writeFileSync(join(pkg, "1-title.txt"), title + "\n");
   writeFileSync(join(pkg, "2-body.txt"), bodyText + "\n");

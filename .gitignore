@@ -9,3 +9,6 @@ video/audio/
 # local analytics token/exports (tokens live in ~/.config, never here)
 reports/*.csv
 reports/*.json
+
+# LinkedIn edition packages (videos, ~30 MB/day): rebuild with linkedin-edition.mjs --package
+linkedin-editions/
