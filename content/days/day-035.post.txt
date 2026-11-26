@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 35
+
+Character
+- A type that holds exactly one letter, digit or symbol.
+- Example: "`key` is a Character, so it holds just one letter."
+
+String Interpolation
+- A feature that puts values inside a string by wrapping them in a backslash and parentheses.
+- Example: "I used String Interpolation to show the score in the message."
+
+Substring
+- A type that holds a slice of a String and shares its text.
+- Example: "`prefix(5)` gives me a Substring, not a new String."
+
+
+Quiz ①
+In this code, what do you call putting `name` and `score` inside the text with a backslash?
+a) Substring
+b) Character
+c) String Interpolation
+
+Quiz ②
+What do you call a slice of a String that shares the original text?
+a) String Interpolation
+b) Substring
+c) Character
+
+Quiz ③
+What type holds just a single letter, digit or symbol?
+a) Character
+b) Substring
+c) String Interpolation
