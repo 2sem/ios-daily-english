@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 94
+
+Local Notification
+- An alert your app schedules on the device itself, for a time or a place, with no server involved.
+- Example: "The workout reminder is a Local Notification, it works in airplane mode."
+
+Push Notification
+- An alert your server sends through Apple's push service to a user's device.
+- Example: "The chat message arrives as a Push Notification from our server."
+
+Notification Center
+- In code, the `NotificationCenter` object that broadcasts messages between parts of your app; users never see these.
+- Example: "Post to Notification Center when the cart changes, so the badge updates."
+
+
+Quiz ①
+Which kind of alert does your server send through Apple's service?
+a) Local Notification
+b) Notification Center
+c) Push Notification
+
+Quiz ②
+What broadcasts messages between objects inside your app?
+a) Notification Center
+b) Push Notification
+c) Local Notification
+
+Quiz ③
+Which alert does the app schedule on the device, with no server?
+a) Push Notification
+b) Local Notification
+c) Notification Center

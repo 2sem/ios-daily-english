@@ -1,0 +1,230 @@
+{
+  "day": 87,
+  "phase": "3. iOS foundations",
+  "theme": "3 terms on table views: the scrolling list of rows, the name that tells it which kind of cell to recycle, and the recycling itself",
+  "terms": [
+    {
+      "term": "Table View",
+      "definition": "A scrolling list of rows in UIKit, in one column, often grouped into sections.",
+      "example": "Settings is just a grouped Table View, nothing custom.",
+      "code": "import UIKit\nlet table = UITableView(\n    frame: .zero, style: .insetGrouped)\ntable.rowHeight = 56",
+      "output": "// no output"
+    },
+    {
+      "term": "Reuse Identifier",
+      "definition": "A string that names a kind of cell, so the table knows which cells it can recycle for a row.",
+      "example": "The Reuse Identifier in code doesn't match the storyboard, so dequeue crashes.",
+      "code": "table.register(UITableViewCell.self,\n    forCellReuseIdentifier: \"Task\")",
+      "output": "// no output"
+    },
+    {
+      "term": "Cell Reuse",
+      "definition": "When a list recycles cells that scrolled off screen for new rows, instead of making new ones.",
+      "example": "The image flickers because of Cell Reuse, cancel the old download in `prepareForReuse`.",
+      "code": "class TaskCell: UITableViewCell {\n    override func prepareForReuse() {\n        super.prepareForReuse()\n        accessoryType = .none\n    }\n}",
+      "output": "// no output"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "Which string tells the table which kind of cell it can recycle?",
+      "options": [
+        "Cell Reuse",
+        "Table View",
+        "Reuse Identifier"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "Why can a row show old data from another row after you scroll?",
+      "options": [
+        "Cell Reuse",
+        "Reuse Identifier",
+        "Table View"
+      ],
+      "answer": "a"
+    },
+    {
+      "question": "Which UIKit view shows a scrolling list of rows in one column?",
+      "options": [
+        "Reuse Identifier",
+        "Table View",
+        "Cell Reuse"
+      ],
+      "answer": "b"
+    }
+  ],
+  "video": {
+    "title": "Table View, Reuse Identifier & Cell Reuse | Day 87",
+    "description": "Learn to explain how a table view recycles its rows: Table View, Reuse Identifier & Cell Reuse, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nTable View - A scrolling list of rows in UIKit, in one column, often grouped into sections.\nReuse Identifier - A string that names a kind of cell, so the table knows which cells it can recycle for a row.\nCell Reuse - When a list recycles cells that scrolled off screen for new rows, instead of making new ones.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 87 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "table view",
+      "reuse identifier",
+      "cell reuse",
+      "uitableview",
+      "dequeuereusablecell",
+      "prepareforreuse",
+      "uikit",
+      "ios foundations",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "UIKit Table View, Reuse Identifier & Cell Reuse | Day 87",
+      "description": "Explain Table View, Reuse Identifier & Cell Reuse in UIKit by listening to a real code chat between two iOS devs.\n테이블 뷰, 재사용 식별자, 셀 재사용 표현을 영어 대화로 익혀요.\n\nTable View - A scrolling list of rows in UIKit, in one column, often grouped into sections.\n한국어: 테이블 뷰: UIKit에서 한 열로 된 행을 스크롤하며 보여주는 목록으로, 보통 섹션으로 묶임\n\nReuse Identifier - A string that names a kind of cell, so the table knows which cells it can recycle for a row.\n한국어: 재사용 식별자: 셀의 종류에 붙이는 문자열로, 테이블이 어떤 셀을 재활용할 수 있는지 알게 해 줌\n\nCell Reuse - When a list recycles cells that scrolled off screen for new rows, instead of making new ones.\n한국어: 셀 재사용: 목록이 새 셀을 만드는 대신 화면 밖으로 나간 셀을 새 행에 재활용하는 것\n\nIn this video, Mina and Jake find out why random tasks show a checkmark after scrolling, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 87 of the iOS Daily English series.\n\n#Swift #iOSDeveloper #EnglishForDevelopers",
+      "tags": [
+        "Table View",
+        "Reuse Identifier",
+        "Cell Reuse",
+        "UITableView",
+        "dequeueReusableCell",
+        "prepareForReuse",
+        "UIKit",
+        "iOS 기초",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "iOS Daily English"
+      ],
+      "hook": "Scroll down, and random rows get a checkmark. Can you explain why in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "Who checked that task?",
+    "setting": "Task list bug",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, when I scroll, random tasks show a checkmark.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "That's Cell Reuse. The Table View recycles cells that leave the screen.",
+        "terms": [
+          "Table View",
+          "Cell Reuse"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "So a cell can come back with an old checkmark?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Exactly. You set it when `done` is true, but you never clear it.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "Is the Reuse Identifier wrong, then?",
+        "terms": [
+          "Reuse Identifier"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "No, the Reuse Identifier only picks the cell type. `Task` is fine.",
+        "terms": [
+          "Reuse Identifier"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "So I add an `else` that removes the checkmark?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Yes, or reset it in `prepareForReuse`. Cell Reuse needs a full reset.",
+        "terms": [
+          "Cell Reuse"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Does the Table View call that every time?",
+        "terms": [
+          "Table View"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Right before a reused cell comes back from the queue.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "Got it. With Cell Reuse, every row sets its whole state.",
+        "terms": [
+          "Cell Reuse"
+        ]
+      }
+    ],
+    "code": "let cell = tableView.dequeueReusableCell(\n    withIdentifier: \"Task\", for: indexPath)\nif task.done {\n    cell.accessoryType = .checkmark\n}\nreturn cell",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "Table View",
+      "lines": [
+        {
+          "text": "Settings screens are mostly one grouped Table View."
+        }
+      ],
+      "title": "Settings screens are mostly one grouped Table View. #Shorts",
+      "description": "Settings screens are mostly one grouped Table View.\n\nTable View - A scrolling list of rows in UIKit, in one column, often grouped into sections.\n한국어: 테이블 뷰: UIKit에서 한 열로 된 행을 스크롤하며 보여주는 목록으로, 보통 섹션으로 묶임\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "Reuse Identifier",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Why does dequeue crash?"
+        },
+        {
+          "speaker": "B",
+          "text": "The Reuse Identifier was never registered."
+        }
+      ],
+      "title": "Why does dequeue crash? / The Reuse Identifier was never registered. #Shorts",
+      "description": "Why does dequeue crash? / The Reuse Identifier was never registered.\n\nReuse Identifier - A string that names a kind of cell, so the table knows which cells it can recycle for a row.\n한국어: 재사용 식별자: 셀의 종류에 붙이는 문자열로, 테이블이 어떤 셀을 재활용할 수 있는지 알게 해 줌\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Cell Reuse",
+      "lines": [
+        {
+          "text": "Old data in a new row? That's Cell Reuse, reset the cell."
+        }
+      ],
+      "title": "Old data in a new row? That's Cell Reuse, reset the cell. #Shorts",
+      "description": "Old data in a new row? That's Cell Reuse, reset the cell.\n\nCell Reuse - When a list recycles cells that scrolled off screen for new rows, instead of making new ones.\n한국어: 셀 재사용: 목록이 새 셀을 만드는 대신 화면 밖으로 나간 셀을 새 행에 재활용하는 것\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "Who checked that task?"
+}

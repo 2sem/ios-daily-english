@@ -1,0 +1,237 @@
+{
+  "day": 84,
+  "phase": "3. iOS foundations",
+  "theme": "3 terms on Auto Layout basics: the rule-based layout system, one rule about a view's size or position, and the short way to write that rule for one edge",
+  "terms": [
+    {
+      "term": "Auto Layout",
+      "definition": "The UIKit system that sizes and places views from rules you give it, instead of fixed frames.",
+      "example": "Use Auto Layout here, the card has to fit every iPhone size.",
+      "code": "import UIKit\nlet v = UILabel()\n// opt in to Auto Layout\nv.translatesAutoresizingMaskIntoConstraints\n    = false",
+      "output": "// no output"
+    },
+    {
+      "term": "Constraint",
+      "definition": "One rule about a view's size or position, like keeping its left edge 16 points from its parent.",
+      "example": "Add a Constraint for the height, the banner view is collapsing to zero.",
+      "code": "let c = NSLayoutConstraint(\n    item: label, attribute: .leading,\n    relatedBy: .equal, toItem: view,\n    attribute: .leading,\n    multiplier: 1, constant: 16)\nc.isActive = true",
+      "output": "// no output"
+    },
+    {
+      "term": "Layout Anchor",
+      "definition": "A property such as `leadingAnchor` that builds a rule for one edge or size of a view in a short, type-safe way.",
+      "example": "Use a Layout Anchor instead of the old initializer, it's much easier to read.",
+      "code": "NSLayoutConstraint.activate([\n    label.leadingAnchor.constraint(\n        equalTo: view.leadingAnchor,\n        constant: 16)\n])",
+      "output": "// no output"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "In this code, what do you call `leadingAnchor`?",
+      "code": "label.leadingAnchor.constraint(\n    equalTo: view.leadingAnchor,\n    constant: 16\n).isActive = true",
+      "options": [
+        "Constraint",
+        "Auto Layout",
+        "Layout Anchor"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "Which UIKit system sizes and places views from rules instead of fixed frames?",
+      "options": [
+        "Auto Layout",
+        "Layout Anchor",
+        "Constraint"
+      ],
+      "answer": "a"
+    },
+    {
+      "question": "What do you call one rule about a view's size or position?",
+      "options": [
+        "Layout Anchor",
+        "Constraint",
+        "Auto Layout"
+      ],
+      "answer": "b"
+    }
+  ],
+  "video": {
+    "title": "Auto Layout, Constraint & Layout Anchor | Day 84",
+    "description": "Learn to explain how UIKit places views with rules: Auto Layout, Constraint & Layout Anchor, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nAuto Layout - The UIKit system that sizes and places views from rules you give it, instead of fixed frames.\nConstraint - One rule about a view's size or position, like keeping its left edge 16 points from its parent.\nLayout Anchor - A property such as `leadingAnchor` that builds a rule for one edge or size of a view in a short, type-safe way.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 84 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "auto layout",
+      "constraint",
+      "layout anchor",
+      "nslayoutconstraint",
+      "leadinganchor",
+      "uikit",
+      "ios foundations",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "UIKit Auto Layout, Constraint & Layout Anchor | Day 84",
+      "description": "Explain Auto Layout, Constraint & Layout Anchor in UIKit by listening to a real code chat between two iOS devs.\n오토 레이아웃, 제약 조건, 레이아웃 앵커 표현을 영어 대화로 익혀요.\n\nAuto Layout - The UIKit system that sizes and places views from rules you give it, instead of fixed frames.\n한국어: 오토 레이아웃: 고정된 frame 대신 개발자가 준 규칙으로 뷰의 크기와 위치를 정하는 UIKit 시스템\n\nConstraint - One rule about a view's size or position, like keeping its left edge 16 points from its parent.\n한국어: 제약 조건: 예를 들어 왼쪽 가장자리를 부모에서 16포인트 떨어뜨리는 것처럼, 뷰의 크기나 위치에 관한 규칙 하나\n\nLayout Anchor - A property such as `leadingAnchor` that builds a rule for one edge or size of a view in a short, type-safe way.\n한국어: 레이아웃 앵커: `leadingAnchor`처럼 뷰의 가장자리나 크기 하나에 대한 규칙을 짧고 타입 안전하게 만드는 프로퍼티\n\nIn this video, Mina and Jake find out why a label never shows up and the console complains about constraints, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 84 of the iOS Daily English series.\n\n#Swift #iOSDeveloper #EnglishForDevelopers",
+      "tags": [
+        "Auto Layout",
+        "Constraint",
+        "Layout Anchor",
+        "NSLayoutConstraint",
+        "translatesAutoresizingMaskIntoConstraints",
+        "UIKit",
+        "iOS 기초",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "ios development",
+        "iOS Daily English"
+      ],
+      "hook": "Your label never shows up. Can you explain why in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "Where did my label go?",
+    "setting": "Layout bug",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, my `label` never shows, and the console says unable to satisfy constraints.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Did you set up Auto Layout for it?",
+        "terms": [
+          "Auto Layout"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Yes, I activate one Constraint, built with a Layout Anchor.",
+        "terms": [
+          "Constraint",
+          "Layout Anchor"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "The Constraint looks fine. But UIKit adds its own ones too.",
+        "terms": [
+          "Constraint"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Why would it add more?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "You never turned off `translatesAutoresizingMaskIntoConstraints`, so the old frame becomes extra rules.",
+        "terms": [
+          "Constraint"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "And they fight with my top Constraint?",
+        "terms": [
+          "Constraint"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Exactly. The frame says zero, your Constraint says 20.",
+        "terms": [
+          "Constraint"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "So I set that flag to false, and Auto Layout uses only mine?",
+        "terms": [
+          "Auto Layout"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Yes. Then add a leading anchor too, one Layout Anchor per edge.",
+        "terms": [
+          "Layout Anchor"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Got it. Flag off first, then each Layout Anchor works with Auto Layout.",
+        "terms": [
+          "Auto Layout",
+          "Layout Anchor"
+        ]
+      }
+    ],
+    "code": "let label = UILabel()\nview.addSubview(label)\nNSLayoutConstraint.activate([\n    label.topAnchor.constraint(equalTo:\n        view.topAnchor, constant: 20)\n])",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "Auto Layout",
+      "lines": [
+        {
+          "text": "Fixed frames ignore screen size, Auto Layout adapts."
+        }
+      ],
+      "title": "Fixed frames ignore screen size, Auto Layout adapts. #Shorts",
+      "description": "Fixed frames ignore screen size, Auto Layout adapts.\n\nAuto Layout - The UIKit system that sizes and places views from rules you give it, instead of fixed frames.\n한국어: 오토 레이아웃: 고정된 frame 대신 개발자가 준 규칙으로 뷰의 크기와 위치를 정하는 UIKit 시스템\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "Constraint",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Why is this banner view zero points tall?"
+        },
+        {
+          "speaker": "B",
+          "text": "It has no height Constraint."
+        }
+      ],
+      "title": "Why is this banner view zero points tall? / It has no height Constraint. #Shorts",
+      "description": "Why is this banner view zero points tall? / It has no height Constraint.\n\nConstraint - One rule about a view's size or position, like keeping its left edge 16 points from its parent.\n한국어: 제약 조건: 예를 들어 왼쪽 가장자리를 부모에서 16포인트 떨어뜨리는 것처럼, 뷰의 크기나 위치에 관한 규칙 하나\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Layout Anchor",
+      "lines": [
+        {
+          "text": "One Layout Anchor per edge, and the layout reads like English."
+        }
+      ],
+      "title": "One Layout Anchor per edge, and the layout reads like English. #Shorts",
+      "description": "One Layout Anchor per edge, and the layout reads like English.\n\nLayout Anchor - A property such as `leadingAnchor` that builds a rule for one edge or size of a view in a short, type-safe way.\n한국어: 레이아웃 앵커: `leadingAnchor`처럼 뷰의 가장자리나 크기 하나에 대한 규칙을 짧고 타입 안전하게 만드는 프로퍼티\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "Where did my label go?"
+}

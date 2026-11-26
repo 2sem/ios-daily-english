@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 86
+
+Stack View
+- A view that lines up its subviews in a row or a column and creates their layout rules for you.
+- Example: "Put the three buttons in a Stack View, then you only need constraints for the stack."
+
+Safe Area
+- The part of the screen not covered by the notch, the home indicator or system bars, where content is safe to show.
+- Example: "Pin the toolbar to the Safe Area, or it hides under the home indicator."
+
+Layout Margins
+- The padding inside a view's edges that other views can line up against.
+- Example: "Use the Layout Margins, so every card has the same inner padding."
+
+
+Quiz ①
+What do you call the padding inside a view's edges that other views can line up against?
+a) Safe Area
+b) Stack View
+c) Layout Margins
+
+Quiz ②
+Which view lines up its subviews in a row or a column for you?
+a) Stack View
+b) Layout Margins
+c) Safe Area
+
+Quiz ③
+Which part of the screen stays clear of the notch and the home indicator?
+a) Layout Margins
+b) Safe Area
+c) Stack View

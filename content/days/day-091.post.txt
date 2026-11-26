@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 91
+
+Capability
+- A feature like push notifications or App Groups that you switch on for a target in Xcode.
+- Example: "Turn on the Push Notifications Capability before you test remote notifications."
+
+Entitlement
+- A key signed into your app that grants it a specific permission, like using an App Group.
+- Example: "The build won't install because the profile doesn't include that Entitlement."
+
+App Sandbox
+- The walls around each app that limit which files and system resources it can reach.
+- Example: "The App Sandbox blocks other apps' files, so share through an App Group."
+
+
+Quiz ①
+What keeps each app inside its own files and resources?
+a) Capability
+b) Entitlement
+c) App Sandbox
+
+Quiz ②
+What signed key grants an app one specific permission?
+a) Entitlement
+b) App Sandbox
+c) Capability
+
+Quiz ③
+What do you switch on for a target in Xcode, like Push Notifications?
+a) App Sandbox
+b) Capability
+c) Entitlement

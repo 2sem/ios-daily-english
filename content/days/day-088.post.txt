@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 88
+
+Collection View
+- A scrolling view that shows items in a grid or any custom layout, not just one column.
+- Example: "The photo grid is a Collection View, the settings screen is still a table."
+
+Compositional Layout
+- A way to build a collection layout from items, groups and sections, each sized by simple rules.
+- Example: "With Compositional Layout, the carousel and the grid live on one screen."
+
+Diffable Data Source
+- A data source that takes a snapshot of your data and animates the differences for you.
+- Example: "Switch to a Diffable Data Source, the insert and delete crashes go away."
+
+
+Quiz ①
+In this code, what applies `snap` to the list and animates the changes?
+a) Collection View
+b) Compositional Layout
+c) Diffable Data Source
+
+Quiz ②
+Which view shows items in a grid or any custom layout?
+a) Collection View
+b) Diffable Data Source
+c) Compositional Layout
+
+Quiz ③
+Which layout builds a screen from items, groups and sections?
+a) Diffable Data Source
+b) Compositional Layout
+c) Collection View

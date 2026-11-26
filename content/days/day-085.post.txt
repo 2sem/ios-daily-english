@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 85
+
+Intrinsic Content Size
+- The natural size a view wants from its own content, like the width of a label's text.
+- Example: "A label has an Intrinsic Content Size, so it only needs a position, not a width."
+
+Content Hugging
+- A priority for how strongly a view refuses to grow bigger than its natural content size.
+- Example: "Raise the badge's Content Hugging, so the title label takes the extra space."
+
+Compression Resistance
+- A priority for how strongly a view refuses to shrink smaller than its natural content size.
+- Example: "Bump the price label's Compression Resistance, so the name gets cut instead."
+
+
+Quiz ①
+Which priority stops a label from being squeezed and cut off?
+a) Intrinsic Content Size
+b) Content Hugging
+c) Compression Resistance
+
+Quiz ②
+What do you call the natural size a view gets from its own content?
+a) Intrinsic Content Size
+b) Compression Resistance
+c) Content Hugging
+
+Quiz ③
+Which priority keeps a view from stretching wider than its content?
+a) Compression Resistance
+b) Content Hugging
+c) Intrinsic Content Size

@@ -1,0 +1,228 @@
+{
+  "day": 89,
+  "phase": "3. iOS foundations",
+  "theme": "3 terms on moving between screens: the container with a stack of screens, sliding a new screen onto that stack, and showing a screen on top for a separate task",
+  "terms": [
+    {
+      "term": "Navigation Controller",
+      "definition": "A container that manages a stack of screens and shows a bar with a back button.",
+      "example": "Wrap the list in a Navigation Controller, then the title bar comes for free.",
+      "code": "let list = ListViewController()\nlet nav = UINavigationController(\n    rootViewController: list)\nlet window = UIWindow()\nwindow.rootViewController = nav",
+      "output": "// no output"
+    },
+    {
+      "term": "Push Navigation",
+      "definition": "Moving to a new screen that slides in from the side and is added to the stack, with a back button.",
+      "example": "Use Push Navigation for the detail screen, users expect a back button there.",
+      "code": "let detail = DetailViewController()\nnavigationController?.pushViewController(\n    detail, animated: true)",
+      "output": "// no output"
+    },
+    {
+      "term": "Modal Presentation",
+      "definition": "Showing a screen on top of the current one, usually sliding up, for a separate task.",
+      "example": "Settings opens as a Modal Presentation, with a Done button at the top.",
+      "code": "let editor = EditorViewController()\neditor.modalPresentationStyle = .pageSheet\npresent(editor, animated: true)",
+      "output": "// no output"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "In this code, how is `editor` shown?",
+      "code": "let editor = EditorVC()\npresent(editor, animated: true)",
+      "options": [
+        "Push Navigation",
+        "Navigation Controller",
+        "Modal Presentation"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "Which container keeps a stack of screens and shows a back button?",
+      "options": [
+        "Navigation Controller",
+        "Modal Presentation",
+        "Push Navigation"
+      ],
+      "answer": "a"
+    },
+    {
+      "question": "What do you call sliding a new screen in from the side, onto the stack?",
+      "options": [
+        "Modal Presentation",
+        "Push Navigation",
+        "Navigation Controller"
+      ],
+      "answer": "b"
+    }
+  ],
+  "video": {
+    "title": "Navigation Controller, Push Navigation & Modal Presentation | Day 89",
+    "description": "Learn to explain how iOS apps move between screens: Navigation Controller, Push Navigation & Modal Presentation, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nNavigation Controller - A container that manages a stack of screens and shows a bar with a back button.\nPush Navigation - Moving to a new screen that slides in from the side and is added to the stack, with a back button.\nModal Presentation - Showing a screen on top of the current one, usually sliding up, for a separate task.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 89 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "navigation controller",
+      "push navigation",
+      "modal presentation",
+      "uinavigationcontroller",
+      "pushviewcontroller",
+      "present",
+      "uikit",
+      "ios foundations",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "UIKit Navigation Controller, Push Navigation & Modal Presentation | Day 89",
+      "description": "Explain Navigation Controller, Push Navigation & Modal Presentation in UIKit by listening to a real code chat between two iOS devs.\n내비게이션 컨트롤러, 푸시 내비게이션, 모달 프레젠테이션 표현을 영어 대화로 익혀요.\n\nNavigation Controller - A container that manages a stack of screens and shows a bar with a back button.\n한국어: 내비게이션 컨트롤러: 화면 스택을 관리하고 뒤로 가기 버튼이 있는 바를 보여주는 컨테이너\n\nPush Navigation - Moving to a new screen that slides in from the side and is added to the stack, with a back button.\n한국어: 푸시 내비게이션: 새 화면이 옆에서 밀려 들어와 스택에 쌓이고 뒤로 가기 버튼이 생기는 화면 이동\n\nModal Presentation - Showing a screen on top of the current one, usually sliding up, for a separate task.\n한국어: 모달 프레젠테이션: 별도의 작업을 위해 현재 화면 위에, 보통 아래에서 올라오며 화면을 띄우는 것\n\nIn this video, Mina and Jake find out why a detail screen has no back button and a push inside a modal does nothing, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 89 of the iOS Daily English series.\n\n#Swift #iOSDeveloper #EnglishForDevelopers",
+      "tags": [
+        "Navigation Controller",
+        "Push Navigation",
+        "Modal Presentation",
+        "UINavigationController",
+        "pushViewController",
+        "UIKit",
+        "iOS 기초",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "iOS Daily English"
+      ],
+      "hook": "The detail screen has no back button. Can you explain why in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "Where is the back button?",
+    "setting": "Navigation review",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, the detail screen opens, but there's no back button.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "You `present` it, so that's a Modal Presentation. It slides up from the bottom.",
+        "terms": [
+          "Modal Presentation"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Shouldn't detail screens slide in from the side?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Yes. Use Push Navigation, and the back button comes for free.",
+        "terms": [
+          "Push Navigation"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Is that `pushViewController`?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Right, on the Navigation Controller that holds this list screen.",
+        "terms": [
+          "Navigation Controller"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "And the compose screen, push or modal?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Modal Presentation fits there. It's a separate task the user finishes or cancels.",
+        "terms": [
+          "Modal Presentation"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "But inside compose I push a picker, and nothing happens.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "The modal has no Navigation Controller, so Push Navigation silently does nothing. Wrap it in one.",
+        "terms": [
+          "Navigation Controller",
+          "Push Navigation"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Got it. Push to drill down, modal for separate tasks.",
+        "terms": []
+      }
+    ],
+    "code": "func showDetail(_ item: Item) {\n    let detail = DetailVC(item: item)\n    present(detail, animated: true)\n}",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "Navigation Controller",
+      "lines": [
+        {
+          "text": "No back button? The screen needs a Navigation Controller."
+        }
+      ],
+      "title": "No back button? The screen needs a Navigation Controller. #Shorts",
+      "description": "No back button? The screen needs a Navigation Controller.\n\nNavigation Controller - A container that manages a stack of screens and shows a bar with a back button.\n한국어: 내비게이션 컨트롤러: 화면 스택을 관리하고 뒤로 가기 버튼이 있는 바를 보여주는 컨테이너\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "Push Navigation",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Detail screen, push or modal?"
+        },
+        {
+          "speaker": "B",
+          "text": "Push Navigation, so users get a back button."
+        }
+      ],
+      "title": "Detail screen, push or modal? / Push Navigation, so users get a back button. #Shorts",
+      "description": "Detail screen, push or modal? / Push Navigation, so users get a back button.\n\nPush Navigation - Moving to a new screen that slides in from the side and is added to the stack, with a back button.\n한국어: 푸시 내비게이션: 새 화면이 옆에서 밀려 들어와 스택에 쌓이고 뒤로 가기 버튼이 생기는 화면 이동\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Modal Presentation",
+      "lines": [
+        {
+          "text": "A separate task that ends with Done? Use a Modal Presentation."
+        }
+      ],
+      "title": "A separate task that ends with Done? Use a Modal Presentation. #Shorts",
+      "description": "A separate task that ends with Done? Use a Modal Presentation.\n\nModal Presentation - Showing a screen on top of the current one, usually sliding up, for a separate task.\n한국어: 모달 프레젠테이션: 별도의 작업을 위해 현재 화면 위에, 보통 아래에서 올라오며 화면을 띄우는 것\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "Where is the back button?"
+}

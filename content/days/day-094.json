@@ -1,0 +1,228 @@
+{
+  "day": 94,
+  "phase": "3. iOS foundations",
+  "theme": "3 terms on notifications: the alert the app schedules itself, the alert a server sends, and the in-app message system that users never see",
+  "terms": [
+    {
+      "term": "Local Notification",
+      "definition": "An alert your app schedules on the device itself, for a time or a place, with no server involved.",
+      "example": "The workout reminder is a Local Notification, it works in airplane mode.",
+      "code": "let c = UNMutableNotificationContent()\nc.title = \"Time to stretch\"\nlet t = UNTimeIntervalNotificationTrigger(\n    timeInterval: 3600, repeats: false)\nlet r = UNNotificationRequest(identifier:\n    \"stretch\", content: c, trigger: t)",
+      "output": "// no output"
+    },
+    {
+      "term": "Push Notification",
+      "definition": "An alert your server sends through Apple's push service to a user's device.",
+      "example": "The chat message arrives as a Push Notification from our server.",
+      "code": "import Foundation\nlet deviceToken = Data([0xAB, 0x01, 0xFF])\nlet token = deviceToken\n    .map { String(format: \"%02x\", $0) }\n    .joined()\nprint(token)  // send this to your server",
+      "output": "ab01ff"
+    },
+    {
+      "term": "Notification Center",
+      "definition": "In code, the `NotificationCenter` object that broadcasts messages between parts of your app; users never see these.",
+      "example": "Post to Notification Center when the cart changes, so the badge updates.",
+      "code": "let nc = NotificationCenter.default\nlet name = Notification.Name(\"cartChanged\")\nlet obs = nc.addObserver(forName: name,\n    object: nil, queue: nil) { _ in\n    print(\"cart badge updated\") }\nnc.post(name: name, object: nil)",
+      "output": "cart badge updated"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "Which kind of alert does your server send through Apple's service?",
+      "options": [
+        "Local Notification",
+        "Notification Center",
+        "Push Notification"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "What broadcasts messages between objects inside your app?",
+      "options": [
+        "Notification Center",
+        "Push Notification",
+        "Local Notification"
+      ],
+      "answer": "a"
+    },
+    {
+      "question": "Which alert does the app schedule on the device, with no server?",
+      "options": [
+        "Push Notification",
+        "Local Notification",
+        "Notification Center"
+      ],
+      "answer": "b"
+    }
+  ],
+  "video": {
+    "title": "Local Notification, Push Notification & Notification Center | Day 94",
+    "description": "Learn to explain the different kinds of notifications in iOS: Local Notification, Push Notification & Notification Center, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nLocal Notification - An alert your app schedules on the device itself, for a time or a place, with no server involved.\nPush Notification - An alert your server sends through Apple's push service to a user's device.\nNotification Center - In code, the `NotificationCenter` object that broadcasts messages between parts of your app; users never see these.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 94 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "local notification",
+      "push notification",
+      "notification center",
+      "usernotifications",
+      "apns",
+      "notificationcenter",
+      "ios foundations",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "iOS Local Notification, Push Notification & Notification Center | Day 94",
+      "description": "Explain Local Notification, Push Notification & Notification Center in UIKit by listening to a real code chat between two iOS devs.\n로컬 알림, 푸시 알림, 노티피케이션 센터 표현을 영어 대화로 익혀요.\n\nLocal Notification - An alert your app schedules on the device itself, for a time or a place, with no server involved.\n한국어: 로컬 알림: 서버 없이 앱이 기기 안에서 시간이나 장소를 정해 예약하는 알림\n\nPush Notification - An alert your server sends through Apple's push service to a user's device.\n한국어: 푸시 알림: 서버가 Apple의 푸시 서비스를 통해 사용자 기기로 보내는 알림\n\nNotification Center - In code, the `NotificationCenter` object that broadcasts messages between parts of your app; users never see these.\n한국어: 노티피케이션 센터: 코드에서 앱의 여러 부분 사이에 메시지를 방송하는 `NotificationCenter` 객체로, 사용자에게는 보이지 않음\n\nIn this video, Mina and Jake find out why posting to Notification Center never shows a banner, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 94 of the iOS Daily English series.\n\n#Swift #iOSDeveloper #EnglishForDevelopers",
+      "tags": [
+        "Local Notification",
+        "Push Notification",
+        "Notification Center",
+        "UNUserNotificationCenter",
+        "NotificationCenter",
+        "APNs",
+        "iOS 기초",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "iOS Daily English"
+      ],
+      "hook": "You posted a notification, but no banner shows. Can you explain why in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "Where is my banner?",
+    "setting": "Reminder feature review",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, `remind` posts to Notification Center, but no banner ever shows.",
+        "terms": [
+          "Notification Center"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "That Notification Center only talks between objects inside the app. Users never see it.",
+        "terms": [
+          "Notification Center"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Oh. So how do I show a real banner?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Schedule a Local Notification with `UNUserNotificationCenter`. iOS shows it at the right time.",
+        "terms": [
+          "Local Notification"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Even if the app is closed?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Yes. The system delivers it, no server needed.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "Then when do we need a Push Notification?",
+        "terms": [
+          "Push Notification"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "When the server knows something new, like a message from a friend.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "And a Push Notification needs the device token?",
+        "terms": [
+          "Push Notification"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Right, plus permission. Both kinds need the user to allow alerts.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "Got it. Local Notification for reminders, Notification Center for messages inside the app.",
+        "terms": [
+          "Local Notification",
+          "Notification Center"
+        ]
+      }
+    ],
+    "code": "func remind() {\n    // expected a banner on the lock screen\n    NotificationCenter.default.post(\n        name: .reminderDue, object: nil)\n}",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "Local Notification",
+      "lines": [
+        {
+          "text": "No server, no internet, a Local Notification still fires."
+        }
+      ],
+      "title": "No server, no internet, a Local Notification still fires. #Shorts",
+      "description": "No server, no internet, a Local Notification still fires.\n\nLocal Notification - An alert your app schedules on the device itself, for a time or a place, with no server involved.\n한국어: 로컬 알림: 서버 없이 앱이 기기 안에서 시간이나 장소를 정해 예약하는 알림\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "Push Notification",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "How does the chat alert reach the phone?"
+        },
+        {
+          "speaker": "B",
+          "text": "Our server sends a Push Notification."
+        }
+      ],
+      "title": "How does the chat alert reach the phone? / Our server sends a Push Notification. #Shorts",
+      "description": "How does the chat alert reach the phone? / Our server sends a Push Notification.\n\nPush Notification - An alert your server sends through Apple's push service to a user's device.\n한국어: 푸시 알림: 서버가 Apple의 푸시 서비스를 통해 사용자 기기로 보내는 알림\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Notification Center",
+      "lines": [
+        {
+          "text": "Notification Center in code? Users never see those messages."
+        }
+      ],
+      "title": "Notification Center in code? Users never see those messages. #Shorts",
+      "description": "Notification Center in code? Users never see those messages.\n\nNotification Center - In code, the `NotificationCenter` object that broadcasts messages between parts of your app; users never see these.\n한국어: 노티피케이션 센터: 코드에서 앱의 여러 부분 사이에 메시지를 방송하는 `NotificationCenter` 객체로, 사용자에게는 보이지 않음\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "Where is my banner?"
+}

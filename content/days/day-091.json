@@ -1,0 +1,229 @@
+{
+  "day": 91,
+  "phase": "3. iOS foundations",
+  "theme": "3 terms on what an app is allowed to do: the feature you switch on in Xcode, the signed key that grants it, and the walls that keep every app in its own space",
+  "terms": [
+    {
+      "term": "Capability",
+      "definition": "A feature like push notifications or App Groups that you switch on for a target in Xcode.",
+      "example": "Turn on the Push Notifications Capability before you test remote notifications.",
+      "code": "// needs the Push Notifications capability\nUIApplication.shared\n    .registerForRemoteNotifications()",
+      "output": "// no output"
+    },
+    {
+      "term": "Entitlement",
+      "definition": "A key signed into your app that grants it a specific permission, like using an App Group.",
+      "example": "The build won't install because the profile doesn't include that Entitlement.",
+      "code": "// needs the App Groups entitlement\nlet fm = FileManager.default\nlet url = fm.containerURL(\n    forSecurityApplicationGroupIdentifier:\n        \"group.com.example.notes\")",
+      "output": "// no output"
+    },
+    {
+      "term": "App Sandbox",
+      "definition": "The walls around each app that limit which files and system resources it can reach.",
+      "example": "The App Sandbox blocks other apps' files, so share through an App Group.",
+      "code": "import Foundation\n// inside the app's own sandbox container\nlet docs = FileManager.default.urls(\n    for: .documentDirectory,\n    in: .userDomainMask)[0]\nprint(docs.lastPathComponent)",
+      "output": "Documents"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What keeps each app inside its own files and resources?",
+      "options": [
+        "Capability",
+        "Entitlement",
+        "App Sandbox"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "What signed key grants an app one specific permission?",
+      "options": [
+        "Entitlement",
+        "App Sandbox",
+        "Capability"
+      ],
+      "answer": "a"
+    },
+    {
+      "question": "What do you switch on for a target in Xcode, like Push Notifications?",
+      "options": [
+        "App Sandbox",
+        "Capability",
+        "Entitlement"
+      ],
+      "answer": "b"
+    }
+  ],
+  "video": {
+    "title": "Capability, Entitlement & App Sandbox | Day 91",
+    "description": "Learn to explain what an iOS app is allowed to do: Capability, Entitlement & App Sandbox, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nCapability - A feature like push notifications or App Groups that you switch on for a target in Xcode.\nEntitlement - A key signed into your app that grants it a specific permission, like using an App Group.\nApp Sandbox - The walls around each app that limit which files and system resources it can reach.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 91 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "capability",
+      "entitlement",
+      "app sandbox",
+      "app groups",
+      "xcode signing",
+      "widget",
+      "ios foundations",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "iOS Capability, Entitlement & App Sandbox | Day 91",
+      "description": "Explain Capability, Entitlement & App Sandbox in UIKit by listening to a real code chat between two iOS devs.\n캐퍼빌리티, 엔타이틀먼트, 앱 샌드박스 표현을 영어 대화로 익혀요.\n\nCapability - A feature like push notifications or App Groups that you switch on for a target in Xcode.\n한국어: 캐퍼빌리티: 푸시 알림이나 App Groups처럼 Xcode에서 타깃별로 켜는 기능\n\nEntitlement - A key signed into your app that grants it a specific permission, like using an App Group.\n한국어: 엔타이틀먼트: 앱 서명에 들어가 App Group 사용 같은 특정 권한을 부여하는 키\n\nApp Sandbox - The walls around each app that limit which files and system resources it can reach.\n한국어: 앱 샌드박스: 각 앱이 접근할 수 있는 파일과 시스템 자원을 제한하는 울타리\n\nIn this video, Mina and Jake find out why a widget crashes on code that works fine in the app, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 91 of the iOS Daily English series.\n\n#Swift #iOSDeveloper #EnglishForDevelopers",
+      "tags": [
+        "Capability",
+        "Entitlement",
+        "App Sandbox",
+        "App Groups",
+        "containerURL",
+        "Signing & Capabilities",
+        "iOS 기초",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "iOS Daily English"
+      ],
+      "hook": "Same code, but it crashes only in the widget. Can you explain why in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "Why only the widget?",
+    "setting": "Widget crash",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, the widget crashes, but the same code works in the app.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "It force unwraps the group container. That's `nil` in the widget.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "Why would it be nil there?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "The App Sandbox keeps each target in its own space.",
+        "terms": [
+          "App Sandbox"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "The app has the App Groups Capability. Isn't that enough?",
+        "terms": [
+          "Capability"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Only for the app. The widget target needs the same Capability.",
+        "terms": [
+          "Capability"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "What does turning it on actually change?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Xcode adds an Entitlement listing the group name.",
+        "terms": [
+          "Entitlement"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "So without that Entitlement, the App Sandbox blocks the shared folder.",
+        "terms": [
+          "Entitlement",
+          "App Sandbox"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Exactly. And check the group name matches in both targets.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "Got it. Same Capability, same Entitlement, then the widget can read the file.",
+        "terms": [
+          "Capability",
+          "Entitlement"
+        ]
+      }
+    ],
+    "code": "let url = FileManager.default.containerURL(\n    forSecurityApplicationGroupIdentifier:\n        \"group.com.example.notes\")!\nlet data = try Data(contentsOf:\n    url.appendingPathComponent(\"notes.json\"))",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "Capability",
+      "lines": [
+        {
+          "text": "The widget is a separate target, give it the same Capability."
+        }
+      ],
+      "title": "The widget is a separate target, give it the same Capability. #Shorts",
+      "description": "The widget is a separate target, give it the same Capability.\n\nCapability - A feature like push notifications or App Groups that you switch on for a target in Xcode.\n한국어: 캐퍼빌리티: 푸시 알림이나 App Groups처럼 Xcode에서 타깃별로 켜는 기능\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "Entitlement",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Why won't the build install?"
+        },
+        {
+          "speaker": "B",
+          "text": "The profile is missing an Entitlement."
+        }
+      ],
+      "title": "Why won't the build install? / The profile is missing an Entitlement. #Shorts",
+      "description": "Why won't the build install? / The profile is missing an Entitlement.\n\nEntitlement - A key signed into your app that grants it a specific permission, like using an App Group.\n한국어: 엔타이틀먼트: 앱 서명에 들어가 App Group 사용 같은 특정 권한을 부여하는 키\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "App Sandbox",
+      "lines": [
+        {
+          "text": "The App Sandbox keeps your files in, and other apps out."
+        }
+      ],
+      "title": "The App Sandbox keeps your files in, and other apps out. #Shorts",
+      "description": "The App Sandbox keeps your files in, and other apps out.\n\nApp Sandbox - The walls around each app that limit which files and system resources it can reach.\n한국어: 앱 샌드박스: 각 앱이 접근할 수 있는 파일과 시스템 자원을 제한하는 울타리\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "Why only the widget?"
+}

@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 92
+
+Target Action
+- A pattern where a control calls a chosen method on a chosen object when an event happens.
+- Example: "Wire the save button with Target Action in `viewDidLoad`."
+
+Gesture Recognizer
+- An object you attach to a view to detect touches like taps, swipes or pinches.
+- Example: "Add a Gesture Recognizer for the double tap, the image should zoom."
+
+Responder Chain
+- The line of objects UIKit passes an event or action along until one of them handles it.
+- Example: "Leave the target `nil`, the Responder Chain will find the editor."
+
+
+Quiz ①
+What do you attach to a view to detect taps or swipes?
+a) Target Action
+b) Responder Chain
+c) Gesture Recognizer
+
+Quiz ②
+What does UIKit walk along to find who handles an action with a nil target?
+a) Responder Chain
+b) Gesture Recognizer
+c) Target Action
+
+Quiz ③
+Which pattern makes a control call a chosen method on a chosen object?
+a) Gesture Recognizer
+b) Target Action
+c) Responder Chain

@@ -1,0 +1,229 @@
+{
+  "day": 93,
+  "phase": "3. iOS foundations",
+  "theme": "3 terms on storing data on the device: the small key-value store for settings, the object that works with files, and the backed-up folder for user files",
+  "terms": [
+    {
+      "term": "UserDefaults",
+      "definition": "A simple key-value store for small settings, like a theme choice or a flag, that stays across launches.",
+      "example": "Keep the dark mode switch in UserDefaults, it's just one Bool.",
+      "code": "import Foundation\nlet defaults = UserDefaults.standard\ndefaults.set(true, forKey: \"didOnboard\")\nprint(defaults.bool(forKey: \"didOnboard\"))",
+      "output": "true"
+    },
+    {
+      "term": "File Manager",
+      "definition": "The Foundation object you use to create, move, check and delete files and folders.",
+      "example": "Ask File Manager if the export exists before you share it.",
+      "code": "import Foundation\nlet fm = FileManager.default\nlet p = fm.temporaryDirectory\n    .appendingPathComponent(\"note.txt\").path\nfm.createFile(atPath: p, contents: nil)\nprint(fm.fileExists(atPath: p))",
+      "output": "true"
+    },
+    {
+      "term": "Documents Directory",
+      "definition": "The folder in your app's sandbox for files the user creates, which is included in backups.",
+      "example": "Save the drawings to the Documents Directory, so they survive updates and get backed up.",
+      "code": "import Foundation\nlet docs = URL.documentsDirectory\nlet file = docs.appending(path: \"notes.json\")\nprint(file.pathComponents.suffix(2))",
+      "output": "[\"Documents\", \"notes.json\"]"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "Which folder holds the files a user creates and is included in backups?",
+      "options": [
+        "UserDefaults",
+        "File Manager",
+        "Documents Directory"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "Where would you store a small setting, like a theme choice?",
+      "options": [
+        "UserDefaults",
+        "Documents Directory",
+        "File Manager"
+      ],
+      "answer": "a"
+    },
+    {
+      "question": "Which Foundation object creates, moves and deletes files?",
+      "options": [
+        "Documents Directory",
+        "File Manager",
+        "UserDefaults"
+      ],
+      "answer": "b"
+    }
+  ],
+  "video": {
+    "title": "UserDefaults, File Manager & Documents Directory | Day 93",
+    "description": "Learn to explain where an iOS app stores its data: UserDefaults, File Manager & Documents Directory, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nUserDefaults - A simple key-value store for small settings, like a theme choice or a flag, that stays across launches.\nFile Manager - The Foundation object you use to create, move, check and delete files and folders.\nDocuments Directory - The folder in your app's sandbox for files the user creates, which is included in backups.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 93 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "userdefaults",
+      "file manager",
+      "documents directory",
+      "filemanager",
+      "ios storage",
+      "persistence",
+      "ios foundations",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "iOS UserDefaults, File Manager & Documents Directory | Day 93",
+      "description": "Explain UserDefaults, File Manager & Documents Directory in UIKit by listening to a real code chat between two iOS devs.\nUserDefaults, 파일 매니저, 도큐먼트 디렉터리 표현을 영어 대화로 익혀요.\n\nUserDefaults - A simple key-value store for small settings, like a theme choice or a flag, that stays across launches.\n한국어: UserDefaults: 테마 선택이나 플래그 같은 작은 설정을 앱을 다시 켜도 남도록 저장하는 간단한 키-값 저장소\n\nFile Manager - The Foundation object you use to create, move, check and delete files and folders.\n한국어: 파일 매니저: 파일과 폴더를 만들고, 옮기고, 확인하고, 지울 때 쓰는 Foundation 객체\n\nDocuments Directory - The folder in your app's sandbox for files the user creates, which is included in backups.\n한국어: 도큐먼트 디렉터리: 사용자가 만든 파일을 두는 앱 샌드박스 안의 폴더로, 백업에 포함됨\n\nIn this video, Mina and Jake find out why launch gets slower every week and move the notes to a file, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 93 of the iOS Daily English series.\n\n#Swift #iOSDeveloper #EnglishForDevelopers",
+      "tags": [
+        "UserDefaults",
+        "File Manager",
+        "Documents Directory",
+        "FileManager",
+        "documentsDirectory",
+        "persistence",
+        "iOS 기초",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "iOS Daily English"
+      ],
+      "hook": "Launch gets slower every week. Can you explain why in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "Why is launch so slow?",
+    "setting": "Performance review",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, why does launch get slower every week?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "You save all the `notes` in UserDefaults.",
+        "terms": [
+          "UserDefaults"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Is that wrong? It's just one line of code.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "UserDefaults is for small settings. The whole thing loads at launch.",
+        "terms": [
+          "UserDefaults"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "So where should all the `notes` go?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Write the `data` to a file in the Documents Directory.",
+        "terms": [
+          "Documents Directory"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Do I build that folder path by hand?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "No, ask File Manager for the folder, or use the `documentsDirectory` URL.",
+        "terms": [
+          "File Manager"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "And the Documents Directory gets backed up?",
+        "terms": [
+          "Documents Directory"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Yes, to iCloud, so only keep real user data there. Caches go elsewhere.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "Got it. UserDefaults keeps the settings, File Manager writes the `notes` to the Documents Directory.",
+        "terms": [
+          "UserDefaults",
+          "File Manager",
+          "Documents Directory"
+        ]
+      }
+    ],
+    "code": "let data = try JSONEncoder().encode(notes)\nUserDefaults.standard.set(data,\n    forKey: \"notes\")",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "UserDefaults",
+      "lines": [
+        {
+          "text": "UserDefaults is for settings, not your whole database."
+        }
+      ],
+      "title": "UserDefaults is for settings, not your whole database. #Shorts",
+      "description": "UserDefaults is for settings, not your whole database.\n\nUserDefaults - A simple key-value store for small settings, like a theme choice or a flag, that stays across launches.\n한국어: UserDefaults: 테마 선택이나 플래그 같은 작은 설정을 앱을 다시 켜도 남도록 저장하는 간단한 키-값 저장소\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "File Manager",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Does the export file exist yet?"
+        },
+        {
+          "speaker": "B",
+          "text": "Ask File Manager before you share it."
+        }
+      ],
+      "title": "Does the export file exist yet? / Ask File Manager before you share it. #Shorts",
+      "description": "Does the export file exist yet? / Ask File Manager before you share it.\n\nFile Manager - The Foundation object you use to create, move, check and delete files and folders.\n한국어: 파일 매니저: 파일과 폴더를 만들고, 옮기고, 확인하고, 지울 때 쓰는 Foundation 객체\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Documents Directory",
+      "lines": [
+        {
+          "text": "User files go in the Documents Directory, and get backed up."
+        }
+      ],
+      "title": "User files go in the Documents Directory, and get backed up. #Shorts",
+      "description": "User files go in the Documents Directory, and get backed up.\n\nDocuments Directory - The folder in your app's sandbox for files the user creates, which is included in backups.\n한국어: 도큐먼트 디렉터리: 사용자가 만든 파일을 두는 앱 샌드박스 안의 폴더로, 백업에 포함됨\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "Why is launch so slow?"
+}

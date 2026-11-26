@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 87
+
+Table View
+- A scrolling list of rows in UIKit, in one column, often grouped into sections.
+- Example: "Settings is just a grouped Table View, nothing custom."
+
+Reuse Identifier
+- A string that names a kind of cell, so the table knows which cells it can recycle for a row.
+- Example: "The Reuse Identifier in code doesn't match the storyboard, so dequeue crashes."
+
+Cell Reuse
+- When a list recycles cells that scrolled off screen for new rows, instead of making new ones.
+- Example: "The image flickers because of Cell Reuse, cancel the old download in `prepareForReuse`."
+
+
+Quiz ①
+Which string tells the table which kind of cell it can recycle?
+a) Cell Reuse
+b) Table View
+c) Reuse Identifier
+
+Quiz ②
+Why can a row show old data from another row after you scroll?
+a) Cell Reuse
+b) Reuse Identifier
+c) Table View
+
+Quiz ③
+Which UIKit view shows a scrolling list of rows in one column?
+a) Reuse Identifier
+b) Table View
+c) Cell Reuse

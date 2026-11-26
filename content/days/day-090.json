@@ -1,0 +1,228 @@
+{
+  "day": 90,
+  "phase": "3. iOS foundations",
+  "theme": "3 terms on privacy permissions: the system alert that asks the user, the sentence that explains why, and the current answer you check before asking",
+  "terms": [
+    {
+      "term": "Permission Prompt",
+      "definition": "The system alert that asks the user to let your app use something private, like the camera.",
+      "example": "Don't show the Permission Prompt on launch, ask when the user taps Scan.",
+      "code": "import AVFoundation\nAVCaptureDevice.requestAccess(for: .video) {\n    granted in\n    // iOS shows the prompt only once\n}",
+      "output": "// no output"
+    },
+    {
+      "term": "Usage Description",
+      "definition": "The sentence in your app's Info plist that tells the user why you need a permission.",
+      "example": "Write a clear Usage Description, a vague one can get the app rejected.",
+      "code": "import Foundation\nlet key = \"NSCameraUsageDescription\"\nlet text = Bundle.main\n    .object(forInfoDictionaryKey: key)\nprint(text ?? \"missing\")",
+      "output": "Scan receipts with your camera."
+    },
+    {
+      "term": "Authorization Status",
+      "definition": "The current answer for a permission: not asked yet, allowed, denied or restricted.",
+      "example": "Check the Authorization Status first, the prompt only appears once.",
+      "code": "switch AVCaptureDevice\n    .authorizationStatus(for: .video) {\ncase .authorized: startCamera()\ncase .denied: showSettingsLink()\ndefault: askForAccess()\n}",
+      "output": "// no output"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What tells you if the user has already allowed or denied a permission?",
+      "options": [
+        "Usage Description",
+        "Permission Prompt",
+        "Authorization Status"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "What is the sentence that explains why your app needs a permission?",
+      "options": [
+        "Usage Description",
+        "Authorization Status",
+        "Permission Prompt"
+      ],
+      "answer": "a"
+    },
+    {
+      "question": "What do you call the system alert that asks the user to allow camera access?",
+      "options": [
+        "Authorization Status",
+        "Permission Prompt",
+        "Usage Description"
+      ],
+      "answer": "b"
+    }
+  ],
+  "video": {
+    "title": "Permission Prompt, Usage Description & Authorization Status | Day 90",
+    "description": "Learn to explain how iOS apps ask for private data like the camera: Permission Prompt, Usage Description & Authorization Status, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nPermission Prompt - The system alert that asks the user to let your app use something private, like the camera.\nUsage Description - The sentence in your app's Info plist that tells the user why you need a permission.\nAuthorization Status - The current answer for a permission: not asked yet, allowed, denied or restricted.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 90 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "permission prompt",
+      "usage description",
+      "authorization status",
+      "nscamerausagedescription",
+      "ios privacy",
+      "avcapturedevice",
+      "ios foundations",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "iOS Permission Prompt, Usage Description & Authorization Status | Day 90",
+      "description": "Explain Permission Prompt, Usage Description & Authorization Status in UIKit by listening to a real code chat between two iOS devs.\n권한 요청 알림, 사용 목적 설명, 권한 상태 표현을 영어 대화로 익혀요.\n\nPermission Prompt - The system alert that asks the user to let your app use something private, like the camera.\n한국어: 권한 요청 알림: 카메라처럼 민감한 기능을 앱이 써도 되는지 사용자에게 묻는 시스템 알림\n\nUsage Description - The sentence in your app's Info plist that tells the user why you need a permission.\n한국어: 사용 목적 설명: 앱이 왜 그 권한이 필요한지 사용자에게 알려주는 Info plist 속 문장\n\nAuthorization Status - The current answer for a permission: not asked yet, allowed, denied or restricted.\n한국어: 권한 상태: 권한에 대한 현재 답으로, 아직 묻지 않음, 허용, 거부, 제한 중 하나\n\nIn this video, Mina and Jake find out why the app crashes on Scan and why the prompt never comes back, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 90 of the iOS Daily English series.\n\n#Swift #iOSDeveloper #EnglishForDevelopers",
+      "tags": [
+        "Permission Prompt",
+        "Usage Description",
+        "Authorization Status",
+        "NSCameraUsageDescription",
+        "AVCaptureDevice",
+        "privacy",
+        "iOS 기초",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "iOS Daily English"
+      ],
+      "hook": "Tap Scan and the app crashes. Can you explain why in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "Why does Scan crash?",
+    "setting": "Receipt scanner bug",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, the app crashes the moment I tap Scan.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Does the Info plist have a Usage Description for the camera?",
+        "terms": [
+          "Usage Description"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "No. Is that required?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Yes. Without a Usage Description, iOS kills the app instead of asking.",
+        "terms": [
+          "Usage Description"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Okay, added. Now the Permission Prompt shows our text.",
+        "terms": [
+          "Permission Prompt"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Good. Now tap Don't Allow and try again.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "Nothing happens. No Permission Prompt this time.",
+        "terms": [
+          "Permission Prompt"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Right, iOS asks only once. After that, check the Authorization Status first.",
+        "terms": [
+          "Authorization Status"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "And if it says denied?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Show a short message with a link to Settings. Only the user can change it there.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "Got it. Usage Description first, then check the Authorization Status before every scan.",
+        "terms": [
+          "Usage Description",
+          "Authorization Status"
+        ]
+      }
+    ],
+    "code": "AVCaptureDevice.requestAccess(for: .video) {\n    granted in\n    DispatchQueue.main.async {\n        if granted { self.openScanner() }\n    }\n}",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "Permission Prompt",
+      "lines": [
+        {
+          "text": "Ask at the right moment, the Permission Prompt only shows once."
+        }
+      ],
+      "title": "Ask at the right moment, the Permission Prompt only shows once. #Shorts",
+      "description": "Ask at the right moment, the Permission Prompt only shows once.\n\nPermission Prompt - The system alert that asks the user to let your app use something private, like the camera.\n한국어: 권한 요청 알림: 카메라처럼 민감한 기능을 앱이 써도 되는지 사용자에게 묻는 시스템 알림\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "Usage Description",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Why did the app crash on the camera?"
+        },
+        {
+          "speaker": "B",
+          "text": "There's no Usage Description in the Info plist."
+        }
+      ],
+      "title": "Why did the app crash on the camera? / There's no Usage Description in the Info plist. #Shorts",
+      "description": "Why did the app crash on the camera? / There's no Usage Description in the Info plist.\n\nUsage Description - The sentence in your app's Info plist that tells the user why you need a permission.\n한국어: 사용 목적 설명: 앱이 왜 그 권한이 필요한지 사용자에게 알려주는 Info plist 속 문장\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Authorization Status",
+      "lines": [
+        {
+          "text": "Denied once? Check the Authorization Status and link to Settings."
+        }
+      ],
+      "title": "Denied once? Check the Authorization Status and link to Settings. #Shorts",
+      "description": "Denied once? Check the Authorization Status and link to Settings.\n\nAuthorization Status - The current answer for a permission: not asked yet, allowed, denied or restricted.\n한국어: 권한 상태: 권한에 대한 현재 답으로, 아직 묻지 않음, 허용, 거부, 제한 중 하나\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "Why does Scan crash?"
+}

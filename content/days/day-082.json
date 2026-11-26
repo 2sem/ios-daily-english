@@ -1,0 +1,232 @@
+{
+  "day": 82,
+  "phase": "3. iOS foundations",
+  "theme": "3 terms on the view controller lifecycle: the object that runs one screen, the setup method that runs once, and the method that runs every time the screen shows",
+  "terms": [
+    {
+      "term": "View Controller",
+      "definition": "An object that manages one screen of an app: its views and what happens when the user taps them.",
+      "example": "Each tab has its own View Controller, so keep them small.",
+      "code": "import UIKit\nclass ProfileVC: UIViewController {\n    let nameLabel = UILabel()\n}",
+      "output": "// no output"
+    },
+    {
+      "term": "viewDidLoad",
+      "definition": "The method UIKit calls once, after a screen's view has been loaded into memory.",
+      "example": "Add the subviews in viewDidLoad, they only need to be created once.",
+      "code": "// in class ProfileVC\noverride func viewDidLoad() {\n    super.viewDidLoad()\n    view.addSubview(nameLabel)\n}",
+      "output": "// no output"
+    },
+    {
+      "term": "viewWillAppear",
+      "definition": "The method UIKit calls every time a screen's view is about to appear.",
+      "example": "Reload the list in viewWillAppear, so it's fresh when the user comes back.",
+      "code": "override func viewWillAppear(\n    _ animated: Bool) {\n    super.viewWillAppear(animated)\n    nameLabel.text = user.name\n}",
+      "output": "// no output"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "In this code, which method should hold this line so it runs on every visit?",
+      "code": "// refresh on every visit\nnameLabel.text = user.name",
+      "options": [
+        "viewDidLoad",
+        "View Controller",
+        "viewWillAppear"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "What do you call the object that manages one screen and its views?",
+      "options": [
+        "View Controller",
+        "viewWillAppear",
+        "viewDidLoad"
+      ],
+      "answer": "a"
+    },
+    {
+      "question": "Which method runs only once, right after the view is loaded into memory?",
+      "options": [
+        "viewWillAppear",
+        "viewDidLoad",
+        "View Controller"
+      ],
+      "answer": "b"
+    }
+  ],
+  "video": {
+    "title": "View Controller, viewDidLoad & viewWillAppear | Day 82",
+    "description": "Learn to explain the view controller lifecycle in UIKit: View Controller, viewDidLoad & viewWillAppear, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nView Controller - An object that manages one screen of an app: its views and what happens when the user taps them.\nviewDidLoad - The method UIKit calls once, after a screen's view has been loaded into memory.\nviewWillAppear - The method UIKit calls every time a screen's view is about to appear.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 82 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "view controller",
+      "viewdidload",
+      "viewwillappear",
+      "uiviewcontroller",
+      "view controller lifecycle",
+      "uikit",
+      "ios foundations",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "UIKit View Controller, viewDidLoad & viewWillAppear | Day 82",
+      "description": "Explain View Controller, viewDidLoad & viewWillAppear in UIKit by listening to a real code chat between two iOS devs.\n뷰 컨트롤러, viewDidLoad, viewWillAppear 표현을 영어 대화로 익혀요.\n\nView Controller - An object that manages one screen of an app: its views and what happens when the user taps them.\n한국어: 뷰 컨트롤러: 앱의 화면 하나를 맡아 그 화면의 뷰와 사용자가 탭했을 때의 동작을 관리하는 객체\n\nviewDidLoad - The method UIKit calls once, after a screen's view has been loaded into memory.\n한국어: viewDidLoad: 화면의 뷰가 메모리에 올라온 뒤 UIKit이 한 번 호출하는 메서드\n\nviewWillAppear - The method UIKit calls every time a screen's view is about to appear.\n한국어: viewWillAppear: 화면의 뷰가 나타나기 직전마다 UIKit이 호출하는 메서드\n\nIn this video, Mina and Jake find out why the profile screen still shows an old name after going back, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 82 of the iOS Daily English series.\n\n#Swift #iOSDeveloper #EnglishForDevelopers",
+      "tags": [
+        "View Controller",
+        "viewDidLoad",
+        "viewWillAppear",
+        "UIViewController",
+        "view controller lifecycle",
+        "UIKit",
+        "iOS 기초",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "ios development",
+        "iOS Daily English"
+      ],
+      "hook": "You went back, but the screen shows old data. Can you explain why in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "Why is the old name back?",
+    "setting": "Profile screen bug",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, I changed my name, but the profile still shows the old one.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Where do you set `nameLabel`?",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "In viewDidLoad, right after the `super` call.",
+        "terms": [
+          "viewDidLoad"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "That runs only once, when the View Controller first loads its view.",
+        "terms": [
+          "View Controller"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "But I went back to the profile. Doesn't it load again?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "No, going back reuses the same View Controller, still in memory.",
+        "terms": [
+          "View Controller"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "So where should the label update go?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Move it to viewWillAppear. It runs every time the view is about to show.",
+        "terms": [
+          "viewWillAppear"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Then should I keep anything in viewDidLoad?",
+        "terms": [
+          "viewDidLoad"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Yes, one time setup, like adding subviews. Keep viewDidLoad for that.",
+        "terms": [
+          "viewDidLoad"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Got it. viewDidLoad builds the screen once, viewWillAppear refreshes `nameLabel` each visit.",
+        "terms": [
+          "viewDidLoad",
+          "viewWillAppear"
+        ]
+      }
+    ],
+    "code": "// in class ProfileVC\noverride func viewDidLoad() {\n    super.viewDidLoad()\n    nameLabel.text = user.name\n}",
+    "codeFile": "ProfileVC.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "View Controller",
+      "lines": [
+        {
+          "text": "One screen, one View Controller, keep it small."
+        }
+      ],
+      "title": "One screen, one View Controller, keep it small. #Shorts",
+      "description": "One screen, one View Controller, keep it small.\n\nView Controller - An object that manages one screen of an app: its views and what happens when the user taps them.\n한국어: 뷰 컨트롤러: 앱의 화면 하나를 맡아 그 화면의 뷰와 사용자가 탭했을 때의 동작을 관리하는 객체\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "viewDidLoad",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Where do I add the subviews?"
+        },
+        {
+          "speaker": "B",
+          "text": "In viewDidLoad, it runs only once."
+        }
+      ],
+      "title": "Where do I add the subviews? / In viewDidLoad, it runs only once. #Shorts",
+      "description": "Where do I add the subviews? / In viewDidLoad, it runs only once.\n\nviewDidLoad - The method UIKit calls once, after a screen's view has been loaded into memory.\n한국어: viewDidLoad: 화면의 뷰가 메모리에 올라온 뒤 UIKit이 한 번 호출하는 메서드\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "viewWillAppear",
+      "lines": [
+        {
+          "text": "Old data after going back? Refresh it in viewWillAppear."
+        }
+      ],
+      "title": "Old data after going back? Refresh it in viewWillAppear. #Shorts",
+      "description": "Old data after going back? Refresh it in viewWillAppear.\n\nviewWillAppear - The method UIKit calls every time a screen's view is about to appear.\n한국어: viewWillAppear: 화면의 뷰가 나타나기 직전마다 UIKit이 호출하는 메서드\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "Why is the old name back?"
+}

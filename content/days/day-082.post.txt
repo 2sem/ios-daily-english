@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 82
+
+View Controller
+- An object that manages one screen of an app: its views and what happens when the user taps them.
+- Example: "Each tab has its own View Controller, so keep them small."
+
+viewDidLoad
+- The method UIKit calls once, after a screen's view has been loaded into memory.
+- Example: "Add the subviews in viewDidLoad, they only need to be created once."
+
+viewWillAppear
+- The method UIKit calls every time a screen's view is about to appear.
+- Example: "Reload the list in viewWillAppear, so it's fresh when the user comes back."
+
+
+Quiz ①
+In this code, which method should hold this line so it runs on every visit?
+a) viewDidLoad
+b) View Controller
+c) viewWillAppear
+
+Quiz ②
+What do you call the object that manages one screen and its views?
+a) View Controller
+b) viewWillAppear
+c) viewDidLoad
+
+Quiz ③
+Which method runs only once, right after the view is loaded into memory?
+a) viewWillAppear
+b) viewDidLoad
+c) View Controller

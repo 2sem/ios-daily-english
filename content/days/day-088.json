@@ -1,0 +1,227 @@
+{
+  "day": 88,
+  "phase": "3. iOS foundations",
+  "theme": "3 terms on collection views: the view for grids and custom layouts, the modern way to describe its layout, and the data source that animates changes from snapshots",
+  "terms": [
+    {
+      "term": "Collection View",
+      "definition": "A scrolling view that shows items in a grid or any custom layout, not just one column.",
+      "example": "The photo grid is a Collection View, the settings screen is still a table.",
+      "code": "let layout = UICollectionViewFlowLayout()\nlet grid = UICollectionView(\n    frame: .zero,\n    collectionViewLayout: layout)",
+      "output": "// no output"
+    },
+    {
+      "term": "Compositional Layout",
+      "definition": "A way to build a collection layout from items, groups and sections, each sized by simple rules.",
+      "example": "With Compositional Layout, the carousel and the grid live on one screen.",
+      "code": "// each item: half the width\nlet size = NSCollectionLayoutSize(\n    widthDimension: .fractionalWidth(0.5),\n    heightDimension: .absolute(120))\nlet item = NSCollectionLayoutItem(\n    layoutSize: size)",
+      "output": "// no output"
+    },
+    {
+      "term": "Diffable Data Source",
+      "definition": "A data source that takes a snapshot of your data and animates the differences for you.",
+      "example": "Switch to a Diffable Data Source, the insert and delete crashes go away.",
+      "code": "typealias Snap =\n    NSDiffableDataSourceSnapshot<Int, String>\nvar snap = Snap()\nsnap.appendSections([0])\nsnap.appendItems([\"Tea\", \"Coffee\"])\nprint(snap.itemIdentifiers)",
+      "output": "[\"Tea\", \"Coffee\"]"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "In this code, what applies `snap` to the list and animates the changes?",
+      "code": "var snap = Snap()\nsnap.appendSections([0])\nsnap.appendItems([\"Tea\", \"Coffee\"])",
+      "options": [
+        "Collection View",
+        "Compositional Layout",
+        "Diffable Data Source"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "Which view shows items in a grid or any custom layout?",
+      "options": [
+        "Collection View",
+        "Diffable Data Source",
+        "Compositional Layout"
+      ],
+      "answer": "a"
+    },
+    {
+      "question": "Which layout builds a screen from items, groups and sections?",
+      "options": [
+        "Diffable Data Source",
+        "Compositional Layout",
+        "Collection View"
+      ],
+      "answer": "b"
+    }
+  ],
+  "video": {
+    "title": "Collection View, Compositional Layout & Diffable Data Source | Day 88",
+    "description": "Learn to explain modern collection views in UIKit: Collection View, Compositional Layout & Diffable Data Source, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nCollection View - A scrolling view that shows items in a grid or any custom layout, not just one column.\nCompositional Layout - A way to build a collection layout from items, groups and sections, each sized by simple rules.\nDiffable Data Source - A data source that takes a snapshot of your data and animates the differences for you.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 88 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "collection view",
+      "compositional layout",
+      "diffable data source",
+      "uicollectionview",
+      "snapshot",
+      "uikit",
+      "ios foundations",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "UIKit Collection View, Compositional Layout & Diffable Data Source | Day 88",
+      "description": "Explain Collection View, Compositional Layout & Diffable Data Source in UIKit by listening to a real code chat between two iOS devs.\n컬렉션 뷰, 컴포지셔널 레이아웃, 디퍼블 데이터 소스 표현을 영어 대화로 익혀요.\n\nCollection View - A scrolling view that shows items in a grid or any custom layout, not just one column.\n한국어: 컬렉션 뷰: 한 열이 아니라 그리드나 원하는 레이아웃으로 아이템을 보여주는 스크롤 뷰\n\nCompositional Layout - A way to build a collection layout from items, groups and sections, each sized by simple rules.\n한국어: 컴포지셔널 레이아웃: 아이템, 그룹, 섹션을 간단한 크기 규칙으로 조합해 컬렉션 레이아웃을 만드는 방식\n\nDiffable Data Source - A data source that takes a snapshot of your data and animates the differences for you.\n한국어: 디퍼블 데이터 소스: 데이터의 스냅샷을 받아 바뀐 부분을 알아서 애니메이션으로 반영하는 데이터 소스\n\nIn this video, Mina and Jake find out why deleting a photo crashes the grid and switch to snapshots, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 88 of the iOS Daily English series.\n\n#Swift #iOSDeveloper #EnglishForDevelopers",
+      "tags": [
+        "Collection View",
+        "Compositional Layout",
+        "Diffable Data Source",
+        "UICollectionView",
+        "NSDiffableDataSourceSnapshot",
+        "UIKit",
+        "iOS 기초",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "iOS Daily English"
+      ],
+      "hook": "Deleting one photo crashes the whole grid. Can you explain why in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "Why did delete crash?",
+    "setting": "Photo grid crash",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, deleting a photo crashes the Collection View every time.",
+        "terms": [
+          "Collection View"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "What does the console say?",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "Invalid update, invalid number of items in section zero.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "You call `deleteItems` before `photos` changes, so the counts don't match.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "So I just swap the two lines?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "That works, but a Diffable Data Source avoids this whole problem.",
+        "terms": [
+          "Diffable Data Source"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "How is it different?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "You apply a snapshot of the data, and the Diffable Data Source works out the changes.",
+        "terms": [
+          "Diffable Data Source"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Nice. And the grid layout, keep the flow layout?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Try Compositional Layout. Sections, groups and items, all in one Collection View.",
+        "terms": [
+          "Collection View",
+          "Compositional Layout"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Got it. Snapshots for the data, and Compositional Layout for the grid.",
+        "terms": [
+          "Compositional Layout"
+        ]
+      }
+    ],
+    "code": "func delete(at path: IndexPath) {\n    grid.deleteItems(at: [path])\n    photos.remove(at: path.item)\n}",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "Collection View",
+      "lines": [
+        {
+          "text": "Need a grid, not a list? Use a Collection View."
+        }
+      ],
+      "title": "Need a grid, not a list? Use a Collection View. #Shorts",
+      "description": "Need a grid, not a list? Use a Collection View.\n\nCollection View - A scrolling view that shows items in a grid or any custom layout, not just one column.\n한국어: 컬렉션 뷰: 한 열이 아니라 그리드나 원하는 레이아웃으로 아이템을 보여주는 스크롤 뷰\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "Compositional Layout",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Carousel and grid on one screen?"
+        },
+        {
+          "speaker": "B",
+          "text": "Compositional Layout handles both."
+        }
+      ],
+      "title": "Carousel and grid on one screen? / Compositional Layout handles both. #Shorts",
+      "description": "Carousel and grid on one screen? / Compositional Layout handles both.\n\nCompositional Layout - A way to build a collection layout from items, groups and sections, each sized by simple rules.\n한국어: 컴포지셔널 레이아웃: 아이템, 그룹, 섹션을 간단한 크기 규칙으로 조합해 컬렉션 레이아웃을 만드는 방식\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Diffable Data Source",
+      "lines": [
+        {
+          "text": "Apply a snapshot, and the Diffable Data Source animates the rest."
+        }
+      ],
+      "title": "Apply a snapshot, and the Diffable Data Source animates the rest. #Shorts",
+      "description": "Apply a snapshot, and the Diffable Data Source animates the rest.\n\nDiffable Data Source - A data source that takes a snapshot of your data and animates the differences for you.\n한국어: 디퍼블 데이터 소스: 데이터의 스냅샷을 받아 바뀐 부분을 알아서 애니메이션으로 반영하는 데이터 소스\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "Why did delete crash?"
+}

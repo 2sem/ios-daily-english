@@ -1,0 +1,232 @@
+{
+  "day": 86,
+  "phase": "3. iOS foundations",
+  "theme": "3 terms on placing views on the screen: the view that lines up subviews for you, the screen area clear of the notch and home indicator, and the padding inside a view's edges",
+  "terms": [
+    {
+      "term": "Stack View",
+      "definition": "A view that lines up its subviews in a row or a column and creates their layout rules for you.",
+      "example": "Put the three buttons in a Stack View, then you only need constraints for the stack.",
+      "code": "let row = UIStackView(\n    arrangedSubviews: [icon, title])\nrow.axis = .horizontal\nrow.spacing = 8",
+      "output": "// no output"
+    },
+    {
+      "term": "Safe Area",
+      "definition": "The part of the screen not covered by the notch, the home indicator or system bars, where content is safe to show.",
+      "example": "Pin the toolbar to the Safe Area, or it hides under the home indicator.",
+      "code": "bar.bottomAnchor.constraint(\n    equalTo: view.safeAreaLayoutGuide\n        .bottomAnchor\n).isActive = true",
+      "output": "// no output"
+    },
+    {
+      "term": "Layout Margins",
+      "definition": "The padding inside a view's edges that other views can line up against.",
+      "example": "Use the Layout Margins, so every card has the same inner padding.",
+      "code": "card.directionalLayoutMargins = .init(\n    top: 12, leading: 16,\n    bottom: 12, trailing: 16)\nlet g = card.layoutMarginsGuide\nlabel.leadingAnchor.constraint(\n    equalTo: g.leadingAnchor).isActive = true",
+      "output": "// no output"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What do you call the padding inside a view's edges that other views can line up against?",
+      "options": [
+        "Safe Area",
+        "Stack View",
+        "Layout Margins"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "Which view lines up its subviews in a row or a column for you?",
+      "options": [
+        "Stack View",
+        "Layout Margins",
+        "Safe Area"
+      ],
+      "answer": "a"
+    },
+    {
+      "question": "Which part of the screen stays clear of the notch and the home indicator?",
+      "options": [
+        "Layout Margins",
+        "Safe Area",
+        "Stack View"
+      ],
+      "answer": "b"
+    }
+  ],
+  "video": {
+    "title": "Stack View, Safe Area & Layout Margins | Day 86",
+    "description": "Learn to explain where views sit on the screen in UIKit: Stack View, Safe Area & Layout Margins, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nStack View - A view that lines up its subviews in a row or a column and creates their layout rules for you.\nSafe Area - The part of the screen not covered by the notch, the home indicator or system bars, where content is safe to show.\nLayout Margins - The padding inside a view's edges that other views can line up against.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 86 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "stack view",
+      "safe area",
+      "layout margins",
+      "uistackview",
+      "safearealayoutguide",
+      "auto layout",
+      "uikit",
+      "ios foundations",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "UIKit Stack View, Safe Area & Layout Margins | Day 86",
+      "description": "Explain Stack View, Safe Area & Layout Margins in UIKit by listening to a real code chat between two iOS devs.\n스택 뷰, 세이프 에어리어, 레이아웃 마진 표현을 영어 대화로 익혀요.\n\nStack View - A view that lines up its subviews in a row or a column and creates their layout rules for you.\n한국어: 스택 뷰: 하위 뷰를 가로나 세로 한 줄로 늘어놓고 레이아웃 규칙을 대신 만들어 주는 뷰\n\nSafe Area - The part of the screen not covered by the notch, the home indicator or system bars, where content is safe to show.\n한국어: 세이프 에어리어: 노치, 홈 인디케이터, 시스템 바에 가리지 않아 콘텐츠를 안전하게 보여줄 수 있는 화면 영역\n\nLayout Margins - The padding inside a view's edges that other views can line up against.\n한국어: 레이아웃 마진: 다른 뷰가 맞춰 정렬할 수 있는, 뷰의 가장자리 안쪽 여백\n\nIn this video, Mina and Jake find out why the buy button hides under the home indicator and touches the screen edges, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 86 of the iOS Daily English series.\n\n#Swift #iOSDeveloper #EnglishForDevelopers",
+      "tags": [
+        "Stack View",
+        "Safe Area",
+        "Layout Margins",
+        "UIStackView",
+        "safeAreaLayoutGuide",
+        "UIKit",
+        "iOS 기초",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "ios development",
+        "iOS Daily English"
+      ],
+      "hook": "The buy button hides under the home indicator. Can you explain why in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "Why is the button hiding?",
+    "setting": "Checkout screen review",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, on newer iPhones the `buyButton` sits under the home indicator.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "You pinned the Stack View to the bottom of `view`, not the Safe Area.",
+        "terms": [
+          "Stack View",
+          "Safe Area"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "What's the difference?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "The Safe Area skips the notch and the home indicator. Pin to its bottom anchor instead.",
+        "terms": [
+          "Safe Area"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Okay. And now the button touches the screen edges.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "The Stack View fills the whole width. Give it Layout Margins.",
+        "terms": [
+          "Stack View",
+          "Layout Margins"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Doesn't spacing do that?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "No, spacing only adds gaps between `price` and `buyButton`.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "So Layout Margins are the padding inside the edges?",
+        "terms": [
+          "Layout Margins"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Right, and turn on `isLayoutMarginsRelativeArrangement` so the Stack View uses them.",
+        "terms": [
+          "Stack View"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Got it. Safe Area for the bottom, Layout Margins for the padding.",
+        "terms": [
+          "Safe Area",
+          "Layout Margins"
+        ]
+      }
+    ],
+    "code": "let stack = UIStackView(\n    arrangedSubviews: [price, buyButton])\nNSLayoutConstraint.activate([\n    stack.bottomAnchor.constraint(\n        equalTo: view.bottomAnchor)\n])",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "Stack View",
+      "lines": [
+        {
+          "text": "Three buttons in a row? A Stack View does the layout for you."
+        }
+      ],
+      "title": "Three buttons in a row? A Stack View does the layout for you. #Shorts",
+      "description": "Three buttons in a row? A Stack View does the layout for you.\n\nStack View - A view that lines up its subviews in a row or a column and creates their layout rules for you.\n한국어: 스택 뷰: 하위 뷰를 가로나 세로 한 줄로 늘어놓고 레이아웃 규칙을 대신 만들어 주는 뷰\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "Safe Area",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Why is my toolbar under the home indicator?"
+        },
+        {
+          "speaker": "B",
+          "text": "Pin it to the Safe Area, not the view."
+        }
+      ],
+      "title": "Why is my toolbar under the home indicator? / Pin it to the Safe Area, not the view. #Shorts",
+      "description": "Why is my toolbar under the home indicator? / Pin it to the Safe Area, not the view.\n\nSafe Area - The part of the screen not covered by the notch, the home indicator or system bars, where content is safe to show.\n한국어: 세이프 에어리어: 노치, 홈 인디케이터, 시스템 바에 가리지 않아 콘텐츠를 안전하게 보여줄 수 있는 화면 영역\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Layout Margins",
+      "lines": [
+        {
+          "text": "Same padding on every card? Line them up with Layout Margins."
+        }
+      ],
+      "title": "Same padding on every card? Line them up with Layout Margins. #Shorts",
+      "description": "Same padding on every card? Line them up with Layout Margins.\n\nLayout Margins - The padding inside a view's edges that other views can line up against.\n한국어: 레이아웃 마진: 다른 뷰가 맞춰 정렬할 수 있는, 뷰의 가장자리 안쪽 여백\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "Why is the button hiding?"
+}

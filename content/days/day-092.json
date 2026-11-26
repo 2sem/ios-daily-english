@@ -1,0 +1,227 @@
+{
+  "day": 92,
+  "phase": "3. iOS foundations",
+  "theme": "3 terms on handling user input in UIKit: a control calling a chosen method, an object that detects touches on a view, and the line of objects an event travels along",
+  "terms": [
+    {
+      "term": "Target Action",
+      "definition": "A pattern where a control calls a chosen method on a chosen object when an event happens.",
+      "example": "Wire the save button with Target Action in `viewDidLoad`.",
+      "code": "button.addTarget(self,\n    action: #selector(save),\n    for: .touchUpInside)",
+      "output": "// no output"
+    },
+    {
+      "term": "Gesture Recognizer",
+      "definition": "An object you attach to a view to detect touches like taps, swipes or pinches.",
+      "example": "Add a Gesture Recognizer for the double tap, the image should zoom.",
+      "code": "let tap = UITapGestureRecognizer(\n    target: self, action: #selector(close))\nimageView.isUserInteractionEnabled = true\nimageView.addGestureRecognizer(tap)",
+      "output": "// no output"
+    },
+    {
+      "term": "Responder Chain",
+      "definition": "The line of objects UIKit passes an event or action along until one of them handles it.",
+      "example": "Leave the target `nil`, the Responder Chain will find the editor.",
+      "code": "// nil target: UIKit asks each responder\nsaveButton.addTarget(nil,\n    action: #selector(Editor.saveDraft),\n    for: .touchUpInside)",
+      "output": "// no output"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What do you attach to a view to detect taps or swipes?",
+      "options": [
+        "Target Action",
+        "Responder Chain",
+        "Gesture Recognizer"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "What does UIKit walk along to find who handles an action with a nil target?",
+      "options": [
+        "Responder Chain",
+        "Gesture Recognizer",
+        "Target Action"
+      ],
+      "answer": "a"
+    },
+    {
+      "question": "Which pattern makes a control call a chosen method on a chosen object?",
+      "options": [
+        "Gesture Recognizer",
+        "Target Action",
+        "Responder Chain"
+      ],
+      "answer": "b"
+    }
+  ],
+  "video": {
+    "title": "Target Action, Gesture Recognizer & Responder Chain | Day 92",
+    "description": "Learn to explain how UIKit handles taps and actions: Target Action, Gesture Recognizer & Responder Chain, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nTarget Action - A pattern where a control calls a chosen method on a chosen object when an event happens.\nGesture Recognizer - An object you attach to a view to detect touches like taps, swipes or pinches.\nResponder Chain - The line of objects UIKit passes an event or action along until one of them handles it.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 92 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "target action",
+      "gesture recognizer",
+      "responder chain",
+      "uitapgesturerecognizer",
+      "addtarget",
+      "uikit",
+      "ios foundations",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "UIKit Target Action, Gesture Recognizer & Responder Chain | Day 92",
+      "description": "Explain Target Action, Gesture Recognizer & Responder Chain in UIKit by listening to a real code chat between two iOS devs.\n타깃 액션, 제스처 인식기, 리스폰더 체인 표현을 영어 대화로 익혀요.\n\nTarget Action - A pattern where a control calls a chosen method on a chosen object when an event happens.\n한국어: 타깃 액션: 이벤트가 생기면 컨트롤이 정해진 객체의 정해진 메서드를 호출하는 패턴\n\nGesture Recognizer - An object you attach to a view to detect touches like taps, swipes or pinches.\n한국어: 제스처 인식기: 뷰에 붙여 탭, 스와이프, 핀치 같은 터치를 감지하는 객체\n\nResponder Chain - The line of objects UIKit passes an event or action along until one of them handles it.\n한국어: 리스폰더 체인: 이벤트나 액션을 처리할 객체가 나올 때까지 UIKit이 차례로 넘기는 객체들의 줄\n\nIn this video, Mina and Jake find out why tapping a photo does nothing and where an action goes with no target, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 92 of the iOS Daily English series.\n\n#Swift #iOSDeveloper #EnglishForDevelopers",
+      "tags": [
+        "Target Action",
+        "Gesture Recognizer",
+        "Responder Chain",
+        "UITapGestureRecognizer",
+        "isUserInteractionEnabled",
+        "UIKit",
+        "iOS 기초",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "iOS Daily English"
+      ],
+      "hook": "You tap the photo and nothing happens. Can you explain why in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "Why won't the photo open?",
+    "setting": "Gallery bug",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, tapping `photoView` does nothing. The Gesture Recognizer never fires.",
+        "terms": [
+          "Gesture Recognizer"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Is `photoView` an image view?",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "Yes, why?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Image views ignore touches by default. Set `isUserInteractionEnabled` to true.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "Oh. And the Target Action is right? `self` with `openPhoto`?",
+        "terms": [
+          "Target Action"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Yes. The Gesture Recognizer calls `openPhoto` on `self` when the tap ends.",
+        "terms": [
+          "Gesture Recognizer"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Could I use a button with Target Action instead?",
+        "terms": [
+          "Target Action"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Sure, and a button works better with VoiceOver too.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "What happens if the target is `nil`?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "UIKit walks the Responder Chain, from the first responder up to the app, until something handles it.",
+        "terms": [
+          "Responder Chain"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Got it. With a nil target, the Responder Chain finds who handles the action.",
+        "terms": [
+          "Responder Chain"
+        ]
+      }
+    ],
+    "code": "let tap = UITapGestureRecognizer(\n    target: self,\n    action: #selector(openPhoto))\nphotoView.addGestureRecognizer(tap)",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "Target Action",
+      "lines": [
+        {
+          "text": "Button tapped, method called, that's Target Action."
+        }
+      ],
+      "title": "Button tapped, method called, that's Target Action. #Shorts",
+      "description": "Button tapped, method called, that's Target Action.\n\nTarget Action - A pattern where a control calls a chosen method on a chosen object when an event happens.\n한국어: 타깃 액션: 이벤트가 생기면 컨트롤이 정해진 객체의 정해진 메서드를 호출하는 패턴\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "Gesture Recognizer",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "My Gesture Recognizer never fires on the image."
+        },
+        {
+          "speaker": "B",
+          "text": "Turn on user interaction first."
+        }
+      ],
+      "title": "My Gesture Recognizer never fires on the image. / Turn on user interaction first. #Shorts",
+      "description": "My Gesture Recognizer never fires on the image. / Turn on user interaction first.\n\nGesture Recognizer - An object you attach to a view to detect touches like taps, swipes or pinches.\n한국어: 제스처 인식기: 뷰에 붙여 탭, 스와이프, 핀치 같은 터치를 감지하는 객체\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Responder Chain",
+      "lines": [
+        {
+          "text": "No target? The Responder Chain finds someone to handle it."
+        }
+      ],
+      "title": "No target? The Responder Chain finds someone to handle it. #Shorts",
+      "description": "No target? The Responder Chain finds someone to handle it.\n\nResponder Chain - The line of objects UIKit passes an event or action along until one of them handles it.\n한국어: 리스폰더 체인: 이벤트나 액션을 처리할 객체가 나올 때까지 UIKit이 차례로 넘기는 객체들의 줄\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "Why won't the photo open?"
+}

@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 84
+
+Auto Layout
+- The UIKit system that sizes and places views from rules you give it, instead of fixed frames.
+- Example: "Use Auto Layout here, the card has to fit every iPhone size."
+
+Constraint
+- One rule about a view's size or position, like keeping its left edge 16 points from its parent.
+- Example: "Add a Constraint for the height, the banner view is collapsing to zero."
+
+Layout Anchor
+- A property such as `leadingAnchor` that builds a rule for one edge or size of a view in a short, type-safe way.
+- Example: "Use a Layout Anchor instead of the old initializer, it's much easier to read."
+
+
+Quiz ①
+In this code, what do you call `leadingAnchor`?
+a) Constraint
+b) Auto Layout
+c) Layout Anchor
+
+Quiz ②
+Which UIKit system sizes and places views from rules instead of fixed frames?
+a) Auto Layout
+b) Layout Anchor
+c) Constraint
+
+Quiz ③
+What do you call one rule about a view's size or position?
+a) Layout Anchor
+b) Constraint
+c) Auto Layout

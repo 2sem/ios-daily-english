@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 90
+
+Permission Prompt
+- The system alert that asks the user to let your app use something private, like the camera.
+- Example: "Don't show the Permission Prompt on launch, ask when the user taps Scan."
+
+Usage Description
+- The sentence in your app's Info plist that tells the user why you need a permission.
+- Example: "Write a clear Usage Description, a vague one can get the app rejected."
+
+Authorization Status
+- The current answer for a permission: not asked yet, allowed, denied or restricted.
+- Example: "Check the Authorization Status first, the prompt only appears once."
+
+
+Quiz ①
+What tells you if the user has already allowed or denied a permission?
+a) Usage Description
+b) Permission Prompt
+c) Authorization Status
+
+Quiz ②
+What is the sentence that explains why your app needs a permission?
+a) Usage Description
+b) Authorization Status
+c) Permission Prompt
+
+Quiz ③
+What do you call the system alert that asks the user to allow camera access?
+a) Authorization Status
+b) Permission Prompt
+c) Usage Description

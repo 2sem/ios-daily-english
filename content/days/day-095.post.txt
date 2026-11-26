@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 95
+
+Widget
+- A small view of your app's content on the Home Screen or Lock Screen, built with WidgetKit.
+- Example: "The Widget shows today's step count, tapping it opens the app."
+
+App Extension
+- A separate small program inside your app that adds a feature to the system, like a widget or a share sheet action.
+- Example: "The share sheet item is an App Extension, so it has its own memory limit."
+
+App Group
+- A shared container that lets your app and its extensions read and write the same data.
+- Example: "Put the database in the App Group, so the widget can read it."
+
+
+Quiz ①
+In this code, what does the suite name point to?
+a) Widget
+b) App Extension
+c) App Group
+
+Quiz ②
+What shows a small view of your app on the Home Screen?
+a) Widget
+b) App Group
+c) App Extension
+
+Quiz ③
+What do you call a separate small program that adds a feature to the system?
+a) App Group
+b) App Extension
+c) Widget

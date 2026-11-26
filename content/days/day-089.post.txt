@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 89
+
+Navigation Controller
+- A container that manages a stack of screens and shows a bar with a back button.
+- Example: "Wrap the list in a Navigation Controller, then the title bar comes for free."
+
+Push Navigation
+- Moving to a new screen that slides in from the side and is added to the stack, with a back button.
+- Example: "Use Push Navigation for the detail screen, users expect a back button there."
+
+Modal Presentation
+- Showing a screen on top of the current one, usually sliding up, for a separate task.
+- Example: "Settings opens as a Modal Presentation, with a Done button at the top."
+
+
+Quiz ①
+In this code, how is `editor` shown?
+a) Push Navigation
+b) Navigation Controller
+c) Modal Presentation
+
+Quiz ②
+Which container keeps a stack of screens and shows a back button?
+a) Navigation Controller
+b) Modal Presentation
+c) Push Navigation
+
+Quiz ③
+What do you call sliding a new screen in from the side, onto the stack?
+a) Modal Presentation
+b) Push Navigation
+c) Navigation Controller

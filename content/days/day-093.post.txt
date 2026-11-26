@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 93
+
+UserDefaults
+- A simple key-value store for small settings, like a theme choice or a flag, that stays across launches.
+- Example: "Keep the dark mode switch in UserDefaults, it's just one Bool."
+
+File Manager
+- The Foundation object you use to create, move, check and delete files and folders.
+- Example: "Ask File Manager if the export exists before you share it."
+
+Documents Directory
+- The folder in your app's sandbox for files the user creates, which is included in backups.
+- Example: "Save the drawings to the Documents Directory, so they survive updates and get backed up."
+
+
+Quiz ①
+Which folder holds the files a user creates and is included in backups?
+a) UserDefaults
+b) File Manager
+c) Documents Directory
+
+Quiz ②
+Where would you store a small setting, like a theme choice?
+a) UserDefaults
+b) Documents Directory
+c) File Manager
+
+Quiz ③
+Which Foundation object creates, moves and deletes files?
+a) Documents Directory
+b) File Manager
+c) UserDefaults

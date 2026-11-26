@@ -1,0 +1,231 @@
+{
+  "day": 83,
+  "phase": "3. iOS foundations",
+  "theme": "3 terms on what is inside an app: the unique name that tells apps apart, the folder that holds the running app's files, and the key-value file format Apple uses for settings",
+  "terms": [
+    {
+      "term": "Bundle Identifier",
+      "definition": "A unique name for your app, usually written in reverse domain style, that iOS and the App Store use to tell apps apart.",
+      "example": "The staging app has its own Bundle Identifier, so both apps fit on one phone.",
+      "code": "import Foundation\nlet id = Bundle.main.bundleIdentifier\nprint(id ?? \"none\")",
+      "output": "com.example.notes"
+    },
+    {
+      "term": "Main Bundle",
+      "definition": "The folder that holds your running app's code and resources, reached in code with `Bundle.main`.",
+      "example": "The image isn't in the Main Bundle, check its target membership.",
+      "code": "import Foundation\nlet url = Bundle.main.url(\n    forResource: \"Colors\",\n    withExtension: \"json\")\nprint(url == nil ? \"missing\" : \"found\")",
+      "output": "found"
+    },
+    {
+      "term": "Property List",
+      "definition": "A file format Apple uses to store settings as keys and values, in XML or binary.",
+      "example": "Put the feature flags in a Property List, so we can change them without touching code.",
+      "code": "import Foundation\nlet key = \"CFBundleShortVersionString\"\nlet v = Bundle.main\n    .object(forInfoDictionaryKey: key)\nprint(v ?? \"none\")",
+      "output": "1.2.0"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "Which folder holds your running app's code and resources?",
+      "options": [
+        "Property List",
+        "Main Bundle",
+        "Bundle Identifier"
+      ],
+      "answer": "b"
+    },
+    {
+      "question": "Which file format stores settings as keys and values, in XML or binary?",
+      "options": [
+        "Property List",
+        "Bundle Identifier",
+        "Main Bundle"
+      ],
+      "answer": "a"
+    },
+    {
+      "question": "What unique name do iOS and the App Store use to tell your app apart from others?",
+      "options": [
+        "Main Bundle",
+        "Property List",
+        "Bundle Identifier"
+      ],
+      "answer": "c"
+    }
+  ],
+  "video": {
+    "title": "Bundle Identifier, Main Bundle & Property List | Day 83",
+    "description": "Learn to explain what is inside an iOS app: Bundle Identifier, Main Bundle & Property List, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nBundle Identifier - A unique name for your app, usually written in reverse domain style, that iOS and the App Store use to tell apps apart.\nMain Bundle - The folder that holds your running app's code and resources, reached in code with `Bundle.main`.\nProperty List - A file format Apple uses to store settings as keys and values, in XML or binary.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 83 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "bundle identifier",
+      "main bundle",
+      "property list",
+      "info plist",
+      "bundle.main",
+      "plist",
+      "ios foundations",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "iOS Bundle Identifier, Main Bundle & Property List | Day 83",
+      "description": "Explain Bundle Identifier, Main Bundle & Property List in iOS by listening to a real code chat between two iOS devs.\n번들 식별자, 메인 번들, 프로퍼티 리스트 표현을 영어 대화로 익혀요.\n\nBundle Identifier - A unique name for your app, usually written in reverse domain style, that iOS and the App Store use to tell apps apart.\n한국어: 번들 식별자: 보통 도메인을 거꾸로 쓴 형태로, iOS와 App Store가 앱을 서로 구분하는 데 쓰는 고유한 이름\n\nMain Bundle - The folder that holds your running app's code and resources, reached in code with `Bundle.main`.\n한국어: 메인 번들: 실행 중인 앱의 코드와 리소스가 들어 있는 폴더로, 코드에서는 `Bundle.main`으로 접근함\n\nProperty List - A file format Apple uses to store settings as keys and values, in XML or binary.\n한국어: 프로퍼티 리스트: Apple이 설정을 키와 값으로 저장할 때 쓰는 XML 또는 바이너리 파일 형식\n\nIn this video, Mina and Jake find out why the app crashes on launch while loading a config file, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 83 of the iOS Daily English series.\n\n#Swift #iOSDeveloper #EnglishForDevelopers",
+      "tags": [
+        "Bundle Identifier",
+        "Main Bundle",
+        "Property List",
+        "Bundle.main",
+        "Info.plist",
+        "target membership",
+        "iOS 기초",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "ios development",
+        "iOS Daily English"
+      ],
+      "hook": "The app crashes loading one file. Can you explain why in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "Where did Config go?",
+    "setting": "Launch crash",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, the app crashes on launch, right at `url`.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Which file is it loading?",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "`Config`, our Property List with the server address.",
+        "terms": [
+          "Property List"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Then the Main Bundle can't find it. Is it in the target?",
+        "terms": [
+          "Main Bundle"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Oh, target membership was off. So it never got copied.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Right. Only files in the target end up in the Main Bundle.",
+        "terms": [
+          "Main Bundle"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Can the staging build use a different file?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Sure. Staging has its own Bundle Identifier, so the code can check it.",
+        "terms": [
+          "Bundle Identifier"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Isn't the Bundle Identifier also stored in a Property List?",
+        "terms": [
+          "Bundle Identifier",
+          "Property List"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Yes, in the Info plist. That's a Property List too, just keys and values.",
+        "terms": [
+          "Property List"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Got it. With the file in the Main Bundle, `url` won't be nil.",
+        "terms": [
+          "Main Bundle"
+        ]
+      }
+    ],
+    "code": "let url = Bundle.main.url(\n    forResource: \"Config\",\n    withExtension: \"plist\")!\nlet data = try Data(contentsOf: url)",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "Bundle Identifier",
+      "lines": [
+        {
+          "text": "Staging gets its own Bundle Identifier, so both apps fit on one phone."
+        }
+      ],
+      "title": "Staging gets its own Bundle Identifier, so both apps fit on one phone. #Shorts",
+      "description": "Staging gets its own Bundle Identifier, so both apps fit on one phone.\n\nBundle Identifier - A unique name for your app, usually written in reverse domain style, that iOS and the App Store use to tell apps apart.\n한국어: 번들 식별자: 보통 도메인을 거꾸로 쓴 형태로, iOS와 App Store가 앱을 서로 구분하는 데 쓰는 고유한 이름\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "Main Bundle",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Why can't the app find my image?"
+        },
+        {
+          "speaker": "B",
+          "text": "It's not in the Main Bundle. Check target membership."
+        }
+      ],
+      "title": "Why can't the app find my image? / It's not in the Main Bundle. #Shorts",
+      "description": "Why can't the app find my image? / It's not in the Main Bundle. Check target membership.\n\nMain Bundle - The folder that holds your running app's code and resources, reached in code with `Bundle.main`.\n한국어: 메인 번들: 실행 중인 앱의 코드와 리소스가 들어 있는 폴더로, 코드에서는 `Bundle.main`으로 접근함\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Property List",
+      "lines": [
+        {
+          "text": "Your Info plist is just a Property List of keys and values."
+        }
+      ],
+      "title": "Your Info plist is just a Property List of keys and values. #Shorts",
+      "description": "Your Info plist is just a Property List of keys and values.\n\nProperty List - A file format Apple uses to store settings as keys and values, in XML or binary.\n한국어: 프로퍼티 리스트: Apple이 설정을 키와 값으로 저장할 때 쓰는 XML 또는 바이너리 파일 형식\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "Where did Config go?"
+}

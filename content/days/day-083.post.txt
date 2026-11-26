@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 83
+
+Bundle Identifier
+- A unique name for your app, usually written in reverse domain style, that iOS and the App Store use to tell apps apart.
+- Example: "The staging app has its own Bundle Identifier, so both apps fit on one phone."
+
+Main Bundle
+- The folder that holds your running app's code and resources, reached in code with `Bundle.main`.
+- Example: "The image isn't in the Main Bundle, check its target membership."
+
+Property List
+- A file format Apple uses to store settings as keys and values, in XML or binary.
+- Example: "Put the feature flags in a Property List, so we can change them without touching code."
+
+
+Quiz ①
+Which folder holds your running app's code and resources?
+a) Property List
+b) Main Bundle
+c) Bundle Identifier
+
+Quiz ②
+Which file format stores settings as keys and values, in XML or binary?
+a) Property List
+b) Bundle Identifier
+c) Main Bundle
+
+Quiz ③
+What unique name do iOS and the App Store use to tell your app apart from others?
+a) Main Bundle
+b) Property List
+c) Bundle Identifier

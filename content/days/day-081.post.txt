@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 81
+
+Launch Screen
+- The static screen iOS shows while your app is starting, before your first real screen appears.
+- Example: "Make the Launch Screen look like the first screen, so the start feels fast."
+
+App Delegate
+- The object that receives app-wide events from iOS, like the moment launch finishes.
+- Example: "Put the analytics setup in the App Delegate, it only needs to run once at launch."
+
+Scene Delegate
+- The object that handles the events of one window of your app, like going to the background.
+- Example: "The Scene Delegate saves the draft when the user leaves the app."
+
+
+Quiz ①
+In this code, which object does this method belong to?
+a) App Delegate
+b) Launch Screen
+c) Scene Delegate
+
+Quiz ②
+What does iOS show while your app is starting, before any of your code runs?
+a) Launch Screen
+b) Scene Delegate
+c) App Delegate
+
+Quiz ③
+Which object receives app-wide events, like the moment launch finishes?
+a) Scene Delegate
+b) App Delegate
+c) Launch Screen

@@ -959,6 +959,186 @@
     "inlinable": {
       "term": "Inlinable",
       "day": 80
+    },
+    "launchscreen": {
+      "term": "Launch Screen",
+      "day": 81
+    },
+    "appdelegate": {
+      "term": "App Delegate",
+      "day": 81
+    },
+    "scenedelegate": {
+      "term": "Scene Delegate",
+      "day": 81
+    },
+    "viewcontroller": {
+      "term": "View Controller",
+      "day": 82
+    },
+    "viewdidload": {
+      "term": "viewDidLoad",
+      "day": 82
+    },
+    "viewwillappear": {
+      "term": "viewWillAppear",
+      "day": 82
+    },
+    "bundleidentifier": {
+      "term": "Bundle Identifier",
+      "day": 83
+    },
+    "mainbundle": {
+      "term": "Main Bundle",
+      "day": 83
+    },
+    "propertylist": {
+      "term": "Property List",
+      "day": 83
+    },
+    "autolayout": {
+      "term": "Auto Layout",
+      "day": 84
+    },
+    "constraint": {
+      "term": "Constraint",
+      "day": 84
+    },
+    "layoutanchor": {
+      "term": "Layout Anchor",
+      "day": 84
+    },
+    "intrinsiccontentsize": {
+      "term": "Intrinsic Content Size",
+      "day": 85
+    },
+    "contenthugging": {
+      "term": "Content Hugging",
+      "day": 85
+    },
+    "compressionresistance": {
+      "term": "Compression Resistance",
+      "day": 85
+    },
+    "stackview": {
+      "term": "Stack View",
+      "day": 86
+    },
+    "safearea": {
+      "term": "Safe Area",
+      "day": 86
+    },
+    "layoutmargins": {
+      "term": "Layout Margins",
+      "day": 86
+    },
+    "tableview": {
+      "term": "Table View",
+      "day": 87
+    },
+    "reuseidentifier": {
+      "term": "Reuse Identifier",
+      "day": 87
+    },
+    "cellreuse": {
+      "term": "Cell Reuse",
+      "day": 87
+    },
+    "collectionview": {
+      "term": "Collection View",
+      "day": 88
+    },
+    "compositionallayout": {
+      "term": "Compositional Layout",
+      "day": 88
+    },
+    "diffabledatasource": {
+      "term": "Diffable Data Source",
+      "day": 88
+    },
+    "navigationcontroller": {
+      "term": "Navigation Controller",
+      "day": 89
+    },
+    "pushnavigation": {
+      "term": "Push Navigation",
+      "day": 89
+    },
+    "modalpresentation": {
+      "term": "Modal Presentation",
+      "day": 89
+    },
+    "permissionprompt": {
+      "term": "Permission Prompt",
+      "day": 90
+    },
+    "usagedescription": {
+      "term": "Usage Description",
+      "day": 90
+    },
+    "authorizationstatus": {
+      "term": "Authorization Status",
+      "day": 90
+    },
+    "capability": {
+      "term": "Capability",
+      "day": 91
+    },
+    "entitlement": {
+      "term": "Entitlement",
+      "day": 91
+    },
+    "appsandbox": {
+      "term": "App Sandbox",
+      "day": 91
+    },
+    "targetaction": {
+      "term": "Target Action",
+      "day": 92
+    },
+    "gesturerecognizer": {
+      "term": "Gesture Recognizer",
+      "day": 92
+    },
+    "responderchain": {
+      "term": "Responder Chain",
+      "day": 92
+    },
+    "userdefaults": {
+      "term": "UserDefaults",
+      "day": 93
+    },
+    "filemanager": {
+      "term": "File Manager",
+      "day": 93
+    },
+    "documentsdirectory": {
+      "term": "Documents Directory",
+      "day": 93
+    },
+    "localnotification": {
+      "term": "Local Notification",
+      "day": 94
+    },
+    "pushnotification": {
+      "term": "Push Notification",
+      "day": 94
+    },
+    "notificationcenter": {
+      "term": "Notification Center",
+      "day": 94
+    },
+    "widget": {
+      "term": "Widget",
+      "day": 95
+    },
+    "appextension": {
+      "term": "App Extension",
+      "day": 95
+    },
+    "appgroup": {
+      "term": "App Group",
+      "day": 95
     }
   }
 }

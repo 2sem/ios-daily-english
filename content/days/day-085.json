@@ -1,0 +1,226 @@
+{
+  "day": 85,
+  "phase": "3. iOS foundations",
+  "theme": "3 terms on how Auto Layout shares space: the natural size a view gets from its content, the priority against growing, and the priority against shrinking",
+  "terms": [
+    {
+      "term": "Intrinsic Content Size",
+      "definition": "The natural size a view wants from its own content, like the width of a label's text.",
+      "example": "A label has an Intrinsic Content Size, so it only needs a position, not a width.",
+      "code": "let label = UILabel()\nlabel.text = \"Hello\"\n// size from the text, no constraints\nlet size = label.intrinsicContentSize",
+      "output": "// no output"
+    },
+    {
+      "term": "Content Hugging",
+      "definition": "A priority for how strongly a view refuses to grow bigger than its natural content size.",
+      "example": "Raise the badge's Content Hugging, so the title label takes the extra space.",
+      "code": "name.setContentHuggingPriority(\n    .defaultLow, for: .horizontal)\nbadge.setContentHuggingPriority(\n    .required, for: .horizontal)",
+      "output": "// no output"
+    },
+    {
+      "term": "Compression Resistance",
+      "definition": "A priority for how strongly a view refuses to shrink smaller than its natural content size.",
+      "example": "Bump the price label's Compression Resistance, so the name gets cut instead.",
+      "code": "// the price must never be cut\nlet p = priceLabel\np.setContentCompressionResistancePriority(\n    .required, for: .horizontal)",
+      "output": "// no output"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "Which priority stops a label from being squeezed and cut off?",
+      "options": [
+        "Intrinsic Content Size",
+        "Content Hugging",
+        "Compression Resistance"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "What do you call the natural size a view gets from its own content?",
+      "options": [
+        "Intrinsic Content Size",
+        "Compression Resistance",
+        "Content Hugging"
+      ],
+      "answer": "a"
+    },
+    {
+      "question": "Which priority keeps a view from stretching wider than its content?",
+      "options": [
+        "Compression Resistance",
+        "Content Hugging",
+        "Intrinsic Content Size"
+      ],
+      "answer": "b"
+    }
+  ],
+  "video": {
+    "title": "Intrinsic Content Size, Content Hugging & Compression Resistance | Day 85",
+    "description": "Learn to explain how Auto Layout decides which view grows or shrinks: Intrinsic Content Size, Content Hugging & Compression Resistance, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nIntrinsic Content Size - The natural size a view wants from its own content, like the width of a label's text.\nContent Hugging - A priority for how strongly a view refuses to grow bigger than its natural content size.\nCompression Resistance - A priority for how strongly a view refuses to shrink smaller than its natural content size.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 85 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "intrinsic content size",
+      "content hugging",
+      "compression resistance",
+      "auto layout priority",
+      "uilabel",
+      "uikit",
+      "ios foundations",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "Auto Layout Intrinsic Content Size, Content Hugging & Compression Resistance | Day 85",
+      "description": "Explain Intrinsic Content Size, Content Hugging & Compression Resistance in UIKit by listening to a real code chat between two iOS devs.\n고유 콘텐츠 크기, 콘텐츠 허깅, 압축 저항 표현을 영어 대화로 익혀요.\n\nIntrinsic Content Size - The natural size a view wants from its own content, like the width of a label's text.\n한국어: 고유 콘텐츠 크기: 레이블의 텍스트 너비처럼, 뷰가 자기 콘텐츠로부터 원하는 자연스러운 크기\n\nContent Hugging - A priority for how strongly a view refuses to grow bigger than its natural content size.\n한국어: 콘텐츠 허깅: 뷰가 자연스러운 콘텐츠 크기보다 커지기를 얼마나 강하게 거부하는지 나타내는 우선순위\n\nCompression Resistance - A priority for how strongly a view refuses to shrink smaller than its natural content size.\n한국어: 압축 저항: 뷰가 자연스러운 콘텐츠 크기보다 작아지기를 얼마나 강하게 거부하는지 나타내는 우선순위\n\nIn this video, Mina and Jake find out why a price label gets cut off when the product name is long, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 85 of the iOS Daily English series.\n\n#Swift #iOSDeveloper #EnglishForDevelopers",
+      "tags": [
+        "Intrinsic Content Size",
+        "Content Hugging",
+        "Compression Resistance",
+        "setContentHuggingPriority",
+        "Auto Layout",
+        "UIKit",
+        "iOS 기초",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "ios development",
+        "iOS Daily English"
+      ],
+      "hook": "Two labels, one row, and the price gets cut. Can you explain why in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "Who gets cut off?",
+    "setting": "Product card review",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, the `price` gets cut off when the product `name` is long.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Both labels want their Intrinsic Content Size, and there isn't room.",
+        "terms": [
+          "Intrinsic Content Size"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "So Auto Layout has to shrink one of them?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Right. It checks Compression Resistance to decide which one gives up space.",
+        "terms": [
+          "Compression Resistance"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "But I never set it.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Then both use the same default, so Auto Layout can pick either one.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "So I raise Compression Resistance on `price`?",
+        "terms": [
+          "Compression Resistance"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Yes. Then `name` shrinks and shows dots at the end.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "What if the name is short? Which label stretches?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "That's Content Hugging. Give `price` higher Content Hugging, so it stays tight.",
+        "terms": [
+          "Content Hugging"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Got it. `price` keeps its Intrinsic Content Size, and `name` takes the rest.",
+        "terms": [
+          "Intrinsic Content Size"
+        ]
+      }
+    ],
+    "code": "NSLayoutConstraint.activate([\n    price.leadingAnchor.constraint(\n        equalTo: name.trailingAnchor),\n    price.trailingAnchor.constraint(\n        equalTo: card.trailingAnchor)\n])",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "Intrinsic Content Size",
+      "lines": [
+        {
+          "text": "Labels know their own width, that's their Intrinsic Content Size."
+        }
+      ],
+      "title": "Labels know their own width, that's their Intrinsic Content Size. #Shorts",
+      "description": "Labels know their own width, that's their Intrinsic Content Size.\n\nIntrinsic Content Size - The natural size a view wants from its own content, like the width of a label's text.\n한국어: 고유 콘텐츠 크기: 레이블의 텍스트 너비처럼, 뷰가 자기 콘텐츠로부터 원하는 자연스러운 크기\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "Content Hugging",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Which label should stretch?"
+        },
+        {
+          "speaker": "B",
+          "text": "The one with lower Content Hugging."
+        }
+      ],
+      "title": "Which label should stretch? / The one with lower Content Hugging. #Shorts",
+      "description": "Which label should stretch? / The one with lower Content Hugging.\n\nContent Hugging - A priority for how strongly a view refuses to grow bigger than its natural content size.\n한국어: 콘텐츠 허깅: 뷰가 자연스러운 콘텐츠 크기보다 커지기를 얼마나 강하게 거부하는지 나타내는 우선순위\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Compression Resistance",
+      "lines": [
+        {
+          "text": "Price cut off? Raise its Compression Resistance."
+        }
+      ],
+      "title": "Price cut off? Raise its Compression Resistance. #Shorts",
+      "description": "Price cut off? Raise its Compression Resistance.\n\nCompression Resistance - A priority for how strongly a view refuses to shrink smaller than its natural content size.\n한국어: 압축 저항: 뷰가 자연스러운 콘텐츠 크기보다 작아지기를 얼마나 강하게 거부하는지 나타내는 우선순위\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "Who gets cut off?"
+}

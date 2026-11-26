@@ -1,0 +1,235 @@
+{
+  "day": 95,
+  "phase": "3. iOS foundations",
+  "theme": "3 terms on app extensions: the small view of your app on the Home Screen, the separate program type it belongs to, and the shared container they both use",
+  "terms": [
+    {
+      "term": "Widget",
+      "definition": "A small view of your app's content on the Home Screen or Lock Screen, built with WidgetKit.",
+      "example": "The Widget shows today's step count, tapping it opens the app.",
+      "code": "import WidgetKit\n// after saving a note in the app\nWidgetCenter.shared\n    .reloadTimelines(ofKind: \"Notes\")",
+      "output": "// no output"
+    },
+    {
+      "term": "App Extension",
+      "definition": "A separate small program inside your app that adds a feature to the system, like a widget or a share sheet action.",
+      "example": "The share sheet item is an App Extension, so it has its own memory limit.",
+      "code": "// in a share extension's view controller\nextensionContext?.completeRequest(\n    returningItems: nil)",
+      "output": "// no output"
+    },
+    {
+      "term": "App Group",
+      "definition": "A shared container that lets your app and its extensions read and write the same data.",
+      "example": "Put the database in the App Group, so the widget can read it.",
+      "code": "import Foundation\nlet shared = UserDefaults(\n    suiteName: \"group.com.example.notes\")!\nshared.set(3, forKey: \"unread\")\nprint(shared.integer(forKey: \"unread\"))",
+      "output": "3"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "In this code, what does the suite name point to?",
+      "code": "let shared = UserDefaults(\n    suiteName: \"group.com.example.notes\")",
+      "options": [
+        "Widget",
+        "App Extension",
+        "App Group"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "What shows a small view of your app on the Home Screen?",
+      "options": [
+        "Widget",
+        "App Group",
+        "App Extension"
+      ],
+      "answer": "a"
+    },
+    {
+      "question": "What do you call a separate small program that adds a feature to the system?",
+      "options": [
+        "App Group",
+        "App Extension",
+        "Widget"
+      ],
+      "answer": "b"
+    }
+  ],
+  "video": {
+    "title": "Widget, App Extension & App Group | Day 95",
+    "description": "Learn to explain how widgets and other extensions share data with the app: Widget, App Extension & App Group, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nWidget - A small view of your app's content on the Home Screen or Lock Screen, built with WidgetKit.\nApp Extension - A separate small program inside your app that adds a feature to the system, like a widget or a share sheet action.\nApp Group - A shared container that lets your app and its extensions read and write the same data.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 95 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "widget",
+      "app extension",
+      "app group",
+      "widgetkit",
+      "share extension",
+      "userdefaults suite",
+      "ios foundations",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "iOS Widget, App Extension & App Group | Day 95",
+      "description": "Explain Widget, App Extension & App Group in UIKit by listening to a real code chat between two iOS devs.\n위젯, 앱 익스텐션, 앱 그룹 표현을 영어 대화로 익혀요.\n\nWidget - A small view of your app's content on the Home Screen or Lock Screen, built with WidgetKit.\n한국어: 위젯: WidgetKit으로 만들어 홈 화면이나 잠금 화면에 앱 내용을 작게 보여주는 뷰\n\nApp Extension - A separate small program inside your app that adds a feature to the system, like a widget or a share sheet action.\n한국어: 앱 익스텐션: 위젯이나 공유 시트 동작처럼 시스템에 기능을 더하는, 앱 안의 별도 작은 프로그램\n\nApp Group - A shared container that lets your app and its extensions read and write the same data.\n한국어: 앱 그룹: 앱과 그 익스텐션이 같은 데이터를 읽고 쓸 수 있게 해 주는 공유 컨테이너\n\nIn this video, Mina and Jake find out why the widget always shows zero unread messages, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 95 of the iOS Daily English series.\n\n#Swift #iOSDeveloper #EnglishForDevelopers",
+      "tags": [
+        "Widget",
+        "App Extension",
+        "App Group",
+        "WidgetKit",
+        "reloadTimelines",
+        "UserDefaults suiteName",
+        "iOS 기초",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "iOS Daily English"
+      ],
+      "hook": "The widget always shows zero. Can you explain why in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "Why does the widget say zero?",
+    "setting": "Inbox widget bug",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, the Widget always shows zero unread, even with new messages.",
+        "terms": [
+          "Widget"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Where does the app save `unread`?",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "In the standard UserDefaults.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "That's the problem. The Widget is an App Extension, with its own container.",
+        "terms": [
+          "Widget",
+          "App Extension"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "So the Widget reads a completely different store?",
+        "terms": [
+          "Widget"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Exactly. Every App Extension gets its own. Share data through an App Group.",
+        "terms": [
+          "App Extension",
+          "App Group"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Then I save with the App Group suite name instead?",
+        "terms": [
+          "App Group"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Yes, in both the app and the Widget. Same group name.",
+        "terms": [
+          "Widget"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Do I still need `reloadTimelines`?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Yes, or the Widget waits for its next scheduled timeline update.",
+        "terms": [
+          "Widget"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Got it. One App Group, and the App Extension sees the same `unread`.",
+        "terms": [
+          "App Extension",
+          "App Group"
+        ]
+      }
+    ],
+    "code": "// in the app, after a new message\nUserDefaults.standard\n    .set(unread, forKey: \"unread\")\nWidgetCenter.shared\n    .reloadTimelines(ofKind: \"Inbox\")",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "Widget",
+      "lines": [
+        {
+          "text": "A Widget is a tiny window into your app on the Home Screen."
+        }
+      ],
+      "title": "A Widget is a tiny window into your app on the Home Screen. #Shorts",
+      "description": "A Widget is a tiny window into your app on the Home Screen.\n\nWidget - A small view of your app's content on the Home Screen or Lock Screen, built with WidgetKit.\n한국어: 위젯: WidgetKit으로 만들어 홈 화면이나 잠금 화면에 앱 내용을 작게 보여주는 뷰\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "App Extension",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Why can't the share sheet see my data?"
+        },
+        {
+          "speaker": "B",
+          "text": "It's an App Extension with its own container."
+        }
+      ],
+      "title": "Why can't the share sheet see my data? / It's an App Extension with its own container. #Shorts",
+      "description": "Why can't the share sheet see my data? / It's an App Extension with its own container.\n\nApp Extension - A separate small program inside your app that adds a feature to the system, like a widget or a share sheet action.\n한국어: 앱 익스텐션: 위젯이나 공유 시트 동작처럼 시스템에 기능을 더하는, 앱 안의 별도 작은 프로그램\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "App Group",
+      "lines": [
+        {
+          "text": "App and widget need the same data? Use an App Group."
+        }
+      ],
+      "title": "App and widget need the same data? Use an App Group. #Shorts",
+      "description": "App and widget need the same data? Use an App Group.\n\nApp Group - A shared container that lets your app and its extensions read and write the same data.\n한국어: 앱 그룹: 앱과 그 익스텐션이 같은 데이터를 읽고 쓸 수 있게 해 주는 공유 컨테이너\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "Why does the widget say zero?"
+}
