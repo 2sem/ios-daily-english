@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 212
+
+Managed Object Model
+- A blueprint that lists the kinds of objects, and their fields, that the app can store.
+- Example: "Add the new field to the managed object model."
+
+NSManagedObject
+- The base class for every object that the framework creates and stores for you.
+- Example: "Each note is an NSManagedObject with a title."
+
+NSFetchRequest
+- A request that asks for stored objects of one type and returns the ones it finds.
+- Example: "Build an NSFetchRequest for all unread notes."
+
+
+Quiz ①
+What do you call a request that asks for stored objects of one type and returns the ones it finds?
+a) Managed Object Model
+b) NSManagedObject
+c) NSFetchRequest
+
+Quiz ②
+What do you call a blueprint that lists the kinds of objects, and their fields, that the app can store?
+a) Managed Object Model
+b) NSManagedObject
+c) NSFetchRequest
+
+Quiz ③
+What do you call the base class for every object that the framework creates and stores for you?
+a) Managed Object Model
+b) NSManagedObject
+c) NSFetchRequest

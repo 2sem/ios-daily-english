@@ -1,0 +1,232 @@
+{
+  "day": 228,
+  "phase": "5. App architecture & data",
+  "theme": "Offline-first apps: local changes, instant feedback and queues",
+  "terms": [
+    {
+      "term": "Offline-First",
+      "definition": "A design where the app works from local data first and talks to the server when it can.",
+      "example": "An offline-first app never shows a blank screen.",
+      "code": "var local = [\"note\": \"draft\"]\nlet online = false\nlocal[\"note\"] = \"edited\"\nif !online { print(\"saved locally\") }",
+      "output": "saved locally"
+    },
+    {
+      "term": "Optimistic Update",
+      "definition": "Showing a change on screen right away, before the server confirms it.",
+      "example": "An optimistic update makes the like button feel instant.",
+      "code": "var liked = false\nliked = true\nlet serverOK = false\nif !serverOK { liked = false }\nprint(liked)",
+      "output": "false"
+    },
+    {
+      "term": "Sync Queue",
+      "definition": "A waiting list of changes saved on the device, which the app sends to the server later.",
+      "example": "The sync queue sends the edits when we are online.",
+      "code": "var queue: [String] = []\nqueue.append(\"edit note 1\")\nqueue.append(\"delete note 2\")\nfor job in queue { print(\"send:\", job) }\nqueue.removeAll()",
+      "output": "send: edit note 1\nsend: delete note 2"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What do you call a waiting list of changes saved on the device, which the app sends to the server later?",
+      "options": [
+        "Sync Queue",
+        "Offline-First",
+        "Optimistic Update"
+      ],
+      "answer": "a"
+    },
+    {
+      "question": "What do you call a design where the app works from local data first and talks to the server when it can?",
+      "options": [
+        "Optimistic Update",
+        "Offline-First",
+        "Sync Queue"
+      ],
+      "answer": "b"
+    },
+    {
+      "question": "What do you call showing a change on screen right away, before the server confirms it?",
+      "options": [
+        "Offline-First",
+        "Sync Queue",
+        "Optimistic Update"
+      ],
+      "answer": "c"
+    }
+  ],
+  "video": {
+    "title": "Offline-First, Optimistic Update & Sync Queue | Day 228",
+    "description": "Learn to explain how an app keeps working without a connection: Offline-First, Optimistic Update & Sync Queue, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nOffline-First - A design where the app works from local data first and talks to the server when it can.\nOptimistic Update - Showing a change on screen right away, before the server confirms it.\nSync Queue - A waiting list of changes saved on the device, which the app sends to the server later.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 228 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "Offline-First",
+      "Optimistic Update",
+      "Sync Queue",
+      "offline-first",
+      "optimistic update",
+      "sync queue",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "iOS Offline-First, Optimistic Update & Sync Queue | Day 228",
+      "description": "Explain Offline-First, Optimistic Update & Sync Queue in iOS by listening to a real code chat between two iOS devs.\nOffline-First, Optimistic Update, Sync Queue 표현을 영어 대화로 익혀요.\n\nOffline-First - A design where the app works from local data first and talks to the server when it can.\n한국어: Offline-First: 앱이 먼저 로컬 데이터로 동작하고 가능할 때 서버와 통신하는 설계\n\nOptimistic Update - Showing a change on screen right away, before the server confirms it.\n한국어: Optimistic Update: 서버가 확인하기 전에 변경 사항을 화면에 바로 보여 주는 것\n\nSync Queue - A waiting list of changes saved on the device, which the app sends to the server later.\n한국어: Sync Queue: 기기에 저장해 두었다가 나중에 서버로 보내는 변경 사항의 대기 목록\n\nIn this video, Mina and Jake talk about how an app keeps working without a connection, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 228 of the iOS Daily English series.\n\n#Swift #iOSArchitecture #EnglishForDevelopers",
+      "tags": [
+        "Offline-First",
+        "Optimistic Update",
+        "Sync Queue",
+        "iOS architecture",
+        "iOS 아키텍처",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "iOS Daily English"
+      ],
+      "hook": "Can you explain Offline-First, Optimistic Update and Sync Queue in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "Like it, even offline",
+    "setting": "Making the like button work offline",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, the like button waits for the server. On a bad network, it feels broken.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Make the app offline-first. It works from local data first.",
+        "terms": [
+          "Offline-First"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "So the user can like a post without internet?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Yes. Use an optimistic update. Show the like right away, like `liked = true` in our code.",
+        "terms": [
+          "Optimistic Update"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "But what if the server says no?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Then you roll the change back. An optimistic update is a bet that the server will agree.",
+        "terms": [
+          "Optimistic Update"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "And where does the change go while we are offline?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Into a sync queue, like `queue` in our code.",
+        "terms": [
+          "Sync Queue"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "So the sync queue is a waiting list of changes?",
+        "terms": [
+          "Sync Queue"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Yes. When `online` is true, the app sends them and clears the sync queue.",
+        "terms": [
+          "Sync Queue"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "I forgot to clear it, so some posts were liked twice.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Good catch. Offline-first needs a clean sync queue after every send.",
+        "terms": [
+          "Offline-First",
+          "Sync Queue"
+        ]
+      }
+    ],
+    "code": "var queue: [String] = []\nvar liked = false\nlet online = false\nliked = true\nqueue.append(\"like post 7\")\nif online { queue.removeAll() }",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "Offline-First",
+      "lines": [
+        {
+          "text": "An offline-first app never shows a blank screen."
+        }
+      ],
+      "title": "An offline-first app never shows a blank screen. #Shorts",
+      "description": "An offline-first app never shows a blank screen.\n\nOffline-First - A design where the app works from local data first and talks to the server when it can.\n한국어: Offline-First: 앱이 먼저 로컬 데이터로 동작하고 가능할 때 서버와 통신하는 설계\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "Optimistic Update",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Why did the heart turn red?"
+        },
+        {
+          "speaker": "B",
+          "text": "It is an optimistic update."
+        }
+      ],
+      "title": "Why did the heart turn red? / It is an optimistic update. #Shorts",
+      "description": "Why did the heart turn red? / It is an optimistic update.\n\nOptimistic Update - Showing a change on screen right away, before the server confirms it.\n한국어: Optimistic Update: 서버가 확인하기 전에 변경 사항을 화면에 바로 보여 주는 것\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Sync Queue",
+      "lines": [
+        {
+          "text": "The sync queue sends the edits when we are online."
+        }
+      ],
+      "title": "The sync queue sends the edits when we are online. #Shorts",
+      "description": "The sync queue sends the edits when we are online.\n\nSync Queue - A waiting list of changes saved on the device, which the app sends to the server later.\n한국어: Sync Queue: 기기에 저장해 두었다가 나중에 서버로 보내는 변경 사항의 대기 목록\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "App useless offline? Build it offline-first."
+}

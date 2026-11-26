@@ -1,0 +1,230 @@
+{
+  "day": 216,
+  "phase": "5. App architecture & data",
+  "theme": "Core Data in practice: background work, conflicts and live lists",
+  "terms": [
+    {
+      "term": "Background Context",
+      "definition": "A second context that does slow work on a background queue, so the screen stays smooth.",
+      "example": "Import the data in a background context.",
+      "code": "import CoreData\nlet bg = NSManagedObjectContext(.privateQueue)\nbg.performAndWait {\n    print(\"slow work here\")\n}",
+      "output": "slow work here"
+    },
+    {
+      "term": "Merge Policy",
+      "definition": "A rule that decides which version wins when two contexts change the same object.",
+      "example": "Set a merge policy so the newest change wins.",
+      "code": "import CoreData\nlet ctx = NSManagedObjectContext(.mainQueue)\nctx.mergePolicy = NSOverwriteMergePolicy\nprint(ctx.mergePolicy is NSMergePolicy)",
+      "output": "true"
+    },
+    {
+      "term": "NSFetchedResultsController",
+      "definition": "A helper that watches a fetch request and tells a table view when the results change.",
+      "example": "An NSFetchedResultsController keeps the list in sync.",
+      "code": "import CoreData\nclass Note: NSManagedObject {}\nfunc n(_ c: NSFetchedResultsController<Note>) {\n    print(c.fetchedObjects?.count ?? 0)\n}",
+      "output": "// no output"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What do you call a helper that watches a fetch request and tells a table view when the results change?",
+      "options": [
+        "NSFetchedResultsController",
+        "Background Context",
+        "Merge Policy"
+      ],
+      "answer": "a"
+    },
+    {
+      "question": "What do you call a second context that does slow work on a background queue, so the screen stays smooth?",
+      "options": [
+        "Merge Policy",
+        "Background Context",
+        "NSFetchedResultsController"
+      ],
+      "answer": "b"
+    },
+    {
+      "question": "What do you call a rule that decides which version wins when two contexts change the same object?",
+      "options": [
+        "Background Context",
+        "NSFetchedResultsController",
+        "Merge Policy"
+      ],
+      "answer": "c"
+    }
+  ],
+  "video": {
+    "title": "Background Context, Merge Policy & NSFetchedResultsController | Day 216",
+    "description": "Learn to explain how Core Data does slow work off the main thread and keeps lists up to date: Background Context, Merge Policy & NSFetchedResultsController, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nBackground Context - A second context that does slow work on a background queue, so the screen stays smooth.\nMerge Policy - A rule that decides which version wins when two contexts change the same object.\nNSFetchedResultsController - A helper that watches a fetch request and tells a table view when the results change.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 216 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "Background Context",
+      "Merge Policy",
+      "NSFetchedResultsController",
+      "background context",
+      "merge policy",
+      "nsfetchedresultscontroller",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "iOS Background Context, Merge Policy & NSFetchedResultsController | Day 216",
+      "description": "Explain Background Context, Merge Policy & NSFetchedResultsController in iOS by listening to a real code chat between two iOS devs.\nBackground Context, Merge Policy, NSFetchedResultsController 표현을 영어 대화로 익혀요.\n\nBackground Context - A second context that does slow work on a background queue, so the screen stays smooth.\n한국어: Background Context: 화면이 부드럽게 유지되도록 백그라운드 큐에서 느린 작업을 하는 두 번째 컨텍스트\n\nMerge Policy - A rule that decides which version wins when two contexts change the same object.\n한국어: Merge Policy: 두 컨텍스트가 같은 객체를 바꿨을 때 어느 버전이 이길지 정하는 규칙\n\nNSFetchedResultsController - A helper that watches a fetch request and tells a table view when the results change.\n한국어: NSFetchedResultsController: 가져오기 요청을 지켜보다가 결과가 바뀌면 테이블 뷰에 알려 주는 도우미\n\nIn this video, Mina and Jake talk about how Core Data does slow work off the main thread and keeps lists up to date, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 216 of the iOS Daily English series.\n\n#Swift #iOSArchitecture #EnglishForDevelopers",
+      "tags": [
+        "Background Context",
+        "Merge Policy",
+        "NSFetchedResultsController",
+        "iOS architecture",
+        "iOS 아키텍처",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "iOS Daily English"
+      ],
+      "hook": "Can you explain Background Context, Merge Policy and NSFetchedResultsController in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "The frozen import",
+    "setting": "Fixing a freeze during import",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, the screen freezes when we import a thousand notes.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "You import on the main queue. Use a background context instead.",
+        "terms": [
+          "Background Context"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Like `bg` in our code?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Yes. A background context does the slow work, so the screen stays smooth.",
+        "terms": [
+          "Background Context"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "But now my edit and the import change the same note.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Then you need a merge policy. It decides which version wins.",
+        "terms": [
+          "Merge Policy"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "I set `mergePolicy` to `NSOverwriteMergePolicy`. Is that right?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "It makes the new change win. Pick the merge policy that fits your app.",
+        "terms": [
+          "Merge Policy"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "The list does not show the imported notes, though.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Add an NSFetchedResultsController. It watches the fetch request and reports the changes.",
+        "terms": [
+          "NSFetchedResultsController"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "So the table view updates by itself?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Yes. The background context saves, and the NSFetchedResultsController tells the list.",
+        "terms": [
+          "Background Context",
+          "NSFetchedResultsController"
+        ]
+      }
+    ],
+    "code": "import CoreData\nlet bg = NSManagedObjectContext(.privateQueue)\nbg.mergePolicy = NSOverwriteMergePolicy\nclass Note: NSManagedObject {}\nfunc n(_ c: NSFetchedResultsController<Note>) {}",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "Background Context",
+      "lines": [
+        {
+          "text": "Import in a background context, not on the main queue."
+        }
+      ],
+      "title": "Import in a background context, not on the main queue. #Shorts",
+      "description": "Import in a background context, not on the main queue.\n\nBackground Context - A second context that does slow work on a background queue, so the screen stays smooth.\n한국어: Background Context: 화면이 부드럽게 유지되도록 백그라운드 큐에서 느린 작업을 하는 두 번째 컨텍스트\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "Merge Policy",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Which change wins?"
+        },
+        {
+          "speaker": "B",
+          "text": "The merge policy decides."
+        }
+      ],
+      "title": "Which change wins? / The merge policy decides. #Shorts",
+      "description": "Which change wins? / The merge policy decides.\n\nMerge Policy - A rule that decides which version wins when two contexts change the same object.\n한국어: Merge Policy: 두 컨텍스트가 같은 객체를 바꿨을 때 어느 버전이 이길지 정하는 규칙\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "NSFetchedResultsController",
+      "lines": [
+        {
+          "text": "An NSFetchedResultsController keeps the list in sync."
+        }
+      ],
+      "title": "An NSFetchedResultsController keeps the list in sync. #Shorts",
+      "description": "An NSFetchedResultsController keeps the list in sync.\n\nNSFetchedResultsController - A helper that watches a fetch request and tells a table view when the results change.\n한국어: NSFetchedResultsController: 가져오기 요청을 지켜보다가 결과가 바뀌면 테이블 뷰에 알려 주는 도우미\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "Screen freezes on import? Use a background context."
+}

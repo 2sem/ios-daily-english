@@ -1,0 +1,230 @@
+{
+  "day": 222,
+  "phase": "5. App architecture & data",
+  "theme": "CloudKit databases, zones and change alerts",
+  "terms": [
+    {
+      "term": "Private Database",
+      "definition": "The CloudKit database that only the signed-in user can read, and it uses that user's iCloud storage.",
+      "example": "Personal notes belong in the private database.",
+      "code": "import CloudKit\nfunc save(_ r: CKRecord,\n          to c: CKContainer) async throws {\n    try await c.privateCloudDatabase.save(r)\n}",
+      "output": "// no output"
+    },
+    {
+      "term": "Record Zone",
+      "definition": "A named group of records inside a database, which helps CloudKit track changes.",
+      "example": "Create a record zone called Notes for the user.",
+      "code": "import CloudKit\nlet z = CKRecordZone(zoneName: \"Notes\")\nprint(z.zoneID.zoneName)",
+      "output": "Notes"
+    },
+    {
+      "term": "CKSubscription",
+      "definition": "A request that asks CloudKit to send a push message when matching records change.",
+      "example": "Add a CKSubscription so the other device hears about new notes.",
+      "code": "import CloudKit\nlet s: CKSubscription = CKDatabaseSubscription(\n    subscriptionID: \"notes\")\nlet info = CKSubscription.NotificationInfo()\ninfo.shouldSendContentAvailable = true\ns.notificationInfo = info",
+      "output": "// no output"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What do you call a request that asks CloudKit to send a push message when matching records change?",
+      "options": [
+        "CKSubscription",
+        "Private Database",
+        "Record Zone"
+      ],
+      "answer": "a"
+    },
+    {
+      "question": "What do you call the CloudKit database that only the signed-in user can read, and it uses that user's iCloud storage?",
+      "options": [
+        "Record Zone",
+        "Private Database",
+        "CKSubscription"
+      ],
+      "answer": "b"
+    },
+    {
+      "question": "What do you call a named group of records inside a database, which helps CloudKit track changes?",
+      "options": [
+        "Private Database",
+        "CKSubscription",
+        "Record Zone"
+      ],
+      "answer": "c"
+    }
+  ],
+  "video": {
+    "title": "Private Database, Record Zone & CKSubscription | Day 222",
+    "description": "Learn to explain where CloudKit keeps records and how it tells your app about changes: Private Database, Record Zone & CKSubscription, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nPrivate Database - The CloudKit database that only the signed-in user can read, and it uses that user's iCloud storage.\nRecord Zone - A named group of records inside a database, which helps CloudKit track changes.\nCKSubscription - A request that asks CloudKit to send a push message when matching records change.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 222 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "Private Database",
+      "Record Zone",
+      "CKSubscription",
+      "private database",
+      "record zone",
+      "cksubscription",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "iOS Private Database, Record Zone & CKSubscription | Day 222",
+      "description": "Explain Private Database, Record Zone & CKSubscription in iOS by listening to a real code chat between two iOS devs.\nPrivate Database, Record Zone, CKSubscription 표현을 영어 대화로 익혀요.\n\nPrivate Database - The CloudKit database that only the signed-in user can read, and it uses that user's iCloud storage.\n한국어: Private Database: 로그인한 사용자만 읽을 수 있고 그 사용자의 iCloud 저장 공간을 쓰는 CloudKit 데이터베이스\n\nRecord Zone - A named group of records inside a database, which helps CloudKit track changes.\n한국어: Record Zone: CloudKit이 변경 사항을 추적하도록 도와주는 데이터베이스 안의 이름 붙은 레코드 묶음\n\nCKSubscription - A request that asks CloudKit to send a push message when matching records change.\n한국어: CKSubscription: 조건에 맞는 레코드가 바뀌면 푸시 메시지를 보내 달라고 CloudKit에 하는 요청\n\nIn this video, Mina and Jake talk about where CloudKit keeps records and how it tells your app about changes, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 222 of the iOS Daily English series.\n\n#Swift #iOSArchitecture #EnglishForDevelopers",
+      "tags": [
+        "Private Database",
+        "Record Zone",
+        "CKSubscription",
+        "iOS architecture",
+        "iOS 아키텍처",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "iOS Daily English"
+      ],
+      "hook": "Can you explain Private Database, Record Zone and CKSubscription in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "Who can see my notes?",
+    "setting": "Choosing where notes are stored",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, which CloudKit database should hold personal notes?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "The private database. Only the signed-in user can read it.",
+        "terms": [
+          "Private Database"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Is that `db` in our code?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Yes, `privateCloudDatabase`. And it uses the user's own iCloud storage, not ours.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "That is a big plus. Can I put the records directly in it?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "You can, but a record zone is better. It groups the records and helps CloudKit track changes.",
+        "terms": [
+          "Record Zone"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "I used the default zone before, and changes were hard to find.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "That is why a custom record zone matters. Like `z`, called Notes.",
+        "terms": [
+          "Record Zone"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Now the iPad must hear about new notes.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Add a CKSubscription, like `s` in our code. It asks CloudKit to send a push when records change.",
+        "terms": [
+          "CKSubscription"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "So the CKSubscription wakes the other device?",
+        "terms": [
+          "CKSubscription"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Yes. Then it fetches the changes from the record zone in the private database.",
+        "terms": [
+          "Private Database",
+          "Record Zone"
+        ]
+      }
+    ],
+    "code": "import CloudKit\nlet c = CKContainer.default()\nlet db = c.privateCloudDatabase\nlet z = CKRecordZone(zoneName: \"Notes\")\nlet s = CKDatabaseSubscription(\n    subscriptionID: \"notes\")",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "Private Database",
+      "lines": [
+        {
+          "text": "Personal notes belong in the private database."
+        }
+      ],
+      "title": "Personal notes belong in the private database. #Shorts",
+      "description": "Personal notes belong in the private database.\n\nPrivate Database - The CloudKit database that only the signed-in user can read, and it uses that user's iCloud storage.\n한국어: Private Database: 로그인한 사용자만 읽을 수 있고 그 사용자의 iCloud 저장 공간을 쓰는 CloudKit 데이터베이스\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "Record Zone",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Why a custom zone?"
+        },
+        {
+          "speaker": "B",
+          "text": "A record zone helps CloudKit track changes."
+        }
+      ],
+      "title": "Why a custom zone? / A record zone helps CloudKit track changes. #Shorts",
+      "description": "Why a custom zone? / A record zone helps CloudKit track changes.\n\nRecord Zone - A named group of records inside a database, which helps CloudKit track changes.\n한국어: Record Zone: CloudKit이 변경 사항을 추적하도록 도와주는 데이터베이스 안의 이름 붙은 레코드 묶음\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "CKSubscription",
+      "lines": [
+        {
+          "text": "Add a CKSubscription so the iPad hears about new notes."
+        }
+      ],
+      "title": "Add a CKSubscription so the iPad hears about new notes. #Shorts",
+      "description": "Add a CKSubscription so the iPad hears about new notes.\n\nCKSubscription - A request that asks CloudKit to send a push message when matching records change.\n한국어: CKSubscription: 조건에 맞는 레코드가 바뀌면 푸시 메시지를 보내 달라고 CloudKit에 하는 요청\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "Whose notes are these? Use the private database."
+}

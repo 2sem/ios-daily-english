@@ -1,0 +1,233 @@
+{
+  "day": 211,
+  "phase": "5. App architecture & data",
+  "theme": "Core Data basics: the framework, the container and the context",
+  "terms": [
+    {
+      "term": "Core Data",
+      "definition": "A framework from Apple that stores an app's objects and the links between them on the device.",
+      "example": "We use Core Data to store the user's notes.",
+      "code": "import CoreData\nlet model = NSManagedObjectModel()\nprint(model.entities.count)",
+      "output": "0"
+    },
+    {
+      "term": "NSPersistentContainer",
+      "definition": "An object that sets up the whole storage stack for you, so you can start saving data quickly.",
+      "example": "The app creates one NSPersistentContainer at launch.",
+      "code": "import CoreData\nlet m = NSManagedObjectModel()\nlet c = NSPersistentContainer(\n    name: \"Notes\", managedObjectModel: m)\nprint(c.name)",
+      "output": "Notes"
+    },
+    {
+      "term": "NSManagedObjectContext",
+      "definition": "A scratch pad where you create, change and fetch objects before you save them.",
+      "example": "Save the NSManagedObjectContext after you edit the note.",
+      "code": "import CoreData\nlet ctx = NSManagedObjectContext(\n    concurrencyType: .mainQueueConcurrencyType)\nprint(ctx.hasChanges)",
+      "output": "false"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What do you call an object that sets up the whole storage stack for you, so you can start saving data quickly?",
+      "options": [
+        "Core Data",
+        "NSPersistentContainer",
+        "NSManagedObjectContext"
+      ],
+      "answer": "b"
+    },
+    {
+      "question": "What do you call a scratch pad where you create, change and fetch objects before you save them?",
+      "options": [
+        "Core Data",
+        "NSPersistentContainer",
+        "NSManagedObjectContext"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "What do you call a framework from Apple that stores an app's objects and the links between them on the device?",
+      "options": [
+        "Core Data",
+        "NSPersistentContainer",
+        "NSManagedObjectContext"
+      ],
+      "answer": "a"
+    }
+  ],
+  "video": {
+    "title": "Core Data, NSPersistentContainer & NSManagedObjectContext | Day 211",
+    "description": "Learn to explain how an app stores objects on the device with Core Data: Core Data, NSPersistentContainer & NSManagedObjectContext, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nCore Data - A framework from Apple that stores an app's objects and the links between them on the device.\nNSPersistentContainer - An object that sets up the whole storage stack for you, so you can start saving data quickly.\nNSManagedObjectContext - A scratch pad where you create, change and fetch objects before you save them.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 211 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "Core Data",
+      "NSPersistentContainer",
+      "NSManagedObjectContext",
+      "core data",
+      "nspersistentcontainer",
+      "nsmanagedobjectcontext",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "iOS Core Data, NSPersistentContainer & NSManagedObjectContext | Day 211",
+      "description": "Explain Core Data, NSPersistentContainer & NSManagedObjectContext in iOS by listening to a real code chat between two iOS devs.\nCore Data, NSPersistentContainer, NSManagedObjectContext 표현을 영어 대화로 익혀요.\n\nCore Data - A framework from Apple that stores an app's objects and the links between them on the device.\n한국어: Core Data: 앱의 객체와 그 사이의 관계를 기기에 저장하는 Apple 프레임워크\n\nNSPersistentContainer - An object that sets up the whole storage stack for you, so you can start saving data quickly.\n한국어: NSPersistentContainer: 저장 구조 전체를 대신 준비해 주어 바로 데이터를 저장할 수 있게 하는 객체\n\nNSManagedObjectContext - A scratch pad where you create, change and fetch objects before you save them.\n한국어: NSManagedObjectContext: 객체를 저장하기 전에 만들고 바꾸고 가져오는 작업 공간\n\nIn this video, Mina and Jake talk about how an app stores objects on the device with Core Data, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 211 of the iOS Daily English series.\n\n#Swift #iOSArchitecture #EnglishForDevelopers",
+      "tags": [
+        "Core Data",
+        "NSPersistentContainer",
+        "NSManagedObjectContext",
+        "iOS architecture",
+        "iOS 아키텍처",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "iOS Daily English"
+      ],
+      "hook": "Can you explain Core Data, NSPersistentContainer and NSManagedObjectContext in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "Where do the notes live?",
+    "setting": "Adding storage to a notes app",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, where should the app keep the user's notes on the device?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Use Core Data. It stores our objects and the links between them.",
+        "terms": [
+          "Core Data"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "How do I start it?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Create an NSPersistentContainer, like `c` in our code. It sets up the whole stack for you.",
+        "terms": [
+          "NSPersistentContainer"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Then how do I add a note?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Use `viewContext`. It is an NSManagedObjectContext, a scratch pad for your changes.",
+        "terms": [
+          "NSManagedObjectContext"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "So Core Data saves the note when I edit it?",
+        "terms": [
+          "Core Data"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Not yet. You must save the NSManagedObjectContext first.",
+        "terms": [
+          "NSManagedObjectContext"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Oh, I forgot to call save. That is why the note disappeared.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Right. Edit in the context, then save. The NSPersistentContainer does the rest.",
+        "terms": [
+          "NSPersistentContainer"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Core Data is easier than I thought.",
+        "terms": [
+          "Core Data"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Just keep one NSPersistentContainer for the whole app.",
+        "terms": [
+          "NSPersistentContainer"
+        ]
+      }
+    ],
+    "code": "import CoreData\nlet m = NSManagedObjectModel()\nlet c = NSPersistentContainer(\n    name: \"Notes\", managedObjectModel: m)\nlet ctx = c.viewContext",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "Core Data",
+      "lines": [
+        {
+          "text": "Core Data stores our notes on the device."
+        }
+      ],
+      "title": "Core Data stores our notes on the device. #Shorts",
+      "description": "Core Data stores our notes on the device.\n\nCore Data - A framework from Apple that stores an app's objects and the links between them on the device.\n한국어: Core Data: 앱의 객체와 그 사이의 관계를 기기에 저장하는 Apple 프레임워크\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "NSPersistentContainer",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Where do I start with Core Data?"
+        },
+        {
+          "speaker": "B",
+          "text": "Create an NSPersistentContainer first."
+        }
+      ],
+      "title": "Where do I start with Core Data? / Create an NSPersistentContainer first. #Shorts",
+      "description": "Where do I start with Core Data? / Create an NSPersistentContainer first.\n\nNSPersistentContainer - An object that sets up the whole storage stack for you, so you can start saving data quickly.\n한국어: NSPersistentContainer: 저장 구조 전체를 대신 준비해 주어 바로 데이터를 저장할 수 있게 하는 객체\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "NSManagedObjectContext",
+      "lines": [
+        {
+          "text": "Edit in the NSManagedObjectContext, then save it."
+        }
+      ],
+      "title": "Edit in the NSManagedObjectContext, then save it. #Shorts",
+      "description": "Edit in the NSManagedObjectContext, then save it.\n\nNSManagedObjectContext - A scratch pad where you create, change and fetch objects before you save them.\n한국어: NSManagedObjectContext: 객체를 저장하기 전에 만들고 바꾸고 가져오는 작업 공간\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "Where do the notes live? Learn Core Data."
+}

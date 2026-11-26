@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 224
+
+Memory Cache
+- A fast cache that keeps items in RAM, but it empties when the app closes.
+- Example: "The memory cache shows the avatar right away."
+
+Disk Cache
+- A cache that saves items in files, so they survive an app restart but load more slowly.
+- Example: "The disk cache keeps images after a restart."
+
+Cache Key
+- A unique name that you use to store and find one item in a cache.
+- Example: "Use the image URL as the cache key."
+
+
+Quiz ①
+What do you call a unique name that you use to store and find one item in a cache?
+a) Memory Cache
+b) Disk Cache
+c) Cache Key
+
+Quiz ②
+What do you call a fast cache that keeps items in RAM, but it empties when the app closes?
+a) Memory Cache
+b) Disk Cache
+c) Cache Key
+
+Quiz ③
+What do you call a cache that saves items in files, so they survive an app restart but load more slowly?
+a) Memory Cache
+b) Disk Cache
+c) Cache Key

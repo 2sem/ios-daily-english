@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 218
+
+FetchDescriptor
+- An object that describes what SwiftData should fetch, with a filter, a sort order and a limit.
+- Example: "Build a FetchDescriptor for the newest five notes."
+
+Predicate Macro
+- A macro that turns a Swift condition into a safe filter for a SwiftData query.
+- Example: "The predicate macro checks our filter when we build the app."
+
+SortDescriptor
+- A value that says which property to sort by and in which order.
+- Example: "Pass a SortDescriptor to show the newest note first."
+
+
+Quiz ①
+What do you call a value that says which property to sort by and in which order?
+a) FetchDescriptor
+b) Predicate Macro
+c) SortDescriptor
+
+Quiz ②
+What do you call an object that describes what SwiftData should fetch, with a filter, a sort order and a limit?
+a) FetchDescriptor
+b) Predicate Macro
+c) SortDescriptor
+
+Quiz ③
+What do you call a macro that turns a Swift condition into a safe filter for a SwiftData query?
+a) FetchDescriptor
+b) Predicate Macro
+c) SortDescriptor

@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 223
+
+Cache Hit
+- A moment when the data you need is already in the cache, so no slow work is needed.
+- Example: "A cache hit makes the profile load instantly."
+
+Cache Miss
+- A moment when the data is not in the cache, so the app must load it the slow way.
+- Example: "On a cache miss, we call the server."
+
+Time to Live
+- How long a cached item stays valid before it counts as too old.
+- Example: "Set the time to live to sixty seconds."
+
+
+Quiz ①
+What do you call a moment when the data is not in the cache, so the app must load it the slow way?
+a) Cache Hit
+b) Cache Miss
+c) Time to Live
+
+Quiz ②
+What do you call how long a cached item stays valid before it counts as too old?
+a) Cache Hit
+b) Cache Miss
+c) Time to Live
+
+Quiz ③
+What do you call a moment when the data you need is already in the cache, so no slow work is needed?
+a) Cache Hit
+b) Cache Miss
+c) Time to Live

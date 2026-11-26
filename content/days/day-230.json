@@ -1,0 +1,230 @@
+{
+  "day": 230,
+  "phase": "5. App architecture & data",
+  "theme": "Background refresh: scheduling work and stopping on time",
+  "terms": [
+    {
+      "term": "BGTaskScheduler",
+      "definition": "The system service where your app asks for time to run background work later.",
+      "example": "Register the refresh task with BGTaskScheduler at launch.",
+      "code": "import BackgroundTasks\nlet id = \"com.example.refresh\"\nBGTaskScheduler.shared.register(\n    forTaskWithIdentifier: id,\n    using: nil) { _ in }",
+      "output": "// no output"
+    },
+    {
+      "term": "BGAppRefreshTask",
+      "definition": "A short background task that lets your app fetch fresh data while it is not on screen.",
+      "example": "The BGAppRefreshTask updates the feed overnight.",
+      "code": "import BackgroundTasks\nfunc handle(_ task: BGAppRefreshTask) {\n    task.setTaskCompleted(success: true)\n}",
+      "output": "// no output"
+    },
+    {
+      "term": "Expiration Handler",
+      "definition": "A block of code that the system calls when time is almost up, so you can stop work cleanly.",
+      "example": "Cancel the download in the expiration handler.",
+      "code": "import BackgroundTasks\nfunc handle(_ task: BGAppRefreshTask) {\n    task.expirationHandler = {\n        print(\"time is up\")\n    }\n}",
+      "output": "// no output"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What do you call a block of code that the system calls when time is almost up, so you can stop work cleanly?",
+      "options": [
+        "BGTaskScheduler",
+        "BGAppRefreshTask",
+        "Expiration Handler"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "What do you call the system service where your app asks for time to run background work later?",
+      "options": [
+        "BGTaskScheduler",
+        "BGAppRefreshTask",
+        "Expiration Handler"
+      ],
+      "answer": "a"
+    },
+    {
+      "question": "What do you call a short background task that lets your app fetch fresh data while it is not on screen?",
+      "options": [
+        "BGTaskScheduler",
+        "BGAppRefreshTask",
+        "Expiration Handler"
+      ],
+      "answer": "b"
+    }
+  ],
+  "video": {
+    "title": "BGTaskScheduler, BGAppRefreshTask & Expiration Handler | Day 230",
+    "description": "Learn to explain how an app asks the system for background time to refresh data: BGTaskScheduler, BGAppRefreshTask & Expiration Handler, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nBGTaskScheduler - The system service where your app asks for time to run background work later.\nBGAppRefreshTask - A short background task that lets your app fetch fresh data while it is not on screen.\nExpiration Handler - A block of code that the system calls when time is almost up, so you can stop work cleanly.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 230 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "BGTaskScheduler",
+      "BGAppRefreshTask",
+      "Expiration Handler",
+      "bgtaskscheduler",
+      "bgapprefreshtask",
+      "expiration handler",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "iOS BGTaskScheduler, BGAppRefreshTask & Expiration Handler | Day 230",
+      "description": "Explain BGTaskScheduler, BGAppRefreshTask & Expiration Handler in iOS by listening to a real code chat between two iOS devs.\nBGTaskScheduler, BGAppRefreshTask, Expiration Handler 표현을 영어 대화로 익혀요.\n\nBGTaskScheduler - The system service where your app asks for time to run background work later.\n한국어: BGTaskScheduler: 나중에 백그라운드 작업을 실행할 시간을 앱이 요청하는 시스템 서비스\n\nBGAppRefreshTask - A short background task that lets your app fetch fresh data while it is not on screen.\n한국어: BGAppRefreshTask: 앱이 화면에 보이지 않는 동안 새 데이터를 가져오게 해 주는 짧은 백그라운드 작업\n\nExpiration Handler - A block of code that the system calls when time is almost up, so you can stop work cleanly.\n한국어: Expiration Handler: 시간이 거의 끝날 때 시스템이 호출해 작업을 깔끔하게 멈추게 해 주는 코드 블록\n\nIn this video, Mina and Jake talk about how an app asks the system for background time to refresh data, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 230 of the iOS Daily English series.\n\n#Swift #iOSArchitecture #EnglishForDevelopers",
+      "tags": [
+        "BGTaskScheduler",
+        "BGAppRefreshTask",
+        "Expiration Handler",
+        "iOS architecture",
+        "iOS 아키텍처",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "iOS Daily English"
+      ],
+      "hook": "Can you explain BGTaskScheduler, BGAppRefreshTask and Expiration Handler in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "Fresh data while you sleep",
+    "setting": "Refreshing the feed in the background",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, users want the feed to be fresh when they open the app in the morning.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Ask for background time. BGTaskScheduler is the system service for that.",
+        "terms": [
+          "BGTaskScheduler"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "So the BGTaskScheduler runs my code later?",
+        "terms": [
+          "BGTaskScheduler"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Yes, when the system decides. In our code, `submit` sends the request.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "What kind of work do we schedule?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "A BGAppRefreshTask. It is short, and it fetches fresh data while the app is off screen.",
+        "terms": [
+          "BGAppRefreshTask"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Can I choose the exact time?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "No. The system picks the time, so never promise one to the user.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "What if my download takes too long?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Set an expiration handler. The system calls it when time is almost up.",
+        "terms": [
+          "Expiration Handler"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "So the expiration handler cancels the download, like `stop` in our code?",
+        "terms": [
+          "Expiration Handler"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Yes. Stop cleanly in the expiration handler, then finish the BGAppRefreshTask.",
+        "terms": [
+          "BGAppRefreshTask",
+          "Expiration Handler"
+        ]
+      }
+    ],
+    "code": "import BackgroundTasks\nlet r = BGAppRefreshTaskRequest(identifier: \"x\")\nfunc handle(_ task: BGAppRefreshTask) {\n    task.expirationHandler = { print(\"stop\") }\n}\ntry BGTaskScheduler.shared.submit(r)",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "BGTaskScheduler",
+      "lines": [
+        {
+          "text": "Register the refresh task with BGTaskScheduler at launch."
+        }
+      ],
+      "title": "Register the refresh task with BGTaskScheduler at launch. #Shorts",
+      "description": "Register the refresh task with BGTaskScheduler at launch.\n\nBGTaskScheduler - The system service where your app asks for time to run background work later.\n한국어: BGTaskScheduler: 나중에 백그라운드 작업을 실행할 시간을 앱이 요청하는 시스템 서비스\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "BGAppRefreshTask",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Why did the feed update overnight?"
+        },
+        {
+          "speaker": "B",
+          "text": "A BGAppRefreshTask ran in the background."
+        }
+      ],
+      "title": "Why did the feed update overnight? / A BGAppRefreshTask ran in the background. #Shorts",
+      "description": "Why did the feed update overnight? / A BGAppRefreshTask ran in the background.\n\nBGAppRefreshTask - A short background task that lets your app fetch fresh data while it is not on screen.\n한국어: BGAppRefreshTask: 앱이 화면에 보이지 않는 동안 새 데이터를 가져오게 해 주는 짧은 백그라운드 작업\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Expiration Handler",
+      "lines": [
+        {
+          "text": "Cancel the download in the expiration handler."
+        }
+      ],
+      "title": "Cancel the download in the expiration handler. #Shorts",
+      "description": "Cancel the download in the expiration handler.\n\nExpiration Handler - A block of code that the system calls when time is almost up, so you can stop work cleanly.\n한국어: Expiration Handler: 시간이 거의 끝날 때 시스템이 호출해 작업을 깔끔하게 멈추게 해 주는 코드 블록\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "Fresh feed at sunrise? Use a background refresh task."
+}

@@ -1,0 +1,232 @@
+{
+  "day": 220,
+  "phase": "5. App architecture & data",
+  "theme": "SwiftData setup: configuration, memory stores and unique values",
+  "terms": [
+    {
+      "term": "ModelConfiguration",
+      "definition": "An object that describes how SwiftData stores your models, such as whether it uses the disk.",
+      "example": "Pass a ModelConfiguration to the container.",
+      "code": "import SwiftData\n@Model class Note { var t = \"\"; init() {} }\nlet c = ModelConfiguration(\n    isStoredInMemoryOnly: true)\nlet box = try ModelContainer(\n    for: Note.self, configurations: c)",
+      "output": "// no output"
+    },
+    {
+      "term": "In-Memory Store",
+      "definition": "A store that keeps data only in memory, so it disappears when the app quits.",
+      "example": "Tests use an in-memory store, so nothing stays on disk.",
+      "code": "import SwiftData\n@Model class Note { var title = \"\"; init() {} }\nlet mem = ModelConfiguration(\n    isStoredInMemoryOnly: true)\nlet box = try ModelContainer(\n    for: Note.self, configurations: mem)",
+      "output": "// no output"
+    },
+    {
+      "term": "Unique Constraint",
+      "definition": "A rule that allows only one stored item with a given value, such as one account per email.",
+      "example": "Add a unique constraint on the email field.",
+      "code": "import SwiftData\n@Model class User {\n    @Attribute(.unique) var email = \"\"\n    init() {}\n}\nprint(User.self)",
+      "output": "User"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What do you call a rule that allows only one stored item with a given value, such as one account per email?",
+      "options": [
+        "ModelConfiguration",
+        "Unique Constraint",
+        "In-Memory Store"
+      ],
+      "answer": "b"
+    },
+    {
+      "question": "What do you call an object that describes how SwiftData stores your models, such as whether it uses the disk?",
+      "options": [
+        "ModelConfiguration",
+        "In-Memory Store",
+        "Unique Constraint"
+      ],
+      "answer": "a"
+    },
+    {
+      "question": "What do you call a store that keeps data only in memory, so it disappears when the app quits?",
+      "options": [
+        "ModelConfiguration",
+        "Unique Constraint",
+        "In-Memory Store"
+      ],
+      "answer": "c"
+    }
+  ],
+  "video": {
+    "title": "ModelConfiguration, In-Memory Store & Unique Constraint | Day 220",
+    "description": "Learn to explain how to configure where SwiftData stores data and keep values unique: ModelConfiguration, In-Memory Store & Unique Constraint, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nModelConfiguration - An object that describes how SwiftData stores your models, such as whether it uses the disk.\nIn-Memory Store - A store that keeps data only in memory, so it disappears when the app quits.\nUnique Constraint - A rule that allows only one stored item with a given value, such as one account per email.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 220 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "ModelConfiguration",
+      "In-Memory Store",
+      "Unique Constraint",
+      "modelconfiguration",
+      "in-memory store",
+      "unique constraint",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "iOS ModelConfiguration, In-Memory Store & Unique Constraint | Day 220",
+      "description": "Explain ModelConfiguration, In-Memory Store & Unique Constraint in iOS by listening to a real code chat between two iOS devs.\nModelConfiguration, In-Memory Store, Unique Constraint 표현을 영어 대화로 익혀요.\n\nModelConfiguration - An object that describes how SwiftData stores your models, such as whether it uses the disk.\n한국어: ModelConfiguration: 디스크 사용 여부처럼 SwiftData가 모델을 어떻게 저장할지 설명하는 객체\n\nIn-Memory Store - A store that keeps data only in memory, so it disappears when the app quits.\n한국어: In-Memory Store: 데이터를 메모리에만 두어 앱이 종료되면 사라지는 저장소\n\nUnique Constraint - A rule that allows only one stored item with a given value, such as one account per email.\n한국어: Unique Constraint: 이메일당 계정 하나처럼 같은 값을 가진 저장 항목을 하나만 허용하는 규칙\n\nIn this video, Mina and Jake talk about how to configure where SwiftData stores data and keep values unique, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 220 of the iOS Daily English series.\n\n#Swift #iOSArchitecture #EnglishForDevelopers",
+      "tags": [
+        "ModelConfiguration",
+        "In-Memory Store",
+        "Unique Constraint",
+        "iOS architecture",
+        "iOS 아키텍처",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "iOS Daily English"
+      ],
+      "hook": "Can you explain ModelConfiguration, In-Memory Store and Unique Constraint in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "Tests that leave no trace",
+    "setting": "Writing tests for the user store",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, my tests leave old users on the disk.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Use an in-memory store for tests. The data disappears when the test ends.",
+        "terms": [
+          "In-Memory Store"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "How do I turn that on?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "With a ModelConfiguration, like `mem` in our code. Set `isStoredInMemoryOnly` to true.",
+        "terms": [
+          "ModelConfiguration"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "So the ModelConfiguration decides where the data lives?",
+        "terms": [
+          "ModelConfiguration"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Yes, that is its job. It also holds other storage settings.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "Now a test fails. Two users have the same `id`.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Add a unique constraint. In our code, `@Attribute(.unique)` does that.",
+        "terms": [
+          "Unique Constraint"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "So SwiftData keeps only one user for each `id`?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Yes. The unique constraint stops duplicates.",
+        "terms": [
+          "Unique Constraint"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Great. Tests use the in-memory store, and the model has a unique constraint.",
+        "terms": [
+          "In-Memory Store",
+          "Unique Constraint"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "And pass the ModelConfiguration to the container.",
+        "terms": [
+          "ModelConfiguration"
+        ]
+      }
+    ],
+    "code": "import SwiftData\n@Model class User {\n    @Attribute(.unique) var id = 0; init() {}\n}\nlet mem = ModelConfiguration(\n    isStoredInMemoryOnly: true)",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "ModelConfiguration",
+      "lines": [
+        {
+          "text": "Pass a ModelConfiguration to the container."
+        }
+      ],
+      "title": "Pass a ModelConfiguration to the container. #Shorts",
+      "description": "Pass a ModelConfiguration to the container.\n\nModelConfiguration - An object that describes how SwiftData stores your models, such as whether it uses the disk.\n한국어: ModelConfiguration: 디스크 사용 여부처럼 SwiftData가 모델을 어떻게 저장할지 설명하는 객체\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "In-Memory Store",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Why does test data vanish?"
+        },
+        {
+          "speaker": "B",
+          "text": "We use an in-memory store."
+        }
+      ],
+      "title": "Why does test data vanish? / We use an in-memory store. #Shorts",
+      "description": "Why does test data vanish? / We use an in-memory store.\n\nIn-Memory Store - A store that keeps data only in memory, so it disappears when the app quits.\n한국어: In-Memory Store: 데이터를 메모리에만 두어 앱이 종료되면 사라지는 저장소\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Unique Constraint",
+      "lines": [
+        {
+          "text": "Add a unique constraint on the email field."
+        }
+      ],
+      "title": "Add a unique constraint on the email field. #Shorts",
+      "description": "Add a unique constraint on the email field.\n\nUnique Constraint - A rule that allows only one stored item with a given value, such as one account per email.\n한국어: Unique Constraint: 이메일당 계정 하나처럼 같은 값을 가진 저장 항목을 하나만 허용하는 규칙\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "Duplicate users in your data? Add a unique constraint."
+}

@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 211
+
+Core Data
+- A framework from Apple that stores an app's objects and the links between them on the device.
+- Example: "We use Core Data to store the user's notes."
+
+NSPersistentContainer
+- An object that sets up the whole storage stack for you, so you can start saving data quickly.
+- Example: "The app creates one NSPersistentContainer at launch."
+
+NSManagedObjectContext
+- A scratch pad where you create, change and fetch objects before you save them.
+- Example: "Save the NSManagedObjectContext after you edit the note."
+
+
+Quiz ①
+What do you call an object that sets up the whole storage stack for you, so you can start saving data quickly?
+a) Core Data
+b) NSPersistentContainer
+c) NSManagedObjectContext
+
+Quiz ②
+What do you call a scratch pad where you create, change and fetch objects before you save them?
+a) Core Data
+b) NSPersistentContainer
+c) NSManagedObjectContext
+
+Quiz ③
+What do you call a framework from Apple that stores an app's objects and the links between them on the device?
+a) Core Data
+b) NSPersistentContainer
+c) NSManagedObjectContext

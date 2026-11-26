@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 227
+
+Reachability
+- Whether the device can reach the network right now.
+- Example: "Check reachability before you upload the photo."
+
+NWPathMonitor
+- An Apple class that watches the network and tells your app when the connection changes.
+- Example: "Start an NWPathMonitor when the app launches."
+
+Network Path
+- A snapshot of the current network connection, such as its status and whether it is expensive.
+- Example: "The network path says the phone is on cellular."
+
+
+Quiz ①
+What do you call an Apple class that watches the network and tells your app when the connection changes?
+a) Reachability
+b) Network Path
+c) NWPathMonitor
+
+Quiz ②
+What do you call a snapshot of the current network connection, such as its status and whether it is expensive?
+a) Reachability
+b) Network Path
+c) NWPathMonitor
+
+Quiz ③
+What do you call whether the device can reach the network right now?
+a) Reachability
+b) NWPathMonitor
+c) Network Path

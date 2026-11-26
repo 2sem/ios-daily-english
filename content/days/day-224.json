@@ -1,0 +1,232 @@
+{
+  "day": 224,
+  "phase": "5. App architecture & data",
+  "theme": "Image caching: memory, disk and keys",
+  "terms": [
+    {
+      "term": "Memory Cache",
+      "definition": "A fast cache that keeps items in RAM, but it empties when the app closes.",
+      "example": "The memory cache shows the avatar right away.",
+      "code": "import Foundation\nlet cache = NSCache<NSString, NSString>()\ncache.setObject(\"img\", forKey: \"a\")\nprint(cache.object(forKey: \"a\") ?? \"none\")",
+      "output": "img"
+    },
+    {
+      "term": "Disk Cache",
+      "definition": "A cache that saves items in files, so they survive an app restart but load more slowly.",
+      "example": "The disk cache keeps images after a restart.",
+      "code": "import Foundation\nfunc save(_ d: Data, name: String) throws {\n    let dir = URL.cachesDirectory\n    try d.write(to: dir.appending(path: name))\n}",
+      "output": "// no output"
+    },
+    {
+      "term": "Cache Key",
+      "definition": "A unique name that you use to store and find one item in a cache.",
+      "example": "Use the image URL as the cache key.",
+      "code": "import Foundation\nlet url = URL(string: \"https://a.com/1.png\")!\nlet key = url.absoluteString\nprint(key)",
+      "output": "https://a.com/1.png"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What do you call a unique name that you use to store and find one item in a cache?",
+      "options": [
+        "Memory Cache",
+        "Disk Cache",
+        "Cache Key"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "What do you call a fast cache that keeps items in RAM, but it empties when the app closes?",
+      "options": [
+        "Memory Cache",
+        "Disk Cache",
+        "Cache Key"
+      ],
+      "answer": "a"
+    },
+    {
+      "question": "What do you call a cache that saves items in files, so they survive an app restart but load more slowly?",
+      "options": [
+        "Memory Cache",
+        "Disk Cache",
+        "Cache Key"
+      ],
+      "answer": "b"
+    }
+  ],
+  "video": {
+    "title": "Memory Cache, Disk Cache & Cache Key | Day 224",
+    "description": "Learn to explain how an app keeps downloaded images close by: Memory Cache, Disk Cache & Cache Key, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nMemory Cache - A fast cache that keeps items in RAM, but it empties when the app closes.\nDisk Cache - A cache that saves items in files, so they survive an app restart but load more slowly.\nCache Key - A unique name that you use to store and find one item in a cache.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 224 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "Memory Cache",
+      "Disk Cache",
+      "Cache Key",
+      "memory cache",
+      "disk cache",
+      "cache key",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "iOS Memory Cache, Disk Cache & Cache Key | Day 224",
+      "description": "Explain Memory Cache, Disk Cache & Cache Key in iOS by listening to a real code chat between two iOS devs.\nMemory Cache, Disk Cache, Cache Key 표현을 영어 대화로 익혀요.\n\nMemory Cache - A fast cache that keeps items in RAM, but it empties when the app closes.\n한국어: Memory Cache: 항목을 RAM에 두어 빠르지만 앱이 종료되면 비워지는 캐시\n\nDisk Cache - A cache that saves items in files, so they survive an app restart but load more slowly.\n한국어: Disk Cache: 항목을 파일로 저장해 앱을 다시 켜도 남지만 더 느리게 불러오는 캐시\n\nCache Key - A unique name that you use to store and find one item in a cache.\n한국어: Cache Key: 캐시에서 항목 하나를 저장하고 찾을 때 쓰는 고유한 이름\n\nIn this video, Mina and Jake talk about how an app keeps downloaded images close by, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 224 of the iOS Daily English series.\n\n#Swift #iOSArchitecture #EnglishForDevelopers",
+      "tags": [
+        "Memory Cache",
+        "Disk Cache",
+        "Cache Key",
+        "iOS architecture",
+        "iOS 아키텍처",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "iOS Daily English"
+      ],
+      "hook": "Can you explain Memory Cache, Disk Cache and Cache Key in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "The flickering avatar",
+    "setting": "Fixing slow avatar images",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, avatars flicker because we download them again and again.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Add a memory cache. It keeps the images in RAM, so they show right away.",
+        "terms": [
+          "Memory Cache"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Is that `mem` in our code?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Yes, an NSCache. But a memory cache empties when the app closes.",
+        "terms": [
+          "Memory Cache"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Then users wait again after every launch.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "So add a disk cache too. It saves the images in files, like `file` in our code.",
+        "terms": [
+          "Disk Cache"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Is the disk cache as fast as the memory cache?",
+        "terms": [
+          "Memory Cache",
+          "Disk Cache"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "No, it is slower. But it survives a restart.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "How do we find the right image in both caches?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "With a cache key. Ours is `avatar-42`, and it is unique for each image.",
+        "terms": [
+          "Cache Key"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "I used the user name before, and two users shared one image.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "A good cache key is unique. Use the same cache key in the memory cache and the disk cache.",
+        "terms": [
+          "Memory Cache",
+          "Disk Cache",
+          "Cache Key"
+        ]
+      }
+    ],
+    "code": "import Foundation\nlet mem = NSCache<NSString, NSData>()\nlet key = \"avatar-42\" as NSString\nmem.setObject(NSData(), forKey: key)\nlet dir = URL.cachesDirectory\nlet file = dir.appending(path: \"avatar-42\")",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "Memory Cache",
+      "lines": [
+        {
+          "text": "The memory cache shows the avatar right away."
+        }
+      ],
+      "title": "The memory cache shows the avatar right away. #Shorts",
+      "description": "The memory cache shows the avatar right away.\n\nMemory Cache - A fast cache that keeps items in RAM, but it empties when the app closes.\n한국어: Memory Cache: 항목을 RAM에 두어 빠르지만 앱이 종료되면 비워지는 캐시\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "Disk Cache",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Does it survive a restart?"
+        },
+        {
+          "speaker": "B",
+          "text": "Yes, the disk cache keeps it."
+        }
+      ],
+      "title": "Does it survive a restart? / Yes, the disk cache keeps it. #Shorts",
+      "description": "Does it survive a restart? / Yes, the disk cache keeps it.\n\nDisk Cache - A cache that saves items in files, so they survive an app restart but load more slowly.\n한국어: Disk Cache: 항목을 파일로 저장해 앱을 다시 켜도 남지만 더 느리게 불러오는 캐시\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Cache Key",
+      "lines": [
+        {
+          "text": "Use the image URL as the cache key."
+        }
+      ],
+      "title": "Use the image URL as the cache key. #Shorts",
+      "description": "Use the image URL as the cache key.\n\nCache Key - A unique name that you use to store and find one item in a cache.\n한국어: Cache Key: 캐시에서 항목 하나를 저장하고 찾을 때 쓰는 고유한 이름\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "Avatars flicker? Add a memory cache and a disk cache."
+}

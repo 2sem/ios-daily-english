@@ -1,0 +1,231 @@
+{
+  "day": 217,
+  "phase": "5. App architecture & data",
+  "theme": "SwiftData models: the macros that describe your data",
+  "terms": [
+    {
+      "term": "@Model",
+      "definition": "A macro that makes a Swift class something SwiftData can save and load.",
+      "example": "Add @Model above the class and it is ready to save.",
+      "code": "import SwiftData\n@Model class Note {\n    var title = \"\"\n    init() {}\n}\nprint(Note().title.isEmpty)",
+      "output": "true"
+    },
+    {
+      "term": "@Transient",
+      "definition": "A macro that keeps a property out of the database, so SwiftData does not save it.",
+      "example": "Mark the selection flag as @Transient.",
+      "code": "import SwiftData\n@Model class Note {\n    @Transient var isSelected = false\n    init() {}\n}\nprint(Note().isSelected)",
+      "output": "false"
+    },
+    {
+      "term": "Index Macro",
+      "definition": "A macro that builds a fast lookup list for a property, so searches finish sooner.",
+      "example": "Add an index macro on the title to speed up search.",
+      "code": "import SwiftData\n@Model class Note {\n    #Index<Note>([\\.title])\n    var title = \"\"; init() {}\n}\nprint(Note.self)",
+      "output": "Note"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What do you call a macro that keeps a property out of the database, so SwiftData does not save it?",
+      "options": [
+        "@Model",
+        "@Transient",
+        "Index Macro"
+      ],
+      "answer": "b"
+    },
+    {
+      "question": "What do you call a macro that builds a fast lookup list for a property, so searches finish sooner?",
+      "options": [
+        "@Model",
+        "@Transient",
+        "Index Macro"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "What do you call a macro that makes a Swift class something SwiftData can save and load?",
+      "options": [
+        "@Model",
+        "@Transient",
+        "Index Macro"
+      ],
+      "answer": "a"
+    }
+  ],
+  "video": {
+    "title": "@Model, @Transient & Index Macro | Day 217",
+    "description": "Learn to explain how SwiftData macros turn Swift classes into saved data: @Model, @Transient & Index Macro, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\n@Model - A macro that makes a Swift class something SwiftData can save and load.\n@Transient - A macro that keeps a property out of the database, so SwiftData does not save it.\nIndex Macro - A macro that builds a fast lookup list for a property, so searches finish sooner.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 217 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "@Model",
+      "@Transient",
+      "Index Macro",
+      "@model",
+      "@transient",
+      "index macro",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "iOS @Model, @Transient & Index Macro | Day 217",
+      "description": "Explain @Model, @Transient & Index Macro in iOS by listening to a real code chat between two iOS devs.\n@Model, @Transient, Index Macro 표현을 영어 대화로 익혀요.\n\n@Model - A macro that makes a Swift class something SwiftData can save and load.\n한국어: @Model: Swift 클래스를 SwiftData가 저장하고 불러올 수 있게 만드는 매크로\n\n@Transient - A macro that keeps a property out of the database, so SwiftData does not save it.\n한국어: @Transient: 프로퍼티를 데이터베이스에 넣지 않아 SwiftData가 저장하지 않게 하는 매크로\n\nIndex Macro - A macro that builds a fast lookup list for a property, so searches finish sooner.\n한국어: Index Macro: 프로퍼티의 빠른 조회 목록을 만들어 검색이 더 빨리 끝나게 하는 매크로\n\nIn this video, Mina and Jake talk about how SwiftData macros turn Swift classes into saved data, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 217 of the iOS Daily English series.\n\n#Swift #iOSArchitecture #EnglishForDevelopers",
+      "tags": [
+        "@Model",
+        "@Transient",
+        "Index Macro",
+        "iOS architecture",
+        "iOS 아키텍처",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "iOS Daily English"
+      ],
+      "hook": "Can you explain @Model, @Transient and Index Macro in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "What should be saved?",
+    "setting": "Modeling notes in SwiftData",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, how do I make `Note` a SwiftData class?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Put @Model above the class. The macro does the rest.",
+        "terms": [
+          "@Model"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "So @Model makes every property saveable?",
+        "terms": [
+          "@Model"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Yes, by default. But some properties should not be saved.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "Like `isOpen`? It only says if the row is expanded.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Exactly. Mark it @Transient, and SwiftData skips it.",
+        "terms": [
+          "@Transient"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Oh, I saved it by mistake, and the old rows had a strange value.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Add @Transient and run the app again. It will fix that.",
+        "terms": [
+          "@Transient"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Search on `title` is slow now.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Add an index macro, like `#Index` in our code. It builds a fast lookup for `title`.",
+        "terms": [
+          "Index Macro"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Does the index macro change what is saved?",
+        "terms": [
+          "Index Macro"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "No. It only makes searches faster. Keep @Model on the class.",
+        "terms": [
+          "@Model"
+        ]
+      }
+    ],
+    "code": "import SwiftData\n@Model class Note {\n    #Index<Note>([\\.title])\n    @Transient var isOpen = false\n    var title = \"\"; init() {}\n}",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "@Model",
+      "lines": [
+        {
+          "text": "Add @Model above the class and it is ready to save."
+        }
+      ],
+      "title": "Add @Model above the class and it is ready to save. #Shorts",
+      "description": "Add @Model above the class and it is ready to save.\n\n@Model - A macro that makes a Swift class something SwiftData can save and load.\n한국어: @Model: Swift 클래스를 SwiftData가 저장하고 불러올 수 있게 만드는 매크로\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "@Transient",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Why is this row open after a restart?"
+        },
+        {
+          "speaker": "B",
+          "text": "Mark that flag as @Transient."
+        }
+      ],
+      "title": "Why is this row open after a restart? / Mark that flag as @Transient. #Shorts",
+      "description": "Why is this row open after a restart? / Mark that flag as @Transient.\n\n@Transient - A macro that keeps a property out of the database, so SwiftData does not save it.\n한국어: @Transient: 프로퍼티를 데이터베이스에 넣지 않아 SwiftData가 저장하지 않게 하는 매크로\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Index Macro",
+      "lines": [
+        {
+          "text": "Add an index macro to make title search faster."
+        }
+      ],
+      "title": "Add an index macro to make title search faster. #Shorts",
+      "description": "Add an index macro to make title search faster.\n\nIndex Macro - A macro that builds a fast lookup list for a property, so searches finish sooner.\n한국어: Index Macro: 프로퍼티의 빠른 조회 목록을 만들어 검색이 더 빨리 끝나게 하는 매크로\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "Make a class saveable with one word. Learn @Model."
+}

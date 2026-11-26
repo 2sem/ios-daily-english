@@ -1,0 +1,229 @@
+{
+  "day": 229,
+  "phase": "5. App architecture & data",
+  "theme": "Syncing devices: conflicts, winners and time",
+  "terms": [
+    {
+      "term": "Sync Conflict",
+      "definition": "A clash that happens when two devices change the same item before they sync.",
+      "example": "We have a sync conflict on this note.",
+      "code": "struct Note { var text: String; var time: Int }\nlet phone = Note(text: \"A\", time: 5)\nlet tablet = Note(text: \"B\", time: 8)\nprint(phone.text != tablet.text)",
+      "output": "true"
+    },
+    {
+      "term": "Last Write Wins",
+      "definition": "A rule that settles a conflict by keeping the change with the newest time.",
+      "example": "We use last write wins for the profile photo.",
+      "code": "struct Note { var text: String; var time: Int }\nlet a = Note(text: \"A\", time: 5)\nlet b = Note(text: \"B\", time: 8)\nlet winner = a.time > b.time ? a : b\nprint(winner.text)",
+      "output": "B"
+    },
+    {
+      "term": "Eventual Consistency",
+      "definition": "A promise that all devices will show the same data after some time, though not right away.",
+      "example": "With eventual consistency, the iPad catches up in a moment.",
+      "code": "var phone = \"v1\"\nvar tablet = \"v1\"\nphone = \"v2\"\nprint(phone == tablet)\ntablet = phone\nprint(phone == tablet)",
+      "output": "false\ntrue"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What do you call a rule that settles a conflict by keeping the change with the newest time?",
+      "options": [
+        "Sync Conflict",
+        "Last Write Wins",
+        "Eventual Consistency"
+      ],
+      "answer": "b"
+    },
+    {
+      "question": "What do you call a promise that all devices will show the same data after some time, though not right away?",
+      "options": [
+        "Sync Conflict",
+        "Last Write Wins",
+        "Eventual Consistency"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "What do you call a clash that happens when two devices change the same item before they sync?",
+      "options": [
+        "Sync Conflict",
+        "Last Write Wins",
+        "Eventual Consistency"
+      ],
+      "answer": "a"
+    }
+  ],
+  "video": {
+    "title": "Sync Conflict, Last Write Wins & Eventual Consistency | Day 229",
+    "description": "Learn to explain how to talk about conflicts when devices sync the same data: Sync Conflict, Last Write Wins & Eventual Consistency, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nSync Conflict - A clash that happens when two devices change the same item before they sync.\nLast Write Wins - A rule that settles a conflict by keeping the change with the newest time.\nEventual Consistency - A promise that all devices will show the same data after some time, though not right away.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 229 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "Sync Conflict",
+      "Last Write Wins",
+      "Eventual Consistency",
+      "sync conflict",
+      "last write wins",
+      "eventual consistency",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "iOS Sync Conflict, Last Write Wins & Eventual Consistency | Day 229",
+      "description": "Explain Sync Conflict, Last Write Wins & Eventual Consistency in iOS by listening to a real code chat between two iOS devs.\nSync Conflict, Last Write Wins, Eventual Consistency 표현을 영어 대화로 익혀요.\n\nSync Conflict - A clash that happens when two devices change the same item before they sync.\n한국어: Sync Conflict: 두 기기가 동기화하기 전에 같은 항목을 바꿨을 때 생기는 충돌\n\nLast Write Wins - A rule that settles a conflict by keeping the change with the newest time.\n한국어: Last Write Wins: 가장 최근 시간의 변경 사항을 남겨 충돌을 해결하는 규칙\n\nEventual Consistency - A promise that all devices will show the same data after some time, though not right away.\n한국어: Eventual Consistency: 즉시는 아니지만 시간이 지나면 모든 기기가 같은 데이터를 보여 준다는 약속\n\nIn this video, Mina and Jake talk about how to talk about conflicts when devices sync the same data, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 229 of the iOS Daily English series.\n\n#Swift #iOSArchitecture #EnglishForDevelopers",
+      "tags": [
+        "Sync Conflict",
+        "Last Write Wins",
+        "Eventual Consistency",
+        "iOS architecture",
+        "iOS 아키텍처",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "iOS Daily English"
+      ],
+      "hook": "Can you explain Sync Conflict, Last Write Wins and Eventual Consistency in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "Two edits, one note",
+    "setting": "Debugging a note that changed twice",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, a user edited the same note on the phone and the iPad.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "That is a sync conflict. Both devices changed the item before they synced.",
+        "terms": [
+          "Sync Conflict"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Which edit should we keep?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "We can use last write wins. The change with the newest time stays.",
+        "terms": [
+          "Last Write Wins"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "In our code, `b` has `time` eight, so `winner` is `b`.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Right. Last write wins is simple, but it can throw away the older edit.",
+        "terms": [
+          "Last Write Wins"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "So the phone edit is lost?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Yes. For notes, we might merge both texts instead. A sync conflict needs a clear rule.",
+        "terms": [
+          "Sync Conflict"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Also, the iPad still shows the old text for a few seconds.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "That is normal. It is eventual consistency.",
+        "terms": [
+          "Eventual Consistency"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "So the devices only agree after some time?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Yes. Eventual consistency promises the same data later, not instantly.",
+        "terms": [
+          "Eventual Consistency"
+        ]
+      }
+    ],
+    "code": "struct Note { var text: String; var time: Int }\nlet a = Note(text: \"A\", time: 5)\nlet b = Note(text: \"B\", time: 8)\nlet winner = a.time > b.time ? a : b",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "Sync Conflict",
+      "lines": [
+        {
+          "text": "We have a sync conflict on this note."
+        }
+      ],
+      "title": "We have a sync conflict on this note. #Shorts",
+      "description": "We have a sync conflict on this note.\n\nSync Conflict - A clash that happens when two devices change the same item before they sync.\n한국어: Sync Conflict: 두 기기가 동기화하기 전에 같은 항목을 바꿨을 때 생기는 충돌\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "Last Write Wins",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Which edit stays?"
+        },
+        {
+          "speaker": "B",
+          "text": "Last write wins, so the newest one."
+        }
+      ],
+      "title": "Which edit stays? / Last write wins, so the newest one. #Shorts",
+      "description": "Which edit stays? / Last write wins, so the newest one.\n\nLast Write Wins - A rule that settles a conflict by keeping the change with the newest time.\n한국어: Last Write Wins: 가장 최근 시간의 변경 사항을 남겨 충돌을 해결하는 규칙\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Eventual Consistency",
+      "lines": [
+        {
+          "text": "With eventual consistency, the iPad catches up soon."
+        }
+      ],
+      "title": "With eventual consistency, the iPad catches up soon. #Shorts",
+      "description": "With eventual consistency, the iPad catches up soon.\n\nEventual Consistency - A promise that all devices will show the same data after some time, though not right away.\n한국어: Eventual Consistency: 즉시는 아니지만 시간이 지나면 모든 기기가 같은 데이터를 보여 준다는 약속\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "Two devices, one note? Fix the sync conflict."
+}

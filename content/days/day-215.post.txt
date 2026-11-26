@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 215
+
+Persistent Store
+- The file on disk where the framework keeps all of the saved objects.
+- Example: "The persistent store is a single SQLite file."
+
+Faulting
+- A lazy loading trick that keeps a light placeholder until you actually read the object's data.
+- Example: "Faulting keeps memory low because data loads only when needed."
+
+Lightweight Migration
+- An automatic update of the saved data to a new model, when the changes are simple, such as adding a field.
+- Example: "Turn on lightweight migration for the new field."
+
+
+Quiz ①
+What do you call a lazy loading trick that keeps a light placeholder until you actually read the object's data?
+a) Persistent Store
+b) Lightweight Migration
+c) Faulting
+
+Quiz ②
+What do you call an automatic update of the saved data to a new model, when the changes are simple, such as adding a field?
+a) Persistent Store
+b) Lightweight Migration
+c) Faulting
+
+Quiz ③
+What do you call the file on disk where the framework keeps all of the saved objects?
+a) Persistent Store
+b) Faulting
+c) Lightweight Migration

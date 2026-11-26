@@ -2519,6 +2519,246 @@
     "atomicwrite": {
       "term": "Atomic Write",
       "day": 210
+    },
+    "coredata": {
+      "term": "Core Data",
+      "day": 211
+    },
+    "nspersistentcontainer": {
+      "term": "NSPersistentContainer",
+      "day": 211
+    },
+    "nsmanagedobjectcontext": {
+      "term": "NSManagedObjectContext",
+      "day": 211
+    },
+    "managedobjectmodel": {
+      "term": "Managed Object Model",
+      "day": 212
+    },
+    "nsmanagedobject": {
+      "term": "NSManagedObject",
+      "day": 212
+    },
+    "nsfetchrequest": {
+      "term": "NSFetchRequest",
+      "day": 212
+    },
+    "nspredicate": {
+      "term": "NSPredicate",
+      "day": 213
+    },
+    "fetchlimit": {
+      "term": "Fetch Limit",
+      "day": 213
+    },
+    "batchsize": {
+      "term": "Batch Size",
+      "day": 213
+    },
+    "nssortdescriptor": {
+      "term": "NSSortDescriptor",
+      "day": 214
+    },
+    "relationship": {
+      "term": "Relationship",
+      "day": 214
+    },
+    "deleterule": {
+      "term": "Delete Rule",
+      "day": 214
+    },
+    "persistentstore": {
+      "term": "Persistent Store",
+      "day": 215
+    },
+    "faulting": {
+      "term": "Faulting",
+      "day": 215
+    },
+    "lightweightmigration": {
+      "term": "Lightweight Migration",
+      "day": 215
+    },
+    "backgroundcontext": {
+      "term": "Background Context",
+      "day": 216
+    },
+    "mergepolicy": {
+      "term": "Merge Policy",
+      "day": 216
+    },
+    "nsfetchedresultscontroller": {
+      "term": "NSFetchedResultsController",
+      "day": 216
+    },
+    "model": {
+      "term": "@Model",
+      "day": 217
+    },
+    "transient": {
+      "term": "@Transient",
+      "day": 217
+    },
+    "indexmacro": {
+      "term": "Index Macro",
+      "day": 217
+    },
+    "fetchdescriptor": {
+      "term": "FetchDescriptor",
+      "day": 218
+    },
+    "predicatemacro": {
+      "term": "Predicate Macro",
+      "day": 218
+    },
+    "sortdescriptor": {
+      "term": "SortDescriptor",
+      "day": 218
+    },
+    "schemaversion": {
+      "term": "Schema Version",
+      "day": 219
+    },
+    "versionedschema": {
+      "term": "VersionedSchema",
+      "day": 219
+    },
+    "schemamigrationplan": {
+      "term": "SchemaMigrationPlan",
+      "day": 219
+    },
+    "modelconfiguration": {
+      "term": "ModelConfiguration",
+      "day": 220
+    },
+    "inmemorystore": {
+      "term": "In-Memory Store",
+      "day": 220
+    },
+    "uniqueconstraint": {
+      "term": "Unique Constraint",
+      "day": 220
+    },
+    "cloudkit": {
+      "term": "CloudKit",
+      "day": 221
+    },
+    "ckcontainer": {
+      "term": "CKContainer",
+      "day": 221
+    },
+    "ckrecord": {
+      "term": "CKRecord",
+      "day": 221
+    },
+    "privatedatabase": {
+      "term": "Private Database",
+      "day": 222
+    },
+    "recordzone": {
+      "term": "Record Zone",
+      "day": 222
+    },
+    "cksubscription": {
+      "term": "CKSubscription",
+      "day": 222
+    },
+    "cachehit": {
+      "term": "Cache Hit",
+      "day": 223
+    },
+    "cachemiss": {
+      "term": "Cache Miss",
+      "day": 223
+    },
+    "timetolive": {
+      "term": "Time to Live",
+      "day": 223
+    },
+    "memorycache": {
+      "term": "Memory Cache",
+      "day": 224
+    },
+    "diskcache": {
+      "term": "Disk Cache",
+      "day": 224
+    },
+    "cachekey": {
+      "term": "Cache Key",
+      "day": 224
+    },
+    "pagination": {
+      "term": "Pagination",
+      "day": 225
+    },
+    "pagesize": {
+      "term": "Page Size",
+      "day": 225
+    },
+    "cursor": {
+      "term": "Cursor",
+      "day": 225
+    },
+    "infinitescroll": {
+      "term": "Infinite Scroll",
+      "day": 226
+    },
+    "prefetching": {
+      "term": "Prefetching",
+      "day": 226
+    },
+    "debounce": {
+      "term": "Debounce",
+      "day": 226
+    },
+    "reachability": {
+      "term": "Reachability",
+      "day": 227
+    },
+    "nwpathmonitor": {
+      "term": "NWPathMonitor",
+      "day": 227
+    },
+    "networkpath": {
+      "term": "Network Path",
+      "day": 227
+    },
+    "offlinefirst": {
+      "term": "Offline-First",
+      "day": 228
+    },
+    "optimisticupdate": {
+      "term": "Optimistic Update",
+      "day": 228
+    },
+    "syncqueue": {
+      "term": "Sync Queue",
+      "day": 228
+    },
+    "syncconflict": {
+      "term": "Sync Conflict",
+      "day": 229
+    },
+    "lastwritewins": {
+      "term": "Last Write Wins",
+      "day": 229
+    },
+    "eventualconsistency": {
+      "term": "Eventual Consistency",
+      "day": 229
+    },
+    "bgtaskscheduler": {
+      "term": "BGTaskScheduler",
+      "day": 230
+    },
+    "bgapprefreshtask": {
+      "term": "BGAppRefreshTask",
+      "day": 230
+    },
+    "expirationhandler": {
+      "term": "Expiration Handler",
+      "day": 230
     }
   }
 }

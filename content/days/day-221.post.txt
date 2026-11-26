@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 221
+
+CloudKit
+- An Apple framework that stores app data in iCloud, so it can sync across the user's devices.
+- Example: "We use CloudKit to share notes between the iPhone and the iPad."
+
+CKContainer
+- An object that stands for your app's iCloud storage and gives you access to its databases.
+- Example: "Open the CKContainer with the identifier from the capability."
+
+CKRecord
+- One item stored in iCloud, like a row with named fields.
+- Example: "Each note is a CKRecord with a title field."
+
+
+Quiz ①
+What do you call an object that stands for your app's iCloud storage and gives you access to its databases?
+a) CloudKit
+b) CKRecord
+c) CKContainer
+
+Quiz ②
+What do you call one item stored in iCloud, like a row with named fields?
+a) CloudKit
+b) CKRecord
+c) CKContainer
+
+Quiz ③
+What do you call an Apple framework that stores app data in iCloud, so it can sync across the user's devices?
+a) CloudKit
+b) CKContainer
+c) CKRecord

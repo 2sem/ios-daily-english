@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 222
+
+Private Database
+- The CloudKit database that only the signed-in user can read, and it uses that user's iCloud storage.
+- Example: "Personal notes belong in the private database."
+
+Record Zone
+- A named group of records inside a database, which helps CloudKit track changes.
+- Example: "Create a record zone called Notes for the user."
+
+CKSubscription
+- A request that asks CloudKit to send a push message when matching records change.
+- Example: "Add a CKSubscription so the other device hears about new notes."
+
+
+Quiz ①
+What do you call a request that asks CloudKit to send a push message when matching records change?
+a) CKSubscription
+b) Private Database
+c) Record Zone
+
+Quiz ②
+What do you call the CloudKit database that only the signed-in user can read, and it uses that user's iCloud storage?
+a) Record Zone
+b) Private Database
+c) CKSubscription
+
+Quiz ③
+What do you call a named group of records inside a database, which helps CloudKit track changes?
+a) Private Database
+b) CKSubscription
+c) Record Zone

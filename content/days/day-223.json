@@ -1,0 +1,232 @@
+{
+  "day": 223,
+  "phase": "5. App architecture & data",
+  "theme": "Caching basics: hits, misses and expiry",
+  "terms": [
+    {
+      "term": "Cache Hit",
+      "definition": "A moment when the data you need is already in the cache, so no slow work is needed.",
+      "example": "A cache hit makes the profile load instantly.",
+      "code": "let cache: [String: Int] = [\"a\": 1]\nif let v = cache[\"a\"] {\n    print(\"hit\", v)\n}",
+      "output": "hit 1"
+    },
+    {
+      "term": "Cache Miss",
+      "definition": "A moment when the data is not in the cache, so the app must load it the slow way.",
+      "example": "On a cache miss, we call the server.",
+      "code": "let cache: [String: Int] = [:]\nif cache[\"a\"] == nil {\n    print(\"miss\")\n}",
+      "output": "miss"
+    },
+    {
+      "term": "Time to Live",
+      "definition": "How long a cached item stays valid before it counts as too old.",
+      "example": "Set the time to live to sixty seconds.",
+      "code": "import Foundation\nlet ttl: TimeInterval = 60\nlet saved = Date(timeIntervalSince1970: 0)\nlet now = Date(timeIntervalSince1970: 90)\nprint(now.timeIntervalSince(saved) > ttl)",
+      "output": "true"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What do you call a moment when the data is not in the cache, so the app must load it the slow way?",
+      "options": [
+        "Cache Hit",
+        "Cache Miss",
+        "Time to Live"
+      ],
+      "answer": "b"
+    },
+    {
+      "question": "What do you call how long a cached item stays valid before it counts as too old?",
+      "options": [
+        "Cache Hit",
+        "Cache Miss",
+        "Time to Live"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "What do you call a moment when the data you need is already in the cache, so no slow work is needed?",
+      "options": [
+        "Cache Hit",
+        "Cache Miss",
+        "Time to Live"
+      ],
+      "answer": "a"
+    }
+  ],
+  "video": {
+    "title": "Cache Hit, Cache Miss & Time to Live | Day 223",
+    "description": "Learn to explain how to talk about caches that save time and when they go stale: Cache Hit, Cache Miss & Time to Live, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nCache Hit - A moment when the data you need is already in the cache, so no slow work is needed.\nCache Miss - A moment when the data is not in the cache, so the app must load it the slow way.\nTime to Live - How long a cached item stays valid before it counts as too old.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 223 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "Cache Hit",
+      "Cache Miss",
+      "Time to Live",
+      "cache hit",
+      "cache miss",
+      "time to live",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "iOS Cache Hit, Cache Miss & Time to Live | Day 223",
+      "description": "Explain Cache Hit, Cache Miss & Time to Live in iOS by listening to a real code chat between two iOS devs.\nCache Hit, Cache Miss, Time to Live 표현을 영어 대화로 익혀요.\n\nCache Hit - A moment when the data you need is already in the cache, so no slow work is needed.\n한국어: Cache Hit: 필요한 데이터가 이미 캐시에 있어 느린 작업이 필요 없는 순간\n\nCache Miss - A moment when the data is not in the cache, so the app must load it the slow way.\n한국어: Cache Miss: 데이터가 캐시에 없어 앱이 느린 방법으로 불러와야 하는 순간\n\nTime to Live - How long a cached item stays valid before it counts as too old.\n한국어: Time to Live: 캐시된 항목이 너무 오래된 것으로 취급되기 전까지 유효한 기간\n\nIn this video, Mina and Jake talk about how to talk about caches that save time and when they go stale, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 223 of the iOS Daily English series.\n\n#Swift #iOSArchitecture #EnglishForDevelopers",
+      "tags": [
+        "Cache Hit",
+        "Cache Miss",
+        "Time to Live",
+        "iOS architecture",
+        "iOS 아키텍처",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "iOS Daily English"
+      ],
+      "hook": "Can you explain Cache Hit, Cache Miss and Time to Live in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "Fast, but is it fresh?",
+    "setting": "Reviewing a profile cache",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, the profile screen loads instantly now.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "That is a cache hit. The data was already in the cache.",
+        "terms": [
+          "Cache Hit"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Like `hit` in our code, where `cache[\"a\"]` is not nil?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Yes. And `miss` is the opposite, a cache miss. The key `b` is not there.",
+        "terms": [
+          "Cache Miss"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "What happens on a cache miss?",
+        "terms": [
+          "Cache Miss"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "The app loads the data the slow way, then stores it in the cache.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "But my users see old names after they edit their profile.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "The cache hit returns stale data. You need a time to live.",
+        "terms": [
+          "Cache Hit",
+          "Time to Live"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Is that `ttl` in our code?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Yes, sixty seconds. After that, the item is too old, so it counts as a cache miss.",
+        "terms": [
+          "Cache Miss"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "So the time to live keeps the cache fresh.",
+        "terms": [
+          "Time to Live"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Right. A cache hit is only good if the data is still valid.",
+        "terms": [
+          "Cache Hit"
+        ]
+      }
+    ],
+    "code": "import Foundation\nlet ttl: TimeInterval = 60\nvar cache: [String: (Int, Date)] = [:]\ncache[\"a\"] = (1, Date())\nlet hit = cache[\"a\"] != nil\nlet miss = cache[\"b\"] == nil",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "Cache Hit",
+      "lines": [
+        {
+          "text": "A cache hit makes the profile load instantly."
+        }
+      ],
+      "title": "A cache hit makes the profile load instantly. #Shorts",
+      "description": "A cache hit makes the profile load instantly.\n\nCache Hit - A moment when the data you need is already in the cache, so no slow work is needed.\n한국어: Cache Hit: 필요한 데이터가 이미 캐시에 있어 느린 작업이 필요 없는 순간\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "Cache Miss",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "What do we do now?"
+        },
+        {
+          "speaker": "B",
+          "text": "It is a cache miss, so call the server."
+        }
+      ],
+      "title": "What do we do now? / It is a cache miss, so call the server. #Shorts",
+      "description": "What do we do now? / It is a cache miss, so call the server.\n\nCache Miss - A moment when the data is not in the cache, so the app must load it the slow way.\n한국어: Cache Miss: 데이터가 캐시에 없어 앱이 느린 방법으로 불러와야 하는 순간\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Time to Live",
+      "lines": [
+        {
+          "text": "Set the time to live to sixty seconds."
+        }
+      ],
+      "title": "Set the time to live to sixty seconds. #Shorts",
+      "description": "Set the time to live to sixty seconds.\n\nTime to Live - How long a cached item stays valid before it counts as too old.\n한국어: Time to Live: 캐시된 항목이 너무 오래된 것으로 취급되기 전까지 유효한 기간\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "Fast but outdated? Fix it with a time to live."
+}

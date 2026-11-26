@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 213
+
+NSPredicate
+- A rule that filters objects, for example only the notes that are not done.
+- Example: "Add an NSPredicate so we only load unread notes."
+
+Fetch Limit
+- A cap on how many objects one fetch may return.
+- Example: "Set a fetch limit of twenty for the first screen."
+
+Batch Size
+- The number of objects loaded into memory at one time while you scroll through the results.
+- Example: "A small batch size keeps memory low for long lists."
+
+
+Quiz ①
+What do you call a cap on how many objects one fetch may return?
+a) Fetch Limit
+b) NSPredicate
+c) Batch Size
+
+Quiz ②
+What do you call the number of objects loaded into memory at one time while you scroll through the results?
+a) NSPredicate
+b) Fetch Limit
+c) Batch Size
+
+Quiz ③
+What do you call a rule that filters objects, for example only the notes that are not done?
+a) Fetch Limit
+b) NSPredicate
+c) Batch Size

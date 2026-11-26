@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 229
+
+Sync Conflict
+- A clash that happens when two devices change the same item before they sync.
+- Example: "We have a sync conflict on this note."
+
+Last Write Wins
+- A rule that settles a conflict by keeping the change with the newest time.
+- Example: "We use last write wins for the profile photo."
+
+Eventual Consistency
+- A promise that all devices will show the same data after some time, though not right away.
+- Example: "With eventual consistency, the iPad catches up in a moment."
+
+
+Quiz ①
+What do you call a rule that settles a conflict by keeping the change with the newest time?
+a) Sync Conflict
+b) Last Write Wins
+c) Eventual Consistency
+
+Quiz ②
+What do you call a promise that all devices will show the same data after some time, though not right away?
+a) Sync Conflict
+b) Last Write Wins
+c) Eventual Consistency
+
+Quiz ③
+What do you call a clash that happens when two devices change the same item before they sync?
+a) Sync Conflict
+b) Last Write Wins
+c) Eventual Consistency

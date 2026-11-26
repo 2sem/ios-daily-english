@@ -1,0 +1,229 @@
+{
+  "day": 212,
+  "phase": "5. App architecture & data",
+  "theme": "Core Data models: the blueprint, the object and the fetch request",
+  "terms": [
+    {
+      "term": "Managed Object Model",
+      "definition": "A blueprint that lists the kinds of objects, and their fields, that the app can store.",
+      "example": "Add the new field to the managed object model.",
+      "code": "import CoreData\nlet model = NSManagedObjectModel()\nlet note = NSEntityDescription()\nnote.name = \"Note\"\nmodel.entities = [note]\nprint(model.entities.count)",
+      "output": "1"
+    },
+    {
+      "term": "NSManagedObject",
+      "definition": "The base class for every object that the framework creates and stores for you.",
+      "example": "Each note is an NSManagedObject with a title.",
+      "code": "import CoreData\nclass Note: NSManagedObject {\n    @NSManaged var title: String\n}\nprint(Note.self)",
+      "output": "Note"
+    },
+    {
+      "term": "NSFetchRequest",
+      "definition": "A request that asks for stored objects of one type and returns the ones it finds.",
+      "example": "Build an NSFetchRequest for all unread notes.",
+      "code": "import CoreData\nlet r = NSFetchRequest<NSManagedObject>(\n    entityName: \"Note\")\nr.fetchLimit = 10\nprint(r.entityName ?? \"none\")",
+      "output": "Note"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What do you call a request that asks for stored objects of one type and returns the ones it finds?",
+      "options": [
+        "Managed Object Model",
+        "NSManagedObject",
+        "NSFetchRequest"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "What do you call a blueprint that lists the kinds of objects, and their fields, that the app can store?",
+      "options": [
+        "Managed Object Model",
+        "NSManagedObject",
+        "NSFetchRequest"
+      ],
+      "answer": "a"
+    },
+    {
+      "question": "What do you call the base class for every object that the framework creates and stores for you?",
+      "options": [
+        "Managed Object Model",
+        "NSManagedObject",
+        "NSFetchRequest"
+      ],
+      "answer": "b"
+    }
+  ],
+  "video": {
+    "title": "Managed Object Model, NSManagedObject & NSFetchRequest | Day 212",
+    "description": "Learn to explain how Core Data describes, creates and finds stored objects: Managed Object Model, NSManagedObject & NSFetchRequest, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nManaged Object Model - A blueprint that lists the kinds of objects, and their fields, that the app can store.\nNSManagedObject - The base class for every object that the framework creates and stores for you.\nNSFetchRequest - A request that asks for stored objects of one type and returns the ones it finds.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 212 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "Managed Object Model",
+      "NSManagedObject",
+      "NSFetchRequest",
+      "managed object model",
+      "nsmanagedobject",
+      "nsfetchrequest",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "iOS Managed Object Model, NSManagedObject & NSFetchRequest | Day 212",
+      "description": "Explain Managed Object Model, NSManagedObject & NSFetchRequest in iOS by listening to a real code chat between two iOS devs.\nManaged Object Model, NSManagedObject, NSFetchRequest 표현을 영어 대화로 익혀요.\n\nManaged Object Model - A blueprint that lists the kinds of objects, and their fields, that the app can store.\n한국어: Managed Object Model: 앱이 저장할 수 있는 객체 종류와 그 필드를 적어 둔 설계도\n\nNSManagedObject - The base class for every object that the framework creates and stores for you.\n한국어: NSManagedObject: 프레임워크가 만들고 저장하는 모든 객체의 기본 클래스\n\nNSFetchRequest - A request that asks for stored objects of one type and returns the ones it finds.\n한국어: NSFetchRequest: 한 종류의 저장된 객체를 찾아 돌려 달라고 요청하는 객체\n\nIn this video, Mina and Jake talk about how Core Data describes, creates and finds stored objects, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 212 of the iOS Daily English series.\n\n#Swift #iOSArchitecture #EnglishForDevelopers",
+      "tags": [
+        "Managed Object Model",
+        "NSManagedObject",
+        "NSFetchRequest",
+        "iOS architecture",
+        "iOS 아키텍처",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "iOS Daily English"
+      ],
+      "hook": "Can you explain Managed Object Model, NSManagedObject and NSFetchRequest in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "Describe it, then fetch it",
+    "setting": "Setting up the Note type",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, I added a `title` field to `Note`, but the app crashes.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Did you update the managed object model?",
+        "terms": [
+          "Managed Object Model"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "The what?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "The managed object model. It is the blueprint that lists every object type and its fields.",
+        "terms": [
+          "Managed Object Model"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Oh, so the class alone is not enough.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Right. In our code, `Note` is an NSManagedObject, but the model must describe it too.",
+        "terms": [
+          "NSManagedObject"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Okay, I fixed the model. Now how do I load the notes?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Make an NSFetchRequest, like `r` in our code.",
+        "terms": [
+          "NSFetchRequest"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Does the NSFetchRequest return the notes right away?",
+        "terms": [
+          "NSFetchRequest"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "No. It is only the question. The context runs it and gives you the results.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "Got it. Every NSManagedObject comes from that blueprint.",
+        "terms": [
+          "NSManagedObject"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Exactly. Keep the model and the class in sync.",
+        "terms": []
+      }
+    ],
+    "code": "import CoreData\nclass Note: NSManagedObject {\n    @NSManaged var title: String\n}\nlet r = NSFetchRequest<Note>(entityName: \"Note\")",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "Managed Object Model",
+      "lines": [
+        {
+          "text": "The managed object model is our blueprint."
+        }
+      ],
+      "title": "The managed object model is our blueprint. #Shorts",
+      "description": "The managed object model is our blueprint.\n\nManaged Object Model - A blueprint that lists the kinds of objects, and their fields, that the app can store.\n한국어: Managed Object Model: 앱이 저장할 수 있는 객체 종류와 그 필드를 적어 둔 설계도\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "NSManagedObject",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "What is a Core Data object?"
+        },
+        {
+          "speaker": "B",
+          "text": "Each note is an NSManagedObject."
+        }
+      ],
+      "title": "What is a Core Data object? / Each note is an NSManagedObject. #Shorts",
+      "description": "What is a Core Data object? / Each note is an NSManagedObject.\n\nNSManagedObject - The base class for every object that the framework creates and stores for you.\n한국어: NSManagedObject: 프레임워크가 만들고 저장하는 모든 객체의 기본 클래스\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "NSFetchRequest",
+      "lines": [
+        {
+          "text": "Use an NSFetchRequest to find all unread notes."
+        }
+      ],
+      "title": "Use an NSFetchRequest to find all unread notes. #Shorts",
+      "description": "Use an NSFetchRequest to find all unread notes.\n\nNSFetchRequest - A request that asks for stored objects of one type and returns the ones it finds.\n한국어: NSFetchRequest: 한 종류의 저장된 객체를 찾아 돌려 달라고 요청하는 객체\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "The app crashes after a new field? Check the model."
+}

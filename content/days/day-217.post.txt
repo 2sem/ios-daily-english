@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 217
+
+@Model
+- A macro that makes a Swift class something SwiftData can save and load.
+- Example: "Add @Model above the class and it is ready to save."
+
+@Transient
+- A macro that keeps a property out of the database, so SwiftData does not save it.
+- Example: "Mark the selection flag as @Transient."
+
+Index Macro
+- A macro that builds a fast lookup list for a property, so searches finish sooner.
+- Example: "Add an index macro on the title to speed up search."
+
+
+Quiz ①
+What do you call a macro that keeps a property out of the database, so SwiftData does not save it?
+a) @Model
+b) @Transient
+c) Index Macro
+
+Quiz ②
+What do you call a macro that builds a fast lookup list for a property, so searches finish sooner?
+a) @Model
+b) @Transient
+c) Index Macro
+
+Quiz ③
+What do you call a macro that makes a Swift class something SwiftData can save and load?
+a) @Model
+b) @Transient
+c) Index Macro

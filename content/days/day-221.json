@@ -1,0 +1,232 @@
+{
+  "day": 221,
+  "phase": "5. App architecture & data",
+  "theme": "CloudKit basics: iCloud storage for app data",
+  "terms": [
+    {
+      "term": "CloudKit",
+      "definition": "An Apple framework that stores app data in iCloud, so it can sync across the user's devices.",
+      "example": "We use CloudKit to share notes between the iPhone and the iPad.",
+      "code": "import CloudKit\nfunc check(_ c: CKContainer) async throws {\n    let s = try await c.accountStatus()\n    print(s == .available)\n}",
+      "output": "// no output"
+    },
+    {
+      "term": "CKContainer",
+      "definition": "An object that stands for your app's iCloud storage and gives you access to its databases.",
+      "example": "Open the CKContainer with the identifier from the capability.",
+      "code": "import CloudKit\nfunc open(_ id: String) -> CKContainer {\n    CKContainer(identifier: id)\n}",
+      "output": "// no output"
+    },
+    {
+      "term": "CKRecord",
+      "definition": "One item stored in iCloud, like a row with named fields.",
+      "example": "Each note is a CKRecord with a title field.",
+      "code": "import CloudKit\nlet r = CKRecord(recordType: \"Note\")\nr[\"title\"] = \"Hello\"\nprint(r[\"title\"] as? String ?? \"\")",
+      "output": "Hello"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What do you call an object that stands for your app's iCloud storage and gives you access to its databases?",
+      "options": [
+        "CloudKit",
+        "CKRecord",
+        "CKContainer"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "What do you call one item stored in iCloud, like a row with named fields?",
+      "options": [
+        "CloudKit",
+        "CKRecord",
+        "CKContainer"
+      ],
+      "answer": "b"
+    },
+    {
+      "question": "What do you call an Apple framework that stores app data in iCloud, so it can sync across the user's devices?",
+      "options": [
+        "CloudKit",
+        "CKContainer",
+        "CKRecord"
+      ],
+      "answer": "a"
+    }
+  ],
+  "video": {
+    "title": "CloudKit, CKContainer & CKRecord | Day 221",
+    "description": "Learn to explain how an app stores records in iCloud with CloudKit: CloudKit, CKContainer & CKRecord, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nCloudKit - An Apple framework that stores app data in iCloud, so it can sync across the user's devices.\nCKContainer - An object that stands for your app's iCloud storage and gives you access to its databases.\nCKRecord - One item stored in iCloud, like a row with named fields.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 221 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "CloudKit",
+      "CKContainer",
+      "CKRecord",
+      "cloudkit",
+      "ckcontainer",
+      "ckrecord",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "iOS CloudKit, CKContainer & CKRecord | Day 221",
+      "description": "Explain CloudKit, CKContainer & CKRecord in iOS by listening to a real code chat between two iOS devs.\nCloudKit, CKContainer, CKRecord 표현을 영어 대화로 익혀요.\n\nCloudKit - An Apple framework that stores app data in iCloud, so it can sync across the user's devices.\n한국어: CloudKit: 앱 데이터를 iCloud에 저장해 사용자의 기기 간에 동기화할 수 있게 하는 Apple 프레임워크\n\nCKContainer - An object that stands for your app's iCloud storage and gives you access to its databases.\n한국어: CKContainer: 앱의 iCloud 저장 공간을 나타내고 그 데이터베이스에 접근하게 해 주는 객체\n\nCKRecord - One item stored in iCloud, like a row with named fields.\n한국어: CKRecord: 이름이 붙은 필드를 가진 행처럼 iCloud에 저장되는 항목 하나\n\nIn this video, Mina and Jake talk about how an app stores records in iCloud with CloudKit, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 221 of the iOS Daily English series.\n\n#Swift #iOSArchitecture #EnglishForDevelopers",
+      "tags": [
+        "CloudKit",
+        "CKContainer",
+        "CKRecord",
+        "iOS architecture",
+        "iOS 아키텍처",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "iOS Daily English"
+      ],
+      "hook": "Can you explain CloudKit, CKContainer and CKRecord in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "Notes in the cloud",
+    "setting": "Syncing notes to iCloud",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, users want their notes on both the iPhone and the iPad.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Use CloudKit. It stores app data in iCloud and syncs it across devices.",
+        "terms": [
+          "CloudKit"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Where do I start?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "With a CKContainer, like `c` in our code. It stands for your app's iCloud storage.",
+        "terms": [
+          "CKContainer"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Which `id` do I pass to the CKContainer?",
+        "terms": [
+          "CKContainer"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "The one from your capability, and it starts with `iCloud`.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "Okay. And how do I make a note?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "A note is a CKRecord. It works like a row with named fields.",
+        "terms": [
+          "CKRecord"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "So `r[\"title\"]` sets the title field of the CKRecord.",
+        "terms": [
+          "CKRecord"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Yes. But the record is only local until you save it.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "I thought CloudKit saved it automatically.",
+        "terms": [
+          "CloudKit"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "No. Save the CKRecord to a database, then CloudKit syncs it.",
+        "terms": [
+          "CloudKit",
+          "CKRecord"
+        ]
+      }
+    ],
+    "code": "import CloudKit\nlet id = \"iCloud.com.example.notes\"\nlet c = CKContainer(identifier: id)\nlet r = CKRecord(recordType: \"Note\")\nr[\"title\"] = \"Hello\"",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "CloudKit",
+      "lines": [
+        {
+          "text": "We use CloudKit to share notes between devices."
+        }
+      ],
+      "title": "We use CloudKit to share notes between devices. #Shorts",
+      "description": "We use CloudKit to share notes between devices.\n\nCloudKit - An Apple framework that stores app data in iCloud, so it can sync across the user's devices.\n한국어: CloudKit: 앱 데이터를 iCloud에 저장해 사용자의 기기 간에 동기화할 수 있게 하는 Apple 프레임워크\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "CKContainer",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Where does CloudKit start?"
+        },
+        {
+          "speaker": "B",
+          "text": "With a CKContainer for our iCloud storage."
+        }
+      ],
+      "title": "Where does CloudKit start? / With a CKContainer for our iCloud storage. #Shorts",
+      "description": "Where does CloudKit start? / With a CKContainer for our iCloud storage.\n\nCKContainer - An object that stands for your app's iCloud storage and gives you access to its databases.\n한국어: CKContainer: 앱의 iCloud 저장 공간을 나타내고 그 데이터베이스에 접근하게 해 주는 객체\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "CKRecord",
+      "lines": [
+        {
+          "text": "Each note is a CKRecord with a title field."
+        }
+      ],
+      "title": "Each note is a CKRecord with a title field. #Shorts",
+      "description": "Each note is a CKRecord with a title field.\n\nCKRecord - One item stored in iCloud, like a row with named fields.\n한국어: CKRecord: 이름이 붙은 필드를 가진 행처럼 iCloud에 저장되는 항목 하나\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "Notes on iPhone and iPad? Learn CloudKit."
+}

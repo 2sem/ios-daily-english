@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 226
+
+Infinite Scroll
+- A list that loads more items on its own when the user scrolls near the end.
+- Example: "The feed uses infinite scroll, so there is no next button."
+
+Prefetching
+- Loading data for rows that are about to appear, before the user scrolls to them.
+- Example: "Prefetching hides the loading delay."
+
+Debounce
+- Waiting until the input stops for a moment before you act, so you do not fire too often.
+- Example: "Debounce the search field, so we send one request."
+
+
+Quiz ①
+What do you call waiting until the input stops for a moment before you act, so you do not fire too often?
+a) Infinite Scroll
+b) Debounce
+c) Prefetching
+
+Quiz ②
+What do you call a list that loads more items on its own when the user scrolls near the end?
+a) Infinite Scroll
+b) Prefetching
+c) Debounce
+
+Quiz ③
+What do you call loading data for rows that are about to appear, before the user scrolls to them?
+a) Infinite Scroll
+b) Debounce
+c) Prefetching

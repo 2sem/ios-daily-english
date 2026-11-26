@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 219
+
+Schema Version
+- A version number that marks one shape of your saved data, such as 1.0.0 or 2.0.0.
+- Example: "Give the new models schema version 2.0.0."
+
+VersionedSchema
+- A protocol for one numbered version of your data shape, so SwiftData can compare the old and the new.
+- Example: "Make one VersionedSchema type for each release."
+
+SchemaMigrationPlan
+- A plan that lists all schema versions and the steps that move saved data from one to the next.
+- Example: "Add a SchemaMigrationPlan before the next release."
+
+
+Quiz ①
+What do you call a protocol for one numbered version of your data shape, so SwiftData can compare the old and the new?
+a) VersionedSchema
+b) Schema Version
+c) SchemaMigrationPlan
+
+Quiz ②
+What do you call a plan that lists all schema versions and the steps that move saved data from one to the next?
+a) Schema Version
+b) VersionedSchema
+c) SchemaMigrationPlan
+
+Quiz ③
+What do you call a version number that marks one shape of your saved data, such as 1.0.0 or 2.0.0?
+a) VersionedSchema
+b) Schema Version
+c) SchemaMigrationPlan

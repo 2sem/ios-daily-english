@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 225
+
+Pagination
+- Loading a long list in small parts, called pages, instead of all at once.
+- Example: "Pagination keeps the feed fast."
+
+Page Size
+- The number of items that each page contains.
+- Example: "A page size of twenty works well for this feed."
+
+Cursor
+- A marker from the server that says where the next page starts.
+- Example: "Send the cursor to get the next page."
+
+
+Quiz ①
+What do you call the number of items that each page contains?
+a) Page Size
+b) Pagination
+c) Cursor
+
+Quiz ②
+What do you call a marker from the server that says where the next page starts?
+a) Pagination
+b) Page Size
+c) Cursor
+
+Quiz ③
+What do you call loading a long list in small parts, called pages, instead of all at once?
+a) Page Size
+b) Pagination
+c) Cursor

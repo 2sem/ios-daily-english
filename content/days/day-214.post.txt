@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 214
+
+NSSortDescriptor
+- An object that says which field to sort by and whether the order goes up or down.
+- Example: "Use an NSSortDescriptor to show the newest note first."
+
+Relationship
+- A link from one stored object to another, such as a folder that holds many notes.
+- Example: "Each folder has a relationship to its notes."
+
+Delete Rule
+- A setting that says what happens to the linked objects when you delete one object.
+- Example: "Set the delete rule to cascade, so the notes go with the folder."
+
+
+Quiz ①
+What do you call a setting that says what happens to the linked objects when you delete one object?
+a) NSSortDescriptor
+b) Delete Rule
+c) Relationship
+
+Quiz ②
+What do you call an object that says which field to sort by and whether the order goes up or down?
+a) NSSortDescriptor
+b) Relationship
+c) Delete Rule
+
+Quiz ③
+What do you call a link from one stored object to another, such as a folder that holds many notes?
+a) NSSortDescriptor
+b) Delete Rule
+c) Relationship

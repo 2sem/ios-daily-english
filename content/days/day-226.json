@@ -1,0 +1,231 @@
+{
+  "day": 226,
+  "phase": "5. App architecture & data",
+  "theme": "Smooth long lists: infinite scroll, prefetching and debounce",
+  "terms": [
+    {
+      "term": "Infinite Scroll",
+      "definition": "A list that loads more items on its own when the user scrolls near the end.",
+      "example": "The feed uses infinite scroll, so there is no next button.",
+      "code": "var items = [1, 2, 3]\nfunc onAppear(_ n: Int) {\n    if n == items.last { items += [4, 5, 6] }\n}\nonAppear(3)\nprint(items.count)",
+      "output": "6"
+    },
+    {
+      "term": "Prefetching",
+      "definition": "Loading data for rows that are about to appear, before the user scrolls to them.",
+      "example": "Prefetching hides the loading delay.",
+      "code": "let all = Array(1...100)\nfunc prefetch(_ row: Int, ahead: Int) -> [Int] {\n    Array(all[row..<row + ahead])\n}\nprint(prefetch(5, ahead: 3))",
+      "output": "[6, 7, 8]"
+    },
+    {
+      "term": "Debounce",
+      "definition": "Waiting until the input stops for a moment before you act, so you do not fire too often.",
+      "example": "Debounce the search field, so we send one request.",
+      "code": "var last = 0.0\nfunc ready(_ t: Double) -> Bool {\n    defer { last = t }\n    return t - last > 0.5\n}\nprint(ready(1.0), ready(1.2))",
+      "output": "true false"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What do you call waiting until the input stops for a moment before you act, so you do not fire too often?",
+      "options": [
+        "Infinite Scroll",
+        "Debounce",
+        "Prefetching"
+      ],
+      "answer": "b"
+    },
+    {
+      "question": "What do you call a list that loads more items on its own when the user scrolls near the end?",
+      "options": [
+        "Infinite Scroll",
+        "Prefetching",
+        "Debounce"
+      ],
+      "answer": "a"
+    },
+    {
+      "question": "What do you call loading data for rows that are about to appear, before the user scrolls to them?",
+      "options": [
+        "Infinite Scroll",
+        "Debounce",
+        "Prefetching"
+      ],
+      "answer": "c"
+    }
+  ],
+  "video": {
+    "title": "Infinite Scroll, Prefetching & Debounce | Day 226",
+    "description": "Learn to explain how a list keeps loading as the user scrolls without waste: Infinite Scroll, Prefetching & Debounce, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nInfinite Scroll - A list that loads more items on its own when the user scrolls near the end.\nPrefetching - Loading data for rows that are about to appear, before the user scrolls to them.\nDebounce - Waiting until the input stops for a moment before you act, so you do not fire too often.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 226 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "Infinite Scroll",
+      "Prefetching",
+      "Debounce",
+      "infinite scroll",
+      "prefetching",
+      "debounce",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "iOS Infinite Scroll, Prefetching & Debounce | Day 226",
+      "description": "Explain Infinite Scroll, Prefetching & Debounce in iOS by listening to a real code chat between two iOS devs.\nInfinite Scroll, Prefetching, Debounce 표현을 영어 대화로 익혀요.\n\nInfinite Scroll - A list that loads more items on its own when the user scrolls near the end.\n한국어: Infinite Scroll: 사용자가 끝 근처까지 스크롤하면 스스로 항목을 더 불러오는 목록\n\nPrefetching - Loading data for rows that are about to appear, before the user scrolls to them.\n한국어: Prefetching: 사용자가 스크롤하기 전에 곧 나타날 행의 데이터를 미리 불러오는 것\n\nDebounce - Waiting until the input stops for a moment before you act, so you do not fire too often.\n한국어: Debounce: 너무 자주 실행되지 않도록 입력이 잠시 멈출 때까지 기다렸다가 동작하는 것\n\nIn this video, Mina and Jake talk about how a list keeps loading as the user scrolls without waste, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 226 of the iOS Daily English series.\n\n#Swift #iOSArchitecture #EnglishForDevelopers",
+      "tags": [
+        "Infinite Scroll",
+        "Prefetching",
+        "Debounce",
+        "iOS architecture",
+        "iOS 아키텍처",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "iOS Daily English"
+      ],
+      "hook": "Can you explain Infinite Scroll, Prefetching and Debounce in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "Too many requests",
+    "setting": "Fixing a feed that loads too often",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, the feed should keep loading as the user scrolls.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "That is infinite scroll. When the last row appears, load more items.",
+        "terms": [
+          "Infinite Scroll"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Like `onAppear` in our code, when `n` is the last item?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Yes. But the user waits at the bottom while it loads.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "Can we load earlier?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Use prefetching. It loads the next rows before the user reaches them.",
+        "terms": [
+          "Prefetching"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "So prefetching hides the delay.",
+        "terms": [
+          "Prefetching"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Right. But now we send the same request many times.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "The `onAppear` call fires again and again when the user scrolls fast.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Add a debounce. In our code, `last` and the half second wait do that.",
+        "terms": [
+          "Debounce"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "So a debounce skips the extra calls.",
+        "terms": [
+          "Debounce"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Yes. Infinite scroll, prefetching and a debounce work well together.",
+        "terms": [
+          "Infinite Scroll",
+          "Prefetching",
+          "Debounce"
+        ]
+      }
+    ],
+    "code": "var items = [1, 2, 3], last = 0.0\nfunc onAppear(_ n: Int, _ t: Double) {\n    guard n == items.last, t - last > 0.5\n    else { return }\n    items += [4, 5, 6]; last = t\n}",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "Infinite Scroll",
+      "lines": [
+        {
+          "text": "The feed uses infinite scroll, so there is no next button."
+        }
+      ],
+      "title": "The feed uses infinite scroll, so there is no next button. #Shorts",
+      "description": "The feed uses infinite scroll, so there is no next button.\n\nInfinite Scroll - A list that loads more items on its own when the user scrolls near the end.\n한국어: Infinite Scroll: 사용자가 끝 근처까지 스크롤하면 스스로 항목을 더 불러오는 목록\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "Prefetching",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Why is the list never empty?"
+        },
+        {
+          "speaker": "B",
+          "text": "Prefetching loads the rows early."
+        }
+      ],
+      "title": "Why is the list never empty? / Prefetching loads the rows early. #Shorts",
+      "description": "Why is the list never empty? / Prefetching loads the rows early.\n\nPrefetching - Loading data for rows that are about to appear, before the user scrolls to them.\n한국어: Prefetching: 사용자가 스크롤하기 전에 곧 나타날 행의 데이터를 미리 불러오는 것\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Debounce",
+      "lines": [
+        {
+          "text": "Debounce the search field, so we send one request."
+        }
+      ],
+      "title": "Debounce the search field, so we send one request. #Shorts",
+      "description": "Debounce the search field, so we send one request.\n\nDebounce - Waiting until the input stops for a moment before you act, so you do not fire too often.\n한국어: Debounce: 너무 자주 실행되지 않도록 입력이 잠시 멈출 때까지 기다렸다가 동작하는 것\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "Feed never ends? Learn infinite scroll."
+}

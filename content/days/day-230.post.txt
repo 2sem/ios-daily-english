@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 230
+
+BGTaskScheduler
+- The system service where your app asks for time to run background work later.
+- Example: "Register the refresh task with BGTaskScheduler at launch."
+
+BGAppRefreshTask
+- A short background task that lets your app fetch fresh data while it is not on screen.
+- Example: "The BGAppRefreshTask updates the feed overnight."
+
+Expiration Handler
+- A block of code that the system calls when time is almost up, so you can stop work cleanly.
+- Example: "Cancel the download in the expiration handler."
+
+
+Quiz ①
+What do you call a block of code that the system calls when time is almost up, so you can stop work cleanly?
+a) BGTaskScheduler
+b) BGAppRefreshTask
+c) Expiration Handler
+
+Quiz ②
+What do you call the system service where your app asks for time to run background work later?
+a) BGTaskScheduler
+b) BGAppRefreshTask
+c) Expiration Handler
+
+Quiz ③
+What do you call a short background task that lets your app fetch fresh data while it is not on screen?
+a) BGTaskScheduler
+b) BGAppRefreshTask
+c) Expiration Handler

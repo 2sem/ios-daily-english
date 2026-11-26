@@ -1,0 +1,231 @@
+{
+  "day": 215,
+  "phase": "5. App architecture & data",
+  "theme": "Core Data under the hood: the store, faults and migration",
+  "terms": [
+    {
+      "term": "Persistent Store",
+      "definition": "The file on disk where the framework keeps all of the saved objects.",
+      "example": "The persistent store is a single SQLite file.",
+      "code": "import CoreData\nlet d = NSPersistentStoreDescription()\nd.type = NSSQLiteStoreType\nprint(d.type)",
+      "output": "SQLite"
+    },
+    {
+      "term": "Faulting",
+      "definition": "A lazy loading trick that keeps a light placeholder until you actually read the object's data.",
+      "example": "Faulting keeps memory low because data loads only when needed.",
+      "code": "import CoreData\nfunc isLight(_ o: NSManagedObject) -> Bool {\n    o.isFault\n}",
+      "output": "// no output"
+    },
+    {
+      "term": "Lightweight Migration",
+      "definition": "An automatic update of the saved data to a new model, when the changes are simple, such as adding a field.",
+      "example": "Turn on lightweight migration for the new field.",
+      "code": "import CoreData\nlet d = NSPersistentStoreDescription()\nd.shouldMigrateStoreAutomatically = true\nd.shouldInferMappingModelAutomatically = true\nprint(d.shouldInferMappingModelAutomatically)",
+      "output": "true"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What do you call a lazy loading trick that keeps a light placeholder until you actually read the object's data?",
+      "options": [
+        "Persistent Store",
+        "Lightweight Migration",
+        "Faulting"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "What do you call an automatic update of the saved data to a new model, when the changes are simple, such as adding a field?",
+      "options": [
+        "Persistent Store",
+        "Lightweight Migration",
+        "Faulting"
+      ],
+      "answer": "b"
+    },
+    {
+      "question": "What do you call the file on disk where the framework keeps all of the saved objects?",
+      "options": [
+        "Persistent Store",
+        "Faulting",
+        "Lightweight Migration"
+      ],
+      "answer": "a"
+    }
+  ],
+  "video": {
+    "title": "Persistent Store, Faulting & Lightweight Migration | Day 215",
+    "description": "Learn to explain where Core Data keeps data, how it loads it lazily and how it updates old data: Persistent Store, Faulting & Lightweight Migration, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nPersistent Store - The file on disk where the framework keeps all of the saved objects.\nFaulting - A lazy loading trick that keeps a light placeholder until you actually read the object's data.\nLightweight Migration - An automatic update of the saved data to a new model, when the changes are simple, such as adding a field.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 215 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "Persistent Store",
+      "Faulting",
+      "Lightweight Migration",
+      "persistent store",
+      "faulting",
+      "lightweight migration",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "iOS Persistent Store, Faulting & Lightweight Migration | Day 215",
+      "description": "Explain Persistent Store, Faulting & Lightweight Migration in iOS by listening to a real code chat between two iOS devs.\nPersistent Store, Faulting, Lightweight Migration 표현을 영어 대화로 익혀요.\n\nPersistent Store - The file on disk where the framework keeps all of the saved objects.\n한국어: Persistent Store: 저장된 객체를 모두 보관하는 디스크 위의 파일\n\nFaulting - A lazy loading trick that keeps a light placeholder until you actually read the object's data.\n한국어: Faulting: 객체의 데이터를 실제로 읽기 전까지 가벼운 자리 표시자만 두는 지연 로딩 기법\n\nLightweight Migration - An automatic update of the saved data to a new model, when the changes are simple, such as adding a field.\n한국어: Lightweight Migration: 필드 추가처럼 변경이 단순할 때 저장된 데이터를 새 모델로 자동 변환하는 방식\n\nIn this video, Mina and Jake talk about where Core Data keeps data, how it loads it lazily and how it updates old data, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 215 of the iOS Daily English series.\n\n#Swift #iOSArchitecture #EnglishForDevelopers",
+      "tags": [
+        "Persistent Store",
+        "Faulting",
+        "Lightweight Migration",
+        "iOS architecture",
+        "iOS 아키텍처",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "iOS Daily English"
+      ],
+      "hook": "Can you explain Persistent Store, Faulting and Lightweight Migration in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "The update that broke the store",
+    "setting": "Releasing a new notes model",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, users who update the app get a crash on launch.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Did you change the model? Old data sits in the persistent store, in the old shape.",
+        "terms": [
+          "Persistent Store"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Where is the persistent store, exactly?",
+        "terms": [
+          "Persistent Store"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "It is a file on disk. Core Data reads the saved objects from it.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "And the new field does not match that file.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Right. You need lightweight migration. It updates the old data to the new model.",
+        "terms": [
+          "Lightweight Migration"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Is that `shouldInferMappingModelAutomatically` in our code?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Yes. Lightweight migration works for simple changes, like a new field.",
+        "terms": [
+          "Lightweight Migration"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Also, why does `isFault` return true for some objects?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "That is faulting. Core Data keeps a light placeholder and loads the data later.",
+        "terms": [
+          "Faulting"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "So faulting saves memory.",
+        "terms": [
+          "Faulting"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Yes. Faulting is normal, so do not worry about it.",
+        "terms": [
+          "Faulting"
+        ]
+      }
+    ],
+    "code": "import CoreData\nlet d = NSPersistentStoreDescription()\nd.shouldInferMappingModelAutomatically = true\nfunc lazy(_ o: NSManagedObject) -> Bool {\n    o.isFault\n}",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "Persistent Store",
+      "lines": [
+        {
+          "text": "The persistent store is one file on disk."
+        }
+      ],
+      "title": "The persistent store is one file on disk. #Shorts",
+      "description": "The persistent store is one file on disk.\n\nPersistent Store - The file on disk where the framework keeps all of the saved objects.\n한국어: Persistent Store: 저장된 객체를 모두 보관하는 디스크 위의 파일\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "Faulting",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Why is this object a fault?"
+        },
+        {
+          "speaker": "B",
+          "text": "Faulting loads the data later."
+        }
+      ],
+      "title": "Why is this object a fault? / Faulting loads the data later. #Shorts",
+      "description": "Why is this object a fault? / Faulting loads the data later.\n\nFaulting - A lazy loading trick that keeps a light placeholder until you actually read the object's data.\n한국어: Faulting: 객체의 데이터를 실제로 읽기 전까지 가벼운 자리 표시자만 두는 지연 로딩 기법\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Lightweight Migration",
+      "lines": [
+        {
+          "text": "Turn on lightweight migration for the new field."
+        }
+      ],
+      "title": "Turn on lightweight migration for the new field. #Shorts",
+      "description": "Turn on lightweight migration for the new field.\n\nLightweight Migration - An automatic update of the saved data to a new model, when the changes are simple, such as adding a field.\n한국어: Lightweight Migration: 필드 추가처럼 변경이 단순할 때 저장된 데이터를 새 모델로 자동 변환하는 방식\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "App crashes after an update? Check migration."
+}

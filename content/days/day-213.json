@@ -1,0 +1,233 @@
+{
+  "day": 213,
+  "phase": "5. App architecture & data",
+  "theme": "Controlling a fetch: predicate, fetch limit and batch size",
+  "terms": [
+    {
+      "term": "NSPredicate",
+      "definition": "A rule that filters objects, for example only the notes that are not done.",
+      "example": "Add an NSPredicate so we only load unread notes.",
+      "code": "import Foundation\nlet p = NSPredicate(format: \"age > %d\", 18)\nprint(p.evaluate(with: [\"age\": 20]))",
+      "output": "true"
+    },
+    {
+      "term": "Fetch Limit",
+      "definition": "A cap on how many objects one fetch may return.",
+      "example": "Set a fetch limit of twenty for the first screen.",
+      "code": "import CoreData\nlet r = NSFetchRequest<NSManagedObject>(\n    entityName: \"Note\")\nr.fetchLimit = 20\nprint(r.fetchLimit)",
+      "output": "20"
+    },
+    {
+      "term": "Batch Size",
+      "definition": "The number of objects loaded into memory at one time while you scroll through the results.",
+      "example": "A small batch size keeps memory low for long lists.",
+      "code": "import CoreData\nlet r = NSFetchRequest<NSManagedObject>(\n    entityName: \"Note\")\nr.fetchBatchSize = 10\nprint(r.fetchBatchSize)",
+      "output": "10"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What do you call a cap on how many objects one fetch may return?",
+      "options": [
+        "Fetch Limit",
+        "NSPredicate",
+        "Batch Size"
+      ],
+      "answer": "a"
+    },
+    {
+      "question": "What do you call the number of objects loaded into memory at one time while you scroll through the results?",
+      "options": [
+        "NSPredicate",
+        "Fetch Limit",
+        "Batch Size"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "What do you call a rule that filters objects, for example only the notes that are not done?",
+      "options": [
+        "Fetch Limit",
+        "NSPredicate",
+        "Batch Size"
+      ],
+      "answer": "b"
+    }
+  ],
+  "video": {
+    "title": "NSPredicate, Fetch Limit & Batch Size | Day 213",
+    "description": "Learn to explain how to filter and limit what Core Data loads: NSPredicate, Fetch Limit & Batch Size, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nNSPredicate - A rule that filters objects, for example only the notes that are not done.\nFetch Limit - A cap on how many objects one fetch may return.\nBatch Size - The number of objects loaded into memory at one time while you scroll through the results.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 213 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "NSPredicate",
+      "Fetch Limit",
+      "Batch Size",
+      "nspredicate",
+      "fetch limit",
+      "batch size",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "iOS NSPredicate, Fetch Limit & Batch Size | Day 213",
+      "description": "Explain NSPredicate, Fetch Limit & Batch Size in iOS by listening to a real code chat between two iOS devs.\nNSPredicate, Fetch Limit, Batch Size 표현을 영어 대화로 익혀요.\n\nNSPredicate - A rule that filters objects, for example only the notes that are not done.\n한국어: NSPredicate: 예를 들어 완료되지 않은 메모만 남기듯 객체를 걸러내는 규칙\n\nFetch Limit - A cap on how many objects one fetch may return.\n한국어: Fetch Limit: 한 번의 가져오기가 돌려줄 수 있는 객체 수의 상한\n\nBatch Size - The number of objects loaded into memory at one time while you scroll through the results.\n한국어: Batch Size: 결과를 스크롤할 때 한 번에 메모리로 불러오는 객체 수\n\nIn this video, Mina and Jake talk about how to filter and limit what Core Data loads, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 213 of the iOS Daily English series.\n\n#Swift #iOSArchitecture #EnglishForDevelopers",
+      "tags": [
+        "NSPredicate",
+        "Fetch Limit",
+        "Batch Size",
+        "iOS architecture",
+        "iOS 아키텍처",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "iOS Daily English"
+      ],
+      "hook": "Can you explain NSPredicate, Fetch Limit and Batch Size in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "Load less, load faster",
+    "setting": "Speeding up a slow notes list",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, the notes list is slow. We load every note, even the done ones.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Add an NSPredicate to the request. It filters the objects.",
+        "terms": [
+          "NSPredicate"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Like `r.predicate` with `done == NO`?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Yes. Now the NSPredicate skips the done notes.",
+        "terms": [
+          "NSPredicate"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "The first screen only shows twenty notes, though.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Then set a fetch limit. In our code, `fetchLimit` is twenty.",
+        "terms": [
+          "Fetch Limit"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Does a fetch limit also make scrolling smooth?",
+        "terms": [
+          "Fetch Limit"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Not exactly. For that, use a batch size.",
+        "terms": [
+          "Batch Size"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "I thought they were the same thing.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "No. The fetch limit caps the total. The batch size controls how many load into memory at a time.",
+        "terms": [
+          "Fetch Limit",
+          "Batch Size"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "So we use the NSPredicate, the limit and the batch size together.",
+        "terms": [
+          "NSPredicate",
+          "Batch Size"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Exactly. Each one helps in a different way.",
+        "terms": []
+      }
+    ],
+    "code": "import CoreData\ntypealias Req = NSFetchRequest<NSManagedObject>\nlet r = Req(entityName: \"Note\")\nr.predicate = NSPredicate(format: \"done == NO\")\nr.fetchLimit = 20\nr.fetchBatchSize = 10",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "NSPredicate",
+      "lines": [
+        {
+          "text": "Add an NSPredicate to hide the done notes."
+        }
+      ],
+      "title": "Add an NSPredicate to hide the done notes. #Shorts",
+      "description": "Add an NSPredicate to hide the done notes.\n\nNSPredicate - A rule that filters objects, for example only the notes that are not done.\n한국어: NSPredicate: 예를 들어 완료되지 않은 메모만 남기듯 객체를 걸러내는 규칙\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "Fetch Limit",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Why only twenty notes?"
+        },
+        {
+          "speaker": "B",
+          "text": "I set a fetch limit."
+        }
+      ],
+      "title": "Why only twenty notes? / I set a fetch limit. #Shorts",
+      "description": "Why only twenty notes? / I set a fetch limit.\n\nFetch Limit - A cap on how many objects one fetch may return.\n한국어: Fetch Limit: 한 번의 가져오기가 돌려줄 수 있는 객체 수의 상한\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Batch Size",
+      "lines": [
+        {
+          "text": "A small batch size keeps memory low."
+        }
+      ],
+      "title": "A small batch size keeps memory low. #Shorts",
+      "description": "A small batch size keeps memory low.\n\nBatch Size - The number of objects loaded into memory at one time while you scroll through the results.\n한국어: Batch Size: 결과를 스크롤할 때 한 번에 메모리로 불러오는 객체 수\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "Slow notes list? Filter and limit the fetch."
+}

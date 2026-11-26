@@ -1,0 +1,232 @@
+{
+  "day": 214,
+  "phase": "5. App architecture & data",
+  "theme": "Sorting and linking stored objects",
+  "terms": [
+    {
+      "term": "NSSortDescriptor",
+      "definition": "An object that says which field to sort by and whether the order goes up or down.",
+      "example": "Use an NSSortDescriptor to show the newest note first.",
+      "code": "import Foundation\nlet d = NSSortDescriptor(\n    key: \"title\", ascending: false)\nprint(d.key ?? \"none\")\nprint(d.ascending)",
+      "output": "title\nfalse"
+    },
+    {
+      "term": "Relationship",
+      "definition": "A link from one stored object to another, such as a folder that holds many notes.",
+      "example": "Each folder has a relationship to its notes.",
+      "code": "import CoreData\nlet rel = NSRelationshipDescription()\nrel.name = \"notes\"\nrel.maxCount = 0\nprint(rel.isToMany)",
+      "output": "true"
+    },
+    {
+      "term": "Delete Rule",
+      "definition": "A setting that says what happens to the linked objects when you delete one object.",
+      "example": "Set the delete rule to cascade, so the notes go with the folder.",
+      "code": "import CoreData\nlet rel = NSRelationshipDescription()\nrel.deleteRule = .cascadeDeleteRule\nprint(rel.deleteRule == .cascadeDeleteRule)",
+      "output": "true"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What do you call a setting that says what happens to the linked objects when you delete one object?",
+      "options": [
+        "NSSortDescriptor",
+        "Delete Rule",
+        "Relationship"
+      ],
+      "answer": "b"
+    },
+    {
+      "question": "What do you call an object that says which field to sort by and whether the order goes up or down?",
+      "options": [
+        "NSSortDescriptor",
+        "Relationship",
+        "Delete Rule"
+      ],
+      "answer": "a"
+    },
+    {
+      "question": "What do you call a link from one stored object to another, such as a folder that holds many notes?",
+      "options": [
+        "NSSortDescriptor",
+        "Delete Rule",
+        "Relationship"
+      ],
+      "answer": "c"
+    }
+  ],
+  "video": {
+    "title": "NSSortDescriptor, Relationship & Delete Rule | Day 214",
+    "description": "Learn to explain how Core Data sorts results and links objects together: NSSortDescriptor, Relationship & Delete Rule, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nNSSortDescriptor - An object that says which field to sort by and whether the order goes up or down.\nRelationship - A link from one stored object to another, such as a folder that holds many notes.\nDelete Rule - A setting that says what happens to the linked objects when you delete one object.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 214 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "NSSortDescriptor",
+      "Relationship",
+      "Delete Rule",
+      "nssortdescriptor",
+      "relationship",
+      "delete rule",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "iOS NSSortDescriptor, Relationship & Delete Rule | Day 214",
+      "description": "Explain NSSortDescriptor, Relationship & Delete Rule in iOS by listening to a real code chat between two iOS devs.\nNSSortDescriptor, Relationship, Delete Rule 표현을 영어 대화로 익혀요.\n\nNSSortDescriptor - An object that says which field to sort by and whether the order goes up or down.\n한국어: NSSortDescriptor: 어떤 필드로 정렬할지와 오름차순인지 내림차순인지 정하는 객체\n\nRelationship - A link from one stored object to another, such as a folder that holds many notes.\n한국어: Relationship: 여러 메모를 담는 폴더처럼 저장된 객체와 다른 객체를 잇는 연결\n\nDelete Rule - A setting that says what happens to the linked objects when you delete one object.\n한국어: Delete Rule: 한 객체를 지울 때 연결된 객체에 일어날 일을 정하는 설정\n\nIn this video, Mina and Jake talk about how Core Data sorts results and links objects together, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 214 of the iOS Daily English series.\n\n#Swift #iOSArchitecture #EnglishForDevelopers",
+      "tags": [
+        "NSSortDescriptor",
+        "Relationship",
+        "Delete Rule",
+        "iOS architecture",
+        "iOS 아키텍처",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "iOS Daily English"
+      ],
+      "hook": "Can you explain NSSortDescriptor, Relationship and Delete Rule in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "Folders and notes",
+    "setting": "Designing folders for notes",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, the notes in each folder look random. How do I sort them?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Use an NSSortDescriptor, like `s` in our code. It picks the field and the direction.",
+        "terms": [
+          "NSSortDescriptor"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "So `ascending: false` puts the newest note first?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Yes, if the key is `date`. The NSSortDescriptor sorts by that field.",
+        "terms": [
+          "NSSortDescriptor"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Now I want each folder to hold many notes.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "That is a relationship. It links one folder object to many note objects.",
+        "terms": [
+          "Relationship"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "What happens to the notes if I delete the folder?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "That depends on the delete rule.",
+        "terms": [
+          "Delete Rule"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Oh. I thought Core Data always deleted them.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "No, a wrong delete rule can leave orphan notes. Here, `cascadeDeleteRule` removes them with the folder.",
+        "terms": [
+          "Delete Rule"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "So the relationship needs a delete rule on purpose.",
+        "terms": [
+          "Relationship",
+          "Delete Rule"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Exactly. Choose it carefully, and add an NSSortDescriptor for the list.",
+        "terms": [
+          "NSSortDescriptor"
+        ]
+      }
+    ],
+    "code": "import CoreData\nlet s = NSSortDescriptor(\n    key: \"date\", ascending: false)\nlet r = NSRelationshipDescription()\nr.deleteRule = .cascadeDeleteRule",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "NSSortDescriptor",
+      "lines": [
+        {
+          "text": "Use an NSSortDescriptor to show the newest note first."
+        }
+      ],
+      "title": "Use an NSSortDescriptor to show the newest note first. #Shorts",
+      "description": "Use an NSSortDescriptor to show the newest note first.\n\nNSSortDescriptor - An object that says which field to sort by and whether the order goes up or down.\n한국어: NSSortDescriptor: 어떤 필드로 정렬할지와 오름차순인지 내림차순인지 정하는 객체\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "Relationship",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "How do folders hold notes?"
+        },
+        {
+          "speaker": "B",
+          "text": "With a relationship."
+        }
+      ],
+      "title": "How do folders hold notes? / With a relationship. #Shorts",
+      "description": "How do folders hold notes? / With a relationship.\n\nRelationship - A link from one stored object to another, such as a folder that holds many notes.\n한국어: Relationship: 여러 메모를 담는 폴더처럼 저장된 객체와 다른 객체를 잇는 연결\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Delete Rule",
+      "lines": [
+        {
+          "text": "Set the delete rule to cascade for the notes."
+        }
+      ],
+      "title": "Set the delete rule to cascade for the notes. #Shorts",
+      "description": "Set the delete rule to cascade for the notes.\n\nDelete Rule - A setting that says what happens to the linked objects when you delete one object.\n한국어: Delete Rule: 한 객체를 지울 때 연결된 객체에 일어날 일을 정하는 설정\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "Delete a folder, lose the notes? Check the delete rule."
+}

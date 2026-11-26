@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 216
+
+Background Context
+- A second context that does slow work on a background queue, so the screen stays smooth.
+- Example: "Import the data in a background context."
+
+Merge Policy
+- A rule that decides which version wins when two contexts change the same object.
+- Example: "Set a merge policy so the newest change wins."
+
+NSFetchedResultsController
+- A helper that watches a fetch request and tells a table view when the results change.
+- Example: "An NSFetchedResultsController keeps the list in sync."
+
+
+Quiz ①
+What do you call a helper that watches a fetch request and tells a table view when the results change?
+a) NSFetchedResultsController
+b) Background Context
+c) Merge Policy
+
+Quiz ②
+What do you call a second context that does slow work on a background queue, so the screen stays smooth?
+a) Merge Policy
+b) Background Context
+c) NSFetchedResultsController
+
+Quiz ③
+What do you call a rule that decides which version wins when two contexts change the same object?
+a) Background Context
+b) NSFetchedResultsController
+c) Merge Policy

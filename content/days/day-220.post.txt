@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 220
+
+ModelConfiguration
+- An object that describes how SwiftData stores your models, such as whether it uses the disk.
+- Example: "Pass a ModelConfiguration to the container."
+
+In-Memory Store
+- A store that keeps data only in memory, so it disappears when the app quits.
+- Example: "Tests use an in-memory store, so nothing stays on disk."
+
+Unique Constraint
+- A rule that allows only one stored item with a given value, such as one account per email.
+- Example: "Add a unique constraint on the email field."
+
+
+Quiz ①
+What do you call a rule that allows only one stored item with a given value, such as one account per email?
+a) ModelConfiguration
+b) Unique Constraint
+c) In-Memory Store
+
+Quiz ②
+What do you call an object that describes how SwiftData stores your models, such as whether it uses the disk?
+a) ModelConfiguration
+b) In-Memory Store
+c) Unique Constraint
+
+Quiz ③
+What do you call a store that keeps data only in memory, so it disappears when the app quits?
+a) ModelConfiguration
+b) Unique Constraint
+c) In-Memory Store

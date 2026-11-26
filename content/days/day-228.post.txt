@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 228
+
+Offline-First
+- A design where the app works from local data first and talks to the server when it can.
+- Example: "An offline-first app never shows a blank screen."
+
+Optimistic Update
+- Showing a change on screen right away, before the server confirms it.
+- Example: "An optimistic update makes the like button feel instant."
+
+Sync Queue
+- A waiting list of changes saved on the device, which the app sends to the server later.
+- Example: "The sync queue sends the edits when we are online."
+
+
+Quiz ①
+What do you call a waiting list of changes saved on the device, which the app sends to the server later?
+a) Sync Queue
+b) Offline-First
+c) Optimistic Update
+
+Quiz ②
+What do you call a design where the app works from local data first and talks to the server when it can?
+a) Optimistic Update
+b) Offline-First
+c) Sync Queue
+
+Quiz ③
+What do you call showing a change on screen right away, before the server confirms it?
+a) Offline-First
+b) Sync Queue
+c) Optimistic Update

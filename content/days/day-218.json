@@ -1,0 +1,230 @@
+{
+  "day": 218,
+  "phase": "5. App architecture & data",
+  "theme": "Querying SwiftData: descriptors, predicates and sorting",
+  "terms": [
+    {
+      "term": "FetchDescriptor",
+      "definition": "An object that describes what SwiftData should fetch, with a filter, a sort order and a limit.",
+      "example": "Build a FetchDescriptor for the newest five notes.",
+      "code": "import SwiftData\n@Model class Note { var title = \"\"; init() {} }\nvar d = FetchDescriptor<Note>()\nd.fetchLimit = 5\nprint(d.fetchLimit ?? 0)",
+      "output": "5"
+    },
+    {
+      "term": "Predicate Macro",
+      "definition": "A macro that turns a Swift condition into a safe filter for a SwiftData query.",
+      "example": "The predicate macro checks our filter when we build the app.",
+      "code": "import Foundation\nimport SwiftData\n@Model class Note { var name = \"Hi\"; init() {} }\nlet p = #Predicate<Note> { $0.name == \"Hi\" }\nlet n = Note()\nprint(try p.evaluate(n))",
+      "output": "true"
+    },
+    {
+      "term": "SortDescriptor",
+      "definition": "A value that says which property to sort by and in which order.",
+      "example": "Pass a SortDescriptor to show the newest note first.",
+      "code": "import Foundation\nstruct Note { var title: String }\nlet s = SortDescriptor(\n    \\Note.title, order: .reverse)\nlet a = [Note(title: \"a\"), Note(title: \"b\")]\nprint(a.sorted(using: s).map(\\.title))",
+      "output": "[\"b\", \"a\"]"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What do you call a value that says which property to sort by and in which order?",
+      "options": [
+        "FetchDescriptor",
+        "Predicate Macro",
+        "SortDescriptor"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "What do you call an object that describes what SwiftData should fetch, with a filter, a sort order and a limit?",
+      "options": [
+        "FetchDescriptor",
+        "Predicate Macro",
+        "SortDescriptor"
+      ],
+      "answer": "a"
+    },
+    {
+      "question": "What do you call a macro that turns a Swift condition into a safe filter for a SwiftData query?",
+      "options": [
+        "FetchDescriptor",
+        "Predicate Macro",
+        "SortDescriptor"
+      ],
+      "answer": "b"
+    }
+  ],
+  "video": {
+    "title": "FetchDescriptor, Predicate Macro & SortDescriptor | Day 218",
+    "description": "Learn to explain how to ask SwiftData for exactly the data you need: FetchDescriptor, Predicate Macro & SortDescriptor, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nFetchDescriptor - An object that describes what SwiftData should fetch, with a filter, a sort order and a limit.\nPredicate Macro - A macro that turns a Swift condition into a safe filter for a SwiftData query.\nSortDescriptor - A value that says which property to sort by and in which order.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 218 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "FetchDescriptor",
+      "Predicate Macro",
+      "SortDescriptor",
+      "fetchdescriptor",
+      "predicate macro",
+      "sortdescriptor",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "iOS FetchDescriptor, Predicate Macro & SortDescriptor | Day 218",
+      "description": "Explain FetchDescriptor, Predicate Macro & SortDescriptor in iOS by listening to a real code chat between two iOS devs.\nFetchDescriptor, Predicate Macro, SortDescriptor 표현을 영어 대화로 익혀요.\n\nFetchDescriptor - An object that describes what SwiftData should fetch, with a filter, a sort order and a limit.\n한국어: FetchDescriptor: 필터, 정렬 순서, 개수 제한으로 SwiftData가 무엇을 가져올지 설명하는 객체\n\nPredicate Macro - A macro that turns a Swift condition into a safe filter for a SwiftData query.\n한국어: Predicate Macro: Swift 조건식을 SwiftData 쿼리용 안전한 필터로 바꿔 주는 매크로\n\nSortDescriptor - A value that says which property to sort by and in which order.\n한국어: SortDescriptor: 어떤 프로퍼티로 어떤 순서로 정렬할지 알려 주는 값\n\nIn this video, Mina and Jake talk about how to ask SwiftData for exactly the data you need, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 218 of the iOS Daily English series.\n\n#Swift #iOSArchitecture #EnglishForDevelopers",
+      "tags": [
+        "FetchDescriptor",
+        "Predicate Macro",
+        "SortDescriptor",
+        "iOS architecture",
+        "iOS 아키텍처",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "iOS Daily English"
+      ],
+      "hook": "Can you explain FetchDescriptor, Predicate Macro and SortDescriptor in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "Find the right notes",
+    "setting": "Building a note search",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, I need the notes whose `title` is Hi, sorted by `title`.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Start with a FetchDescriptor. It describes what you want to fetch.",
+        "terms": [
+          "FetchDescriptor"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "And where does the filter go?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Into the predicate. Use the predicate macro, like `p` in our code.",
+        "terms": [
+          "Predicate Macro"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Why not write a string filter, like in Core Data?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "The predicate macro checks your Swift code when you build the app, so typos become errors.",
+        "terms": [
+          "Predicate Macro"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Oh, nice. I forgot the sort order, though.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Add a SortDescriptor to `sortBy`, like in our code.",
+        "terms": [
+          "SortDescriptor"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Does the FetchDescriptor also take a limit?",
+        "terms": [
+          "FetchDescriptor"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Yes. It can hold a filter, a sort order and a limit.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "So the FetchDescriptor carries the predicate and the SortDescriptor.",
+        "terms": [
+          "FetchDescriptor",
+          "SortDescriptor"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Exactly. Then the context runs it.",
+        "terms": []
+      }
+    ],
+    "code": "import Foundation\nimport SwiftData\n@Model class Note { var title = \"\"; init() {} }\nlet p = #Predicate<Note> { $0.title == \"Hi\" }\nlet d = FetchDescriptor(predicate: p, sortBy:\n    [SortDescriptor(\\Note.title)])",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "FetchDescriptor",
+      "lines": [
+        {
+          "text": "A FetchDescriptor holds the filter, the sort and the limit."
+        }
+      ],
+      "title": "A FetchDescriptor holds the filter, the sort and the limit. #Shorts",
+      "description": "A FetchDescriptor holds the filter, the sort and the limit.\n\nFetchDescriptor - An object that describes what SwiftData should fetch, with a filter, a sort order and a limit.\n한국어: FetchDescriptor: 필터, 정렬 순서, 개수 제한으로 SwiftData가 무엇을 가져올지 설명하는 객체\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "Predicate Macro",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Why use a macro for the filter?"
+        },
+        {
+          "speaker": "B",
+          "text": "The predicate macro catches typos at build time."
+        }
+      ],
+      "title": "Why use a macro for the filter? / The predicate macro catches typos at build time. #Shorts",
+      "description": "Why use a macro for the filter? / The predicate macro catches typos at build time.\n\nPredicate Macro - A macro that turns a Swift condition into a safe filter for a SwiftData query.\n한국어: Predicate Macro: Swift 조건식을 SwiftData 쿼리용 안전한 필터로 바꿔 주는 매크로\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "SortDescriptor",
+      "lines": [
+        {
+          "text": "Pass a SortDescriptor to show the newest note first."
+        }
+      ],
+      "title": "Pass a SortDescriptor to show the newest note first. #Shorts",
+      "description": "Pass a SortDescriptor to show the newest note first.\n\nSortDescriptor - A value that says which property to sort by and in which order.\n한국어: SortDescriptor: 어떤 프로퍼티로 어떤 순서로 정렬할지 알려 주는 값\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "Typos in your filter? Use the predicate macro."
+}
