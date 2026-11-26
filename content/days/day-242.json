@@ -1,0 +1,231 @@
+{
+  "day": 242,
+  "phase": "5. App architecture & data",
+  "theme": "Secrets: API keys, gitignore and rotation",
+  "terms": [
+    {
+      "term": "API Key",
+      "definition": "A secret string that proves to a server that your app is allowed to use its service.",
+      "example": "Never commit the API key to Git.",
+      "code": "let key = \"sk_test_123\"\nlet masked = key.prefix(3) + \"...\"\nprint(masked)",
+      "output": "sk_..."
+    },
+    {
+      "term": "Gitignore",
+      "definition": "A file that lists the files Git must never track, so private files stay out of the repository.",
+      "example": "Add the secrets file to the gitignore.",
+      "code": "let ignored = [\"Secrets.xcconfig\", \".env\"]\nlet file = \".env\"\nprint(ignored.contains(file))",
+      "output": "true"
+    },
+    {
+      "term": "Secret Rotation",
+      "definition": "The habit of replacing a secret with a new one on a schedule, or right after a leak.",
+      "example": "Do a secret rotation after the leak.",
+      "code": "var key = \"old-key\"\nkey = \"new-key\" // rotate\nprint(key)",
+      "output": "new-key"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What do you call the habit of replacing a secret with a new one on a schedule, or right after a leak?",
+      "options": [
+        "API Key",
+        "Secret Rotation",
+        "Gitignore"
+      ],
+      "answer": "b"
+    },
+    {
+      "question": "What do you call a secret string that proves to a server that your app is allowed to use its service?",
+      "options": [
+        "API Key",
+        "Secret Rotation",
+        "Gitignore"
+      ],
+      "answer": "a"
+    },
+    {
+      "question": "What do you call a file that lists the files Git must never track, so private files stay out of the repository?",
+      "options": [
+        "API Key",
+        "Secret Rotation",
+        "Gitignore"
+      ],
+      "answer": "c"
+    }
+  ],
+  "video": {
+    "title": "API Key, Gitignore & Secret Rotation | Day 242",
+    "description": "Learn to explain how to keep keys and passwords out of your repository: API Key, Gitignore & Secret Rotation, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nAPI Key - A secret string that proves to a server that your app is allowed to use its service.\nGitignore - A file that lists the files Git must never track, so private files stay out of the repository.\nSecret Rotation - The habit of replacing a secret with a new one on a schedule, or right after a leak.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 242 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "API Key",
+      "Gitignore",
+      "Secret Rotation",
+      "api key",
+      "gitignore",
+      "secret rotation",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "iOS API Key, Gitignore & Secret Rotation | Day 242",
+      "description": "Explain API Key, Gitignore & Secret Rotation in iOS by listening to a real code chat between two iOS devs.\nAPI Key, Gitignore, Secret Rotation 표현을 영어 대화로 익혀요.\n\nAPI Key - A secret string that proves to a server that your app is allowed to use its service.\n한국어: API Key: 앱이 서버의 서비스를 쓸 수 있음을 증명하는 비밀 문자열\n\nGitignore - A file that lists the files Git must never track, so private files stay out of the repository.\n한국어: Gitignore: Git이 절대 추적하지 않을 파일을 적어 두어 비공개 파일이 저장소에 들어가지 않게 하는 파일\n\nSecret Rotation - The habit of replacing a secret with a new one on a schedule, or right after a leak.\n한국어: Secret Rotation: 정해진 주기로, 또는 유출 직후에 비밀 값을 새 값으로 바꾸는 습관\n\nIn this video, Mina and Jake talk about an API key found in a pull request and how to protect and replace it, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 242 of the iOS Daily English series.\n\n#Swift #iOSArchitecture #EnglishForDevelopers",
+      "tags": [
+        "API Key",
+        "Gitignore",
+        "Secret Rotation",
+        "iOS architecture",
+        "iOS 아키텍처",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "iOS Daily English"
+      ],
+      "hook": "Can you explain API Key, Gitignore and Secret Rotation in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "A key in the pull request",
+    "setting": "Reviewing a pull request with a secret",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, I saw our API key in a pull request. Is that bad?",
+        "terms": [
+          "API Key"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Yes. An API key is a secret that proves our app may use the service. Never commit it.",
+        "terms": [
+          "API Key"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Where should the key live, then?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "In a local xcconfig file, and the Info plist reads it, like in `key`.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "But someone could commit that xcconfig file by accident.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "That is what the gitignore is for. Add the file to the gitignore, and Git never tracks it.",
+        "terms": [
+          "Gitignore"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "What about the old key in the history?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Treat it as leaked. Do a secret rotation, and make a new key.",
+        "terms": [
+          "Secret Rotation"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "What does secret rotation mean exactly?",
+        "terms": [
+          "Secret Rotation"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "You replace the secret with a new one, on a schedule or right after a leak.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "And the old API key stops working?",
+        "terms": [
+          "API Key"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Yes, revoke it. And check the gitignore again before every release.",
+        "terms": [
+          "Gitignore"
+        ]
+      }
+    ],
+    "code": "import Foundation\nlet key = Bundle.main.object(\n    forInfoDictionaryKey: \"API_KEY\") as? String\nprint(key ?? \"no key\")",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "API Key",
+      "lines": [
+        {
+          "text": "Never commit the API key to Git."
+        }
+      ],
+      "title": "Never commit the API key to Git. #Shorts",
+      "description": "Never commit the API key to Git.\n\nAPI Key - A secret string that proves to a server that your app is allowed to use its service.\n한국어: API Key: 앱이 서버의 서비스를 쓸 수 있음을 증명하는 비밀 문자열\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "Gitignore",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "I committed the secrets file again."
+        },
+        {
+          "speaker": "B",
+          "text": "Add it to the gitignore."
+        }
+      ],
+      "title": "I committed the secrets file again. / Add it to the gitignore. #Shorts",
+      "description": "I committed the secrets file again. / Add it to the gitignore.\n\nGitignore - A file that lists the files Git must never track, so private files stay out of the repository.\n한국어: Gitignore: Git이 절대 추적하지 않을 파일을 적어 두어 비공개 파일이 저장소에 들어가지 않게 하는 파일\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Secret Rotation",
+      "lines": [
+        {
+          "text": "Do a secret rotation after the leak."
+        }
+      ],
+      "title": "Do a secret rotation after the leak. #Shorts",
+      "description": "Do a secret rotation after the leak.\n\nSecret Rotation - The habit of replacing a secret with a new one on a schedule, or right after a leak.\n한국어: Secret Rotation: 정해진 주기로, 또는 유출 직후에 비밀 값을 새 값으로 바꾸는 습관\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "Never commit your API key."
+}

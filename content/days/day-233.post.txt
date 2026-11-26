@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 233
+
+Production
+- The live version of your backend and app that real users use every day.
+- Example: "Never test a risky change on production."
+
+Staging
+- A test copy of the live setup, where the team checks changes before real users see them.
+- Example: "The new login works on staging."
+
+Base URL
+- The first part of every web address your app calls, shared by all of its requests.
+- Example: "The base URL has a typo."
+
+
+Quiz ①
+What do you call a test copy of the live setup, where the team checks changes before real users see them?
+a) Staging
+b) Production
+c) Base URL
+
+Quiz ②
+What do you call the first part of every web address your app calls, shared by all of its requests?
+a) Staging
+b) Production
+c) Base URL
+
+Quiz ③
+What do you call the live version of your backend and app that real users use every day?
+a) Staging
+b) Production
+c) Base URL

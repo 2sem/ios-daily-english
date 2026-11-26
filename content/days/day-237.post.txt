@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 237
+
+Logger
+- The Apple type from the os framework that writes messages to the system log.
+- Example: "Replace print with Logger in the network layer."
+
+Log Level
+- A label such as debug, info or error that shows how important a log message is.
+- Example: "The log level hides debug messages in release."
+
+Subsystem
+- A name, usually your bundle identifier, that groups the log messages from one part of your app.
+- Example: "Use the bundle identifier as the subsystem."
+
+
+Quiz ①
+What do you call a label such as debug, info or error that shows how important a log message is?
+a) Log Level
+b) Logger
+c) Subsystem
+
+Quiz ②
+What do you call a name, usually your bundle identifier, that groups the log messages from one part of your app?
+a) Log Level
+b) Logger
+c) Subsystem
+
+Quiz ③
+What do you call the Apple type from the os framework that writes messages to the system log?
+a) Log Level
+b) Logger
+c) Subsystem

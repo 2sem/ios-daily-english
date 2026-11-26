@@ -1,0 +1,231 @@
+{
+  "day": 248,
+  "phase": "5. App architecture & data",
+  "theme": "Notification data flow: payloads, the notification center and silent pushes",
+  "terms": [
+    {
+      "term": "Notification Payload",
+      "definition": "The data inside a push message, such as the alert text, the badge number and your own values.",
+      "example": "Put the chat id in the notification payload.",
+      "code": "let payload: [String: Any] = [\n    \"aps\": [\"alert\": \"New message\"],\n    \"chatID\": 42\n]\nprint(payload[\"chatID\"] ?? 0)",
+      "output": "42"
+    },
+    {
+      "term": "UNUserNotificationCenter",
+      "definition": "The system object your app uses to ask permission for, schedule and handle notifications.",
+      "example": "UNUserNotificationCenter calls your delegate on a tap.",
+      "code": "import UserNotifications\nlet center = UNUserNotificationCenter.current()\ncenter.requestAuthorization(options: [.alert]) {\n    granted, _ in print(granted)\n}",
+      "output": "// no output"
+    },
+    {
+      "term": "Silent Push",
+      "definition": "A push message with no alert that wakes the app in the background to fetch new data.",
+      "example": "A silent push can wake the app to fetch data.",
+      "code": "let aps = [\"content-available\": 1]\nlet isSilent = aps[\"content-available\"] == 1\nprint(isSilent)",
+      "output": "true"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What do you call a push message with no alert that wakes the app in the background to fetch new data?",
+      "options": [
+        "Notification Payload",
+        "Silent Push",
+        "UNUserNotificationCenter"
+      ],
+      "answer": "b"
+    },
+    {
+      "question": "What do you call the data inside a push message, such as the alert text, the badge number and your own values?",
+      "options": [
+        "Notification Payload",
+        "Silent Push",
+        "UNUserNotificationCenter"
+      ],
+      "answer": "a"
+    },
+    {
+      "question": "What do you call the system object your app uses to ask permission for, schedule and handle notifications?",
+      "options": [
+        "Notification Payload",
+        "Silent Push",
+        "UNUserNotificationCenter"
+      ],
+      "answer": "c"
+    }
+  ],
+  "video": {
+    "title": "Notification Payload, UNUserNotificationCenter & Silent Push | Day 248",
+    "description": "Learn to explain how data travels from a push message to the right screen in the app: Notification Payload, UNUserNotificationCenter & Silent Push, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nNotification Payload - The data inside a push message, such as the alert text, the badge number and your own values.\nUNUserNotificationCenter - The system object your app uses to ask permission for, schedule and handle notifications.\nSilent Push - A push message with no alert that wakes the app in the background to fetch new data.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 248 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "Notification Payload",
+      "UNUserNotificationCenter",
+      "Silent Push",
+      "notification payload",
+      "unusernotificationcenter",
+      "silent push",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "iOS Notification Payload, UNUserNotificationCenter & Silent Push | Day 248",
+      "description": "Explain Notification Payload, UNUserNotificationCenter & Silent Push in iOS by listening to a real code chat between two iOS devs.\nNotification Payload, UNUserNotificationCenter, Silent Push 표현을 영어 대화로 익혀요.\n\nNotification Payload - The data inside a push message, such as the alert text, the badge number and your own values.\n한국어: Notification Payload: 알림 문구, 배지 숫자, 직접 넣은 값처럼 푸시 메시지 안에 들어 있는 데이터\n\nUNUserNotificationCenter - The system object your app uses to ask permission for, schedule and handle notifications.\n한국어: UNUserNotificationCenter: 앱이 알림 권한을 요청하고, 알림을 예약하고, 처리할 때 쓰는 시스템 객체\n\nSilent Push - A push message with no alert that wakes the app in the background to fetch new data.\n한국어: Silent Push: 알림 표시 없이 앱을 백그라운드에서 깨워 새 데이터를 가져오게 하는 푸시 메시지\n\nIn this video, Mina and Jake talk about why a push opens the wrong chat and how the payload and the center work, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 248 of the iOS Daily English series.\n\n#Swift #iOSArchitecture #EnglishForDevelopers",
+      "tags": [
+        "Notification Payload",
+        "UNUserNotificationCenter",
+        "Silent Push",
+        "iOS architecture",
+        "iOS 아키텍처",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "iOS Daily English"
+      ],
+      "hook": "Can you explain Notification Payload, UNUserNotificationCenter and Silent Push in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "The wrong chat opens",
+    "setting": "Debugging a push notification",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, a push arrives, but the app opens the wrong chat. Why?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Look at the notification payload. A notification payload is the data inside the push message.",
+        "terms": [
+          "Notification Payload"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Is `chatID` in the notification payload?",
+        "terms": [
+          "Notification Payload"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Yes, it is our own value. The app reads it from `info` when the user taps.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "And who tells our app about the tap?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "UNUserNotificationCenter. It handles permission, scheduling and taps.",
+        "terms": [
+          "UNUserNotificationCenter"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "So `center` calls our delegate when the user taps the notification?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Right. Set the delegate on UNUserNotificationCenter at launch.",
+        "terms": [
+          "UNUserNotificationCenter"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Can the server refresh data before the user even taps?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Yes, with a silent push. A silent push has no alert and wakes the app in the background.",
+        "terms": [
+          "Silent Push"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Does a silent push always arrive?",
+        "terms": [
+          "Silent Push"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "No. The system may delay a silent push, so never depend on it.",
+        "terms": [
+          "Silent Push"
+        ]
+      }
+    ],
+    "code": "import UserNotifications\nlet center = UNUserNotificationCenter.current()\nlet info: [String: Any] = [\"chatID\": 42]\nprint(info[\"chatID\"] ?? 0)",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "Notification Payload",
+      "lines": [
+        {
+          "text": "Put the chat id in the notification payload."
+        }
+      ],
+      "title": "Put the chat id in the notification payload. #Shorts",
+      "description": "Put the chat id in the notification payload.\n\nNotification Payload - The data inside a push message, such as the alert text, the badge number and your own values.\n한국어: Notification Payload: 알림 문구, 배지 숫자, 직접 넣은 값처럼 푸시 메시지 안에 들어 있는 데이터\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "UNUserNotificationCenter",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Who handles the tap?"
+        },
+        {
+          "speaker": "B",
+          "text": "UNUserNotificationCenter calls your delegate."
+        }
+      ],
+      "title": "Who handles the tap? / UNUserNotificationCenter calls your delegate. #Shorts",
+      "description": "Who handles the tap? / UNUserNotificationCenter calls your delegate.\n\nUNUserNotificationCenter - The system object your app uses to ask permission for, schedule and handle notifications.\n한국어: UNUserNotificationCenter: 앱이 알림 권한을 요청하고, 알림을 예약하고, 처리할 때 쓰는 시스템 객체\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Silent Push",
+      "lines": [
+        {
+          "text": "A silent push can wake the app to fetch data."
+        }
+      ],
+      "title": "A silent push can wake the app to fetch data. #Shorts",
+      "description": "A silent push can wake the app to fetch data.\n\nSilent Push - A push message with no alert that wakes the app in the background to fetch new data.\n한국어: Silent Push: 알림 표시 없이 앱을 백그라운드에서 깨워 새 데이터를 가져오게 하는 푸시 메시지\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "Push opens the wrong chat? Read the payload."
+}

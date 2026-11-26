@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 241
+
+Non-Fatal Error
+- An error that your app catches and reports, while the app keeps running.
+- Example: "Report every non-fatal error with context."
+
+Breadcrumb
+- A short note about a user step, saved before an error, so you can see what led to it.
+- Example: "Add a breadcrumb for each screen the user opens."
+
+Crash-Free Rate
+- The share of users or sessions that did not hit a crash, shown as a percentage.
+- Example: "Our crash-free rate is ninety-nine percent."
+
+
+Quiz ①
+What do you call a short note about a user step, saved before an error, so you can see what led to it?
+a) Non-Fatal Error
+b) Crash-Free Rate
+c) Breadcrumb
+
+Quiz ②
+What do you call the share of users or sessions that did not hit a crash, shown as a percentage?
+a) Crash-Free Rate
+b) Breadcrumb
+c) Non-Fatal Error
+
+Quiz ③
+What do you call an error that your app catches and reports, while the app keeps running?
+a) Breadcrumb
+b) Non-Fatal Error
+c) Crash-Free Rate

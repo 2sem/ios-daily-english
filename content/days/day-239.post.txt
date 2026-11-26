@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 239
+
+Analytics Event
+- A named record of one thing a user did in the app, such as opening a screen or tapping a button.
+- Example: "Send an analytics event when the user taps Buy."
+
+Event Parameter
+- An extra piece of detail attached to an event, such as the screen name or the item price.
+- Example: "Add the item name as an event parameter."
+
+User Property
+- A long-lasting fact about a user, such as their plan or language, that you attach to all their events.
+- Example: "Set the user property for the paid plan."
+
+
+Quiz ①
+What do you call an extra piece of detail attached to an event, such as the screen name or the item price?
+a) Analytics Event
+b) Event Parameter
+c) User Property
+
+Quiz ②
+What do you call a long-lasting fact about a user, such as their plan or language, that you attach to all their events?
+a) Event Parameter
+b) Analytics Event
+c) User Property
+
+Quiz ③
+What do you call a named record of one thing a user did in the app, such as opening a screen or tapping a button?
+a) Analytics Event
+b) Event Parameter
+c) User Property

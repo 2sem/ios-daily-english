@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 246
+
+NSUserActivity
+- An object that describes what the user is doing in your app, so the system can resume it later.
+- Example: "Create an NSUserActivity for the open article."
+
+Handoff
+- A feature that lets the user continue an activity on another Apple device, such as from iPhone to Mac.
+- Example: "Turn on handoff for the reading screen."
+
+CSSearchableItem
+- An item that you add to the Spotlight index, so users can find your content from system search.
+- Example: "Add each article as a CSSearchableItem."
+
+
+Quiz ①
+What do you call an item that you add to the Spotlight index, so users can find your content from system search?
+a) NSUserActivity
+b) CSSearchableItem
+c) Handoff
+
+Quiz ②
+What do you call an object that describes what the user is doing in your app, so the system can resume it later?
+a) CSSearchableItem
+b) Handoff
+c) NSUserActivity
+
+Quiz ③
+What do you call a feature that lets the user continue an activity on another Apple device, such as from iPhone to Mac?
+a) Handoff
+b) NSUserActivity
+c) CSSearchableItem

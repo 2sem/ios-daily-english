@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 245
+
+Group Identifier
+- A name that starts with group and is the same in the app and its extensions, so they can share data.
+- Example: "Use the same group identifier in the widget."
+
+Shared Container
+- A folder on disk that the app and its extensions can all read and write.
+- Example: "Both targets save the file in the shared container."
+
+Shared Defaults
+- Settings saved in a UserDefaults suite that the app and its widget can both read.
+- Example: "Save the unread count in shared defaults."
+
+
+Quiz ①
+What do you call a folder on disk that the app and its extensions can all read and write?
+a) Shared Container
+b) Group Identifier
+c) Shared Defaults
+
+Quiz ②
+What do you call settings saved in a UserDefaults suite that the app and its widget can both read?
+a) Shared Container
+b) Group Identifier
+c) Shared Defaults
+
+Quiz ③
+What do you call a name that starts with group and is the same in the app and its extensions, so they can share data?
+a) Shared Container
+b) Group Identifier
+c) Shared Defaults

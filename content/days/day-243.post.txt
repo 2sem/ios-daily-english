@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 243
+
+Application Support Directory
+- The folder where your app stores important files it needs, which users never see.
+- Example: "Save the notes file in the application support directory."
+
+Caches Directory
+- The folder for files you can download or build again, which the system may delete when space is low.
+- Example: "Put the thumbnails in the caches directory."
+
+Backup Exclusion
+- A flag on a file that tells the system not to copy it into the device backup.
+- Example: "Use backup exclusion for files you can download again."
+
+
+Quiz ①
+What do you call the folder for files you can download or build again, which the system may delete when space is low?
+a) Application Support Directory
+b) Backup Exclusion
+c) Caches Directory
+
+Quiz ②
+What do you call a flag on a file that tells the system not to copy it into the device backup?
+a) Backup Exclusion
+b) Caches Directory
+c) Application Support Directory
+
+Quiz ③
+What do you call the folder where your app stores important files it needs, which users never see?
+a) Caches Directory
+b) Application Support Directory
+c) Backup Exclusion

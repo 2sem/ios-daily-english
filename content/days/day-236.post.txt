@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 236
+
+Remote Config
+- A service that sends settings to your app from a server, so you can change them without an update.
+- Example: "Change the retry count with remote config."
+
+Fallback Value
+- A safe value the app uses when the server value is missing or has not arrived yet.
+- Example: "The app uses the fallback value offline."
+
+A/B Test
+- An experiment that shows two versions of a feature to different groups of users to see which works better.
+- Example: "Run an A/B test on the new button."
+
+
+Quiz ①
+What do you call an experiment that shows two versions of a feature to different groups of users to see which works better?
+a) Remote Config
+b) A/B Test
+c) Fallback Value
+
+Quiz ②
+What do you call a service that sends settings to your app from a server, so you can change them without an update?
+a) A/B Test
+b) Fallback Value
+c) Remote Config
+
+Quiz ③
+What do you call a safe value the app uses when the server value is missing or has not arrived yet?
+a) Fallback Value
+b) Remote Config
+c) A/B Test

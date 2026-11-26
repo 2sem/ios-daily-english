@@ -1,0 +1,231 @@
+{
+  "day": 243,
+  "phase": "5. App architecture & data",
+  "theme": "Where files live: Application Support, Caches and backups",
+  "terms": [
+    {
+      "term": "Application Support Directory",
+      "definition": "The folder where your app stores important files it needs, which users never see.",
+      "example": "Save the notes file in the application support directory.",
+      "code": "import Foundation\nlet urls = FileManager.default.urls(\n    for: .applicationSupportDirectory,\n    in: .userDomainMask)\nprint(urls[0].lastPathComponent)",
+      "output": "Application Support"
+    },
+    {
+      "term": "Caches Directory",
+      "definition": "The folder for files you can download or build again, which the system may delete when space is low.",
+      "example": "Put the thumbnails in the caches directory.",
+      "code": "import Foundation\nlet urls = FileManager.default.urls(\n    for: .cachesDirectory,\n    in: .userDomainMask)\nprint(urls[0].lastPathComponent)",
+      "output": "Caches"
+    },
+    {
+      "term": "Backup Exclusion",
+      "definition": "A flag on a file that tells the system not to copy it into the device backup.",
+      "example": "Use backup exclusion for files you can download again.",
+      "code": "import Foundation\nvar url = URL(fileURLWithPath: \"/tmp/x.json\")\nvar values = URLResourceValues()\nvalues.isExcludedFromBackup = true\ntry url.setResourceValues(values)",
+      "output": "// no output"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What do you call the folder for files you can download or build again, which the system may delete when space is low?",
+      "options": [
+        "Application Support Directory",
+        "Backup Exclusion",
+        "Caches Directory"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "What do you call a flag on a file that tells the system not to copy it into the device backup?",
+      "options": [
+        "Backup Exclusion",
+        "Caches Directory",
+        "Application Support Directory"
+      ],
+      "answer": "a"
+    },
+    {
+      "question": "What do you call the folder where your app stores important files it needs, which users never see?",
+      "options": [
+        "Caches Directory",
+        "Application Support Directory",
+        "Backup Exclusion"
+      ],
+      "answer": "b"
+    }
+  ],
+  "video": {
+    "title": "Application Support Directory, Caches Directory & Backup Exclusion | Day 243",
+    "description": "Learn to explain how to choose the right folder for app files: Application Support Directory, Caches Directory & Backup Exclusion, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nApplication Support Directory - The folder where your app stores important files it needs, which users never see.\nCaches Directory - The folder for files you can download or build again, which the system may delete when space is low.\nBackup Exclusion - A flag on a file that tells the system not to copy it into the device backup.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 243 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "Application Support Directory",
+      "Caches Directory",
+      "Backup Exclusion",
+      "application support directory",
+      "caches directory",
+      "backup exclusion",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "iOS Application Support Directory, Caches Directory & Backup Exclusion | Day 243",
+      "description": "Explain Application Support Directory, Caches Directory & Backup Exclusion in iOS by listening to a real code chat between two iOS devs.\nApplication Support Directory, Caches Directory, Backup Exclusion 표현을 영어 대화로 익혀요.\n\nApplication Support Directory - The folder where your app stores important files it needs, which users never see.\n한국어: Application Support Directory: 앱이 필요로 하는 중요한 파일을 저장하는, 사용자에게 보이지 않는 폴더\n\nCaches Directory - The folder for files you can download or build again, which the system may delete when space is low.\n한국어: Caches Directory: 다시 받거나 만들 수 있는 파일을 두는 폴더로, 저장 공간이 부족하면 시스템이 지울 수 있다\n\nBackup Exclusion - A flag on a file that tells the system not to copy it into the device backup.\n한국어: Backup Exclusion: 시스템이 파일을 기기 백업에 복사하지 않도록 알려 주는 파일의 표시\n\nIn this video, Mina and Jake talk about which folder is right for notes, thumbnails and reports, and what goes in the backup, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 243 of the iOS Daily English series.\n\n#Swift #iOSArchitecture #EnglishForDevelopers",
+      "tags": [
+        "Application Support Directory",
+        "Caches Directory",
+        "Backup Exclusion",
+        "iOS architecture",
+        "iOS 아키텍처",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "iOS Daily English"
+      ],
+      "hook": "Can you explain Application Support Directory, Caches Directory and Backup Exclusion in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "Which folder is safe?",
+    "setting": "Choosing folders for files",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, where should I save the user's notes file?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "In the application support directory. It holds files the app needs, and users never see them.",
+        "terms": [
+          "Application Support Directory"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "And the downloaded thumbnails?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Put those in the caches directory. The caches directory is for files you can download again.",
+        "terms": [
+          "Caches Directory"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "What happens when the phone is almost full?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "The system may delete files in the caches directory, so never store user data there.",
+        "terms": [
+          "Caches Directory"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Okay. In our code, `file` goes to `.cachesDirectory`, so it must be a thumbnail.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Right. The exported report goes in the application support directory. Do we back it up?",
+        "terms": [
+          "Application Support Directory"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Can we skip it?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Yes, use backup exclusion. The system then does not copy that file into the backup.",
+        "terms": [
+          "Backup Exclusion"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Is backup exclusion good for the notes file?",
+        "terms": [
+          "Backup Exclusion"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "No. Use backup exclusion only for files you can rebuild or download again.",
+        "terms": [
+          "Backup Exclusion"
+        ]
+      }
+    ],
+    "code": "import Foundation\nlet urls = FileManager.default.urls(\n    for: .cachesDirectory, in: .userDomainMask)\nlet file = urls[0]\n    .appendingPathComponent(\"a.json\")\nprint(file.lastPathComponent)",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "Application Support Directory",
+      "lines": [
+        {
+          "text": "Save notes in the application support directory."
+        }
+      ],
+      "title": "Save notes in the application support directory. #Shorts",
+      "description": "Save notes in the application support directory.\n\nApplication Support Directory - The folder where your app stores important files it needs, which users never see.\n한국어: Application Support Directory: 앱이 필요로 하는 중요한 파일을 저장하는, 사용자에게 보이지 않는 폴더\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "Caches Directory",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Can I store user data in caches?"
+        },
+        {
+          "speaker": "B",
+          "text": "No. The caches directory can be cleared."
+        }
+      ],
+      "title": "Can I store user data in caches? / No. The caches directory can be cleared. #Shorts",
+      "description": "Can I store user data in caches? / No. The caches directory can be cleared.\n\nCaches Directory - The folder for files you can download or build again, which the system may delete when space is low.\n한국어: Caches Directory: 다시 받거나 만들 수 있는 파일을 두는 폴더로, 저장 공간이 부족하면 시스템이 지울 수 있다\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Backup Exclusion",
+      "lines": [
+        {
+          "text": "Use backup exclusion for files you can download again."
+        }
+      ],
+      "title": "Use backup exclusion for files you can download again. #Shorts",
+      "description": "Use backup exclusion for files you can download again.\n\nBackup Exclusion - A flag on a file that tells the system not to copy it into the device backup.\n한국어: Backup Exclusion: 시스템이 파일을 기기 백업에 복사하지 않도록 알려 주는 파일의 표시\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "Caches or Application Support? Pick right."
+}

@@ -1,0 +1,236 @@
+{
+  "day": 233,
+  "phase": "5. App architecture & data",
+  "theme": "Environments: staging, production and the base URL",
+  "terms": [
+    {
+      "term": "Production",
+      "definition": "The live version of your backend and app that real users use every day.",
+      "example": "Never test a risky change on production.",
+      "code": "enum Env { case staging, production }\nlet env = Env.production\nprint(env)",
+      "output": "production"
+    },
+    {
+      "term": "Staging",
+      "definition": "A test copy of the live setup, where the team checks changes before real users see them.",
+      "example": "The new login works on staging.",
+      "code": "let isStaging = true\nlet label = isStaging ? \"staging\" : \"live\"\nprint(label)",
+      "output": "staging"
+    },
+    {
+      "term": "Base URL",
+      "definition": "The first part of every web address your app calls, shared by all of its requests.",
+      "example": "The base URL has a typo.",
+      "code": "import Foundation\nlet base = URL(string: \"https://api.test.dev\")!\nprint(base.appendingPathComponent(\"users\"))",
+      "output": "https://api.test.dev/users"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What do you call a test copy of the live setup, where the team checks changes before real users see them?",
+      "options": [
+        "Staging",
+        "Production",
+        "Base URL"
+      ],
+      "answer": "a"
+    },
+    {
+      "question": "What do you call the first part of every web address your app calls, shared by all of its requests?",
+      "options": [
+        "Staging",
+        "Production",
+        "Base URL"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "What do you call the live version of your backend and app that real users use every day?",
+      "options": [
+        "Staging",
+        "Production",
+        "Base URL"
+      ],
+      "answer": "b"
+    }
+  ],
+  "video": {
+    "title": "Production, Staging & Base URL | Day 233",
+    "description": "Learn to explain how an app talks to a test server and a live server: Production, Staging & Base URL, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nProduction - The live version of your backend and app that real users use every day.\nStaging - A test copy of the live setup, where the team checks changes before real users see them.\nBase URL - The first part of every web address your app calls, shared by all of its requests.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 233 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "Production",
+      "Staging",
+      "Base URL",
+      "production",
+      "staging",
+      "base url",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "iOS Production, Staging & Base URL | Day 233",
+      "description": "Explain Production, Staging & Base URL in iOS by listening to a real code chat between two iOS devs.\nProduction, Staging, Base URL 표현을 영어 대화로 익혀요.\n\nProduction - The live version of your backend and app that real users use every day.\n한국어: Production: 실제 사용자가 매일 쓰는 라이브 백엔드와 앱\n\nStaging - A test copy of the live setup, where the team checks changes before real users see them.\n한국어: Staging: 실제 사용자에게 보이기 전에 팀이 변경 사항을 확인하는 라이브 환경의 테스트 복사본\n\nBase URL - The first part of every web address your app calls, shared by all of its requests.\n한국어: Base URL: 앱이 호출하는 모든 요청이 공유하는 웹 주소의 앞부분\n\nIn this video, Mina and Jake talk about why a test build shows empty data and how the base URL picks a server, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 233 of the iOS Daily English series.\n\n#Swift #iOSArchitecture #EnglishForDevelopers",
+      "tags": [
+        "Production",
+        "Staging",
+        "Base URL",
+        "iOS architecture",
+        "iOS 아키텍처",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "iOS Daily English"
+      ],
+      "hook": "Can you explain Production, Staging and Base URL in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "Which server is this?",
+    "setting": "A test build shows empty data",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, our test build shows empty data. Is the server down?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Check the environment first. Your build probably points to staging.",
+        "terms": [
+          "Staging"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "What is staging, exactly?",
+        "terms": [
+          "Staging"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "A test copy of the live setup. The team checks changes there before users see them.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "And production is the real one?",
+        "terms": [
+          "Production"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Yes, production is the live backend that real users use every day.",
+        "terms": [
+          "Production"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "So how does the app know which one to call?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Through the base URL. Every request starts with the base URL.",
+        "terms": [
+          "Base URL"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "In our code, `env` picks the base URL, right?",
+        "terms": [
+          "Base URL"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Right. If `env` is `.staging`, we use the test host.",
+        "terms": [
+          "Staging"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "So the empty data is just the staging database.",
+        "terms": [
+          "Staging"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Yes. Staging is safe to break, but production is not a playground.",
+        "terms": [
+          "Production",
+          "Staging"
+        ]
+      }
+    ],
+    "code": "import Foundation\nenum Env { case staging, production }\nlet env = Env.staging\nlet base = URL(string: env == .staging\n    ? \"https://stg.example.com\"\n    : \"https://api.example.com\")!",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "Staging",
+      "lines": [
+        {
+          "text": "Test the new login on staging first."
+        }
+      ],
+      "title": "Test the new login on staging first. #Shorts",
+      "description": "Test the new login on staging first.\n\nStaging - A test copy of the live setup, where the team checks changes before real users see them.\n한국어: Staging: 실제 사용자에게 보이기 전에 팀이 변경 사항을 확인하는 라이브 환경의 테스트 복사본\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "Base URL",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Why do all requests fail?"
+        },
+        {
+          "speaker": "B",
+          "text": "The base URL has a typo."
+        }
+      ],
+      "title": "Why do all requests fail? / The base URL has a typo. #Shorts",
+      "description": "Why do all requests fail? / The base URL has a typo.\n\nBase URL - The first part of every web address your app calls, shared by all of its requests.\n한국어: Base URL: 앱이 호출하는 모든 요청이 공유하는 웹 주소의 앞부분\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Production",
+      "lines": [
+        {
+          "text": "Never test by accident on production."
+        }
+      ],
+      "title": "Never test by accident on production. #Shorts",
+      "description": "Never test by accident on production.\n\nProduction - The live version of your backend and app that real users use every day.\n한국어: Production: 실제 사용자가 매일 쓰는 라이브 백엔드와 앱\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "Staging or production? Check before you tap."
+}

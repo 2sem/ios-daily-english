@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 240
+
+Crash Report
+- A file that records what the app and the device were doing at the moment the app stopped.
+- Example: "Open the crash report from yesterday."
+
+Stack Trace
+- A list of the function calls that were active when an error happened, from newest to oldest.
+- Example: "The stack trace points to the parse function."
+
+dSYM
+- A debug symbols file that turns raw addresses in a report back into function names.
+- Example: "Upload the dSYM so the names are readable."
+
+
+Quiz ①
+What do you call a debug symbols file that turns raw addresses in a report back into function names?
+a) dSYM
+b) Crash Report
+c) Stack Trace
+
+Quiz ②
+What do you call a file that records what the app and the device were doing at the moment the app stopped?
+a) dSYM
+b) Stack Trace
+c) Crash Report
+
+Quiz ③
+What do you call a list of the function calls that were active when an error happened, from newest to oldest?
+a) Crash Report
+b) Stack Trace
+c) dSYM

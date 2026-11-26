@@ -1,0 +1,230 @@
+{
+  "day": 246,
+  "phase": "5. App architecture & data",
+  "theme": "Spotlight and Handoff: user activities and searchable items",
+  "terms": [
+    {
+      "term": "NSUserActivity",
+      "definition": "An object that describes what the user is doing in your app, so the system can resume it later.",
+      "example": "Create an NSUserActivity for the open article.",
+      "code": "import Foundation\nlet activity = NSUserActivity(\n    activityType: \"com.example.read\")\nactivity.title = \"Reading Swift\"\nprint(activity.title ?? \"\")",
+      "output": "Reading Swift"
+    },
+    {
+      "term": "Handoff",
+      "definition": "A feature that lets the user continue an activity on another Apple device, such as from iPhone to Mac.",
+      "example": "Turn on handoff for the reading screen.",
+      "code": "import Foundation\nlet a = NSUserActivity(activityType: \"x.read\")\na.isEligibleForHandoff = true\nprint(a.isEligibleForHandoff)",
+      "output": "true"
+    },
+    {
+      "term": "CSSearchableItem",
+      "definition": "An item that you add to the Spotlight index, so users can find your content from system search.",
+      "example": "Add each article as a CSSearchableItem.",
+      "code": "import CoreSpotlight\nlet a = CSSearchableItemAttributeSet(\n    contentType: .text)\nlet item = CSSearchableItem(\n    uniqueIdentifier: \"1\",\n    domainIdentifier: nil, attributeSet: a)",
+      "output": "// no output"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What do you call an item that you add to the Spotlight index, so users can find your content from system search?",
+      "options": [
+        "NSUserActivity",
+        "CSSearchableItem",
+        "Handoff"
+      ],
+      "answer": "b"
+    },
+    {
+      "question": "What do you call an object that describes what the user is doing in your app, so the system can resume it later?",
+      "options": [
+        "CSSearchableItem",
+        "Handoff",
+        "NSUserActivity"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "What do you call a feature that lets the user continue an activity on another Apple device, such as from iPhone to Mac?",
+      "options": [
+        "Handoff",
+        "NSUserActivity",
+        "CSSearchableItem"
+      ],
+      "answer": "a"
+    }
+  ],
+  "video": {
+    "title": "NSUserActivity, Handoff & CSSearchableItem | Day 246",
+    "description": "Learn to explain how an app lets users continue on another device and find content in search: NSUserActivity, Handoff & CSSearchableItem, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nNSUserActivity - An object that describes what the user is doing in your app, so the system can resume it later.\nHandoff - A feature that lets the user continue an activity on another Apple device, such as from iPhone to Mac.\nCSSearchableItem - An item that you add to the Spotlight index, so users can find your content from system search.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 246 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "NSUserActivity",
+      "Handoff",
+      "CSSearchableItem",
+      "nsuseractivity",
+      "handoff",
+      "cssearchableitem",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "iOS NSUserActivity, Handoff & CSSearchableItem | Day 246",
+      "description": "Explain NSUserActivity, Handoff & CSSearchableItem in iOS by listening to a real code chat between two iOS devs.\nNSUserActivity, Handoff, CSSearchableItem 표현을 영어 대화로 익혀요.\n\nNSUserActivity - An object that describes what the user is doing in your app, so the system can resume it later.\n한국어: NSUserActivity: 사용자가 앱에서 하는 일을 설명해 시스템이 나중에 이어 갈 수 있게 하는 객체\n\nHandoff - A feature that lets the user continue an activity on another Apple device, such as from iPhone to Mac.\n한국어: Handoff: iPhone에서 Mac으로처럼 사용자가 다른 애플 기기에서 하던 일을 이어 갈 수 있게 하는 기능\n\nCSSearchableItem - An item that you add to the Spotlight index, so users can find your content from system search.\n한국어: CSSearchableItem: 시스템 검색으로 콘텐츠를 찾을 수 있도록 Spotlight 색인에 추가하는 항목\n\nIn this video, Mina and Jake talk about how to continue reading on a Mac and how to make articles searchable, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 246 of the iOS Daily English series.\n\n#Swift #iOSArchitecture #EnglishForDevelopers",
+      "tags": [
+        "NSUserActivity",
+        "Handoff",
+        "CSSearchableItem",
+        "iOS architecture",
+        "iOS 아키텍처",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "iOS Daily English"
+      ],
+      "hook": "Can you explain NSUserActivity, Handoff and CSSearchableItem in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "Continue on my Mac",
+    "setting": "Making articles easy to resume and find",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, users want to continue reading on their Mac after they start on the iPhone.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Then describe the reading with an NSUserActivity. It tells the system what the user is doing.",
+        "terms": [
+          "NSUserActivity"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "So `a` is the NSUserActivity for our article?",
+        "terms": [
+          "NSUserActivity"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Yes. Set the `title`, and call `becomeCurrent` when the screen appears.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "And what makes it move to the Mac?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Handoff. Set `isEligibleForHandoff` to true, and the Mac shows the app icon.",
+        "terms": [
+          "Handoff"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Does handoff work anywhere?",
+        "terms": [
+          "Handoff"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "It needs nearby devices that use the same Apple account.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "Can people also find our articles from search?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Yes. Add each article as a CSSearchableItem in the Spotlight index.",
+        "terms": [
+          "CSSearchableItem"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Is a CSSearchableItem the same as an NSUserActivity?",
+        "terms": [
+          "NSUserActivity",
+          "CSSearchableItem"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "No. The item is searchable content, and the activity is something the user is doing.",
+        "terms": []
+      }
+    ],
+    "code": "import Foundation\nlet a = NSUserActivity(activityType: \"x.read\")\na.title = \"Swift Tips\"\na.isEligibleForHandoff = true\na.becomeCurrent()",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "NSUserActivity",
+      "lines": [
+        {
+          "text": "Create an NSUserActivity for the open article."
+        }
+      ],
+      "title": "Create an NSUserActivity for the open article. #Shorts",
+      "description": "Create an NSUserActivity for the open article.\n\nNSUserActivity - An object that describes what the user is doing in your app, so the system can resume it later.\n한국어: NSUserActivity: 사용자가 앱에서 하는 일을 설명해 시스템이 나중에 이어 갈 수 있게 하는 객체\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "Handoff",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Can I continue this on my Mac?"
+        },
+        {
+          "speaker": "B",
+          "text": "Yes, turn on handoff."
+        }
+      ],
+      "title": "Can I continue this on my Mac? / Yes, turn on handoff. #Shorts",
+      "description": "Can I continue this on my Mac? / Yes, turn on handoff.\n\nHandoff - A feature that lets the user continue an activity on another Apple device, such as from iPhone to Mac.\n한국어: Handoff: iPhone에서 Mac으로처럼 사용자가 다른 애플 기기에서 하던 일을 이어 갈 수 있게 하는 기능\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "CSSearchableItem",
+      "lines": [
+        {
+          "text": "Add each article as a CSSearchableItem."
+        }
+      ],
+      "title": "Add each article as a CSSearchableItem. #Shorts",
+      "description": "Add each article as a CSSearchableItem.\n\nCSSearchableItem - An item that you add to the Spotlight index, so users can find your content from system search.\n한국어: CSSearchableItem: 시스템 검색으로 콘텐츠를 찾을 수 있도록 Spotlight 색인에 추가하는 항목\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "Start on iPhone, finish on Mac."
+}

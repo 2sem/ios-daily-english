@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 244
+
+Default Registration
+- A way to set starting values for keys, which the app uses until the user saves a new value.
+- Example: "Use default registration for the font size."
+
+UserDefaults Suite
+- A named group of saved settings, kept apart from the standard settings or shared with other targets.
+- Example: "The widget reads from a UserDefaults suite."
+
+didChangeNotification
+- The notification that UserDefaults posts when a saved setting changes, so your app can react.
+- Example: "Reload the screen on didChangeNotification."
+
+
+Quiz ①
+What do you call the notification that UserDefaults posts when a saved setting changes, so your app can react?
+a) Default Registration
+b) didChangeNotification
+c) UserDefaults Suite
+
+Quiz ②
+What do you call a way to set starting values for keys, which the app uses until the user saves a new value?
+a) Default Registration
+b) didChangeNotification
+c) UserDefaults Suite
+
+Quiz ③
+What do you call a named group of saved settings, kept apart from the standard settings or shared with other targets?
+a) Default Registration
+b) didChangeNotification
+c) UserDefaults Suite

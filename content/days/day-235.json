@@ -1,0 +1,230 @@
+{
+  "day": 235,
+  "phase": "5. App architecture & data",
+  "theme": "Feature flags: turning features on, off and out slowly",
+  "terms": [
+    {
+      "term": "Feature Flag",
+      "definition": "A setting that turns a feature on or off without shipping a new version of the app.",
+      "example": "Hide the new tab behind a feature flag.",
+      "code": "let showNewHome = false\nif showNewHome {\n    print(\"new home\")\n} else { print(\"old home\") }",
+      "output": "old home"
+    },
+    {
+      "term": "Kill Switch",
+      "definition": "A remote setting that lets you turn a broken feature off right away for every user.",
+      "example": "Flip the kill switch, checkout is crashing.",
+      "code": "var checkoutOn = true\ncheckoutOn = false // kill switch\nprint(checkoutOn)",
+      "output": "false"
+    },
+    {
+      "term": "Gradual Rollout",
+      "definition": "A release plan that shows a new feature to a small share of users first, then to more over time.",
+      "example": "Start the gradual rollout at ten percent.",
+      "code": "let userID = 42\nlet percent = 10\nprint(userID % 100 < percent)",
+      "output": "false"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What do you call a remote setting that lets you turn a broken feature off right away for every user?",
+      "options": [
+        "Feature Flag",
+        "Gradual Rollout",
+        "Kill Switch"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "What do you call a release plan that shows a new feature to a small share of users first, then to more over time?",
+      "options": [
+        "Gradual Rollout",
+        "Kill Switch",
+        "Feature Flag"
+      ],
+      "answer": "a"
+    },
+    {
+      "question": "What do you call a setting that turns a feature on or off without shipping a new version of the app?",
+      "options": [
+        "Kill Switch",
+        "Feature Flag",
+        "Gradual Rollout"
+      ],
+      "answer": "b"
+    }
+  ],
+  "video": {
+    "title": "Feature Flag, Kill Switch & Gradual Rollout | Day 235",
+    "description": "Learn to explain how teams hide, release and stop a feature without a new app version: Feature Flag, Kill Switch & Gradual Rollout, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nFeature Flag - A setting that turns a feature on or off without shipping a new version of the app.\nKill Switch - A remote setting that lets you turn a broken feature off right away for every user.\nGradual Rollout - A release plan that shows a new feature to a small share of users first, then to more over time.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 235 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "Feature Flag",
+      "Kill Switch",
+      "Gradual Rollout",
+      "feature flag",
+      "kill switch",
+      "gradual rollout",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "iOS Feature Flag, Kill Switch & Gradual Rollout | Day 235",
+      "description": "Explain Feature Flag, Kill Switch & Gradual Rollout in iOS by listening to a real code chat between two iOS devs.\nFeature Flag, Kill Switch, Gradual Rollout 표현을 영어 대화로 익혀요.\n\nFeature Flag - A setting that turns a feature on or off without shipping a new version of the app.\n한국어: Feature Flag: 앱의 새 버전을 내지 않고도 기능을 켜거나 끄는 설정\n\nKill Switch - A remote setting that lets you turn a broken feature off right away for every user.\n한국어: Kill Switch: 문제가 생긴 기능을 모든 사용자에게서 즉시 꺼 주는 원격 설정\n\nGradual Rollout - A release plan that shows a new feature to a small share of users first, then to more over time.\n한국어: Gradual Rollout: 새 기능을 먼저 소수의 사용자에게 보여 주고 점차 늘려 가는 출시 방식\n\nIn this video, Mina and Jake talk about how to ship a new screen safely with a flag, a gradual rollout and a quick stop, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 235 of the iOS Daily English series.\n\n#Swift #iOSArchitecture #EnglishForDevelopers",
+      "tags": [
+        "Feature Flag",
+        "Kill Switch",
+        "Gradual Rollout",
+        "iOS architecture",
+        "iOS 아키텍처",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "iOS Daily English"
+      ],
+      "hook": "Can you explain Feature Flag, Kill Switch and Gradual Rollout in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "Ship it, but safely",
+    "setting": "Releasing a new home screen",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, the new home screen is ready, but design wants it next week.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Hide it behind a feature flag. A feature flag turns a feature on or off without a new app version.",
+        "terms": [
+          "Feature Flag"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "So `isOn` decides what users see?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Yes. The code ships now, and we flip the feature flag later.",
+        "terms": [
+          "Feature Flag"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "What if the new pay screen has a bug?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Then we need a kill switch. A kill switch turns the broken feature off right away.",
+        "terms": [
+          "Kill Switch"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Does the kill switch need an App Store update?",
+        "terms": [
+          "Kill Switch"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "No, that is the point. The app reads the value, and everyone is safe in minutes.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "Can we show the new home to everyone at once?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Better not. Use a gradual rollout, and start with a small share of users.",
+        "terms": [
+          "Gradual Rollout"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Then ten percent, then more if the numbers look good?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Exactly. A gradual rollout plus a kill switch is a safe way to ship.",
+        "terms": [
+          "Kill Switch",
+          "Gradual Rollout"
+        ]
+      }
+    ],
+    "code": "let flags = [\"newHome\": true, \"newPay\": false]\nfunc isOn(_ key: String) -> Bool {\n    flags[key] ?? false\n}\nprint(isOn(\"newPay\"))",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "Feature Flag",
+      "lines": [
+        {
+          "text": "Hide the new tab behind a feature flag."
+        }
+      ],
+      "title": "Hide the new tab behind a feature flag. #Shorts",
+      "description": "Hide the new tab behind a feature flag.\n\nFeature Flag - A setting that turns a feature on or off without shipping a new version of the app.\n한국어: Feature Flag: 앱의 새 버전을 내지 않고도 기능을 켜거나 끄는 설정\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "Kill Switch",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Checkout is crashing for everyone!"
+        },
+        {
+          "speaker": "B",
+          "text": "Flip the kill switch now."
+        }
+      ],
+      "title": "Checkout is crashing for everyone! / Flip the kill switch now. #Shorts",
+      "description": "Checkout is crashing for everyone! / Flip the kill switch now.\n\nKill Switch - A remote setting that lets you turn a broken feature off right away for every user.\n한국어: Kill Switch: 문제가 생긴 기능을 모든 사용자에게서 즉시 꺼 주는 원격 설정\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Gradual Rollout",
+      "lines": [
+        {
+          "text": "Start the gradual rollout at ten percent."
+        }
+      ],
+      "title": "Start the gradual rollout at ten percent. #Shorts",
+      "description": "Start the gradual rollout at ten percent.\n\nGradual Rollout - A release plan that shows a new feature to a small share of users first, then to more over time.\n한국어: Gradual Rollout: 새 기능을 먼저 소수의 사용자에게 보여 주고 점차 늘려 가는 출시 방식\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "Bug in production? Flip a kill switch."
+}

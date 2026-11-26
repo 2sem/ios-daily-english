@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 231
+
+Target
+- A set of files and settings that Xcode builds into one product, such as an app or a widget.
+- Example: "Add the widget as a new target."
+
+Scheme
+- A saved recipe that tells Xcode what to build and which configuration to use when you run.
+- Example: "Switch the scheme to Staging before you run."
+
+Build Configuration
+- A named group of build settings, such as Debug or Release, that Xcode uses to compile your code.
+- Example: "The Release build configuration turns on optimization."
+
+
+Quiz ①
+What do you call a saved recipe that tells Xcode what to build and which configuration to use when you run?
+a) Target
+b) Scheme
+c) Build Configuration
+
+Quiz ②
+What do you call a named group of build settings, such as Debug or Release, that Xcode uses to compile your code?
+a) Scheme
+b) Target
+c) Build Configuration
+
+Quiz ③
+What do you call a set of files and settings that Xcode builds into one product, such as an app or a widget?
+a) Target
+b) Scheme
+c) Build Configuration

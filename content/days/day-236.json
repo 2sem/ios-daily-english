@@ -1,0 +1,233 @@
+{
+  "day": 236,
+  "phase": "5. App architecture & data",
+  "theme": "Remote config: settings from a server, fallbacks and experiments",
+  "terms": [
+    {
+      "term": "Remote Config",
+      "definition": "A service that sends settings to your app from a server, so you can change them without an update.",
+      "example": "Change the retry count with remote config.",
+      "code": "import Foundation\nstruct Config: Codable { var retries: Int }\nlet json = Data(#\"{\"retries\": 5}\"#.utf8)\nlet d = JSONDecoder()\nlet c = try d.decode(Config.self, from: json)\nprint(c.retries)",
+      "output": "5"
+    },
+    {
+      "term": "Fallback Value",
+      "definition": "A safe value the app uses when the server value is missing or has not arrived yet.",
+      "example": "The app uses the fallback value offline.",
+      "code": "let remote: [String: Int] = [:]\nlet limit = remote[\"limit\"] ?? 20\nprint(limit)",
+      "output": "20"
+    },
+    {
+      "term": "A/B Test",
+      "definition": "An experiment that shows two versions of a feature to different groups of users to see which works better.",
+      "example": "Run an A/B test on the new button.",
+      "code": "let userID = 7\nlet group = userID % 2 == 0 ? \"A\" : \"B\"\nprint(\"group\", group)",
+      "output": "group B"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What do you call an experiment that shows two versions of a feature to different groups of users to see which works better?",
+      "options": [
+        "Remote Config",
+        "A/B Test",
+        "Fallback Value"
+      ],
+      "answer": "b"
+    },
+    {
+      "question": "What do you call a service that sends settings to your app from a server, so you can change them without an update?",
+      "options": [
+        "A/B Test",
+        "Fallback Value",
+        "Remote Config"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "What do you call a safe value the app uses when the server value is missing or has not arrived yet?",
+      "options": [
+        "Fallback Value",
+        "Remote Config",
+        "A/B Test"
+      ],
+      "answer": "a"
+    }
+  ],
+  "video": {
+    "title": "Remote Config, Fallback Value & A/B Test | Day 236",
+    "description": "Learn to explain how an app changes settings from a server and tests two versions: Remote Config, Fallback Value & A/B Test, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nRemote Config - A service that sends settings to your app from a server, so you can change them without an update.\nFallback Value - A safe value the app uses when the server value is missing or has not arrived yet.\nA/B Test - An experiment that shows two versions of a feature to different groups of users to see which works better.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 236 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "Remote Config",
+      "Fallback Value",
+      "A/B Test",
+      "remote config",
+      "fallback value",
+      "a/b test",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "iOS Remote Config, Fallback Value & A/B Test | Day 236",
+      "description": "Explain Remote Config, Fallback Value & A/B Test in iOS by listening to a real code chat between two iOS devs.\nRemote Config, Fallback Value, A/B Test 표현을 영어 대화로 익혀요.\n\nRemote Config - A service that sends settings to your app from a server, so you can change them without an update.\n한국어: Remote Config: 서버에서 앱으로 설정을 보내 주어 업데이트 없이 값을 바꿀 수 있게 하는 서비스\n\nFallback Value - A safe value the app uses when the server value is missing or has not arrived yet.\n한국어: Fallback Value: 서버 값이 없거나 아직 도착하지 않았을 때 앱이 쓰는 안전한 값\n\nA/B Test - An experiment that shows two versions of a feature to different groups of users to see which works better.\n한국어: A/B Test: 기능의 두 가지 버전을 서로 다른 사용자 그룹에 보여 주어 어느 쪽이 더 좋은지 보는 실험\n\nIn this video, Mina and Jake talk about changing the retry count without an update and testing two buttons, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 236 of the iOS Daily English series.\n\n#Swift #iOSArchitecture #EnglishForDevelopers",
+      "tags": [
+        "Remote Config",
+        "Fallback Value",
+        "A/B Test",
+        "iOS architecture",
+        "iOS 아키텍처",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "iOS Daily English"
+      ],
+      "hook": "Can you explain Remote Config, Fallback Value and A/B Test in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "No update needed",
+    "setting": "Changing the retry count from a server",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, can we change the retry count without an app update?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Yes, use remote config. Remote config sends settings to the app from a server.",
+        "terms": [
+          "Remote Config"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "So the server says five retries, and the app obeys?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Right. The app fetches the remote config when it launches.",
+        "terms": [
+          "Remote Config"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "What if the phone is offline, and the fetch fails?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Then `retries` uses a fallback value. In our code, the fallback value is three.",
+        "terms": [
+          "Fallback Value"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "So a fallback value is the safe default?",
+        "terms": [
+          "Fallback Value"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Yes. Never leave a setting empty. The app must work with the fallback value alone.",
+        "terms": [
+          "Fallback Value"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Marketing also wants to test two checkout buttons.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Then run an A/B test. Half of the users see one button, and half see the other.",
+        "terms": [
+          "A/B Test"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "And remote config decides who sees which one?",
+        "terms": [
+          "Remote Config"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Yes. We compare the results of the A/B test and keep the winner.",
+        "terms": [
+          "A/B Test"
+        ]
+      }
+    ],
+    "code": "let remote: [String: Int] = [:]\nlet retries = remote[\"retries\"] ?? 3\nprint(retries)",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "Remote Config",
+      "lines": [
+        {
+          "text": "Change the retry count with remote config."
+        }
+      ],
+      "title": "Change the retry count with remote config. #Shorts",
+      "description": "Change the retry count with remote config.\n\nRemote Config - A service that sends settings to your app from a server, so you can change them without an update.\n한국어: Remote Config: 서버에서 앱으로 설정을 보내 주어 업데이트 없이 값을 바꿀 수 있게 하는 서비스\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "Fallback Value",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "What if the fetch fails?"
+        },
+        {
+          "speaker": "B",
+          "text": "The app uses the fallback value."
+        }
+      ],
+      "title": "What if the fetch fails? / The app uses the fallback value. #Shorts",
+      "description": "What if the fetch fails? / The app uses the fallback value.\n\nFallback Value - A safe value the app uses when the server value is missing or has not arrived yet.\n한국어: Fallback Value: 서버 값이 없거나 아직 도착하지 않았을 때 앱이 쓰는 안전한 값\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "A/B Test",
+      "lines": [
+        {
+          "text": "Run an A/B test on the new button."
+        }
+      ],
+      "title": "Run an A/B test on the new button. #Shorts",
+      "description": "Run an A/B test on the new button.\n\nA/B Test - An experiment that shows two versions of a feature to different groups of users to see which works better.\n한국어: A/B Test: 기능의 두 가지 버전을 서로 다른 사용자 그룹에 보여 주어 어느 쪽이 더 좋은지 보는 실험\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "Change app settings without an update."
+}

@@ -1,0 +1,231 @@
+{
+  "day": 234,
+  "phase": "5. App architecture & data",
+  "theme": "Debug and Release builds, and conditional compilation",
+  "terms": [
+    {
+      "term": "Debug Build",
+      "definition": "A build made for development, with extra checks and little optimization, so you can step through the code.",
+      "example": "The debug build is slow but easy to debug.",
+      "code": "assert(1 + 1 == 2, \"math broke\")\nprint(\"checked\")",
+      "output": "checked"
+    },
+    {
+      "term": "Release Build",
+      "definition": "A build made for users, with optimization turned on and the debug extras left out.",
+      "example": "Test the release build before you submit.",
+      "code": "let isRelease = true\nprint(isRelease ? \"ship it\" : \"keep testing\")",
+      "output": "ship it"
+    },
+    {
+      "term": "Conditional Compilation",
+      "definition": "A way to include or skip lines of code when the app is built, based on a flag.",
+      "example": "The log is inside conditional compilation.",
+      "code": "#if DEBUG\nlet logging = true\n#else\nlet logging = false\n#endif\nprint(logging)",
+      "output": "false"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What do you call a way to include or skip lines of code when the app is built, based on a flag?",
+      "options": [
+        "Debug Build",
+        "Conditional Compilation",
+        "Release Build"
+      ],
+      "answer": "b"
+    },
+    {
+      "question": "What do you call a build made for development, with extra checks and little optimization, so you can step through the code?",
+      "options": [
+        "Debug Build",
+        "Conditional Compilation",
+        "Release Build"
+      ],
+      "answer": "a"
+    },
+    {
+      "question": "What do you call a build made for users, with optimization turned on and the debug extras left out?",
+      "options": [
+        "Debug Build",
+        "Conditional Compilation",
+        "Release Build"
+      ],
+      "answer": "c"
+    }
+  ],
+  "video": {
+    "title": "Debug Build, Release Build & Conditional Compilation | Day 234",
+    "description": "Learn to explain how debug and release builds differ and how code is skipped on purpose: Debug Build, Release Build & Conditional Compilation, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nDebug Build - A build made for development, with extra checks and little optimization, so you can step through the code.\nRelease Build - A build made for users, with optimization turned on and the debug extras left out.\nConditional Compilation - A way to include or skip lines of code when the app is built, based on a flag.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 234 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "Debug Build",
+      "Release Build",
+      "Conditional Compilation",
+      "debug build",
+      "release build",
+      "conditional compilation",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "iOS Debug Build, Release Build & Conditional Compilation | Day 234",
+      "description": "Explain Debug Build, Release Build & Conditional Compilation in iOS by listening to a real code chat between two iOS devs.\nDebug Build, Release Build, Conditional Compilation 표현을 영어 대화로 익혀요.\n\nDebug Build - A build made for development, with extra checks and little optimization, so you can step through the code.\n한국어: Debug Build: 코드를 한 줄씩 따라가며 확인할 수 있도록 추가 검사를 넣고 최적화는 적게 한 개발용 빌드\n\nRelease Build - A build made for users, with optimization turned on and the debug extras left out.\n한국어: Release Build: 최적화를 켜고 디버그용 기능을 뺀 사용자용 빌드\n\nConditional Compilation - A way to include or skip lines of code when the app is built, based on a flag.\n한국어: Conditional Compilation: 플래그에 따라 앱을 빌드할 때 코드 줄을 포함하거나 건너뛰는 방법\n\nIn this video, Mina and Jake talk about why debug logs print on a phone but not in the store version, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 234 of the iOS Daily English series.\n\n#Swift #iOSArchitecture #EnglishForDevelopers",
+      "tags": [
+        "Debug Build",
+        "Release Build",
+        "Conditional Compilation",
+        "iOS architecture",
+        "iOS 아키텍처",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "iOS Daily English"
+      ],
+      "hook": "Can you explain Debug Build, Release Build and Conditional Compilation in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "Logs on my phone",
+    "setting": "Too many logs in a test build",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, why does the app print so many logs on my phone?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Because you run a debug build. A debug build has extra checks and little optimization.",
+        "terms": [
+          "Debug Build"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Why little optimization?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "So you can step through the code line by line.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "And the App Store version?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "That is a release build. A release build is optimized, and the debug extras are removed.",
+        "terms": [
+          "Release Build"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "How do we remove the debug extras?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "With conditional compilation. The compiler skips the lines inside `#if DEBUG`.",
+        "terms": [
+          "Conditional Compilation"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "So `track` prints only in a debug build?",
+        "terms": [
+          "Debug Build"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Yes. In a release build, that print line is not even compiled.",
+        "terms": [
+          "Release Build"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Nice. Does conditional compilation keep secrets out of logs too?",
+        "terms": [
+          "Conditional Compilation"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Not always. Check your release build before you ship.",
+        "terms": [
+          "Release Build"
+        ]
+      }
+    ],
+    "code": "func track(_ event: String) {\n#if DEBUG\n    print(\"debug:\", event)\n#endif\n}\ntrack(\"tap\")",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "Debug Build",
+      "lines": [
+        {
+          "text": "The debug build is slow but easy to debug."
+        }
+      ],
+      "title": "The debug build is slow but easy to debug. #Shorts",
+      "description": "The debug build is slow but easy to debug.\n\nDebug Build - A build made for development, with extra checks and little optimization, so you can step through the code.\n한국어: Debug Build: 코드를 한 줄씩 따라가며 확인할 수 있도록 추가 검사를 넣고 최적화는 적게 한 개발용 빌드\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "Conditional Compilation",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Why is the log missing in the store app?"
+        },
+        {
+          "speaker": "B",
+          "text": "It sits inside conditional compilation."
+        }
+      ],
+      "title": "Why is the log missing in the store app? / It sits inside conditional compilation. #Shorts",
+      "description": "Why is the log missing in the store app? / It sits inside conditional compilation.\n\nConditional Compilation - A way to include or skip lines of code when the app is built, based on a flag.\n한국어: Conditional Compilation: 플래그에 따라 앱을 빌드할 때 코드 줄을 포함하거나 건너뛰는 방법\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Release Build",
+      "lines": [
+        {
+          "text": "Test the release build before you submit."
+        }
+      ],
+      "title": "Test the release build before you submit. #Shorts",
+      "description": "Test the release build before you submit.\n\nRelease Build - A build made for users, with optimization turned on and the debug extras left out.\n한국어: Release Build: 최적화를 켜고 디버그용 기능을 뺀 사용자용 빌드\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "Why is my log missing in the store app?"
+}

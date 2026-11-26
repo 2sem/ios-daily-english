@@ -1,0 +1,231 @@
+{
+  "day": 238,
+  "phase": "5. App architecture & data",
+  "theme": "Log privacy: keeping personal data out of logs",
+  "terms": [
+    {
+      "term": "Sensitive Data",
+      "definition": "Personal or secret information, such as an email address or a password, that must be protected.",
+      "example": "Never print sensitive data in a log.",
+      "code": "let email = \"mina@example.com\"\nlet masked = String(email.prefix(1)) + \"***\"\nprint(masked)",
+      "output": "m***"
+    },
+    {
+      "term": "Redaction",
+      "definition": "Hiding part of a message, so the log shows a placeholder instead of the real value.",
+      "example": "Redaction replaces the email with a placeholder.",
+      "code": "let token = \"abc123\"\nlet shown = String(repeating: \"*\", count: 6)\nprint(token.count, shown)",
+      "output": "6 ******"
+    },
+    {
+      "term": "OSLogPrivacy",
+      "definition": "The option type whose values, such as public and private, control how a value in a log message is shown.",
+      "example": "Mark the user id private with OSLogPrivacy.",
+      "code": "import os\nlet logger = Logger()\nlet id = 42\nlogger.info(\"id \\(id, privacy: .private)\")",
+      "output": "// no output"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What do you call personal or secret information, such as an email address or a password, that must be protected?",
+      "options": [
+        "Redaction",
+        "OSLogPrivacy",
+        "Sensitive Data"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "What do you call the option type whose values, such as public and private, control how a value in a log message is shown?",
+      "options": [
+        "Redaction",
+        "OSLogPrivacy",
+        "Sensitive Data"
+      ],
+      "answer": "b"
+    },
+    {
+      "question": "What do you call hiding part of a message, so the log shows a placeholder instead of the real value?",
+      "options": [
+        "Redaction",
+        "Sensitive Data",
+        "OSLogPrivacy"
+      ],
+      "answer": "a"
+    }
+  ],
+  "video": {
+    "title": "Sensitive Data, Redaction & OSLogPrivacy | Day 238",
+    "description": "Learn to explain how to keep private data safe when you write logs: Sensitive Data, Redaction & OSLogPrivacy, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nSensitive Data - Personal or secret information, such as an email address or a password, that must be protected.\nRedaction - Hiding part of a message, so the log shows a placeholder instead of the real value.\nOSLogPrivacy - The option type whose values, such as public and private, control how a value in a log message is shown.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 238 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "Sensitive Data",
+      "Redaction",
+      "OSLogPrivacy",
+      "sensitive data",
+      "redaction",
+      "oslogprivacy",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "iOS Sensitive Data, Redaction & OSLogPrivacy | Day 238",
+      "description": "Explain Sensitive Data, Redaction & OSLogPrivacy in iOS by listening to a real code chat between two iOS devs.\nSensitive Data, Redaction, OSLogPrivacy 표현을 영어 대화로 익혀요.\n\nSensitive Data - Personal or secret information, such as an email address or a password, that must be protected.\n한국어: Sensitive Data: 이메일 주소나 비밀번호처럼 반드시 보호해야 하는 개인 정보나 비밀 정보\n\nRedaction - Hiding part of a message, so the log shows a placeholder instead of the real value.\n한국어: Redaction: 로그에 실제 값 대신 자리 표시자가 보이도록 메시지 일부를 가리는 것\n\nOSLogPrivacy - The option type whose values, such as public and private, control how a value in a log message is shown.\n한국어: OSLogPrivacy: public, private 같은 값으로 로그 메시지 속 값이 어떻게 보일지 정하는 옵션 타입\n\nIn this video, Mina and Jake talk about why an email must not appear in a log and how privacy options help, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 238 of the iOS Daily English series.\n\n#Swift #iOSArchitecture #EnglishForDevelopers",
+      "tags": [
+        "Sensitive Data",
+        "Redaction",
+        "OSLogPrivacy",
+        "iOS architecture",
+        "iOS 아키텍처",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "iOS Daily English"
+      ],
+      "hook": "Can you explain Sensitive Data, Redaction and OSLogPrivacy in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "Careful with that email",
+    "setting": "Reviewing a log line before merge",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, I logged the user email to debug a login bug. Is that okay?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Careful. An email is sensitive data, and sensitive data must not leak into logs.",
+        "terms": [
+          "Sensitive Data"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "What counts as sensitive data?",
+        "terms": [
+          "Sensitive Data"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Emails, passwords, tokens and addresses. Anything that identifies a person.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "So how do I keep the log useful?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Use privacy options. OSLogPrivacy lets you mark a value as `.private` or `.public`.",
+        "terms": [
+          "OSLogPrivacy"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Like the `privacy` label in my log line?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Yes. With `.private`, the log shows a placeholder instead of the email. That is redaction.",
+        "terms": [
+          "Redaction"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Is redaction automatic?",
+        "terms": [
+          "Redaction"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "For strings, yes. Numbers are public by default, so set OSLogPrivacy on purpose.",
+        "terms": [
+          "OSLogPrivacy"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "So the user id number needs `.private` too?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Yes. Mark it, and redaction protects it when other people read the log.",
+        "terms": [
+          "Redaction"
+        ]
+      }
+    ],
+    "code": "import os\nlet log = Logger()\nlet email = \"mina@example.com\"\nlog.info(\"user \\(email, privacy: .private)\")",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "Sensitive Data",
+      "lines": [
+        {
+          "text": "Never print sensitive data in a log."
+        }
+      ],
+      "title": "Never print sensitive data in a log. #Shorts",
+      "description": "Never print sensitive data in a log.\n\nSensitive Data - Personal or secret information, such as an email address or a password, that must be protected.\n한국어: Sensitive Data: 이메일 주소나 비밀번호처럼 반드시 보호해야 하는 개인 정보나 비밀 정보\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "OSLogPrivacy",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "How do I hide the user id?"
+        },
+        {
+          "speaker": "B",
+          "text": "Mark it private with OSLogPrivacy."
+        }
+      ],
+      "title": "How do I hide the user id? / Mark it private with OSLogPrivacy. #Shorts",
+      "description": "How do I hide the user id? / Mark it private with OSLogPrivacy.\n\nOSLogPrivacy - The option type whose values, such as public and private, control how a value in a log message is shown.\n한국어: OSLogPrivacy: public, private 같은 값으로 로그 메시지 속 값이 어떻게 보일지 정하는 옵션 타입\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Redaction",
+      "lines": [
+        {
+          "text": "Redaction replaces the email with a placeholder."
+        }
+      ],
+      "title": "Redaction replaces the email with a placeholder. #Shorts",
+      "description": "Redaction replaces the email with a placeholder.\n\nRedaction - Hiding part of a message, so the log shows a placeholder instead of the real value.\n한국어: Redaction: 로그에 실제 값 대신 자리 표시자가 보이도록 메시지 일부를 가리는 것\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "Is your log leaking user emails?"
+}

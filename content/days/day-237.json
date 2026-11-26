@@ -1,0 +1,234 @@
+{
+  "day": 237,
+  "phase": "5. App architecture & data",
+  "theme": "Logging with os.Logger: levels and subsystems",
+  "terms": [
+    {
+      "term": "Logger",
+      "definition": "The Apple type from the os framework that writes messages to the system log.",
+      "example": "Replace print with Logger in the network layer.",
+      "code": "import os\nlet logger = Logger()\nlogger.info(\"app started\")",
+      "output": "// no output"
+    },
+    {
+      "term": "Log Level",
+      "definition": "A label such as debug, info or error that shows how important a log message is.",
+      "example": "The log level hides debug messages in release.",
+      "code": "import os\nlet logger = Logger()\nlogger.debug(\"cache size 12\")\nlogger.error(\"save failed\")",
+      "output": "// no output"
+    },
+    {
+      "term": "Subsystem",
+      "definition": "A name, usually your bundle identifier, that groups the log messages from one part of your app.",
+      "example": "Use the bundle identifier as the subsystem.",
+      "code": "import os\nlet logger = Logger(\n    subsystem: \"com.example.app\",\n    category: \"network\")",
+      "output": "// no output"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What do you call a label such as debug, info or error that shows how important a log message is?",
+      "options": [
+        "Log Level",
+        "Logger",
+        "Subsystem"
+      ],
+      "answer": "a"
+    },
+    {
+      "question": "What do you call a name, usually your bundle identifier, that groups the log messages from one part of your app?",
+      "options": [
+        "Log Level",
+        "Logger",
+        "Subsystem"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "What do you call the Apple type from the os framework that writes messages to the system log?",
+      "options": [
+        "Log Level",
+        "Logger",
+        "Subsystem"
+      ],
+      "answer": "b"
+    }
+  ],
+  "video": {
+    "title": "Logger, Log Level & Subsystem | Day 237",
+    "description": "Learn to explain how to log messages in a clear and filterable way: Logger, Log Level & Subsystem, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nLogger - The Apple type from the os framework that writes messages to the system log.\nLog Level - A label such as debug, info or error that shows how important a log message is.\nSubsystem - A name, usually your bundle identifier, that groups the log messages from one part of your app.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 237 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "Logger",
+      "Log Level",
+      "Subsystem",
+      "logger",
+      "log level",
+      "subsystem",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "iOS Logger, Log Level & Subsystem | Day 237",
+      "description": "Explain Logger, Log Level & Subsystem in iOS by listening to a real code chat between two iOS devs.\nLogger, Log Level, Subsystem 표현을 영어 대화로 익혀요.\n\nLogger - The Apple type from the os framework that writes messages to the system log.\n한국어: Logger: os 프레임워크에서 시스템 로그에 메시지를 기록해 주는 애플의 타입\n\nLog Level - A label such as debug, info or error that shows how important a log message is.\n한국어: Log Level: debug, info, error처럼 로그 메시지의 중요도를 나타내는 라벨\n\nSubsystem - A name, usually your bundle identifier, that groups the log messages from one part of your app.\n한국어: Subsystem: 앱의 한 부분에서 나온 로그를 묶어 주는 이름으로, 보통 번들 식별자를 쓴다\n\nIn this video, Mina and Jake talk about why we use Logger instead of print, and how log levels and subsystems help, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 237 of the iOS Daily English series.\n\n#Swift #iOSArchitecture #EnglishForDevelopers",
+      "tags": [
+        "Logger",
+        "Log Level",
+        "Subsystem",
+        "iOS architecture",
+        "iOS 아키텍처",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "iOS Daily English"
+      ],
+      "hook": "Can you explain Logger, Log Level and Subsystem in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "Better than print",
+    "setting": "Cleaning up logs in the sync code",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, my print statements are everywhere. Is there a better way to log?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Yes, use Logger from the os framework. Logger writes messages to the system log.",
+        "terms": [
+          "Logger"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Is Logger better than print?",
+        "terms": [
+          "Logger"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "It is made for apps, and you can filter and search the messages in Console.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "How do I filter the noise?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Use a log level. A log level shows how important a message is, like info or error.",
+        "terms": [
+          "Log Level"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "So `log.info` is a normal message, and `log.error` is a problem?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Right. In a release build, you can hide the low log level messages.",
+        "terms": [
+          "Log Level"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "And what is a subsystem for?",
+        "terms": [
+          "Subsystem"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "A subsystem is a name that groups your logs. We use the bundle identifier.",
+        "terms": [
+          "Subsystem"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "So I filter by subsystem and `category`?",
+        "terms": [
+          "Subsystem"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Yes. Pick our subsystem, then a log level, and you find the sync bug fast.",
+        "terms": [
+          "Log Level",
+          "Subsystem"
+        ]
+      }
+    ],
+    "code": "import os\nlet log = Logger(subsystem: \"com.example.app\",\n                 category: \"sync\")\nlog.info(\"sync started\")\nlog.error(\"sync failed\")",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "Logger",
+      "lines": [
+        {
+          "text": "Replace print with Logger in the network layer."
+        }
+      ],
+      "title": "Replace print with Logger in the network layer. #Shorts",
+      "description": "Replace print with Logger in the network layer.\n\nLogger - The Apple type from the os framework that writes messages to the system log.\n한국어: Logger: os 프레임워크에서 시스템 로그에 메시지를 기록해 주는 애플의 타입\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "Log Level",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Why is the debug message gone?"
+        },
+        {
+          "speaker": "B",
+          "text": "The log level hides it in release."
+        }
+      ],
+      "title": "Why is the debug message gone? / The log level hides it in release. #Shorts",
+      "description": "Why is the debug message gone? / The log level hides it in release.\n\nLog Level - A label such as debug, info or error that shows how important a log message is.\n한국어: Log Level: debug, info, error처럼 로그 메시지의 중요도를 나타내는 라벨\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Subsystem",
+      "lines": [
+        {
+          "text": "Use the bundle identifier as the subsystem."
+        }
+      ],
+      "title": "Use the bundle identifier as the subsystem. #Shorts",
+      "description": "Use the bundle identifier as the subsystem.\n\nSubsystem - A name, usually your bundle identifier, that groups the log messages from one part of your app.\n한국어: Subsystem: 앱의 한 부분에서 나온 로그를 묶어 주는 이름으로, 보통 번들 식별자를 쓴다\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "Stop using print. Use Logger."
+}

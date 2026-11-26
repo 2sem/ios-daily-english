@@ -2759,6 +2759,246 @@
     "expirationhandler": {
       "term": "Expiration Handler",
       "day": 230
+    },
+    "target": {
+      "term": "Target",
+      "day": 231
+    },
+    "scheme": {
+      "term": "Scheme",
+      "day": 231
+    },
+    "buildconfiguration": {
+      "term": "Build Configuration",
+      "day": 231
+    },
+    "buildsetting": {
+      "term": "Build Setting",
+      "day": 232
+    },
+    "xcconfig": {
+      "term": "xcconfig",
+      "day": 232
+    },
+    "buildvariable": {
+      "term": "Build Variable",
+      "day": 232
+    },
+    "production": {
+      "term": "Production",
+      "day": 233
+    },
+    "staging": {
+      "term": "Staging",
+      "day": 233
+    },
+    "baseurl": {
+      "term": "Base URL",
+      "day": 233
+    },
+    "debugbuild": {
+      "term": "Debug Build",
+      "day": 234
+    },
+    "releasebuild": {
+      "term": "Release Build",
+      "day": 234
+    },
+    "conditionalcompilation": {
+      "term": "Conditional Compilation",
+      "day": 234
+    },
+    "featureflag": {
+      "term": "Feature Flag",
+      "day": 235
+    },
+    "killswitch": {
+      "term": "Kill Switch",
+      "day": 235
+    },
+    "gradualrollout": {
+      "term": "Gradual Rollout",
+      "day": 235
+    },
+    "remoteconfig": {
+      "term": "Remote Config",
+      "day": 236
+    },
+    "fallbackvalue": {
+      "term": "Fallback Value",
+      "day": 236
+    },
+    "abtest": {
+      "term": "A/B Test",
+      "day": 236
+    },
+    "logger": {
+      "term": "Logger",
+      "day": 237
+    },
+    "loglevel": {
+      "term": "Log Level",
+      "day": 237
+    },
+    "subsystem": {
+      "term": "Subsystem",
+      "day": 237
+    },
+    "sensitivedata": {
+      "term": "Sensitive Data",
+      "day": 238
+    },
+    "redaction": {
+      "term": "Redaction",
+      "day": 238
+    },
+    "oslogprivacy": {
+      "term": "OSLogPrivacy",
+      "day": 238
+    },
+    "analyticsevent": {
+      "term": "Analytics Event",
+      "day": 239
+    },
+    "eventparameter": {
+      "term": "Event Parameter",
+      "day": 239
+    },
+    "userproperty": {
+      "term": "User Property",
+      "day": 239
+    },
+    "crashreport": {
+      "term": "Crash Report",
+      "day": 240
+    },
+    "stacktrace": {
+      "term": "Stack Trace",
+      "day": 240
+    },
+    "dsym": {
+      "term": "dSYM",
+      "day": 240
+    },
+    "nonfatalerror": {
+      "term": "Non-Fatal Error",
+      "day": 241
+    },
+    "breadcrumb": {
+      "term": "Breadcrumb",
+      "day": 241
+    },
+    "crashfreerate": {
+      "term": "Crash-Free Rate",
+      "day": 241
+    },
+    "apikey": {
+      "term": "API Key",
+      "day": 242
+    },
+    "gitignore": {
+      "term": "Gitignore",
+      "day": 242
+    },
+    "secretrotation": {
+      "term": "Secret Rotation",
+      "day": 242
+    },
+    "applicationsupportdirectory": {
+      "term": "Application Support Directory",
+      "day": 243
+    },
+    "cachesdirectory": {
+      "term": "Caches Directory",
+      "day": 243
+    },
+    "backupexclusion": {
+      "term": "Backup Exclusion",
+      "day": 243
+    },
+    "defaultregistration": {
+      "term": "Default Registration",
+      "day": 244
+    },
+    "userdefaultssuite": {
+      "term": "UserDefaults Suite",
+      "day": 244
+    },
+    "didchangenotification": {
+      "term": "didChangeNotification",
+      "day": 244
+    },
+    "groupidentifier": {
+      "term": "Group Identifier",
+      "day": 245
+    },
+    "sharedcontainer": {
+      "term": "Shared Container",
+      "day": 245
+    },
+    "shareddefaults": {
+      "term": "Shared Defaults",
+      "day": 245
+    },
+    "nsuseractivity": {
+      "term": "NSUserActivity",
+      "day": 246
+    },
+    "handoff": {
+      "term": "Handoff",
+      "day": 246
+    },
+    "cssearchableitem": {
+      "term": "CSSearchableItem",
+      "day": 246
+    },
+    "sirishortcut": {
+      "term": "Siri Shortcut",
+      "day": 247
+    },
+    "invocationphrase": {
+      "term": "Invocation Phrase",
+      "day": 247
+    },
+    "predictioneligibility": {
+      "term": "Prediction Eligibility",
+      "day": 247
+    },
+    "notificationpayload": {
+      "term": "Notification Payload",
+      "day": 248
+    },
+    "unusernotificationcenter": {
+      "term": "UNUserNotificationCenter",
+      "day": 248
+    },
+    "silentpush": {
+      "term": "Silent Push",
+      "day": 248
+    },
+    "swiftpackage": {
+      "term": "Swift Package",
+      "day": 249
+    },
+    "packagemanifest": {
+      "term": "Package Manifest",
+      "day": 249
+    },
+    "libraryproduct": {
+      "term": "Library Product",
+      "day": 249
+    },
+    "targetdependency": {
+      "term": "Target Dependency",
+      "day": 250
+    },
+    "dependencygraph": {
+      "term": "Dependency Graph",
+      "day": 250
+    },
+    "circulardependency": {
+      "term": "Circular Dependency",
+      "day": 250
     }
   }
 }

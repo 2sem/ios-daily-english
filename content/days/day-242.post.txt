@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 242
+
+API Key
+- A secret string that proves to a server that your app is allowed to use its service.
+- Example: "Never commit the API key to Git."
+
+Gitignore
+- A file that lists the files Git must never track, so private files stay out of the repository.
+- Example: "Add the secrets file to the gitignore."
+
+Secret Rotation
+- The habit of replacing a secret with a new one on a schedule, or right after a leak.
+- Example: "Do a secret rotation after the leak."
+
+
+Quiz ①
+What do you call the habit of replacing a secret with a new one on a schedule, or right after a leak?
+a) API Key
+b) Secret Rotation
+c) Gitignore
+
+Quiz ②
+What do you call a secret string that proves to a server that your app is allowed to use its service?
+a) API Key
+b) Secret Rotation
+c) Gitignore
+
+Quiz ③
+What do you call a file that lists the files Git must never track, so private files stay out of the repository?
+a) API Key
+b) Secret Rotation
+c) Gitignore

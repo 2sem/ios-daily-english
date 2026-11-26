@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 238
+
+Sensitive Data
+- Personal or secret information, such as an email address or a password, that must be protected.
+- Example: "Never print sensitive data in a log."
+
+Redaction
+- Hiding part of a message, so the log shows a placeholder instead of the real value.
+- Example: "Redaction replaces the email with a placeholder."
+
+OSLogPrivacy
+- The option type whose values, such as public and private, control how a value in a log message is shown.
+- Example: "Mark the user id private with OSLogPrivacy."
+
+
+Quiz ①
+What do you call personal or secret information, such as an email address or a password, that must be protected?
+a) Redaction
+b) OSLogPrivacy
+c) Sensitive Data
+
+Quiz ②
+What do you call the option type whose values, such as public and private, control how a value in a log message is shown?
+a) Redaction
+b) OSLogPrivacy
+c) Sensitive Data
+
+Quiz ③
+What do you call hiding part of a message, so the log shows a placeholder instead of the real value?
+a) Redaction
+b) Sensitive Data
+c) OSLogPrivacy

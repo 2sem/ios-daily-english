@@ -1,0 +1,232 @@
+{
+  "day": 240,
+  "phase": "5. App architecture & data",
+  "theme": "Crash reporting: reports, stack traces and dSYM files",
+  "terms": [
+    {
+      "term": "Crash Report",
+      "definition": "A file that records what the app and the device were doing at the moment the app stopped.",
+      "example": "Open the crash report from yesterday.",
+      "code": "struct CrashReport {\n    let app = \"Notes\"\n    let reason = \"index out of range\"\n}\nprint(CrashReport().reason)",
+      "output": "index out of range"
+    },
+    {
+      "term": "Stack Trace",
+      "definition": "A list of the function calls that were active when an error happened, from newest to oldest.",
+      "example": "The stack trace points to the parse function.",
+      "code": "import Foundation\nfunc inner() {\n    print(Thread.callStackSymbols.isEmpty)\n}\ninner()",
+      "output": "false"
+    },
+    {
+      "term": "dSYM",
+      "definition": "A debug symbols file that turns raw addresses in a report back into function names.",
+      "example": "Upload the dSYM so the names are readable.",
+      "code": "let address = \"0x1a2b3c\"\nlet symbols = [address: \"loadFeed()\"]\nprint(symbols[address] ?? address)",
+      "output": "loadFeed()"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What do you call a debug symbols file that turns raw addresses in a report back into function names?",
+      "options": [
+        "dSYM",
+        "Crash Report",
+        "Stack Trace"
+      ],
+      "answer": "a"
+    },
+    {
+      "question": "What do you call a file that records what the app and the device were doing at the moment the app stopped?",
+      "options": [
+        "dSYM",
+        "Stack Trace",
+        "Crash Report"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "What do you call a list of the function calls that were active when an error happened, from newest to oldest?",
+      "options": [
+        "Crash Report",
+        "Stack Trace",
+        "dSYM"
+      ],
+      "answer": "b"
+    }
+  ],
+  "video": {
+    "title": "Crash Report, Stack Trace & dSYM | Day 240",
+    "description": "Learn to explain how to read a crash and find the line that caused it: Crash Report, Stack Trace & dSYM, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nCrash Report - A file that records what the app and the device were doing at the moment the app stopped.\nStack Trace - A list of the function calls that were active when an error happened, from newest to oldest.\ndSYM - A debug symbols file that turns raw addresses in a report back into function names.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 240 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "Crash Report",
+      "Stack Trace",
+      "dSYM",
+      "crash report",
+      "stack trace",
+      "dsym",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "iOS Crash Report, Stack Trace & dSYM | Day 240",
+      "description": "Explain Crash Report, Stack Trace & dSYM in iOS by listening to a real code chat between two iOS devs.\nCrash Report, Stack Trace, dSYM 표현을 영어 대화로 익혀요.\n\nCrash Report - A file that records what the app and the device were doing at the moment the app stopped.\n한국어: Crash Report: 앱이 멈춘 순간 앱과 기기가 무엇을 하고 있었는지 기록한 파일\n\nStack Trace - A list of the function calls that were active when an error happened, from newest to oldest.\n한국어: Stack Trace: 오류가 났을 때 실행 중이던 함수 호출을 최신 것부터 차례로 나열한 목록\n\ndSYM - A debug symbols file that turns raw addresses in a report back into function names.\n한국어: dSYM: 리포트 속 원시 주소를 다시 함수 이름으로 바꿔 주는 디버그 심볼 파일\n\nIn this video, Mina and Jake talk about how to read a crash report, its stack trace and the dSYM file, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 240 of the iOS Daily English series.\n\n#Swift #iOSArchitecture #EnglishForDevelopers",
+      "tags": [
+        "Crash Report",
+        "Stack Trace",
+        "dSYM",
+        "iOS architecture",
+        "iOS 아키텍처",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "iOS Daily English"
+      ],
+      "hook": "Can you explain Crash Report, Stack Trace and dSYM in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "Why did it crash?",
+    "setting": "Users report a crash on launch",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, users say the app crashes on launch. Where do I start?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Open the crash report. A crash report records what the app was doing when it stopped.",
+        "terms": [
+          "Crash Report"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "It has a lot of numbers. What should I read first?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Read the stack trace. A stack trace lists the function calls, from newest to oldest.",
+        "terms": [
+          "Stack Trace"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "So the top line is `parse`, and `load` is below it?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Yes. The crash is in `parse`, and `load` called it.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "But some lines show only addresses, not names.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Then you need the dSYM. A dSYM turns raw addresses back into function names.",
+        "terms": [
+          "dSYM"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Where do I find the dSYM file?",
+        "terms": [
+          "dSYM"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Xcode makes one for every archive, so upload the dSYM to the crash tool.",
+        "terms": [
+          "dSYM"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "And then the crash report shows readable names?",
+        "terms": [
+          "Crash Report"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Yes, and the stack trace in the crash report tells you the exact function.",
+        "terms": [
+          "Crash Report",
+          "Stack Trace"
+        ]
+      }
+    ],
+    "code": "func load() { parse() }\nfunc parse() { fatalError(\"bad json\") }\nload()",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "Crash Report",
+      "lines": [
+        {
+          "text": "Open the crash report from yesterday."
+        }
+      ],
+      "title": "Open the crash report from yesterday. #Shorts",
+      "description": "Open the crash report from yesterday.\n\nCrash Report - A file that records what the app and the device were doing at the moment the app stopped.\n한국어: Crash Report: 앱이 멈춘 순간 앱과 기기가 무엇을 하고 있었는지 기록한 파일\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "Stack Trace",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Where did it crash?"
+        },
+        {
+          "speaker": "B",
+          "text": "The stack trace points to parse."
+        }
+      ],
+      "title": "Where did it crash? / The stack trace points to parse. #Shorts",
+      "description": "Where did it crash? / The stack trace points to parse.\n\nStack Trace - A list of the function calls that were active when an error happened, from newest to oldest.\n한국어: Stack Trace: 오류가 났을 때 실행 중이던 함수 호출을 최신 것부터 차례로 나열한 목록\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "dSYM",
+      "lines": [
+        {
+          "text": "Upload the dSYM so the names are readable."
+        }
+      ],
+      "title": "Upload the dSYM so the names are readable. #Shorts",
+      "description": "Upload the dSYM so the names are readable.\n\ndSYM - A debug symbols file that turns raw addresses in a report back into function names.\n한국어: dSYM: 리포트 속 원시 주소를 다시 함수 이름으로 바꿔 주는 디버그 심볼 파일\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "App crashed? Read the stack trace."
+}

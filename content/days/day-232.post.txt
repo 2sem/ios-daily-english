@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 232
+
+Build Setting
+- A single named value, such as the Swift version, that controls how Xcode builds a target.
+- Example: "Change the build setting for the Swift version."
+
+xcconfig
+- A plain text file that stores build settings, so you can keep them outside the Xcode project file.
+- Example: "Each environment has its own xcconfig file."
+
+Build Variable
+- A placeholder in a plist file that Xcode replaces with the value of a build setting.
+- Example: "The plist reads the host from a build variable."
+
+
+Quiz ①
+What do you call a placeholder in a plist file that Xcode replaces with the value of a build setting?
+a) Build Setting
+b) xcconfig
+c) Build Variable
+
+Quiz ②
+What do you call a single named value, such as the Swift version, that controls how Xcode builds a target?
+a) Build Setting
+b) Build Variable
+c) xcconfig
+
+Quiz ③
+What do you call a plain text file that stores build settings, so you can keep them outside the Xcode project file?
+a) Build Setting
+b) xcconfig
+c) Build Variable

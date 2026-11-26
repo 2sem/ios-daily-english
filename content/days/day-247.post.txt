@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 247
+
+Siri Shortcut
+- A saved action that the user can start by voice or from the Shortcuts app.
+- Example: "Add a Siri shortcut for the coffee order."
+
+Invocation Phrase
+- The short phrase a user says to Siri to start a saved action.
+- Example: "Keep the invocation phrase short and easy to say."
+
+Prediction Eligibility
+- A setting that lets Siri suggest an activity to the user at a useful moment.
+- Example: "Turn on prediction eligibility for the order screen."
+
+
+Quiz ①
+What do you call the short phrase a user says to Siri to start a saved action?
+a) Siri Shortcut
+b) Prediction Eligibility
+c) Invocation Phrase
+
+Quiz ②
+What do you call a setting that lets Siri suggest an activity to the user at a useful moment?
+a) Prediction Eligibility
+b) Invocation Phrase
+c) Siri Shortcut
+
+Quiz ③
+What do you call a saved action that the user can start by voice or from the Shortcuts app?
+a) Invocation Phrase
+b) Siri Shortcut
+c) Prediction Eligibility

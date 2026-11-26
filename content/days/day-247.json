@@ -1,0 +1,231 @@
+{
+  "day": 247,
+  "phase": "5. App architecture & data",
+  "theme": "Siri shortcuts: invocation phrases and predictions",
+  "terms": [
+    {
+      "term": "Siri Shortcut",
+      "definition": "A saved action that the user can start by voice or from the Shortcuts app.",
+      "example": "Add a Siri shortcut for the coffee order.",
+      "code": "import Foundation\nlet a = NSUserActivity(activityType: \"x.order\")\na.title = \"Order coffee\"\nprint(a.activityType)",
+      "output": "x.order"
+    },
+    {
+      "term": "Invocation Phrase",
+      "definition": "The short phrase a user says to Siri to start a saved action.",
+      "example": "Keep the invocation phrase short and easy to say.",
+      "code": "import Intents\nlet a = NSUserActivity(activityType: \"x.order\")\na.suggestedInvocationPhrase = \"Order coffee\"",
+      "output": "// no output"
+    },
+    {
+      "term": "Prediction Eligibility",
+      "definition": "A setting that lets Siri suggest an activity to the user at a useful moment.",
+      "example": "Turn on prediction eligibility for the order screen.",
+      "code": "import Intents\nlet a = NSUserActivity(activityType: \"x.order\")\na.isEligibleForPrediction = true",
+      "output": "// no output"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What do you call the short phrase a user says to Siri to start a saved action?",
+      "options": [
+        "Siri Shortcut",
+        "Prediction Eligibility",
+        "Invocation Phrase"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "What do you call a setting that lets Siri suggest an activity to the user at a useful moment?",
+      "options": [
+        "Prediction Eligibility",
+        "Invocation Phrase",
+        "Siri Shortcut"
+      ],
+      "answer": "a"
+    },
+    {
+      "question": "What do you call a saved action that the user can start by voice or from the Shortcuts app?",
+      "options": [
+        "Invocation Phrase",
+        "Siri Shortcut",
+        "Prediction Eligibility"
+      ],
+      "answer": "b"
+    }
+  ],
+  "video": {
+    "title": "Siri Shortcut, Invocation Phrase & Prediction Eligibility | Day 247",
+    "description": "Learn to explain how an app offers actions that people can start with their voice: Siri Shortcut, Invocation Phrase & Prediction Eligibility, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nSiri Shortcut - A saved action that the user can start by voice or from the Shortcuts app.\nInvocation Phrase - The short phrase a user says to Siri to start a saved action.\nPrediction Eligibility - A setting that lets Siri suggest an activity to the user at a useful moment.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 247 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "Siri Shortcut",
+      "Invocation Phrase",
+      "Prediction Eligibility",
+      "siri shortcut",
+      "invocation phrase",
+      "prediction eligibility",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "iOS Siri Shortcut, Invocation Phrase & Prediction Eligibility | Day 247",
+      "description": "Explain Siri Shortcut, Invocation Phrase & Prediction Eligibility in iOS by listening to a real code chat between two iOS devs.\nSiri Shortcut, Invocation Phrase, Prediction Eligibility 표현을 영어 대화로 익혀요.\n\nSiri Shortcut - A saved action that the user can start by voice or from the Shortcuts app.\n한국어: Siri Shortcut: 음성이나 단축어 앱에서 사용자가 시작할 수 있도록 저장해 둔 동작\n\nInvocation Phrase - The short phrase a user says to Siri to start a saved action.\n한국어: Invocation Phrase: 저장된 동작을 시작하려고 사용자가 Siri에게 말하는 짧은 문구\n\nPrediction Eligibility - A setting that lets Siri suggest an activity to the user at a useful moment.\n한국어: Prediction Eligibility: Siri가 적절한 순간에 사용자에게 활동을 제안할 수 있게 하는 설정\n\nIn this video, Mina and Jake talk about how users order coffee by voice with a Siri shortcut and a phrase, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 247 of the iOS Daily English series.\n\n#Swift #iOSArchitecture #EnglishForDevelopers",
+      "tags": [
+        "Siri Shortcut",
+        "Invocation Phrase",
+        "Prediction Eligibility",
+        "iOS architecture",
+        "iOS 아키텍처",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "iOS Daily English"
+      ],
+      "hook": "Can you explain Siri Shortcut, Invocation Phrase and Prediction Eligibility in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "Order coffee by voice",
+    "setting": "Adding Siri support to the order screen",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, can users order coffee from our app without opening it?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Yes, offer a Siri shortcut. A Siri shortcut is a saved action that runs by voice.",
+        "terms": [
+          "Siri Shortcut"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "How do we create it from the code?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Use the activity `a`, and call `becomeCurrent` when the user places an order.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "And what does the user say to run the Siri shortcut?",
+        "terms": [
+          "Siri Shortcut"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "The invocation phrase. In our code, it is Order coffee.",
+        "terms": [
+          "Invocation Phrase"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Can we choose any invocation phrase?",
+        "terms": [
+          "Invocation Phrase"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Yes, but keep it short and easy to say.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "Will Siri suggest the shortcut on its own?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Only with prediction eligibility. Set `isEligibleForPrediction` to true.",
+        "terms": [
+          "Prediction Eligibility"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "So prediction eligibility lets Siri suggest it at a useful moment?",
+        "terms": [
+          "Prediction Eligibility"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Exactly. The user sees the suggestion and adds the Siri shortcut with one tap.",
+        "terms": [
+          "Siri Shortcut"
+        ]
+      }
+    ],
+    "code": "import Intents\nlet a = NSUserActivity(activityType: \"x.order\")\na.isEligibleForPrediction = true\na.suggestedInvocationPhrase = \"Order coffee\"\na.becomeCurrent()",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "Siri Shortcut",
+      "lines": [
+        {
+          "text": "Add a Siri shortcut for the coffee order."
+        }
+      ],
+      "title": "Add a Siri shortcut for the coffee order. #Shorts",
+      "description": "Add a Siri shortcut for the coffee order.\n\nSiri Shortcut - A saved action that the user can start by voice or from the Shortcuts app.\n한국어: Siri Shortcut: 음성이나 단축어 앱에서 사용자가 시작할 수 있도록 저장해 둔 동작\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "Invocation Phrase",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "What do I say to Siri?"
+        },
+        {
+          "speaker": "B",
+          "text": "Use the invocation phrase."
+        }
+      ],
+      "title": "What do I say to Siri? / Use the invocation phrase. #Shorts",
+      "description": "What do I say to Siri? / Use the invocation phrase.\n\nInvocation Phrase - The short phrase a user says to Siri to start a saved action.\n한국어: Invocation Phrase: 저장된 동작을 시작하려고 사용자가 Siri에게 말하는 짧은 문구\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Prediction Eligibility",
+      "lines": [
+        {
+          "text": "Turn on prediction eligibility for the order screen."
+        }
+      ],
+      "title": "Turn on prediction eligibility for the order screen. #Shorts",
+      "description": "Turn on prediction eligibility for the order screen.\n\nPrediction Eligibility - A setting that lets Siri suggest an activity to the user at a useful moment.\n한국어: Prediction Eligibility: Siri가 적절한 순간에 사용자에게 활동을 제안할 수 있게 하는 설정\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "Order coffee by voice. Add a shortcut."
+}

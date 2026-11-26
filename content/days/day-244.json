@@ -1,0 +1,231 @@
+{
+  "day": 244,
+  "phase": "5. App architecture & data",
+  "theme": "UserDefaults details: registered defaults, suites and change notifications",
+  "terms": [
+    {
+      "term": "Default Registration",
+      "definition": "A way to set starting values for keys, which the app uses until the user saves a new value.",
+      "example": "Use default registration for the font size.",
+      "code": "import Foundation\nUserDefaults.standard.register(defaults: [\n    \"darkMode\": false,\n    \"fontSize\": 16\n])",
+      "output": "// no output"
+    },
+    {
+      "term": "UserDefaults Suite",
+      "definition": "A named group of saved settings, kept apart from the standard settings or shared with other targets.",
+      "example": "The widget reads from a UserDefaults suite.",
+      "code": "import Foundation\nlet shared = UserDefaults(\n    suiteName: \"group.com.example.app\")\nshared?.set(\"pro\", forKey: \"plan\")",
+      "output": "// no output"
+    },
+    {
+      "term": "didChangeNotification",
+      "definition": "The notification that UserDefaults posts when a saved setting changes, so your app can react.",
+      "example": "Reload the screen on didChangeNotification.",
+      "code": "import Foundation\nlet center = NotificationCenter.default\nlet token = center.addObserver(\n    forName: UserDefaults.didChangeNotification,\n    object: nil, queue: .main) { _ in }",
+      "output": "// no output"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What do you call the notification that UserDefaults posts when a saved setting changes, so your app can react?",
+      "options": [
+        "Default Registration",
+        "didChangeNotification",
+        "UserDefaults Suite"
+      ],
+      "answer": "b"
+    },
+    {
+      "question": "What do you call a way to set starting values for keys, which the app uses until the user saves a new value?",
+      "options": [
+        "Default Registration",
+        "didChangeNotification",
+        "UserDefaults Suite"
+      ],
+      "answer": "a"
+    },
+    {
+      "question": "What do you call a named group of saved settings, kept apart from the standard settings or shared with other targets?",
+      "options": [
+        "Default Registration",
+        "didChangeNotification",
+        "UserDefaults Suite"
+      ],
+      "answer": "c"
+    }
+  ],
+  "video": {
+    "title": "Default Registration, UserDefaults Suite & didChangeNotification | Day 244",
+    "description": "Learn to explain how to give settings starting values, share them and react when they change: Default Registration, UserDefaults Suite & didChangeNotification, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nDefault Registration - A way to set starting values for keys, which the app uses until the user saves a new value.\nUserDefaults Suite - A named group of saved settings, kept apart from the standard settings or shared with other targets.\ndidChangeNotification - The notification that UserDefaults posts when a saved setting changes, so your app can react.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 244 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "Default Registration",
+      "UserDefaults Suite",
+      "didChangeNotification",
+      "default registration",
+      "userdefaults suite",
+      "didchangenotification",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "iOS Default Registration, UserDefaults Suite & didChangeNotification | Day 244",
+      "description": "Explain Default Registration, UserDefaults Suite & didChangeNotification in iOS by listening to a real code chat between two iOS devs.\nDefault Registration, UserDefaults Suite, didChangeNotification 표현을 영어 대화로 익혀요.\n\nDefault Registration - A way to set starting values for keys, which the app uses until the user saves a new value.\n한국어: Default Registration: 사용자가 새 값을 저장하기 전까지 앱이 쓰는 키의 시작 값을 정하는 방법\n\nUserDefaults Suite - A named group of saved settings, kept apart from the standard settings or shared with other targets.\n한국어: UserDefaults Suite: 표준 설정과 따로 보관하거나 다른 타깃과 공유하는, 이름이 붙은 저장 설정 묶음\n\ndidChangeNotification - The notification that UserDefaults posts when a saved setting changes, so your app can react.\n한국어: didChangeNotification: 저장된 설정이 바뀔 때 UserDefaults가 보내는 알림으로, 앱이 이에 반응할 수 있다\n\nIn this video, Mina and Jake talk about settings with starting values, a shared group of settings and change notifications, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 244 of the iOS Daily English series.\n\n#Swift #iOSArchitecture #EnglishForDevelopers",
+      "tags": [
+        "Default Registration",
+        "UserDefaults Suite",
+        "didChangeNotification",
+        "iOS architecture",
+        "iOS 아키텍처",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "iOS Daily English"
+      ],
+      "hook": "Can you explain Default Registration, UserDefaults Suite and didChangeNotification in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "Zero on a fresh install",
+    "setting": "Fixing the font size setting",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, the font size setting is zero on a fresh install. Why?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Nothing is saved yet, so `integer` returns zero. Use default registration.",
+        "terms": [
+          "Default Registration"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "What is default registration?",
+        "terms": [
+          "Default Registration"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "You register starting values, like `size` is 16. The app uses them until the user saves a new one.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "And the widget needs to read the same settings.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Then create a UserDefaults suite. A UserDefaults suite is a named group of settings.",
+        "terms": [
+          "UserDefaults Suite"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "So `d` is a separate group, not the standard one?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Yes. You can share a UserDefaults suite with other targets.",
+        "terms": [
+          "UserDefaults Suite"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "What if one screen changes a setting and another screen must react?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Observe didChangeNotification. UserDefaults posts it when a saved setting changes.",
+        "terms": [
+          "didChangeNotification"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "So we reload the screen when didChangeNotification arrives?",
+        "terms": [
+          "didChangeNotification"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Yes. Reload the UI there, and keep the default registration at launch.",
+        "terms": [
+          "Default Registration"
+        ]
+      }
+    ],
+    "code": "import Foundation\nlet d = UserDefaults(suiteName: \"app.x\")!\nd.register(defaults: [\"size\": 16])\nprint(d.integer(forKey: \"size\"))",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "Default Registration",
+      "lines": [
+        {
+          "text": "Use default registration for the font size."
+        }
+      ],
+      "title": "Use default registration for the font size. #Shorts",
+      "description": "Use default registration for the font size.\n\nDefault Registration - A way to set starting values for keys, which the app uses until the user saves a new value.\n한국어: Default Registration: 사용자가 새 값을 저장하기 전까지 앱이 쓰는 키의 시작 값을 정하는 방법\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "UserDefaults Suite",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "How does the widget read my settings?"
+        },
+        {
+          "speaker": "B",
+          "text": "Share a UserDefaults suite."
+        }
+      ],
+      "title": "How does the widget read my settings? / Share a UserDefaults suite. #Shorts",
+      "description": "How does the widget read my settings? / Share a UserDefaults suite.\n\nUserDefaults Suite - A named group of saved settings, kept apart from the standard settings or shared with other targets.\n한국어: UserDefaults Suite: 표준 설정과 따로 보관하거나 다른 타깃과 공유하는, 이름이 붙은 저장 설정 묶음\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "didChangeNotification",
+      "lines": [
+        {
+          "text": "Reload the screen on didChangeNotification."
+        }
+      ],
+      "title": "Reload the screen on didChangeNotification. #Shorts",
+      "description": "Reload the screen on didChangeNotification.\n\ndidChangeNotification - The notification that UserDefaults posts when a saved setting changes, so your app can react.\n한국어: didChangeNotification: 저장된 설정이 바뀔 때 UserDefaults가 보내는 알림으로, 앱이 이에 반응할 수 있다\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "Settings zero on first launch? Register defaults."
+}

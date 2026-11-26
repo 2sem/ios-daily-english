@@ -1,0 +1,236 @@
+{
+  "day": 231,
+  "phase": "5. App architecture & data",
+  "theme": "Xcode project setup: targets, schemes and build configurations",
+  "terms": [
+    {
+      "term": "Target",
+      "definition": "A set of files and settings that Xcode builds into one product, such as an app or a widget.",
+      "example": "Add the widget as a new target.",
+      "code": "let targets = [\"App\", \"Widget\", \"Tests\"]\nfor name in targets {\n    print(\"build\", name)\n}",
+      "output": "build App\nbuild Widget\nbuild Tests"
+    },
+    {
+      "term": "Scheme",
+      "definition": "A saved recipe that tells Xcode what to build and which configuration to use when you run.",
+      "example": "Switch the scheme to Staging before you run.",
+      "code": "let scheme = \"App-Staging\"\nlet parts = scheme.split(separator: \"-\")\nprint(parts[0], parts[1])",
+      "output": "App Staging"
+    },
+    {
+      "term": "Build Configuration",
+      "definition": "A named group of build settings, such as Debug or Release, that Xcode uses to compile your code.",
+      "example": "The Release build configuration turns on optimization.",
+      "code": "#if DEBUG\nprint(\"Debug\")\n#else\nprint(\"Release\")\n#endif",
+      "output": "Release"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What do you call a saved recipe that tells Xcode what to build and which configuration to use when you run?",
+      "options": [
+        "Target",
+        "Scheme",
+        "Build Configuration"
+      ],
+      "answer": "b"
+    },
+    {
+      "question": "What do you call a named group of build settings, such as Debug or Release, that Xcode uses to compile your code?",
+      "options": [
+        "Scheme",
+        "Target",
+        "Build Configuration"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "What do you call a set of files and settings that Xcode builds into one product, such as an app or a widget?",
+      "options": [
+        "Target",
+        "Scheme",
+        "Build Configuration"
+      ],
+      "answer": "a"
+    }
+  ],
+  "video": {
+    "title": "Target, Scheme & Build Configuration | Day 231",
+    "description": "Learn to explain how an Xcode project is organized into products and builds: Target, Scheme & Build Configuration, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nTarget - A set of files and settings that Xcode builds into one product, such as an app or a widget.\nScheme - A saved recipe that tells Xcode what to build and which configuration to use when you run.\nBuild Configuration - A named group of build settings, such as Debug or Release, that Xcode uses to compile your code.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 231 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "Target",
+      "Scheme",
+      "Build Configuration",
+      "target",
+      "scheme",
+      "build configuration",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "iOS Target, Scheme & Build Configuration | Day 231",
+      "description": "Explain Target, Scheme & Build Configuration in iOS by listening to a real code chat between two iOS devs.\nTarget, Scheme, Build Configuration 표현을 영어 대화로 익혀요.\n\nTarget - A set of files and settings that Xcode builds into one product, such as an app or a widget.\n한국어: Target: 앱이나 위젯 같은 하나의 결과물로 빌드되는 파일과 설정의 묶음\n\nScheme - A saved recipe that tells Xcode what to build and which configuration to use when you run.\n한국어: Scheme: 실행할 때 무엇을 빌드하고 어떤 구성을 쓸지 Xcode에 알려 주는 저장된 설정\n\nBuild Configuration - A named group of build settings, such as Debug or Release, that Xcode uses to compile your code.\n한국어: Build Configuration: Debug나 Release처럼 Xcode가 코드를 컴파일할 때 쓰는 빌드 설정 묶음\n\nIn this video, Mina and Jake talk about how Xcode targets, schemes and build configurations fit together, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 231 of the iOS Daily English series.\n\n#Swift #iOSArchitecture #EnglishForDevelopers",
+      "tags": [
+        "Target",
+        "Scheme",
+        "Build Configuration",
+        "iOS architecture",
+        "iOS 아키텍처",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "iOS Daily English"
+      ],
+      "hook": "Can you explain Target, Scheme and Build Configuration in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "One app, many builds",
+    "setting": "Adding a widget to the project",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, I need a widget for our app. Where do I start in Xcode?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Add a new target. A target is a set of files and settings that builds one product.",
+        "terms": [
+          "Target"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "So the app and the widget are two different targets?",
+        "terms": [
+          "Target"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Yes. Each target has its own files, settings and bundle.",
+        "terms": [
+          "Target"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "How do I choose which one to run?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Use a scheme. A scheme tells Xcode what to build and which configuration to use.",
+        "terms": [
+          "Scheme"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "So I pick the scheme from the menu at the top?",
+        "terms": [
+          "Scheme"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Right. Pick the App scheme and press run.",
+        "terms": [
+          "Scheme"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Why does `name` show App Dev on my phone, but App in the store build?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "That is the build configuration. Debug and Release are two build configurations.",
+        "terms": [
+          "Build Configuration"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "So the Debug build configuration sets the `DEBUG` flag?",
+        "terms": [
+          "Build Configuration"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Yes, and the scheme picks that build configuration when you run.",
+        "terms": [
+          "Scheme",
+          "Build Configuration"
+        ]
+      }
+    ],
+    "code": "#if DEBUG\nlet name = \"App Dev\"\n#else\nlet name = \"App\"\n#endif\nprint(name)",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "Target",
+      "lines": [
+        {
+          "text": "Add the widget as a new target."
+        }
+      ],
+      "title": "Add the widget as a new target. #Shorts",
+      "description": "Add the widget as a new target.\n\nTarget - A set of files and settings that Xcode builds into one product, such as an app or a widget.\n한국어: Target: 앱이나 위젯 같은 하나의 결과물로 빌드되는 파일과 설정의 묶음\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "Scheme",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Which build does Xcode run?"
+        },
+        {
+          "speaker": "B",
+          "text": "The one your scheme selects."
+        }
+      ],
+      "title": "Which build does Xcode run? / The one your scheme selects. #Shorts",
+      "description": "Which build does Xcode run? / The one your scheme selects.\n\nScheme - A saved recipe that tells Xcode what to build and which configuration to use when you run.\n한국어: Scheme: 실행할 때 무엇을 빌드하고 어떤 구성을 쓸지 Xcode에 알려 주는 저장된 설정\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Build Configuration",
+      "lines": [
+        {
+          "text": "Release is a build configuration with optimization on."
+        }
+      ],
+      "title": "Release is a build configuration with optimization on. #Shorts",
+      "description": "Release is a build configuration with optimization on.\n\nBuild Configuration - A named group of build settings, such as Debug or Release, that Xcode uses to compile your code.\n한국어: Build Configuration: Debug나 Release처럼 Xcode가 코드를 컴파일할 때 쓰는 빌드 설정 묶음\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "Debug or Release? Pick the right scheme."
+}

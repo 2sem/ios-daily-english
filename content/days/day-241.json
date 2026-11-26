@@ -1,0 +1,232 @@
+{
+  "day": 241,
+  "phase": "5. App architecture & data",
+  "theme": "Error reporting: non-fatal errors, breadcrumbs and crash-free rate",
+  "terms": [
+    {
+      "term": "Non-Fatal Error",
+      "definition": "An error that your app catches and reports, while the app keeps running.",
+      "example": "Report every non-fatal error with context.",
+      "code": "enum SyncError: Error { case timeout }\ndo { throw SyncError.timeout }\ncatch { print(\"report\", error) }",
+      "output": "report timeout"
+    },
+    {
+      "term": "Breadcrumb",
+      "definition": "A short note about a user step, saved before an error, so you can see what led to it.",
+      "example": "Add a breadcrumb for each screen the user opens.",
+      "code": "var crumbs: [String] = []\ncrumbs.append(\"open cart\")\ncrumbs.append(\"tap pay\")\nprint(crumbs.joined(separator: \" > \"))",
+      "output": "open cart > tap pay"
+    },
+    {
+      "term": "Crash-Free Rate",
+      "definition": "The share of users or sessions that did not hit a crash, shown as a percentage.",
+      "example": "Our crash-free rate is ninety-nine percent.",
+      "code": "let sessions = 1000.0\nlet crashes = 5.0\nprint((sessions - crashes) / sessions * 100)",
+      "output": "99.5"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What do you call a short note about a user step, saved before an error, so you can see what led to it?",
+      "options": [
+        "Non-Fatal Error",
+        "Crash-Free Rate",
+        "Breadcrumb"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "What do you call the share of users or sessions that did not hit a crash, shown as a percentage?",
+      "options": [
+        "Crash-Free Rate",
+        "Breadcrumb",
+        "Non-Fatal Error"
+      ],
+      "answer": "a"
+    },
+    {
+      "question": "What do you call an error that your app catches and reports, while the app keeps running?",
+      "options": [
+        "Breadcrumb",
+        "Non-Fatal Error",
+        "Crash-Free Rate"
+      ],
+      "answer": "b"
+    }
+  ],
+  "video": {
+    "title": "Non-Fatal Error, Breadcrumb & Crash-Free Rate | Day 241",
+    "description": "Learn to explain how teams find problems that do not crash the app: Non-Fatal Error, Breadcrumb & Crash-Free Rate, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nNon-Fatal Error - An error that your app catches and reports, while the app keeps running.\nBreadcrumb - A short note about a user step, saved before an error, so you can see what led to it.\nCrash-Free Rate - The share of users or sessions that did not hit a crash, shown as a percentage.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 241 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "Non-Fatal Error",
+      "Breadcrumb",
+      "Crash-Free Rate",
+      "non-fatal error",
+      "breadcrumb",
+      "crash-free rate",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "iOS Non-Fatal Error, Breadcrumb & Crash-Free Rate | Day 241",
+      "description": "Explain Non-Fatal Error, Breadcrumb & Crash-Free Rate in iOS by listening to a real code chat between two iOS devs.\nNon-Fatal Error, Breadcrumb, Crash-Free Rate 표현을 영어 대화로 익혀요.\n\nNon-Fatal Error - An error that your app catches and reports, while the app keeps running.\n한국어: Non-Fatal Error: 앱이 잡아서 보고하고 계속 실행되는 오류\n\nBreadcrumb - A short note about a user step, saved before an error, so you can see what led to it.\n한국어: Breadcrumb: 오류가 나기 전에 남겨 두어 무엇이 원인이었는지 알 수 있게 하는 사용자 행동 메모\n\nCrash-Free Rate - The share of users or sessions that did not hit a crash, shown as a percentage.\n한국어: Crash-Free Rate: 충돌을 겪지 않은 사용자나 세션의 비율을 퍼센트로 나타낸 값\n\nIn this video, Mina and Jake talk about a payment problem that is not a crash and how to report it with context, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 241 of the iOS Daily English series.\n\n#Swift #iOSArchitecture #EnglishForDevelopers",
+      "tags": [
+        "Non-Fatal Error",
+        "Breadcrumb",
+        "Crash-Free Rate",
+        "iOS architecture",
+        "iOS 아키텍처",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "iOS Daily English"
+      ],
+      "hook": "Can you explain Non-Fatal Error, Breadcrumb and Crash-Free Rate in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "The silent payment bug",
+    "setting": "Users cannot pay, but there is no crash",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, the dashboard shows no crash, but users cannot pay. Why?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "The app did not crash. It was a non-fatal error, so the app kept running.",
+        "terms": [
+          "Non-Fatal Error"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Do we report a non-fatal error too?",
+        "terms": [
+          "Non-Fatal Error"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Yes. In the `catch` block, send it to the error tool.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "But the report only says declined. I want more context.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Add breadcrumbs. A breadcrumb is a short note about a user step.",
+        "terms": [
+          "Breadcrumb"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Like `crumbs` with open cart, then tap pay?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Exactly. The last breadcrumb before the error shows what led to it.",
+        "terms": [
+          "Breadcrumb"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "How do we know the app is healthy overall?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Watch the crash-free rate. It is the share of users that did not hit a crash.",
+        "terms": [
+          "Crash-Free Rate"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "So a 99.5 percent crash-free rate is good?",
+        "terms": [
+          "Crash-Free Rate"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "It is okay, but track each non-fatal error too. The crash-free rate hides them.",
+        "terms": [
+          "Non-Fatal Error",
+          "Crash-Free Rate"
+        ]
+      }
+    ],
+    "code": "enum PayError: Error { case declined }\nvar crumbs = [\"open cart\", \"tap pay\"]\ndo { throw PayError.declined }\ncatch { print(crumbs, error) }",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "Non-Fatal Error",
+      "lines": [
+        {
+          "text": "Report every non-fatal error with context."
+        }
+      ],
+      "title": "Report every non-fatal error with context. #Shorts",
+      "description": "Report every non-fatal error with context.\n\nNon-Fatal Error - An error that your app catches and reports, while the app keeps running.\n한국어: Non-Fatal Error: 앱이 잡아서 보고하고 계속 실행되는 오류\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "Breadcrumb",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "What did the user do before the error?"
+        },
+        {
+          "speaker": "B",
+          "text": "Check the breadcrumbs."
+        }
+      ],
+      "title": "What did the user do before the error? / Check the breadcrumbs. #Shorts",
+      "description": "What did the user do before the error? / Check the breadcrumbs.\n\nBreadcrumb - A short note about a user step, saved before an error, so you can see what led to it.\n한국어: Breadcrumb: 오류가 나기 전에 남겨 두어 무엇이 원인이었는지 알 수 있게 하는 사용자 행동 메모\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Crash-Free Rate",
+      "lines": [
+        {
+          "text": "Our crash-free rate is ninety-nine percent."
+        }
+      ],
+      "title": "Our crash-free rate is ninety-nine percent. #Shorts",
+      "description": "Our crash-free rate is ninety-nine percent.\n\nCrash-Free Rate - The share of users or sessions that did not hit a crash, shown as a percentage.\n한국어: Crash-Free Rate: 충돌을 겪지 않은 사용자나 세션의 비율을 퍼센트로 나타낸 값\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "No crash, but users still fail. Why?"
+}

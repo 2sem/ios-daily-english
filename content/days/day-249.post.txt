@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 249
+
+Swift Package
+- A folder of Swift code and a manifest file that you can share and reuse in many apps.
+- Example: "Move the networking code into a Swift package."
+
+Package Manifest
+- The Package.swift file that lists the package name, its products, its targets and its dependencies.
+- Example: "Add the new target in the package manifest."
+
+Library Product
+- The part of a package that other packages and apps can import and use.
+- Example: "Expose the code as a library product."
+
+
+Quiz ①
+What do you call the part of a package that other packages and apps can import and use?
+a) Swift Package
+b) Package Manifest
+c) Library Product
+
+Quiz ②
+What do you call a folder of Swift code and a manifest file that you can share and reuse in many apps?
+a) Library Product
+b) Swift Package
+c) Package Manifest
+
+Quiz ③
+What do you call the Package.swift file that lists the package name, its products, its targets and its dependencies?
+a) Package Manifest
+b) Swift Package
+c) Library Product

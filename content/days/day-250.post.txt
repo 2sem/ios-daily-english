@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 250
+
+Target Dependency
+- A link that says one target needs another target, so the other target must build first.
+- Example: "Add the target dependency, then build again."
+
+Dependency Graph
+- A map of all the modules in a project and which ones depend on each other.
+- Example: "Draw the dependency graph before the refactor."
+
+Circular Dependency
+- A loop where module A needs module B and module B also needs module A, so neither can build first.
+- Example: "A circular dependency stops the build."
+
+
+Quiz ①
+What do you call a map of all the modules in a project and which ones depend on each other?
+a) Dependency Graph
+b) Target Dependency
+c) Circular Dependency
+
+Quiz ②
+What do you call a loop where module A needs module B and module B also needs module A, so neither can build first?
+a) Dependency Graph
+b) Target Dependency
+c) Circular Dependency
+
+Quiz ③
+What do you call a link that says one target needs another target, so the other target must build first?
+a) Dependency Graph
+b) Target Dependency
+c) Circular Dependency

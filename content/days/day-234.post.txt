@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 234
+
+Debug Build
+- A build made for development, with extra checks and little optimization, so you can step through the code.
+- Example: "The debug build is slow but easy to debug."
+
+Release Build
+- A build made for users, with optimization turned on and the debug extras left out.
+- Example: "Test the release build before you submit."
+
+Conditional Compilation
+- A way to include or skip lines of code when the app is built, based on a flag.
+- Example: "The log is inside conditional compilation."
+
+
+Quiz ①
+What do you call a way to include or skip lines of code when the app is built, based on a flag?
+a) Debug Build
+b) Conditional Compilation
+c) Release Build
+
+Quiz ②
+What do you call a build made for development, with extra checks and little optimization, so you can step through the code?
+a) Debug Build
+b) Conditional Compilation
+c) Release Build
+
+Quiz ③
+What do you call a build made for users, with optimization turned on and the debug extras left out?
+a) Debug Build
+b) Conditional Compilation
+c) Release Build

@@ -1,0 +1,232 @@
+{
+  "day": 249,
+  "phase": "5. App architecture & data",
+  "theme": "Swift packages: manifest and library products",
+  "terms": [
+    {
+      "term": "Swift Package",
+      "definition": "A folder of Swift code and a manifest file that you can share and reuse in many apps.",
+      "example": "Move the networking code into a Swift package.",
+      "code": "// swift-tools-version: 6.0\nimport PackageDescription\nlet package = Package(name: \"Kit\")",
+      "output": "// no output"
+    },
+    {
+      "term": "Package Manifest",
+      "definition": "The Package.swift file that lists the package name, its products, its targets and its dependencies.",
+      "example": "Add the new target in the package manifest.",
+      "code": "import PackageDescription\nlet package = Package(\n    name: \"Kit\",\n    products: [],\n    targets: [.target(name: \"Kit\")])",
+      "output": "// no output"
+    },
+    {
+      "term": "Library Product",
+      "definition": "The part of a package that other packages and apps can import and use.",
+      "example": "Expose the code as a library product.",
+      "code": "import PackageDescription\nlet lib = Product.library(\n    name: \"Kit\",\n    targets: [\"Kit\"])",
+      "output": "// no output"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What do you call the part of a package that other packages and apps can import and use?",
+      "options": [
+        "Swift Package",
+        "Package Manifest",
+        "Library Product"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "What do you call a folder of Swift code and a manifest file that you can share and reuse in many apps?",
+      "options": [
+        "Library Product",
+        "Swift Package",
+        "Package Manifest"
+      ],
+      "answer": "b"
+    },
+    {
+      "question": "What do you call the Package.swift file that lists the package name, its products, its targets and its dependencies?",
+      "options": [
+        "Package Manifest",
+        "Swift Package",
+        "Library Product"
+      ],
+      "answer": "a"
+    }
+  ],
+  "video": {
+    "title": "Swift Package, Package Manifest & Library Product | Day 249",
+    "description": "Learn to explain how to share Swift code between apps with a package: Swift Package, Package Manifest & Library Product, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nSwift Package - A folder of Swift code and a manifest file that you can share and reuse in many apps.\nPackage Manifest - The Package.swift file that lists the package name, its products, its targets and its dependencies.\nLibrary Product - The part of a package that other packages and apps can import and use.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 249 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "Swift Package",
+      "Package Manifest",
+      "Library Product",
+      "swift package",
+      "package manifest",
+      "library product",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "iOS Swift Package, Package Manifest & Library Product | Day 249",
+      "description": "Explain Swift Package, Package Manifest & Library Product in iOS by listening to a real code chat between two iOS devs.\nSwift Package, Package Manifest, Library Product 표현을 영어 대화로 익혀요.\n\nSwift Package - A folder of Swift code and a manifest file that you can share and reuse in many apps.\n한국어: Swift Package: 여러 앱에서 공유하고 재사용할 수 있는 Swift 코드와 매니페스트 파일이 든 폴더\n\nPackage Manifest - The Package.swift file that lists the package name, its products, its targets and its dependencies.\n한국어: Package Manifest: 패키지 이름, 제품, 타깃, 의존성을 적어 두는 Package.swift 파일\n\nLibrary Product - The part of a package that other packages and apps can import and use.\n한국어: Library Product: 다른 패키지와 앱이 가져와서 쓸 수 있는 패키지의 부분\n\nIn this video, Mina and Jake talk about moving networking code into a package that many apps can import, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 249 of the iOS Daily English series.\n\n#Swift #iOSArchitecture #EnglishForDevelopers",
+      "tags": [
+        "Swift Package",
+        "Package Manifest",
+        "Library Product",
+        "iOS architecture",
+        "iOS 아키텍처",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "iOS Daily English"
+      ],
+      "hook": "Can you explain Swift Package, Package Manifest and Library Product in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "Stop copying the code",
+    "setting": "Sharing networking code between apps",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, we copy the networking code into every app. Is there a better way?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Yes, make a Swift package. A Swift package is a folder of Swift code that many apps can reuse.",
+        "terms": [
+          "Swift Package"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "What makes the folder a package?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "The package manifest. It is the Package.swift file, and `package` is its main value.",
+        "terms": [
+          "Package Manifest"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "What goes inside the package manifest?",
+        "terms": [
+          "Package Manifest"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "The name, the `products`, the `targets` and the dependencies.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "And a product is what other apps import?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Right. A library product is the part of a package that others can import.",
+        "terms": [
+          "Library Product"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "So `.library` makes the library product for `Kit`?",
+        "terms": [
+          "Library Product"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Yes. Without a library product, no app can import your code.",
+        "terms": [
+          "Library Product"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Can one Swift package have more than one library product?",
+        "terms": [
+          "Swift Package",
+          "Library Product"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Yes. Split it by feature, so each app imports only what it needs.",
+        "terms": []
+      }
+    ],
+    "code": "import PackageDescription\nlet package = Package(name: \"Kit\", products: [\n    .library(name: \"Kit\", targets: [\"Kit\"])],\n    targets: [.target(name: \"Kit\")])",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "Swift Package",
+      "lines": [
+        {
+          "text": "Move the networking code into a Swift package."
+        }
+      ],
+      "title": "Move the networking code into a Swift package. #Shorts",
+      "description": "Move the networking code into a Swift package.\n\nSwift Package - A folder of Swift code and a manifest file that you can share and reuse in many apps.\n한국어: Swift Package: 여러 앱에서 공유하고 재사용할 수 있는 Swift 코드와 매니페스트 파일이 든 폴더\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "Package Manifest",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Where do I add a new target?"
+        },
+        {
+          "speaker": "B",
+          "text": "In the package manifest."
+        }
+      ],
+      "title": "Where do I add a new target? / In the package manifest. #Shorts",
+      "description": "Where do I add a new target? / In the package manifest.\n\nPackage Manifest - The Package.swift file that lists the package name, its products, its targets and its dependencies.\n한국어: Package Manifest: 패키지 이름, 제품, 타깃, 의존성을 적어 두는 Package.swift 파일\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Library Product",
+      "lines": [
+        {
+          "text": "Expose the code as a library product."
+        }
+      ],
+      "title": "Expose the code as a library product. #Shorts",
+      "description": "Expose the code as a library product.\n\nLibrary Product - The part of a package that other packages and apps can import and use.\n한국어: Library Product: 다른 패키지와 앱이 가져와서 쓸 수 있는 패키지의 부분\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "Stop copying code. Make a Swift package."
+}

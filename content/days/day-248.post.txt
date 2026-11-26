@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 248
+
+Notification Payload
+- The data inside a push message, such as the alert text, the badge number and your own values.
+- Example: "Put the chat id in the notification payload."
+
+UNUserNotificationCenter
+- The system object your app uses to ask permission for, schedule and handle notifications.
+- Example: "UNUserNotificationCenter calls your delegate on a tap."
+
+Silent Push
+- A push message with no alert that wakes the app in the background to fetch new data.
+- Example: "A silent push can wake the app to fetch data."
+
+
+Quiz ①
+What do you call a push message with no alert that wakes the app in the background to fetch new data?
+a) Notification Payload
+b) Silent Push
+c) UNUserNotificationCenter
+
+Quiz ②
+What do you call the data inside a push message, such as the alert text, the badge number and your own values?
+a) Notification Payload
+b) Silent Push
+c) UNUserNotificationCenter
+
+Quiz ③
+What do you call the system object your app uses to ask permission for, schedule and handle notifications?
+a) Notification Payload
+b) Silent Push
+c) UNUserNotificationCenter

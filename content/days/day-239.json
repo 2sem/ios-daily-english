@@ -1,0 +1,230 @@
+{
+  "day": 239,
+  "phase": "5. App architecture & data",
+  "theme": "Analytics: events, parameters and user properties",
+  "terms": [
+    {
+      "term": "Analytics Event",
+      "definition": "A named record of one thing a user did in the app, such as opening a screen or tapping a button.",
+      "example": "Send an analytics event when the user taps Buy.",
+      "code": "struct Event { let name: String }\nlet tap = Event(name: \"button_tap\")\nprint(tap.name)",
+      "output": "button_tap"
+    },
+    {
+      "term": "Event Parameter",
+      "definition": "An extra piece of detail attached to an event, such as the screen name or the item price.",
+      "example": "Add the item name as an event parameter.",
+      "code": "let event = \"purchase\"\nlet params = [\"item\": \"pro\", \"price\": \"4.99\"]\nprint(event, params[\"item\"] ?? \"\")",
+      "output": "purchase pro"
+    },
+    {
+      "term": "User Property",
+      "definition": "A long-lasting fact about a user, such as their plan or language, that you attach to all their events.",
+      "example": "Set the user property for the paid plan.",
+      "code": "let userProps = [\"plan\": \"free\", \"lang\": \"ko\"]\nprint(userProps[\"plan\"] ?? \"none\")",
+      "output": "free"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What do you call an extra piece of detail attached to an event, such as the screen name or the item price?",
+      "options": [
+        "Analytics Event",
+        "Event Parameter",
+        "User Property"
+      ],
+      "answer": "b"
+    },
+    {
+      "question": "What do you call a long-lasting fact about a user, such as their plan or language, that you attach to all their events?",
+      "options": [
+        "Event Parameter",
+        "Analytics Event",
+        "User Property"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "What do you call a named record of one thing a user did in the app, such as opening a screen or tapping a button?",
+      "options": [
+        "Analytics Event",
+        "Event Parameter",
+        "User Property"
+      ],
+      "answer": "a"
+    }
+  ],
+  "video": {
+    "title": "Analytics Event, Event Parameter & User Property | Day 239",
+    "description": "Learn to explain how teams measure what users do in an app: Analytics Event, Event Parameter & User Property, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nAnalytics Event - A named record of one thing a user did in the app, such as opening a screen or tapping a button.\nEvent Parameter - An extra piece of detail attached to an event, such as the screen name or the item price.\nUser Property - A long-lasting fact about a user, such as their plan or language, that you attach to all their events.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 239 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "Analytics Event",
+      "Event Parameter",
+      "User Property",
+      "analytics event",
+      "event parameter",
+      "user property",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "iOS Analytics Event, Event Parameter & User Property | Day 239",
+      "description": "Explain Analytics Event, Event Parameter & User Property in iOS by listening to a real code chat between two iOS devs.\nAnalytics Event, Event Parameter, User Property 표현을 영어 대화로 익혀요.\n\nAnalytics Event - A named record of one thing a user did in the app, such as opening a screen or tapping a button.\n한국어: Analytics Event: 화면을 열거나 버튼을 누르는 것처럼 사용자가 앱에서 한 행동 하나를 이름 붙여 기록한 것\n\nEvent Parameter - An extra piece of detail attached to an event, such as the screen name or the item price.\n한국어: Event Parameter: 화면 이름이나 상품 가격처럼 이벤트에 붙는 추가 정보\n\nUser Property - A long-lasting fact about a user, such as their plan or language, that you attach to all their events.\n한국어: User Property: 요금제나 언어처럼 사용자의 모든 이벤트에 붙는 오래 유지되는 사용자 정보\n\nIn this video, Mina and Jake talk about how to count Buy taps and split the results by plan, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 239 of the iOS Daily English series.\n\n#Swift #iOSArchitecture #EnglishForDevelopers",
+      "tags": [
+        "Analytics Event",
+        "Event Parameter",
+        "User Property",
+        "iOS architecture",
+        "iOS 아키텍처",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "iOS Daily English"
+      ],
+      "hook": "Can you explain Analytics Event, Event Parameter and User Property in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "Count the Buy taps",
+    "setting": "Product asks for numbers",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, product wants to know how many people tap the Buy button.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Then we send an analytics event. An analytics event records one thing a user did.",
+        "terms": [
+          "Analytics Event"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Like opening a screen or tapping a button?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Exactly. Give it a clear name, for example `buy`.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "Can the event say which item they bought?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Yes, add an event parameter. An event parameter is an extra detail on the event.",
+        "terms": [
+          "Event Parameter"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "So `params` holds the event parameter, like the item name?",
+        "terms": [
+          "Event Parameter"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Right. Keep each event parameter small, and never put personal data in it.",
+        "terms": [
+          "Event Parameter"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "What about the user's plan, free or paid?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "That is a user property. A user property is a long-lasting fact about the user.",
+        "terms": [
+          "User Property"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "And it goes on all their events?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Yes. Set the user property once, and you can split every analytics event by plan.",
+        "terms": [
+          "Analytics Event",
+          "User Property"
+        ]
+      }
+    ],
+    "code": "func track(_ name: String,\n           _ params: [String: String] = [:]) {\n    print(name, params)\n}\ntrack(\"buy\", [\"item\": \"pro\"])",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "Analytics Event",
+      "lines": [
+        {
+          "text": "Send an analytics event when the user taps Buy."
+        }
+      ],
+      "title": "Send an analytics event when the user taps Buy. #Shorts",
+      "description": "Send an analytics event when the user taps Buy.\n\nAnalytics Event - A named record of one thing a user did in the app, such as opening a screen or tapping a button.\n한국어: Analytics Event: 화면을 열거나 버튼을 누르는 것처럼 사용자가 앱에서 한 행동 하나를 이름 붙여 기록한 것\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "Event Parameter",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Which item did they buy?"
+        },
+        {
+          "speaker": "B",
+          "text": "It is an event parameter."
+        }
+      ],
+      "title": "Which item did they buy? / It is an event parameter. #Shorts",
+      "description": "Which item did they buy? / It is an event parameter.\n\nEvent Parameter - An extra piece of detail attached to an event, such as the screen name or the item price.\n한국어: Event Parameter: 화면 이름이나 상품 가격처럼 이벤트에 붙는 추가 정보\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "User Property",
+      "lines": [
+        {
+          "text": "Set the user property for the paid plan."
+        }
+      ],
+      "title": "Set the user property for the paid plan. #Shorts",
+      "description": "Set the user property for the paid plan.\n\nUser Property - A long-lasting fact about a user, such as their plan or language, that you attach to all their events.\n한국어: User Property: 요금제나 언어처럼 사용자의 모든 이벤트에 붙는 오래 유지되는 사용자 정보\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "How do teams count taps? Analytics events."
+}

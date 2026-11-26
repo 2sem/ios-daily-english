@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 235
+
+Feature Flag
+- A setting that turns a feature on or off without shipping a new version of the app.
+- Example: "Hide the new tab behind a feature flag."
+
+Kill Switch
+- A remote setting that lets you turn a broken feature off right away for every user.
+- Example: "Flip the kill switch, checkout is crashing."
+
+Gradual Rollout
+- A release plan that shows a new feature to a small share of users first, then to more over time.
+- Example: "Start the gradual rollout at ten percent."
+
+
+Quiz ①
+What do you call a remote setting that lets you turn a broken feature off right away for every user?
+a) Feature Flag
+b) Gradual Rollout
+c) Kill Switch
+
+Quiz ②
+What do you call a release plan that shows a new feature to a small share of users first, then to more over time?
+a) Gradual Rollout
+b) Kill Switch
+c) Feature Flag
+
+Quiz ③
+What do you call a setting that turns a feature on or off without shipping a new version of the app?
+a) Kill Switch
+b) Feature Flag
+c) Gradual Rollout

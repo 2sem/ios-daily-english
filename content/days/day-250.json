@@ -1,0 +1,231 @@
+{
+  "day": 250,
+  "phase": "5. App architecture & data",
+  "theme": "Dependency graphs: target dependencies and cycles",
+  "terms": [
+    {
+      "term": "Target Dependency",
+      "definition": "A link that says one target needs another target, so the other target must build first.",
+      "example": "Add the target dependency, then build again.",
+      "code": "import PackageDescription\nlet app = Target.target(\n    name: \"App\",\n    dependencies: [\"Networking\"])",
+      "output": "// no output"
+    },
+    {
+      "term": "Dependency Graph",
+      "definition": "A map of all the modules in a project and which ones depend on each other.",
+      "example": "Draw the dependency graph before the refactor.",
+      "code": "let graph = [\n    \"App\": [\"Feature\", \"Networking\"],\n    \"Feature\": [\"Networking\"],\n    \"Networking\": []\n]\nprint(graph[\"App\"]!.count)",
+      "output": "2"
+    },
+    {
+      "term": "Circular Dependency",
+      "definition": "A loop where module A needs module B and module B also needs module A, so neither can build first.",
+      "example": "A circular dependency stops the build.",
+      "code": "let deps = [\"A\": [\"B\"], \"B\": [\"A\"]]\nlet loop = deps[\"A\"]?.contains(\"B\") == true\n    && deps[\"B\"]?.contains(\"A\") == true\nprint(loop ? \"cycle\" : \"ok\")",
+      "output": "cycle"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What do you call a map of all the modules in a project and which ones depend on each other?",
+      "options": [
+        "Dependency Graph",
+        "Target Dependency",
+        "Circular Dependency"
+      ],
+      "answer": "a"
+    },
+    {
+      "question": "What do you call a loop where module A needs module B and module B also needs module A, so neither can build first?",
+      "options": [
+        "Dependency Graph",
+        "Target Dependency",
+        "Circular Dependency"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "What do you call a link that says one target needs another target, so the other target must build first?",
+      "options": [
+        "Dependency Graph",
+        "Target Dependency",
+        "Circular Dependency"
+      ],
+      "answer": "b"
+    }
+  ],
+  "video": {
+    "title": "Target Dependency, Dependency Graph & Circular Dependency | Day 250",
+    "description": "Learn to explain how modules depend on each other and how to fix a build loop: Target Dependency, Dependency Graph & Circular Dependency, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nTarget Dependency - A link that says one target needs another target, so the other target must build first.\nDependency Graph - A map of all the modules in a project and which ones depend on each other.\nCircular Dependency - A loop where module A needs module B and module B also needs module A, so neither can build first.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 250 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "Target Dependency",
+      "Dependency Graph",
+      "Circular Dependency",
+      "target dependency",
+      "dependency graph",
+      "circular dependency",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "iOS Target Dependency, Dependency Graph & Circular Dependency | Day 250",
+      "description": "Explain Target Dependency, Dependency Graph & Circular Dependency in iOS by listening to a real code chat between two iOS devs.\nTarget Dependency, Dependency Graph, Circular Dependency 표현을 영어 대화로 익혀요.\n\nTarget Dependency - A link that says one target needs another target, so the other target must build first.\n한국어: Target Dependency: 한 타깃이 다른 타깃을 필요로 해서 그 타깃이 먼저 빌드되어야 함을 나타내는 연결\n\nDependency Graph - A map of all the modules in a project and which ones depend on each other.\n한국어: Dependency Graph: 프로젝트의 모든 모듈과 어떤 모듈이 서로 의존하는지를 보여 주는 지도\n\nCircular Dependency - A loop where module A needs module B and module B also needs module A, so neither can build first.\n한국어: Circular Dependency: 모듈 A가 B를 필요로 하고 B도 A를 필요로 해서 어느 쪽도 먼저 빌드할 수 없는 순환\n\nIn this video, Mina and Jake talk about a package build that fails because two targets need each other, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 250 of the iOS Daily English series.\n\n#Swift #iOSArchitecture #EnglishForDevelopers",
+      "tags": [
+        "Target Dependency",
+        "Dependency Graph",
+        "Circular Dependency",
+        "iOS architecture",
+        "iOS 아키텍처",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "iOS Daily English"
+      ],
+      "hook": "Can you explain Target Dependency, Dependency Graph and Circular Dependency in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "The build that loops",
+    "setting": "A package that will not build",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, Swift Package Manager cannot build our package, and I do not understand why.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Let's look at the target dependency in `ui`. A target dependency says one target needs another.",
+        "terms": [
+          "Target Dependency"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "So `ui` needs `core`, and `core` builds first?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Yes. That is a target dependency, and the build order follows it.",
+        "terms": [
+          "Target Dependency"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "But `core` also lists `UI` in its dependencies.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "There is your problem. That is a circular dependency, and neither target can build first.",
+        "terms": [
+          "Circular Dependency"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "How can I find these problems early?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Draw the dependency graph. A dependency graph is a map of who depends on whom.",
+        "terms": [
+          "Dependency Graph"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Like a diagram with arrows from `ui` to `core`?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Yes. A healthy dependency graph has arrows in one direction only.",
+        "terms": [
+          "Dependency Graph"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "So we remove the target dependency from `core` to `UI`?",
+        "terms": [
+          "Target Dependency"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Right. Move the shared code to a third target, and the circular dependency is gone.",
+        "terms": [
+          "Circular Dependency"
+        ]
+      }
+    ],
+    "code": "import PackageDescription\nlet ui = Target.target(\n    name: \"UI\", dependencies: [\"Core\"])\nlet core = Target.target(\n    name: \"Core\", dependencies: [\"UI\"])",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "Target Dependency",
+      "lines": [
+        {
+          "text": "Add the target dependency, then build again."
+        }
+      ],
+      "title": "Add the target dependency, then build again. #Shorts",
+      "description": "Add the target dependency, then build again.\n\nTarget Dependency - A link that says one target needs another target, so the other target must build first.\n한국어: Target Dependency: 한 타깃이 다른 타깃을 필요로 해서 그 타깃이 먼저 빌드되어야 함을 나타내는 연결\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "Dependency Graph",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Which module depends on which?"
+        },
+        {
+          "speaker": "B",
+          "text": "Draw the dependency graph."
+        }
+      ],
+      "title": "Which module depends on which? / Draw the dependency graph. #Shorts",
+      "description": "Which module depends on which? / Draw the dependency graph.\n\nDependency Graph - A map of all the modules in a project and which ones depend on each other.\n한국어: Dependency Graph: 프로젝트의 모든 모듈과 어떤 모듈이 서로 의존하는지를 보여 주는 지도\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Circular Dependency",
+      "lines": [
+        {
+          "text": "A circular dependency stops the build."
+        }
+      ],
+      "title": "A circular dependency stops the build. #Shorts",
+      "description": "A circular dependency stops the build.\n\nCircular Dependency - A loop where module A needs module B and module B also needs module A, so neither can build first.\n한국어: Circular Dependency: 모듈 A가 B를 필요로 하고 B도 A를 필요로 해서 어느 쪽도 먼저 빌드할 수 없는 순환\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "Build loop? Check your dependency graph."
+}
