@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 190
+
+redacted
+- A modifier that hides the real content and shows gray placeholder blocks while data loads.
+- Example: "Use redacted while the list is loading."
+
+AccessibilityFocusState
+- A property wrapper that moves the VoiceOver focus to the view you choose.
+- Example: "Use AccessibilityFocusState to focus the error message."
+
+UIApplicationDelegateAdaptor
+- A property wrapper that connects a UIKit app delegate to a SwiftUI app.
+- Example: "Add a UIApplicationDelegateAdaptor for the push setup."
+
+
+Quiz ①
+What do you call a property wrapper that connects a UIKit app delegate to a SwiftUI app?
+a) AccessibilityFocusState
+b) UIApplicationDelegateAdaptor
+c) redacted
+
+Quiz ②
+What do you call a modifier that hides the real content and shows gray placeholder blocks while data loads?
+a) redacted
+b) AccessibilityFocusState
+c) UIApplicationDelegateAdaptor
+
+Quiz ③
+What do you call a property wrapper that moves the VoiceOver focus to the view you choose?
+a) UIApplicationDelegateAdaptor
+b) redacted
+c) AccessibilityFocusState

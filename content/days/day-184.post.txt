@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 184
+
+TimelineEntry
+- A protocol for the data of a widget at one moment in time, with a date.
+- Example: "Add the streak count to the TimelineEntry."
+
+WidgetFamily
+- An enum for the sizes of a widget, such as small, medium and large.
+- Example: "Check the WidgetFamily before you choose the layout."
+
+Timeline
+- A list of widget entries with dates, and a rule for when to ask for more.
+- Example: "Return a Timeline with one entry per hour."
+
+
+Quiz ①
+What do you call a list of widget entries with dates, and a rule for when to ask for more?
+a) WidgetFamily
+b) Timeline
+c) TimelineEntry
+
+Quiz ②
+What do you call a protocol for the data of a widget at one moment in time, with a date?
+a) TimelineEntry
+b) WidgetFamily
+c) Timeline
+
+Quiz ③
+What do you call an enum for the sizes of a widget, such as small, medium and large?
+a) Timeline
+b) TimelineEntry
+c) WidgetFamily

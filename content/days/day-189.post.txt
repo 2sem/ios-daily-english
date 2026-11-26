@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 189
+
+keyboardShortcut
+- A modifier that lets people trigger a button with keys on a keyboard.
+- Example: "Add keyboardShortcut to the Save button."
+
+CommandMenu
+- A menu in the menu bar that holds your own commands.
+- Example: "Put the export actions in a CommandMenu."
+
+hoverEffect
+- A modifier that makes a view react when a pointer moves over it.
+- Example: "Add hoverEffect so the button lifts under the pointer."
+
+
+Quiz ①
+What do you call a menu in the menu bar that holds your own commands?
+a) keyboardShortcut
+b) CommandMenu
+c) hoverEffect
+
+Quiz ②
+What do you call a modifier that makes a view react when a pointer moves over it?
+a) hoverEffect
+b) keyboardShortcut
+c) CommandMenu
+
+Quiz ③
+What do you call a modifier that lets people trigger a button with keys on a keyboard?
+a) CommandMenu
+b) hoverEffect
+c) keyboardShortcut

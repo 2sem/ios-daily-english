@@ -1,0 +1,238 @@
+{
+  "day": 175,
+  "phase": "4. SwiftUI",
+  "theme": "3 SwiftUI terms for tables and tree data",
+  "terms": [
+    {
+      "term": "Table",
+      "definition": "A view that shows rows of data in sortable columns.",
+      "example": "Use a Table to show the team on iPad and Mac.",
+      "code": "struct P: Identifiable {\n    let id = 1, name = \"A\"\n}\nTable([P()]) {\n    TableColumn(\"Name\", value: \\.name)\n}",
+      "output": "// no output"
+    },
+    {
+      "term": "TableColumn",
+      "definition": "One column of a Table that has a title and a value for each row.",
+      "example": "Add a TableColumn for the name.",
+      "code": "struct P: Identifiable {\n    let id = 1, name = \"A\"\n}\nlet col = TableColumn(\"Name\", value: \\P.name)",
+      "output": "// no output"
+    },
+    {
+      "term": "OutlineGroup",
+      "definition": "A view that shows tree data as rows you can open and close.",
+      "example": "Use an OutlineGroup to show folders and files.",
+      "code": "struct Dir: Identifiable {\n    let id = 1\n    var kids: [Dir]? = nil\n}\nOutlineGroup([Dir()], children: \\.kids) { _ in\n    Text(\"Folder\") }",
+      "output": "// no output"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What do you call one column that has a title and a value for each row?",
+      "options": [
+        "TableColumn",
+        "OutlineGroup",
+        "Table"
+      ],
+      "answer": "a"
+    },
+    {
+      "question": "What do you call a view that shows tree data as rows you can open and close?",
+      "options": [
+        "OutlineGroup",
+        "Table",
+        "TableColumn"
+      ],
+      "answer": "a"
+    },
+    {
+      "question": "What do you call a view that shows rows of data in columns you can sort?",
+      "options": [
+        "Table",
+        "TableColumn",
+        "OutlineGroup"
+      ],
+      "answer": "a"
+    }
+  ],
+  "video": {
+    "title": "Table, TableColumn & OutlineGroup | Day 175",
+    "description": "Learn to explain how to show tables and tree-shaped data in SwiftUI: Table, TableColumn & OutlineGroup, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nTable - A view that shows rows of data in sortable columns.\nTableColumn - One column of a Table that has a title and a value for each row.\nOutlineGroup - A view that shows tree data as rows you can open and close.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 175 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "table",
+      "tablecolumn",
+      "outlinegroup",
+      "table",
+      "tablecolumn",
+      "outlinegroup",
+      "table",
+      "tablecolumn",
+      "outlinegroup",
+      "swiftui",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "SwiftUI Table, TableColumn & OutlineGroup | Day 175",
+      "description": "Explain Table, TableColumn & OutlineGroup in SwiftUI by listening to a real code chat between two iOS devs.\n테이블, 테이블컬럼, 아웃라인그룹 표현을 영어 대화로 익혀요.\n\nTable - A view that shows rows of data in sortable columns.\n한국어: 테이블: 정렬할 수 있는 열로 데이터를 행마다 보여 주는 뷰\n\nTableColumn - One column of a Table that has a title and a value for each row.\n한국어: 테이블컬럼: 제목과 행마다의 값을 가진 표의 열 하나\n\nOutlineGroup - A view that shows tree data as rows you can open and close.\n한국어: 아웃라인그룹: 트리 구조 데이터를 열고 닫을 수 있는 행으로 보여 주는 뷰\n\nIn this video, Mina and Jake show a team list as a table and a folder tree, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 175 of the iOS Daily English series.\n\n#Swift #SwiftUI #EnglishForDevelopers",
+      "tags": [
+        "Table",
+        "TableColumn",
+        "OutlineGroup",
+        "table",
+        "tablecolumn",
+        "outlinegroup",
+        "SwiftUI",
+        "SwiftUI 기초",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "iOS Daily English"
+      ],
+      "hook": "Can you explain Table, TableColumn and OutlineGroup in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "A table of people",
+    "setting": "SwiftUI tables and trees",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, my team list needs columns for name and role.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Use a Table. It shows rows in columns, and users can sort them.",
+        "terms": [
+          "Table"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "How do I make the name column?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Add a TableColumn with a title and a key path, like `\\.name`.",
+        "terms": [
+          "TableColumn"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "So each TableColumn reads one value from every row?",
+        "terms": [
+          "TableColumn"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Yes. Your model must be `Identifiable`, so each row has an `id`.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "I forgot the `id` and the Table did not compile.",
+        "terms": [
+          "Table"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Right, add it and it works. On iPhone, a Table shows only the first column.",
+        "terms": [
+          "Table"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Okay. I also have a folder tree with files inside folders.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Use an OutlineGroup for that.",
+        "terms": [
+          "OutlineGroup"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "How does the OutlineGroup find the child folders?",
+        "terms": [
+          "OutlineGroup"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "You give it a key path to the children, like `kids`.",
+        "terms": []
+      }
+    ],
+    "code": "struct P: Identifiable {\n    let id = 1, name = \"A\"\n}\nTable([P()]) {\n    TableColumn(\"Name\", value: \\.name)\n}",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "Table",
+      "lines": [
+        {
+          "text": "Use a Table for rows and columns."
+        }
+      ],
+      "title": "Use a Table for rows and columns. #Shorts",
+      "description": "Use a Table for rows and columns.\n\nTable - A view that shows rows of data in sortable columns.\n한국어: 테이블: 정렬할 수 있는 열로 데이터를 행마다 보여 주는 뷰\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "TableColumn",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "What describes one column in a Table?"
+        },
+        {
+          "speaker": "B",
+          "text": "A TableColumn."
+        }
+      ],
+      "title": "What describes one column in a Table? / A TableColumn. #Shorts",
+      "description": "What describes one column in a Table? / A TableColumn.\n\nTableColumn - One column of a Table that has a title and a value for each row.\n한국어: 테이블컬럼: 제목과 행마다의 값을 가진 표의 열 하나\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "OutlineGroup",
+      "lines": [
+        {
+          "text": "An OutlineGroup shows folders inside folders."
+        }
+      ],
+      "title": "An OutlineGroup shows folders inside folders. #Shorts",
+      "description": "An OutlineGroup shows folders inside folders.\n\nOutlineGroup - A view that shows tree data as rows you can open and close.\n한국어: 아웃라인그룹: 트리 구조 데이터를 열고 닫을 수 있는 행으로 보여 주는 뷰\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "How do you show a table or a tree in SwiftUI?"
+}

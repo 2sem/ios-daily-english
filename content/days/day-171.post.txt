@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 171
+
+Stepper
+- A control with minus and plus buttons that changes a number up or down.
+- Example: "Use a Stepper for the number of tickets."
+
+DatePicker
+- A control that lets people choose a date, a time or both.
+- Example: "Add a DatePicker so users can pick the trip day."
+
+ColorPicker
+- A control that opens a color panel so people can choose a color.
+- Example: "A ColorPicker saves the theme color the user chose."
+
+
+Quiz ①
+What do you call a control that lets people choose a date or a time?
+a) Stepper
+b) DatePicker
+c) ColorPicker
+
+Quiz ②
+What do you call a control that shows a panel of colors and saves the one you choose?
+a) DatePicker
+b) ColorPicker
+c) Stepper
+
+Quiz ③
+What do you call a control with minus and plus buttons that changes a number?
+a) ColorPicker
+b) Stepper
+c) DatePicker

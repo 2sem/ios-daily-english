@@ -1,0 +1,236 @@
+{
+  "day": 182,
+  "phase": "4. SwiftUI",
+  "theme": "3 SwiftUI terms for custom animation",
+  "terms": [
+    {
+      "term": "Animatable",
+      "definition": "A protocol that lets a type tell SwiftUI which values can change step by step.",
+      "example": "Make the dial Animatable so it turns smoothly.",
+      "code": "struct Dial: Animatable {\n    var animatableData = 0.0\n}",
+      "output": "// no output"
+    },
+    {
+      "term": "animatableData",
+      "definition": "The property that holds the values SwiftUI changes during an animation.",
+      "example": "Return the angle from animatableData.",
+      "code": "struct Dial: Animatable {\n    var angle = 0.0\n    var animatableData: Double {\n        get { angle } set { angle = newValue }\n    }\n}",
+      "output": "// no output"
+    },
+    {
+      "term": "KeyframeAnimator",
+      "definition": "A view that moves a value through a list of steps, such as grow, spin and fade.",
+      "example": "Use a KeyframeAnimator for the like button.",
+      "code": "KeyframeAnimator(initialValue: 1.0) { v in\n    Text(\"Hi\").scaleEffect(v)\n} keyframes: { _ in\n    LinearKeyframe(2.0, duration: 0.5)\n}",
+      "output": "// no output"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What do you call a view that moves a value through a list of steps, such as grow, spin and fade?",
+      "options": [
+        "KeyframeAnimator",
+        "Animatable",
+        "animatableData"
+      ],
+      "answer": "a"
+    },
+    {
+      "question": "What do you call a protocol that lets a type tell SwiftUI which values can change step by step?",
+      "options": [
+        "animatableData",
+        "KeyframeAnimator",
+        "Animatable"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "What do you call the property that holds the values SwiftUI changes during an animation?",
+      "options": [
+        "Animatable",
+        "animatableData",
+        "KeyframeAnimator"
+      ],
+      "answer": "b"
+    }
+  ],
+  "video": {
+    "title": "Animatable, animatableData & KeyframeAnimator | Day 182",
+    "description": "Learn to explain how SwiftUI animates your own values and keyframes: Animatable, animatableData & KeyframeAnimator, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nAnimatable - A protocol that lets a type tell SwiftUI which values can change step by step.\nanimatableData - The property that holds the values SwiftUI changes during an animation.\nKeyframeAnimator - A view that moves a value through a list of steps, such as grow, spin and fade.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 182 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "animatable",
+      "animatabledata",
+      "keyframeanimator",
+      "animatable",
+      "animatabledata",
+      "keyframeanimator",
+      "animatable",
+      "animatabledata",
+      "keyframeanimator",
+      "swiftui",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "SwiftUI Animatable, animatableData & KeyframeAnimator | Day 182",
+      "description": "Explain Animatable, animatableData & KeyframeAnimator in SwiftUI by listening to a real code chat between two iOS devs.\n애니메이터블, 애니메이터블데이터, 키프레임애니메이터 표현을 영어 대화로 익혀요.\n\nAnimatable - A protocol that lets a type tell SwiftUI which values can change step by step.\n한국어: 애니메이터블: 어떤 값이 단계적으로 바뀔 수 있는지 SwiftUI에 알려 주는 프로토콜\n\nanimatableData - The property that holds the values SwiftUI changes during an animation.\n한국어: 애니메이터블데이터: 애니메이션 중에 SwiftUI가 바꾸는 값을 담는 프로퍼티\n\nKeyframeAnimator - A view that moves a value through a list of steps, such as grow, spin and fade.\n한국어: 키프레임애니메이터: 커지기, 돌기, 사라지기처럼 여러 단계로 값을 움직이는 뷰\n\nIn this video, Mina and Jake make a custom dial animate smoothly, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 182 of the iOS Daily English series.\n\n#Swift #SwiftUI #EnglishForDevelopers",
+      "tags": [
+        "Animatable",
+        "animatableData",
+        "KeyframeAnimator",
+        "animatable",
+        "animatabledata",
+        "keyframeanimator",
+        "SwiftUI",
+        "SwiftUI 기초",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "iOS Daily English"
+      ],
+      "hook": "Can you explain Animatable, animatableData and KeyframeAnimator in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "A smooth dial",
+    "setting": "SwiftUI animation",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, my custom dial jumps to the new angle. I want it to move smoothly.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Make the type conform to Animatable. Then SwiftUI knows what to animate.",
+        "terms": [
+          "Animatable"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "How does an Animatable type tell SwiftUI the values?",
+        "terms": [
+          "Animatable"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "With animatableData. It holds the numbers that change during the animation.",
+        "terms": [
+          "animatableData"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "In my code, that is `angle`?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Yes, the getter returns `angle`, and the setter updates it at every step.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "I returned a constant first, so nothing moved.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Right, animatableData must connect to the real value.",
+        "terms": [
+          "animatableData"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Can I animate many steps, like grow, spin and fade?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Use a KeyframeAnimator for that.",
+        "terms": [
+          "KeyframeAnimator"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "What does a KeyframeAnimator need?",
+        "terms": [
+          "KeyframeAnimator"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "A start value and keyframes. It moves the value through each keyframe in order.",
+        "terms": []
+      }
+    ],
+    "code": "struct Dial: Animatable {\n    var angle = 0.0\n    var animatableData: Double {\n        get { angle } set { angle = newValue }\n    }\n}",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "Animatable",
+      "lines": [
+        {
+          "text": "Make your dial Animatable so it turns smoothly."
+        }
+      ],
+      "title": "Make your dial Animatable so it turns smoothly. #Shorts",
+      "description": "Make your dial Animatable so it turns smoothly.\n\nAnimatable - A protocol that lets a type tell SwiftUI which values can change step by step.\n한국어: 애니메이터블: 어떤 값이 단계적으로 바뀔 수 있는지 SwiftUI에 알려 주는 프로토콜\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "animatableData",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Where does the animated number live?"
+        },
+        {
+          "speaker": "B",
+          "text": "In animatableData."
+        }
+      ],
+      "title": "Where does the animated number live? / In animatableData. #Shorts",
+      "description": "Where does the animated number live? / In animatableData.\n\nanimatableData - The property that holds the values SwiftUI changes during an animation.\n한국어: 애니메이터블데이터: 애니메이션 중에 SwiftUI가 바꾸는 값을 담는 프로퍼티\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "KeyframeAnimator",
+      "lines": [
+        {
+          "text": "Use a KeyframeAnimator for a like button."
+        }
+      ],
+      "title": "Use a KeyframeAnimator for a like button. #Shorts",
+      "description": "Use a KeyframeAnimator for a like button.\n\nKeyframeAnimator - A view that moves a value through a list of steps, such as grow, spin and fade.\n한국어: 키프레임애니메이터: 커지기, 돌기, 사라지기처럼 여러 단계로 값을 움직이는 뷰\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "How do you animate your own values in SwiftUI?"
+}

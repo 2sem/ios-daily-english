@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 183
+
+ObservationIgnored
+- A macro that tells Observation not to track a property.
+- Example: "Mark the cache with ObservationIgnored."
+
+withObservationTracking
+- A function that runs code, then tells you when a value it read has changed.
+- Example: "Use withObservationTracking outside a view."
+
+Observations
+- An async sequence that gives you a new value each time a model changes.
+- Example: "Loop over Observations to react to every change."
+
+
+Quiz ①
+What do you call a function that runs code, then tells you when a value it read has changed?
+a) ObservationIgnored
+b) withObservationTracking
+c) Observations
+
+Quiz ②
+What do you call an async sequence that gives you a new value each time a model changes?
+a) Observations
+b) ObservationIgnored
+c) withObservationTracking
+
+Quiz ③
+What do you call a macro that tells Observation not to track a property?
+a) withObservationTracking
+b) Observations
+c) ObservationIgnored

@@ -1,0 +1,236 @@
+{
+  "day": 183,
+  "phase": "4. SwiftUI",
+  "theme": "3 Swift terms for controlling what the Observation framework tracks",
+  "terms": [
+    {
+      "term": "ObservationIgnored",
+      "definition": "A macro that tells Observation not to track a property.",
+      "example": "Mark the cache with ObservationIgnored.",
+      "code": "@Observable class C {\n    var n = 0\n    @ObservationIgnored var log = [Int]()\n}",
+      "output": "// no output"
+    },
+    {
+      "term": "withObservationTracking",
+      "definition": "A function that runs code, then tells you when a value it read has changed.",
+      "example": "Use withObservationTracking outside a view.",
+      "code": "@Observable class C { var n = 0 }\nwithObservationTracking {\n    _ = C().n\n} onChange: {\n    print(\"changed\")\n}",
+      "output": "// no output"
+    },
+    {
+      "term": "Observations",
+      "definition": "An async sequence that gives you a new value each time a model changes.",
+      "example": "Loop over Observations to react to every change.",
+      "code": "@Observable class C { var n = 0 }\nlet c = C()\nlet stream = Observations { c.n }",
+      "output": "// no output"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What do you call a function that runs code, then tells you when a value it read has changed?",
+      "options": [
+        "ObservationIgnored",
+        "withObservationTracking",
+        "Observations"
+      ],
+      "answer": "b"
+    },
+    {
+      "question": "What do you call an async sequence that gives you a new value each time a model changes?",
+      "options": [
+        "Observations",
+        "ObservationIgnored",
+        "withObservationTracking"
+      ],
+      "answer": "a"
+    },
+    {
+      "question": "What do you call a macro that tells Observation not to track a property?",
+      "options": [
+        "withObservationTracking",
+        "Observations",
+        "ObservationIgnored"
+      ],
+      "answer": "c"
+    }
+  ],
+  "video": {
+    "title": "ObservationIgnored, withObservationTracking & Observations | Day 183",
+    "description": "Learn to explain how the Observation framework tracks changes in your models: ObservationIgnored, withObservationTracking & Observations, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nObservationIgnored - A macro that tells Observation not to track a property.\nwithObservationTracking - A function that runs code, then tells you when a value it read has changed.\nObservations - An async sequence that gives you a new value each time a model changes.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 183 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "observationignored",
+      "withobservationtracking",
+      "observations",
+      "observationignored",
+      "withobservationtracking",
+      "observations",
+      "observationignored",
+      "withobservationtracking",
+      "observations",
+      "swiftui",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "SwiftUI ObservationIgnored, withObservationTracking & Observations | Day 183",
+      "description": "Explain ObservationIgnored, withObservationTracking & Observations in SwiftUI by listening to a real code chat between two iOS devs.\n옵저베이션이그노어드, 위드옵저베이션트래킹, 옵저베이션즈 표현을 영어 대화로 익혀요.\n\nObservationIgnored - A macro that tells Observation not to track a property.\n한국어: 옵저베이션이그노어드: 프로퍼티를 추적하지 않도록 Observation에 알려 주는 매크로\n\nwithObservationTracking - A function that runs code, then tells you when a value it read has changed.\n한국어: 위드옵저베이션트래킹: 코드를 실행한 뒤 읽은 값이 바뀌면 알려 주는 함수\n\nObservations - An async sequence that gives you a new value each time a model changes.\n한국어: 옵저베이션즈: 모델이 바뀔 때마다 새 값을 주는 비동기 시퀀스\n\nIn this video, Mina and Jake stop extra view updates and watch a model outside a view, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 183 of the iOS Daily English series.\n\n#Swift #SwiftUI #EnglishForDevelopers",
+      "tags": [
+        "ObservationIgnored",
+        "withObservationTracking",
+        "Observations",
+        "observationignored",
+        "withobservationtracking",
+        "observations",
+        "SwiftUI",
+        "SwiftUI 기초",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "iOS Daily English"
+      ],
+      "hook": "Can you explain ObservationIgnored, withObservationTracking and Observations in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "Fewer extra updates",
+    "setting": "Observation framework",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, my model has a `log` array that the view never shows.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Mark it with ObservationIgnored, and SwiftUI will not track it.",
+        "terms": [
+          "ObservationIgnored"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "So the view does not refresh when `log` changes?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Right. ObservationIgnored avoids extra updates.",
+        "terms": [
+          "ObservationIgnored"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Now I need to react to `n` outside a view, in plain code.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Use withObservationTracking. It runs a closure and tells you when a value it read has changed.",
+        "terms": [
+          "withObservationTracking"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Does it keep watching after one change?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "No, withObservationTracking calls its change closure only once, so you call it again.",
+        "terms": [
+          "withObservationTracking"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "That sounds like a lot of work for many changes.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Try Observations. It gives you an async sequence of values.",
+        "terms": [
+          "Observations"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "So I can loop over Observations with await?",
+        "terms": [
+          "Observations"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Yes, each step of the loop gives you the next value of `n`.",
+        "terms": []
+      }
+    ],
+    "code": "@Observable class C {\n    var n = 0\n    @ObservationIgnored var log = [Int]()\n}\nlet c = C()",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "ObservationIgnored",
+      "lines": [
+        {
+          "text": "Mark the cache with ObservationIgnored."
+        }
+      ],
+      "title": "Mark the cache with ObservationIgnored. #Shorts",
+      "description": "Mark the cache with ObservationIgnored.\n\nObservationIgnored - A macro that tells Observation not to track a property.\n한국어: 옵저베이션이그노어드: 프로퍼티를 추적하지 않도록 Observation에 알려 주는 매크로\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "withObservationTracking",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "How do I watch a model outside a view?"
+        },
+        {
+          "speaker": "B",
+          "text": "Use withObservationTracking."
+        }
+      ],
+      "title": "How do I watch a model outside a view? / Use withObservationTracking. #Shorts",
+      "description": "How do I watch a model outside a view? / Use withObservationTracking.\n\nwithObservationTracking - A function that runs code, then tells you when a value it read has changed.\n한국어: 위드옵저베이션트래킹: 코드를 실행한 뒤 읽은 값이 바뀌면 알려 주는 함수\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Observations",
+      "lines": [
+        {
+          "text": "Loop over Observations to catch every change."
+        }
+      ],
+      "title": "Loop over Observations to catch every change. #Shorts",
+      "description": "Loop over Observations to catch every change.\n\nObservations - An async sequence that gives you a new value each time a model changes.\n한국어: 옵저베이션즈: 모델이 바뀔 때마다 새 값을 주는 비동기 시퀀스\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "How does SwiftUI know when your model changes?"
+}

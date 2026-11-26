@@ -1,0 +1,238 @@
+{
+  "day": 171,
+  "phase": "4. SwiftUI",
+  "theme": "3 SwiftUI controls for picking a number, a date and a color",
+  "terms": [
+    {
+      "term": "Stepper",
+      "definition": "A control with minus and plus buttons that changes a number up or down.",
+      "example": "Use a Stepper for the number of tickets.",
+      "code": "struct Cart: View {\n    @State var n = 1\n    var body: some View {\n        Stepper(\"\\(n)\", value: $n, in: 1...5)\n    }\n}",
+      "output": "// no output"
+    },
+    {
+      "term": "DatePicker",
+      "definition": "A control that lets people choose a date, a time or both.",
+      "example": "Add a DatePicker so users can pick the trip day.",
+      "code": "struct Trip: View {\n    @State var day = Date()\n    var body: some View {\n        DatePicker(\"Day\", selection: $day)\n    }\n}",
+      "output": "// no output"
+    },
+    {
+      "term": "ColorPicker",
+      "definition": "A control that opens a color panel so people can choose a color.",
+      "example": "A ColorPicker saves the theme color the user chose.",
+      "code": "struct Theme: View {\n    @State var tint = Color.red\n    var body: some View {\n        ColorPicker(\"Tint\", selection: $tint)\n    }\n}",
+      "output": "// no output"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What do you call a control that lets people choose a date or a time?",
+      "options": [
+        "Stepper",
+        "DatePicker",
+        "ColorPicker"
+      ],
+      "answer": "b"
+    },
+    {
+      "question": "What do you call a control that shows a panel of colors and saves the one you choose?",
+      "options": [
+        "DatePicker",
+        "ColorPicker",
+        "Stepper"
+      ],
+      "answer": "b"
+    },
+    {
+      "question": "What do you call a control with minus and plus buttons that changes a number?",
+      "options": [
+        "ColorPicker",
+        "Stepper",
+        "DatePicker"
+      ],
+      "answer": "b"
+    }
+  ],
+  "video": {
+    "title": "Stepper, DatePicker & ColorPicker | Day 171",
+    "description": "Learn to explain how to ask users for numbers, dates and colors in SwiftUI: Stepper, DatePicker & ColorPicker, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nStepper - A control with minus and plus buttons that changes a number up or down.\nDatePicker - A control that lets people choose a date, a time or both.\nColorPicker - A control that opens a color panel so people can choose a color.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 171 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "stepper",
+      "datepicker",
+      "colorpicker",
+      "stepper",
+      "datepicker",
+      "colorpicker",
+      "stepper",
+      "datepicker",
+      "colorpicker",
+      "swiftui",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "SwiftUI Stepper, DatePicker & ColorPicker | Day 171",
+      "description": "Explain Stepper, DatePicker & ColorPicker in SwiftUI by listening to a real code chat between two iOS devs.\n스테퍼, 데이트피커, 컬러피커 표현을 영어 대화로 익혀요.\n\nStepper - A control with minus and plus buttons that changes a number up or down.\n한국어: 스테퍼: 빼기와 더하기 버튼으로 숫자를 올리고 내리는 컨트롤\n\nDatePicker - A control that lets people choose a date, a time or both.\n한국어: 데이트피커: 날짜, 시간 또는 둘 다를 고르게 하는 컨트롤\n\nColorPicker - A control that opens a color panel so people can choose a color.\n한국어: 컬러피커: 색상 패널을 열어 색을 고르게 하는 컨트롤\n\nIn this video, Mina and Jake build a booking form with a number, a date and a color, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 171 of the iOS Daily English series.\n\n#Swift #SwiftUI #EnglishForDevelopers",
+      "tags": [
+        "Stepper",
+        "DatePicker",
+        "ColorPicker",
+        "stepper",
+        "datepicker",
+        "colorpicker",
+        "SwiftUI",
+        "SwiftUI 기초",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "iOS Daily English"
+      ],
+      "hook": "Can you explain Stepper, DatePicker and ColorPicker in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "A booking form",
+    "setting": "SwiftUI input controls",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, I am building a booking form with a number, a date and a color.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Start with a Stepper for the number of tickets.",
+        "terms": [
+          "Stepper"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Does the Stepper show the number by itself?",
+        "terms": [
+          "Stepper"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "No, it only has minus and plus, so show `n` in the label.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "For the trip day, I made a text field. Users type the date.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "That can go wrong. Use a DatePicker, and you get a real `Date` in `day`.",
+        "terms": [
+          "DatePicker"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Oh, that is safer. Can the DatePicker show only the time?",
+        "terms": [
+          "DatePicker"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Yes, you can choose the date, the time or both.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "Last, the user wants a theme color.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Add a ColorPicker. It opens a color panel and saves the choice in `tint`.",
+        "terms": [
+          "ColorPicker"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "So a Stepper, a DatePicker and a ColorPicker, and no typing mistakes.",
+        "terms": [
+          "Stepper",
+          "DatePicker",
+          "ColorPicker"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Exactly. Keep all three values as `@State`.",
+        "terms": []
+      }
+    ],
+    "code": "@State var n = 1\n@State var day = Date()\n@State var tint = Color.red",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "Stepper",
+      "lines": [
+        {
+          "text": "Use a Stepper for the ticket count."
+        }
+      ],
+      "title": "Use a Stepper for the ticket count. #Shorts",
+      "description": "Use a Stepper for the ticket count.\n\nStepper - A control with minus and plus buttons that changes a number up or down.\n한국어: 스테퍼: 빼기와 더하기 버튼으로 숫자를 올리고 내리는 컨트롤\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "DatePicker",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "How do I let users choose a day?"
+        },
+        {
+          "speaker": "B",
+          "text": "Use a DatePicker."
+        }
+      ],
+      "title": "How do I let users choose a day? / Use a DatePicker. #Shorts",
+      "description": "How do I let users choose a day? / Use a DatePicker.\n\nDatePicker - A control that lets people choose a date, a time or both.\n한국어: 데이트피커: 날짜, 시간 또는 둘 다를 고르게 하는 컨트롤\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "ColorPicker",
+      "lines": [
+        {
+          "text": "A ColorPicker lets users choose a theme color."
+        }
+      ],
+      "title": "A ColorPicker lets users choose a theme color. #Shorts",
+      "description": "A ColorPicker lets users choose a theme color.\n\nColorPicker - A control that opens a color panel so people can choose a color.\n한국어: 컬러피커: 색상 패널을 열어 색을 고르게 하는 컨트롤\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "How do users pick a number, a date and a color?"
+}

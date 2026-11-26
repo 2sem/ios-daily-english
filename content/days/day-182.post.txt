@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 182
+
+Animatable
+- A protocol that lets a type tell SwiftUI which values can change step by step.
+- Example: "Make the dial Animatable so it turns smoothly."
+
+animatableData
+- The property that holds the values SwiftUI changes during an animation.
+- Example: "Return the angle from animatableData."
+
+KeyframeAnimator
+- A view that moves a value through a list of steps, such as grow, spin and fade.
+- Example: "Use a KeyframeAnimator for the like button."
+
+
+Quiz ①
+What do you call a view that moves a value through a list of steps, such as grow, spin and fade?
+a) KeyframeAnimator
+b) Animatable
+c) animatableData
+
+Quiz ②
+What do you call a protocol that lets a type tell SwiftUI which values can change step by step?
+a) animatableData
+b) KeyframeAnimator
+c) Animatable
+
+Quiz ③
+What do you call the property that holds the values SwiftUI changes during an animation?
+a) Animatable
+b) animatableData
+c) KeyframeAnimator

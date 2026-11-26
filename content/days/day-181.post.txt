@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 181
+
+symbolEffect
+- A modifier that animates an SF Symbol, for example with a bounce or a pulse.
+- Example: "Add symbolEffect so the bell bounces."
+
+sensoryFeedback
+- A modifier that plays a haptic or a sound when a value changes.
+- Example: "Use sensoryFeedback to vibrate after saving."
+
+MeshGradient
+- A view that blends colors smoothly across a grid of points.
+- Example: "Use a MeshGradient for the login background."
+
+
+Quiz ①
+What do you call a modifier that plays a haptic or a sound when a value changes?
+a) sensoryFeedback
+b) MeshGradient
+c) symbolEffect
+
+Quiz ②
+What do you call a view that blends colors smoothly across a grid of points?
+a) symbolEffect
+b) sensoryFeedback
+c) MeshGradient
+
+Quiz ③
+What do you call a modifier that animates an SF Symbol, for example with a bounce or a pulse?
+a) MeshGradient
+b) symbolEffect
+c) sensoryFeedback

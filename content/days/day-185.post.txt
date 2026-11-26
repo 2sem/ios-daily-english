@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 185
+
+PreviewProvider
+- The older protocol for writing previews, with a static previews property.
+- Example: "Old projects still use a PreviewProvider."
+
+Previewable
+- A macro that lets you write state directly inside a preview.
+- Example: "Add Previewable to test the toggle."
+
+PreviewModifier
+- A protocol for shared setup that many previews can use.
+- Example: "Put the dark mode setup in a PreviewModifier."
+
+
+Quiz ①
+What do you call a macro that lets you write state directly inside a preview?
+a) PreviewModifier
+b) PreviewProvider
+c) Previewable
+
+Quiz ②
+What do you call a protocol for shared setup that many previews can use?
+a) Previewable
+b) PreviewModifier
+c) PreviewProvider
+
+Quiz ③
+What do you call the older protocol for writing previews, with a static property?
+a) PreviewProvider
+b) Previewable
+c) PreviewModifier

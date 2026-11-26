@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 176
+
+ModelContainer
+- An object that sets up where your SwiftData models are stored.
+- Example: "Create one ModelContainer for the whole app."
+
+Query
+- A property wrapper that fetches saved models and keeps the view up to date.
+- Example: "Use Query to load all notes in the list."
+
+ModelContext
+- The workspace where you insert, change and delete SwiftData models.
+- Example: "Insert the new note into the ModelContext."
+
+
+Quiz ①
+What do you call the workspace where you insert, change and delete SwiftData models?
+a) ModelContext
+b) ModelContainer
+c) Query
+
+Quiz ②
+What do you call an object that sets up where your SwiftData models are stored?
+a) ModelContainer
+b) Query
+c) ModelContext
+
+Quiz ③
+What do you call a property wrapper that fetches saved models and updates the view when they change?
+a) Query
+b) ModelContext
+c) ModelContainer

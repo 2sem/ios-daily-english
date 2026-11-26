@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 174
+
+Sidebar
+- A column on the side that lists places or items to choose from.
+- Example: "Show the folders in the Sidebar."
+
+NavigationSplitView
+- A view that shows two or three columns and updates the detail when you pick an item.
+- Example: "Use a NavigationSplitView for the mail app on iPad."
+
+Inspector
+- A side panel that shows details about the selected item.
+- Example: "Open an Inspector to show the photo size."
+
+
+Quiz ①
+What do you call a side panel that shows details about the selected item?
+a) Sidebar
+b) NavigationSplitView
+c) Inspector
+
+Quiz ②
+What do you call the column on the side that lists places or items to choose from?
+a) NavigationSplitView
+b) Inspector
+c) Sidebar
+
+Quiz ③
+What do you call a view that shows two or three columns and changes the detail when you pick an item?
+a) Inspector
+b) Sidebar
+c) NavigationSplitView

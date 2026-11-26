@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 177
+
+ProposedViewSize
+- The size a parent suggests to a view, which the view can accept or ignore.
+- Example: "The layout reads the ProposedViewSize first."
+
+LayoutSubviews
+- The collection of child views that a custom layout measures and places.
+- Example: "Loop over the LayoutSubviews to place each tag."
+
+Layout Protocol
+- A protocol for a custom container that measures its children and places them.
+- Example: "Write a Layout Protocol type for the tag row."
+
+
+Quiz ①
+What do you call the collection of child views that a custom layout measures and places?
+a) ProposedViewSize
+b) LayoutSubviews
+c) Layout Protocol
+
+Quiz ②
+What do you call a protocol for a custom container that measures its children and places them?
+a) LayoutSubviews
+b) Layout Protocol
+c) ProposedViewSize
+
+Quiz ③
+What do you call the size a parent suggests to a view, which the view can accept or ignore?
+a) Layout Protocol
+b) ProposedViewSize
+c) LayoutSubviews

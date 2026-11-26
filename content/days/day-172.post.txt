@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 172
+
+TextEditor
+- A view that lets people type and edit many lines of text.
+- Example: "Use a TextEditor for the note body."
+
+Link
+- A view that opens a web address when a person taps it.
+- Example: "Add a Link to the help page."
+
+onOpenURL
+- A modifier that runs code when your app is opened with a link.
+- Example: "Read the link in onOpenURL, then show the right screen."
+
+
+Quiz ①
+What do you call a modifier that runs code when your app is opened from a link?
+a) Link
+b) onOpenURL
+c) TextEditor
+
+Quiz ②
+What do you call a view that lets people type and edit many lines of text?
+a) onOpenURL
+b) TextEditor
+c) Link
+
+Quiz ③
+What do you call a view that opens a web address when a person taps it?
+a) TextEditor
+b) Link
+c) onOpenURL

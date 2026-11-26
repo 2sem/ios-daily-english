@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 180
+
+visualEffect
+- A modifier that changes how a view looks based on its position, without changing its layout.
+- Example: "Use visualEffect to blur cards near the edge."
+
+scrollTransition
+- A modifier that changes a view while it scrolls into or out of the visible area.
+- Example: "Add scrollTransition so the cards fade at the edges."
+
+Custom Transition
+- Your own type that decides how a view looks as it appears and disappears.
+- Example: "Write a Custom Transition for the popup."
+
+
+Quiz ①
+What do you call your own type that decides how a view looks as it appears and disappears?
+a) visualEffect
+b) scrollTransition
+c) Custom Transition
+
+Quiz ②
+What do you call a modifier that changes how a view looks based on its position, without changing its layout?
+a) Custom Transition
+b) visualEffect
+c) scrollTransition
+
+Quiz ③
+What do you call a modifier that changes a view while it scrolls into or out of the visible area?
+a) scrollTransition
+b) Custom Transition
+c) visualEffect

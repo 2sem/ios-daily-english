@@ -1,0 +1,236 @@
+{
+  "day": 188,
+  "phase": "4. SwiftUI",
+  "theme": "3 SwiftUI terms for web images, colorful symbols and animated numbers",
+  "terms": [
+    {
+      "term": "AsyncImage",
+      "definition": "A view that downloads an image from a web address and shows it.",
+      "example": "Use AsyncImage for the profile picture.",
+      "code": "let url = URL(string: \"https://a.com/p.png\")\nAsyncImage(url: url)",
+      "output": "// no output"
+    },
+    {
+      "term": "SymbolRenderingMode",
+      "definition": "A setting that chooses how an SF Symbol uses color, such as multicolor or hierarchical.",
+      "example": "Set the SymbolRenderingMode to multicolor.",
+      "code": "Image(systemName: \"heart.fill\")\n    .symbolRenderingMode(.multicolor)",
+      "output": "// no output"
+    },
+    {
+      "term": "ContentTransition",
+      "definition": "A setting that decides how the content of a view changes, such as rolling digits.",
+      "example": "Add a ContentTransition to the like counter.",
+      "code": "let n = 3\nText(\"\\(n)\")\n    .contentTransition(.numericText())",
+      "output": "// no output"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What do you call a setting that decides how the content of a view changes, such as rolling digits?",
+      "options": [
+        "ContentTransition",
+        "AsyncImage",
+        "SymbolRenderingMode"
+      ],
+      "answer": "a"
+    },
+    {
+      "question": "What do you call a view that downloads an image from a web address and shows it?",
+      "options": [
+        "SymbolRenderingMode",
+        "ContentTransition",
+        "AsyncImage"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "What do you call a setting that chooses how an SF Symbol uses color, such as multicolor or hierarchical?",
+      "options": [
+        "AsyncImage",
+        "SymbolRenderingMode",
+        "ContentTransition"
+      ],
+      "answer": "b"
+    }
+  ],
+  "video": {
+    "title": "AsyncImage, SymbolRenderingMode & ContentTransition | Day 188",
+    "description": "Learn to explain how to show web images, colorful symbols and changing numbers in SwiftUI: AsyncImage, SymbolRenderingMode & ContentTransition, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nAsyncImage - A view that downloads an image from a web address and shows it.\nSymbolRenderingMode - A setting that chooses how an SF Symbol uses color, such as multicolor or hierarchical.\nContentTransition - A setting that decides how the content of a view changes, such as rolling digits.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 188 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "asyncimage",
+      "symbolrenderingmode",
+      "contenttransition",
+      "asyncimage",
+      "symbolrenderingmode",
+      "contenttransition",
+      "asyncimage",
+      "symbolrenderingmode",
+      "contenttransition",
+      "swiftui",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "SwiftUI AsyncImage, SymbolRenderingMode & ContentTransition | Day 188",
+      "description": "Explain AsyncImage, SymbolRenderingMode & ContentTransition in SwiftUI by listening to a real code chat between two iOS devs.\n에이싱크이미지, 심볼렌더링모드, 콘텐츠트랜지션 표현을 영어 대화로 익혀요.\n\nAsyncImage - A view that downloads an image from a web address and shows it.\n한국어: 에이싱크이미지: 웹 주소에서 이미지를 내려받아 보여 주는 뷰\n\nSymbolRenderingMode - A setting that chooses how an SF Symbol uses color, such as multicolor or hierarchical.\n한국어: 심볼렌더링모드: 멀티컬러나 계층형처럼 SF 심볼이 색을 쓰는 방식을 고르는 설정\n\nContentTransition - A setting that decides how the content of a view changes, such as rolling digits.\n한국어: 콘텐츠트랜지션: 숫자가 굴러가듯 뷰의 내용이 바뀌는 방식을 정하는 설정\n\nIn this video, Mina and Jake polish a profile screen with a web image, a heart icon and a counter, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 188 of the iOS Daily English series.\n\n#Swift #SwiftUI #EnglishForDevelopers",
+      "tags": [
+        "AsyncImage",
+        "SymbolRenderingMode",
+        "ContentTransition",
+        "asyncimage",
+        "symbolrenderingmode",
+        "contenttransition",
+        "SwiftUI",
+        "SwiftUI 기초",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "iOS Daily English"
+      ],
+      "hook": "Can you explain AsyncImage, SymbolRenderingMode and ContentTransition in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "A profile screen",
+    "setting": "SwiftUI visuals",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, my profile screen needs a picture from the internet.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Use AsyncImage with a `url`. It downloads and shows the image for you.",
+        "terms": [
+          "AsyncImage"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "What does AsyncImage show while it loads?",
+        "terms": [
+          "AsyncImage"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "A placeholder. You can set your own view for that, and an error view too.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "Nice. Now my heart icon is one flat color.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Set the SymbolRenderingMode. With `.multicolor`, the symbol uses its own colors.",
+        "terms": [
+          "SymbolRenderingMode"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "What other SymbolRenderingMode values are there?",
+        "terms": [
+          "SymbolRenderingMode"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Monochrome, hierarchical and palette. Try each one.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "Last, my like counter jumps from 2 to 3 with no animation.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Add a ContentTransition. With `.numericText()`, the digits roll to the new number.",
+        "terms": [
+          "ContentTransition"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Does a ContentTransition work on all views?",
+        "terms": [
+          "ContentTransition"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Mostly on text and symbols, and you need an animation to see it.",
+        "terms": []
+      }
+    ],
+    "code": "let url = URL(string: \"https://a.com/p.png\")\nAsyncImage(url: url)\nImage(systemName: \"heart.fill\")\n    .symbolRenderingMode(.multicolor)\nText(\"3\").contentTransition(.numericText())",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "AsyncImage",
+      "lines": [
+        {
+          "text": "Use AsyncImage for the profile picture."
+        }
+      ],
+      "title": "Use AsyncImage for the profile picture. #Shorts",
+      "description": "Use AsyncImage for the profile picture.\n\nAsyncImage - A view that downloads an image from a web address and shows it.\n한국어: 에이싱크이미지: 웹 주소에서 이미지를 내려받아 보여 주는 뷰\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "SymbolRenderingMode",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "How do I show a colorful symbol?"
+        },
+        {
+          "speaker": "B",
+          "text": "Set the SymbolRenderingMode."
+        }
+      ],
+      "title": "How do I show a colorful symbol? / Set the SymbolRenderingMode. #Shorts",
+      "description": "How do I show a colorful symbol? / Set the SymbolRenderingMode.\n\nSymbolRenderingMode - A setting that chooses how an SF Symbol uses color, such as multicolor or hierarchical.\n한국어: 심볼렌더링모드: 멀티컬러나 계층형처럼 SF 심볼이 색을 쓰는 방식을 고르는 설정\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "ContentTransition",
+      "lines": [
+        {
+          "text": "A ContentTransition rolls the digits to the new number."
+        }
+      ],
+      "title": "A ContentTransition rolls the digits to the new number. #Shorts",
+      "description": "A ContentTransition rolls the digits to the new number.\n\nContentTransition - A setting that decides how the content of a view changes, such as rolling digits.\n한국어: 콘텐츠트랜지션: 숫자가 굴러가듯 뷰의 내용이 바뀌는 방식을 정하는 설정\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "How do you show a web image in SwiftUI?"
+}

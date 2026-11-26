@@ -2039,6 +2039,246 @@
     "scenephase": {
       "term": "ScenePhase",
       "day": 170
+    },
+    "stepper": {
+      "term": "Stepper",
+      "day": 171
+    },
+    "datepicker": {
+      "term": "DatePicker",
+      "day": 171
+    },
+    "colorpicker": {
+      "term": "ColorPicker",
+      "day": 171
+    },
+    "texteditor": {
+      "term": "TextEditor",
+      "day": 172
+    },
+    "link": {
+      "term": "Link",
+      "day": 172
+    },
+    "onopenurl": {
+      "term": "onOpenURL",
+      "day": 172
+    },
+    "labeledcontent": {
+      "term": "LabeledContent",
+      "day": 173
+    },
+    "groupbox": {
+      "term": "GroupBox",
+      "day": 173
+    },
+    "controlgroup": {
+      "term": "ControlGroup",
+      "day": 173
+    },
+    "sidebar": {
+      "term": "Sidebar",
+      "day": 174
+    },
+    "navigationsplitview": {
+      "term": "NavigationSplitView",
+      "day": 174
+    },
+    "inspector": {
+      "term": "Inspector",
+      "day": 174
+    },
+    "table": {
+      "term": "Table",
+      "day": 175
+    },
+    "tablecolumn": {
+      "term": "TableColumn",
+      "day": 175
+    },
+    "outlinegroup": {
+      "term": "OutlineGroup",
+      "day": 175
+    },
+    "modelcontainer": {
+      "term": "ModelContainer",
+      "day": 176
+    },
+    "query": {
+      "term": "Query",
+      "day": 176
+    },
+    "modelcontext": {
+      "term": "ModelContext",
+      "day": 176
+    },
+    "proposedviewsize": {
+      "term": "ProposedViewSize",
+      "day": 177
+    },
+    "layoutsubviews": {
+      "term": "LayoutSubviews",
+      "day": 177
+    },
+    "layoutprotocol": {
+      "term": "Layout Protocol",
+      "day": 177
+    },
+    "contentmargins": {
+      "term": "contentMargins",
+      "day": 178
+    },
+    "scrolltargetbehavior": {
+      "term": "scrollTargetBehavior",
+      "day": 178
+    },
+    "scrolltargetlayout": {
+      "term": "scrollTargetLayout",
+      "day": 178
+    },
+    "gridrow": {
+      "term": "GridRow",
+      "day": 179
+    },
+    "safeareainset": {
+      "term": "safeAreaInset",
+      "day": 179
+    },
+    "containerrelativeframe": {
+      "term": "containerRelativeFrame",
+      "day": 179
+    },
+    "visualeffect": {
+      "term": "visualEffect",
+      "day": 180
+    },
+    "scrolltransition": {
+      "term": "scrollTransition",
+      "day": 180
+    },
+    "customtransition": {
+      "term": "Custom Transition",
+      "day": 180
+    },
+    "symboleffect": {
+      "term": "symbolEffect",
+      "day": 181
+    },
+    "sensoryfeedback": {
+      "term": "sensoryFeedback",
+      "day": 181
+    },
+    "meshgradient": {
+      "term": "MeshGradient",
+      "day": 181
+    },
+    "animatable": {
+      "term": "Animatable",
+      "day": 182
+    },
+    "animatabledata": {
+      "term": "animatableData",
+      "day": 182
+    },
+    "keyframeanimator": {
+      "term": "KeyframeAnimator",
+      "day": 182
+    },
+    "observationignored": {
+      "term": "ObservationIgnored",
+      "day": 183
+    },
+    "withobservationtracking": {
+      "term": "withObservationTracking",
+      "day": 183
+    },
+    "observations": {
+      "term": "Observations",
+      "day": 183
+    },
+    "timelineentry": {
+      "term": "TimelineEntry",
+      "day": 184
+    },
+    "widgetfamily": {
+      "term": "WidgetFamily",
+      "day": 184
+    },
+    "timeline": {
+      "term": "Timeline",
+      "day": 184
+    },
+    "previewprovider": {
+      "term": "PreviewProvider",
+      "day": 185
+    },
+    "previewable": {
+      "term": "Previewable",
+      "day": 185
+    },
+    "previewmodifier": {
+      "term": "PreviewModifier",
+      "day": 185
+    },
+    "locale": {
+      "term": "Locale",
+      "day": 186
+    },
+    "dynamictypesize": {
+      "term": "DynamicTypeSize",
+      "day": 186
+    },
+    "layoutdirection": {
+      "term": "LayoutDirection",
+      "day": 186
+    },
+    "gridcellcolumns": {
+      "term": "gridCellColumns",
+      "day": 187
+    },
+    "gridcolumnalignment": {
+      "term": "gridColumnAlignment",
+      "day": 187
+    },
+    "gridcellanchor": {
+      "term": "gridCellAnchor",
+      "day": 187
+    },
+    "asyncimage": {
+      "term": "AsyncImage",
+      "day": 188
+    },
+    "symbolrenderingmode": {
+      "term": "SymbolRenderingMode",
+      "day": 188
+    },
+    "contenttransition": {
+      "term": "ContentTransition",
+      "day": 188
+    },
+    "keyboardshortcut": {
+      "term": "keyboardShortcut",
+      "day": 189
+    },
+    "commandmenu": {
+      "term": "CommandMenu",
+      "day": 189
+    },
+    "hovereffect": {
+      "term": "hoverEffect",
+      "day": 189
+    },
+    "redacted": {
+      "term": "redacted",
+      "day": 190
+    },
+    "accessibilityfocusstate": {
+      "term": "AccessibilityFocusState",
+      "day": 190
+    },
+    "uiapplicationdelegateadaptor": {
+      "term": "UIApplicationDelegateAdaptor",
+      "day": 190
     }
   }
 }

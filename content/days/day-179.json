@@ -1,0 +1,236 @@
+{
+  "day": 179,
+  "phase": "4. SwiftUI",
+  "theme": "3 SwiftUI terms for sizing and placing views around their container",
+  "terms": [
+    {
+      "term": "GridRow",
+      "definition": "A row inside a Grid that places its views in columns.",
+      "example": "Put each pair of labels in a GridRow.",
+      "code": "Grid {\n    GridRow {\n        Text(\"A\")\n        Text(\"B\")\n    }\n}",
+      "output": "// no output"
+    },
+    {
+      "term": "safeAreaInset",
+      "definition": "A modifier that adds a view at an edge and moves the content out of its way.",
+      "example": "Add the player bar with safeAreaInset.",
+      "code": "List { Text(\"Hi\") }\n    .safeAreaInset(edge: .bottom) {\n        Text(\"Footer\")\n    }",
+      "output": "// no output"
+    },
+    {
+      "term": "containerRelativeFrame",
+      "definition": "A modifier that sizes a view as a share of its container, such as a scroll view.",
+      "example": "Use containerRelativeFrame to make each card 80 percent wide.",
+      "code": "Color.blue\n    .containerRelativeFrame(.horizontal) { w, _ in\n        w * 0.8\n    }",
+      "output": "// no output"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What do you call a modifier that adds a view at an edge and moves the content out of its way?",
+      "options": [
+        "containerRelativeFrame",
+        "GridRow",
+        "safeAreaInset"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "What do you call a modifier that sizes a view as a share of its container, such as a scroll view?",
+      "options": [
+        "GridRow",
+        "safeAreaInset",
+        "containerRelativeFrame"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "What do you call a row inside a Grid that places its views in columns?",
+      "options": [
+        "safeAreaInset",
+        "containerRelativeFrame",
+        "GridRow"
+      ],
+      "answer": "c"
+    }
+  ],
+  "video": {
+    "title": "GridRow, safeAreaInset & containerRelativeFrame | Day 179",
+    "description": "Learn to explain how to size views by their container and add bars at the edge in SwiftUI: GridRow, safeAreaInset & containerRelativeFrame, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nGridRow - A row inside a Grid that places its views in columns.\nsafeAreaInset - A modifier that adds a view at an edge and moves the content out of its way.\ncontainerRelativeFrame - A modifier that sizes a view as a share of its container, such as a scroll view.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 179 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "gridrow",
+      "safeareainset",
+      "containerrelativeframe",
+      "gridrow",
+      "safeareainset",
+      "containerrelativeframe",
+      "gridrow",
+      "safeareainset",
+      "containerrelativeframe",
+      "swiftui",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "SwiftUI GridRow, safeAreaInset & containerRelativeFrame | Day 179",
+      "description": "Explain GridRow, safeAreaInset & containerRelativeFrame in SwiftUI by listening to a real code chat between two iOS devs.\n그리드로우, 세이프에어리어인셋, 컨테이너릴레이티브프레임 표현을 영어 대화로 익혀요.\n\nGridRow - A row inside a Grid that places its views in columns.\n한국어: 그리드로우: Grid 안에서 뷰들을 열에 맞춰 배치하는 행\n\nsafeAreaInset - A modifier that adds a view at an edge and moves the content out of its way.\n한국어: 세이프에어리어인셋: 가장자리에 뷰를 더하고 콘텐츠를 그 자리에서 비켜 주는 모디파이어\n\ncontainerRelativeFrame - A modifier that sizes a view as a share of its container, such as a scroll view.\n한국어: 컨테이너릴레이티브프레임: 스크롤 뷰 같은 컨테이너의 일부 비율로 뷰 크기를 정하는 모디파이어\n\nIn this video, Mina and Jake add a footer bar and size cards in a grid, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 179 of the iOS Daily English series.\n\n#Swift #SwiftUI #EnglishForDevelopers",
+      "tags": [
+        "GridRow",
+        "safeAreaInset",
+        "containerRelativeFrame",
+        "gridrow",
+        "safeareainset",
+        "containerrelativeframe",
+        "SwiftUI",
+        "SwiftUI 기초",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "iOS Daily English"
+      ],
+      "hook": "Can you explain GridRow, safeAreaInset and containerRelativeFrame in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "A footer and cards",
+    "setting": "SwiftUI layout details",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, I want a footer bar that does not cover my list.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Use safeAreaInset on the list, with `edge: .bottom`.",
+        "terms": [
+          "safeAreaInset"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "So safeAreaInset moves the content out of the way?",
+        "terms": [
+          "safeAreaInset"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Yes, the list gets shorter, and the footer sits below it.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "Great. Now my cards are too wide on iPad.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Use containerRelativeFrame. It sizes a card by its container.",
+        "terms": [
+          "containerRelativeFrame"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Can containerRelativeFrame make it 80 percent wide?",
+        "terms": [
+          "containerRelativeFrame"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Yes, take `w * 0.8` in the closure.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "I used a fixed width before, and it broke on small screens.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "A relative size fixes that. Now, how do you align the labels?",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "I put them in a Grid, and each pair goes in a GridRow.",
+        "terms": [
+          "GridRow"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Good. A GridRow makes the labels line up in columns.",
+        "terms": [
+          "GridRow"
+        ]
+      }
+    ],
+    "code": "Grid {\n    GridRow { Text(\"A\"); Text(\"B\") }\n}\n.safeAreaInset(edge: .bottom) {\n    Text(\"Footer\")\n}",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "GridRow",
+      "lines": [
+        {
+          "text": "Put each pair of labels in a GridRow."
+        }
+      ],
+      "title": "Put each pair of labels in a GridRow. #Shorts",
+      "description": "Put each pair of labels in a GridRow.\n\nGridRow - A row inside a Grid that places its views in columns.\n한국어: 그리드로우: Grid 안에서 뷰들을 열에 맞춰 배치하는 행\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "safeAreaInset",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "How do I add a bar above the list end?"
+        },
+        {
+          "speaker": "B",
+          "text": "Use safeAreaInset."
+        }
+      ],
+      "title": "How do I add a bar above the list end? / Use safeAreaInset. #Shorts",
+      "description": "How do I add a bar above the list end? / Use safeAreaInset.\n\nsafeAreaInset - A modifier that adds a view at an edge and moves the content out of its way.\n한국어: 세이프에어리어인셋: 가장자리에 뷰를 더하고 콘텐츠를 그 자리에서 비켜 주는 모디파이어\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "containerRelativeFrame",
+      "lines": [
+        {
+          "text": "Use containerRelativeFrame for cards at 80 percent."
+        }
+      ],
+      "title": "Use containerRelativeFrame for cards at 80 percent. #Shorts",
+      "description": "Use containerRelativeFrame for cards at 80 percent.\n\ncontainerRelativeFrame - A modifier that sizes a view as a share of its container, such as a scroll view.\n한국어: 컨테이너릴레이티브프레임: 스크롤 뷰 같은 컨테이너의 일부 비율로 뷰 크기를 정하는 모디파이어\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "How do you size a view by its container in SwiftUI?"
+}

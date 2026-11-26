@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 179
+
+GridRow
+- A row inside a Grid that places its views in columns.
+- Example: "Put each pair of labels in a GridRow."
+
+safeAreaInset
+- A modifier that adds a view at an edge and moves the content out of its way.
+- Example: "Add the player bar with safeAreaInset."
+
+containerRelativeFrame
+- A modifier that sizes a view as a share of its container, such as a scroll view.
+- Example: "Use containerRelativeFrame to make each card 80 percent wide."
+
+
+Quiz ①
+What do you call a modifier that adds a view at an edge and moves the content out of its way?
+a) containerRelativeFrame
+b) GridRow
+c) safeAreaInset
+
+Quiz ②
+What do you call a modifier that sizes a view as a share of its container, such as a scroll view?
+a) GridRow
+b) safeAreaInset
+c) containerRelativeFrame
+
+Quiz ③
+What do you call a row inside a Grid that places its views in columns?
+a) safeAreaInset
+b) containerRelativeFrame
+c) GridRow

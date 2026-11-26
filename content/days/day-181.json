@@ -1,0 +1,236 @@
+{
+  "day": 181,
+  "phase": "4. SwiftUI",
+  "theme": "3 SwiftUI terms for symbol animation, haptics and colorful backgrounds",
+  "terms": [
+    {
+      "term": "symbolEffect",
+      "definition": "A modifier that animates an SF Symbol, for example with a bounce or a pulse.",
+      "example": "Add symbolEffect so the bell bounces.",
+      "code": "Image(systemName: \"bell\")\n    .symbolEffect(.pulse)",
+      "output": "// no output"
+    },
+    {
+      "term": "sensoryFeedback",
+      "definition": "A modifier that plays a haptic or a sound when a value changes.",
+      "example": "Use sensoryFeedback to vibrate after saving.",
+      "code": "let saved = false\nButton(\"Save\") { }\n    .sensoryFeedback(.success, trigger: saved)",
+      "output": "// no output"
+    },
+    {
+      "term": "MeshGradient",
+      "definition": "A view that blends colors smoothly across a grid of points.",
+      "example": "Use a MeshGradient for the login background.",
+      "code": "MeshGradient(width: 2, height: 2,\n    points: [[0, 0], [1, 0], [0, 1], [1, 1]],\n    colors: [.red, .blue, .green, .pink])",
+      "output": "// no output"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What do you call a modifier that plays a haptic or a sound when a value changes?",
+      "options": [
+        "sensoryFeedback",
+        "MeshGradient",
+        "symbolEffect"
+      ],
+      "answer": "a"
+    },
+    {
+      "question": "What do you call a view that blends colors smoothly across a grid of points?",
+      "options": [
+        "symbolEffect",
+        "sensoryFeedback",
+        "MeshGradient"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "What do you call a modifier that animates an SF Symbol, for example with a bounce or a pulse?",
+      "options": [
+        "MeshGradient",
+        "symbolEffect",
+        "sensoryFeedback"
+      ],
+      "answer": "b"
+    }
+  ],
+  "video": {
+    "title": "symbolEffect, sensoryFeedback & MeshGradient | Day 181",
+    "description": "Learn to explain how to add symbol animations, haptic feedback and gradients in SwiftUI: symbolEffect, sensoryFeedback & MeshGradient, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nsymbolEffect - A modifier that animates an SF Symbol, for example with a bounce or a pulse.\nsensoryFeedback - A modifier that plays a haptic or a sound when a value changes.\nMeshGradient - A view that blends colors smoothly across a grid of points.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 181 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "symboleffect",
+      "sensoryfeedback",
+      "meshgradient",
+      "symboleffect",
+      "sensoryfeedback",
+      "meshgradient",
+      "symboleffect",
+      "sensoryfeedback",
+      "meshgradient",
+      "swiftui",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "SwiftUI symbolEffect, sensoryFeedback & MeshGradient | Day 181",
+      "description": "Explain symbolEffect, sensoryFeedback & MeshGradient in SwiftUI by listening to a real code chat between two iOS devs.\n심볼이펙트, 센서리피드백, 메시그라디언트 표현을 영어 대화로 익혀요.\n\nsymbolEffect - A modifier that animates an SF Symbol, for example with a bounce or a pulse.\n한국어: 심볼이펙트: SF 심볼을 튕기거나 깜빡이게 움직이는 모디파이어\n\nsensoryFeedback - A modifier that plays a haptic or a sound when a value changes.\n한국어: 센서리피드백: 값이 바뀔 때 햅틱이나 소리를 재생하는 모디파이어\n\nMeshGradient - A view that blends colors smoothly across a grid of points.\n한국어: 메시그라디언트: 점들의 격자 위에서 색을 부드럽게 섞는 뷰\n\nIn this video, Mina and Jake polish a screen with an animated bell, a haptic tap and a colorful background, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 181 of the iOS Daily English series.\n\n#Swift #SwiftUI #EnglishForDevelopers",
+      "tags": [
+        "symbolEffect",
+        "sensoryFeedback",
+        "MeshGradient",
+        "symboleffect",
+        "sensoryfeedback",
+        "meshgradient",
+        "SwiftUI",
+        "SwiftUI 기초",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "iOS Daily English"
+      ],
+      "hook": "Can you explain symbolEffect, sensoryFeedback and MeshGradient in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "A bell that pulses",
+    "setting": "SwiftUI polish",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, the notification bell on my screen looks flat.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Add symbolEffect. It animates an SF Symbol, for example with a pulse.",
+        "terms": [
+          "symbolEffect"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Can it react when something happens?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Yes, give symbolEffect a value, and it runs when the value changes.",
+        "terms": [
+          "symbolEffect"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Nice. When the user taps save, I want a small vibration.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Use sensoryFeedback with the `saved` value. When `saved` changes, the phone plays a haptic.",
+        "terms": [
+          "sensoryFeedback"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "I used an old feedback generator before. It needed more code.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Yes, sensoryFeedback is shorter, and it stays in SwiftUI.",
+        "terms": [
+          "sensoryFeedback"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "One more thing. The login screen needs a soft color background.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Try a MeshGradient. It blends colors across a grid of points.",
+        "terms": [
+          "MeshGradient"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Is a MeshGradient slower than a normal gradient?",
+        "terms": [
+          "MeshGradient"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "A bit, so keep the grid small, like two by two.",
+        "terms": []
+      }
+    ],
+    "code": "let saved = false\nImage(systemName: \"bell\")\n    .symbolEffect(.pulse)\n    .sensoryFeedback(.success, trigger: saved)",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "symbolEffect",
+      "lines": [
+        {
+          "text": "Add symbolEffect so the bell bounces."
+        }
+      ],
+      "title": "Add symbolEffect so the bell bounces. #Shorts",
+      "description": "Add symbolEffect so the bell bounces.\n\nsymbolEffect - A modifier that animates an SF Symbol, for example with a bounce or a pulse.\n한국어: 심볼이펙트: SF 심볼을 튕기거나 깜빡이게 움직이는 모디파이어\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "sensoryFeedback",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "How do I make the phone vibrate?"
+        },
+        {
+          "speaker": "B",
+          "text": "Use sensoryFeedback."
+        }
+      ],
+      "title": "How do I make the phone vibrate? / Use sensoryFeedback. #Shorts",
+      "description": "How do I make the phone vibrate? / Use sensoryFeedback.\n\nsensoryFeedback - A modifier that plays a haptic or a sound when a value changes.\n한국어: 센서리피드백: 값이 바뀔 때 햅틱이나 소리를 재생하는 모디파이어\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "MeshGradient",
+      "lines": [
+        {
+          "text": "A MeshGradient blends many colors smoothly."
+        }
+      ],
+      "title": "A MeshGradient blends many colors smoothly. #Shorts",
+      "description": "A MeshGradient blends many colors smoothly.\n\nMeshGradient - A view that blends colors smoothly across a grid of points.\n한국어: 메시그라디언트: 점들의 격자 위에서 색을 부드럽게 섞는 뷰\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "How do you add haptics and animation in SwiftUI?"
+}

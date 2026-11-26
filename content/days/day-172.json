@@ -1,0 +1,236 @@
+{
+  "day": 172,
+  "phase": "4. SwiftUI",
+  "theme": "3 SwiftUI tools for long text, web links and links that open your app",
+  "terms": [
+    {
+      "term": "TextEditor",
+      "definition": "A view that lets people type and edit many lines of text.",
+      "example": "Use a TextEditor for the note body.",
+      "code": "struct Note: View {\n    @State var text = \"\"\n    var body: some View {\n        TextEditor(text: $text)\n    }\n}",
+      "output": "// no output"
+    },
+    {
+      "term": "Link",
+      "definition": "A view that opens a web address when a person taps it.",
+      "example": "Add a Link to the help page.",
+      "code": "let url = URL(string: \"https://apple.com\")!\nLink(\"Docs\", destination: url)",
+      "output": "// no output"
+    },
+    {
+      "term": "onOpenURL",
+      "definition": "A modifier that runs code when your app is opened with a link.",
+      "example": "Read the link in onOpenURL, then show the right screen.",
+      "code": "Text(\"Hi\")\n    .onOpenURL { url in\n        print(url)\n    }",
+      "output": "// no output"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What do you call a modifier that runs code when your app is opened from a link?",
+      "options": [
+        "Link",
+        "onOpenURL",
+        "TextEditor"
+      ],
+      "answer": "b"
+    },
+    {
+      "question": "What do you call a view that lets people type and edit many lines of text?",
+      "options": [
+        "onOpenURL",
+        "TextEditor",
+        "Link"
+      ],
+      "answer": "b"
+    },
+    {
+      "question": "What do you call a view that opens a web address when a person taps it?",
+      "options": [
+        "TextEditor",
+        "Link",
+        "onOpenURL"
+      ],
+      "answer": "b"
+    }
+  ],
+  "video": {
+    "title": "TextEditor, Link & onOpenURL | Day 172",
+    "description": "Learn to explain how to edit text, open links and handle incoming links in SwiftUI: TextEditor, Link & onOpenURL, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nTextEditor - A view that lets people type and edit many lines of text.\nLink - A view that opens a web address when a person taps it.\nonOpenURL - A modifier that runs code when your app is opened with a link.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 172 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "texteditor",
+      "link",
+      "onopenurl",
+      "texteditor",
+      "link",
+      "onopenurl",
+      "texteditor",
+      "link",
+      "onopenurl",
+      "swiftui",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "SwiftUI TextEditor, Link & onOpenURL | Day 172",
+      "description": "Explain TextEditor, Link & onOpenURL in SwiftUI by listening to a real code chat between two iOS devs.\n텍스트에디터, 링크, 온오픈유알엘 표현을 영어 대화로 익혀요.\n\nTextEditor - A view that lets people type and edit many lines of text.\n한국어: 텍스트에디터: 여러 줄의 글을 입력하고 고칠 수 있게 하는 뷰\n\nLink - A view that opens a web address when a person taps it.\n한국어: 링크: 탭하면 웹 주소를 여는 뷰\n\nonOpenURL - A modifier that runs code when your app is opened with a link.\n한국어: 온오픈유알엘: 링크로 앱이 열릴 때 코드를 실행하는 모디파이어\n\nIn this video, Mina and Jake build a notes screen with long text and links, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 172 of the iOS Daily English series.\n\n#Swift #SwiftUI #EnglishForDevelopers",
+      "tags": [
+        "TextEditor",
+        "Link",
+        "onOpenURL",
+        "texteditor",
+        "link",
+        "onopenurl",
+        "SwiftUI",
+        "SwiftUI 기초",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "iOS Daily English"
+      ],
+      "hook": "Can you explain TextEditor, Link and onOpenURL in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "Notes with links",
+    "setting": "SwiftUI text and links",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, my notes screen needs a big place to write.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Use a TextEditor. It lets people type many lines.",
+        "terms": [
+          "TextEditor"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Can I bind the TextEditor to my `text`?",
+        "terms": [
+          "TextEditor"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Yes, pass `$text`, and the note saves as the user types.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "I also want a help button that opens a website.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Use a Link with a `url`. Tap the Link, and Safari opens.",
+        "terms": [
+          "Link"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "I wrote a Button and opened the page by hand.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "A Link is simpler, and it is the right view for web pages.",
+        "terms": [
+          "Link"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Now, other apps send a link to my app. How do I read it?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Add onOpenURL to the root view.",
+        "terms": [
+          "onOpenURL"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "So onOpenURL gives me the `url` when the app opens?",
+        "terms": [
+          "onOpenURL"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Right. Then check the path and show the matching note.",
+        "terms": []
+      }
+    ],
+    "code": "@State var text = \"\"\nlet url = URL(string: \"https://apple.com\")!",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "TextEditor",
+      "lines": [
+        {
+          "text": "Use a TextEditor for long notes."
+        }
+      ],
+      "title": "Use a TextEditor for long notes. #Shorts",
+      "description": "Use a TextEditor for long notes.\n\nTextEditor - A view that lets people type and edit many lines of text.\n한국어: 텍스트에디터: 여러 줄의 글을 입력하고 고칠 수 있게 하는 뷰\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "Link",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Which view opens a web page?"
+        },
+        {
+          "speaker": "B",
+          "text": "A Link."
+        }
+      ],
+      "title": "Which view opens a web page? / A Link. #Shorts",
+      "description": "Which view opens a web page? / A Link.\n\nLink - A view that opens a web address when a person taps it.\n한국어: 링크: 탭하면 웹 주소를 여는 뷰\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "onOpenURL",
+      "lines": [
+        {
+          "text": "Handle deep links with onOpenURL."
+        }
+      ],
+      "title": "Handle deep links with onOpenURL. #Shorts",
+      "description": "Handle deep links with onOpenURL.\n\nonOpenURL - A modifier that runs code when your app is opened with a link.\n한국어: 온오픈유알엘: 링크로 앱이 열릴 때 코드를 실행하는 모디파이어\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "How do you edit long text and open links in SwiftUI?"
+}

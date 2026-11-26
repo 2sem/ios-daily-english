@@ -1,0 +1,237 @@
+{
+  "day": 177,
+  "phase": "4. SwiftUI",
+  "theme": "3 SwiftUI terms for building your own custom layout",
+  "terms": [
+    {
+      "term": "ProposedViewSize",
+      "definition": "The size a parent suggests to a view, which the view can accept or ignore.",
+      "example": "The layout reads the ProposedViewSize first.",
+      "code": "let p = ProposedViewSize(width: 100, height: nil)",
+      "output": "// no output"
+    },
+    {
+      "term": "LayoutSubviews",
+      "definition": "The collection of child views that a custom layout measures and places.",
+      "example": "Loop over the LayoutSubviews to place each tag.",
+      "code": "func first(_ s: LayoutSubviews) -> CGSize {\n    s[0].sizeThatFits(.unspecified)\n}",
+      "output": "// no output"
+    },
+    {
+      "term": "Layout Protocol",
+      "definition": "A protocol for a custom container that measures its children and places them.",
+      "example": "Write a Layout Protocol type for the tag row.",
+      "code": "HStackLayout(spacing: 8) {\n    Text(\"A\")\n    Text(\"B\")\n}",
+      "output": "// no output"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What do you call the collection of child views that a custom layout measures and places?",
+      "options": [
+        "ProposedViewSize",
+        "LayoutSubviews",
+        "Layout Protocol"
+      ],
+      "answer": "b"
+    },
+    {
+      "question": "What do you call a protocol for a custom container that measures its children and places them?",
+      "options": [
+        "LayoutSubviews",
+        "Layout Protocol",
+        "ProposedViewSize"
+      ],
+      "answer": "b"
+    },
+    {
+      "question": "What do you call the size a parent suggests to a view, which the view can accept or ignore?",
+      "options": [
+        "Layout Protocol",
+        "ProposedViewSize",
+        "LayoutSubviews"
+      ],
+      "answer": "b"
+    }
+  ],
+  "video": {
+    "title": "ProposedViewSize, LayoutSubviews & Layout Protocol | Day 177",
+    "description": "Learn to explain how SwiftUI custom layouts measure and place their views: ProposedViewSize, LayoutSubviews & Layout Protocol, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nProposedViewSize - The size a parent suggests to a view, which the view can accept or ignore.\nLayoutSubviews - The collection of child views that a custom layout measures and places.\nLayout Protocol - A protocol for a custom container that measures its children and places them.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 177 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "proposedviewsize",
+      "layoutsubviews",
+      "layout protocol",
+      "proposedviewsize",
+      "layoutsubviews",
+      "layout protocol",
+      "proposedviewsize",
+      "layoutsubviews",
+      "layout protocol",
+      "swiftui",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "SwiftUI ProposedViewSize, LayoutSubviews & Layout Protocol | Day 177",
+      "description": "Explain ProposedViewSize, LayoutSubviews & Layout Protocol in SwiftUI by listening to a real code chat between two iOS devs.\n프로포즈드뷰사이즈, 레이아웃서브뷰즈, 레이아웃 프로토콜 표현을 영어 대화로 익혀요.\n\nProposedViewSize - The size a parent suggests to a view, which the view can accept or ignore.\n한국어: 프로포즈드뷰사이즈: 부모가 뷰에게 제안하는 크기로, 뷰가 받아들이거나 무시할 수 있어요\n\nLayoutSubviews - The collection of child views that a custom layout measures and places.\n한국어: 레이아웃서브뷰즈: 커스텀 레이아웃이 크기를 재고 배치하는 자식 뷰들의 모음\n\nLayout Protocol - A protocol for a custom container that measures its children and places them.\n한국어: 레이아웃 프로토콜: 자식 뷰의 크기를 재고 배치하는 커스텀 컨테이너를 위한 프로토콜\n\nIn this video, Mina and Jake plan a custom layout that places tags in a row, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 177 of the iOS Daily English series.\n\n#Swift #SwiftUI #EnglishForDevelopers",
+      "tags": [
+        "ProposedViewSize",
+        "LayoutSubviews",
+        "Layout Protocol",
+        "proposedviewsize",
+        "layoutsubviews",
+        "layout protocol",
+        "SwiftUI",
+        "SwiftUI 기초",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "iOS Daily English"
+      ],
+      "hook": "Can you explain ProposedViewSize, LayoutSubviews and Layout Protocol in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "A custom tag layout",
+    "setting": "SwiftUI Layout",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, HStack cannot wrap my tags to a new line.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Then write a custom layout with the Layout Protocol.",
+        "terms": [
+          "Layout Protocol"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "What does the Layout Protocol need?",
+        "terms": [
+          "Layout Protocol"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Two steps. It measures its children, and then it places them.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "How big can each child be?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "The parent sends a ProposedViewSize, like `width: 100`.",
+        "terms": [
+          "ProposedViewSize"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Does the child have to use that size?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "No, it can accept or ignore the ProposedViewSize.",
+        "terms": [
+          "ProposedViewSize"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "And where are the children inside my layout?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "They come as LayoutSubviews. You loop over them to measure and place each one.",
+        "terms": [
+          "LayoutSubviews"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "I tried to place the tags before I measured them.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Measure first with the LayoutSubviews, then place them. The Layout Protocol follows that order.",
+        "terms": [
+          "LayoutSubviews",
+          "Layout Protocol"
+        ]
+      }
+    ],
+    "code": "HStackLayout(spacing: 8) {\n    Text(\"A\")\n    Text(\"B\")\n}\nlet p = ProposedViewSize(width: 100, height: nil)",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "ProposedViewSize",
+      "lines": [
+        {
+          "text": "A parent sends a ProposedViewSize to its child."
+        }
+      ],
+      "title": "A parent sends a ProposedViewSize to its child. #Shorts",
+      "description": "A parent sends a ProposedViewSize to its child.\n\nProposedViewSize - The size a parent suggests to a view, which the view can accept or ignore.\n한국어: 프로포즈드뷰사이즈: 부모가 뷰에게 제안하는 크기로, 뷰가 받아들이거나 무시할 수 있어요\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "LayoutSubviews",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "What do I loop over in a custom layout?"
+        },
+        {
+          "speaker": "B",
+          "text": "The LayoutSubviews."
+        }
+      ],
+      "title": "What do I loop over in a custom layout? / The LayoutSubviews. #Shorts",
+      "description": "What do I loop over in a custom layout? / The LayoutSubviews.\n\nLayoutSubviews - The collection of child views that a custom layout measures and places.\n한국어: 레이아웃서브뷰즈: 커스텀 레이아웃이 크기를 재고 배치하는 자식 뷰들의 모음\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Layout Protocol",
+      "lines": [
+        {
+          "text": "Use the Layout Protocol for a custom tag row."
+        }
+      ],
+      "title": "Use the Layout Protocol for a custom tag row. #Shorts",
+      "description": "Use the Layout Protocol for a custom tag row.\n\nLayout Protocol - A protocol for a custom container that measures its children and places them.\n한국어: 레이아웃 프로토콜: 자식 뷰의 크기를 재고 배치하는 커스텀 컨테이너를 위한 프로토콜\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "How does a custom layout in SwiftUI work?"
+}

@@ -1,0 +1,236 @@
+{
+  "day": 187,
+  "phase": "4. SwiftUI",
+  "theme": "3 SwiftUI Grid modifiers for spanning, aligning and anchoring cells",
+  "terms": [
+    {
+      "term": "gridCellColumns",
+      "definition": "A modifier that makes a cell cover more than one column.",
+      "example": "Use gridCellColumns to make the title cover both columns.",
+      "code": "Grid {\n    GridRow {\n        Text(\"Title\").gridCellColumns(2)\n    }\n}",
+      "output": "// no output"
+    },
+    {
+      "term": "gridColumnAlignment",
+      "definition": "A modifier that sets the alignment for a whole column of a Grid.",
+      "example": "Add gridColumnAlignment to one name cell.",
+      "code": "Grid {\n    GridRow {\n        Text(\"Name\").gridColumnAlignment(.trailing)\n        Text(\"Mina\")\n    }\n}",
+      "output": "// no output"
+    },
+    {
+      "term": "gridCellAnchor",
+      "definition": "A modifier that sets where a view sits inside its cell.",
+      "example": "Use gridCellAnchor to put the icon at the top.",
+      "code": "Grid {\n    GridRow {\n        Text(\"Icon\").gridCellAnchor(.topLeading)\n    }\n}",
+      "output": "// no output"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What do you call a modifier that sets the alignment for a whole column of a Grid?",
+      "options": [
+        "gridColumnAlignment",
+        "gridCellAnchor",
+        "gridCellColumns"
+      ],
+      "answer": "a"
+    },
+    {
+      "question": "What do you call a modifier that sets where a view sits inside its cell?",
+      "options": [
+        "gridCellColumns",
+        "gridColumnAlignment",
+        "gridCellAnchor"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "What do you call a modifier that makes a cell cover more than one column?",
+      "options": [
+        "gridCellAnchor",
+        "gridCellColumns",
+        "gridColumnAlignment"
+      ],
+      "answer": "b"
+    }
+  ],
+  "video": {
+    "title": "gridCellColumns, gridColumnAlignment & gridCellAnchor | Day 187",
+    "description": "Learn to explain how to control cells inside a SwiftUI Grid: gridCellColumns, gridColumnAlignment & gridCellAnchor, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\ngridCellColumns - A modifier that makes a cell cover more than one column.\ngridColumnAlignment - A modifier that sets the alignment for a whole column of a Grid.\ngridCellAnchor - A modifier that sets where a view sits inside its cell.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 187 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "gridcellcolumns",
+      "gridcolumnalignment",
+      "gridcellanchor",
+      "gridcellcolumns",
+      "gridcolumnalignment",
+      "gridcellanchor",
+      "gridcellcolumns",
+      "gridcolumnalignment",
+      "gridcellanchor",
+      "swiftui",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "SwiftUI gridCellColumns, gridColumnAlignment & gridCellAnchor | Day 187",
+      "description": "Explain gridCellColumns, gridColumnAlignment & gridCellAnchor in SwiftUI by listening to a real code chat between two iOS devs.\n그리드셀컬럼스, 그리드컬럼얼라인먼트, 그리드셀앵커 표현을 영어 대화로 익혀요.\n\ngridCellColumns - A modifier that makes a cell cover more than one column.\n한국어: 그리드셀컬럼스: 셀이 두 개 이상의 열을 차지하게 하는 모디파이어\n\ngridColumnAlignment - A modifier that sets the alignment for a whole column of a Grid.\n한국어: 그리드컬럼얼라인먼트: Grid의 열 전체 정렬을 정하는 모디파이어\n\ngridCellAnchor - A modifier that sets where a view sits inside its cell.\n한국어: 그리드셀앵커: 셀 안에서 뷰가 놓일 위치를 정하는 모디파이어\n\nIn this video, Mina and Jake fix a grid with a wide title, aligned labels and a small icon, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 187 of the iOS Daily English series.\n\n#Swift #SwiftUI #EnglishForDevelopers",
+      "tags": [
+        "gridCellColumns",
+        "gridColumnAlignment",
+        "gridCellAnchor",
+        "gridcellcolumns",
+        "gridcolumnalignment",
+        "gridcellanchor",
+        "SwiftUI",
+        "SwiftUI 기초",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "iOS Daily English"
+      ],
+      "hook": "Can you explain gridCellColumns, gridColumnAlignment and gridCellAnchor in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "A tidy grid",
+    "setting": "SwiftUI Grid details",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, my grid title should cover two columns.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Use gridCellColumns with 2. The cell then spans both columns.",
+        "terms": [
+          "gridCellColumns"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "So gridCellColumns is like a column span in a table?",
+        "terms": [
+          "gridCellColumns"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Yes, exactly like that.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "Next, the names in the first column are on the left, but I want them on the right.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Use gridColumnAlignment on one cell. It sets the alignment for the whole column.",
+        "terms": [
+          "gridColumnAlignment"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "I added it to every row. It worked, but it looked like extra code.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Right, one cell is enough for gridColumnAlignment.",
+        "terms": [
+          "gridColumnAlignment"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "What about one small icon inside a big cell?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Use gridCellAnchor. It sets where the view sits, like top leading.",
+        "terms": [
+          "gridCellAnchor"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Does gridCellAnchor change the size of the cell?",
+        "terms": [
+          "gridCellAnchor"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "No, it only moves the view inside its space.",
+        "terms": []
+      }
+    ],
+    "code": "Grid {\n    GridRow {\n        Text(\"Title\").gridCellColumns(2)\n    }\n    GridRow { Text(\"A\"); Text(\"B\") }\n}",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "gridCellColumns",
+      "lines": [
+        {
+          "text": "Use gridCellColumns to cover two columns."
+        }
+      ],
+      "title": "Use gridCellColumns to cover two columns. #Shorts",
+      "description": "Use gridCellColumns to cover two columns.\n\ngridCellColumns - A modifier that makes a cell cover more than one column.\n한국어: 그리드셀컬럼스: 셀이 두 개 이상의 열을 차지하게 하는 모디파이어\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "gridColumnAlignment",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "How do I right-align a whole column?"
+        },
+        {
+          "speaker": "B",
+          "text": "Use gridColumnAlignment."
+        }
+      ],
+      "title": "How do I right-align a whole column? / Use gridColumnAlignment. #Shorts",
+      "description": "How do I right-align a whole column? / Use gridColumnAlignment.\n\ngridColumnAlignment - A modifier that sets the alignment for a whole column of a Grid.\n한국어: 그리드컬럼얼라인먼트: Grid의 열 전체 정렬을 정하는 모디파이어\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "gridCellAnchor",
+      "lines": [
+        {
+          "text": "Use gridCellAnchor to move an icon inside its cell."
+        }
+      ],
+      "title": "Use gridCellAnchor to move an icon inside its cell. #Shorts",
+      "description": "Use gridCellAnchor to move an icon inside its cell.\n\ngridCellAnchor - A modifier that sets where a view sits inside its cell.\n한국어: 그리드셀앵커: 셀 안에서 뷰가 놓일 위치를 정하는 모디파이어\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "How do you span and align cells in a SwiftUI Grid?"
+}

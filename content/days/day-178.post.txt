@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 178
+
+contentMargins
+- A modifier that adds space around the content of a scroll view.
+- Example: "Add contentMargins so the first photo has space."
+
+scrollTargetBehavior
+- A modifier that tells a scroll view where to stop, such as one page at a time.
+- Example: "Set scrollTargetBehavior to paging for the carousel."
+
+scrollTargetLayout
+- A modifier that marks the views inside a container as places where scrolling can stop.
+- Example: "Add scrollTargetLayout to the stack of photos."
+
+
+Quiz ①
+What do you call a modifier that marks the views inside a container as places where scrolling can stop?
+a) scrollTargetBehavior
+b) scrollTargetLayout
+c) contentMargins
+
+Quiz ②
+What do you call a modifier that adds space around the content of a scroll view?
+a) scrollTargetLayout
+b) contentMargins
+c) scrollTargetBehavior
+
+Quiz ③
+What do you call a modifier that tells a scroll view where to stop, such as one page at a time?
+a) contentMargins
+b) scrollTargetBehavior
+c) scrollTargetLayout

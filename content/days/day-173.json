@@ -1,0 +1,236 @@
+{
+  "day": 173,
+  "phase": "4. SwiftUI",
+  "theme": "3 SwiftUI containers for name and value rows, grouped buttons and boxes",
+  "terms": [
+    {
+      "term": "LabeledContent",
+      "definition": "A view that shows a label on one side and a value on the other.",
+      "example": "Show the app version in a LabeledContent row.",
+      "code": "LabeledContent(\"Version\", value: \"2.1\")",
+      "output": "// no output"
+    },
+    {
+      "term": "GroupBox",
+      "definition": "A container that puts related content in a box with a title.",
+      "example": "Put the account details in a GroupBox.",
+      "code": "GroupBox(\"Account\") {\n    Text(\"Pro plan\")\n}",
+      "output": "// no output"
+    },
+    {
+      "term": "ControlGroup",
+      "definition": "A container that joins related controls, such as buttons, into one set.",
+      "example": "Place undo and redo in a ControlGroup.",
+      "code": "ControlGroup {\n    Button(\"Undo\") { }\n    Button(\"Redo\") { }\n}",
+      "output": "// no output"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What do you call a container that puts related content in a titled box?",
+      "options": [
+        "ControlGroup",
+        "LabeledContent",
+        "GroupBox"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "What do you call a container that joins related buttons into one set?",
+      "options": [
+        "LabeledContent",
+        "GroupBox",
+        "ControlGroup"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "What do you call a view that shows a name on one side and its value on the other?",
+      "options": [
+        "GroupBox",
+        "ControlGroup",
+        "LabeledContent"
+      ],
+      "answer": "c"
+    }
+  ],
+  "video": {
+    "title": "LabeledContent, GroupBox & ControlGroup | Day 173",
+    "description": "Learn to explain how to group and label content in SwiftUI settings screens: LabeledContent, GroupBox & ControlGroup, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nLabeledContent - A view that shows a label on one side and a value on the other.\nGroupBox - A container that puts related content in a box with a title.\nControlGroup - A container that joins related controls, such as buttons, into one set.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 173 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "labeledcontent",
+      "groupbox",
+      "controlgroup",
+      "labeledcontent",
+      "groupbox",
+      "controlgroup",
+      "labeledcontent",
+      "groupbox",
+      "controlgroup",
+      "swiftui",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "SwiftUI LabeledContent, GroupBox & ControlGroup | Day 173",
+      "description": "Explain LabeledContent, GroupBox & ControlGroup in SwiftUI by listening to a real code chat between two iOS devs.\n레이블드콘텐츠, 그룹박스, 컨트롤그룹 표현을 영어 대화로 익혀요.\n\nLabeledContent - A view that shows a label on one side and a value on the other.\n한국어: 레이블드콘텐츠: 한쪽에 이름, 다른 쪽에 값을 보여 주는 뷰\n\nGroupBox - A container that puts related content in a box with a title.\n한국어: 그룹박스: 관련된 내용을 제목이 있는 박스에 담는 컨테이너\n\nControlGroup - A container that joins related controls, such as buttons, into one set.\n한국어: 컨트롤그룹: 버튼처럼 관련된 컨트롤을 하나의 세트로 묶는 컨테이너\n\nIn this video, Mina and Jake clean up a settings screen with rows, boxes and button groups, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 173 of the iOS Daily English series.\n\n#Swift #SwiftUI #EnglishForDevelopers",
+      "tags": [
+        "LabeledContent",
+        "GroupBox",
+        "ControlGroup",
+        "labeledcontent",
+        "groupbox",
+        "controlgroup",
+        "SwiftUI",
+        "SwiftUI 기초",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "iOS Daily English"
+      ],
+      "hook": "Can you explain LabeledContent, GroupBox and ControlGroup in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "A tidy settings screen",
+    "setting": "SwiftUI grouping views",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, my settings screen looks messy.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Let us clean it up. Start with the version row.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "I used two Text views in an HStack.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Use LabeledContent. It shows the label and the value, and it matches the system style.",
+        "terms": [
+          "LabeledContent"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "That is much shorter. Does LabeledContent work in a Form too?",
+        "terms": [
+          "LabeledContent"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Yes, it fits well in a list or a Form.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "What about the account details?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Put them in a GroupBox. It adds a box and a title, like in the code.",
+        "terms": [
+          "GroupBox"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "So the GroupBox keeps related details together?",
+        "terms": [
+          "GroupBox"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Yes, that is the idea.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "And I have undo and redo buttons. Is a ControlGroup right for them?",
+        "terms": [
+          "ControlGroup"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Yes. The ControlGroup shows them as one related set.",
+        "terms": [
+          "ControlGroup"
+        ]
+      }
+    ],
+    "code": "LabeledContent(\"Version\", value: \"2.1\")\nGroupBox(\"Account\") {\n    Text(\"Pro plan\")\n}",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "LabeledContent",
+      "lines": [
+        {
+          "text": "Use LabeledContent for a name and value row."
+        }
+      ],
+      "title": "Use LabeledContent for a name and value row. #Shorts",
+      "description": "Use LabeledContent for a name and value row.\n\nLabeledContent - A view that shows a label on one side and a value on the other.\n한국어: 레이블드콘텐츠: 한쪽에 이름, 다른 쪽에 값을 보여 주는 뷰\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "GroupBox",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Where do I put the account details?"
+        },
+        {
+          "speaker": "B",
+          "text": "In a GroupBox."
+        }
+      ],
+      "title": "Where do I put the account details? / In a GroupBox. #Shorts",
+      "description": "Where do I put the account details? / In a GroupBox.\n\nGroupBox - A container that puts related content in a box with a title.\n한국어: 그룹박스: 관련된 내용을 제목이 있는 박스에 담는 컨테이너\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "ControlGroup",
+      "lines": [
+        {
+          "text": "Put undo and redo in a ControlGroup."
+        }
+      ],
+      "title": "Put undo and redo in a ControlGroup. #Shorts",
+      "description": "Put undo and redo in a ControlGroup.\n\nControlGroup - A container that joins related controls, such as buttons, into one set.\n한국어: 컨트롤그룹: 버튼처럼 관련된 컨트롤을 하나의 세트로 묶는 컨테이너\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "How do you group rows and buttons in SwiftUI?"
+}

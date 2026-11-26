@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 173
+
+LabeledContent
+- A view that shows a label on one side and a value on the other.
+- Example: "Show the app version in a LabeledContent row."
+
+GroupBox
+- A container that puts related content in a box with a title.
+- Example: "Put the account details in a GroupBox."
+
+ControlGroup
+- A container that joins related controls, such as buttons, into one set.
+- Example: "Place undo and redo in a ControlGroup."
+
+
+Quiz ①
+What do you call a container that puts related content in a titled box?
+a) ControlGroup
+b) LabeledContent
+c) GroupBox
+
+Quiz ②
+What do you call a container that joins related buttons into one set?
+a) LabeledContent
+b) GroupBox
+c) ControlGroup
+
+Quiz ③
+What do you call a view that shows a name on one side and its value on the other?
+a) GroupBox
+b) ControlGroup
+c) LabeledContent

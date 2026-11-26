@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 175
+
+Table
+- A view that shows rows of data in sortable columns.
+- Example: "Use a Table to show the team on iPad and Mac."
+
+TableColumn
+- One column of a Table that has a title and a value for each row.
+- Example: "Add a TableColumn for the name."
+
+OutlineGroup
+- A view that shows tree data as rows you can open and close.
+- Example: "Use an OutlineGroup to show folders and files."
+
+
+Quiz ①
+What do you call one column that has a title and a value for each row?
+a) TableColumn
+b) OutlineGroup
+c) Table
+
+Quiz ②
+What do you call a view that shows tree data as rows you can open and close?
+a) OutlineGroup
+b) Table
+c) TableColumn
+
+Quiz ③
+What do you call a view that shows rows of data in columns you can sort?
+a) Table
+b) TableColumn
+c) OutlineGroup

@@ -1,0 +1,236 @@
+{
+  "day": 185,
+  "phase": "4. SwiftUI",
+  "theme": "3 Xcode preview terms for SwiftUI, from old to new",
+  "terms": [
+    {
+      "term": "PreviewProvider",
+      "definition": "The older protocol for writing previews, with a static previews property.",
+      "example": "Old projects still use a PreviewProvider.",
+      "code": "struct Home_Previews: PreviewProvider {\n    static var previews: some View {\n        Text(\"Hi\")\n    }\n}",
+      "output": "// no output"
+    },
+    {
+      "term": "Previewable",
+      "definition": "A macro that lets you write state directly inside a preview.",
+      "example": "Add Previewable to test the toggle.",
+      "code": "#Preview {\n    @Previewable @State var on = true\n    Toggle(\"On\", isOn: $on)\n}",
+      "output": "// no output"
+    },
+    {
+      "term": "PreviewModifier",
+      "definition": "A protocol for shared setup that many previews can use.",
+      "example": "Put the dark mode setup in a PreviewModifier.",
+      "code": "struct Dark: PreviewModifier {\n    func body(content: Content,\n              context: Void) -> some View {\n        content.preferredColorScheme(.dark)\n    }\n}",
+      "output": "// no output"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What do you call a macro that lets you write state directly inside a preview?",
+      "options": [
+        "PreviewModifier",
+        "PreviewProvider",
+        "Previewable"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "What do you call a protocol for shared setup that many previews can use?",
+      "options": [
+        "Previewable",
+        "PreviewModifier",
+        "PreviewProvider"
+      ],
+      "answer": "b"
+    },
+    {
+      "question": "What do you call the older protocol for writing previews, with a static property?",
+      "options": [
+        "PreviewProvider",
+        "Previewable",
+        "PreviewModifier"
+      ],
+      "answer": "a"
+    }
+  ],
+  "video": {
+    "title": "PreviewProvider, Previewable & PreviewModifier | Day 185",
+    "description": "Learn to explain how SwiftUI previews work, from the old way to the new way: PreviewProvider, Previewable & PreviewModifier, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nPreviewProvider - The older protocol for writing previews, with a static previews property.\nPreviewable - A macro that lets you write state directly inside a preview.\nPreviewModifier - A protocol for shared setup that many previews can use.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 185 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "previewprovider",
+      "previewable",
+      "previewmodifier",
+      "previewprovider",
+      "previewable",
+      "previewmodifier",
+      "previewprovider",
+      "previewable",
+      "previewmodifier",
+      "swiftui",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "SwiftUI PreviewProvider, Previewable & PreviewModifier | Day 185",
+      "description": "Explain PreviewProvider, Previewable & PreviewModifier in SwiftUI by listening to a real code chat between two iOS devs.\n프리뷰프로바이더, 프리뷰어블, 프리뷰모디파이어 표현을 영어 대화로 익혀요.\n\nPreviewProvider - The older protocol for writing previews, with a static previews property.\n한국어: 프리뷰프로바이더: static previews 프로퍼티로 프리뷰를 만드는 예전 프로토콜\n\nPreviewable - A macro that lets you write state directly inside a preview.\n한국어: 프리뷰어블: 프리뷰 안에 상태를 바로 쓸 수 있게 해 주는 매크로\n\nPreviewModifier - A protocol for shared setup that many previews can use.\n한국어: 프리뷰모디파이어: 여러 프리뷰가 함께 쓸 수 있는 공통 설정을 위한 프로토콜\n\nIn this video, Mina and Jake move an old project to the new preview style, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 185 of the iOS Daily English series.\n\n#Swift #SwiftUI #EnglishForDevelopers",
+      "tags": [
+        "PreviewProvider",
+        "Previewable",
+        "PreviewModifier",
+        "previewprovider",
+        "previewable",
+        "previewmodifier",
+        "SwiftUI",
+        "SwiftUI 기초",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "iOS Daily English"
+      ],
+      "hook": "Can you explain PreviewProvider, Previewable and PreviewModifier in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "Better previews",
+    "setting": "Xcode previews",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, my old project has a different preview style.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "That is a PreviewProvider. It was the old way to make previews.",
+        "terms": [
+          "PreviewProvider"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "The new project uses a hash symbol. What is that?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "It is the `#Preview` macro, and it is shorter. But the PreviewProvider still works.",
+        "terms": [
+          "PreviewProvider"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "In my `#Preview`, I need a state for a toggle.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Add Previewable before the state. Then you can write `@State` right inside the preview.",
+        "terms": [
+          "Previewable"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Before that, I made a small wrapper view just for the preview.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "You do not need it now. Previewable removes the wrapper.",
+        "terms": [
+          "Previewable"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "I also want every preview in dark mode, with shared sample data.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Make a PreviewModifier. It builds the shared setup once for your previews.",
+        "terms": [
+          "PreviewModifier"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Can many previews use the same PreviewModifier?",
+        "terms": [
+          "PreviewModifier"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Yes, you pass it to each preview, and it saves time.",
+        "terms": []
+      }
+    ],
+    "code": "#Preview {\n    @Previewable @State var on = true\n    Toggle(\"On\", isOn: $on)\n}",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "PreviewProvider",
+      "lines": [
+        {
+          "text": "Old projects still use a PreviewProvider."
+        }
+      ],
+      "title": "Old projects still use a PreviewProvider. #Shorts",
+      "description": "Old projects still use a PreviewProvider.\n\nPreviewProvider - The older protocol for writing previews, with a static previews property.\n한국어: 프리뷰프로바이더: static previews 프로퍼티로 프리뷰를 만드는 예전 프로토콜\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "Previewable",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "How do I add state in a preview?"
+        },
+        {
+          "speaker": "B",
+          "text": "Use Previewable."
+        }
+      ],
+      "title": "How do I add state in a preview? / Use Previewable. #Shorts",
+      "description": "How do I add state in a preview? / Use Previewable.\n\nPreviewable - A macro that lets you write state directly inside a preview.\n한국어: 프리뷰어블: 프리뷰 안에 상태를 바로 쓸 수 있게 해 주는 매크로\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "PreviewModifier",
+      "lines": [
+        {
+          "text": "Share setup between previews with a PreviewModifier."
+        }
+      ],
+      "title": "Share setup between previews with a PreviewModifier. #Shorts",
+      "description": "Share setup between previews with a PreviewModifier.\n\nPreviewModifier - A protocol for shared setup that many previews can use.\n한국어: 프리뷰모디파이어: 여러 프리뷰가 함께 쓸 수 있는 공통 설정을 위한 프로토콜\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "What is the new way to write SwiftUI previews?"
+}

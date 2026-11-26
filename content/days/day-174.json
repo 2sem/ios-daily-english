@@ -1,0 +1,237 @@
+{
+  "day": 174,
+  "phase": "4. SwiftUI",
+  "theme": "3 SwiftUI terms for multi-column apps on iPad and Mac",
+  "terms": [
+    {
+      "term": "Sidebar",
+      "definition": "A column on the side that lists places or items to choose from.",
+      "example": "Show the folders in the Sidebar.",
+      "code": "List {\n    Text(\"Inbox\")\n}\n.listStyle(.sidebar)",
+      "output": "// no output"
+    },
+    {
+      "term": "NavigationSplitView",
+      "definition": "A view that shows two or three columns and updates the detail when you pick an item.",
+      "example": "Use a NavigationSplitView for the mail app on iPad.",
+      "code": "NavigationSplitView {\n    Text(\"Inbox\")\n} detail: {\n    Text(\"Message\")\n}",
+      "output": "// no output"
+    },
+    {
+      "term": "Inspector",
+      "definition": "A side panel that shows details about the selected item.",
+      "example": "Open an Inspector to show the photo size.",
+      "code": "Text(\"Photo\")\n    .inspector(isPresented: .constant(true)) {\n        Text(\"Size: 2 MB\")\n    }",
+      "output": "// no output"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What do you call a side panel that shows details about the selected item?",
+      "options": [
+        "Sidebar",
+        "NavigationSplitView",
+        "Inspector"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "What do you call the column on the side that lists places or items to choose from?",
+      "options": [
+        "NavigationSplitView",
+        "Inspector",
+        "Sidebar"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "What do you call a view that shows two or three columns and changes the detail when you pick an item?",
+      "options": [
+        "Inspector",
+        "Sidebar",
+        "NavigationSplitView"
+      ],
+      "answer": "c"
+    }
+  ],
+  "video": {
+    "title": "Sidebar, NavigationSplitView & Inspector | Day 174",
+    "description": "Learn to explain how SwiftUI builds multi-column screens for iPad and Mac: Sidebar, NavigationSplitView & Inspector, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nSidebar - A column on the side that lists places or items to choose from.\nNavigationSplitView - A view that shows two or three columns and updates the detail when you pick an item.\nInspector - A side panel that shows details about the selected item.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 174 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "sidebar",
+      "navigationsplitview",
+      "inspector",
+      "sidebar",
+      "navigationsplitview",
+      "inspector",
+      "sidebar",
+      "navigationsplitview",
+      "inspector",
+      "swiftui",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "SwiftUI Sidebar, NavigationSplitView & Inspector | Day 174",
+      "description": "Explain Sidebar, NavigationSplitView & Inspector in SwiftUI by listening to a real code chat between two iOS devs.\n사이드바, 내비게이션스플릿뷰, 인스펙터 표현을 영어 대화로 익혀요.\n\nSidebar - A column on the side that lists places or items to choose from.\n한국어: 사이드바: 선택할 장소나 항목을 나열하는 옆쪽 열\n\nNavigationSplitView - A view that shows two or three columns and updates the detail when you pick an item.\n한국어: 내비게이션스플릿뷰: 두 개 또는 세 개의 열을 보여 주고 항목을 고르면 상세를 바꾸는 뷰\n\nInspector - A side panel that shows details about the selected item.\n한국어: 인스펙터: 선택한 항목의 자세한 정보를 보여 주는 옆 패널\n\nIn this video, Mina and Jake turn a mail app into a multi-column iPad layout, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 174 of the iOS Daily English series.\n\n#Swift #SwiftUI #EnglishForDevelopers",
+      "tags": [
+        "Sidebar",
+        "NavigationSplitView",
+        "Inspector",
+        "sidebar",
+        "navigationsplitview",
+        "inspector",
+        "SwiftUI",
+        "SwiftUI 기초",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "iOS Daily English"
+      ],
+      "hook": "Can you explain Sidebar, NavigationSplitView and Inspector in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "A mail app on iPad",
+    "setting": "SwiftUI split views",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, the mail app looks too big for one column on iPad.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Use a NavigationSplitView. It gives you a Sidebar and a detail view.",
+        "terms": [
+          "Sidebar",
+          "NavigationSplitView"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "What goes in the Sidebar?",
+        "terms": [
+          "Sidebar"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "The folders, like Inbox. In the code, the Sidebar is the first closure.",
+        "terms": [
+          "Sidebar"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "And the second closure?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "That is the `detail`. It changes when the user picks a folder.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "I used a NavigationStack on iPad before, and it looked stretched.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Yes, a NavigationSplitView fits wide screens much better.",
+        "terms": [
+          "NavigationSplitView"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "What if I want to show the message size and date?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Add an Inspector. It opens on the side with extra details.",
+        "terms": [
+          "Inspector"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Can the Inspector stay open next to the message?",
+        "terms": [
+          "Inspector"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "On a wide screen, yes. On iPhone it becomes a sheet.",
+        "terms": []
+      }
+    ],
+    "code": "NavigationSplitView {\n    Text(\"Inbox\")\n} detail: {\n    Text(\"Message\")\n}",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "Sidebar",
+      "lines": [
+        {
+          "text": "Show your folders in the Sidebar."
+        }
+      ],
+      "title": "Show your folders in the Sidebar. #Shorts",
+      "description": "Show your folders in the Sidebar.\n\nSidebar - A column on the side that lists places or items to choose from.\n한국어: 사이드바: 선택할 장소나 항목을 나열하는 옆쪽 열\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "NavigationSplitView",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "How do I build a two-column screen?"
+        },
+        {
+          "speaker": "B",
+          "text": "Use a NavigationSplitView."
+        }
+      ],
+      "title": "How do I build a two-column screen? / Use a NavigationSplitView. #Shorts",
+      "description": "How do I build a two-column screen? / Use a NavigationSplitView.\n\nNavigationSplitView - A view that shows two or three columns and updates the detail when you pick an item.\n한국어: 내비게이션스플릿뷰: 두 개 또는 세 개의 열을 보여 주고 항목을 고르면 상세를 바꾸는 뷰\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Inspector",
+      "lines": [
+        {
+          "text": "An Inspector shows details about the selection."
+        }
+      ],
+      "title": "An Inspector shows details about the selection. #Shorts",
+      "description": "An Inspector shows details about the selection.\n\nInspector - A side panel that shows details about the selected item.\n한국어: 인스펙터: 선택한 항목의 자세한 정보를 보여 주는 옆 패널\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "How do you build a two-column iPad screen?"
+}

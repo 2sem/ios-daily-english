@@ -1,0 +1,239 @@
+{
+  "day": 176,
+  "phase": "4. SwiftUI",
+  "theme": "3 SwiftData terms for saving and loading data in a SwiftUI app",
+  "terms": [
+    {
+      "term": "ModelContainer",
+      "definition": "An object that sets up where your SwiftData models are stored.",
+      "example": "Create one ModelContainer for the whole app.",
+      "code": "@Model class Note { init() {} }\nlet box = try? ModelContainer(for: Note.self)",
+      "output": "// no output"
+    },
+    {
+      "term": "Query",
+      "definition": "A property wrapper that fetches saved models and keeps the view up to date.",
+      "example": "Use Query to load all notes in the list.",
+      "code": "@Model class Note { init() {} }\nstruct Notes: View {\n    @Query var n: [Note]\n    var body: some View { Text(\"\\(n.count)\") }\n}",
+      "output": "// no output"
+    },
+    {
+      "term": "ModelContext",
+      "definition": "The workspace where you insert, change and delete SwiftData models.",
+      "example": "Insert the new note into the ModelContext.",
+      "code": "@Model class Note { init() {} }\nfunc add(_ ctx: ModelContext) {\n    ctx.insert(Note())\n    try? ctx.save()\n}",
+      "output": "// no output"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What do you call the workspace where you insert, change and delete SwiftData models?",
+      "options": [
+        "ModelContext",
+        "ModelContainer",
+        "Query"
+      ],
+      "answer": "a"
+    },
+    {
+      "question": "What do you call an object that sets up where your SwiftData models are stored?",
+      "options": [
+        "ModelContainer",
+        "Query",
+        "ModelContext"
+      ],
+      "answer": "a"
+    },
+    {
+      "question": "What do you call a property wrapper that fetches saved models and updates the view when they change?",
+      "options": [
+        "Query",
+        "ModelContext",
+        "ModelContainer"
+      ],
+      "answer": "a"
+    }
+  ],
+  "video": {
+    "title": "ModelContainer, Query & ModelContext | Day 176",
+    "description": "Learn to explain how SwiftData saves and loads models in a SwiftUI app: ModelContainer, Query & ModelContext, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nModelContainer - An object that sets up where your SwiftData models are stored.\nQuery - A property wrapper that fetches saved models and keeps the view up to date.\nModelContext - The workspace where you insert, change and delete SwiftData models.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 176 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "modelcontainer",
+      "query",
+      "modelcontext",
+      "modelcontainer",
+      "query",
+      "modelcontext",
+      "modelcontainer",
+      "query",
+      "modelcontext",
+      "swiftui",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "SwiftUI ModelContainer, Query & ModelContext | Day 176",
+      "description": "Explain ModelContainer, Query & ModelContext in SwiftUI by listening to a real code chat between two iOS devs.\n모델컨테이너, 쿼리, 모델컨텍스트 표현을 영어 대화로 익혀요.\n\nModelContainer - An object that sets up where your SwiftData models are stored.\n한국어: 모델컨테이너: SwiftData 모델이 저장될 곳을 준비하는 객체\n\nQuery - A property wrapper that fetches saved models and keeps the view up to date.\n한국어: 쿼리: 저장된 모델을 가져오고 뷰를 최신으로 유지하는 프로퍼티 래퍼\n\nModelContext - The workspace where you insert, change and delete SwiftData models.\n한국어: 모델컨텍스트: SwiftData 모델을 추가, 수정, 삭제하는 작업 공간\n\nIn this video, Mina and Jake save notes with SwiftData and show them in a list, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 176 of the iOS Daily English series.\n\n#Swift #SwiftUI #EnglishForDevelopers",
+      "tags": [
+        "ModelContainer",
+        "Query",
+        "ModelContext",
+        "modelcontainer",
+        "query",
+        "modelcontext",
+        "SwiftUI",
+        "SwiftUI 기초",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "iOS Daily English"
+      ],
+      "hook": "Can you explain ModelContainer, Query and ModelContext in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "Saving notes",
+    "setting": "SwiftData in a view",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, I want my notes to stay after the app closes.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Use SwiftData. First, create a ModelContainer for the app.",
+        "terms": [
+          "ModelContainer"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "What does the ModelContainer do?",
+        "terms": [
+          "ModelContainer"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "It sets up where the models are stored on the device.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "Okay. How do I show the saved notes in a list?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Use Query. It loads the models and updates the view when they change.",
+        "terms": [
+          "Query"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "So I write `@Query var notes`, and no fetch code?",
+        "terms": [
+          "Query"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Right, the Query does the fetching for you.",
+        "terms": [
+          "Query"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "And how do I save a new note?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Read the ModelContext from the environment, then call `insert`.",
+        "terms": [
+          "ModelContext"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "I called save by hand, but it did nothing.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Check the ModelContext. It usually saves on its own, so make sure the ModelContainer is set.",
+        "terms": [
+          "ModelContainer",
+          "ModelContext"
+        ]
+      }
+    ],
+    "code": "@Query var notes: [Note]\n@Environment(\\.modelContext) var ctx\n// save: ctx.insert(Note())",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "ModelContainer",
+      "lines": [
+        {
+          "text": "Create one ModelContainer for the whole app."
+        }
+      ],
+      "title": "Create one ModelContainer for the whole app. #Shorts",
+      "description": "Create one ModelContainer for the whole app.\n\nModelContainer - An object that sets up where your SwiftData models are stored.\n한국어: 모델컨테이너: SwiftData 모델이 저장될 곳을 준비하는 객체\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "Query",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "How do I load saved notes?"
+        },
+        {
+          "speaker": "B",
+          "text": "Use Query."
+        }
+      ],
+      "title": "How do I load saved notes? / Use Query. #Shorts",
+      "description": "How do I load saved notes? / Use Query.\n\nQuery - A property wrapper that fetches saved models and keeps the view up to date.\n한국어: 쿼리: 저장된 모델을 가져오고 뷰를 최신으로 유지하는 프로퍼티 래퍼\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "ModelContext",
+      "lines": [
+        {
+          "text": "Insert the note into the ModelContext."
+        }
+      ],
+      "title": "Insert the note into the ModelContext. #Shorts",
+      "description": "Insert the note into the ModelContext.\n\nModelContext - The workspace where you insert, change and delete SwiftData models.\n한국어: 모델컨텍스트: SwiftData 모델을 추가, 수정, 삭제하는 작업 공간\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "How does SwiftData save and load your notes?"
+}

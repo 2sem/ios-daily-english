@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 186
+
+Locale
+- An environment value with the user's language and region, such as number and date formats.
+- Example: "Pass the Locale to the price formatter."
+
+DynamicTypeSize
+- An environment value that tells you how large the user wants the text.
+- Example: "Check the DynamicTypeSize and stack the buttons."
+
+LayoutDirection
+- An environment value that says if the layout reads left to right or right to left.
+- Example: "Check the LayoutDirection for Arabic screens."
+
+
+Quiz ①
+What do you call an environment value that says if the layout reads left to right or right to left?
+a) Locale
+b) DynamicTypeSize
+c) LayoutDirection
+
+Quiz ②
+What do you call an environment value with the user's language and region?
+a) LayoutDirection
+b) Locale
+c) DynamicTypeSize
+
+Quiz ③
+What do you call an environment value that tells you how large the user wants the text?
+a) DynamicTypeSize
+b) LayoutDirection
+c) Locale

@@ -1,0 +1,236 @@
+{
+  "day": 178,
+  "phase": "4. SwiftUI",
+  "theme": "3 SwiftUI modifiers for paging and snapping scroll views",
+  "terms": [
+    {
+      "term": "contentMargins",
+      "definition": "A modifier that adds space around the content of a scroll view.",
+      "example": "Add contentMargins so the first photo has space.",
+      "code": "ScrollView {\n    Text(\"Hi\")\n}\n.contentMargins(16, for: .scrollContent)",
+      "output": "// no output"
+    },
+    {
+      "term": "scrollTargetBehavior",
+      "definition": "A modifier that tells a scroll view where to stop, such as one page at a time.",
+      "example": "Set scrollTargetBehavior to paging for the carousel.",
+      "code": "ScrollView(.horizontal) {\n    Text(\"Page\")\n}\n.scrollTargetBehavior(.paging)",
+      "output": "// no output"
+    },
+    {
+      "term": "scrollTargetLayout",
+      "definition": "A modifier that marks the views inside a container as places where scrolling can stop.",
+      "example": "Add scrollTargetLayout to the stack of photos.",
+      "code": "ScrollView {\n    LazyVStack {\n        Text(\"Row\")\n    }\n    .scrollTargetLayout()\n}",
+      "output": "// no output"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What do you call a modifier that marks the views inside a container as places where scrolling can stop?",
+      "options": [
+        "scrollTargetBehavior",
+        "scrollTargetLayout",
+        "contentMargins"
+      ],
+      "answer": "b"
+    },
+    {
+      "question": "What do you call a modifier that adds space around the content of a scroll view?",
+      "options": [
+        "scrollTargetLayout",
+        "contentMargins",
+        "scrollTargetBehavior"
+      ],
+      "answer": "b"
+    },
+    {
+      "question": "What do you call a modifier that tells a scroll view where to stop, such as one page at a time?",
+      "options": [
+        "contentMargins",
+        "scrollTargetBehavior",
+        "scrollTargetLayout"
+      ],
+      "answer": "b"
+    }
+  ],
+  "video": {
+    "title": "contentMargins, scrollTargetBehavior & scrollTargetLayout | Day 178",
+    "description": "Learn to explain how to build paging and snapping scroll views in SwiftUI: contentMargins, scrollTargetBehavior & scrollTargetLayout, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\ncontentMargins - A modifier that adds space around the content of a scroll view.\nscrollTargetBehavior - A modifier that tells a scroll view where to stop, such as one page at a time.\nscrollTargetLayout - A modifier that marks the views inside a container as places where scrolling can stop.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 178 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "contentmargins",
+      "scrolltargetbehavior",
+      "scrolltargetlayout",
+      "contentmargins",
+      "scrolltargetbehavior",
+      "scrolltargetlayout",
+      "contentmargins",
+      "scrolltargetbehavior",
+      "scrolltargetlayout",
+      "swiftui",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "SwiftUI contentMargins, scrollTargetBehavior & scrollTargetLayout | Day 178",
+      "description": "Explain contentMargins, scrollTargetBehavior & scrollTargetLayout in SwiftUI by listening to a real code chat between two iOS devs.\n콘텐츠마진스, 스크롤타깃비헤이비어, 스크롤타깃레이아웃 표현을 영어 대화로 익혀요.\n\ncontentMargins - A modifier that adds space around the content of a scroll view.\n한국어: 콘텐츠마진스: 스크롤 뷰의 콘텐츠 주위에 여백을 더하는 모디파이어\n\nscrollTargetBehavior - A modifier that tells a scroll view where to stop, such as one page at a time.\n한국어: 스크롤타깃비헤이비어: 한 페이지씩처럼 스크롤 뷰가 어디서 멈출지 정하는 모디파이어\n\nscrollTargetLayout - A modifier that marks the views inside a container as places where scrolling can stop.\n한국어: 스크롤타깃레이아웃: 컨테이너 안의 뷰들을 스크롤이 멈출 수 있는 지점으로 표시하는 모디파이어\n\nIn this video, Mina and Jake build a photo carousel that snaps page by page, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 178 of the iOS Daily English series.\n\n#Swift #SwiftUI #EnglishForDevelopers",
+      "tags": [
+        "contentMargins",
+        "scrollTargetBehavior",
+        "scrollTargetLayout",
+        "contentmargins",
+        "scrolltargetbehavior",
+        "scrolltargetlayout",
+        "SwiftUI",
+        "SwiftUI 기초",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "iOS Daily English"
+      ],
+      "hook": "Can you explain contentMargins, scrollTargetBehavior and scrollTargetLayout in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "A photo carousel",
+    "setting": "SwiftUI scroll paging",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, my photo carousel scrolls, but it never stops on a photo.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Add scrollTargetBehavior with paging.",
+        "terms": [
+          "scrollTargetBehavior"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "So scrollTargetBehavior tells the scroll view where to stop?",
+        "terms": [
+          "scrollTargetBehavior"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Yes. With `.paging`, it moves one page at a time.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "I added it, but it still does not snap.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Your photos are in a stack, so mark that stack with scrollTargetLayout.",
+        "terms": [
+          "scrollTargetLayout"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Oh, so scrollTargetLayout shows which views are the targets?",
+        "terms": [
+          "scrollTargetLayout"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Right. Without it, the scroll view does not know where to snap.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "Now it works. But the first photo touches the edge.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Use contentMargins to add space around the content.",
+        "terms": [
+          "contentMargins"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Does contentMargins move the scroll bar too?",
+        "terms": [
+          "contentMargins"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Only if you choose the scroll bar area. Use `.scrollContent` for the content only.",
+        "terms": []
+      }
+    ],
+    "code": "ScrollView(.horizontal) {\n    LazyHStack { Text(\"Photo\") }\n        .scrollTargetLayout()\n}\n.scrollTargetBehavior(.paging)",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "contentMargins",
+      "lines": [
+        {
+          "text": "Add contentMargins to give the scroll space."
+        }
+      ],
+      "title": "Add contentMargins to give the scroll space. #Shorts",
+      "description": "Add contentMargins to give the scroll space.\n\ncontentMargins - A modifier that adds space around the content of a scroll view.\n한국어: 콘텐츠마진스: 스크롤 뷰의 콘텐츠 주위에 여백을 더하는 모디파이어\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "scrollTargetBehavior",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "How do I snap one page at a time?"
+        },
+        {
+          "speaker": "B",
+          "text": "Use scrollTargetBehavior."
+        }
+      ],
+      "title": "How do I snap one page at a time? / Use scrollTargetBehavior. #Shorts",
+      "description": "How do I snap one page at a time? / Use scrollTargetBehavior.\n\nscrollTargetBehavior - A modifier that tells a scroll view where to stop, such as one page at a time.\n한국어: 스크롤타깃비헤이비어: 한 페이지씩처럼 스크롤 뷰가 어디서 멈출지 정하는 모디파이어\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "scrollTargetLayout",
+      "lines": [
+        {
+          "text": "Add scrollTargetLayout to the stack of photos."
+        }
+      ],
+      "title": "Add scrollTargetLayout to the stack of photos. #Shorts",
+      "description": "Add scrollTargetLayout to the stack of photos.\n\nscrollTargetLayout - A modifier that marks the views inside a container as places where scrolling can stop.\n한국어: 스크롤타깃레이아웃: 컨테이너 안의 뷰들을 스크롤이 멈출 수 있는 지점으로 표시하는 모디파이어\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "How do you make a scroll view snap page by page?"
+}

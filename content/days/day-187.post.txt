@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 187
+
+gridCellColumns
+- A modifier that makes a cell cover more than one column.
+- Example: "Use gridCellColumns to make the title cover both columns."
+
+gridColumnAlignment
+- A modifier that sets the alignment for a whole column of a Grid.
+- Example: "Add gridColumnAlignment to one name cell."
+
+gridCellAnchor
+- A modifier that sets where a view sits inside its cell.
+- Example: "Use gridCellAnchor to put the icon at the top."
+
+
+Quiz ①
+What do you call a modifier that sets the alignment for a whole column of a Grid?
+a) gridColumnAlignment
+b) gridCellAnchor
+c) gridCellColumns
+
+Quiz ②
+What do you call a modifier that sets where a view sits inside its cell?
+a) gridCellColumns
+b) gridColumnAlignment
+c) gridCellAnchor
+
+Quiz ③
+What do you call a modifier that makes a cell cover more than one column?
+a) gridCellAnchor
+b) gridCellColumns
+c) gridColumnAlignment

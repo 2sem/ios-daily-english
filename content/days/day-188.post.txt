@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 188
+
+AsyncImage
+- A view that downloads an image from a web address and shows it.
+- Example: "Use AsyncImage for the profile picture."
+
+SymbolRenderingMode
+- A setting that chooses how an SF Symbol uses color, such as multicolor or hierarchical.
+- Example: "Set the SymbolRenderingMode to multicolor."
+
+ContentTransition
+- A setting that decides how the content of a view changes, such as rolling digits.
+- Example: "Add a ContentTransition to the like counter."
+
+
+Quiz ①
+What do you call a setting that decides how the content of a view changes, such as rolling digits?
+a) ContentTransition
+b) AsyncImage
+c) SymbolRenderingMode
+
+Quiz ②
+What do you call a view that downloads an image from a web address and shows it?
+a) SymbolRenderingMode
+b) ContentTransition
+c) AsyncImage
+
+Quiz ③
+What do you call a setting that chooses how an SF Symbol uses color, such as multicolor or hierarchical?
+a) AsyncImage
+b) SymbolRenderingMode
+c) ContentTransition

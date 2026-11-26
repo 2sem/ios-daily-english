@@ -1,0 +1,238 @@
+{
+  "day": 184,
+  "phase": "4. SwiftUI",
+  "theme": "3 WidgetKit terms for home screen widgets",
+  "terms": [
+    {
+      "term": "TimelineEntry",
+      "definition": "A protocol for the data of a widget at one moment in time, with a date.",
+      "example": "Add the streak count to the TimelineEntry.",
+      "code": "struct E: TimelineEntry {\n    let date: Date\n}",
+      "output": "// no output"
+    },
+    {
+      "term": "WidgetFamily",
+      "definition": "An enum for the sizes of a widget, such as small, medium and large.",
+      "example": "Check the WidgetFamily before you choose the layout.",
+      "code": "let sizes: [WidgetFamily] = [\n    .systemSmall, .systemMedium\n]",
+      "output": "// no output"
+    },
+    {
+      "term": "Timeline",
+      "definition": "A list of widget entries with dates, and a rule for when to ask for more.",
+      "example": "Return a Timeline with one entry per hour.",
+      "code": "struct E: TimelineEntry {\n    let date = Date()\n}\nlet line = Timeline(entries: [E()], policy: .never)",
+      "output": "// no output"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What do you call a list of widget entries with dates, and a rule for when to ask for more?",
+      "options": [
+        "WidgetFamily",
+        "Timeline",
+        "TimelineEntry"
+      ],
+      "answer": "b"
+    },
+    {
+      "question": "What do you call a protocol for the data of a widget at one moment in time, with a date?",
+      "options": [
+        "TimelineEntry",
+        "WidgetFamily",
+        "Timeline"
+      ],
+      "answer": "a"
+    },
+    {
+      "question": "What do you call an enum for the sizes of a widget, such as small, medium and large?",
+      "options": [
+        "Timeline",
+        "TimelineEntry",
+        "WidgetFamily"
+      ],
+      "answer": "c"
+    }
+  ],
+  "video": {
+    "title": "TimelineEntry, WidgetFamily & Timeline | Day 184",
+    "description": "Learn to explain how WidgetKit decides what a home screen widget shows and when: TimelineEntry, WidgetFamily & Timeline, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nTimelineEntry - A protocol for the data of a widget at one moment in time, with a date.\nWidgetFamily - An enum for the sizes of a widget, such as small, medium and large.\nTimeline - A list of widget entries with dates, and a rule for when to ask for more.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 184 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "timelineentry",
+      "widgetfamily",
+      "timeline",
+      "timelineentry",
+      "widgetfamily",
+      "timeline",
+      "timelineentry",
+      "widgetfamily",
+      "timeline",
+      "swiftui",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "SwiftUI TimelineEntry, WidgetFamily & Timeline | Day 184",
+      "description": "Explain TimelineEntry, WidgetFamily & Timeline in SwiftUI by listening to a real code chat between two iOS devs.\n타임라인엔트리, 위젯패밀리, 타임라인 표현을 영어 대화로 익혀요.\n\nTimelineEntry - A protocol for the data of a widget at one moment in time, with a date.\n한국어: 타임라인엔트리: 날짜와 함께 위젯의 한 시점 데이터를 담는 프로토콜\n\nWidgetFamily - An enum for the sizes of a widget, such as small, medium and large.\n한국어: 위젯패밀리: 작게, 중간, 크게 같은 위젯 크기를 나타내는 열거형\n\nTimeline - A list of widget entries with dates, and a rule for when to ask for more.\n한국어: 타임라인: 날짜가 있는 위젯 항목들과 언제 더 요청할지 정하는 규칙의 목록\n\nIn this video, Mina and Jake start a home screen widget for a habit app, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 184 of the iOS Daily English series.\n\n#Swift #SwiftUI #EnglishForDevelopers",
+      "tags": [
+        "TimelineEntry",
+        "WidgetFamily",
+        "Timeline",
+        "timelineentry",
+        "widgetfamily",
+        "timeline",
+        "SwiftUI",
+        "SwiftUI 기초",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "iOS Daily English"
+      ],
+      "hook": "Can you explain TimelineEntry, WidgetFamily and Timeline in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "A habit widget",
+    "setting": "WidgetKit basics",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, I am starting a home screen widget for my habit app.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "A widget shows data from a TimelineEntry. It has a `date` and your own values.",
+        "terms": [
+          "TimelineEntry"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Why does the TimelineEntry need a `date`?",
+        "terms": [
+          "TimelineEntry"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "WidgetKit uses the date to know when to show each entry.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "Then I give it a list of entries?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Yes, put them in a Timeline. It has the entries and a rule, like `.never` in the code.",
+        "terms": [
+          "Timeline"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "I made one entry, and the widget never changed.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Add more entries to the Timeline, with later dates.",
+        "terms": [
+          "Timeline"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "And for sizes? Is there a WidgetFamily?",
+        "terms": [
+          "WidgetFamily"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Yes, like `.systemSmall`. Check the WidgetFamily in your view and change the layout.",
+        "terms": [
+          "WidgetFamily"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Can one view work in all sizes?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Yes, but check the WidgetFamily first, so small widgets stay simple.",
+        "terms": [
+          "WidgetFamily"
+        ]
+      }
+    ],
+    "code": "struct E: TimelineEntry {\n    let date = Date()\n}\nlet line = Timeline(entries: [E()], policy: .never)\nlet sizes: [WidgetFamily] = [.systemSmall]",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "TimelineEntry",
+      "lines": [
+        {
+          "text": "Add the streak count to the TimelineEntry."
+        }
+      ],
+      "title": "Add the streak count to the TimelineEntry. #Shorts",
+      "description": "Add the streak count to the TimelineEntry.\n\nTimelineEntry - A protocol for the data of a widget at one moment in time, with a date.\n한국어: 타임라인엔트리: 날짜와 함께 위젯의 한 시점 데이터를 담는 프로토콜\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "WidgetFamily",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "How do I know the widget size?"
+        },
+        {
+          "speaker": "B",
+          "text": "Check the WidgetFamily."
+        }
+      ],
+      "title": "How do I know the widget size? / Check the WidgetFamily. #Shorts",
+      "description": "How do I know the widget size? / Check the WidgetFamily.\n\nWidgetFamily - An enum for the sizes of a widget, such as small, medium and large.\n한국어: 위젯패밀리: 작게, 중간, 크게 같은 위젯 크기를 나타내는 열거형\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Timeline",
+      "lines": [
+        {
+          "text": "Return a Timeline with one entry per hour."
+        }
+      ],
+      "title": "Return a Timeline with one entry per hour. #Shorts",
+      "description": "Return a Timeline with one entry per hour.\n\nTimeline - A list of widget entries with dates, and a rule for when to ask for more.\n한국어: 타임라인: 날짜가 있는 위젯 항목들과 언제 더 요청할지 정하는 규칙의 목록\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "How does a home screen widget know what to show?"
+}
