@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 41
+
+Property Wrapper
+- A type marked with `@propertyWrapper` that adds the same extra logic to every property it is attached to.
+- Example: "Let's write a Property Wrapper so every name is stored in capitals."
+
+Wrapped Value
+- The value inside a Property Wrapper that you read and write through the property's normal name.
+- Example: "When you read `count`, you get the Wrapped Value, not the wrapper."
+
+Projected Value
+- An extra value a Property Wrapper can expose, which you reach with a dollar sign before the property name.
+- Example: "`$score` is the Projected Value, so it's not the score itself."
+
+
+Quiz ①
+In this code, what do you call `$score`, reached with a dollar sign?
+a) Wrapped Value
+b) Projected Value
+c) Property Wrapper
+
+Quiz ②
+What do you call a type that adds the same extra logic to any variable it is attached to?
+a) Projected Value
+b) Wrapped Value
+c) Property Wrapper
+
+Quiz ③
+What holds the real data inside the wrapper, read and written through the property's normal name?
+a) Wrapped Value
+b) Property Wrapper
+c) Projected Value

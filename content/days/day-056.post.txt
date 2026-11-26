@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 56
+
+Static Dispatch
+- A method call whose exact code the compiler already knows when it builds the app.
+- Example: "Struct methods use Static Dispatch, so the call is very fast."
+
+Dynamic Dispatch
+- A method call that picks which code to run while the app is running, based on the object's real type.
+- Example: "Dynamic Dispatch is why the `Cat` version ran, not the `Animal` one."
+
+Witness Table
+- A hidden table Swift uses to find a type's protocol methods while the app is running.
+- Example: "Calls through `any Speaker` go through the Witness Table."
+
+
+Quiz ①
+What does Swift use to look up a type's protocol methods while the app runs?
+a) Static Dispatch
+b) Dynamic Dispatch
+c) Witness Table
+
+Quiz ②
+In this code, what picks the `Cat` version of `speak()` while the app runs?
+a) Dynamic Dispatch
+b) Witness Table
+c) Static Dispatch
+
+Quiz ③
+What do you call a call whose exact method the compiler already knows when building?
+a) Witness Table
+b) Static Dispatch
+c) Dynamic Dispatch

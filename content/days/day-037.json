@@ -1,0 +1,234 @@
+{
+  "day": 37,
+  "phase": "1. Swift basics",
+  "theme": "3 terms on sharing one object: a type that shares its instances, checking for the same object, and a protocol only classes can adopt",
+  "terms": [
+    {
+      "term": "Reference Type",
+      "definition": "A type whose instances are shared, so copying a variable gives you a second name for the same object.",
+      "example": "`Player` is a Reference Type, so updating `copy` also updated `original`.",
+      "code": "class Box { var value = 1 }\nlet a = Box()\nlet b = a\nb.value = 5\nprint(a.value)",
+      "output": "5"
+    },
+    {
+      "term": "Identity Operator",
+      "definition": "An operator, written as three equals signs, that checks if two references point to the same object.",
+      "example": "Use the Identity Operator to check it's the same `Player`, not just an equal one.",
+      "code": "class Box {}\nlet a = Box()\nlet b = a\nlet c = Box()\nprint(a === b)\nprint(a === c)",
+      "output": "true\nfalse"
+    },
+    {
+      "term": "AnyObject",
+      "definition": "A protocol that every class conforms to automatically, so you can use it to allow only class instances.",
+      "example": "I added AnyObject to `Listener`, so structs can't adopt it anymore.",
+      "code": "protocol Listener: AnyObject {}\nclass Screen: Listener {}\nlet item: Listener = Screen()\nprint(type(of: item))",
+      "output": "Screen"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What checks whether two class references point to the very same object?",
+      "options": [
+        "AnyObject",
+        "Reference Type",
+        "Identity Operator"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "What protocol do all classes conform to, so it can limit a protocol to classes only?",
+      "options": [
+        "AnyObject",
+        "Identity Operator",
+        "Reference Type"
+      ],
+      "answer": "a"
+    },
+    {
+      "question": "In this code, what kind of type is `Box`, since changing `b` also changes `a`?",
+      "code": "class Box { var value = 1 }\nlet a = Box()\nlet b = a\nb.value = 5",
+      "options": [
+        "Identity Operator",
+        "Reference Type",
+        "AnyObject"
+      ],
+      "answer": "b"
+    }
+  ],
+  "video": {
+    "title": "Reference Type, Identity Operator & AnyObject | Day 37",
+    "description": "Learn to explain how classes share one object in Swift: Reference Type, Identity Operator & AnyObject, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nReference Type - A type whose instances are shared, so copying a variable gives you a second name for the same object.\nIdentity Operator - An operator, written as three equals signs, that checks if two references point to the same object.\nAnyObject - A protocol that every class conforms to automatically, so you can use it to allow only class instances.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 37 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish #SwiftUI",
+    "tags": [
+      "reference type",
+      "identity operator",
+      "anyobject",
+      "swift class",
+      "swift reference type",
+      "swift value vs reference",
+      "swift basics",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "Swift Reference Type, Identity Operator & AnyObject | Day 37",
+      "description": "Explain Reference Type, Identity Operator & AnyObject in Swift by listening to a real code chat between two iOS devs.\n레퍼런스 타입, 아이덴티티 연산자, AnyObject 표현을 영어 대화로 익혀요.\n\nReference Type - A type whose instances are shared, so copying a variable gives you a second name for the same object.\n한국어: 레퍼런스 타입: 인스턴스를 공유해서, 변수를 복사해도 같은 객체를 가리키는 이름이 하나 더 생기는 타입\n\nIdentity Operator - An operator, written as three equals signs, that checks if two references point to the same object.\n한국어: 아이덴티티 연산자: 등호 세 개로 쓰며, 두 참조가 같은 객체를 가리키는지 확인하는 연산자\n\nAnyObject - A protocol that every class conforms to automatically, so you can use it to allow only class instances.\n한국어: AnyObject: 모든 클래스가 자동으로 따르는 프로토콜로, 클래스 인스턴스만 허용할 때 쓰는 것\n\nIn this video, Mina and Jake sort out why changing one variable changed another, how to check for the same object and why a protocol allows only classes, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 37 of the iOS Daily English series.\n\n#Swift #iOSDeveloper #EnglishForDevelopers",
+      "tags": [
+        "Reference Type",
+        "Identity Operator",
+        "AnyObject",
+        "swift class",
+        "swift reference type",
+        "value vs reference",
+        "스위프트 기초",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "ios development",
+        "iOS Daily English"
+      ],
+      "hook": "Can you explain these class terms in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "Why did first change too?",
+    "setting": "Morning bug hunt",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, I changed `second.score`, and `first.score` changed too. Is that a bug?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Not a bug. `Player` is a class, so it's a Reference Type.",
+        "terms": [
+          "Reference Type"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "So `second` isn't a copy?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "No. With a Reference Type, both names point to one object.",
+        "terms": [
+          "Reference Type"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "How can I check that in code?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Use the Identity Operator, three equals signs. It prints true here.",
+        "terms": [
+          "Identity Operator"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Two equals signs compare values. The Identity Operator compares objects.",
+        "terms": [
+          "Identity Operator"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "OK. And why does `ScoreListener` say AnyObject?",
+        "terms": [
+          "AnyObject"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "AnyObject means only classes can adopt it, so a struct can't.",
+        "terms": [
+          "AnyObject"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Makes sense. So only a Reference Type fits there.",
+        "terms": [
+          "Reference Type"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Exactly. AnyObject for class-only protocols, the Identity Operator for same-object checks.",
+        "terms": [
+          "AnyObject",
+          "Identity Operator"
+        ]
+      }
+    ],
+    "code": "protocol ScoreListener: AnyObject {}\nclass Player: ScoreListener { var score = 0 }\nlet first = Player()\nlet second = first\nsecond.score = 10\nprint(first === second)",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "Reference Type",
+      "lines": [
+        {
+          "text": "A Reference Type shares one object between names."
+        }
+      ],
+      "title": "A Reference Type shares one object between names. #Shorts",
+      "description": "A Reference Type shares one object between names.\n\nReference Type - A type whose instances are shared, so copying a variable gives you a second name for the same object.\n한국어: 레퍼런스 타입: 인스턴스를 공유해서, 변수를 복사해도 같은 객체를 가리키는 이름이 하나 더 생기는 타입\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "Identity Operator",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Are these the same `Player` object?"
+        },
+        {
+          "speaker": "B",
+          "text": "Check with the Identity Operator."
+        }
+      ],
+      "title": "Are these the same `Player` object? / Check with the Identity Operator. #Shorts",
+      "description": "Are these the same `Player` object? / Check with the Identity Operator.\n\nIdentity Operator - An operator, written as three equals signs, that checks if two references point to the same object.\n한국어: 아이덴티티 연산자: 등호 세 개로 쓰며, 두 참조가 같은 객체를 가리키는지 확인하는 연산자\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "AnyObject",
+      "lines": [
+        {
+          "text": "Add AnyObject, and only classes can adopt it."
+        }
+      ],
+      "title": "Add AnyObject, and only classes can adopt it. #Shorts",
+      "description": "Add AnyObject, and only classes can adopt it.\n\nAnyObject - A protocol that every class conforms to automatically, so you can use it to allow only class instances.\n한국어: AnyObject: 모든 클래스가 자동으로 따르는 프로토콜로, 클래스 인스턴스만 허용할 때 쓰는 것\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "Not a copy?"
+}

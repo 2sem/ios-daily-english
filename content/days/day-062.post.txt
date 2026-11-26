@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 62
+
+Function Type
+- The type of a function, written with an arrow like `(Int) -> Int`, so you can store a function in a variable.
+- Example: "Make the handler's Function Type `(String) -> Void`, not `Any`."
+
+Currying
+- Turning a function with several parameters into a chain of functions that each take one argument and return the next function.
+- Example: "With Currying, we set the tax rate once and reuse the function."
+
+Function Composition
+- Joining two functions into a new one, where the output of the first becomes the input of the second.
+- Example: "Use Function Composition to chain the price steps into one function."
+
+
+Quiz ①
+What do you call joining two functions so the output of one becomes the input of the other?
+a) Currying
+b) Function Type
+c) Function Composition
+
+Quiz ②
+In this code, what technique lets `add` take its two numbers one at a time?
+a) Currying
+b) Function Composition
+c) Function Type
+
+Quiz ③
+What do you call the arrow type like `(Int) -> Int` that lets you store a function in a variable?
+a) Function Composition
+b) Function Type
+c) Currying

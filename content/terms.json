@@ -419,6 +419,366 @@
     "substring": {
       "term": "Substring",
       "day": 35
+    },
+    "module": {
+      "term": "Module",
+      "day": 36
+    },
+    "fileprivate": {
+      "term": "Fileprivate",
+      "day": 36
+    },
+    "open": {
+      "term": "Open",
+      "day": 36
+    },
+    "referencetype": {
+      "term": "Reference Type",
+      "day": 37
+    },
+    "identityoperator": {
+      "term": "Identity Operator",
+      "day": 37
+    },
+    "anyobject": {
+      "term": "AnyObject",
+      "day": 37
+    },
+    "arc": {
+      "term": "ARC",
+      "day": 38
+    },
+    "strongreference": {
+      "term": "Strong Reference",
+      "day": 38
+    },
+    "retaincycle": {
+      "term": "Retain Cycle",
+      "day": 38
+    },
+    "referencecount": {
+      "term": "Reference Count",
+      "day": 39
+    },
+    "weakreference": {
+      "term": "Weak Reference",
+      "day": 39
+    },
+    "unownedreference": {
+      "term": "Unowned Reference",
+      "day": 39
+    },
+    "compoundassignmentoperator": {
+      "term": "Compound Assignment Operator",
+      "day": 40
+    },
+    "operatoroverloading": {
+      "term": "Operator Overloading",
+      "day": 40
+    },
+    "customoperator": {
+      "term": "Custom Operator",
+      "day": 40
+    },
+    "propertywrapper": {
+      "term": "Property Wrapper",
+      "day": 41
+    },
+    "wrappedvalue": {
+      "term": "Wrapped Value",
+      "day": 41
+    },
+    "projectedvalue": {
+      "term": "Projected Value",
+      "day": 41
+    },
+    "codable": {
+      "term": "Codable",
+      "day": 42
+    },
+    "jsondecoder": {
+      "term": "JSONDecoder",
+      "day": 42
+    },
+    "codingkeys": {
+      "term": "CodingKeys",
+      "day": 42
+    },
+    "keypath": {
+      "term": "KeyPath",
+      "day": 43
+    },
+    "writablekeypath": {
+      "term": "WritableKeyPath",
+      "day": 43
+    },
+    "dynamicmemberlookup": {
+      "term": "Dynamic Member Lookup",
+      "day": 43
+    },
+    "opaquetype": {
+      "term": "Opaque Type",
+      "day": 44
+    },
+    "existentialtype": {
+      "term": "Existential Type",
+      "day": 44
+    },
+    "typeerasure": {
+      "term": "Type Erasure",
+      "day": 44
+    },
+    "valuesemantics": {
+      "term": "Value Semantics",
+      "day": 45
+    },
+    "copyonwrite": {
+      "term": "Copy-on-Write",
+      "day": 45
+    },
+    "isknownuniquelyreferenced": {
+      "term": "isKnownUniquelyReferenced",
+      "day": 45
+    },
+    "domainspecificlanguage": {
+      "term": "Domain-Specific Language",
+      "day": 46
+    },
+    "resultbuilder": {
+      "term": "Result Builder",
+      "day": 46
+    },
+    "buildblock": {
+      "term": "buildBlock",
+      "day": 46
+    },
+    "lazyproperty": {
+      "term": "Lazy Property",
+      "day": 47
+    },
+    "lazysequence": {
+      "term": "Lazy Sequence",
+      "day": 47
+    },
+    "memoization": {
+      "term": "Memoization",
+      "day": 47
+    },
+    "tuplepattern": {
+      "term": "Tuple Pattern",
+      "day": 48
+    },
+    "valuebindingpattern": {
+      "term": "Value-Binding Pattern",
+      "day": 48
+    },
+    "patternmatchingoperator": {
+      "term": "Pattern Matching Operator",
+      "day": 48
+    },
+    "utf8view": {
+      "term": "UTF-8 View",
+      "day": 49
+    },
+    "unicodescalar": {
+      "term": "Unicode Scalar",
+      "day": 49
+    },
+    "graphemecluster": {
+      "term": "Grapheme Cluster",
+      "day": 49
+    },
+    "conditionalconformance": {
+      "term": "Conditional Conformance",
+      "day": 50
+    },
+    "primaryassociatedtype": {
+      "term": "Primary Associated Type",
+      "day": 50
+    },
+    "parameterpack": {
+      "term": "Parameter Pack",
+      "day": 50
+    },
+    "exhaustiveswitch": {
+      "term": "Exhaustive Switch",
+      "day": 51
+    },
+    "unknowndefault": {
+      "term": "Unknown Default",
+      "day": 51
+    },
+    "frozenenum": {
+      "term": "Frozen Enum",
+      "day": 51
+    },
+    "memorysafety": {
+      "term": "Memory Safety",
+      "day": 52
+    },
+    "exclusiveaccess": {
+      "term": "Exclusive Access",
+      "day": 52
+    },
+    "unsafepointer": {
+      "term": "UnsafePointer",
+      "day": 52
+    },
+    "macro": {
+      "term": "Macro",
+      "day": 53
+    },
+    "freestandingmacro": {
+      "term": "Freestanding Macro",
+      "day": 53
+    },
+    "attachedmacro": {
+      "term": "Attached Macro",
+      "day": 53
+    },
+    "attribute": {
+      "term": "Attribute",
+      "day": 54
+    },
+    "discardableresult": {
+      "term": "Discardable Result",
+      "day": 54
+    },
+    "availabilityattribute": {
+      "term": "Availability Attribute",
+      "day": 54
+    },
+    "regex": {
+      "term": "Regex",
+      "day": 55
+    },
+    "capturegroup": {
+      "term": "Capture Group",
+      "day": 55
+    },
+    "regexbuilder": {
+      "term": "Regex Builder",
+      "day": 55
+    },
+    "staticdispatch": {
+      "term": "Static Dispatch",
+      "day": 56
+    },
+    "dynamicdispatch": {
+      "term": "Dynamic Dispatch",
+      "day": 56
+    },
+    "witnesstable": {
+      "term": "Witness Table",
+      "day": 56
+    },
+    "noncopyabletype": {
+      "term": "Noncopyable Type",
+      "day": 57
+    },
+    "borrowingparameter": {
+      "term": "Borrowing Parameter",
+      "day": 57
+    },
+    "consumingparameter": {
+      "term": "Consuming Parameter",
+      "day": 57
+    },
+    "integeroverflow": {
+      "term": "Integer Overflow",
+      "day": 58
+    },
+    "overflowoperator": {
+      "term": "Overflow Operator",
+      "day": 58
+    },
+    "fixedwidthinteger": {
+      "term": "FixedWidthInteger",
+      "day": 58
+    },
+    "escapesequence": {
+      "term": "Escape Sequence",
+      "day": 59
+    },
+    "multilinestringliteral": {
+      "term": "Multiline String Literal",
+      "day": 59
+    },
+    "rawstring": {
+      "term": "Raw String",
+      "day": 59
+    },
+    "implicitlyunwrappedoptional": {
+      "term": "Implicitly Unwrapped Optional",
+      "day": 60
+    },
+    "optionalmap": {
+      "term": "Optional Map",
+      "day": 60
+    },
+    "optionalpattern": {
+      "term": "Optional Pattern",
+      "day": 60
+    },
+    "arrayslice": {
+      "term": "ArraySlice",
+      "day": 61
+    },
+    "reservecapacity": {
+      "term": "Reserve Capacity",
+      "day": 61
+    },
+    "contiguousarray": {
+      "term": "ContiguousArray",
+      "day": 61
+    },
+    "functiontype": {
+      "term": "Function Type",
+      "day": 62
+    },
+    "currying": {
+      "term": "Currying",
+      "day": 62
+    },
+    "functioncomposition": {
+      "term": "Function Composition",
+      "day": 62
+    },
+    "encodable": {
+      "term": "Encodable",
+      "day": 63
+    },
+    "decodable": {
+      "term": "Decodable",
+      "day": 63
+    },
+    "keydecodingstrategy": {
+      "term": "Key Decoding Strategy",
+      "day": 63
+    },
+    "protocolcomposition": {
+      "term": "Protocol Composition",
+      "day": 64
+    },
+    "classonlyprotocol": {
+      "term": "Class Only Protocol",
+      "day": 64
+    },
+    "selfrequirement": {
+      "term": "Self Requirement",
+      "day": 64
+    },
+    "generictypealias": {
+      "term": "Generic Typealias",
+      "day": 65
+    },
+    "constrainedextension": {
+      "term": "Constrained Extension",
+      "day": 65
+    },
+    "genericsubscript": {
+      "term": "Generic Subscript",
+      "day": 65
     }
   }
 }

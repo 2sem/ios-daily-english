@@ -76,10 +76,11 @@ html,body{width:1280px;height:720px;overflow:hidden;background:#0b0f1a;color:#ee
 .b{font-size:36px;font-weight:600;line-height:1.28;padding:22px 28px;border-radius:26px;background:#18223a;border:2px solid #243049;box-shadow:0 18px 44px rgba(0,0,0,.45)}
 .m .b{border-bottom-left-radius:8px}.m.r .b{border-bottom-right-radius:8px;background:#1f2c4d}
 .hl{font-weight:800;border-bottom:4px solid currentColor}
+.code{font-family:JB,monospace;font-size:31px;color:#cfd8ea;background:rgba(255,255,255,.08);border-radius:8px;padding:0 8px}
 </style></head><body><div class="bg"></div>
 <div class="top"><img src="file://${logo}"><div class="k">iOS Daily English</div><div class="badge">Day ${day.day}</div></div>
 <div class="l"><div class="h">${day.linkedinHook || "Code review English"}</div><div class="sub">${day.terms.map((t, i) => `<span style="color:${colors[i]};white-space:nowrap">${t.term}</span>`).join(" · ")}</div></div>
-<div class="chat">${[[day.terms[0], "Mina", ""], [day.terms[2], "Jake", " r"]].map(([t, who, cls], i) => `<div class="m${cls}"><div class="who">${who}</div><div class="b">${esc(t.example).replace(new RegExp(`\\b(${t.term}s?)\\b`, "gi"), (m) => `<span class="hl" style="color:${colors[i * 2]}">${m}</span>`)}</div></div>`).join("")}</div>
+<div class="chat">${[[day.terms[0], "Mina", ""], [day.terms[2], "Jake", " r"]].map(([t, who, cls], i) => `<div class="m${cls}"><div class="who">${who}</div><div class="b">${esc(t.example).replace(new RegExp(`\\b(${t.term}s?)\\b`, "gi"), (m) => `<span class="hl" style="color:${colors[i * 2]}">${m}</span>`).replace(/`([^`]+)`/g, '<span class="code">$1</span>')}</div></div>`).join("")}</div>
 </body></html>`;
 const html = linkedin ? linkedinHtml : landscape ? landscapeHtml : `<!doctype html><html><head><meta charset="utf-8"><style>
 @font-face{font-family:Inter;font-weight:800;src:url(file://${fonts}/inter-latin-800-normal.woff2)}

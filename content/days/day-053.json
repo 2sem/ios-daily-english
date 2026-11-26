@@ -1,0 +1,232 @@
+{
+  "day": 53,
+  "phase": "2. Swift in depth",
+  "theme": "3 terms on Swift macros: code that writes code, macros that stand alone with a hash, and macros attached with an at sign",
+  "terms": [
+    {
+      "term": "Macro",
+      "definition": "A feature that generates extra Swift code for you while your app compiles.",
+      "example": "`#Predicate` is a Macro, so it turns this closure into a real filter.",
+      "code": "import Foundation\nlet big = #Predicate<Int> { $0 > 3 }\nlet nums = [1, 5, 8]\nprint(try nums.filter(big))",
+      "output": "[5, 8]"
+    },
+    {
+      "term": "Freestanding Macro",
+      "definition": "A macro written with a hash sign that stands on its own and expands into code right there.",
+      "example": "`#line` is a Freestanding Macro, so it turns into the current line number.",
+      "code": "func save() {\n    print(#function, #line)\n}\nsave()",
+      "output": "save() 2"
+    },
+    {
+      "term": "Attached Macro",
+      "definition": "A macro written with an at sign on a declaration that adds code to that declaration.",
+      "example": "`@Observable` is an Attached Macro, so it adds tracking code to the class.",
+      "code": "import Observation\n@Observable class Cart { var items = 0 }\nlet cart = Cart()\ncart.items = 3\nprint(cart.items)",
+      "output": "3"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What do you call code generation written with an at sign on top of a type?",
+      "options": [
+        "Freestanding Macro",
+        "Macro",
+        "Attached Macro"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "In this code, what kind of thing is `#function`, written with a hash sign?",
+      "code": "func save() {\n    print(#function, #line)\n}",
+      "options": [
+        "Freestanding Macro",
+        "Attached Macro",
+        "Macro"
+      ],
+      "answer": "a"
+    },
+    {
+      "question": "What do you call a feature that generates extra Swift code while your app compiles?",
+      "options": [
+        "Attached Macro",
+        "Macro",
+        "Freestanding Macro"
+      ],
+      "answer": "b"
+    }
+  ],
+  "video": {
+    "title": "Macro, Freestanding Macro & Attached Macro | Day 53",
+    "description": "Learn to explain Swift macros: Macro, Freestanding Macro & Attached Macro, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nMacro - A feature that generates extra Swift code for you while your app compiles.\nFreestanding Macro - A macro written with a hash sign that stands on its own and expands into code right there.\nAttached Macro - A macro written with an at sign on a declaration that adds code to that declaration.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 53 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish #SwiftUI",
+    "tags": [
+      "swift macro",
+      "freestanding macro",
+      "attached macro",
+      "swift macros",
+      "observable macro",
+      "predicate macro",
+      "swift in depth",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "Swift Macro, Freestanding Macro & Attached Macro | Day 53",
+      "description": "Explain Macro, Freestanding Macro & Attached Macro in Swift by listening to a real code chat between two iOS devs.\n매크로, 독립형 매크로, 부착형 매크로 표현을 영어 대화로 익혀요.\n\nMacro - A feature that generates extra Swift code for you while your app compiles.\n한국어: 매크로: 앱을 컴파일하는 동안 Swift 코드를 추가로 만들어 주는 기능\n\nFreestanding Macro - A macro written with a hash sign that stands on its own and expands into code right there.\n한국어: 독립형 매크로: # 기호로 쓰며, 혼자 서서 그 자리에서 코드로 펼쳐지는 매크로\n\nAttached Macro - A macro written with an at sign on a declaration that adds code to that declaration.\n한국어: 부착형 매크로: @ 기호로 선언 위에 붙여, 그 선언에 코드를 더해 주는 매크로\n\nIn this video, Mina and Jake sort out how a class updates the screen without extra code, what a hash sign means and how to see the generated code, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 53 of the iOS Daily English series.\n\n#Swift #iOSDeveloper #EnglishForDevelopers",
+      "tags": [
+        "Macro",
+        "Freestanding Macro",
+        "Attached Macro",
+        "swift macros",
+        "Observable",
+        "swift in depth",
+        "스위프트 심화",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "ios development",
+        "iOS Daily English"
+      ],
+      "hook": "Can you explain Swift macros in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "Who wrote this code?",
+    "setting": "Morning pairing session",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, how does SwiftUI see `volume` change? I wrote no extra code.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "`@Observable` is a Macro. It writes the tracking code when you build.",
+        "terms": [
+          "Macro"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "So a Macro generates Swift code at compile time?",
+        "terms": [
+          "Macro"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Yes. This one is an Attached Macro, because it sits on `Settings`.",
+        "terms": [
+          "Attached Macro"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "What about `#line` in `log`? It has a hash sign.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "That's a Freestanding Macro. It becomes the line number.",
+        "terms": [
+          "Freestanding Macro"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Wait, I thought `#line` was just a special keyword.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "It used to be. Now Swift declares it as a Freestanding Macro.",
+        "terms": [
+          "Freestanding Macro"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Can I see what an Attached Macro adds?",
+        "terms": [
+          "Attached Macro"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Sure. In Xcode, right-click `@Observable` and expand it.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "Got it. Freestanding Macro with a hash, Attached Macro with an at sign.",
+        "terms": [
+          "Freestanding Macro",
+          "Attached Macro"
+        ]
+      }
+    ],
+    "code": "import Observation\n@Observable class Settings {\n    var volume = 5\n}\nfunc log() { print(#function, #line) }",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-conversation",
+      "term": "Macro",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Who wrote all this hidden code?"
+        },
+        {
+          "speaker": "B",
+          "text": "A Macro did, at compile time."
+        }
+      ],
+      "title": "Who wrote all this hidden code? / A Macro did, at compile time. #Shorts",
+      "description": "Who wrote all this hidden code? / A Macro did, at compile time.\n\nMacro - A feature that generates extra Swift code for you while your app compiles.\n한국어: 매크로: 앱을 컴파일하는 동안 Swift 코드를 추가로 만들어 주는 기능\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Freestanding Macro",
+      "lines": [
+        {
+          "text": "A Freestanding Macro starts with a hash sign."
+        }
+      ],
+      "title": "A Freestanding Macro starts with a hash sign. #Shorts",
+      "description": "A Freestanding Macro starts with a hash sign.\n\nFreestanding Macro - A macro written with a hash sign that stands on its own and expands into code right there.\n한국어: 독립형 매크로: # 기호로 쓰며, 혼자 서서 그 자리에서 코드로 펼쳐지는 매크로\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Attached Macro",
+      "lines": [
+        {
+          "text": "An Attached Macro sits on top of a declaration."
+        }
+      ],
+      "title": "An Attached Macro sits on top of a declaration. #Shorts",
+      "description": "An Attached Macro sits on top of a declaration.\n\nAttached Macro - A macro written with an at sign on a declaration that adds code to that declaration.\n한국어: 부착형 매크로: @ 기호로 선언 위에 붙여, 그 선언에 코드를 더해 주는 매크로\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "Who wrote this code?"
+}

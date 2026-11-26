@@ -1,0 +1,229 @@
+{
+  "day": 57,
+  "phase": "2. Swift in depth",
+  "theme": "3 terms on ownership: a type that can never be copied, a parameter that only borrows a value, and a parameter that takes the value for good",
+  "terms": [
+    {
+      "term": "Noncopyable Type",
+      "definition": "A type marked `~Copyable`, so a value has only one owner and is moved instead of copied.",
+      "example": "Make the coupon a Noncopyable Type, so nobody can redeem it twice.",
+      "code": "struct Ticket: ~Copyable { let seat: Int }\ndo {\n    let t = Ticket(seat: 7)\n    let u = t // moved, not copied\n    print(u.seat)\n}",
+      "output": "7"
+    },
+    {
+      "term": "Borrowing Parameter",
+      "definition": "A parameter marked `borrowing` that can read a value for a moment while the caller keeps owning it.",
+      "example": "`show` only reads the ticket, so a Borrowing Parameter is enough.",
+      "code": "struct Ticket: ~Copyable { let seat: Int }\nfunc show(_ t: borrowing Ticket) {\n    print(\"Seat \\(t.seat)\")\n}\nlet t = Ticket(seat: 7)\nshow(t); show(t)",
+      "output": "Seat 7\nSeat 7"
+    },
+    {
+      "term": "Consuming Parameter",
+      "definition": "A parameter marked `consuming` that takes ownership of a value, so the caller cannot use it afterwards.",
+      "example": "`redeem` should end the coupon, so give it a Consuming Parameter.",
+      "code": "struct Ticket: ~Copyable { let seat: Int }\nfunc use(_ t: consuming Ticket) {\n    print(\"Used seat \\(t.seat)\")\n}\ndo { let t = Ticket(seat: 7); use(t) }",
+      "output": "Used seat 7"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What do you call a parameter that takes ownership, so the caller cannot use the value afterwards?",
+      "options": [
+        "Borrowing Parameter",
+        "Consuming Parameter",
+        "Noncopyable Type"
+      ],
+      "answer": "b"
+    },
+    {
+      "question": "In this code, what does the tilde before `Copyable` make `Ticket`?",
+      "code": "struct Ticket: ~Copyable {\n    let seat: Int\n}",
+      "options": [
+        "Noncopyable Type",
+        "Consuming Parameter",
+        "Borrowing Parameter"
+      ],
+      "answer": "a"
+    },
+    {
+      "question": "What do you call a parameter that only reads a value while the caller keeps owning it?",
+      "options": [
+        "Consuming Parameter",
+        "Noncopyable Type",
+        "Borrowing Parameter"
+      ],
+      "answer": "c"
+    }
+  ],
+  "video": {
+    "title": "Noncopyable Type, Borrowing & Consuming Parameter | Day 57",
+    "description": "Learn to explain ownership in Swift: Noncopyable Type, Borrowing Parameter & Consuming Parameter, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nNoncopyable Type - A type marked `~Copyable`, so a value has only one owner and is moved instead of copied.\nBorrowing Parameter - A parameter marked `borrowing` that can read a value for a moment while the caller keeps owning it.\nConsuming Parameter - A parameter marked `consuming` that takes ownership of a value, so the caller cannot use it afterwards.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 57 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "noncopyable type",
+      "borrowing parameter",
+      "consuming parameter",
+      "swift ownership",
+      "copyable",
+      "swift move only",
+      "swift in depth",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "Swift Ownership: Noncopyable Type, Borrowing & Consuming Parameter | Day 57",
+      "description": "Explain Noncopyable Type, Borrowing Parameter & Consuming Parameter in Swift by listening to a real code chat between two iOS devs.\n복사 불가 타입, 빌려 쓰는 매개변수, 소비하는 매개변수 표현을 영어 대화로 익혀요.\n\nNoncopyable Type - A type marked `~Copyable`, so a value has only one owner and is moved instead of copied.\n한국어: 복사 불가 타입: `~Copyable`로 표시해서 값의 주인이 하나뿐이고 복사 대신 이동되는 타입\n\nBorrowing Parameter - A parameter marked `borrowing` that can read a value for a moment while the caller keeps owning it.\n한국어: 빌려 쓰는 매개변수: `borrowing`으로 표시해서 호출한 쪽이 소유권을 유지한 채 값을 잠깐 읽기만 하는 매개변수\n\nConsuming Parameter - A parameter marked `consuming` that takes ownership of a value, so the caller cannot use it afterwards.\n한국어: 소비하는 매개변수: `consuming`으로 표시해서 값의 소유권을 가져가므로 호출한 쪽이 그 뒤에 쓸 수 없는 매개변수\n\nIn this video, Mina and Jake figure out why a coupon must never be copied, which function only reads it and which one uses it up, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 57 of the iOS Daily English series.\n\n#Swift #iOSDeveloper #EnglishForDevelopers",
+      "tags": [
+        "Noncopyable Type",
+        "Borrowing Parameter",
+        "Consuming Parameter",
+        "swift ownership",
+        "~Copyable",
+        "borrowing consuming swift",
+        "스위프트 심화",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "ios development",
+        "iOS Daily English"
+      ],
+      "hook": "Can you explain Swift ownership in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "One coupon, one use",
+    "setting": "Morning code review",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, why does `Coupon` say tilde Copyable?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "That makes it a Noncopyable Type. Nobody can make a second copy.",
+        "terms": [
+          "Noncopyable Type"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Why would a coupon need that?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Each coupon works once. Two copies would mean two discounts.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "OK. And what does `borrowing` mean in `show`?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "It's a Borrowing Parameter. `show` reads the `code`, but the caller keeps the coupon.",
+        "terms": [
+          "Borrowing Parameter"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "So `redeem` uses a Consuming Parameter?",
+        "terms": [
+          "Consuming Parameter"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Right. A Consuming Parameter takes ownership, so the coupon ends inside `redeem`.",
+        "terms": [
+          "Consuming Parameter"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Can I still call `show` after `redeem`?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "No, the compiler stops you. Use the Borrowing Parameter first, then consume it.",
+        "terms": [
+          "Borrowing Parameter"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Got it. A Noncopyable Type has one owner, and `redeem` is the end of the line.",
+        "terms": [
+          "Noncopyable Type"
+        ]
+      }
+    ],
+    "code": "struct Coupon: ~Copyable { let code: Int }\nfunc show(_ c: borrowing Coupon) {\n    print(\"Coupon\", c.code)\n}\nfunc redeem(_ c: consuming Coupon) {}",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "Noncopyable Type",
+      "lines": [
+        {
+          "text": "A Noncopyable Type has exactly one owner, never a copy."
+        }
+      ],
+      "title": "A Noncopyable Type has exactly one owner, never a copy. #Shorts",
+      "description": "A Noncopyable Type has exactly one owner, never a copy.\n\nNoncopyable Type - A type marked `~Copyable`, so a value has only one owner and is moved instead of copied.\n한국어: 복사 불가 타입: `~Copyable`로 표시해서 값의 주인이 하나뿐이고 복사 대신 이동되는 타입\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "Borrowing Parameter",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Does `show` keep my coupon?"
+        },
+        {
+          "speaker": "B",
+          "text": "No, it's just a Borrowing Parameter."
+        }
+      ],
+      "title": "Does `show` keep my coupon? / No, it's just a Borrowing Parameter. #Shorts",
+      "description": "Does `show` keep my coupon? / No, it's just a Borrowing Parameter.\n\nBorrowing Parameter - A parameter marked `borrowing` that can read a value for a moment while the caller keeps owning it.\n한국어: 빌려 쓰는 매개변수: `borrowing`으로 표시해서 호출한 쪽이 소유권을 유지한 채 값을 잠깐 읽기만 하는 매개변수\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Consuming Parameter",
+      "lines": [
+        {
+          "text": "A Consuming Parameter takes the value, and you can't use it again."
+        }
+      ],
+      "title": "A Consuming Parameter takes the value, and you can't use it again. #Shorts",
+      "description": "A Consuming Parameter takes the value, and you can't use it again.\n\nConsuming Parameter - A parameter marked `consuming` that takes ownership of a value, so the caller cannot use it afterwards.\n한국어: 소비하는 매개변수: `consuming`으로 표시해서 값의 소유권을 가져가므로 호출한 쪽이 그 뒤에 쓸 수 없는 매개변수\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "Copy this? Nope."
+}

@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 51
+
+Exhaustive Switch
+- A `switch` that covers every possible case, so it needs no `default`.
+- Example: "Keep it an Exhaustive Switch, so the compiler tells us about new cases."
+
+Unknown Default
+- A case written `@unknown default` that handles enum cases added in the future but still warns about current ones you missed.
+- Example: "Add an Unknown Default, because Apple may add new states later."
+
+Frozen Enum
+- A public enum marked `@frozen` that promises it will never get new cases.
+- Example: "`Optional` is a Frozen Enum, so two cases are always enough."
+
+
+Quiz ①
+What do you call an enum that promises it will never get new cases?
+a) Unknown Default
+b) Exhaustive Switch
+c) Frozen Enum
+
+Quiz ②
+In this code, what do you call this `switch`, which lists every case and has no `default`?
+a) Exhaustive Switch
+b) Frozen Enum
+c) Unknown Default
+
+Quiz ③
+What handles enum cases that Apple might add in a future SDK?
+a) Frozen Enum
+b) Unknown Default
+c) Exhaustive Switch

@@ -6,7 +6,7 @@
 // replay-intro (the replay lines, all of them, reuse the dNN clips), quiz-intro, qN-q, outro,
 // hookK-lJ / hookK-slow / hookK-end (vertical hooks). Quiz options are never spoken.
 // Does not write to the day JSON.
-import { mkdirSync, existsSync, statSync } from "node:fs";
+import { mkdirSync, existsSync, statSync, readFileSync, writeFileSync } from "node:fs";
 import { execFileSync } from "node:child_process";
 import { join } from "node:path";
 import { loadDay, voicesFor, buildClips, edgeClip, opt, flag } from "./lib/landscape.mjs";
@@ -21,8 +21,12 @@ const trim = "silenceremove=start_periods=1:start_threshold=-45dB:start_silence=
 let n = 0;
 for (const [key, c] of Object.entries(clips)) {
   if (only && !only.includes(key)) continue;
-  const mp3 = join(paths.audioDir, `${key}.mp3`);
-  if (force || !existsSync(mp3) || statSync(mp3).size === 0) edgeClip(c.voice, c.rate, c.text, mp3);
+  const mp3 = join(paths.audioDir, `${key}.mp3`), sig = join(paths.audioDir, `${key}.txt`);
+  // The cache is keyed by clip name; the sidecar .txt holds voice|rate|text so an edited line is re-voiced automatically.
+  const want = `${c.voice}|${c.rate}|${c.text}`;
+  const stale = existsSync(sig) ? readFileSync(sig, "utf8") !== want : false;
+  if (force || stale || !existsSync(mp3) || statSync(mp3).size === 0) { edgeClip(c.voice, c.rate, c.text, mp3); writeFileSync(sig, want); }
+  else if (!existsSync(sig)) writeFileSync(sig, want); // adopt clips made before sidecars existed
   execFileSync("ffmpeg", ["-y", "-v", "error", "-i", mp3, "-af", `${trim},areverse,${trim},areverse`, "-ar", "44100", "-ac", "1", join(paths.audioDir, `${key}.wav`)]);
   n++;
 }

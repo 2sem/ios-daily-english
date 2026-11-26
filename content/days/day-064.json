@@ -1,0 +1,229 @@
+{
+  "day": 64,
+  "phase": "2. Swift in depth",
+  "theme": "3 terms on protocols in depth: joining protocols with an ampersand, a protocol only classes can adopt, and a requirement that uses the adopting type itself",
+  "terms": [
+    {
+      "term": "Protocol Composition",
+      "definition": "Joining protocols with an ampersand, like `Named & Aged`, so a value must conform to all of them.",
+      "example": "Use Protocol Composition here instead of one giant protocol.",
+      "code": "protocol Named { var name: String { get } }\nprotocol Aged { var age: Int { get } }\nstruct Cat: Named, Aged {\n    let name = \"Bo\"; let age = 3 }\nlet pet: any Named & Aged = Cat()\nprint(pet.name, pet.age)",
+      "output": "Bo 3"
+    },
+    {
+      "term": "Class Only Protocol",
+      "definition": "A protocol that inherits from `AnyObject`, so only classes can adopt it and you can hold it weakly.",
+      "example": "Make the delegate a Class Only Protocol, so we can store it as `weak`.",
+      "code": "protocol Listener: AnyObject { func ping() }\nfinal class Logger: Listener {\n    func ping() { print(\"ping\") }\n}\nlet logger = Logger()\nweak var l: Listener? = logger; l?.ping()",
+      "output": "ping"
+    },
+    {
+      "term": "Self Requirement",
+      "definition": "A protocol requirement that uses `Self`, meaning the exact type that adopts the protocol.",
+      "example": "Because of the Self Requirement, `mix` only accepts the same type.",
+      "code": "protocol Doubler { func twice() -> Self }\nextension Int: Doubler {\n    func twice() -> Int { self * 2 }\n}\nprint(5.twice())",
+      "output": "10"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "In this code, what kind of protocol does `AnyObject` make `Listener`?",
+      "code": "protocol Listener: AnyObject {\n    func ping()\n}",
+      "options": [
+        "Self Requirement",
+        "Class Only Protocol",
+        "Protocol Composition"
+      ],
+      "answer": "b"
+    },
+    {
+      "question": "What do you call a protocol rule that must take or return the exact type that adopts the protocol?",
+      "options": [
+        "Protocol Composition",
+        "Self Requirement",
+        "Class Only Protocol"
+      ],
+      "answer": "b"
+    },
+    {
+      "question": "What do you call joining protocols with an ampersand, so a value must conform to all of them?",
+      "options": [
+        "Protocol Composition",
+        "Class Only Protocol",
+        "Self Requirement"
+      ],
+      "answer": "a"
+    }
+  ],
+  "video": {
+    "title": "Protocol Composition, Class Only Protocol & Self Requirement | Day 64",
+    "description": "Learn to explain protocols in depth: Protocol Composition, Class Only Protocol & Self Requirement, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nProtocol Composition - Joining protocols with an ampersand, like `Named & Aged`, so a value must conform to all of them.\nClass Only Protocol - A protocol that inherits from `AnyObject`, so only classes can adopt it and you can hold it weakly.\nSelf Requirement - A protocol requirement that uses `Self`, meaning the exact type that adopts the protocol.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 64 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "protocol composition",
+      "class only protocol",
+      "self requirement",
+      "anyobject",
+      "swift protocols",
+      "protocol oriented programming",
+      "swift in depth",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "Swift Protocol Composition, Class Only Protocol & Self Requirement | Day 64",
+      "description": "Explain Protocol Composition, Class Only Protocol & Self Requirement in Swift by listening to a real code chat between two iOS devs.\n프로토콜 합성, 클래스 전용 프로토콜, Self 요구사항 표현을 영어 대화로 익혀요.\n\nProtocol Composition - Joining protocols with an ampersand, like `Named & Aged`, so a value must conform to all of them.\n한국어: 프로토콜 합성: `Named & Aged`처럼 앰퍼샌드로 프로토콜을 묶어, 값이 모두를 따르도록 하는 것\n\nClass Only Protocol - A protocol that inherits from `AnyObject`, so only classes can adopt it and you can hold it weakly.\n한국어: 클래스 전용 프로토콜: `AnyObject`를 상속해서 클래스만 채택할 수 있고 weak로 보관할 수 있는 프로토콜\n\nSelf Requirement - A protocol requirement that uses `Self`, meaning the exact type that adopts the protocol.\n한국어: Self 요구사항: 프로토콜을 채택하는 바로 그 타입을 뜻하는 `Self`를 쓰는 요구사항\n\nIn this video, Mina and Jake read three small protocols: one joined with an ampersand, one only classes can adopt and one that talks about its own type, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 64 of the iOS Daily English series.\n\n#Swift #iOSDeveloper #EnglishForDevelopers",
+      "tags": [
+        "Protocol Composition",
+        "Class Only Protocol",
+        "Self Requirement",
+        "AnyObject",
+        "swift protocols",
+        "protocol oriented",
+        "스위프트 심화",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "ios development",
+        "iOS Daily English"
+      ],
+      "hook": "Can you explain these three protocol tricks in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "What's the ampersand?",
+    "setting": "Sync feature review",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, what's the ampersand in `upload`?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "That's Protocol Composition. `x` must be `Saving` and `Syncing` at the same time.",
+        "terms": [
+          "Protocol Composition"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Why not one big protocol?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Small ones are easier to reuse. Protocol Composition joins them only where needed.",
+        "terms": [
+          "Protocol Composition"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "OK. But `Syncing` says `AnyObject`. Why?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "That makes it a Class Only Protocol. Only classes can adopt it.",
+        "terms": [
+          "Class Only Protocol"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "So a struct can't adopt it?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Right. With a Class Only Protocol, you can keep a weak reference to it.",
+        "terms": [
+          "Class Only Protocol"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "And capital `Self` in `Merge`? What does that mean?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "It's a Self Requirement. `mix` must take and return the adopting type itself.",
+        "terms": [
+          "Self Requirement"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Got it. With a Self Requirement, two notes merge into a note, not something else.",
+        "terms": [
+          "Self Requirement"
+        ]
+      }
+    ],
+    "code": "protocol Saving { func save() }\nprotocol Syncing: AnyObject { func sync() }\nprotocol Merge { func mix(_ o: Self) -> Self }\nfunc upload(_ x: any Saving & Syncing) {\n    x.save(); x.sync()\n}",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-conversation",
+      "term": "Protocol Composition",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "What's the ampersand between those protocols?"
+        },
+        {
+          "speaker": "B",
+          "text": "Protocol Composition. It needs both."
+        }
+      ],
+      "title": "What's the ampersand between those protocols? / Protocol Composition. It needs both. #Shorts",
+      "description": "What's the ampersand between those protocols? / Protocol Composition. It needs both.\n\nProtocol Composition - Joining protocols with an ampersand, like `Named & Aged`, so a value must conform to all of them.\n한국어: 프로토콜 합성: `Named & Aged`처럼 앰퍼샌드로 프로토콜을 묶어, 값이 모두를 따르도록 하는 것\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Class Only Protocol",
+      "lines": [
+        {
+          "text": "Want a weak delegate? Use a Class Only Protocol."
+        }
+      ],
+      "title": "Want a weak delegate? Use a Class Only Protocol. #Shorts",
+      "description": "Want a weak delegate? Use a Class Only Protocol.\n\nClass Only Protocol - A protocol that inherits from `AnyObject`, so only classes can adopt it and you can hold it weakly.\n한국어: 클래스 전용 프로토콜: `AnyObject`를 상속해서 클래스만 채택할 수 있고 weak로 보관할 수 있는 프로토콜\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Self Requirement",
+      "lines": [
+        {
+          "text": "A Self Requirement means the same type, every time."
+        }
+      ],
+      "title": "A Self Requirement means the same type, every time. #Shorts",
+      "description": "A Self Requirement means the same type, every time.\n\nSelf Requirement - A protocol requirement that uses `Self`, meaning the exact type that adopts the protocol.\n한국어: Self 요구사항: 프로토콜을 채택하는 바로 그 타입을 뜻하는 `Self`를 쓰는 요구사항\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "What's the ampersand?"
+}

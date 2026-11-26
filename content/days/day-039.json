@@ -1,0 +1,232 @@
+{
+  "day": 39,
+  "phase": "1. Swift basics",
+  "theme": "3 terms on breaking retain cycles: the number ARC tracks, a reference that turns nil, and a reference that assumes the object is always there",
+  "terms": [
+    {
+      "term": "Reference Count",
+      "definition": "A number that tracks how many Strong References point to a class instance.",
+      "example": "The Reference Count of `Song` never hits zero, so it stays in memory.",
+      "code": "class Song { deinit { print(\"Song freed\") } }\nvar a: Song? = Song()   // count: 1\nvar b = a               // count: 2\na = nil                 // count: 1\nb = nil                 // count: 0",
+      "output": "Song freed"
+    },
+    {
+      "term": "Weak Reference",
+      "definition": "A reference that does not keep an instance alive and turns into `nil` when the instance is freed.",
+      "example": "Make `delegate` a Weak Reference, so the screen can be freed.",
+      "code": "class Song {}\nvar song: Song? = Song()\nweak var link = song\nsong = nil\nprint(link == nil)",
+      "output": "true"
+    },
+    {
+      "term": "Unowned Reference",
+      "definition": "A reference that does not keep an instance alive and assumes the instance is still there whenever it is used.",
+      "example": "`owner` is an Unowned Reference, because a `Card` never outlives its `User`.",
+      "code": "class User { let name = \"Mina\" }\nclass Card {\n    unowned let owner: User\n    init(_ o: User) { owner = o }\n}\nlet user = User(); print(Card(user).owner.name)",
+      "output": "Mina"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What reference does not keep an object alive, and crashes if you use it after the object is gone?",
+      "options": [
+        "Weak Reference",
+        "Reference Count",
+        "Unowned Reference"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "In this code, what goes from 2 down to 1 after `a = nil`?",
+      "code": "var a: Song? = Song()\nvar b = a\na = nil",
+      "options": [
+        "Reference Count",
+        "Unowned Reference",
+        "Weak Reference"
+      ],
+      "answer": "a"
+    },
+    {
+      "question": "What reference does not keep an object alive, and turns into `nil` when the object is freed?",
+      "options": [
+        "Unowned Reference",
+        "Weak Reference",
+        "Reference Count"
+      ],
+      "answer": "b"
+    }
+  ],
+  "video": {
+    "title": "Reference Count, Weak Reference & Unowned Reference | Day 39",
+    "description": "Learn to explain how to break a retain cycle in Swift: Reference Count, Weak Reference & Unowned Reference, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nReference Count - A number that tracks how many Strong References point to a class instance.\nWeak Reference - A reference that does not keep an instance alive and turns into `nil` when the instance is freed.\nUnowned Reference - A reference that does not keep an instance alive and assumes the instance is still there whenever it is used.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 39 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish #SwiftUI",
+    "tags": [
+      "reference count",
+      "weak reference",
+      "unowned reference",
+      "swift weak",
+      "swift unowned",
+      "swift retain cycle",
+      "swift arc",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "Swift Reference Count, Weak & Unowned Reference | Day 39",
+      "description": "Explain Reference Count, Weak Reference & Unowned Reference in Swift by listening to a real code chat between two iOS devs.\n참조 카운트, 약한 참조, 미소유 참조 표현을 영어 대화로 익혀요.\n\nReference Count - A number that tracks how many Strong References point to a class instance.\n한국어: 참조 카운트: 클래스 인스턴스를 가리키는 강한 참조가 몇 개인지 세는 숫자\n\nWeak Reference - A reference that does not keep an instance alive and turns into `nil` when the instance is freed.\n한국어: 약한 참조: 인스턴스를 살려 두지 않고, 인스턴스가 해제되면 nil이 되는 참조\n\nUnowned Reference - A reference that does not keep an instance alive and assumes the instance is still there whenever it is used.\n한국어: 미소유 참조: 인스턴스를 살려 두지 않고, 쓸 때마다 인스턴스가 아직 있다고 가정하는 참조\n\nIn this video, Mina and Jake sort out how a weak property fixed a retain cycle, why the count reaches zero and when unowned is safe, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 39 of the iOS Daily English series.\n\n#Swift #iOSDeveloper #EnglishForDevelopers",
+      "tags": [
+        "Reference Count",
+        "Weak Reference",
+        "Unowned Reference",
+        "swift weak",
+        "swift unowned",
+        "swift memory",
+        "스위프트 기초",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "ios development",
+        "iOS Daily English"
+      ],
+      "hook": "Can you explain weak and unowned in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "Weak or unowned?",
+    "setting": "Afternoon memory check",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, I added `weak` to `lead`, and now `Dev freed` prints!",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Nice. `lead` is a Weak Reference now, so it doesn't keep `Dev` alive.",
+        "terms": [
+          "Weak Reference"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "So the Reference Count of `Dev` can reach zero again?",
+        "terms": [
+          "Reference Count"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Right. A Weak Reference doesn't add to the Reference Count.",
+        "terms": [
+          "Weak Reference",
+          "Reference Count"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Then what happens to `lead` after `Dev` is freed?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "It turns into `nil` by itself. That's why it has to be optional.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "Why not an Unowned Reference? It looks simpler.",
+        "terms": [
+          "Unowned Reference"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "An Unowned Reference assumes `Dev` is always there. If it's gone, the app crashes.",
+        "terms": [
+          "Unowned Reference"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "And a team can lose its lead, so `weak` is safer here.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Exactly. Use an Unowned Reference only when the other object always lives longer.",
+        "terms": [
+          "Unowned Reference"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Got it. When `deinit` never runs, check the Reference Count first.",
+        "terms": [
+          "Reference Count"
+        ]
+      }
+    ],
+    "code": "class Team { weak var lead: Dev? }\nclass Dev {\n    var team: Team?\n    deinit { print(\"Dev freed\") }\n}",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "Reference Count",
+      "lines": [
+        {
+          "text": "When the Reference Count hits zero, the object is freed."
+        }
+      ],
+      "title": "When the Reference Count hits zero, the object is freed. #Shorts",
+      "description": "When the Reference Count hits zero, the object is freed.\n\nReference Count - A number that tracks how many Strong References point to a class instance.\n한국어: 참조 카운트: 클래스 인스턴스를 가리키는 강한 참조가 몇 개인지 세는 숫자\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "Weak Reference",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Why is my screen never freed?"
+        },
+        {
+          "speaker": "B",
+          "text": "Make the delegate a Weak Reference."
+        }
+      ],
+      "title": "Why is my screen never freed? / Make the delegate a Weak Reference. #Shorts",
+      "description": "Why is my screen never freed? / Make the delegate a Weak Reference.\n\nWeak Reference - A reference that does not keep an instance alive and turns into `nil` when the instance is freed.\n한국어: 약한 참조: 인스턴스를 살려 두지 않고, 인스턴스가 해제되면 nil이 되는 참조\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Unowned Reference",
+      "lines": [
+        {
+          "text": "An Unowned Reference crashes if the object is gone."
+        }
+      ],
+      "title": "An Unowned Reference crashes if the object is gone. #Shorts",
+      "description": "An Unowned Reference crashes if the object is gone.\n\nUnowned Reference - A reference that does not keep an instance alive and assumes the instance is still there whenever it is used.\n한국어: 미소유 참조: 인스턴스를 살려 두지 않고, 쓸 때마다 인스턴스가 아직 있다고 가정하는 참조\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "Weak or unowned?"
+}

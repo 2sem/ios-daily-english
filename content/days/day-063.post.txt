@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 63
+
+Encodable
+- A protocol for types that can be turned into data like JSON, for example with `JSONEncoder`.
+- Example: "`Like` is only sent to the server, so Encodable is enough."
+
+Decodable
+- A protocol for types that can be created from data like JSON, for example with `JSONDecoder`.
+- Example: "We never upload posts, so make `Post` Decodable, not Codable."
+
+Key Decoding Strategy
+- A `JSONDecoder` setting that changes JSON key names, like snake case, into the Swift property names.
+- Example: "Set a Key Decoding Strategy instead of writing CodingKeys for every model."
+
+
+Quiz ①
+In this code, which protocol does `Like` need, at minimum, so it can be turned into JSON?
+a) Decodable
+b) Key Decoding Strategy
+c) Encodable
+
+Quiz ②
+What do you call the decoder setting that turns JSON key names, like snake case, into Swift names?
+a) Key Decoding Strategy
+b) Encodable
+c) Decodable
+
+Quiz ③
+Which protocol lets a type be created from JSON data, but not turned back into it?
+a) Encodable
+b) Decodable
+c) Key Decoding Strategy

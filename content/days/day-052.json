@@ -1,0 +1,232 @@
+{
+  "day": 52,
+  "phase": "2. Swift in depth",
+  "theme": "3 terms on memory safety: the overall guarantee, the rule against two changes at once, and the type that skips the checks",
+  "terms": [
+    {
+      "term": "Memory Safety",
+      "definition": "A guarantee that code never reads or writes memory in a way that can corrupt it, like reading past the end of an array.",
+      "example": "Swift stops on a bad index because of Memory Safety, instead of reading garbage.",
+      "code": "let nums = [1, 2, 3]\nlet i = 5\nif nums.indices.contains(i) {\n    print(nums[i])\n} else { print(\"\\(i) is out of range\") }",
+      "output": "5 is out of range"
+    },
+    {
+      "term": "Exclusive Access",
+      "definition": "A rule that a variable can't be changed by one piece of code while another piece is still using it.",
+      "example": "Passing `total` twice as `inout` breaks Exclusive Access.",
+      "code": "func double(_ a: inout Int, by b: Int) {\n    a *= b }\nvar n = 3\ndouble(&n, by: n)  // reads n first: OK\nprint(n)",
+      "output": "9"
+    },
+    {
+      "term": "UnsafePointer",
+      "definition": "A type that points straight at a memory address, with none of Swift's usual safety checks.",
+      "example": "The C library wants an UnsafePointer, so wrap it in `withUnsafePointer`.",
+      "code": "let value = 42\nwithUnsafePointer(to: value) { p in\n    print(p.pointee)\n}",
+      "output": "42"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What type points straight at memory, with none of Swift's usual checks?",
+      "options": [
+        "Exclusive Access",
+        "Memory Safety",
+        "UnsafePointer"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "In this code, the app stops instead of reading random memory. What does that protect?",
+      "code": "let nums = [1, 2, 3]\nprint(nums[5])",
+      "options": [
+        "Memory Safety",
+        "UnsafePointer",
+        "Exclusive Access"
+      ],
+      "answer": "a"
+    },
+    {
+      "question": "What rule says a variable can't be changed by two pieces of code at the same time?",
+      "options": [
+        "UnsafePointer",
+        "Exclusive Access",
+        "Memory Safety"
+      ],
+      "answer": "b"
+    }
+  ],
+  "video": {
+    "title": "Memory Safety, Exclusive Access & UnsafePointer | Day 52",
+    "description": "Learn to explain memory safety in Swift: Memory Safety, Exclusive Access & UnsafePointer, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nMemory Safety - A guarantee that code never reads or writes memory in a way that can corrupt it, like reading past the end of an array.\nExclusive Access - A rule that a variable can't be changed by one piece of code while another piece is still using it.\nUnsafePointer - A type that points straight at a memory address, with none of Swift's usual safety checks.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 52 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish #SwiftUI",
+    "tags": [
+      "memory safety",
+      "exclusive access",
+      "unsafepointer",
+      "swift memory safety",
+      "swift inout",
+      "swift unsafe pointer",
+      "swift in depth",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "Swift Memory Safety, Exclusive Access & UnsafePointer | Day 52",
+      "description": "Explain Memory Safety, Exclusive Access & UnsafePointer in Swift by listening to a real code chat between two iOS devs.\n메모리 안전성, 배타적 접근, UnsafePointer 표현을 영어 대화로 익혀요.\n\nMemory Safety - A guarantee that code never reads or writes memory in a way that can corrupt it, like reading past the end of an array.\n한국어: 메모리 안전성: 배열 끝을 넘어 읽는 것처럼 메모리를 망가뜨리는 방식으로 읽거나 쓰지 않는다는 보장\n\nExclusive Access - A rule that a variable can't be changed by one piece of code while another piece is still using it.\n한국어: 배타적 접근: 한 코드가 변수를 아직 쓰는 동안 다른 코드가 그 변수를 바꿀 수 없다는 규칙\n\nUnsafePointer - A type that points straight at a memory address, with none of Swift's usual safety checks.\n한국어: UnsafePointer: Swift의 평소 안전 검사 없이 메모리 주소를 직접 가리키는 타입\n\nIn this video, Mina and Jake sort out why passing one variable twice does not compile, what Swift protects and when unsafe code makes sense, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 52 of the iOS Daily English series.\n\n#Swift #iOSDeveloper #EnglishForDevelopers",
+      "tags": [
+        "Memory Safety",
+        "Exclusive Access",
+        "UnsafePointer",
+        "swift memory safety",
+        "swift inout",
+        "swift unsafe",
+        "스위프트 심화",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "ios development",
+        "iOS Daily English"
+      ],
+      "hook": "Can you explain memory safety in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "Same variable twice?",
+    "setting": "Afternoon pairing session",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, `move(&coins, &coins)` doesn't compile. It says `inout` arguments can't alias each other.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "That breaks Exclusive Access. Two `inout` parameters can't touch `coins` at once.",
+        "terms": [
+          "Exclusive Access"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "But it's the same variable. Why is that dangerous?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "One parameter would change `coins` while the other is still using it.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "So Exclusive Access protects Memory Safety?",
+        "terms": [
+          "Exclusive Access",
+          "Memory Safety"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Exactly. Memory Safety means code never reads half-changed memory.",
+        "terms": [
+          "Memory Safety"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "And Swift checks all of that for me?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Mostly. But an UnsafePointer skips those checks.",
+        "terms": [
+          "UnsafePointer"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "When would I ever use an UnsafePointer?",
+        "terms": [
+          "UnsafePointer"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Only for C libraries or rare speed tricks. For `coins` and `bank`, stay safe.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "Got it. Keep Memory Safety, respect Exclusive Access, and avoid UnsafePointer.",
+        "terms": [
+          "Memory Safety",
+          "Exclusive Access",
+          "UnsafePointer"
+        ]
+      }
+    ],
+    "code": "func move(_ from: inout Int, _ to: inout Int) {\n    to += from; from = 0 }\nvar coins = 5, bank = 0\nmove(&coins, &bank)\nprint(coins, bank)",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "Memory Safety",
+      "lines": [
+        {
+          "text": "Memory Safety: a crash is better than corrupted data."
+        }
+      ],
+      "title": "Memory Safety: a crash is better than corrupted data. #Shorts",
+      "description": "Memory Safety: a crash is better than corrupted data.\n\nMemory Safety - A guarantee that code never reads or writes memory in a way that can corrupt it, like reading past the end of an array.\n한국어: 메모리 안전성: 배열 끝을 넘어 읽는 것처럼 메모리를 망가뜨리는 방식으로 읽거나 쓰지 않는다는 보장\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "Exclusive Access",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Why can't I pass it twice as `inout`?"
+        },
+        {
+          "speaker": "B",
+          "text": "It breaks Exclusive Access."
+        }
+      ],
+      "title": "Why can't I pass it twice as `inout`? / It breaks Exclusive Access. #Shorts",
+      "description": "Why can't I pass it twice as `inout`? / It breaks Exclusive Access.\n\nExclusive Access - A rule that a variable can't be changed by one piece of code while another piece is still using it.\n한국어: 배타적 접근: 한 코드가 변수를 아직 쓰는 동안 다른 코드가 그 변수를 바꿀 수 없다는 규칙\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "UnsafePointer",
+      "lines": [
+        {
+          "text": "An UnsafePointer skips every safety check."
+        }
+      ],
+      "title": "An UnsafePointer skips every safety check. #Shorts",
+      "description": "An UnsafePointer skips every safety check.\n\nUnsafePointer - A type that points straight at a memory address, with none of Swift's usual safety checks.\n한국어: UnsafePointer: Swift의 평소 안전 검사 없이 메모리 주소를 직접 가리키는 타입\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "Same variable twice?"
+}

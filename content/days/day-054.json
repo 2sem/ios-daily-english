@@ -1,0 +1,237 @@
+{
+  "day": 54,
+  "phase": "2. Swift in depth",
+  "theme": "3 terms on attributes: words with an at sign that inform the compiler, ignoring a return value, and marking which versions can use code",
+  "terms": [
+    {
+      "term": "Attribute",
+      "definition": "A word that starts with an at sign and gives the compiler extra information about a declaration.",
+      "example": "Add the `@escaping` Attribute, because we store the closure.",
+      "code": "var tasks: [() -> Void] = []\nfunc later(_ job: @escaping () -> Void) {\n    tasks.append(job) }\nlater { print(\"ran later\") }\ntasks[0]()",
+      "output": "ran later"
+    },
+    {
+      "term": "Discardable Result",
+      "definition": "An attribute, written `@discardableResult`, that lets callers ignore a function's return value without a warning.",
+      "example": "Mark `add` with Discardable Result, since most callers don't need the count.",
+      "code": "var log: [String] = []\n@discardableResult\nfunc add(_ s: String) -> Int {\n    log.append(s); return log.count }\nadd(\"start\")\nprint(log)",
+      "output": "[\"start\"]"
+    },
+    {
+      "term": "Availability Attribute",
+      "definition": "An attribute, written `@available`, that says which versions can use a declaration or that it is deprecated.",
+      "example": "I added an Availability Attribute, so `fetch()` now shows a rename warning.",
+      "code": "@available(*, deprecated, renamed: \"load\")\nfunc fetch() {}\nfunc load() { print(\"loading\") }\nload()",
+      "output": "loading"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What lets a caller ignore a function's return value without a warning?",
+      "options": [
+        "Availability Attribute",
+        "Attribute",
+        "Discardable Result"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "In this code, what do you call `@escaping`, the word with an at sign?",
+      "code": "func later(_ job: @escaping () -> Void) {\n    job() }",
+      "options": [
+        "Attribute",
+        "Discardable Result",
+        "Availability Attribute"
+      ],
+      "answer": "a"
+    },
+    {
+      "question": "What tells the compiler which OS versions can use a function, or that it is deprecated?",
+      "options": [
+        "Discardable Result",
+        "Availability Attribute",
+        "Attribute"
+      ],
+      "answer": "b"
+    }
+  ],
+  "video": {
+    "title": "Attribute, Discardable Result & Availability Attribute | Day 54",
+    "description": "Learn to explain Swift attributes: Attribute, Discardable Result & Availability Attribute, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nAttribute - A word that starts with an at sign and gives the compiler extra information about a declaration.\nDiscardable Result - An attribute, written `@discardableResult`, that lets callers ignore a function's return value without a warning.\nAvailability Attribute - An attribute, written `@available`, that says which versions can use a declaration or that it is deprecated.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 54 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish #SwiftUI",
+    "tags": [
+      "swift attribute",
+      "discardable result",
+      "availability attribute",
+      "discardableresult",
+      "swift available",
+      "swift deprecated",
+      "swift in depth",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "Swift Attribute, Discardable Result & Availability Attribute | Day 54",
+      "description": "Explain Attribute, Discardable Result & Availability Attribute in Swift by listening to a real code chat between two iOS devs.\n속성, 버릴 수 있는 결과, 가용성 속성 표현을 영어 대화로 익혀요.\n\nAttribute - A word that starts with an at sign and gives the compiler extra information about a declaration.\n한국어: 속성: @ 기호로 시작해 선언에 대한 추가 정보를 컴파일러에 알려 주는 단어\n\nDiscardable Result - An attribute, written `@discardableResult`, that lets callers ignore a function's return value without a warning.\n한국어: 버릴 수 있는 결과: @discardableResult로 쓰며, 함수의 반환값을 무시해도 경고가 나지 않게 하는 속성\n\nAvailability Attribute - An attribute, written `@available`, that says which versions can use a declaration or that it is deprecated.\n한국어: 가용성 속성: @available로 쓰며, 어떤 버전에서 선언을 쓸 수 있는지나 더 이상 권장되지 않음을 알려 주는 속성\n\nIn this video, Mina and Jake sort out why a function shows a yellow warning, why ignoring a return value is allowed and what words with an at sign are, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 54 of the iOS Daily English series.\n\n#Swift #iOSDeveloper #EnglishForDevelopers",
+      "tags": [
+        "Attribute",
+        "Discardable Result",
+        "Availability Attribute",
+        "swift attributes",
+        "discardableResult",
+        "swift available",
+        "스위프트 심화",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "ios development",
+        "iOS Daily English"
+      ],
+      "hook": "Can you explain Swift attributes in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "Why the yellow warning?",
+    "setting": "Morning code review",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, Xcode shows a yellow warning on `store()`. Did I break something?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "No, I added an Availability Attribute. It marks `store()` as deprecated.",
+        "terms": [
+          "Availability Attribute"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "So I should call `save` instead?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Yes. The Availability Attribute even says `save` is the new name.",
+        "terms": [
+          "Availability Attribute"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "OK. But `save` returns a `Bool`, and I ignore it. Why no warning?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "It has Discardable Result on top, so ignoring it is fine.",
+        "terms": [
+          "Discardable Result"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Isn't that risky? What if saving fails?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Fair point. Use Discardable Result only when the value is just extra info.",
+        "terms": [
+          "Discardable Result"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "So every word with an at sign is an Attribute?",
+        "terms": [
+          "Attribute"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Pretty much. An Attribute gives the compiler extra information.",
+        "terms": [
+          "Attribute"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Got it. Availability Attribute for versions, Discardable Result for ignored values.",
+        "terms": [
+          "Availability Attribute",
+          "Discardable Result"
+        ]
+      }
+    ],
+    "code": "@available(*, deprecated, renamed: \"save\")\nfunc store() {}\n@discardableResult\nfunc save(_ s: String) -> Bool { true }\nsave(\"draft\")",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "Attribute",
+      "lines": [
+        {
+          "text": "An Attribute starts with an at sign."
+        }
+      ],
+      "title": "An Attribute starts with an at sign. #Shorts",
+      "description": "An Attribute starts with an at sign.\n\nAttribute - A word that starts with an at sign and gives the compiler extra information about a declaration.\n한국어: 속성: @ 기호로 시작해 선언에 대한 추가 정보를 컴파일러에 알려 주는 단어\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "Discardable Result",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Why no warning when I ignore it?"
+        },
+        {
+          "speaker": "B",
+          "text": "It's marked Discardable Result."
+        }
+      ],
+      "title": "Why no warning when I ignore it? / It's marked Discardable Result. #Shorts",
+      "description": "Why no warning when I ignore it? / It's marked Discardable Result.\n\nDiscardable Result - An attribute, written `@discardableResult`, that lets callers ignore a function's return value without a warning.\n한국어: 버릴 수 있는 결과: @discardableResult로 쓰며, 함수의 반환값을 무시해도 경고가 나지 않게 하는 속성\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "Availability Attribute",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Why is this function crossed out?"
+        },
+        {
+          "speaker": "B",
+          "text": "An Availability Attribute deprecated it."
+        }
+      ],
+      "title": "Why is this function crossed out? / An Availability Attribute deprecated it. #Shorts",
+      "description": "Why is this function crossed out? / An Availability Attribute deprecated it.\n\nAvailability Attribute - An attribute, written `@available`, that says which versions can use a declaration or that it is deprecated.\n한국어: 가용성 속성: @available로 쓰며, 어떤 버전에서 선언을 쓸 수 있는지나 더 이상 권장되지 않음을 알려 주는 속성\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "Why the yellow warning?"
+}

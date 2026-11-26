@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 40
+
+Compound Assignment Operator
+- An operator, such as plus-equals, that does math on a variable and stores the result back in it.
+- Example: "Just use a Compound Assignment Operator: `count += 1`."
+
+Operator Overloading
+- A feature that gives an existing operator, such as plus, a new meaning for your own type.
+- Example: "With Operator Overloading, we can add two `Point` values with a plus sign."
+
+Custom Operator
+- A feature that lets you declare a brand-new operator symbol and decide what it does.
+- Example: "Please don't add a Custom Operator here, a named method is easier to read."
+
+
+Quiz ①
+What do you call giving plus a new meaning for your own type?
+a) Custom Operator
+b) Compound Assignment Operator
+c) Operator Overloading
+
+Quiz ②
+In this code, what do you call `-=`, which changes `score` in place?
+a) Compound Assignment Operator
+b) Operator Overloading
+c) Custom Operator
+
+Quiz ③
+What do you call declaring a brand-new symbol, like two stars, and deciding what it does?
+a) Operator Overloading
+b) Custom Operator
+c) Compound Assignment Operator

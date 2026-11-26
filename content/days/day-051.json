@@ -1,0 +1,232 @@
+{
+  "day": 51,
+  "phase": "2. Swift in depth",
+  "theme": "3 terms on switching over enums safely: covering every case, preparing for cases added later, and enums that promise never to change",
+  "terms": [
+    {
+      "term": "Exhaustive Switch",
+      "definition": "A `switch` that covers every possible case, so it needs no `default`.",
+      "example": "Keep it an Exhaustive Switch, so the compiler tells us about new cases.",
+      "code": "enum Light { case red, green }\nfunc say(_ l: Light) {\n    switch l {\n    case .red: print(\"stop\")\n    case .green: print(\"go\") } }\nsay(.green)",
+      "output": "go"
+    },
+    {
+      "term": "Unknown Default",
+      "definition": "A case written `@unknown default` that handles enum cases added in the future but still warns about current ones you missed.",
+      "example": "Add an Unknown Default, because Apple may add new states later.",
+      "code": "import Foundation\nswitch ProcessInfo().thermalState {\ncase .nominal, .fair: print(\"cool\")\ncase .serious, .critical: print(\"hot\")\n@unknown default: print(\"new state\")\n}",
+      "output": "cool"
+    },
+    {
+      "term": "Frozen Enum",
+      "definition": "A public enum marked `@frozen` that promises it will never get new cases.",
+      "example": "`Optional` is a Frozen Enum, so two cases are always enough.",
+      "code": "@frozen public enum Bit { case on, off }\nfunc show(_ b: Bit) {\n    switch b {\n    case .on: print(\"on\")\n    case .off: print(\"off\") } }\nshow(.off)",
+      "output": "off"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What do you call an enum that promises it will never get new cases?",
+      "options": [
+        "Unknown Default",
+        "Exhaustive Switch",
+        "Frozen Enum"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "In this code, what do you call this `switch`, which lists every case and has no `default`?",
+      "code": "func say(_ l: Light) {\n    switch l {\n    case .red: print(\"stop\")\n    case .green: print(\"go\") } }",
+      "options": [
+        "Exhaustive Switch",
+        "Frozen Enum",
+        "Unknown Default"
+      ],
+      "answer": "a"
+    },
+    {
+      "question": "What handles enum cases that Apple might add in a future SDK?",
+      "options": [
+        "Frozen Enum",
+        "Unknown Default",
+        "Exhaustive Switch"
+      ],
+      "answer": "b"
+    }
+  ],
+  "video": {
+    "title": "Exhaustive Switch, Unknown Default & Frozen Enum | Day 51",
+    "description": "Learn to explain safe switches over enums in Swift: Exhaustive Switch, Unknown Default & Frozen Enum, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nExhaustive Switch - A `switch` that covers every possible case, so it needs no `default`.\nUnknown Default - A case written `@unknown default` that handles enum cases added in the future but still warns about current ones you missed.\nFrozen Enum - A public enum marked `@frozen` that promises it will never get new cases.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 51 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish #SwiftUI",
+    "tags": [
+      "exhaustive switch",
+      "unknown default",
+      "frozen enum",
+      "swift switch",
+      "swift enum",
+      "swift unknown default",
+      "swift in depth",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "Swift Exhaustive Switch, Unknown Default & Frozen Enum | Day 51",
+      "description": "Explain Exhaustive Switch, Unknown Default & Frozen Enum in Swift by listening to a real code chat between two iOS devs.\n완전한 스위치, 언노운 디폴트, 프로즌 열거형 표현을 영어 대화로 익혀요.\n\nExhaustive Switch - A `switch` that covers every possible case, so it needs no `default`.\n한국어: 완전한 스위치: 가능한 모든 case를 다뤄서 default가 필요 없는 switch\n\nUnknown Default - A case written `@unknown default` that handles enum cases added in the future but still warns about current ones you missed.\n한국어: 언노운 디폴트: @unknown default로 쓰며, 나중에 추가될 case를 처리하면서 지금 빠뜨린 case는 경고해 주는 case\n\nFrozen Enum - A public enum marked `@frozen` that promises it will never get new cases.\n한국어: 프로즌 열거형: @frozen을 붙여 앞으로 새 case가 절대 추가되지 않는다고 약속하는 public enum\n\nIn this video, Mina and Jake sort out why a switch over Apple's enum needs an extra case, why a plain default is worse and which enums never change, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 51 of the iOS Daily English series.\n\n#Swift #iOSDeveloper #EnglishForDevelopers",
+      "tags": [
+        "Exhaustive Switch",
+        "Unknown Default",
+        "Frozen Enum",
+        "swift switch",
+        "swift enum",
+        "unknown default",
+        "스위프트 심화",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "ios development",
+        "iOS Daily English"
+      ],
+      "hook": "Can you explain safe enum switches in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "All four cases, still not enough?",
+    "setting": "Morning code review",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, why does this `switch` need `@unknown default`? I covered all four cases.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Today, yes. But Apple can add a new thermal state later.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "And my Exhaustive Switch would break?",
+        "terms": [
+          "Exhaustive Switch"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Right. An Unknown Default catches cases that don't exist yet.",
+        "terms": [
+          "Unknown Default"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Why not a plain `default`, then?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "With an Unknown Default, the compiler still warns you when a new case appears.",
+        "terms": [
+          "Unknown Default"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Nice. Do I need it for `Optional` too?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "No. `Optional` is a Frozen Enum. It promises never to get new cases.",
+        "terms": [
+          "Frozen Enum"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "So for a Frozen Enum, an Exhaustive Switch is enough.",
+        "terms": [
+          "Frozen Enum",
+          "Exhaustive Switch"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Exactly. No extra case needed.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "Got it. Exhaustive Switch for my enums, Unknown Default for Apple's, Frozen Enum for promises.",
+        "terms": [
+          "Exhaustive Switch",
+          "Unknown Default",
+          "Frozen Enum"
+        ]
+      }
+    ],
+    "code": "import Foundation\nswitch ProcessInfo().thermalState {\ncase .nominal, .fair: print(\"OK\")\ncase .serious, .critical: print(\"Slow down\")\n@unknown default: print(\"New state\")\n}",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "Exhaustive Switch",
+      "lines": [
+        {
+          "text": "An Exhaustive Switch needs no default at all."
+        }
+      ],
+      "title": "An Exhaustive Switch needs no default at all. #Shorts",
+      "description": "An Exhaustive Switch needs no default at all.\n\nExhaustive Switch - A `switch` that covers every possible case, so it needs no `default`.\n한국어: 완전한 스위치: 가능한 모든 case를 다뤄서 default가 필요 없는 switch\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "Unknown Default",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "What if Apple adds a new case?"
+        },
+        {
+          "speaker": "B",
+          "text": "Add an Unknown Default now."
+        }
+      ],
+      "title": "What if Apple adds a new case? / Add an Unknown Default now. #Shorts",
+      "description": "What if Apple adds a new case? / Add an Unknown Default now.\n\nUnknown Default - A case written `@unknown default` that handles enum cases added in the future but still warns about current ones you missed.\n한국어: 언노운 디폴트: @unknown default로 쓰며, 나중에 추가될 case를 처리하면서 지금 빠뜨린 case는 경고해 주는 case\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Frozen Enum",
+      "lines": [
+        {
+          "text": "A Frozen Enum will never get new cases."
+        }
+      ],
+      "title": "A Frozen Enum will never get new cases. #Shorts",
+      "description": "A Frozen Enum will never get new cases.\n\nFrozen Enum - A public enum marked `@frozen` that promises it will never get new cases.\n한국어: 프로즌 열거형: @frozen을 붙여 앞으로 새 case가 절대 추가되지 않는다고 약속하는 public enum\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "All cases covered?"
+}

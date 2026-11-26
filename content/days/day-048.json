@@ -1,0 +1,237 @@
+{
+  "day": 48,
+  "phase": "2. Swift in depth",
+  "theme": "3 terms on patterns in switch: matching several values at once, naming part of a match, and the operator behind every case",
+  "terms": [
+    {
+      "term": "Tuple Pattern",
+      "definition": "A pattern that matches several values at once by listing them in parentheses.",
+      "example": "Use a Tuple Pattern to check the status code and the message together.",
+      "code": "let point = (0, 5)\nswitch point {\ncase (0, 0): print(\"origin\")\ncase (0, _): print(\"on the y-axis\")\ndefault: print(\"somewhere else\")\n}",
+      "output": "on the y-axis"
+    },
+    {
+      "term": "Value-Binding Pattern",
+      "definition": "A pattern that matches a value and also gives part of it a new name with `let` or `var`.",
+      "example": "A Value-Binding Pattern pulls the width out, so we can print it.",
+      "code": "let size = (300, 200)\nswitch size {\ncase (let w, 200): print(\"w is \\(w)\")\ndefault: print(\"other\")\n}",
+      "output": "w is 300"
+    },
+    {
+      "term": "Pattern Matching Operator",
+      "definition": "The `~=` operator that checks whether a value fits a pattern, which every `case` uses behind the scenes.",
+      "example": "The Pattern Matching Operator is why a range works in a `case`.",
+      "code": "let code = 404\nif 400..<500 ~= code {\n    print(\"client error\")\n}",
+      "output": "client error"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What operator does every `case` use behind the scenes to check a match?",
+      "options": [
+        "Tuple Pattern",
+        "Value-Binding Pattern",
+        "Pattern Matching Operator"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "In this code, what do you call `(0, _)`, which checks two values at once?",
+      "code": "switch point {\ncase (0, _): print(\"on the y-axis\")\ndefault: print(\"elsewhere\")\n}",
+      "options": [
+        "Tuple Pattern",
+        "Pattern Matching Operator",
+        "Value-Binding Pattern"
+      ],
+      "answer": "a"
+    },
+    {
+      "question": "What pattern gives part of a matched value a new name with `let`?",
+      "options": [
+        "Pattern Matching Operator",
+        "Value-Binding Pattern",
+        "Tuple Pattern"
+      ],
+      "answer": "b"
+    }
+  ],
+  "video": {
+    "title": "Tuple Pattern, Value-Binding Pattern & ~= | Day 48",
+    "description": "Learn to explain pattern matching in Swift: Tuple Pattern, Value-Binding Pattern & Pattern Matching Operator, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nTuple Pattern - A pattern that matches several values at once by listing them in parentheses.\nValue-Binding Pattern - A pattern that matches a value and also gives part of it a new name with `let` or `var`.\nPattern Matching Operator - The `~=` operator that checks whether a value fits a pattern, which every `case` uses behind the scenes.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 48 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish #SwiftUI",
+    "tags": [
+      "tuple pattern",
+      "value binding pattern",
+      "pattern matching operator",
+      "swift pattern matching",
+      "swift switch",
+      "swift tuple",
+      "swift in depth",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "Swift Tuple Pattern, Value-Binding Pattern & ~= Operator | Day 48",
+      "description": "Explain Tuple Pattern, Value-Binding Pattern & Pattern Matching Operator in Swift by listening to a real code chat between two iOS devs.\n튜플 패턴, 값 바인딩 패턴, 패턴 매칭 연산자 표현을 영어 대화로 익혀요.\n\nTuple Pattern - A pattern that matches several values at once by listing them in parentheses.\n한국어: 튜플 패턴: 괄호 안에 나열해서 여러 값을 한 번에 맞춰 보는 패턴\n\nValue-Binding Pattern - A pattern that matches a value and also gives part of it a new name with `let` or `var`.\n한국어: 값 바인딩 패턴: 값을 맞춰 보면서 그 일부에 let이나 var로 새 이름을 붙이는 패턴\n\nPattern Matching Operator - The `~=` operator that checks whether a value fits a pattern, which every `case` uses behind the scenes.\n한국어: 패턴 매칭 연산자: 값이 패턴에 맞는지 확인하는 ~= 연산자로, 모든 case가 내부에서 사용함\n\nIn this video, Mina and Jake sort out why each case has parentheses, how to name part of a match and how a range matches one number, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 48 of the iOS Daily English series.\n\n#Swift #iOSDeveloper #EnglishForDevelopers",
+      "tags": [
+        "Tuple Pattern",
+        "Value-Binding Pattern",
+        "Pattern Matching Operator",
+        "swift pattern matching",
+        "swift switch",
+        "swift tuple",
+        "스위프트 심화",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "ios development",
+        "iOS Daily English"
+      ],
+      "hook": "Can you explain these switch patterns in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "Why the parentheses?",
+    "setting": "Morning code review",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, why does each `case` in this `switch` have parentheses?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Because `response` is a tuple. Each case is a Tuple Pattern.",
+        "terms": [
+          "Tuple Pattern"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "So `(200, _)` matches 200 with any text?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Right. The underscore means we don't care about that part.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "And what does `let text` do?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "That's a Value-Binding Pattern. It catches the message and names it `text`.",
+        "terms": [
+          "Value-Binding Pattern"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Wait, how can `400..<500` match one number?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Swift uses the Pattern Matching Operator. It checks if 404 is in the range.",
+        "terms": [
+          "Pattern Matching Operator"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Can I use the Pattern Matching Operator myself?",
+        "terms": [
+          "Pattern Matching Operator"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Sure, in an `if`. But a Tuple Pattern with a Value-Binding Pattern usually reads better.",
+        "terms": [
+          "Tuple Pattern",
+          "Value-Binding Pattern"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Got it. Tuple Pattern for pairs, Value-Binding Pattern for names, Pattern Matching Operator for ranges.",
+        "terms": [
+          "Tuple Pattern",
+          "Value-Binding Pattern",
+          "Pattern Matching Operator"
+        ]
+      }
+    ],
+    "code": "let response = (404, \"Not Found\")\nswitch response {\ncase (200, _): print(\"OK\")\ncase (400..<500, let text): print(text)\ndefault: print(\"Server error\")\n}",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "Tuple Pattern",
+      "lines": [
+        {
+          "text": "A Tuple Pattern checks two values in one case."
+        }
+      ],
+      "title": "A Tuple Pattern checks two values in one case. #Shorts",
+      "description": "A Tuple Pattern checks two values in one case.\n\nTuple Pattern - A pattern that matches several values at once by listing them in parentheses.\n한국어: 튜플 패턴: 괄호 안에 나열해서 여러 값을 한 번에 맞춰 보는 패턴\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "Value-Binding Pattern",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "How do I grab the message in a case?"
+        },
+        {
+          "speaker": "B",
+          "text": "Use a Value-Binding Pattern with `let`."
+        }
+      ],
+      "title": "How do I grab the message in a case? / Use a Value-Binding Pattern with `let`. #Shorts",
+      "description": "How do I grab the message in a case? / Use a Value-Binding Pattern with `let`.\n\nValue-Binding Pattern - A pattern that matches a value and also gives part of it a new name with `let` or `var`.\n한국어: 값 바인딩 패턴: 값을 맞춰 보면서 그 일부에 let이나 var로 새 이름을 붙이는 패턴\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "Pattern Matching Operator",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "How does a range match one number?"
+        },
+        {
+          "speaker": "B",
+          "text": "The Pattern Matching Operator checks it."
+        }
+      ],
+      "title": "How does a range match one number? / The Pattern Matching Operator checks it. #Shorts",
+      "description": "How does a range match one number? / The Pattern Matching Operator checks it.\n\nPattern Matching Operator - The `~=` operator that checks whether a value fits a pattern, which every `case` uses behind the scenes.\n한국어: 패턴 매칭 연산자: 값이 패턴에 맞는지 확인하는 ~= 연산자로, 모든 case가 내부에서 사용함\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "Why parentheses?"
+}

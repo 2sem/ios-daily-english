@@ -1,0 +1,228 @@
+{
+  "day": 60,
+  "phase": "2. Swift in depth",
+  "theme": "3 terms on optionals in depth: an optional that unwraps itself, transforming the value inside an optional, and a pattern that matches only real values",
+  "terms": [
+    {
+      "term": "Implicitly Unwrapped Optional",
+      "definition": "An optional written with an exclamation mark, like `String!`, that Swift unwraps for you every time you use it.",
+      "example": "That Implicitly Unwrapped Optional crashed because setup never ran.",
+      "code": "var name: String! = \"Mina\"\nlet greeting: String = name // no ! needed\nprint(greeting)",
+      "output": "Mina"
+    },
+    {
+      "term": "Optional Map",
+      "definition": "Calling `map` on an optional, so the closure changes the value inside, and `nil` simply stays `nil`.",
+      "example": "Use Optional Map here instead of unwrapping, then wrapping again.",
+      "code": "let price: Int? = 5\nprint(price.map { $0 * 2 } ?? 0)\nlet empty: Int? = nil\nprint(empty.map { $0 * 2 } ?? 0)",
+      "output": "10\n0"
+    },
+    {
+      "term": "Optional Pattern",
+      "definition": "A pattern like `x?` in `if case` or `for case` that matches only when there is a value, and unwraps it.",
+      "example": "Loop with an Optional Pattern, so the nil scores are skipped.",
+      "code": "let scores: [Int?] = [3, nil, 7]\nfor case let s? in scores {\n    print(s)\n}",
+      "output": "3\n7"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "In this code, what do you call `s?`, which matches only the values that are not nil?",
+      "code": "let scores: [Int?] = [3, nil, 7]\nfor case let s? in scores { print(s) }",
+      "options": [
+        "Optional Map",
+        "Implicitly Unwrapped Optional",
+        "Optional Pattern"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "What lets you transform the value inside an optional, and simply keeps nil when there is none?",
+      "options": [
+        "Optional Map",
+        "Optional Pattern",
+        "Implicitly Unwrapped Optional"
+      ],
+      "answer": "a"
+    },
+    {
+      "question": "What do you call an optional declared with an exclamation mark that unwraps itself every time you use it?",
+      "options": [
+        "Optional Pattern",
+        "Implicitly Unwrapped Optional",
+        "Optional Map"
+      ],
+      "answer": "b"
+    }
+  ],
+  "video": {
+    "title": "Implicitly Unwrapped Optional, Optional Map & Pattern | Day 60",
+    "description": "Learn to explain optionals in depth: Implicitly Unwrapped Optional, Optional Map & Optional Pattern, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nImplicitly Unwrapped Optional - An optional written with an exclamation mark, like `String!`, that Swift unwraps for you every time you use it.\nOptional Map - Calling `map` on an optional, so the closure changes the value inside, and `nil` simply stays `nil`.\nOptional Pattern - A pattern like `x?` in `if case` or `for case` that matches only when there is a value, and unwraps it.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 60 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "implicitly unwrapped optional",
+      "optional map",
+      "optional pattern",
+      "swift optional",
+      "if case let",
+      "swift in depth",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "Swift Implicitly Unwrapped Optional, Optional Map & Optional Pattern | Day 60",
+      "description": "Explain Implicitly Unwrapped Optional, Optional Map & Optional Pattern in Swift by listening to a real code chat between two iOS devs.\n암시적 언래핑 옵셔널, 옵셔널 map, 옵셔널 패턴 표현을 영어 대화로 익혀요.\n\nImplicitly Unwrapped Optional - An optional written with an exclamation mark, like `String!`, that Swift unwraps for you every time you use it.\n한국어: 암시적 언래핑 옵셔널: `String!`처럼 느낌표로 선언해서 쓸 때마다 Swift가 자동으로 언래핑하는 옵셔널\n\nOptional Map - Calling `map` on an optional, so the closure changes the value inside, and `nil` simply stays `nil`.\n한국어: 옵셔널 map: 옵셔널에 `map`을 호출해 안의 값만 바꾸고, `nil`이면 그대로 `nil`로 두는 방법\n\nOptional Pattern - A pattern like `x?` in `if case` or `for case` that matches only when there is a value, and unwraps it.\n한국어: 옵셔널 패턴: `if case`나 `for case`에서 `x?`처럼 써서 값이 있을 때만 맞고 언래핑까지 해 주는 패턴\n\nIn this video, Mina and Jake find out why a token crashed without a force unwrap, how to change an optional without unwrapping it and how to match only real values, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 60 of the iOS Daily English series.\n\n#Swift #iOSDeveloper #EnglishForDevelopers",
+      "tags": [
+        "Implicitly Unwrapped Optional",
+        "Optional Map",
+        "Optional Pattern",
+        "swift optional",
+        "if case let",
+        "String!",
+        "스위프트 심화",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "ios development",
+        "iOS Daily English"
+      ],
+      "hook": "Can you explain these three optional tricks in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "It crashed without a force unwrap",
+    "setting": "Morning crash triage",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, `token` crashed the app, but I never force unwrapped it.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Check the type. It's an Implicitly Unwrapped Optional.",
+        "terms": [
+          "Implicitly Unwrapped Optional"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "The exclamation mark after `String`? So Swift unwraps it for me?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Yes, an Implicitly Unwrapped Optional unwraps every time. If it's `nil`, it crashes.",
+        "terms": [
+          "Implicitly Unwrapped Optional"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "OK. And what's `map` doing on `nickname`?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "That's Optional Map. It runs the closure only when there's a value.",
+        "terms": [
+          "Optional Map"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "So `tag` stays nil if `nickname` is nil?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Right. Optional Map keeps the result optional.",
+        "terms": [
+          "Optional Map"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "And the question mark after `t`?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "That's an Optional Pattern. It matches only a real value and unwraps it.",
+        "terms": [
+          "Optional Pattern"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Got it. I'll make `token` a normal optional and check it with an Optional Pattern.",
+        "terms": [
+          "Optional Pattern"
+        ]
+      }
+    ],
+    "code": "var token: String! = nil\nlet nickname: String? = \"mj\"\nlet tag = nickname.map { \"@\" + $0 }\nif case let t? = tag { print(t) }",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-conversation",
+      "term": "Implicitly Unwrapped Optional",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Why did it crash without a force unwrap?"
+        },
+        {
+          "speaker": "B",
+          "text": "It's an Implicitly Unwrapped Optional."
+        }
+      ],
+      "title": "Why did it crash without a force unwrap? / It's an Implicitly Unwrapped Optional. #Shorts",
+      "description": "Why did it crash without a force unwrap? / It's an Implicitly Unwrapped Optional.\n\nImplicitly Unwrapped Optional - An optional written with an exclamation mark, like `String!`, that Swift unwraps for you every time you use it.\n한국어: 암시적 언래핑 옵셔널: `String!`처럼 느낌표로 선언해서 쓸 때마다 Swift가 자동으로 언래핑하는 옵셔널\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Optional Map",
+      "lines": [
+        {
+          "text": "Optional Map changes the value and leaves nil alone."
+        }
+      ],
+      "title": "Optional Map changes the value and leaves nil alone. #Shorts",
+      "description": "Optional Map changes the value and leaves nil alone.\n\nOptional Map - Calling `map` on an optional, so the closure changes the value inside, and `nil` simply stays `nil`.\n한국어: 옵셔널 map: 옵셔널에 `map`을 호출해 안의 값만 바꾸고, `nil`이면 그대로 `nil`로 두는 방법\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Optional Pattern",
+      "lines": [
+        {
+          "text": "An Optional Pattern matches only real values, never nil."
+        }
+      ],
+      "title": "An Optional Pattern matches only real values, never nil. #Shorts",
+      "description": "An Optional Pattern matches only real values, never nil.\n\nOptional Pattern - A pattern like `x?` in `if case` or `for case` that matches only when there is a value, and unwraps it.\n한국어: 옵셔널 패턴: `if case`나 `for case`에서 `x?`처럼 써서 값이 있을 때만 맞고 언래핑까지 해 주는 패턴\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "No force unwrap. Still crashed?"
+}

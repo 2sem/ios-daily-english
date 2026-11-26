@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 50
+
+Conditional Conformance
+- A way for a generic type to conform to a protocol only when its type parameter also conforms.
+- Example: "Thanks to Conditional Conformance, an array of `Int` is Equatable."
+
+Primary Associated Type
+- An associated type you can fill in with angle brackets after a protocol name, like `Collection<Int>`.
+- Example: "With a Primary Associated Type, we can write `some Collection<Int>`."
+
+Parameter Pack
+- A generic feature, written with `each` and `repeat`, that lets a function take any number of values of different types.
+- Example: "A Parameter Pack lets `log` take an `Int`, a `String` and a `Bool` at once."
+
+
+Quiz ①
+What lets a function take any number of values of different types?
+a) Conditional Conformance
+b) Primary Associated Type
+c) Parameter Pack
+
+Quiz ②
+In this code, what do you call making `Box` Equatable only when `T` is Equatable?
+a) Conditional Conformance
+b) Parameter Pack
+c) Primary Associated Type
+
+Quiz ③
+What do you call the type you fill in after a protocol name, as in `Collection<Int>`?
+a) Parameter Pack
+b) Primary Associated Type
+c) Conditional Conformance

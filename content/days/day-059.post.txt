@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 59
+
+Escape Sequence
+- A backslash followed by a letter or symbol that puts a special character, like a new line or a quote, into a string.
+- Example: "Add a new line Escape Sequence instead of calling `print` twice."
+
+Multiline String Literal
+- A string that starts and ends with three quotes, so it can run over several lines.
+- Example: "Put the email template in a Multiline String Literal, it's much easier to edit."
+
+Raw String
+- A string wrapped in hash signs, where backslashes and quotes are kept exactly as typed.
+- Example: "Write the file path as a Raw String, so you don't double every backslash."
+
+
+Quiz ①
+In this code, what do you call the string wrapped in hash signs?
+a) Multiline String Literal
+b) Raw String
+c) Escape Sequence
+
+Quiz ②
+What do you call a backslash plus a letter that puts a special character, like a new line, into a string?
+a) Escape Sequence
+b) Multiline String Literal
+c) Raw String
+
+Quiz ③
+What do you call a string that opens and closes with three quotes and can run over many lines?
+a) Raw String
+b) Escape Sequence
+c) Multiline String Literal

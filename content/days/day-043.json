@@ -1,0 +1,234 @@
+{
+  "day": 43,
+  "phase": "2. Swift in depth",
+  "theme": "3 terms on key paths: a value that points to a property, one that can also change it, and dot access through a subscript",
+  "terms": [
+    {
+      "term": "KeyPath",
+      "definition": "A value that points to a property of a type, so you can read that property later.",
+      "example": "Pass the KeyPath `\\.title` to `map`, and you get every song title.",
+      "code": "struct User { var name: String }\nlet path = \\User.name\nlet user = User(name: \"Mina\")\nprint(user[keyPath: path])",
+      "output": "Mina"
+    },
+    {
+      "term": "WritableKeyPath",
+      "definition": "A key path that can also change the property it points to on a mutable value.",
+      "example": "It's a WritableKeyPath, so the form can update any field.",
+      "code": "struct User { var name: String }\nlet path: WritableKeyPath<User, String> = \\.name\nvar user = User(name: \"Mina\")\nuser[keyPath: path] = \"Jake\"\nprint(user.name)",
+      "output": "Jake"
+    },
+    {
+      "term": "Dynamic Member Lookup",
+      "definition": "An attribute that lets a type answer dot-style member access through one subscript you write.",
+      "example": "With Dynamic Member Lookup, `Box` shows the pet's `name` directly.",
+      "code": "struct Pet { var name = \"Coco\" }\n@dynamicMemberLookup struct Box {\n    var pet = Pet()\n    subscript<T>(dynamicMember p: KeyPath<Pet, T>)\n        -> T { pet[keyPath: p] } }\nprint(Box().name)",
+      "output": "Coco"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What attribute lets a type answer dot-style member access through one subscript?",
+      "options": [
+        "KeyPath",
+        "WritableKeyPath",
+        "Dynamic Member Lookup"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "In this code, what do you call `\\User.name`, which points to a property?",
+      "code": "let path = \\User.name\nprint(user[keyPath: path])",
+      "options": [
+        "KeyPath",
+        "Dynamic Member Lookup",
+        "WritableKeyPath"
+      ],
+      "answer": "a"
+    },
+    {
+      "question": "What kind of path can also change the property it points to?",
+      "options": [
+        "Dynamic Member Lookup",
+        "WritableKeyPath",
+        "KeyPath"
+      ],
+      "answer": "b"
+    }
+  ],
+  "video": {
+    "title": "KeyPath, WritableKeyPath & Dynamic Member Lookup | Day 43",
+    "description": "Learn to explain key paths in Swift: KeyPath, WritableKeyPath & Dynamic Member Lookup, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nKeyPath - A value that points to a property of a type, so you can read that property later.\nWritableKeyPath - A key path that can also change the property it points to on a mutable value.\nDynamic Member Lookup - An attribute that lets a type answer dot-style member access through one subscript you write.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 43 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish #SwiftUI",
+    "tags": [
+      "keypath",
+      "writablekeypath",
+      "dynamic member lookup",
+      "swift key path",
+      "swift keypath",
+      "dynamicmemberlookup",
+      "swift in depth",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "Swift KeyPath, WritableKeyPath & Dynamic Member Lookup | Day 43",
+      "description": "Explain KeyPath, WritableKeyPath & Dynamic Member Lookup in Swift by listening to a real code chat between two iOS devs.\nKeyPath, WritableKeyPath, 다이내믹 멤버 룩업 표현을 영어 대화로 익혀요.\n\nKeyPath - A value that points to a property of a type, so you can read that property later.\n한국어: KeyPath: 타입의 프로퍼티를 가리켜서 나중에 그 프로퍼티를 읽을 수 있게 해 주는 값\n\nWritableKeyPath - A key path that can also change the property it points to on a mutable value.\n한국어: WritableKeyPath: 변경 가능한 값에서 가리키는 프로퍼티를 바꿀 수도 있는 키 패스\n\nDynamic Member Lookup - An attribute that lets a type answer dot-style member access through one subscript you write.\n한국어: 다이내믹 멤버 룩업: 직접 만든 서브스크립트 하나로 점(.) 문법 멤버 접근에 답하게 해 주는 속성\n\nIn this video, Mina and Jake sort out how a type answers a property it does not have, what a key path points to and why setting failed, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 43 of the iOS Daily English series.\n\n#Swift #iOSDeveloper #EnglishForDevelopers",
+      "tags": [
+        "KeyPath",
+        "WritableKeyPath",
+        "Dynamic Member Lookup",
+        "swift key path",
+        "dynamicMemberLookup",
+        "swift in depth",
+        "스위프트 심화",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "ios development",
+        "iOS Daily English"
+      ],
+      "hook": "Can you explain key paths in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "Where does title come from?",
+    "setting": "Afternoon code review",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, `Track` has no `title` property, but `Track().title` compiles. How?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "It uses Dynamic Member Lookup. Look at the attribute on top.",
+        "terms": [
+          "Dynamic Member Lookup"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "So `.title` goes into that subscript?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Yes. Swift turns `.title` into a KeyPath and passes it in.",
+        "terms": [
+          "KeyPath"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "And the KeyPath points to `title` inside `Song`?",
+        "terms": [
+          "KeyPath"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Exactly. The subscript reads `song` at that path.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "Then why can't I set `title` the same way?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Because a KeyPath can only read. To write, you need a WritableKeyPath.",
+        "terms": [
+          "KeyPath",
+          "WritableKeyPath"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "So I change the subscript to take a WritableKeyPath?",
+        "terms": [
+          "WritableKeyPath"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Yes, and add a setter. Then Dynamic Member Lookup works both ways.",
+        "terms": [
+          "Dynamic Member Lookup"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Got it. KeyPath to read, WritableKeyPath to write, Dynamic Member Lookup for the dot.",
+        "terms": [
+          "KeyPath",
+          "WritableKeyPath",
+          "Dynamic Member Lookup"
+        ]
+      }
+    ],
+    "code": "struct Song { var title = \"Intro\" }\n@dynamicMemberLookup struct Track {\n    var song = Song()\n    subscript<T>(dynamicMember p: KeyPath<Song, T>)\n        -> T { song[keyPath: p] } }\nlet name = Track().title",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "KeyPath",
+      "lines": [
+        {
+          "text": "A KeyPath points to a property without reading it yet."
+        }
+      ],
+      "title": "A KeyPath points to a property without reading it yet. #Shorts",
+      "description": "A KeyPath points to a property without reading it yet.\n\nKeyPath - A value that points to a property of a type, so you can read that property later.\n한국어: KeyPath: 타입의 프로퍼티를 가리켜서 나중에 그 프로퍼티를 읽을 수 있게 해 주는 값\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "WritableKeyPath",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Why can't I set it through the path?"
+        },
+        {
+          "speaker": "B",
+          "text": "You need a WritableKeyPath."
+        }
+      ],
+      "title": "Why can't I set it through the path? / You need a WritableKeyPath. #Shorts",
+      "description": "Why can't I set it through the path? / You need a WritableKeyPath.\n\nWritableKeyPath - A key path that can also change the property it points to on a mutable value.\n한국어: WritableKeyPath: 변경 가능한 값에서 가리키는 프로퍼티를 바꿀 수도 있는 키 패스\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Dynamic Member Lookup",
+      "lines": [
+        {
+          "text": "Dynamic Member Lookup makes a wrapper feel like the real thing."
+        }
+      ],
+      "title": "Dynamic Member Lookup makes a wrapper feel like the real thing. #Shorts",
+      "description": "Dynamic Member Lookup makes a wrapper feel like the real thing.\n\nDynamic Member Lookup - An attribute that lets a type answer dot-style member access through one subscript you write.\n한국어: 다이내믹 멤버 룩업: 직접 만든 서브스크립트 하나로 점(.) 문법 멤버 접근에 답하게 해 주는 속성\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "No title property?"
+}

@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 57
+
+Noncopyable Type
+- A type marked `~Copyable`, so a value has only one owner and is moved instead of copied.
+- Example: "Make the coupon a Noncopyable Type, so nobody can redeem it twice."
+
+Borrowing Parameter
+- A parameter marked `borrowing` that can read a value for a moment while the caller keeps owning it.
+- Example: "`show` only reads the ticket, so a Borrowing Parameter is enough."
+
+Consuming Parameter
+- A parameter marked `consuming` that takes ownership of a value, so the caller cannot use it afterwards.
+- Example: "`redeem` should end the coupon, so give it a Consuming Parameter."
+
+
+Quiz ①
+What do you call a parameter that takes ownership, so the caller cannot use the value afterwards?
+a) Borrowing Parameter
+b) Consuming Parameter
+c) Noncopyable Type
+
+Quiz ②
+In this code, what does the tilde before `Copyable` make `Ticket`?
+a) Noncopyable Type
+b) Consuming Parameter
+c) Borrowing Parameter
+
+Quiz ③
+What do you call a parameter that only reads a value while the caller keeps owning it?
+a) Consuming Parameter
+b) Noncopyable Type
+c) Borrowing Parameter

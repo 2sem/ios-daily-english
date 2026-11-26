@@ -1,0 +1,235 @@
+{
+  "day": 36,
+  "phase": "1. Swift basics",
+  "theme": "3 terms on where code lives and who can reach it: a unit of code you import, hiding code inside one file, and letting other modules subclass a class",
+  "terms": [
+    {
+      "term": "Module",
+      "definition": "A unit of code, such as an app or a framework, that you build and import as one piece.",
+      "example": "`Payments` is its own Module, so add `import Payments` at the top.",
+      "code": "let big = Swift.max(3, 8)\nprint(big)",
+      "output": "8"
+    },
+    {
+      "term": "Fileprivate",
+      "definition": "A keyword that hides a declaration from all code outside its own source file.",
+      "example": "I made `limit` Fileprivate, so only this file can read it.",
+      "code": "fileprivate let limit = 3\nstruct Cart {\n    var count = 5\n    var isFull: Bool { count >= limit }\n}\nprint(Cart().isFull)",
+      "output": "true"
+    },
+    {
+      "term": "Open",
+      "definition": "A keyword that lets other modules use a class and also subclass it and override its methods.",
+      "example": "Mark `Screen` Open, or the app can't subclass it.",
+      "code": "open class Screen {\n    open var title: String { \"Screen\" } }\nclass Home: Screen {\n    override var title: String { \"Home\" } }\nprint(Home().title)",
+      "output": "Home"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What keyword lets another module subclass your class and override its methods?",
+      "options": [
+        "Fileprivate",
+        "Open",
+        "Module"
+      ],
+      "answer": "b"
+    },
+    {
+      "question": "In this code, what do you call `Swift`, the name before the dot?",
+      "code": "let big = Swift.max(3, 8)",
+      "options": [
+        "Open",
+        "Fileprivate",
+        "Module"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "What keyword hides a value from every other source file?",
+      "options": [
+        "Fileprivate",
+        "Module",
+        "Open"
+      ],
+      "answer": "a"
+    }
+  ],
+  "video": {
+    "title": "Module, Fileprivate & Open | Day 36",
+    "description": "Learn to explain modules and the last two access levels in Swift: Module, Fileprivate & Open, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nModule - A unit of code, such as an app or a framework, that you build and import as one piece.\nFileprivate - A keyword that hides a declaration from all code outside its own source file.\nOpen - A keyword that lets other modules use a class and also subclass it and override its methods.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 36 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish #SwiftUI",
+    "tags": [
+      "module",
+      "fileprivate",
+      "open",
+      "swift access control",
+      "swift fileprivate",
+      "swift open class",
+      "swift basics",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "Swift Module, Fileprivate & Open Access Control | Day 36",
+      "description": "Explain Module, Fileprivate & Open in Swift by listening to a real code chat between two iOS devs.\n모듈, 파일프라이빗, 오픈 표현을 영어 대화로 익혀요.\n\nModule - A unit of code, such as an app or a framework, that you build and import as one piece.\n한국어: 모듈: 앱이나 프레임워크처럼 한 덩어리로 빌드하고 import하는 코드 단위\n\nFileprivate - A keyword that hides a declaration from all code outside its own source file.\n한국어: 파일프라이빗: 같은 소스 파일 바깥의 모든 코드에서 선언을 숨기는 키워드\n\nOpen - A keyword that lets other modules use a class and also subclass it and override its methods.\n한국어: 오픈: 다른 모듈에서도 클래스를 쓰고, 상속하고, 메서드를 오버라이드할 수 있게 여는 키워드\n\nIn this video, Mina and Jake sort out why a class needs more than Public, what a module is and how to hide a value inside one file, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 36 of the iOS Daily English series.\n\n#Swift #iOSDeveloper #EnglishForDevelopers",
+      "tags": [
+        "Module",
+        "Fileprivate",
+        "Open",
+        "swift access control",
+        "swift open class",
+        "swift fileprivate",
+        "스위프트 기초",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "ios development",
+        "iOS Daily English"
+      ],
+      "hook": "Can you explain these access terms in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "Why is CardView Open?",
+    "setting": "Afternoon pairing session",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, why did you mark `CardView` Open? Isn't Public enough?",
+        "terms": [
+          "Open"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "The app target is a different Module, and it needs to subclass `CardView`.",
+        "terms": [
+          "Module"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "So Public lets another Module use the class, but not subclass it?",
+        "terms": [
+          "Module"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Right. Open also lets the app override methods like `tap()`.",
+        "terms": [
+          "Open"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Nice. And why is `maxCards` Fileprivate? I wanted to read it in my other file.",
+        "terms": [
+          "Fileprivate"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "That's the point. Only code in this file can read it.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "Wait, isn't that what Private does?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Close. Private hides it outside the type. Fileprivate hides it outside the file.",
+        "terms": [
+          "Fileprivate"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "OK. Does every method need Open, or just the class?",
+        "terms": [
+          "Open"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Every method too. Without it, the app can call `tap()`, but not override it.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "Got it. Fileprivate for one file, Open for subclasses in another Module.",
+        "terms": [
+          "Fileprivate",
+          "Open",
+          "Module"
+        ]
+      }
+    ],
+    "code": "// Cards module\nfileprivate let maxCards = 5\nopen class CardView {\n    public init() {}\n    open func tap() -> Int { maxCards }\n}",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-conversation",
+      "term": "Module",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Why can't the app see `Payments`?"
+        },
+        {
+          "speaker": "B",
+          "text": "It's a separate Module. Import it first."
+        }
+      ],
+      "title": "Why can't the app see `Payments`? / It's a separate Module. Import it first. #Shorts",
+      "description": "Why can't the app see `Payments`? / It's a separate Module. Import it first.\n\nModule - A unit of code, such as an app or a framework, that you build and import as one piece.\n한국어: 모듈: 앱이나 프레임워크처럼 한 덩어리로 빌드하고 import하는 코드 단위\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Fileprivate",
+      "lines": [
+        {
+          "text": "Fileprivate keeps a value inside one file."
+        }
+      ],
+      "title": "Fileprivate keeps a value inside one file. #Shorts",
+      "description": "Fileprivate keeps a value inside one file.\n\nFileprivate - A keyword that hides a declaration from all code outside its own source file.\n한국어: 파일프라이빗: 같은 소스 파일 바깥의 모든 코드에서 선언을 숨기는 키워드\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Open",
+      "lines": [
+        {
+          "text": "Public lets them use it. Open lets them subclass it."
+        }
+      ],
+      "title": "Public lets them use it. Open lets them subclass it. #Shorts",
+      "description": "Public lets them use it. Open lets them subclass it.\n\nOpen - A keyword that lets other modules use a class and also subclass it and override its methods.\n한국어: 오픈: 다른 모듈에서도 클래스를 쓰고, 상속하고, 메서드를 오버라이드할 수 있게 여는 키워드\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "Public isn't enough?"
+}

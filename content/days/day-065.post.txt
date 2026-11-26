@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 65
+
+Generic Typealias
+- A `typealias` with its own type parameter, like `Pair<T>`, that gives a generic type a shorter name.
+- Example: "Add a Generic Typealias, so we stop writing the full dictionary type everywhere."
+
+Constrained Extension
+- An extension with a `where` clause, so its methods exist only when the type meets that condition.
+- Example: "Put `total` in a Constrained Extension, so only arrays of `Int` get it."
+
+Generic Subscript
+- A subscript with its own type parameter, so the caller decides which type comes back.
+- Example: "With a Generic Subscript, one lookup returns an `Int` or a `String`."
+
+
+Quiz ①
+In this code, what kind of extension is this, because of the `where` clause?
+a) Generic Subscript
+b) Constrained Extension
+c) Generic Typealias
+
+Quiz ②
+What do you call a subscript with its own type parameter, so the caller chooses the return type?
+a) Generic Typealias
+b) Constrained Extension
+c) Generic Subscript
+
+Quiz ③
+What do you call a new name for a type that still takes a type parameter, like `Pair<T>`?
+a) Generic Typealias
+b) Generic Subscript
+c) Constrained Extension

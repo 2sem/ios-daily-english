@@ -1,0 +1,240 @@
+{
+  "day": 42,
+  "phase": "2. Swift in depth",
+  "theme": "3 terms on JSON in Swift: the protocol that makes a type convertible, the class that reads JSON, and the enum that renames keys",
+  "terms": [
+    {
+      "term": "Codable",
+      "definition": "A protocol pair that lets a type turn into data like JSON and back again.",
+      "example": "Make `User` Codable, and we can save it as JSON.",
+      "code": "import Foundation\nstruct User: Codable { var name: String }\nlet user = User(name: \"Mina\")\nlet data = try JSONEncoder().encode(user)\nprint(String(decoding: data, as: UTF8.self))",
+      "output": "{\"name\":\"Mina\"}"
+    },
+    {
+      "term": "JSONDecoder",
+      "definition": "A Foundation class that turns JSON data into a Swift value of the type you name.",
+      "example": "The JSONDecoder failed because the server sent a number, not a string.",
+      "code": "import Foundation\nstruct Pet: Codable { var name: String }\nlet json = Data(#\"{\"name\":\"Coco\"}\"#.utf8)\nlet decoder = JSONDecoder()\nlet pet = try decoder.decode(Pet.self, from: json)\nprint(pet.name)",
+      "output": "Coco"
+    },
+    {
+      "term": "CodingKeys",
+      "definition": "An enum inside a Codable type that maps each property to a different key name in the data.",
+      "example": "Add CodingKeys so `name` reads the `user_name` key.",
+      "code": "struct User: Codable {\n    var name: String\n    enum CodingKeys: String, CodingKey {\n        case name = \"user_name\" }\n}\nprint(User.CodingKeys.name.rawValue)",
+      "output": "user_name"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What Foundation class turns JSON data into a Swift value?",
+      "options": [
+        "Codable",
+        "JSONDecoder",
+        "CodingKeys"
+      ],
+      "answer": "b"
+    },
+    {
+      "question": "In this code, what must the enum be called to map `userName` to `user_name`?",
+      "code": "struct Profile: Codable {\n    var userName: String\n    enum ___: String, CodingKey {\n        case userName = \"user_name\" }\n}",
+      "options": [
+        "JSONDecoder",
+        "Codable",
+        "CodingKeys"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "What do you add to a type so it can be turned into JSON and back?",
+      "options": [
+        "Codable",
+        "CodingKeys",
+        "JSONDecoder"
+      ],
+      "answer": "a"
+    }
+  ],
+  "video": {
+    "title": "Codable, JSONDecoder & CodingKeys | Day 42",
+    "description": "Learn to explain JSON in Swift: Codable, JSONDecoder & CodingKeys, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nCodable - A protocol pair that lets a type turn into data like JSON and back again.\nJSONDecoder - A Foundation class that turns JSON data into a Swift value of the type you name.\nCodingKeys - An enum inside a Codable type that maps each property to a different key name in the data.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 42 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish #SwiftUI",
+    "tags": [
+      "codable",
+      "jsondecoder",
+      "codingkeys",
+      "swift json",
+      "swift codable",
+      "swift decoding",
+      "swift in depth",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "Swift Codable, JSONDecoder & CodingKeys | Day 42",
+      "description": "Explain Codable, JSONDecoder & CodingKeys in Swift by listening to a real code chat between two iOS devs.\nCodable, JSONDecoder, CodingKeys 표현을 영어 대화로 익혀요.\n\nCodable - A protocol pair that lets a type turn into data like JSON and back again.\n한국어: Codable: 타입을 JSON 같은 데이터로 바꾸고 다시 되돌릴 수 있게 해 주는 프로토콜 묶음\n\nJSONDecoder - A Foundation class that turns JSON data into a Swift value of the type you name.\n한국어: JSONDecoder: JSON 데이터를 지정한 Swift 타입의 값으로 바꿔 주는 Foundation 클래스\n\nCodingKeys - An enum inside a Codable type that maps each property to a different key name in the data.\n한국어: CodingKeys: Codable 타입 안에서 각 프로퍼티를 데이터의 다른 키 이름과 연결하는 enum\n\nIn this video, Mina and Jake sort out why decoding failed, how to keep Swift names when the server uses other keys and what makes a type convertible, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 42 of the iOS Daily English series.\n\n#Swift #iOSDeveloper #EnglishForDevelopers",
+      "tags": [
+        "Codable",
+        "JSONDecoder",
+        "CodingKeys",
+        "swift json",
+        "swift codable",
+        "swift decoding",
+        "스위프트 심화",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "ios development",
+        "iOS Daily English"
+      ],
+      "hook": "Can you explain JSON decoding in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "Why did decoding fail?",
+    "setting": "Morning bug hunt",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, the JSONDecoder throws an error when I decode `Profile`.",
+        "terms": [
+          "JSONDecoder"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "What key does the server send for `userName`?",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "It sends `user_name`, with an underscore.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "That's it. The JSONDecoder looks for `userName` and can't find it.",
+        "terms": [
+          "JSONDecoder"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "So I rename the property?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "No, keep the Swift name. Add CodingKeys and map `userName` to `user_name`.",
+        "terms": [
+          "CodingKeys"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Do I need CodingKeys for every property?",
+        "terms": [
+          "CodingKeys"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Once you add CodingKeys, list every property you want in the JSON.",
+        "terms": [
+          "CodingKeys"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "And `Profile` still says Codable, right?",
+        "terms": [
+          "Codable"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Right. Codable gives you decoding and encoding for free.",
+        "terms": [
+          "Codable"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Got it. Codable on the type, CodingKeys for names, JSONDecoder to read it.",
+        "terms": [
+          "Codable",
+          "CodingKeys",
+          "JSONDecoder"
+        ]
+      }
+    ],
+    "code": "import Foundation\nstruct Profile: Codable {\n    var userName: String\n    enum CodingKeys: String, CodingKey {\n        case userName = \"user_name\" }\n}",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "Codable",
+      "lines": [
+        {
+          "text": "Make it Codable, and it turns into JSON."
+        }
+      ],
+      "title": "Make it Codable, and it turns into JSON. #Shorts",
+      "description": "Make it Codable, and it turns into JSON.\n\nCodable - A protocol pair that lets a type turn into data like JSON and back again.\n한국어: Codable: 타입을 JSON 같은 데이터로 바꾸고 다시 되돌릴 수 있게 해 주는 프로토콜 묶음\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "JSONDecoder",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "How do I read this JSON?"
+        },
+        {
+          "speaker": "B",
+          "text": "Use a JSONDecoder with your type."
+        }
+      ],
+      "title": "How do I read this JSON? / Use a JSONDecoder with your type. #Shorts",
+      "description": "How do I read this JSON? / Use a JSONDecoder with your type.\n\nJSONDecoder - A Foundation class that turns JSON data into a Swift value of the type you name.\n한국어: JSONDecoder: JSON 데이터를 지정한 Swift 타입의 값으로 바꿔 주는 Foundation 클래스\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "CodingKeys",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "The server says `user_name`. Ugh."
+        },
+        {
+          "speaker": "B",
+          "text": "Map it with CodingKeys."
+        }
+      ],
+      "title": "The server says `user_name`. Ugh. / Map it with CodingKeys. #Shorts",
+      "description": "The server says `user_name`. Ugh. / Map it with CodingKeys.\n\nCodingKeys - An enum inside a Codable type that maps each property to a different key name in the data.\n한국어: CodingKeys: Codable 타입 안에서 각 프로퍼티를 데이터의 다른 키 이름과 연결하는 enum\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "Decoding failed?"
+}

@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 58
+
+Integer Overflow
+- When a result is too big or too small for its integer type, so Swift stops the app with a crash.
+- Example: "The badge count hit Integer Overflow because it was a `UInt8`."
+
+Overflow Operator
+- An operator like `&+` that wraps around to the other end of the range instead of crashing.
+- Example: "Use an Overflow Operator only when wrapping around is what you want."
+
+FixedWidthInteger
+- The protocol for integer types with a set number of bits, giving them `bitWidth`, `max` and overflow-checking methods.
+- Example: "Make the helper generic over FixedWidthInteger, so it works for every integer size."
+
+
+Quiz ①
+In this code, what do you call the ampersand plus, which wraps around instead of crashing?
+a) Integer Overflow
+b) FixedWidthInteger
+c) Overflow Operator
+
+Quiz ②
+Which protocol gives integer types a set number of bits, plus `bitWidth` and `max`?
+a) FixedWidthInteger
+b) Overflow Operator
+c) Integer Overflow
+
+Quiz ③
+What do you call it when a number grows past the biggest value its type can hold?
+a) Overflow Operator
+b) Integer Overflow
+c) FixedWidthInteger

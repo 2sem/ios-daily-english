@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 47
+
+Lazy Property
+- A stored property marked `lazy` whose value is created only when it is first used.
+- Example: "Make `formatter` a Lazy Property, so launch doesn't pay for it."
+
+Lazy Sequence
+- A sequence that runs operations like `map` only when each element is actually needed.
+- Example: "With a Lazy Sequence, we stop filtering once we have ten posts."
+
+Memoization
+- A technique that saves the result of a function call so the same input is not calculated twice.
+- Example: "Add Memoization, so each thumbnail size is calculated only once."
+
+
+Quiz ①
+What runs operations like `map` only when each element is actually needed?
+a) Memoization
+b) Lazy Sequence
+c) Lazy Property
+
+Quiz ②
+In this code, what technique is `cache` used for?
+a) Lazy Property
+b) Lazy Sequence
+c) Memoization
+
+Quiz ③
+What do you call a stored property whose value is created only on its first use?
+a) Lazy Property
+b) Memoization
+c) Lazy Sequence

@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 43
+
+KeyPath
+- A value that points to a property of a type, so you can read that property later.
+- Example: "Pass the KeyPath `\.title` to `map`, and you get every song title."
+
+WritableKeyPath
+- A key path that can also change the property it points to on a mutable value.
+- Example: "It's a WritableKeyPath, so the form can update any field."
+
+Dynamic Member Lookup
+- An attribute that lets a type answer dot-style member access through one subscript you write.
+- Example: "With Dynamic Member Lookup, `Box` shows the pet's `name` directly."
+
+
+Quiz ①
+What attribute lets a type answer dot-style member access through one subscript?
+a) KeyPath
+b) WritableKeyPath
+c) Dynamic Member Lookup
+
+Quiz ②
+In this code, what do you call `\User.name`, which points to a property?
+a) KeyPath
+b) Dynamic Member Lookup
+c) WritableKeyPath
+
+Quiz ③
+What kind of path can also change the property it points to?
+a) Dynamic Member Lookup
+b) WritableKeyPath
+c) KeyPath

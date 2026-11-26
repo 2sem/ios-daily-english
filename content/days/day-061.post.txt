@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 61
+
+ArraySlice
+- A view into part of an array, made with a range, that shares the array's storage and keeps its original indices.
+- Example: "`recent` is an ArraySlice, so its first index isn't zero."
+
+Reserve Capacity
+- Calling `reserveCapacity` to set aside room for a number of items before you append them, so the array grows only once.
+- Example: "We know there are a thousand rows, so Reserve Capacity first."
+
+ContiguousArray
+- An array type that always stores its items side by side in one block of memory, which can make it a bit faster.
+- Example: "Switch to ContiguousArray only if Instruments shows the loop is slow."
+
+
+Quiz ①
+What do you call setting aside room for items before you append them?
+a) ContiguousArray
+b) Reserve Capacity
+c) ArraySlice
+
+Quiz ②
+In this code, what type is `part`, which keeps the indices from `all`?
+a) ArraySlice
+b) ContiguousArray
+c) Reserve Capacity
+
+Quiz ③
+Which array type always stores its items side by side in one block of memory?
+a) Reserve Capacity
+b) ArraySlice
+c) ContiguousArray

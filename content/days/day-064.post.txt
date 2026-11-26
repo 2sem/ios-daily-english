@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 64
+
+Protocol Composition
+- Joining protocols with an ampersand, like `Named & Aged`, so a value must conform to all of them.
+- Example: "Use Protocol Composition here instead of one giant protocol."
+
+Class Only Protocol
+- A protocol that inherits from `AnyObject`, so only classes can adopt it and you can hold it weakly.
+- Example: "Make the delegate a Class Only Protocol, so we can store it as `weak`."
+
+Self Requirement
+- A protocol requirement that uses `Self`, meaning the exact type that adopts the protocol.
+- Example: "Because of the Self Requirement, `mix` only accepts the same type."
+
+
+Quiz ①
+In this code, what kind of protocol does `AnyObject` make `Listener`?
+a) Self Requirement
+b) Class Only Protocol
+c) Protocol Composition
+
+Quiz ②
+What do you call a protocol rule that must take or return the exact type that adopts the protocol?
+a) Protocol Composition
+b) Self Requirement
+c) Class Only Protocol
+
+Quiz ③
+What do you call joining protocols with an ampersand, so a value must conform to all of them?
+a) Protocol Composition
+b) Class Only Protocol
+c) Self Requirement

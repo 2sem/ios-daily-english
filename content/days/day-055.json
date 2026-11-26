@@ -1,0 +1,233 @@
+{
+  "day": 55,
+  "phase": "2. Swift in depth",
+  "theme": "3 terms on finding text: a pattern for text, the part that saves a match, and writing the pattern as readable Swift code",
+  "terms": [
+    {
+      "term": "Regex",
+      "definition": "A pattern that describes the shape of text, used to find or check matching strings.",
+      "example": "Use a Regex to pull the order number out of the email.",
+      "code": "let text = \"Order 42 shipped\"\nif let m = text.firstMatch(of: #/\\d+/#) {\n    print(m.output)\n}",
+      "output": "42"
+    },
+    {
+      "term": "Capture Group",
+      "definition": "A part of a regex inside parentheses that saves the text it matched so you can use it.",
+      "example": "Wrap the name in a Capture Group, then read it as `m.1`.",
+      "code": "let s = \"id: mina\"\nif let m = s.firstMatch(of: #/id: (\\w+)/#) {\n    print(m.1)\n}",
+      "output": "mina"
+    },
+    {
+      "term": "Regex Builder",
+      "definition": "A way to write a regex as readable Swift code with names like `OneOrMore`, from the RegexBuilder module.",
+      "example": "Switch to Regex Builder, so the pattern reads like Swift.",
+      "code": "import RegexBuilder\nlet r = Regex { OneOrMore(.digit) }\nif let m = \"Room 101\".firstMatch(of: r) {\n    print(m.output)\n}",
+      "output": "101"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What lets you write a text pattern as readable Swift code, with names like `OneOrMore`?",
+      "options": [
+        "Regex",
+        "Capture Group",
+        "Regex Builder"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "In this code, what do you call the part in parentheses, which saves the name?",
+      "code": "let s = \"id: mina\"\nlet m = s.firstMatch(of: #/id: (\\w+)/#)",
+      "options": [
+        "Capture Group",
+        "Regex Builder",
+        "Regex"
+      ],
+      "answer": "a"
+    },
+    {
+      "question": "What do you call a pattern that describes the shape of the text you want to find?",
+      "options": [
+        "Regex Builder",
+        "Regex",
+        "Capture Group"
+      ],
+      "answer": "b"
+    }
+  ],
+  "video": {
+    "title": "Regex, Capture Group & Regex Builder | Day 55",
+    "description": "Learn to explain regex in Swift: Regex, Capture Group & Regex Builder, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nRegex - A pattern that describes the shape of text, used to find or check matching strings.\nCapture Group - A part of a regex inside parentheses that saves the text it matched so you can use it.\nRegex Builder - A way to write a regex as readable Swift code with names like `OneOrMore`, from the RegexBuilder module.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 55 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish #SwiftUI",
+    "tags": [
+      "regex",
+      "capture group",
+      "regex builder",
+      "swift regex",
+      "regexbuilder",
+      "swift string matching",
+      "swift in depth",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "Swift Regex, Capture Group & Regex Builder | Day 55",
+      "description": "Explain Regex, Capture Group & Regex Builder in Swift by listening to a real code chat between two iOS devs.\n정규식, 캡처 그룹, 정규식 빌더 표현을 영어 대화로 익혀요.\n\nRegex - A pattern that describes the shape of text, used to find or check matching strings.\n한국어: 정규식: 텍스트의 모양을 설명하는 패턴으로, 맞는 문자열을 찾거나 확인할 때 씀\n\nCapture Group - A part of a regex inside parentheses that saves the text it matched so you can use it.\n한국어: 캡처 그룹: 정규식에서 괄호로 감싼 부분으로, 맞은 텍스트를 저장해 나중에 쓸 수 있게 함\n\nRegex Builder - A way to write a regex as readable Swift code with names like `OneOrMore`, from the RegexBuilder module.\n한국어: 정규식 빌더: RegexBuilder 모듈의 OneOrMore 같은 이름으로 정규식을 읽기 쉬운 Swift 코드로 쓰는 방법\n\nIn this video, Mina and Jake sort out what a line of symbols means, how to keep only the digits and how to make the pattern readable, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 55 of the iOS Daily English series.\n\n#Swift #iOSDeveloper #EnglishForDevelopers",
+      "tags": [
+        "Regex",
+        "Capture Group",
+        "Regex Builder",
+        "swift regex",
+        "RegexBuilder",
+        "swift string",
+        "스위프트 심화",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "ios development",
+        "iOS Daily English"
+      ],
+      "hook": "Can you explain regex in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "Random symbols?",
+    "setting": "Afternoon code review",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, what is `id`? It looks like random symbols.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "It's a Regex. It describes the shape of the text you want.",
+        "terms": [
+          "Regex"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "So it finds the word Order, then some digits?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Right. And the parentheses around the digits make a Capture Group.",
+        "terms": [
+          "Capture Group"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Is that why `m.1` gives 4521 without the word Order?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Exactly. The Capture Group saves only the digits.",
+        "terms": [
+          "Capture Group"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Honestly, this Regex is hard to read.",
+        "terms": [
+          "Regex"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Then try Regex Builder. You write the same pattern as Swift code.",
+        "terms": [
+          "Regex Builder"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Like `OneOrMore(.digit)`?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Yes. Regex Builder is longer, but new teammates can read it.",
+        "terms": [
+          "Regex Builder"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Got it. A Regex finds text, a Capture Group keeps a part, and Regex Builder makes it readable.",
+        "terms": [
+          "Regex",
+          "Capture Group",
+          "Regex Builder"
+        ]
+      }
+    ],
+    "code": "import RegexBuilder\nlet order = \"Order 4521 shipped\"\nlet id = #/Order (\\d+)/#\nif let m = order.firstMatch(of: id) {\n    print(m.1) // 4521\n}",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "Regex",
+      "lines": [
+        {
+          "text": "A Regex describes the shape of the text you want."
+        }
+      ],
+      "title": "A Regex describes the shape of the text you want. #Shorts",
+      "description": "A Regex describes the shape of the text you want.\n\nRegex - A pattern that describes the shape of text, used to find or check matching strings.\n한국어: 정규식: 텍스트의 모양을 설명하는 패턴으로, 맞는 문자열을 찾거나 확인할 때 씀\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "Capture Group",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "How do I keep just the number?"
+        },
+        {
+          "speaker": "B",
+          "text": "Put it in a Capture Group."
+        }
+      ],
+      "title": "How do I keep just the number? / Put it in a Capture Group. #Shorts",
+      "description": "How do I keep just the number? / Put it in a Capture Group.\n\nCapture Group - A part of a regex inside parentheses that saves the text it matched so you can use it.\n한국어: 캡처 그룹: 정규식에서 괄호로 감싼 부분으로, 맞은 텍스트를 저장해 나중에 쓸 수 있게 함\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Regex Builder",
+      "lines": [
+        {
+          "text": "Regex Builder turns symbols into readable Swift."
+        }
+      ],
+      "title": "Regex Builder turns symbols into readable Swift. #Shorts",
+      "description": "Regex Builder turns symbols into readable Swift.\n\nRegex Builder - A way to write a regex as readable Swift code with names like `OneOrMore`, from the RegexBuilder module.\n한국어: 정규식 빌더: RegexBuilder 모듈의 OneOrMore 같은 이름으로 정규식을 읽기 쉬운 Swift 코드로 쓰는 방법\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "Random symbols?"
+}

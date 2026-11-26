@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 44
+
+Opaque Type
+- A return type written with `some` that hides the real type but keeps it the same every time.
+- Example: "`body` returns an Opaque Type, so we never write the long view type."
+
+Existential Type
+- A type written with `any` that can hold a value of any type that conforms to a protocol.
+- Example: "The array needs an Existential Type because it mixes squares and dots."
+
+Type Erasure
+- A technique that wraps different concrete types in one common type so they can be used the same way.
+- Example: "`AnyHashable` uses Type Erasure, so one set can hold an `Int` and a `String`."
+
+
+Quiz ①
+In this code, what kind of type is `any Shape`, which lets the array mix shapes?
+a) Opaque Type
+b) Existential Type
+c) Type Erasure
+
+Quiz ②
+What do you call wrapping different concrete types in one common wrapper?
+a) Existential Type
+b) Opaque Type
+c) Type Erasure
+
+Quiz ③
+What return type, written with `some`, hides the real type but keeps it the same?
+a) Opaque Type
+b) Type Erasure
+c) Existential Type

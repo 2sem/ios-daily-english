@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 48
+
+Tuple Pattern
+- A pattern that matches several values at once by listing them in parentheses.
+- Example: "Use a Tuple Pattern to check the status code and the message together."
+
+Value-Binding Pattern
+- A pattern that matches a value and also gives part of it a new name with `let` or `var`.
+- Example: "A Value-Binding Pattern pulls the width out, so we can print it."
+
+Pattern Matching Operator
+- The `~=` operator that checks whether a value fits a pattern, which every `case` uses behind the scenes.
+- Example: "The Pattern Matching Operator is why a range works in a `case`."
+
+
+Quiz ①
+What operator does every `case` use behind the scenes to check a match?
+a) Tuple Pattern
+b) Value-Binding Pattern
+c) Pattern Matching Operator
+
+Quiz ②
+In this code, what do you call `(0, _)`, which checks two values at once?
+a) Tuple Pattern
+b) Pattern Matching Operator
+c) Value-Binding Pattern
+
+Quiz ③
+What pattern gives part of a matched value a new name with `let`?
+a) Pattern Matching Operator
+b) Value-Binding Pattern
+c) Tuple Pattern

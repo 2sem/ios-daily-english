@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 42
+
+Codable
+- A protocol pair that lets a type turn into data like JSON and back again.
+- Example: "Make `User` Codable, and we can save it as JSON."
+
+JSONDecoder
+- A Foundation class that turns JSON data into a Swift value of the type you name.
+- Example: "The JSONDecoder failed because the server sent a number, not a string."
+
+CodingKeys
+- An enum inside a Codable type that maps each property to a different key name in the data.
+- Example: "Add CodingKeys so `name` reads the `user_name` key."
+
+
+Quiz ①
+What Foundation class turns JSON data into a Swift value?
+a) Codable
+b) JSONDecoder
+c) CodingKeys
+
+Quiz ②
+In this code, what must the enum be called to map `userName` to `user_name`?
+a) JSONDecoder
+b) Codable
+c) CodingKeys
+
+Quiz ③
+What do you add to a type so it can be turned into JSON and back?
+a) Codable
+b) CodingKeys
+c) JSONDecoder

@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 49
+
+UTF-8 View
+- A view of a String as the raw bytes it uses in UTF-8 encoding.
+- Example: "The API limit is in bytes, so check the UTF-8 View, not `count`."
+
+Unicode Scalar
+- A single Unicode code, a number that stands for one symbol or one part of a symbol.
+- Example: "The accent is a separate Unicode Scalar, so the search missed it."
+
+Grapheme Cluster
+- One or more Unicode Scalars that show up together as a single character on screen.
+- Example: "A flag is one Grapheme Cluster, even though it's two scalars."
+
+
+Quiz ①
+In this code, `flag.count` is 1 because its two codes form one what?
+a) UTF-8 View
+b) Unicode Scalar
+c) Grapheme Cluster
+
+Quiz ②
+What do you call a single code number that stands for one symbol or part of one?
+a) Unicode Scalar
+b) Grapheme Cluster
+c) UTF-8 View
+
+Quiz ③
+What gives you a String's raw bytes, for example to check a byte limit?
+a) Grapheme Cluster
+b) UTF-8 View
+c) Unicode Scalar

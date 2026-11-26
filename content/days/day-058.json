@@ -1,0 +1,229 @@
+{
+  "day": 58,
+  "phase": "2. Swift in depth",
+  "theme": "3 terms on numbers that get too big: the crash when a value does not fit, the operator that wraps around instead, and the protocol behind integer sizes",
+  "terms": [
+    {
+      "term": "Integer Overflow",
+      "definition": "When a result is too big or too small for its integer type, so Swift stops the app with a crash.",
+      "example": "The badge count hit Integer Overflow because it was a `UInt8`.",
+      "code": "let score: UInt8 = 255 // the biggest UInt8\nprint(score)\n// score + 1 doesn't fit in 8 bits,\n// so the app would crash here",
+      "output": "255"
+    },
+    {
+      "term": "Overflow Operator",
+      "definition": "An operator like `&+` that wraps around to the other end of the range instead of crashing.",
+      "example": "Use an Overflow Operator only when wrapping around is what you want.",
+      "code": "let score: UInt8 = 255\nlet next = score &+ 1\nprint(next)",
+      "output": "0"
+    },
+    {
+      "term": "FixedWidthInteger",
+      "definition": "The protocol for integer types with a set number of bits, giving them `bitWidth`, `max` and overflow-checking methods.",
+      "example": "Make the helper generic over FixedWidthInteger, so it works for every integer size.",
+      "code": "func info<T: FixedWidthInteger>(_: T.Type) {\n    print(T.bitWidth, T.max)\n}\ninfo(UInt8.self)\ninfo(Int16.self)",
+      "output": "8 255\n16 32767"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "In this code, what do you call the ampersand plus, which wraps around instead of crashing?",
+      "code": "let score: UInt8 = 255\nlet next = score &+ 1 // 0",
+      "options": [
+        "Integer Overflow",
+        "FixedWidthInteger",
+        "Overflow Operator"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "Which protocol gives integer types a set number of bits, plus `bitWidth` and `max`?",
+      "options": [
+        "FixedWidthInteger",
+        "Overflow Operator",
+        "Integer Overflow"
+      ],
+      "answer": "a"
+    },
+    {
+      "question": "What do you call it when a number grows past the biggest value its type can hold?",
+      "options": [
+        "Overflow Operator",
+        "Integer Overflow",
+        "FixedWidthInteger"
+      ],
+      "answer": "b"
+    }
+  ],
+  "video": {
+    "title": "Integer Overflow, Overflow Operator & FixedWidthInteger | Day 58",
+    "description": "Learn to explain number limits in Swift: Integer Overflow, Overflow Operator & FixedWidthInteger, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nInteger Overflow - When a result is too big or too small for its integer type, so Swift stops the app with a crash.\nOverflow Operator - An operator like `&+` that wraps around to the other end of the range instead of crashing.\nFixedWidthInteger - The protocol for integer types with a set number of bits, giving them `bitWidth`, `max` and overflow-checking methods.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 58 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "integer overflow",
+      "overflow operator",
+      "fixedwidthinteger",
+      "swift integer",
+      "uint8",
+      "swift overflow",
+      "swift in depth",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "Swift Integer Overflow, Overflow Operator & FixedWidthInteger | Day 58",
+      "description": "Explain Integer Overflow, Overflow Operator & FixedWidthInteger in Swift by listening to a real code chat between two iOS devs.\n정수 오버플로, 오버플로 연산자, FixedWidthInteger 표현을 영어 대화로 익혀요.\n\nInteger Overflow - When a result is too big or too small for its integer type, so Swift stops the app with a crash.\n한국어: 정수 오버플로: 계산 결과가 정수 타입에 담기에 너무 크거나 작아서 Swift가 앱을 크래시로 멈추는 것\n\nOverflow Operator - An operator like `&+` that wraps around to the other end of the range instead of crashing.\n한국어: 오버플로 연산자: `&+`처럼 크래시 대신 범위의 반대쪽 끝으로 되감기는 연산자\n\nFixedWidthInteger - The protocol for integer types with a set number of bits, giving them `bitWidth`, `max` and overflow-checking methods.\n한국어: FixedWidthInteger: 비트 수가 정해진 정수 타입의 프로토콜로, `bitWidth`, `max`, 오버플로 확인 메서드를 제공함\n\nIn this video, Mina and Jake find out why a small counter crashed, why the quick fix gave a wrong number and how to check before adding, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 58 of the iOS Daily English series.\n\n#Swift #iOSDeveloper #EnglishForDevelopers",
+      "tags": [
+        "Integer Overflow",
+        "Overflow Operator",
+        "FixedWidthInteger",
+        "swift integer",
+        "UInt8",
+        "addingReportingOverflow",
+        "스위프트 심화",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "ios development",
+        "iOS Daily English"
+      ],
+      "hook": "Can you explain why 250 plus 10 crashed, in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "Why is it 4?",
+    "setting": "Afternoon bug hunt",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, our `hits` counter crashed at 250 plus 10. Why?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "That's Integer Overflow. A `UInt8` can't hold more than 255.",
+        "terms": [
+          "Integer Overflow"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "So I switched to ampersand plus, and the crash is gone.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Right, that's an Overflow Operator. But look, `hits` is 4 now.",
+        "terms": [
+          "Overflow Operator"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Four? I expected 260.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "An Overflow Operator wraps back to zero and keeps counting. No crash, but a wrong number.",
+        "terms": [
+          "Overflow Operator"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "So the Integer Overflow is still there, just hidden?",
+        "terms": [
+          "Integer Overflow"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Exactly. Every FixedWidthInteger type has a fixed size and a `max`.",
+        "terms": [
+          "FixedWidthInteger"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Then can I check before adding?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Yes. `addingReportingOverflow` comes from FixedWidthInteger. It tells you if it overflowed.",
+        "terms": [
+          "FixedWidthInteger"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Got it. Or I just make `hits` an `Int` and stop worrying.",
+        "terms": []
+      }
+    ],
+    "code": "var hits: UInt8 = 250\nhits = hits &+ 10\nprint(hits) // 4\nlet r = UInt8.max.addingReportingOverflow(1)\nprint(r.overflow) // true",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-conversation",
+      "term": "Integer Overflow",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Why did 250 plus 10 crash?"
+        },
+        {
+          "speaker": "B",
+          "text": "Integer Overflow. A `UInt8` stops at 255."
+        }
+      ],
+      "title": "Why did 250 plus 10 crash? / Integer Overflow. A `UInt8` stops at 255. #Shorts",
+      "description": "Why did 250 plus 10 crash? / Integer Overflow. A `UInt8` stops at 255.\n\nInteger Overflow - When a result is too big or too small for its integer type, so Swift stops the app with a crash.\n한국어: 정수 오버플로: 계산 결과가 정수 타입에 담기에 너무 크거나 작아서 Swift가 앱을 크래시로 멈추는 것\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Overflow Operator",
+      "lines": [
+        {
+          "text": "An Overflow Operator never crashes, it just wraps around."
+        }
+      ],
+      "title": "An Overflow Operator never crashes, it just wraps around. #Shorts",
+      "description": "An Overflow Operator never crashes, it just wraps around.\n\nOverflow Operator - An operator like `&+` that wraps around to the other end of the range instead of crashing.\n한국어: 오버플로 연산자: `&+`처럼 크래시 대신 범위의 반대쪽 끝으로 되감기는 연산자\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "FixedWidthInteger",
+      "lines": [
+        {
+          "text": "Every FixedWidthInteger type knows its own `max`."
+        }
+      ],
+      "title": "Every FixedWidthInteger type knows its own `max`. #Shorts",
+      "description": "Every FixedWidthInteger type knows its own `max`.\n\nFixedWidthInteger - The protocol for integer types with a set number of bits, giving them `bitWidth`, `max` and overflow-checking methods.\n한국어: FixedWidthInteger: 비트 수가 정해진 정수 타입의 프로토콜로, `bitWidth`, `max`, 오버플로 확인 메서드를 제공함\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "Why is it 4?"
+}

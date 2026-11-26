@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 36
+
+Module
+- A unit of code, such as an app or a framework, that you build and import as one piece.
+- Example: "`Payments` is its own Module, so add `import Payments` at the top."
+
+Fileprivate
+- A keyword that hides a declaration from all code outside its own source file.
+- Example: "I made `limit` Fileprivate, so only this file can read it."
+
+Open
+- A keyword that lets other modules use a class and also subclass it and override its methods.
+- Example: "Mark `Screen` Open, or the app can't subclass it."
+
+
+Quiz ①
+What keyword lets another module subclass your class and override its methods?
+a) Fileprivate
+b) Open
+c) Module
+
+Quiz ②
+In this code, what do you call `Swift`, the name before the dot?
+a) Open
+b) Fileprivate
+c) Module
+
+Quiz ③
+What keyword hides a value from every other source file?
+a) Fileprivate
+b) Module
+c) Open

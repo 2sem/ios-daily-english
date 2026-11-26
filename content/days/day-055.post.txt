@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 55
+
+Regex
+- A pattern that describes the shape of text, used to find or check matching strings.
+- Example: "Use a Regex to pull the order number out of the email."
+
+Capture Group
+- A part of a regex inside parentheses that saves the text it matched so you can use it.
+- Example: "Wrap the name in a Capture Group, then read it as `m.1`."
+
+Regex Builder
+- A way to write a regex as readable Swift code with names like `OneOrMore`, from the RegexBuilder module.
+- Example: "Switch to Regex Builder, so the pattern reads like Swift."
+
+
+Quiz ①
+What lets you write a text pattern as readable Swift code, with names like `OneOrMore`?
+a) Regex
+b) Capture Group
+c) Regex Builder
+
+Quiz ②
+In this code, what do you call the part in parentheses, which saves the name?
+a) Capture Group
+b) Regex Builder
+c) Regex
+
+Quiz ③
+What do you call a pattern that describes the shape of the text you want to find?
+a) Regex Builder
+b) Regex
+c) Capture Group

@@ -1,0 +1,236 @@
+{
+  "day": 47,
+  "phase": "2. Swift in depth",
+  "theme": "3 terms on skipping extra work: a property made on first use, a sequence that works only on demand, and saving results you already calculated",
+  "terms": [
+    {
+      "term": "Lazy Property",
+      "definition": "A stored property marked `lazy` whose value is created only when it is first used.",
+      "example": "Make `formatter` a Lazy Property, so launch doesn't pay for it.",
+      "code": "struct Report {\n    lazy var text: String = {\n        print(\"building\"); return \"Done\" }()\n}\nvar r = Report(); print(\"start\")\nprint(r.text)",
+      "output": "start\nbuilding\nDone"
+    },
+    {
+      "term": "Lazy Sequence",
+      "definition": "A sequence that runs operations like `map` only when each element is actually needed.",
+      "example": "With a Lazy Sequence, we stop filtering once we have ten posts.",
+      "code": "let nums = (1...3).lazy.map { n -> Int in\n    print(\"map \\(n)\"); return n * 2 }\nprint(nums.first!)",
+      "output": "map 1\n2"
+    },
+    {
+      "term": "Memoization",
+      "definition": "A technique that saves the result of a function call so the same input is not calculated twice.",
+      "example": "Add Memoization, so each thumbnail size is calculated only once.",
+      "code": "var cache: [Int: Int] = [:]\nfunc square(_ n: Int) -> Int {\n    if let hit = cache[n] { return hit }\n    print(\"calc \\(n)\"); cache[n] = n * n\n    return n * n }\nprint(square(4), square(4))",
+      "output": "calc 4\n16 16"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What runs operations like `map` only when each element is actually needed?",
+      "options": [
+        "Memoization",
+        "Lazy Sequence",
+        "Lazy Property"
+      ],
+      "answer": "b"
+    },
+    {
+      "question": "In this code, what technique is `cache` used for?",
+      "code": "var cache: [Int: Int] = [:]\nfunc square(_ n: Int) -> Int {\n    if let hit = cache[n] { return hit }\n    cache[n] = n * n; return n * n }",
+      "options": [
+        "Lazy Property",
+        "Lazy Sequence",
+        "Memoization"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "What do you call a stored property whose value is created only on its first use?",
+      "options": [
+        "Lazy Property",
+        "Memoization",
+        "Lazy Sequence"
+      ],
+      "answer": "a"
+    }
+  ],
+  "video": {
+    "title": "Lazy Property, Lazy Sequence & Memoization | Day 47",
+    "description": "Learn to explain how to skip extra work in Swift: Lazy Property, Lazy Sequence & Memoization, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nLazy Property - A stored property marked `lazy` whose value is created only when it is first used.\nLazy Sequence - A sequence that runs operations like `map` only when each element is actually needed.\nMemoization - A technique that saves the result of a function call so the same input is not calculated twice.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 47 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish #SwiftUI",
+    "tags": [
+      "lazy property",
+      "lazy sequence",
+      "memoization",
+      "swift lazy",
+      "swift lazy var",
+      "swift performance",
+      "swift in depth",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "Swift Lazy Property, Lazy Sequence & Memoization | Day 47",
+      "description": "Explain Lazy Property, Lazy Sequence & Memoization in Swift by listening to a real code chat between two iOS devs.\n지연 프로퍼티, 지연 시퀀스, 메모이제이션 표현을 영어 대화로 익혀요.\n\nLazy Property - A stored property marked `lazy` whose value is created only when it is first used.\n한국어: 지연 프로퍼티: lazy를 붙여, 처음 쓰일 때 비로소 값이 만들어지는 저장 프로퍼티\n\nLazy Sequence - A sequence that runs operations like `map` only when each element is actually needed.\n한국어: 지연 시퀀스: map 같은 연산을 각 요소가 실제로 필요할 때만 실행하는 시퀀스\n\nMemoization - A technique that saves the result of a function call so the same input is not calculated twice.\n한국어: 메모이제이션: 함수 호출 결과를 저장해 같은 입력을 두 번 계산하지 않게 하는 기법\n\nIn this video, Mina and Jake sort out why a screen opens slowly, how to filter only what you show and how to stop calculating the same thing twice, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 47 of the iOS Daily English series.\n\n#Swift #iOSDeveloper #EnglishForDevelopers",
+      "tags": [
+        "Lazy Property",
+        "Lazy Sequence",
+        "Memoization",
+        "swift lazy",
+        "swift lazy var",
+        "swift performance",
+        "스위프트 심화",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "ios development",
+        "iOS Daily English"
+      ],
+      "hook": "Can you explain lazy and memoization in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "Why is the feed slow?",
+    "setting": "Performance review",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, the feed screen is slow to open. Any ideas?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Your `formatter` is created right away. Make it a Lazy Property.",
+        "terms": [
+          "Lazy Property"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "So it's made only when I first use it?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Yes. A Lazy Property waits until the first read.",
+        "terms": [
+          "Lazy Property"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "I also filter all of `ids`, but I only show ten.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Then use a Lazy Sequence. Add `.lazy`, and it stops once it has ten.",
+        "terms": [
+          "Lazy Sequence"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Nice. So a Lazy Sequence skips the rest?",
+        "terms": [
+          "Lazy Sequence"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Right. But titles are calculated again on every scroll.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "Wait, isn't that what `cache` is for?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Yes, that's Memoization. Save each title once, then read it from `cache`.",
+        "terms": [
+          "Memoization"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Got it. Lazy Property, Lazy Sequence and Memoization all skip extra work.",
+        "terms": [
+          "Lazy Property",
+          "Lazy Sequence",
+          "Memoization"
+        ]
+      }
+    ],
+    "code": "import Foundation\nstruct Feed {\n    lazy var formatter = DateFormatter()\n    var cache: [Int: String] = [:]\n    let ids = Array(1...10_000)\n}",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "Lazy Property",
+      "lines": [
+        {
+          "text": "A Lazy Property isn't built until someone reads it."
+        }
+      ],
+      "title": "A Lazy Property isn't built until someone reads it. #Shorts",
+      "description": "A Lazy Property isn't built until someone reads it.\n\nLazy Property - A stored property marked `lazy` whose value is created only when it is first used.\n한국어: 지연 프로퍼티: lazy를 붙여, 처음 쓰일 때 비로소 값이 만들어지는 저장 프로퍼티\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "Lazy Sequence",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Why filter ten thousand items for ten?"
+        },
+        {
+          "speaker": "B",
+          "text": "Use a Lazy Sequence instead."
+        }
+      ],
+      "title": "Why filter ten thousand items for ten? / Use a Lazy Sequence instead. #Shorts",
+      "description": "Why filter ten thousand items for ten? / Use a Lazy Sequence instead.\n\nLazy Sequence - A sequence that runs operations like `map` only when each element is actually needed.\n한국어: 지연 시퀀스: map 같은 연산을 각 요소가 실제로 필요할 때만 실행하는 시퀀스\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "Memoization",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "We calculate this on every scroll."
+        },
+        {
+          "speaker": "B",
+          "text": "Add Memoization and save the result."
+        }
+      ],
+      "title": "We calculate this on every scroll. / Add Memoization and save the result. #Shorts",
+      "description": "We calculate this on every scroll. / Add Memoization and save the result.\n\nMemoization - A technique that saves the result of a function call so the same input is not calculated twice.\n한국어: 메모이제이션: 함수 호출 결과를 저장해 같은 입력을 두 번 계산하지 않게 하는 기법\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "Why so slow?"
+}

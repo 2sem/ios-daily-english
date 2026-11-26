@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 39
+
+Reference Count
+- A number that tracks how many Strong References point to a class instance.
+- Example: "The Reference Count of `Song` never hits zero, so it stays in memory."
+
+Weak Reference
+- A reference that does not keep an instance alive and turns into `nil` when the instance is freed.
+- Example: "Make `delegate` a Weak Reference, so the screen can be freed."
+
+Unowned Reference
+- A reference that does not keep an instance alive and assumes the instance is still there whenever it is used.
+- Example: "`owner` is an Unowned Reference, because a `Card` never outlives its `User`."
+
+
+Quiz ①
+What reference does not keep an object alive, and crashes if you use it after the object is gone?
+a) Weak Reference
+b) Reference Count
+c) Unowned Reference
+
+Quiz ②
+In this code, what goes from 2 down to 1 after `a = nil`?
+a) Reference Count
+b) Unowned Reference
+c) Weak Reference
+
+Quiz ③
+What reference does not keep an object alive, and turns into `nil` when the object is freed?
+a) Unowned Reference
+b) Weak Reference
+c) Reference Count

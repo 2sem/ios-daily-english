@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 46
+
+Domain-Specific Language
+- A small language made for one job, like describing screens or menus, inside a bigger language.
+- Example: "SwiftUI feels like a Domain-Specific Language for building screens."
+
+Result Builder
+- A type marked with `@resultBuilder` that turns a list of plain expressions into one combined result.
+- Example: "Let's write a Result Builder so the steps read like a list."
+
+buildBlock
+- The static method in a Result Builder that combines all the parts of a block into one value.
+- Example: "Our buildBlock adds up every number in the block."
+
+
+Quiz ①
+What do you call a type, marked with an attribute, that turns plain lines into one combined result?
+a) buildBlock
+b) Domain-Specific Language
+c) Result Builder
+
+Quiz ②
+In this code, what do you call the small custom syntax that lists menu items without an array literal?
+a) Domain-Specific Language
+b) Result Builder
+c) buildBlock
+
+Quiz ③
+What static method combines all the parts of a block into one value?
+a) Result Builder
+b) buildBlock
+c) Domain-Specific Language

@@ -1,0 +1,229 @@
+{
+  "day": 65,
+  "phase": "2. Swift in depth",
+  "theme": "3 terms on generics in depth: a new name for a type that still takes a type parameter, an extension that applies only under a condition, and a subscript whose caller picks the type",
+  "terms": [
+    {
+      "term": "Generic Typealias",
+      "definition": "A `typealias` with its own type parameter, like `Pair<T>`, that gives a generic type a shorter name.",
+      "example": "Add a Generic Typealias, so we stop writing the full dictionary type everywhere.",
+      "code": "typealias Pair<T> = (T, T)\nlet point: Pair<Int> = (3, 4)\nprint(point.0 + point.1)",
+      "output": "7"
+    },
+    {
+      "term": "Constrained Extension",
+      "definition": "An extension with a `where` clause, so its methods exist only when the type meets that condition.",
+      "example": "Put `total` in a Constrained Extension, so only arrays of `Int` get it.",
+      "code": "extension Array where Element == Int {\n    func total() -> Int { reduce(0, +) }\n}\nprint([1, 2, 3].total())",
+      "output": "6"
+    },
+    {
+      "term": "Generic Subscript",
+      "definition": "A subscript with its own type parameter, so the caller decides which type comes back.",
+      "example": "With a Generic Subscript, one lookup returns an `Int` or a `String`.",
+      "code": "struct Bag {\n    let all: [Any] = [1, \"hi\", 2]\n    subscript<T>(_: T.Type) -> [T] {\n        all.compactMap { $0 as? T } }\n}\nprint(Bag()[Int.self], Bag()[String.self])",
+      "output": "[1, 2] [\"hi\"]"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "In this code, what kind of extension is this, because of the `where` clause?",
+      "code": "extension Array where Element == Int {\n    func total() -> Int { reduce(0, +) }\n}",
+      "options": [
+        "Generic Subscript",
+        "Constrained Extension",
+        "Generic Typealias"
+      ],
+      "answer": "b"
+    },
+    {
+      "question": "What do you call a subscript with its own type parameter, so the caller chooses the return type?",
+      "options": [
+        "Generic Typealias",
+        "Constrained Extension",
+        "Generic Subscript"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "What do you call a new name for a type that still takes a type parameter, like `Pair<T>`?",
+      "options": [
+        "Generic Typealias",
+        "Generic Subscript",
+        "Constrained Extension"
+      ],
+      "answer": "a"
+    }
+  ],
+  "video": {
+    "title": "Generic Typealias, Constrained Extension & Generic Subscript | Day 65",
+    "description": "Learn to explain generics in depth: Generic Typealias, Constrained Extension & Generic Subscript, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nGeneric Typealias - A `typealias` with its own type parameter, like `Pair<T>`, that gives a generic type a shorter name.\nConstrained Extension - An extension with a `where` clause, so its methods exist only when the type meets that condition.\nGeneric Subscript - A subscript with its own type parameter, so the caller decides which type comes back.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 65 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "generic typealias",
+      "constrained extension",
+      "generic subscript",
+      "swift generics",
+      "where clause",
+      "swift extension",
+      "swift in depth",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "Swift Generic Typealias, Constrained Extension & Generic Subscript | Day 65",
+      "description": "Explain Generic Typealias, Constrained Extension & Generic Subscript in Swift by listening to a real code chat between two iOS devs.\n제네릭 타입 별칭, 제약 있는 익스텐션, 제네릭 서브스크립트 표현을 영어 대화로 익혀요.\n\nGeneric Typealias - A `typealias` with its own type parameter, like `Pair<T>`, that gives a generic type a shorter name.\n한국어: 제네릭 타입 별칭: `Pair<T>`처럼 타입 매개변수를 가진 `typealias`로, 제네릭 타입에 짧은 이름을 붙임\n\nConstrained Extension - An extension with a `where` clause, so its methods exist only when the type meets that condition.\n한국어: 제약 있는 익스텐션: `where` 절이 붙어서 타입이 조건을 만족할 때만 메서드가 생기는 익스텐션\n\nGeneric Subscript - A subscript with its own type parameter, so the caller decides which type comes back.\n한국어: 제네릭 서브스크립트: 자기만의 타입 매개변수를 가져서 호출하는 쪽이 돌려받을 타입을 정하는 서브스크립트\n\nIn this video, Mina and Jake read a settings store: a type name that is only an alias, a property that exists only for numbers and a lookup that returns whatever type you ask for, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 65 of the iOS Daily English series.\n\n#Swift #iOSDeveloper #EnglishForDevelopers",
+      "tags": [
+        "Generic Typealias",
+        "Constrained Extension",
+        "Generic Subscript",
+        "swift generics",
+        "where clause",
+        "swift extension",
+        "스위프트 심화",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "ios development",
+        "iOS Daily English"
+      ],
+      "hook": "Can you explain these three generics tricks in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "Where is Table defined?",
+    "setting": "Settings refactor review",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, what's `Table`? I can't find that type.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "It's a Generic Typealias. `Table<Int>` is just a dictionary from `String` to `Int`.",
+        "terms": [
+          "Generic Typealias"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Shorter to write, same type underneath?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Exactly. A Generic Typealias only gives the type a new name.",
+        "terms": [
+          "Generic Typealias"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "And the extension says `Value` is `Int`?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "That's a Constrained Extension. `total` only exists for tables of `Int`.",
+        "terms": [
+          "Constrained Extension"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "So a `Table<String>` has no `total`?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Right. The Constrained Extension adds it only when the condition is true.",
+        "terms": [
+          "Constrained Extension"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "And why does the subscript in `Settings` have angle brackets?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "It's a Generic Subscript. The caller picks the type it wants back.",
+        "terms": [
+          "Generic Subscript"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Got it. A Generic Subscript returns an `Int` or a `String` from the same `raw`.",
+        "terms": [
+          "Generic Subscript"
+        ]
+      }
+    ],
+    "code": "typealias Table<T> = [String: T]\nstruct Settings { var raw: Table<Any> = [:]\n    subscript<T>(k: String) -> T? { raw[k] as? T }\n}\nextension Table where Value == Int {\n    var total: Int { values.reduce(0, +) } }",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-conversation",
+      "term": "Generic Typealias",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "I can't find the `Table` type anywhere."
+        },
+        {
+          "speaker": "B",
+          "text": "It's a Generic Typealias for a dictionary."
+        }
+      ],
+      "title": "I can't find the `Table` type anywhere. / It's a Generic Typealias for a dictionary. #Shorts",
+      "description": "I can't find the `Table` type anywhere. / It's a Generic Typealias for a dictionary.\n\nGeneric Typealias - A `typealias` with its own type parameter, like `Pair<T>`, that gives a generic type a shorter name.\n한국어: 제네릭 타입 별칭: `Pair<T>`처럼 타입 매개변수를 가진 `typealias`로, 제네릭 타입에 짧은 이름을 붙임\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Constrained Extension",
+      "lines": [
+        {
+          "text": "A Constrained Extension adds methods only when the types match."
+        }
+      ],
+      "title": "A Constrained Extension adds methods only when the types match. #Shorts",
+      "description": "A Constrained Extension adds methods only when the types match.\n\nConstrained Extension - An extension with a `where` clause, so its methods exist only when the type meets that condition.\n한국어: 제약 있는 익스텐션: `where` 절이 붙어서 타입이 조건을 만족할 때만 메서드가 생기는 익스텐션\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Generic Subscript",
+      "lines": [
+        {
+          "text": "With a Generic Subscript, the caller picks the return type."
+        }
+      ],
+      "title": "With a Generic Subscript, the caller picks the return type. #Shorts",
+      "description": "With a Generic Subscript, the caller picks the return type.\n\nGeneric Subscript - A subscript with its own type parameter, so the caller decides which type comes back.\n한국어: 제네릭 서브스크립트: 자기만의 타입 매개변수를 가져서 호출하는 쪽이 돌려받을 타입을 정하는 서브스크립트\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "Where is Table defined?"
+}

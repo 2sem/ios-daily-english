@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 45
+
+Value Semantics
+- A behavior where every copy of a value is independent, so changing one copy never changes another.
+- Example: "Arrays have Value Semantics, so changing `b` won't touch `a`."
+
+Copy-on-Write
+- An optimization where copies share the same storage until one of them is changed.
+- Example: "Copying the big array is cheap, thanks to Copy-on-Write."
+
+isKnownUniquelyReferenced
+- A Swift function that returns true when only one strong reference points to a class instance.
+- Example: "Check isKnownUniquelyReferenced before you write to the shared buffer."
+
+
+Quiz ①
+What function tells you if only one strong reference points to a class instance?
+a) Copy-on-Write
+b) Value Semantics
+c) isKnownUniquelyReferenced
+
+Quiz ②
+In this code, what behavior keeps `a` as `[1, 2]` after `b` changes?
+a) Value Semantics
+b) isKnownUniquelyReferenced
+c) Copy-on-Write
+
+Quiz ③
+What do you call sharing storage between copies until one of them changes?
+a) isKnownUniquelyReferenced
+b) Copy-on-Write
+c) Value Semantics

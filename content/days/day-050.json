@@ -1,0 +1,231 @@
+{
+  "day": 50,
+  "phase": "2. Swift in depth",
+  "theme": "3 terms on generics in depth: conforming only sometimes, filling in a protocol's type with brackets, and taking any number of types",
+  "terms": [
+    {
+      "term": "Conditional Conformance",
+      "definition": "A way for a generic type to conform to a protocol only when its type parameter also conforms.",
+      "example": "Thanks to Conditional Conformance, an array of `Int` is Equatable.",
+      "code": "struct Box<T> { var item: T }\nextension Box: Equatable\n    where T: Equatable {}\nprint(Box(item: 1) == Box(item: 1))",
+      "output": "true"
+    },
+    {
+      "term": "Primary Associated Type",
+      "definition": "An associated type you can fill in with angle brackets after a protocol name, like `Collection<Int>`.",
+      "example": "With a Primary Associated Type, we can write `some Collection<Int>`.",
+      "code": "func sum(_ n: some Collection<Int>) -> Int {\n    n.reduce(0, +)\n}\nprint(sum([1, 2, 3]))\nprint(sum(Set([4, 5])))",
+      "output": "6\n9"
+    },
+    {
+      "term": "Parameter Pack",
+      "definition": "A generic feature, written with `each` and `repeat`, that lets a function take any number of values of different types.",
+      "example": "A Parameter Pack lets `log` take an `Int`, a `String` and a `Bool` at once.",
+      "code": "func show<each T>(_ v: repeat each T) {\n    for x in repeat each v { print(x) }\n}\nshow(1, \"two\", true)",
+      "output": "1\ntwo\ntrue"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What lets a function take any number of values of different types?",
+      "options": [
+        "Conditional Conformance",
+        "Primary Associated Type",
+        "Parameter Pack"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "In this code, what do you call making `Box` Equatable only when `T` is Equatable?",
+      "code": "struct Box<T> { var item: T }\nextension Box: Equatable\n    where T: Equatable {}",
+      "options": [
+        "Conditional Conformance",
+        "Parameter Pack",
+        "Primary Associated Type"
+      ],
+      "answer": "a"
+    },
+    {
+      "question": "What do you call the type you fill in after a protocol name, as in `Collection<Int>`?",
+      "options": [
+        "Parameter Pack",
+        "Primary Associated Type",
+        "Conditional Conformance"
+      ],
+      "answer": "b"
+    }
+  ],
+  "video": {
+    "title": "Advanced Swift Generics in English | Day 50",
+    "description": "Learn to explain advanced generics in Swift: Conditional Conformance, Primary Associated Type & Parameter Pack, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nConditional Conformance - A way for a generic type to conform to a protocol only when its type parameter also conforms.\nPrimary Associated Type - An associated type you can fill in with angle brackets after a protocol name, like `Collection<Int>`.\nParameter Pack - A generic feature, written with `each` and `repeat`, that lets a function take any number of values of different types.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 50 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish #SwiftUI",
+    "tags": [
+      "conditional conformance",
+      "primary associated type",
+      "parameter pack",
+      "swift generics",
+      "swift advanced generics",
+      "swift variadic generics",
+      "swift in depth",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "Swift Conditional Conformance, Primary Associated Type & Parameter Pack | Day 50",
+      "description": "Explain Conditional Conformance, Primary Associated Type & Parameter Pack in Swift by listening to a real code chat between two iOS devs.\n조건부 준수, 기본 연관 타입, 파라미터 팩 표현을 영어 대화로 익혀요.\n\nConditional Conformance - A way for a generic type to conform to a protocol only when its type parameter also conforms.\n한국어: 조건부 준수: 제네릭 타입이 타입 파라미터도 준수할 때만 프로토콜을 준수하게 하는 방법\n\nPrimary Associated Type - An associated type you can fill in with angle brackets after a protocol name, like `Collection<Int>`.\n한국어: 기본 연관 타입: Collection<Int>처럼 프로토콜 이름 뒤 꺾쇠괄호로 채울 수 있는 연관 타입\n\nParameter Pack - A generic feature, written with `each` and `repeat`, that lets a function take any number of values of different types.\n한국어: 파라미터 팩: each와 repeat로 쓰며, 서로 다른 타입의 값을 개수 제한 없이 받게 해 주는 제네릭 기능\n\nIn this video, Mina and Jake sort out why a generic box can be compared, what brackets on a protocol mean and how one function takes any mix of values, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 50 of the iOS Daily English series.\n\n#Swift #iOSDeveloper #EnglishForDevelopers",
+      "tags": [
+        "Conditional Conformance",
+        "Primary Associated Type",
+        "Parameter Pack",
+        "swift generics",
+        "swift advanced generics",
+        "variadic generics",
+        "스위프트 심화",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "ios development",
+        "iOS Daily English"
+      ],
+      "hook": "Can you explain advanced generics in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "Brackets on a protocol?",
+    "setting": "Code review call",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, why can I compare two `Box` values here?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Look at the extension. It's a Conditional Conformance.",
+        "terms": [
+          "Conditional Conformance"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "So `Box` is Equatable only when `T` is Equatable?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Exactly. With Conditional Conformance, a box of a non-Equatable type can't be compared.",
+        "terms": [
+          "Conditional Conformance"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "And `Collection<Int>` in `sum`? Brackets on a protocol?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "That's a Primary Associated Type. It says the elements must be `Int`.",
+        "terms": [
+          "Primary Associated Type"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "So arrays and sets both work, if they hold `Int`?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Right. The Primary Associated Type keeps `sum` short.",
+        "terms": [
+          "Primary Associated Type"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "And `log`? What are `each` and `repeat`?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "That's a Parameter Pack. `log` takes any number of values, of any types.",
+        "terms": [
+          "Parameter Pack"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Got it. Conditional Conformance, Primary Associated Type and a Parameter Pack. Generics in depth!",
+        "terms": [
+          "Conditional Conformance",
+          "Primary Associated Type",
+          "Parameter Pack"
+        ]
+      }
+    ],
+    "code": "struct Box<T> { var item: T }\nextension Box: Equatable where T: Equatable {}\nfunc sum(_ n: some Collection<Int>) -> Int {\n    n.reduce(0, +) }\nfunc log<each T>(_ v: repeat each T) {\n    for x in repeat each v { print(x) } }",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "Conditional Conformance",
+      "lines": [
+        {
+          "text": "Conditional Conformance: Equatable only when the inside is."
+        }
+      ],
+      "title": "Conditional Conformance: Equatable only when the inside is. #Shorts",
+      "description": "Conditional Conformance: Equatable only when the inside is.\n\nConditional Conformance - A way for a generic type to conform to a protocol only when its type parameter also conforms.\n한국어: 조건부 준수: 제네릭 타입이 타입 파라미터도 준수할 때만 프로토콜을 준수하게 하는 방법\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "Primary Associated Type",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "What does `Collection<Int>` mean?"
+        },
+        {
+          "speaker": "B",
+          "text": "It fills in the Primary Associated Type."
+        }
+      ],
+      "title": "What does `Collection<Int>` mean? / It fills in the Primary Associated Type. #Shorts",
+      "description": "What does `Collection<Int>` mean? / It fills in the Primary Associated Type.\n\nPrimary Associated Type - An associated type you can fill in with angle brackets after a protocol name, like `Collection<Int>`.\n한국어: 기본 연관 타입: Collection<Int>처럼 프로토콜 이름 뒤 꺾쇠괄호로 채울 수 있는 연관 타입\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Parameter Pack",
+      "lines": [
+        {
+          "text": "A Parameter Pack takes any number of types."
+        }
+      ],
+      "title": "A Parameter Pack takes any number of types. #Shorts",
+      "description": "A Parameter Pack takes any number of types.\n\nParameter Pack - A generic feature, written with `each` and `repeat`, that lets a function take any number of values of different types.\n한국어: 파라미터 팩: each와 repeat로 쓰며, 서로 다른 타입의 값을 개수 제한 없이 받게 해 주는 제네릭 기능\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "Brackets on a protocol?"
+}

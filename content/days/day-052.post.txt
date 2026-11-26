@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 52
+
+Memory Safety
+- A guarantee that code never reads or writes memory in a way that can corrupt it, like reading past the end of an array.
+- Example: "Swift stops on a bad index because of Memory Safety, instead of reading garbage."
+
+Exclusive Access
+- A rule that a variable can't be changed by one piece of code while another piece is still using it.
+- Example: "Passing `total` twice as `inout` breaks Exclusive Access."
+
+UnsafePointer
+- A type that points straight at a memory address, with none of Swift's usual safety checks.
+- Example: "The C library wants an UnsafePointer, so wrap it in `withUnsafePointer`."
+
+
+Quiz ①
+What type points straight at memory, with none of Swift's usual checks?
+a) Exclusive Access
+b) Memory Safety
+c) UnsafePointer
+
+Quiz ②
+In this code, the app stops instead of reading random memory. What does that protect?
+a) Memory Safety
+b) UnsafePointer
+c) Exclusive Access
+
+Quiz ③
+What rule says a variable can't be changed by two pieces of code at the same time?
+a) UnsafePointer
+b) Exclusive Access
+c) Memory Safety

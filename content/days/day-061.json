@@ -1,0 +1,231 @@
+{
+  "day": 61,
+  "phase": "2. Swift in depth",
+  "theme": "3 terms on arrays in depth: a view into part of an array, setting space aside before appending, and an array that always sits side by side in memory",
+  "terms": [
+    {
+      "term": "ArraySlice",
+      "definition": "A view into part of an array, made with a range, that shares the array's storage and keeps its original indices.",
+      "example": "`recent` is an ArraySlice, so its first index isn't zero.",
+      "code": "let scores = [10, 20, 30, 40]\nlet top = scores[1...2]\nprint(top)\nprint(top.startIndex)",
+      "output": "[20, 30]\n1"
+    },
+    {
+      "term": "Reserve Capacity",
+      "definition": "Calling `reserveCapacity` to set aside room for a number of items before you append them, so the array grows only once.",
+      "example": "We know there are a thousand rows, so Reserve Capacity first.",
+      "code": "var ids: [Int] = []\nids.reserveCapacity(1000)\nfor i in 0..<1000 { ids.append(i) }\nprint(ids.count)\nprint(ids.capacity >= 1000)",
+      "output": "1000\ntrue"
+    },
+    {
+      "term": "ContiguousArray",
+      "definition": "An array type that always stores its items side by side in one block of memory, which can make it a bit faster.",
+      "example": "Switch to ContiguousArray only if Instruments shows the loop is slow.",
+      "code": "var points = ContiguousArray<Double>()\npoints.append(1.5)\npoints.append(2.5)\nprint(points.reduce(0, +))",
+      "output": "4.0"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What do you call setting aside room for items before you append them?",
+      "options": [
+        "ContiguousArray",
+        "Reserve Capacity",
+        "ArraySlice"
+      ],
+      "answer": "b"
+    },
+    {
+      "question": "In this code, what type is `part`, which keeps the indices from `all`?",
+      "code": "let all = [5, 8, 2, 9]\nlet part = all[1...2]",
+      "options": [
+        "ArraySlice",
+        "ContiguousArray",
+        "Reserve Capacity"
+      ],
+      "answer": "a"
+    },
+    {
+      "question": "Which array type always stores its items side by side in one block of memory?",
+      "options": [
+        "Reserve Capacity",
+        "ArraySlice",
+        "ContiguousArray"
+      ],
+      "answer": "c"
+    }
+  ],
+  "video": {
+    "title": "ArraySlice, Reserve Capacity & ContiguousArray | Day 61",
+    "description": "Learn to explain arrays in depth: ArraySlice, Reserve Capacity & ContiguousArray, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nArraySlice - A view into part of an array, made with a range, that shares the array's storage and keeps its original indices.\nReserve Capacity - Calling `reserveCapacity` to set aside room for a number of items before you append them, so the array grows only once.\nContiguousArray - An array type that always stores its items side by side in one block of memory, which can make it a bit faster.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 61 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "arrayslice",
+      "reserve capacity",
+      "contiguousarray",
+      "reservecapacity",
+      "swift array",
+      "swift performance",
+      "swift in depth",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "Swift ArraySlice, Reserve Capacity & ContiguousArray | Day 61",
+      "description": "Explain ArraySlice, Reserve Capacity & ContiguousArray in Swift by listening to a real code chat between two iOS devs.\n배열 슬라이스, 용량 예약, 연속 배열 표현을 영어 대화로 익혀요.\n\nArraySlice - A view into part of an array, made with a range, that shares the array's storage and keeps its original indices.\n한국어: 배열 슬라이스: 범위로 만든 배열의 일부분으로, 원래 배열의 저장 공간과 인덱스를 그대로 공유함\n\nReserve Capacity - Calling `reserveCapacity` to set aside room for a number of items before you append them, so the array grows only once.\n한국어: 용량 예약: `reserveCapacity`로 append 전에 필요한 개수만큼 공간을 미리 잡아 배열이 한 번만 커지게 하는 것\n\nContiguousArray - An array type that always stores its items side by side in one block of memory, which can make it a bit faster.\n한국어: ContiguousArray: 항목을 항상 메모리의 한 블록에 나란히 저장해서 조금 더 빠를 수 있는 배열 타입\n\nIn this video, Mina and Jake find out why index zero crashed on a slice, why the buffer reserves space first and when a special array type is worth it, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 61 of the iOS Daily English series.\n\n#Swift #iOSDeveloper #EnglishForDevelopers",
+      "tags": [
+        "ArraySlice",
+        "Reserve Capacity",
+        "ContiguousArray",
+        "reserveCapacity",
+        "swift array",
+        "swift performance",
+        "스위프트 심화",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "ios development",
+        "iOS Daily English"
+      ],
+      "hook": "Why did index zero crash? Can you explain it in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "Index zero crashed",
+    "setting": "Performance review",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, `recent[0]` crashed. But `recent` has three items!",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "`recent` is an ArraySlice. It keeps the indices from `all`.",
+        "terms": [
+          "ArraySlice"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "So its first index is 2, not 0?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Yes. With an ArraySlice, use `first` or `startIndex`, never zero.",
+        "terms": [
+          "ArraySlice"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Got it. And why `reserveCapacity` on `buffer`?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Reserve Capacity sets the space aside once, before we append.",
+        "terms": [
+          "Reserve Capacity"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "So the array doesn't grow again and again?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Exactly. Reserve Capacity saves those extra copies when you know the size.",
+        "terms": [
+          "Reserve Capacity"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "And why is `buffer` a ContiguousArray, not a normal array?",
+        "terms": [
+          "ContiguousArray"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "A ContiguousArray keeps items side by side in memory, so it can be faster.",
+        "terms": [
+          "ContiguousArray"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "OK, but I'd measure first before I use ContiguousArray everywhere.",
+        "terms": [
+          "ContiguousArray"
+        ]
+      }
+    ],
+    "code": "let all = [5, 8, 2, 9, 4]\nlet recent = all[2...]\nvar buffer = ContiguousArray<Int>()\nbuffer.reserveCapacity(all.count)\nbuffer.append(contentsOf: recent)",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-conversation",
+      "term": "ArraySlice",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Why did index zero crash?"
+        },
+        {
+          "speaker": "B",
+          "text": "It's an ArraySlice. It keeps the old indices."
+        }
+      ],
+      "title": "Why did index zero crash? / It's an ArraySlice. It keeps the old indices. #Shorts",
+      "description": "Why did index zero crash? / It's an ArraySlice. It keeps the old indices.\n\nArraySlice - A view into part of an array, made with a range, that shares the array's storage and keeps its original indices.\n한국어: 배열 슬라이스: 범위로 만든 배열의 일부분으로, 원래 배열의 저장 공간과 인덱스를 그대로 공유함\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Reserve Capacity",
+      "lines": [
+        {
+          "text": "Know the size? Reserve Capacity before you append."
+        }
+      ],
+      "title": "Know the size? Reserve Capacity before you append. #Shorts",
+      "description": "Know the size? Reserve Capacity before you append.\n\nReserve Capacity - Calling `reserveCapacity` to set aside room for a number of items before you append them, so the array grows only once.\n한국어: 용량 예약: `reserveCapacity`로 append 전에 필요한 개수만큼 공간을 미리 잡아 배열이 한 번만 커지게 하는 것\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "ContiguousArray",
+      "lines": [
+        {
+          "text": "Measure first, then reach for ContiguousArray."
+        }
+      ],
+      "title": "Measure first, then reach for ContiguousArray. #Shorts",
+      "description": "Measure first, then reach for ContiguousArray.\n\nContiguousArray - An array type that always stores its items side by side in one block of memory, which can make it a bit faster.\n한국어: ContiguousArray: 항목을 항상 메모리의 한 블록에 나란히 저장해서 조금 더 빠를 수 있는 배열 타입\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "Index zero crashed?"
+}

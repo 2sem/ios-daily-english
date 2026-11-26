@@ -1,0 +1,233 @@
+{
+  "day": 49,
+  "phase": "2. Swift in depth",
+  "theme": "3 terms on what a String is made of: its bytes, its code numbers, and the characters people actually see",
+  "terms": [
+    {
+      "term": "UTF-8 View",
+      "definition": "A view of a String as the raw bytes it uses in UTF-8 encoding.",
+      "example": "The API limit is in bytes, so check the UTF-8 View, not `count`.",
+      "code": "let word = \"café\"\nprint(word.utf8.count)\nprint(Array(\"hi\".utf8))",
+      "output": "5\n[104, 105]"
+    },
+    {
+      "term": "Unicode Scalar",
+      "definition": "A single Unicode code, a number that stands for one symbol or one part of a symbol.",
+      "example": "The accent is a separate Unicode Scalar, so the search missed it.",
+      "code": "let word = \"e\\u{301}\"   // e + accent\nfor s in word.unicodeScalars {\n    print(s.value)\n}\nprint(word)",
+      "output": "101\n769\né"
+    },
+    {
+      "term": "Grapheme Cluster",
+      "definition": "One or more Unicode Scalars that show up together as a single character on screen.",
+      "example": "A flag is one Grapheme Cluster, even though it's two scalars.",
+      "code": "let flag = \"\\u{1F1F0}\\u{1F1F7}\"  // Korea\nprint(flag.count)\nprint(flag.unicodeScalars.count)\nprint(flag.utf8.count)",
+      "output": "1\n2\n8"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "In this code, `flag.count` is 1 because its two codes form one what?",
+      "code": "let flag = \"\\u{1F1F0}\\u{1F1F7}\"\nprint(flag.count)",
+      "options": [
+        "UTF-8 View",
+        "Unicode Scalar",
+        "Grapheme Cluster"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "What do you call a single code number that stands for one symbol or part of one?",
+      "options": [
+        "Unicode Scalar",
+        "Grapheme Cluster",
+        "UTF-8 View"
+      ],
+      "answer": "a"
+    },
+    {
+      "question": "What gives you a String's raw bytes, for example to check a byte limit?",
+      "options": [
+        "Grapheme Cluster",
+        "UTF-8 View",
+        "Unicode Scalar"
+      ],
+      "answer": "b"
+    }
+  ],
+  "video": {
+    "title": "UTF-8 View, Unicode Scalar & Grapheme Cluster | Day 49",
+    "description": "Learn to explain what a Swift String is made of: UTF-8 View, Unicode Scalar & Grapheme Cluster, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nUTF-8 View - A view of a String as the raw bytes it uses in UTF-8 encoding.\nUnicode Scalar - A single Unicode code, a number that stands for one symbol or one part of a symbol.\nGrapheme Cluster - One or more Unicode Scalars that show up together as a single character on screen.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 49 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish #SwiftUI",
+    "tags": [
+      "utf-8 view",
+      "unicode scalar",
+      "grapheme cluster",
+      "swift string",
+      "swift unicode",
+      "swift utf8",
+      "swift in depth",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "Swift UTF-8 View, Unicode Scalar & Grapheme Cluster | Day 49",
+      "description": "Explain UTF-8 View, Unicode Scalar & Grapheme Cluster in Swift by listening to a real code chat between two iOS devs.\nUTF-8 뷰, 유니코드 스칼라, 그래핌 클러스터 표현을 영어 대화로 익혀요.\n\nUTF-8 View - A view of a String as the raw bytes it uses in UTF-8 encoding.\n한국어: UTF-8 뷰: String을 UTF-8 인코딩의 원시 바이트로 보는 뷰\n\nUnicode Scalar - A single Unicode code, a number that stands for one symbol or one part of a symbol.\n한국어: 유니코드 스칼라: 기호 하나 또는 기호의 일부를 나타내는 유니코드 코드 번호 하나\n\nGrapheme Cluster - One or more Unicode Scalars that show up together as a single character on screen.\n한국어: 그래핌 클러스터: 화면에서 한 글자로 함께 보이는 하나 이상의 유니코드 스칼라\n\nIn this video, Mina and Jake sort out why a four-letter name is six bytes, what an accent really is and what count counts, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 49 of the iOS Daily English series.\n\n#Swift #iOSDeveloper #EnglishForDevelopers",
+      "tags": [
+        "UTF-8 View",
+        "Unicode Scalar",
+        "Grapheme Cluster",
+        "swift string",
+        "swift unicode",
+        "swift utf8",
+        "스위프트 심화",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "ios development",
+        "iOS Daily English"
+      ],
+      "hook": "Can you explain Unicode in Swift in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "Four letters, six bytes?",
+    "setting": "Afternoon bug hunt",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, `name` is José, four letters. Why does the server say six?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "The server counts bytes. That's the UTF-8 View, not the letters.",
+        "terms": [
+          "UTF-8 View"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "So the accent takes extra bytes?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Yes. Here the accent is its own Unicode Scalar, and it needs two bytes.",
+        "terms": [
+          "Unicode Scalar"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Its own Unicode Scalar? I only see one letter.",
+        "terms": [
+          "Unicode Scalar"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Right. The e and the accent form one Grapheme Cluster.",
+        "terms": [
+          "Grapheme Cluster"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "And `count` counts each Grapheme Cluster?",
+        "terms": [
+          "Grapheme Cluster"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Exactly. That's why `count` says four.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "So for the server limit, I check the UTF-8 View?",
+        "terms": [
+          "UTF-8 View"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Yes. Check `utf8.count` for the server, and `count` for what users see.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "Got it. Grapheme Cluster for letters, Unicode Scalar for codes, UTF-8 View for bytes.",
+        "terms": [
+          "Grapheme Cluster",
+          "Unicode Scalar",
+          "UTF-8 View"
+        ]
+      }
+    ],
+    "code": "let name = \"Jose\\u{301}\"\nprint(name.count)                // 4\nprint(name.unicodeScalars.count) // 5\nprint(name.utf8.count)           // 6",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-conversation",
+      "term": "UTF-8 View",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "The limit is 100 bytes, not letters."
+        },
+        {
+          "speaker": "B",
+          "text": "Then check the UTF-8 View."
+        }
+      ],
+      "title": "The limit is 100 bytes, not letters. / Then check the UTF-8 View. #Shorts",
+      "description": "The limit is 100 bytes, not letters. / Then check the UTF-8 View.\n\nUTF-8 View - A view of a String as the raw bytes it uses in UTF-8 encoding.\n한국어: UTF-8 뷰: String을 UTF-8 인코딩의 원시 바이트로 보는 뷰\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Unicode Scalar",
+      "lines": [
+        {
+          "text": "That accent is its own Unicode Scalar."
+        }
+      ],
+      "title": "That accent is its own Unicode Scalar. #Shorts",
+      "description": "That accent is its own Unicode Scalar.\n\nUnicode Scalar - A single Unicode code, a number that stands for one symbol or one part of a symbol.\n한국어: 유니코드 스칼라: 기호 하나 또는 기호의 일부를 나타내는 유니코드 코드 번호 하나\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Grapheme Cluster",
+      "lines": [
+        {
+          "text": "One Grapheme Cluster can hide several scalars."
+        }
+      ],
+      "title": "One Grapheme Cluster can hide several scalars. #Shorts",
+      "description": "One Grapheme Cluster can hide several scalars.\n\nGrapheme Cluster - One or more Unicode Scalars that show up together as a single character on screen.\n한국어: 그래핌 클러스터: 화면에서 한 글자로 함께 보이는 하나 이상의 유니코드 스칼라\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "4 letters, 6 bytes?"
+}

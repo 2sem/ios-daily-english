@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 38
+
+ARC
+- A system in Swift that counts the references to each class instance and frees it when none are left.
+- Example: "ARC freed `photo` as soon as I set it to `nil`."
+
+Strong Reference
+- A normal reference that keeps a class instance alive for as long as the reference exists.
+- Example: "`b` is still a Strong Reference, so the photo stays in memory."
+
+Retain Cycle
+- A problem where class instances hold Strong References to each other, so none of them is ever freed.
+- Example: "`deinit` never runs, so I think we have a Retain Cycle."
+
+
+Quiz ①
+In this code, what problem keeps `node` from ever being freed?
+a) Strong Reference
+b) ARC
+c) Retain Cycle
+
+Quiz ②
+What counts the references to each class instance and frees it when none are left?
+a) ARC
+b) Retain Cycle
+c) Strong Reference
+
+Quiz ③
+What do you call the normal kind of reference that keeps an object alive?
+a) Retain Cycle
+b) Strong Reference
+c) ARC

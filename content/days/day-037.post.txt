@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 37
+
+Reference Type
+- A type whose instances are shared, so copying a variable gives you a second name for the same object.
+- Example: "`Player` is a Reference Type, so updating `copy` also updated `original`."
+
+Identity Operator
+- An operator, written as three equals signs, that checks if two references point to the same object.
+- Example: "Use the Identity Operator to check it's the same `Player`, not just an equal one."
+
+AnyObject
+- A protocol that every class conforms to automatically, so you can use it to allow only class instances.
+- Example: "I added AnyObject to `Listener`, so structs can't adopt it anymore."
+
+
+Quiz ①
+What checks whether two class references point to the very same object?
+a) AnyObject
+b) Reference Type
+c) Identity Operator
+
+Quiz ②
+What protocol do all classes conform to, so it can limit a protocol to classes only?
+a) AnyObject
+b) Identity Operator
+c) Reference Type
+
+Quiz ③
+In this code, what kind of type is `Box`, since changing `b` also changes `a`?
+a) Identity Operator
+b) Reference Type
+c) AnyObject

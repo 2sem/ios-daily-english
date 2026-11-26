@@ -1,0 +1,233 @@
+{
+  "day": 44,
+  "phase": "2. Swift in depth",
+  "theme": "3 terms on hiding types: a return type that hides one real type, a box for any conforming type, and wrapping types in one common type",
+  "terms": [
+    {
+      "term": "Opaque Type",
+      "definition": "A return type written with `some` that hides the real type but keeps it the same every time.",
+      "example": "`body` returns an Opaque Type, so we never write the long view type.",
+      "code": "protocol Shape { func area() -> Int }\nstruct Square: Shape { func area() -> Int { 4 } }\nfunc makeShape() -> some Shape { Square() }\nprint(makeShape().area())",
+      "output": "4"
+    },
+    {
+      "term": "Existential Type",
+      "definition": "A type written with `any` that can hold a value of any type that conforms to a protocol.",
+      "example": "The array needs an Existential Type because it mixes squares and dots.",
+      "code": "protocol Shape { func area() -> Int }\nstruct Square: Shape { func area() -> Int { 4 } }\nstruct Dot: Shape { func area() -> Int { 1 } }\nlet shapes: [any Shape] = [Square(), Dot()]\nprint(shapes.map { $0.area() })",
+      "output": "[4, 1]"
+    },
+    {
+      "term": "Type Erasure",
+      "definition": "A technique that wraps different concrete types in one common type so they can be used the same way.",
+      "example": "`AnyHashable` uses Type Erasure, so one set can hold an `Int` and a `String`.",
+      "code": "let a: AnyHashable = 1\nlet b: AnyHashable = \"one\"\nlet set: Set<AnyHashable> = [a, b]\nprint(set.count)",
+      "output": "2"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "In this code, what kind of type is `any Shape`, which lets the array mix shapes?",
+      "code": "let shapes: [any Shape] = [Square(), Dot()]",
+      "options": [
+        "Opaque Type",
+        "Existential Type",
+        "Type Erasure"
+      ],
+      "answer": "b"
+    },
+    {
+      "question": "What do you call wrapping different concrete types in one common wrapper?",
+      "options": [
+        "Existential Type",
+        "Opaque Type",
+        "Type Erasure"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "What return type, written with `some`, hides the real type but keeps it the same?",
+      "options": [
+        "Opaque Type",
+        "Type Erasure",
+        "Existential Type"
+      ],
+      "answer": "a"
+    }
+  ],
+  "video": {
+    "title": "Opaque Type, Existential Type & Type Erasure | Day 44",
+    "description": "Learn to explain some, any and hidden types in Swift: Opaque Type, Existential Type & Type Erasure, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nOpaque Type - A return type written with `some` that hides the real type but keeps it the same every time.\nExistential Type - A type written with `any` that can hold a value of any type that conforms to a protocol.\nType Erasure - A technique that wraps different concrete types in one common type so they can be used the same way.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 44 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish #SwiftUI",
+    "tags": [
+      "opaque type",
+      "existential type",
+      "type erasure",
+      "swift some",
+      "swift any",
+      "some vs any swift",
+      "swift in depth",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "Swift Opaque Type, Existential Type & Type Erasure | Day 44",
+      "description": "Explain Opaque Type, Existential Type & Type Erasure in Swift by listening to a real code chat between two iOS devs.\n불투명 타입, 존재 타입, 타입 소거 표현을 영어 대화로 익혀요.\n\nOpaque Type - A return type written with `some` that hides the real type but keeps it the same every time.\n한국어: 불투명 타입: some으로 쓰는 반환 타입으로, 실제 타입을 숨기지만 항상 같은 타입을 유지하는 것\n\nExistential Type - A type written with `any` that can hold a value of any type that conforms to a protocol.\n한국어: 존재 타입: any로 쓰며, 프로토콜을 따르는 어떤 타입의 값이든 담을 수 있는 타입\n\nType Erasure - A technique that wraps different concrete types in one common type so they can be used the same way.\n한국어: 타입 소거: 서로 다른 구체 타입을 하나의 공통 타입으로 감싸 똑같이 쓸 수 있게 하는 기법\n\nIn this video, Mina and Jake sort out why a function returns some, how one array holds different shapes and what wrapping types by hand means, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 44 of the iOS Daily English series.\n\n#Swift #iOSDeveloper #EnglishForDevelopers",
+      "tags": [
+        "Opaque Type",
+        "Existential Type",
+        "Type Erasure",
+        "swift some",
+        "swift any",
+        "some vs any",
+        "스위프트 심화",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "ios development",
+        "iOS Daily English"
+      ],
+      "hook": "Can you explain some and any in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "some or any?",
+    "setting": "Code review call",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, why does `makeIcon` return `some Shape` and not just `Square`?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "It's an Opaque Type. Callers know it's a `Shape`, but not which one.",
+        "terms": [
+          "Opaque Type"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Can it return a different shape next time?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "No. An Opaque Type always hides the same real type.",
+        "terms": [
+          "Opaque Type"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Then how does `all` hold different shapes?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "`any Shape` is an Existential Type. It's a box for any `Shape`.",
+        "terms": [
+          "Existential Type"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "So an Existential Type is like Type Erasure?",
+        "terms": [
+          "Existential Type",
+          "Type Erasure"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Kind of. `any` does Type Erasure for you, with no wrapper to write.",
+        "terms": [
+          "Type Erasure"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Before `any`, we wrote wrappers like `AnyShape` by hand, right?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Right, that was manual Type Erasure. Now use `some` first, `any` when types differ.",
+        "terms": [
+          "Type Erasure"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Got it. Opaque Type for one hidden type, Existential Type for a mixed list.",
+        "terms": [
+          "Opaque Type",
+          "Existential Type"
+        ]
+      }
+    ],
+    "code": "protocol Shape { func area() -> Int }\nstruct Square: Shape { func area() -> Int { 4 } }\nfunc makeIcon() -> some Shape { Square() }\nlet all: [any Shape] = [Square(), makeIcon()]",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-conversation",
+      "term": "Opaque Type",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "What does `some View` actually mean?"
+        },
+        {
+          "speaker": "B",
+          "text": "It's an Opaque Type. One hidden real type."
+        }
+      ],
+      "title": "What does `some View` actually mean? / It's an Opaque Type. One hidden real type. #Shorts",
+      "description": "What does `some View` actually mean? / It's an Opaque Type. One hidden real type.\n\nOpaque Type - A return type written with `some` that hides the real type but keeps it the same every time.\n한국어: 불투명 타입: some으로 쓰는 반환 타입으로, 실제 타입을 숨기지만 항상 같은 타입을 유지하는 것\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Existential Type",
+      "lines": [
+        {
+          "text": "An Existential Type lets one array mix different types."
+        }
+      ],
+      "title": "An Existential Type lets one array mix different types. #Shorts",
+      "description": "An Existential Type lets one array mix different types.\n\nExistential Type - A type written with `any` that can hold a value of any type that conforms to a protocol.\n한국어: 존재 타입: any로 쓰며, 프로토콜을 따르는 어떤 타입의 값이든 담을 수 있는 타입\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Type Erasure",
+      "lines": [
+        {
+          "text": "Type Erasure hides many types behind one wrapper."
+        }
+      ],
+      "title": "Type Erasure hides many types behind one wrapper. #Shorts",
+      "description": "Type Erasure hides many types behind one wrapper.\n\nType Erasure - A technique that wraps different concrete types in one common type so they can be used the same way.\n한국어: 타입 소거: 서로 다른 구체 타입을 하나의 공통 타입으로 감싸 똑같이 쓸 수 있게 하는 기법\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "some or any?"
+}

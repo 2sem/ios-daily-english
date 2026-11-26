@@ -1,0 +1,235 @@
+{
+  "day": 56,
+  "phase": "2. Swift in depth",
+  "theme": "3 terms on how Swift picks the method to run: known at build time, chosen while running, and the table behind protocols",
+  "terms": [
+    {
+      "term": "Static Dispatch",
+      "definition": "A method call whose exact code the compiler already knows when it builds the app.",
+      "example": "Struct methods use Static Dispatch, so the call is very fast.",
+      "code": "struct Dog {\n    func speak() { print(\"Woof\") }\n}\nDog().speak()  // struct: static dispatch",
+      "output": "Woof"
+    },
+    {
+      "term": "Dynamic Dispatch",
+      "definition": "A method call that picks which code to run while the app is running, based on the object's real type.",
+      "example": "Dynamic Dispatch is why the `Cat` version ran, not the `Animal` one.",
+      "code": "class Animal {\n    func speak() { print(\"...\") } }\nclass Cat: Animal {\n    override func speak() { print(\"Meow\") } }\nlet pet: Animal = Cat()\npet.speak()",
+      "output": "Meow"
+    },
+    {
+      "term": "Witness Table",
+      "definition": "A hidden table Swift uses to find a type's protocol methods while the app is running.",
+      "example": "Calls through `any Speaker` go through the Witness Table.",
+      "code": "protocol Speaker { func speak() }\nstruct Duck: Speaker {\n    func speak() { print(\"Quack\") } }\nlet s: any Speaker = Duck()\ns.speak()  // found in Duck's witness table",
+      "output": "Quack"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What does Swift use to look up a type's protocol methods while the app runs?",
+      "options": [
+        "Static Dispatch",
+        "Dynamic Dispatch",
+        "Witness Table"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "In this code, what picks the `Cat` version of `speak()` while the app runs?",
+      "code": "let pet: Animal = Cat()\npet.speak()",
+      "options": [
+        "Dynamic Dispatch",
+        "Witness Table",
+        "Static Dispatch"
+      ],
+      "answer": "a"
+    },
+    {
+      "question": "What do you call a call whose exact method the compiler already knows when building?",
+      "options": [
+        "Witness Table",
+        "Static Dispatch",
+        "Dynamic Dispatch"
+      ],
+      "answer": "b"
+    }
+  ],
+  "video": {
+    "title": "Static Dispatch, Dynamic Dispatch & Witness Table | Day 56",
+    "description": "Learn to explain how Swift picks which method to run: Static Dispatch, Dynamic Dispatch & Witness Table, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nStatic Dispatch - A method call whose exact code the compiler already knows when it builds the app.\nDynamic Dispatch - A method call that picks which code to run while the app is running, based on the object's real type.\nWitness Table - A hidden table Swift uses to find a type's protocol methods while the app is running.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 56 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish #SwiftUI",
+    "tags": [
+      "static dispatch",
+      "dynamic dispatch",
+      "witness table",
+      "swift method dispatch",
+      "swift performance",
+      "swift final",
+      "swift in depth",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "Swift Static Dispatch, Dynamic Dispatch & Witness Table | Day 56",
+      "description": "Explain Static Dispatch, Dynamic Dispatch & Witness Table in Swift by listening to a real code chat between two iOS devs.\n정적 디스패치, 동적 디스패치, 위트니스 테이블 표현을 영어 대화로 익혀요.\n\nStatic Dispatch - A method call whose exact code the compiler already knows when it builds the app.\n한국어: 정적 디스패치: 앱을 빌드할 때 컴파일러가 실행할 코드를 이미 정확히 아는 메서드 호출\n\nDynamic Dispatch - A method call that picks which code to run while the app is running, based on the object's real type.\n한국어: 동적 디스패치: 앱이 실행되는 동안 객체의 실제 타입에 따라 실행할 코드를 고르는 메서드 호출\n\nWitness Table - A hidden table Swift uses to find a type's protocol methods while the app is running.\n한국어: 위트니스 테이블: 앱 실행 중 타입의 프로토콜 메서드를 찾기 위해 Swift가 쓰는 숨은 표\n\nIn this video, Mina and Jake sort out why a call printed the subclass version, which calls are fastest and how protocol calls find their method, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 56 of the iOS Daily English series.\n\n#Swift #iOSDeveloper #EnglishForDevelopers",
+      "tags": [
+        "Static Dispatch",
+        "Dynamic Dispatch",
+        "Witness Table",
+        "swift method dispatch",
+        "swift performance",
+        "swift final",
+        "스위프트 심화",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "ios development",
+        "iOS Daily English"
+      ],
+      "hook": "Can you explain method dispatch in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "Why did badge print?",
+    "setting": "Performance review",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, `v` is a `View`, but `draw()` printed badge. How?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "That's Dynamic Dispatch. Swift checks the real type while the app runs.",
+        "terms": [
+          "Dynamic Dispatch"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Isn't that slower?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "A little. Each call looks up the right method first.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "And for structs?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Structs use Static Dispatch. The compiler knows the exact method ahead of time.",
+        "terms": [
+          "Static Dispatch"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "So `final` on `Badge` helps too?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Yes. Nothing can override it, so calls on a `Badge` can use Static Dispatch.",
+        "terms": [
+          "Static Dispatch"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "What about `Shape`? It's a protocol.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Then Swift uses a Witness Table. It lists each type's protocol methods.",
+        "terms": [
+          "Witness Table"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "So a Witness Table is like Dynamic Dispatch for protocols?",
+        "terms": [
+          "Witness Table",
+          "Dynamic Dispatch"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Exactly. Static Dispatch is fastest, and the other two pick at runtime.",
+        "terms": [
+          "Static Dispatch"
+        ]
+      }
+    ],
+    "code": "protocol Shape { func draw() }\nclass View { func draw() { print(\"view\") } }\nfinal class Badge: View {\n    override func draw() { print(\"badge\") } }\nlet v: View = Badge()\nv.draw()",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "Static Dispatch",
+      "lines": [
+        {
+          "text": "Static Dispatch: the compiler knows the method ahead of time."
+        }
+      ],
+      "title": "Static Dispatch: the compiler knows the method ahead of time. #Shorts",
+      "description": "Static Dispatch: the compiler knows the method ahead of time.\n\nStatic Dispatch - A method call whose exact code the compiler already knows when it builds the app.\n한국어: 정적 디스패치: 앱을 빌드할 때 컴파일러가 실행할 코드를 이미 정확히 아는 메서드 호출\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "Dynamic Dispatch",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Why did the subclass version run?"
+        },
+        {
+          "speaker": "B",
+          "text": "That's Dynamic Dispatch at work."
+        }
+      ],
+      "title": "Why did the subclass version run? / That's Dynamic Dispatch at work. #Shorts",
+      "description": "Why did the subclass version run? / That's Dynamic Dispatch at work.\n\nDynamic Dispatch - A method call that picks which code to run while the app is running, based on the object's real type.\n한국어: 동적 디스패치: 앱이 실행되는 동안 객체의 실제 타입에 따라 실행할 코드를 고르는 메서드 호출\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Witness Table",
+      "lines": [
+        {
+          "text": "Protocol calls find their method in a Witness Table."
+        }
+      ],
+      "title": "Protocol calls find their method in a Witness Table. #Shorts",
+      "description": "Protocol calls find their method in a Witness Table.\n\nWitness Table - A hidden table Swift uses to find a type's protocol methods while the app is running.\n한국어: 위트니스 테이블: 앱 실행 중 타입의 프로토콜 메서드를 찾기 위해 Swift가 쓰는 숨은 표\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "Why did badge print?"
+}

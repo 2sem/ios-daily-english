@@ -1,0 +1,234 @@
+{
+  "day": 63,
+  "phase": "2. Swift in depth",
+  "theme": "3 terms on JSON in depth: the protocol for turning a type into data, the protocol for building a type from data, and a decoder setting that renames keys",
+  "terms": [
+    {
+      "term": "Encodable",
+      "definition": "A protocol for types that can be turned into data like JSON, for example with `JSONEncoder`.",
+      "example": "`Like` is only sent to the server, so Encodable is enough.",
+      "code": "import Foundation\nstruct Pet: Encodable { let name: String }\nlet pet = Pet(name: \"Bo\")\nlet data = try JSONEncoder().encode(pet)\nprint(String(decoding: data, as: UTF8.self))",
+      "output": "{\"name\":\"Bo\"}"
+    },
+    {
+      "term": "Decodable",
+      "definition": "A protocol for types that can be created from data like JSON, for example with `JSONDecoder`.",
+      "example": "We never upload posts, so make `Post` Decodable, not Codable.",
+      "code": "import Foundation\nstruct Pet: Decodable { let name: String }\nlet json = Data(#\"{\"name\":\"Bo\"}\"#.utf8)\nlet d = JSONDecoder()\nlet pet = try d.decode(Pet.self, from: json)\nprint(pet.name)",
+      "output": "Bo"
+    },
+    {
+      "term": "Key Decoding Strategy",
+      "definition": "A `JSONDecoder` setting that changes JSON key names, like snake case, into the Swift property names.",
+      "example": "Set a Key Decoding Strategy instead of writing CodingKeys for every model.",
+      "code": "import Foundation\nstruct Row: Decodable { let userId: Int }\nlet j = Data(#\"{\"user_id\":7}\"#.utf8)\nlet d = JSONDecoder()\nd.keyDecodingStrategy = .convertFromSnakeCase\nprint(try d.decode(Row.self, from: j).userId)",
+      "output": "7"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "In this code, which protocol does `Like` need, at minimum, so it can be turned into JSON?",
+      "code": "let like = Like(postId: 7)\nlet data = try JSONEncoder().encode(like)",
+      "options": [
+        "Decodable",
+        "Key Decoding Strategy",
+        "Encodable"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "What do you call the decoder setting that turns JSON key names, like snake case, into Swift names?",
+      "options": [
+        "Key Decoding Strategy",
+        "Encodable",
+        "Decodable"
+      ],
+      "answer": "a"
+    },
+    {
+      "question": "Which protocol lets a type be created from JSON data, but not turned back into it?",
+      "options": [
+        "Encodable",
+        "Decodable",
+        "Key Decoding Strategy"
+      ],
+      "answer": "b"
+    }
+  ],
+  "video": {
+    "title": "Encodable, Decodable & Key Decoding Strategy | Day 63",
+    "description": "Learn to explain JSON in Swift: Encodable, Decodable & Key Decoding Strategy, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nEncodable - A protocol for types that can be turned into data like JSON, for example with `JSONEncoder`.\nDecodable - A protocol for types that can be created from data like JSON, for example with `JSONDecoder`.\nKey Decoding Strategy - A `JSONDecoder` setting that changes JSON key names, like snake case, into the Swift property names.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 63 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "encodable",
+      "decodable",
+      "key decoding strategy",
+      "convertfromsnakecase",
+      "swift json",
+      "jsondecoder",
+      "swift in depth",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "Swift Encodable, Decodable & Key Decoding Strategy | Day 63",
+      "description": "Explain Encodable, Decodable & Key Decoding Strategy in Swift by listening to a real code chat between two iOS devs.\nEncodable, Decodable, 키 디코딩 전략 표현을 영어 대화로 익혀요.\n\nEncodable - A protocol for types that can be turned into data like JSON, for example with `JSONEncoder`.\n한국어: Encodable: `JSONEncoder` 등으로 JSON 같은 데이터로 바꿀 수 있는 타입을 위한 프로토콜\n\nDecodable - A protocol for types that can be created from data like JSON, for example with `JSONDecoder`.\n한국어: Decodable: `JSONDecoder` 등으로 JSON 같은 데이터에서 만들어 낼 수 있는 타입을 위한 프로토콜\n\nKey Decoding Strategy - A `JSONDecoder` setting that changes JSON key names, like snake case, into the Swift property names.\n한국어: 키 디코딩 전략: 스네이크 케이스 같은 JSON 키 이름을 Swift 프로퍼티 이름으로 바꿔 주는 `JSONDecoder` 설정\n\nIn this video, Mina and Jake decide which models only read JSON and which only send it, and fix a decode that fails on snake case keys, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 63 of the iOS Daily English series.\n\n#Swift #iOSDeveloper #EnglishForDevelopers",
+      "tags": [
+        "Encodable",
+        "Decodable",
+        "Key Decoding Strategy",
+        "convertFromSnakeCase",
+        "swift json",
+        "JSONDecoder",
+        "스위프트 심화",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "ios development",
+        "iOS Daily English"
+      ],
+      "hook": "Why only Decodable, not Codable? Can you explain it in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "Why not Codable?",
+    "setting": "API integration review",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, why is `Post` only Decodable, not Codable?",
+        "terms": [
+          "Decodable"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "We only read posts from the server. Decodable means it can be built from JSON.",
+        "terms": [
+          "Decodable"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "And `Like` is Encodable because we only send it?",
+        "terms": [
+          "Encodable"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Right. Encodable turns it into JSON, nothing more.",
+        "terms": [
+          "Encodable"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "But decoding `Post` fails. The server sends like underscore count.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "That's snake case. Set a Key Decoding Strategy on the decoder.",
+        "terms": [
+          "Key Decoding Strategy"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "You mean `convertFromSnakeCase`?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Yes. That Key Decoding Strategy maps like underscore count to `likeCount`.",
+        "terms": [
+          "Key Decoding Strategy"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Do I still need CodingKeys, then?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Not for this. The Key Decoding Strategy handles every key at once.",
+        "terms": [
+          "Key Decoding Strategy"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Got it. Decodable to read, Encodable to send, and one setting for the keys.",
+        "terms": [
+          "Decodable",
+          "Encodable"
+        ]
+      }
+    ],
+    "code": "import Foundation\nstruct Post: Decodable { let likeCount: Int }\nstruct Like: Encodable { let postId: Int }\nlet dec = JSONDecoder()\ndec.keyDecodingStrategy = .convertFromSnakeCase",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "Encodable",
+      "lines": [
+        {
+          "text": "Only sending it? Encodable is enough."
+        }
+      ],
+      "title": "Only sending it? Encodable is enough. #Shorts",
+      "description": "Only sending it? Encodable is enough.\n\nEncodable - A protocol for types that can be turned into data like JSON, for example with `JSONEncoder`.\n한국어: Encodable: `JSONEncoder` 등으로 JSON 같은 데이터로 바꿀 수 있는 타입을 위한 프로토콜\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "Decodable",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Why isn't `Post` Codable?"
+        },
+        {
+          "speaker": "B",
+          "text": "We only read it, so it's Decodable."
+        }
+      ],
+      "title": "Why isn't `Post` Codable? / We only read it, so it's Decodable. #Shorts",
+      "description": "Why isn't `Post` Codable? / We only read it, so it's Decodable.\n\nDecodable - A protocol for types that can be created from data like JSON, for example with `JSONDecoder`.\n한국어: Decodable: `JSONDecoder` 등으로 JSON 같은 데이터에서 만들어 낼 수 있는 타입을 위한 프로토콜\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Key Decoding Strategy",
+      "lines": [
+        {
+          "text": "A Key Decoding Strategy fixes snake case keys in one line."
+        }
+      ],
+      "title": "A Key Decoding Strategy fixes snake case keys in one line. #Shorts",
+      "description": "A Key Decoding Strategy fixes snake case keys in one line.\n\nKey Decoding Strategy - A `JSONDecoder` setting that changes JSON key names, like snake case, into the Swift property names.\n한국어: 키 디코딩 전략: 스네이크 케이스 같은 JSON 키 이름을 Swift 프로퍼티 이름으로 바꿔 주는 `JSONDecoder` 설정\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "Why not Codable?"
+}

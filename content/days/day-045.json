@@ -1,0 +1,230 @@
+{
+  "day": 45,
+  "phase": "2. Swift in depth",
+  "theme": "3 terms on copies that stay independent: copies that never affect each other, sharing storage until a change, and checking if a reference is the only one",
+  "terms": [
+    {
+      "term": "Value Semantics",
+      "definition": "A behavior where every copy of a value is independent, so changing one copy never changes another.",
+      "example": "Arrays have Value Semantics, so changing `b` won't touch `a`.",
+      "code": "var a = [1, 2]\nvar b = a\nb.append(3)\nprint(a)\nprint(b)",
+      "output": "[1, 2]\n[1, 2, 3]"
+    },
+    {
+      "term": "Copy-on-Write",
+      "definition": "An optimization where copies share the same storage until one of them is changed.",
+      "example": "Copying the big array is cheap, thanks to Copy-on-Write.",
+      "code": "var a = [1, 2, 3]\nvar b = a      // shares storage, no copy\nb[0] = 9       // copies now, then changes\nprint(a, b)",
+      "output": "[1, 2, 3] [9, 2, 3]"
+    },
+    {
+      "term": "isKnownUniquelyReferenced",
+      "definition": "A Swift function that returns true when only one strong reference points to a class instance.",
+      "example": "Check isKnownUniquelyReferenced before you write to the shared buffer.",
+      "code": "final class Box {}\nvar box = Box()\nprint(isKnownUniquelyReferenced(&box))\nlet other = box\nprint(isKnownUniquelyReferenced(&box))\nprint(other === box)",
+      "output": "true\nfalse\ntrue"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What function tells you if only one strong reference points to a class instance?",
+      "options": [
+        "Copy-on-Write",
+        "Value Semantics",
+        "isKnownUniquelyReferenced"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "In this code, what behavior keeps `a` as `[1, 2]` after `b` changes?",
+      "code": "var a = [1, 2]\nvar b = a\nb.append(3)",
+      "options": [
+        "Value Semantics",
+        "isKnownUniquelyReferenced",
+        "Copy-on-Write"
+      ],
+      "answer": "a"
+    },
+    {
+      "question": "What do you call sharing storage between copies until one of them changes?",
+      "options": [
+        "isKnownUniquelyReferenced",
+        "Copy-on-Write",
+        "Value Semantics"
+      ],
+      "answer": "b"
+    }
+  ],
+  "video": {
+    "title": "Value Semantics, Copy-on-Write & isKnownUniquelyReferenced | Day 45",
+    "description": "Learn to explain value semantics and copy-on-write in Swift: Value Semantics, Copy-on-Write & isKnownUniquelyReferenced, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nValue Semantics - A behavior where every copy of a value is independent, so changing one copy never changes another.\nCopy-on-Write - An optimization where copies share the same storage until one of them is changed.\nisKnownUniquelyReferenced - A Swift function that returns true when only one strong reference points to a class instance.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 45 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish #SwiftUI",
+    "tags": [
+      "value semantics",
+      "copy on write",
+      "isknownuniquelyreferenced",
+      "swift copy on write",
+      "swift value semantics",
+      "swift struct vs class",
+      "swift in depth",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "Swift Value Semantics, Copy-on-Write & isKnownUniquelyReferenced | Day 45",
+      "description": "Explain Value Semantics, Copy-on-Write & isKnownUniquelyReferenced in Swift by listening to a real code chat between two iOS devs.\n값 의미론, 쓰기 시 복사, isKnownUniquelyReferenced 표현을 영어 대화로 익혀요.\n\nValue Semantics - A behavior where every copy of a value is independent, so changing one copy never changes another.\n한국어: 값 의미론: 값의 복사본이 서로 독립적이어서, 하나를 바꿔도 다른 복사본은 바뀌지 않는 동작\n\nCopy-on-Write - An optimization where copies share the same storage until one of them is changed.\n한국어: 쓰기 시 복사: 복사본들이 같은 저장 공간을 공유하다가, 하나가 바뀔 때 비로소 복사하는 최적화\n\nisKnownUniquelyReferenced - A Swift function that returns true when only one strong reference points to a class instance.\n한국어: isKnownUniquelyReferenced: 클래스 인스턴스를 가리키는 강한 참조가 하나뿐이면 true를 돌려주는 Swift 함수\n\nIn this video, Mina and Jake sort out why changing one struct copy changed another, how to copy only when needed and how to know when to copy, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 45 of the iOS Daily English series.\n\n#Swift #iOSDeveloper #EnglishForDevelopers",
+      "tags": [
+        "Value Semantics",
+        "Copy-on-Write",
+        "isKnownUniquelyReferenced",
+        "swift copy on write",
+        "swift value semantics",
+        "swift struct",
+        "스위프트 심화",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "ios development",
+        "iOS Daily English"
+      ],
+      "hook": "Can you explain copy-on-write in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "Why did a change too?",
+    "setting": "Afternoon pairing session",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, `Counter` is a struct, but changing `b` changed `a` too!",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Look inside. `box` is a class, so both copies share it.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "So my struct doesn't have Value Semantics anymore?",
+        "terms": [
+          "Value Semantics"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Right. Value Semantics means each copy changes on its own.",
+        "terms": [
+          "Value Semantics"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Should I copy `box` every time I copy `Counter`?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "That's slow. Use Copy-on-Write: share it, and copy only when someone writes.",
+        "terms": [
+          "Copy-on-Write"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "How do I know when to copy?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Call isKnownUniquelyReferenced on `box` before you change it.",
+        "terms": [
+          "isKnownUniquelyReferenced"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "And if it returns false, I make a new `Box` first?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Exactly. If isKnownUniquelyReferenced says true, nobody else shares it, so just write.",
+        "terms": [
+          "isKnownUniquelyReferenced"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Got it. Copy-on-Write keeps Value Semantics and stays fast.",
+        "terms": [
+          "Copy-on-Write",
+          "Value Semantics"
+        ]
+      }
+    ],
+    "code": "final class Box { var count = 0 }\nstruct Counter { var box = Box() }\nvar a = Counter()\nvar b = a\nb.box.count = 5\nprint(a.box.count) // 5",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "Value Semantics",
+      "lines": [
+        {
+          "text": "Value Semantics means a copy never changes the original."
+        }
+      ],
+      "title": "Value Semantics means a copy never changes the original. #Shorts",
+      "description": "Value Semantics means a copy never changes the original.\n\nValue Semantics - A behavior where every copy of a value is independent, so changing one copy never changes another.\n한국어: 값 의미론: 값의 복사본이 서로 독립적이어서, 하나를 바꿔도 다른 복사본은 바뀌지 않는 동작\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "Copy-on-Write",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Isn't copying this huge array slow?"
+        },
+        {
+          "speaker": "B",
+          "text": "No, Copy-on-Write shares it until a change."
+        }
+      ],
+      "title": "Isn't copying this huge array slow? / No, Copy-on-Write shares it until a change. #Shorts",
+      "description": "Isn't copying this huge array slow? / No, Copy-on-Write shares it until a change.\n\nCopy-on-Write - An optimization where copies share the same storage until one of them is changed.\n한국어: 쓰기 시 복사: 복사본들이 같은 저장 공간을 공유하다가, 하나가 바뀔 때 비로소 복사하는 최적화\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "isKnownUniquelyReferenced",
+      "lines": [
+        {
+          "text": "Check isKnownUniquelyReferenced before you write."
+        }
+      ],
+      "title": "Check isKnownUniquelyReferenced before you write. #Shorts",
+      "description": "Check isKnownUniquelyReferenced before you write.\n\nisKnownUniquelyReferenced - A Swift function that returns true when only one strong reference points to a class instance.\n한국어: isKnownUniquelyReferenced: 클래스 인스턴스를 가리키는 강한 참조가 하나뿐이면 true를 돌려주는 Swift 함수\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "Struct, but shared?"
+}

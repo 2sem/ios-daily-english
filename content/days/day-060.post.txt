@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 60
+
+Implicitly Unwrapped Optional
+- An optional written with an exclamation mark, like `String!`, that Swift unwraps for you every time you use it.
+- Example: "That Implicitly Unwrapped Optional crashed because setup never ran."
+
+Optional Map
+- Calling `map` on an optional, so the closure changes the value inside, and `nil` simply stays `nil`.
+- Example: "Use Optional Map here instead of unwrapping, then wrapping again."
+
+Optional Pattern
+- A pattern like `x?` in `if case` or `for case` that matches only when there is a value, and unwraps it.
+- Example: "Loop with an Optional Pattern, so the nil scores are skipped."
+
+
+Quiz ①
+In this code, what do you call `s?`, which matches only the values that are not nil?
+a) Optional Map
+b) Implicitly Unwrapped Optional
+c) Optional Pattern
+
+Quiz ②
+What lets you transform the value inside an optional, and simply keeps nil when there is none?
+a) Optional Map
+b) Optional Pattern
+c) Implicitly Unwrapped Optional
+
+Quiz ③
+What do you call an optional declared with an exclamation mark that unwraps itself every time you use it?
+a) Optional Pattern
+b) Implicitly Unwrapped Optional
+c) Optional Map

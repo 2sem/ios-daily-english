@@ -1,0 +1,233 @@
+{
+  "day": 40,
+  "phase": "1. Swift basics",
+  "theme": "3 terms on operators: updating a variable in place, giving plus a new meaning, and creating a brand-new operator",
+  "terms": [
+    {
+      "term": "Compound Assignment Operator",
+      "definition": "An operator, such as plus-equals, that does math on a variable and stores the result back in it.",
+      "example": "Just use a Compound Assignment Operator: `count += 1`.",
+      "code": "var score = 10\nscore += 5\nscore *= 2\nprint(score)",
+      "output": "30"
+    },
+    {
+      "term": "Operator Overloading",
+      "definition": "A feature that gives an existing operator, such as plus, a new meaning for your own type.",
+      "example": "With Operator Overloading, we can add two `Point` values with a plus sign.",
+      "code": "struct Point { var x, y: Int }\nfunc + (l: Point, r: Point) -> Point {\n    Point(x: l.x + r.x, y: l.y + r.y)\n}\nlet p = Point(x: 1, y: 2) + Point(x: 3, y: 4)\nprint(p.x, p.y)",
+      "output": "4 6"
+    },
+    {
+      "term": "Custom Operator",
+      "definition": "A feature that lets you declare a brand-new operator symbol and decide what it does.",
+      "example": "Please don't add a Custom Operator here, a named method is easier to read.",
+      "code": "infix operator **\nfunc ** (base: Int, power: Int) -> Int {\n    (0..<power).reduce(1) { r, _ in r * base }\n}\nprint(2 ** 3)",
+      "output": "8"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What do you call giving plus a new meaning for your own type?",
+      "options": [
+        "Custom Operator",
+        "Compound Assignment Operator",
+        "Operator Overloading"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "In this code, what do you call `-=`, which changes `score` in place?",
+      "code": "var score = 10\nscore -= 3",
+      "options": [
+        "Compound Assignment Operator",
+        "Operator Overloading",
+        "Custom Operator"
+      ],
+      "answer": "a"
+    },
+    {
+      "question": "What do you call declaring a brand-new symbol, like two stars, and deciding what it does?",
+      "options": [
+        "Operator Overloading",
+        "Custom Operator",
+        "Compound Assignment Operator"
+      ],
+      "answer": "b"
+    }
+  ],
+  "video": {
+    "title": "Compound Assignment, Overloading & Custom Operators | Day 40",
+    "description": "Learn to explain operators on your own types in Swift: Compound Assignment Operator, Operator Overloading & Custom Operator, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nCompound Assignment Operator - An operator, such as plus-equals, that does math on a variable and stores the result back in it.\nOperator Overloading - A feature that gives an existing operator, such as plus, a new meaning for your own type.\nCustom Operator - A feature that lets you declare a brand-new operator symbol and decide what it does.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 40 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish #SwiftUI",
+    "tags": [
+      "compound assignment operator",
+      "operator overloading",
+      "custom operator",
+      "swift operators",
+      "swift operator overloading",
+      "swift custom operator",
+      "swift basics",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "Swift Compound Assignment, Operator Overloading & Custom Operator | Day 40",
+      "description": "Explain Compound Assignment Operator, Operator Overloading & Custom Operator in Swift by listening to a real code chat between two iOS devs.\n복합 할당 연산자, 연산자 오버로딩, 커스텀 연산자 표현을 영어 대화로 익혀요.\n\nCompound Assignment Operator - An operator, such as plus-equals, that does math on a variable and stores the result back in it.\n한국어: 복합 할당 연산자: += 처럼 변수에 계산을 하고 그 결과를 다시 그 변수에 저장하는 연산자\n\nOperator Overloading - A feature that gives an existing operator, such as plus, a new meaning for your own type.\n한국어: 연산자 오버로딩: + 같은 기존 연산자에 내 타입을 위한 새 의미를 주는 기능\n\nCustom Operator - A feature that lets you declare a brand-new operator symbol and decide what it does.\n한국어: 커스텀 연산자: 완전히 새로운 연산자 기호를 선언하고 동작을 정하는 기능\n\nIn this video, Mina and Jake sort out why plus-equals did not compile, how to give plus a new meaning and when a brand-new operator is a bad idea, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 40 of the iOS Daily English series.\n\n#Swift #iOSDeveloper #EnglishForDevelopers",
+      "tags": [
+        "Compound Assignment Operator",
+        "Operator Overloading",
+        "Custom Operator",
+        "swift operators",
+        "swift operator overloading",
+        "swift custom operator",
+        "스위프트 기초",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "ios development",
+        "iOS Daily English"
+      ],
+      "hook": "Can you explain these operator terms in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "Why didn't += compile?",
+    "setting": "Code review call",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, `+=` didn't compile for `Money`, but `+` worked. Why?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "You wrote Operator Overloading for `+` only. `+=` needs its own function.",
+        "terms": [
+          "Operator Overloading"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Really? I thought a Compound Assignment Operator came for free.",
+        "terms": [
+          "Compound Assignment Operator"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Not for your own types. So I added `+=` with an `inout` parameter.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "Because a Compound Assignment Operator changes `total` itself?",
+        "terms": [
+          "Compound Assignment Operator"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Exactly. The result goes back into `total`.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "Cool. Can I make a Custom Operator for tips too, like plus-percent?",
+        "terms": [
+          "Custom Operator"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "You can, but a Custom Operator is hard to read for new teammates.",
+        "terms": [
+          "Custom Operator"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "So a method like `addTip` is clearer?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Usually. Keep Operator Overloading for obvious math, like money.",
+        "terms": [
+          "Operator Overloading"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Got it. Operator Overloading for clear math, a Compound Assignment Operator for updates, and a Custom Operator rarely.",
+        "terms": [
+          "Operator Overloading",
+          "Compound Assignment Operator",
+          "Custom Operator"
+        ]
+      }
+    ],
+    "code": "struct Money { var cents: Int }\nfunc + (a: Money, b: Money) -> Money {\n    Money(cents: a.cents + b.cents) }\nfunc += (a: inout Money, b: Money) { a = a + b }\nvar total = Money(cents: 500)\ntotal += Money(cents: 100)",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "Compound Assignment Operator",
+      "lines": [
+        {
+          "text": "Write `count += 1` with a Compound Assignment Operator."
+        }
+      ],
+      "title": "Write `count += 1` with a Compound Assignment Operator. #Shorts",
+      "description": "Write `count += 1` with a Compound Assignment Operator.\n\nCompound Assignment Operator - An operator, such as plus-equals, that does math on a variable and stores the result back in it.\n한국어: 복합 할당 연산자: += 처럼 변수에 계산을 하고 그 결과를 다시 그 변수에 저장하는 연산자\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "Operator Overloading",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Can I add two `Money` values with plus?"
+        },
+        {
+          "speaker": "B",
+          "text": "Yes, with Operator Overloading."
+        }
+      ],
+      "title": "Can I add two `Money` values with plus? / Yes, with Operator Overloading. #Shorts",
+      "description": "Can I add two `Money` values with plus? / Yes, with Operator Overloading.\n\nOperator Overloading - A feature that gives an existing operator, such as plus, a new meaning for your own type.\n한국어: 연산자 오버로딩: + 같은 기존 연산자에 내 타입을 위한 새 의미를 주는 기능\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Custom Operator",
+      "lines": [
+        {
+          "text": "A Custom Operator looks cool but is hard to read."
+        }
+      ],
+      "title": "A Custom Operator looks cool but is hard to read. #Shorts",
+      "description": "A Custom Operator looks cool but is hard to read.\n\nCustom Operator - A feature that lets you declare a brand-new operator symbol and decide what it does.\n한국어: 커스텀 연산자: 완전히 새로운 연산자 기호를 선언하고 동작을 정하는 기능\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "Why no += ?"
+}

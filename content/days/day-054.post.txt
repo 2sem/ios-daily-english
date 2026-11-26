@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 54
+
+Attribute
+- A word that starts with an at sign and gives the compiler extra information about a declaration.
+- Example: "Add the `@escaping` Attribute, because we store the closure."
+
+Discardable Result
+- An attribute, written `@discardableResult`, that lets callers ignore a function's return value without a warning.
+- Example: "Mark `add` with Discardable Result, since most callers don't need the count."
+
+Availability Attribute
+- An attribute, written `@available`, that says which versions can use a declaration or that it is deprecated.
+- Example: "I added an Availability Attribute, so `fetch()` now shows a rename warning."
+
+
+Quiz ①
+What lets a caller ignore a function's return value without a warning?
+a) Availability Attribute
+b) Attribute
+c) Discardable Result
+
+Quiz ②
+In this code, what do you call `@escaping`, the word with an at sign?
+a) Attribute
+b) Discardable Result
+c) Availability Attribute
+
+Quiz ③
+What tells the compiler which OS versions can use a function, or that it is deprecated?
+a) Discardable Result
+b) Availability Attribute
+c) Attribute

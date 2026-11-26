@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 53
+
+Macro
+- A feature that generates extra Swift code for you while your app compiles.
+- Example: "`#Predicate` is a Macro, so it turns this closure into a real filter."
+
+Freestanding Macro
+- A macro written with a hash sign that stands on its own and expands into code right there.
+- Example: "`#line` is a Freestanding Macro, so it turns into the current line number."
+
+Attached Macro
+- A macro written with an at sign on a declaration that adds code to that declaration.
+- Example: "`@Observable` is an Attached Macro, so it adds tracking code to the class."
+
+
+Quiz ①
+What do you call code generation written with an at sign on top of a type?
+a) Freestanding Macro
+b) Macro
+c) Attached Macro
+
+Quiz ②
+In this code, what kind of thing is `#function`, written with a hash sign?
+a) Freestanding Macro
+b) Attached Macro
+c) Macro
+
+Quiz ③
+What do you call a feature that generates extra Swift code while your app compiles?
+a) Attached Macro
+b) Macro
+c) Freestanding Macro
