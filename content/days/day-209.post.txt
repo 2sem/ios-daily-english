@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 209
+
+Keychain
+- A secure storage system on the device for small secrets like passwords and tokens.
+- Example: "Store the refresh token in the keychain."
+
+SecItemAdd
+- The function that saves a new item, such as a password, into the keychain.
+- Example: "Call SecItemAdd to save the token."
+
+SecItemCopyMatching
+- The function that searches the keychain and returns the item that matches your query.
+- Example: "Use SecItemCopyMatching to read the saved token."
+
+
+Quiz ①
+What do you call the function that searches the keychain and returns the item that matches your query?
+a) SecItemCopyMatching
+b) Keychain
+c) SecItemAdd
+
+Quiz ②
+What do you call a secure storage system on the device for small secrets like passwords and tokens?
+a) SecItemAdd
+b) SecItemCopyMatching
+c) Keychain
+
+Quiz ③
+What do you call the function that saves a new item, such as a password, into the keychain?
+a) Keychain
+b) SecItemAdd
+c) SecItemCopyMatching

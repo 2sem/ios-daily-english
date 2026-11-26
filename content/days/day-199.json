@@ -1,0 +1,238 @@
+{
+  "day": 199,
+  "phase": "5. App architecture & data",
+  "theme": "Data formats: JSON, serialization and JSONSerialization",
+  "terms": [
+    {
+      "term": "JSON",
+      "definition": "A text format that stores data as keys and values, easy for people and apps to read.",
+      "example": "The server sends the user as JSON.",
+      "code": "let json = \"\"\"\n{\"name\": \"Ann\", \"age\": 30}\n\"\"\"\nprint(json)",
+      "output": "{\"name\": \"Ann\", \"age\": 30}"
+    },
+    {
+      "term": "Serialization",
+      "definition": "The process of turning an object in memory into data you can save or send.",
+      "example": "Serialization turns the order into bytes for the server.",
+      "code": "import Foundation\nlet user = [\"name\": \"Ann\"]\nlet data = try JSONEncoder().encode(user)\nprint(String(data: data, encoding: .utf8)!)",
+      "output": "{\"name\":\"Ann\"}"
+    },
+    {
+      "term": "JSONSerialization",
+      "definition": "A Foundation class that converts data to and from Swift arrays and dictionaries.",
+      "example": "JSONSerialization returns a dictionary, so I cast it.",
+      "code": "import Foundation\nlet d = Data(\"{\\\"age\\\": 30}\".utf8)\nlet o = try JSONSerialization.jsonObject(with: d)\nprint((o as! [String: Int])[\"age\"]!)",
+      "output": "30"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What do you call the process of turning an object in memory into data you can save or send?",
+      "options": [
+        "JSON",
+        "Serialization",
+        "JSONSerialization"
+      ],
+      "answer": "b"
+    },
+    {
+      "question": "What do you call a text format that stores data as keys and values, easy for people and apps to read?",
+      "options": [
+        "Serialization",
+        "JSONSerialization",
+        "JSON"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "What do you call a Foundation class that converts data to and from Swift arrays and dictionaries?",
+      "options": [
+        "JSONSerialization",
+        "JSON",
+        "Serialization"
+      ],
+      "answer": "a"
+    }
+  ],
+  "video": {
+    "title": "JSON, Serialization & JSONSerialization | Day 199",
+    "description": "Learn to explain JSON and turning objects into data: JSON, Serialization & JSONSerialization, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nJSON - A text format that stores data as keys and values, easy for people and apps to read.\nSerialization - The process of turning an object in memory into data you can save or send.\nJSONSerialization - A Foundation class that converts data to and from Swift arrays and dictionaries.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 199 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "JSON",
+      "Serialization",
+      "JSONSerialization",
+      "json",
+      "serialization",
+      "jsonserialization",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "iOS JSON, Serialization & JSONSerialization | Day 199",
+      "description": "Explain JSON, Serialization & JSONSerialization in iOS by listening to a real code chat between two iOS devs.\nJSON, Serialization, JSONSerialization 표현을 영어 대화로 익혀요.\n\nJSON - A text format that stores data as keys and values, easy for people and apps to read.\n한국어: JSON: 데이터를 키와 값으로 저장하는, 사람과 앱이 읽기 쉬운 텍스트 형식\n\nSerialization - The process of turning an object in memory into data you can save or send.\n한국어: Serialization: 메모리의 객체를 저장하거나 보낼 수 있는 데이터로 바꾸는 과정\n\nJSONSerialization - A Foundation class that converts data to and from Swift arrays and dictionaries.\n한국어: JSONSerialization: 데이터를 Swift 배열과 딕셔너리로, 또는 그 반대로 바꿔 주는 Foundation 클래스\n\nIn this video, Mina and Jake talk about JSON and turning objects into data, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 199 of the iOS Daily English series.\n\n#Swift #iOSArchitecture #EnglishForDevelopers",
+      "tags": [
+        "JSON",
+        "Serialization",
+        "JSONSerialization",
+        "iOS architecture",
+        "iOS 아키텍처",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "iOS Daily English"
+      ],
+      "hook": "Can you explain JSON, Serialization and JSONSerialization in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "Text from the server",
+    "setting": "Reading a server reply",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, the server sends text with `age` and a number. What is it?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "That is JSON. It stores data as keys and values, and people can read it.",
+        "terms": [
+          "JSON"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "How do I use JSON in Swift?",
+        "terms": [
+          "JSON"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "First you need serialization. That means turning an object into data you can save or send.",
+        "terms": [
+          "Serialization"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "And the opposite direction?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Reading the data back into objects. Our code does it with JSONSerialization.",
+        "terms": [
+          "JSON",
+          "Serialization",
+          "JSONSerialization"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "So JSONSerialization turns `d` into `o`?",
+        "terms": [
+          "JSON",
+          "Serialization",
+          "JSONSerialization"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Yes. It returns arrays and dictionaries, and you cast them to the type you want.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "That feels manual. Is there something easier?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Yes, Codable. But it is good to know JSONSerialization first.",
+        "terms": [
+          "JSON",
+          "Serialization",
+          "JSONSerialization"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Okay. Serialization is the writing, and JSON is the shared language.",
+        "terms": [
+          "JSON",
+          "Serialization"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Nice summary.",
+        "terms": []
+      }
+    ],
+    "code": "import Foundation\nlet d = Data(\"{\\\"age\\\": 30}\".utf8)\nlet o = try JSONSerialization.jsonObject(with: d)",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "JSON",
+      "lines": [
+        {
+          "text": "The server sends the user as JSON."
+        }
+      ],
+      "title": "The server sends the user as JSON. #Shorts",
+      "description": "The server sends the user as JSON.\n\nJSON - A text format that stores data as keys and values, easy for people and apps to read.\n한국어: JSON: 데이터를 키와 값으로 저장하는, 사람과 앱이 읽기 쉬운 텍스트 형식\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "Serialization",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "What is this text from the server?"
+        },
+        {
+          "speaker": "B",
+          "text": "It is JSON."
+        }
+      ],
+      "title": "What is this text from the server? / It is JSON. #Shorts",
+      "description": "What is this text from the server? / It is JSON.\n\nSerialization - The process of turning an object in memory into data you can save or send.\n한국어: Serialization: 메모리의 객체를 저장하거나 보낼 수 있는 데이터로 바꾸는 과정\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "JSONSerialization",
+      "lines": [
+        {
+          "text": "JSONSerialization returns a dictionary, so I cast it."
+        }
+      ],
+      "title": "JSONSerialization returns a dictionary, so I cast it. #Shorts",
+      "description": "JSONSerialization returns a dictionary, so I cast it.\n\nJSONSerialization - A Foundation class that converts data to and from Swift arrays and dictionaries.\n한국어: JSONSerialization: 데이터를 Swift 배열과 딕셔너리로, 또는 그 반대로 바꿔 주는 Foundation 클래스\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "What is JSON, really? Your first server data."
+}

@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 208
+
+Authorization Header
+- A request header that carries the credentials that prove who you are.
+- Example: "Add the authorization header to every request."
+
+Bearer Token
+- A secret string that a request sends to prove the user is logged in.
+- Example: "Never print the bearer token in the logs."
+
+OAuth
+- A standard that lets users sign in with another service without sharing their password.
+- Example: "We use OAuth for the Google sign-in."
+
+
+Quiz ①
+What do you call a secret string that a request sends to prove the user is logged in?
+a) Authorization Header
+b) OAuth
+c) Bearer Token
+
+Quiz ②
+What do you call a standard that lets users sign in with another service without sharing their password?
+a) Authorization Header
+b) OAuth
+c) Bearer Token
+
+Quiz ③
+What do you call a request header that carries the credentials that prove who you are?
+a) Authorization Header
+b) Bearer Token
+c) OAuth

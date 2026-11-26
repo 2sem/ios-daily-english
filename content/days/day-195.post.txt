@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 195
+
+Data Layer
+- The part of an app that loads and saves data, away from the screens.
+- Example: "The data layer reads the user list from disk."
+
+Service Layer
+- The part of an app that offers actions like login or search to the rest of the code.
+- Example: "Call the service layer to log in."
+
+Repository Pattern
+- A pattern that hides where data comes from behind one simple interface.
+- Example: "The repository pattern lets us swap the web data for test data."
+
+
+Quiz ①
+What do you call the part of an app that offers actions like login or search to the rest of the code?
+a) Data Layer
+b) Service Layer
+c) Repository Pattern
+
+Quiz ②
+What do you call the part of an app that loads and saves data, away from the screens?
+a) Data Layer
+b) Service Layer
+c) Repository Pattern
+
+Quiz ③
+What do you call a pattern that hides where data comes from behind one simple interface?
+a) Data Layer
+b) Service Layer
+c) Repository Pattern

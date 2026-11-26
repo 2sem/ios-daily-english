@@ -1,0 +1,233 @@
+{
+  "day": 198,
+  "phase": "5. App architecture & data",
+  "theme": "Common design patterns in iOS code: singleton, factory method and adapter pattern",
+  "terms": [
+    {
+      "term": "Singleton",
+      "definition": "A class that has exactly one shared instance for the whole app.",
+      "example": "The settings object is a singleton, so avoid changing it in tests.",
+      "code": "class Settings {\n    static let shared = Settings()\n    var theme = \"dark\"\n}\nprint(Settings.shared.theme)",
+      "output": "dark"
+    },
+    {
+      "term": "Factory Method",
+      "definition": "A method that creates and returns objects so the caller skips the initializer.",
+      "example": "Add a factory method that builds the preview data.",
+      "code": "struct Bike { var w: Int }\nextension Bike {\n    static func make() -> Bike { Bike(w: 2) }\n}\nprint(Bike.make().w)",
+      "output": "2"
+    },
+    {
+      "term": "Adapter Pattern",
+      "definition": "A pattern that wraps an object so it fits the interface another part expects.",
+      "example": "The adapter pattern lets us use the old SDK in new code.",
+      "code": "struct Old { func fetch() -> String { \"Ann\" } }\nprotocol Source { func name() -> String }\nstruct Adapter: Source {\n    func name() -> String { Old().fetch() }\n}\nprint(Adapter().name())",
+      "output": "Ann"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What do you call a pattern that wraps an object so it fits the interface another part expects?",
+      "options": [
+        "Adapter Pattern",
+        "Singleton",
+        "Factory Method"
+      ],
+      "answer": "a"
+    },
+    {
+      "question": "What do you call a method that creates and returns objects so the caller skips the initializer?",
+      "options": [
+        "Singleton",
+        "Factory Method",
+        "Adapter Pattern"
+      ],
+      "answer": "b"
+    },
+    {
+      "question": "What do you call a class that has exactly one shared instance for the whole app?",
+      "options": [
+        "Factory Method",
+        "Adapter Pattern",
+        "Singleton"
+      ],
+      "answer": "c"
+    }
+  ],
+  "video": {
+    "title": "Singleton, Factory Method & Adapter Pattern | Day 198",
+    "description": "Learn to explain three classic design patterns: Singleton, Factory Method & Adapter Pattern, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nSingleton - A class that has exactly one shared instance for the whole app.\nFactory Method - A method that creates and returns objects so the caller skips the initializer.\nAdapter Pattern - A pattern that wraps an object so it fits the interface another part expects.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 198 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "Singleton",
+      "Factory Method",
+      "Adapter Pattern",
+      "singleton",
+      "factory method",
+      "adapter pattern",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "iOS Singleton, Factory Method & Adapter Pattern | Day 198",
+      "description": "Explain Singleton, Factory Method & Adapter Pattern in iOS by listening to a real code chat between two iOS devs.\nSingleton, Factory Method, Adapter Pattern 표현을 영어 대화로 익혀요.\n\nSingleton - A class that has exactly one shared instance for the whole app.\n한국어: Singleton: 앱 전체에서 공유 인스턴스가 딱 하나뿐인 클래스\n\nFactory Method - A method that creates and returns objects so the caller skips the initializer.\n한국어: Factory Method: 호출하는 쪽이 이니셜라이저를 쓰지 않도록 객체를 만들어 돌려주는 메서드\n\nAdapter Pattern - A pattern that wraps an object so it fits the interface another part expects.\n한국어: Adapter Pattern: 다른 쪽이 기대하는 인터페이스에 맞게 객체를 감싸는 패턴\n\nIn this video, Mina and Jake talk about three classic design patterns, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 198 of the iOS Daily English series.\n\n#Swift #iOSArchitecture #EnglishForDevelopers",
+      "tags": [
+        "Singleton",
+        "Factory Method",
+        "Adapter Pattern",
+        "iOS architecture",
+        "iOS 아키텍처",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "iOS Daily English"
+      ],
+      "hook": "Can you explain Singleton, Factory Method and Adapter Pattern in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "Shared everywhere",
+    "setting": "Reviewing a pull request",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, I found `Settings.shared` all over our code. Is it a singleton?",
+        "terms": [
+          "Singleton"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Yes. A singleton has exactly one shared instance for the whole app.",
+        "terms": [
+          "Singleton"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Is a singleton bad?",
+        "terms": [
+          "Singleton"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "It is easy to use, but it hides dependencies and makes tests hard. Use it carefully.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "Okay. What about creating many objects with different setups?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Use a factory method. It creates and returns the object, so callers skip the initializer.",
+        "terms": [
+          "Factory Method"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Like a function that returns a new object?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Yes, that is a factory method. The type picks the right setup.",
+        "terms": [
+          "Factory Method"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "And the old SDK has a different interface than our code.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Then write an adapter. The adapter pattern wraps the old object so it fits your protocol.",
+        "terms": [
+          "Adapter Pattern"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "So the adapter pattern changes the interface but not the work?",
+        "terms": [
+          "Adapter Pattern"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Right. And do not replace one singleton with another singleton.",
+        "terms": [
+          "Singleton"
+        ]
+      }
+    ],
+    "code": "class Settings {\n    static let shared = Settings()\n    var theme = \"dark\"\n}",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "Singleton",
+      "lines": [
+        {
+          "text": "The settings object is a singleton, so avoid changing it in tests."
+        }
+      ],
+      "title": "The settings object is a singleton, so avoid changing it in tests. #Shorts",
+      "description": "The settings object is a singleton, so avoid changing it in tests.\n\nSingleton - A class that has exactly one shared instance for the whole app.\n한국어: Singleton: 앱 전체에서 공유 인스턴스가 딱 하나뿐인 클래스\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "Factory Method",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Why is this object shared everywhere?"
+        },
+        {
+          "speaker": "B",
+          "text": "It is a singleton."
+        }
+      ],
+      "title": "Why is this object shared everywhere? / It is a singleton. #Shorts",
+      "description": "Why is this object shared everywhere? / It is a singleton.\n\nFactory Method - A method that creates and returns objects so the caller skips the initializer.\n한국어: Factory Method: 호출하는 쪽이 이니셜라이저를 쓰지 않도록 객체를 만들어 돌려주는 메서드\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Adapter Pattern",
+      "lines": [
+        {
+          "text": "The adapter pattern lets us use the old SDK in new code."
+        }
+      ],
+      "title": "The adapter pattern lets us use the old SDK in new code. #Shorts",
+      "description": "The adapter pattern lets us use the old SDK in new code.\n\nAdapter Pattern - A pattern that wraps an object so it fits the interface another part expects.\n한국어: Adapter Pattern: 다른 쪽이 기대하는 인터페이스에 맞게 객체를 감싸는 패턴\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "Singleton, factory or adapter? Know all three."
+}

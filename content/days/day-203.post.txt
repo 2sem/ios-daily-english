@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 203
+
+Status Code
+- A number in a server reply that says if the request worked, like 200 or 404.
+- Example: "Check the status code before you decode the data."
+
+Request Body
+- The data a request carries to the server, such as the new user to create.
+- Example: "Put the user as JSON in the request body."
+
+Response Header
+- Extra information the server sends with a reply, like the content type.
+- Example: "The response header says the data is JSON."
+
+
+Quiz ①
+What do you call the data a request carries to the server, such as the new user to create?
+a) Request Body
+b) Status Code
+c) Response Header
+
+Quiz ②
+What do you call a number in a server reply that says if the request worked, like 200 or 404?
+a) Request Body
+b) Response Header
+c) Status Code
+
+Quiz ③
+What do you call extra information the server sends with a reply, like the content type?
+a) Status Code
+b) Response Header
+c) Request Body

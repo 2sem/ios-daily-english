@@ -1,0 +1,230 @@
+{
+  "day": 208,
+  "phase": "5. App architecture & data",
+  "theme": "Proving who you are: authorization headers, bearer tokens and OAuth",
+  "terms": [
+    {
+      "term": "Authorization Header",
+      "definition": "A request header that carries the credentials that prove who you are.",
+      "example": "Add the authorization header to every request.",
+      "code": "import Foundation\nlet u = URL(string: \"https://x.com\")!\nvar r = URLRequest(url: u)\nlet k = \"Authorization\"\nr.setValue(\"abc\", forHTTPHeaderField: k)\nprint(r.value(forHTTPHeaderField: k)!)",
+      "output": "abc"
+    },
+    {
+      "term": "Bearer Token",
+      "definition": "A secret string that a request sends to prove the user is logged in.",
+      "example": "Never print the bearer token in the logs.",
+      "code": "import Foundation\nlet token = \"abc123\"\nlet value = \"Bearer \" + token\nprint(value)",
+      "output": "Bearer abc123"
+    },
+    {
+      "term": "OAuth",
+      "definition": "A standard that lets users sign in with another service without sharing their password.",
+      "example": "We use OAuth for the Google sign-in.",
+      "code": "import Foundation\nvar c = URLComponents(string: \"https://a.x.com\")!\nlet q = URLQueryItem(name: \"id\", value: \"app1\")\nc.queryItems = [q]\nprint(c.url!)",
+      "output": "https://a.x.com?id=app1"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What do you call a secret string that a request sends to prove the user is logged in?",
+      "options": [
+        "Authorization Header",
+        "OAuth",
+        "Bearer Token"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "What do you call a standard that lets users sign in with another service without sharing their password?",
+      "options": [
+        "Authorization Header",
+        "OAuth",
+        "Bearer Token"
+      ],
+      "answer": "b"
+    },
+    {
+      "question": "What do you call a request header that carries the credentials that prove who you are?",
+      "options": [
+        "Authorization Header",
+        "Bearer Token",
+        "OAuth"
+      ],
+      "answer": "a"
+    }
+  ],
+  "video": {
+    "title": "Authorization Header, Bearer Token & OAuth | Day 208",
+    "description": "Learn to explain signing in and sending credentials: Authorization Header, Bearer Token & OAuth, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nAuthorization Header - A request header that carries the credentials that prove who you are.\nBearer Token - A secret string that a request sends to prove the user is logged in.\nOAuth - A standard that lets users sign in with another service without sharing their password.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 208 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "Authorization Header",
+      "Bearer Token",
+      "OAuth",
+      "authorization header",
+      "bearer token",
+      "oauth",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "iOS Authorization Header, Bearer Token & OAuth | Day 208",
+      "description": "Explain Authorization Header, Bearer Token & OAuth in iOS by listening to a real code chat between two iOS devs.\nAuthorization Header, Bearer Token, OAuth 표현을 영어 대화로 익혀요.\n\nAuthorization Header - A request header that carries the credentials that prove who you are.\n한국어: Authorization Header: 내가 누구인지 증명하는 자격 증명을 담는 요청 헤더\n\nBearer Token - A secret string that a request sends to prove the user is logged in.\n한국어: Bearer Token: 요청이 사용자의 로그인 상태를 증명하기 위해 보내는 비밀 문자열\n\nOAuth - A standard that lets users sign in with another service without sharing their password.\n한국어: OAuth: 비밀번호를 공유하지 않고 다른 서비스로 로그인하게 해 주는 표준\n\nIn this video, Mina and Jake talk about signing in and sending credentials, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 208 of the iOS Daily English series.\n\n#Swift #iOSArchitecture #EnglishForDevelopers",
+      "tags": [
+        "Authorization Header",
+        "Bearer Token",
+        "OAuth",
+        "iOS architecture",
+        "iOS 아키텍처",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "iOS Daily English"
+      ],
+      "hook": "Can you explain Authorization Header, Bearer Token and OAuth in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "Error 401",
+    "setting": "Fixing an unauthorized request",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, the profile request returns 401. Why?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "The server does not know who you are. Add an authorization header.",
+        "terms": [
+          "Authorization Header"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "What goes into the authorization header?",
+        "terms": [
+          "Authorization Header"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Your credentials. Our code sets it with `setValue`.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "And what is a bearer token?",
+        "terms": [
+          "Bearer Token"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "A secret string. The request sends the bearer token to prove the user is logged in.",
+        "terms": [
+          "Bearer Token"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Why does the word Bearer come first?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "It tells the server the kind of token. Whoever bears it gets access.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "Where does the token come from?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "From OAuth. OAuth lets users sign in with another service without sharing their password.",
+        "terms": [
+          "OAuth"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Like Sign in with Google?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Exactly. OAuth gives your app a bearer token after the sign-in.",
+        "terms": [
+          "Bearer Token",
+          "OAuth"
+        ]
+      }
+    ],
+    "code": "import Foundation\nlet token = \"abc123\"\nlet k = \"Authorization\"\nlet bearer = \"Bearer \" + token\nvar r = URLRequest(url: URL(string: \"x.com\")!)\nr.setValue(bearer, forHTTPHeaderField: k)",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "Authorization Header",
+      "lines": [
+        {
+          "text": "Add the authorization header to every request."
+        }
+      ],
+      "title": "Add the authorization header to every request. #Shorts",
+      "description": "Add the authorization header to every request.\n\nAuthorization Header - A request header that carries the credentials that prove who you are.\n한국어: Authorization Header: 내가 누구인지 증명하는 자격 증명을 담는 요청 헤더\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "Bearer Token",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Why does the server say 401?"
+        },
+        {
+          "speaker": "B",
+          "text": "Add the authorization header."
+        }
+      ],
+      "title": "Why does the server say 401? / Add the authorization header. #Shorts",
+      "description": "Why does the server say 401? / Add the authorization header.\n\nBearer Token - A secret string that a request sends to prove the user is logged in.\n한국어: Bearer Token: 요청이 사용자의 로그인 상태를 증명하기 위해 보내는 비밀 문자열\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "OAuth",
+      "lines": [
+        {
+          "text": "We use OAuth for the Google sign-in."
+        }
+      ],
+      "title": "We use OAuth for the Google sign-in. #Shorts",
+      "description": "We use OAuth for the Google sign-in.\n\nOAuth - A standard that lets users sign in with another service without sharing their password.\n한국어: OAuth: 비밀번호를 공유하지 않고 다른 서비스로 로그인하게 해 주는 표준\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "Server says 401? Send your bearer token."
+}

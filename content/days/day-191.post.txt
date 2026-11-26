@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 191
+
+MVC
+- A pattern that splits an app into a model, a view and a controller that connects them.
+- Example: "Our old screens follow MVC, so the controller updates the view."
+
+MVVM
+- A pattern that puts the screen logic in a view model between the model and the view.
+- Example: "We moved to MVVM to keep the view controller small."
+
+Massive View Controller
+- A name for a view controller that grew too big because it does every job.
+- Example: "This Massive View Controller has two thousand lines."
+
+
+Quiz ①
+What do you call a pattern that puts the screen logic in a view model between the model and the view?
+a) MVVM
+b) MVC
+c) Massive View Controller
+
+Quiz ②
+What do you call a pattern that splits an app into a model, a view and a controller that connects them?
+a) MVVM
+b) Massive View Controller
+c) MVC
+
+Quiz ③
+What do you call a name for a view controller that grew too big because it does every job?
+a) MVC
+b) Massive View Controller
+c) MVVM

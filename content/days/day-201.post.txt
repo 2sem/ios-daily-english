@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 201
+
+HTTP
+- The set of rules that apps and servers use to send requests and replies on the web.
+- Example: "The app talks to the server over HTTP."
+
+Endpoint
+- A specific address on a server where your app can ask for one kind of data.
+- Example: "This endpoint returns the list of orders."
+
+Query Parameter
+- A key and value added to the end of a URL after a question mark to filter or search.
+- Example: "Add a query parameter to search by name."
+
+
+Quiz ①
+What do you call a key and value added to the end of a URL after a question mark to filter or search?
+a) HTTP
+b) Query Parameter
+c) Endpoint
+
+Quiz ②
+What do you call the set of rules that apps and servers use to send requests and replies on the web?
+a) HTTP
+b) Endpoint
+c) Query Parameter
+
+Quiz ③
+What do you call a specific address on a server where your app can ask for one kind of data?
+a) HTTP
+b) Query Parameter
+c) Endpoint

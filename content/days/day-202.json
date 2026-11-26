@@ -1,0 +1,233 @@
+{
+  "day": 202,
+  "phase": "5. App architecture & data",
+  "theme": "What a request wants: HTTP methods, GET requests and POST requests",
+  "terms": [
+    {
+      "term": "HTTP Method",
+      "definition": "A word in a request, like GET or POST, that tells the server what to do.",
+      "example": "Change the HTTP method to DELETE.",
+      "code": "import Foundation\nlet u = URL(string: \"https://x.com\")!\nvar r = URLRequest(url: u)\nr.httpMethod = \"DELETE\"\nprint(r.httpMethod!)",
+      "output": "DELETE"
+    },
+    {
+      "term": "GET Request",
+      "definition": "A request that asks the server to send data without changing anything.",
+      "example": "A GET request loads the profile.",
+      "code": "import Foundation\nlet u = URL(string: \"https://x.com/users\")!\nlet r = URLRequest(url: u)\nprint(r.httpMethod!)  // default",
+      "output": "GET"
+    },
+    {
+      "term": "POST Request",
+      "definition": "A request that sends new data to the server, for example to create an account.",
+      "example": "Send a POST request to create the order.",
+      "code": "import Foundation\nlet u = URL(string: \"https://x.com/users\")!\nvar r = URLRequest(url: u)\nr.httpMethod = \"POST\"\nr.httpBody = Data(\"name=Ann\".utf8)\nprint(r.httpBody!.count)",
+      "output": "8"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What do you call a request that sends new data to the server, for example to create an account?",
+      "options": [
+        "HTTP Method",
+        "GET Request",
+        "POST Request"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "What do you call a request that asks the server to send data without changing anything?",
+      "options": [
+        "HTTP Method",
+        "GET Request",
+        "POST Request"
+      ],
+      "answer": "b"
+    },
+    {
+      "question": "What do you call a word in a request, like GET or POST, that tells the server what to do?",
+      "options": [
+        "HTTP Method",
+        "GET Request",
+        "POST Request"
+      ],
+      "answer": "a"
+    }
+  ],
+  "video": {
+    "title": "HTTP Method, GET Request & POST Request | Day 202",
+    "description": "Learn to explain reading and creating data with requests: HTTP Method, GET Request & POST Request, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nHTTP Method - A word in a request, like GET or POST, that tells the server what to do.\nGET Request - A request that asks the server to send data without changing anything.\nPOST Request - A request that sends new data to the server, for example to create an account.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 202 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "HTTP Method",
+      "GET Request",
+      "POST Request",
+      "http method",
+      "get request",
+      "post request",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "iOS HTTP Method, GET Request & POST Request | Day 202",
+      "description": "Explain HTTP Method, GET Request & POST Request in iOS by listening to a real code chat between two iOS devs.\nHTTP Method, GET Request, POST Request 표현을 영어 대화로 익혀요.\n\nHTTP Method - A word in a request, like GET or POST, that tells the server what to do.\n한국어: HTTP Method: GET이나 POST처럼 서버가 무엇을 해야 하는지 알려 주는 요청 속 단어\n\nGET Request - A request that asks the server to send data without changing anything.\n한국어: GET Request: 아무것도 바꾸지 않고 서버에 데이터를 보내 달라고 하는 요청\n\nPOST Request - A request that sends new data to the server, for example to create an account.\n한국어: POST Request: 계정을 만들 때처럼 새 데이터를 서버에 보내는 요청\n\nIn this video, Mina and Jake talk about reading and creating data with requests, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 202 of the iOS Daily English series.\n\n#Swift #iOSArchitecture #EnglishForDevelopers",
+      "tags": [
+        "HTTP Method",
+        "GET Request",
+        "POST Request",
+        "iOS architecture",
+        "iOS 아키텍처",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "iOS Daily English"
+      ],
+      "hook": "Can you explain HTTP Method, GET Request and POST Request in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "Sending a new user",
+    "setting": "Writing a signup request",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, I need to send a new user to the server. What do I change in the request?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Set the HTTP method. It is a word like GET or POST that tells the server what to do.",
+        "terms": [
+          "HTTP Method"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Which HTTP method is the default?",
+        "terms": [
+          "HTTP Method"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "GET. A GET request asks the server for data and changes nothing.",
+        "terms": [
+          "GET Request"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "So a GET request is safe to repeat?",
+        "terms": [
+          "GET Request"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Yes, you can send a GET request many times.",
+        "terms": [
+          "GET Request"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "And my new user?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Use a POST request. It sends new data to the server, like in our code.",
+        "terms": [
+          "POST Request"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Where do I put the user data?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "In `httpBody` of the POST request. Set `httpMethod` to POST first.",
+        "terms": [
+          "POST Request"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Got it. GET to read, POST to create.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Right. The HTTP method matters a lot to the server.",
+        "terms": [
+          "HTTP Method"
+        ]
+      }
+    ],
+    "code": "import Foundation\nlet u = URL(string: \"https://x.com/users\")!\nvar r = URLRequest(url: u)\nr.httpMethod = \"POST\"\nr.httpBody = Data(\"name=Ann\".utf8)",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "HTTP Method",
+      "lines": [
+        {
+          "text": "Change the HTTP method to DELETE."
+        }
+      ],
+      "title": "Change the HTTP method to DELETE. #Shorts",
+      "description": "Change the HTTP method to DELETE.\n\nHTTP Method - A word in a request, like GET or POST, that tells the server what to do.\n한국어: HTTP Method: GET이나 POST처럼 서버가 무엇을 해야 하는지 알려 주는 요청 속 단어\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "GET Request",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "How do I create a user on the server?"
+        },
+        {
+          "speaker": "B",
+          "text": "Send a POST request."
+        }
+      ],
+      "title": "How do I create a user on the server? / Send a POST request. #Shorts",
+      "description": "How do I create a user on the server? / Send a POST request.\n\nGET Request - A request that asks the server to send data without changing anything.\n한국어: GET Request: 아무것도 바꾸지 않고 서버에 데이터를 보내 달라고 하는 요청\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "POST Request",
+      "lines": [
+        {
+          "text": "Send a POST request to create the order."
+        }
+      ],
+      "title": "Send a POST request to create the order. #Shorts",
+      "description": "Send a POST request to create the order.\n\nPOST Request - A request that sends new data to the server, for example to create an account.\n한국어: POST Request: 계정을 만들 때처럼 새 데이터를 서버에 보내는 요청\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "GET or POST? Pick the right request."
+}

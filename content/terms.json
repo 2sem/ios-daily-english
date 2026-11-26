@@ -2279,6 +2279,246 @@
     "uiapplicationdelegateadaptor": {
       "term": "UIApplicationDelegateAdaptor",
       "day": 190
+    },
+    "mvc": {
+      "term": "MVC",
+      "day": 191
+    },
+    "mvvm": {
+      "term": "MVVM",
+      "day": 191
+    },
+    "massiveviewcontroller": {
+      "term": "Massive View Controller",
+      "day": 191
+    },
+    "businesslogic": {
+      "term": "Business Logic",
+      "day": 192
+    },
+    "separationofconcerns": {
+      "term": "Separation of Concerns",
+      "day": 192
+    },
+    "presentationlogic": {
+      "term": "Presentation Logic",
+      "day": 192
+    },
+    "dependency": {
+      "term": "Dependency",
+      "day": 193
+    },
+    "dependencyinjection": {
+      "term": "Dependency Injection",
+      "day": 193
+    },
+    "constructorinjection": {
+      "term": "Constructor Injection",
+      "day": 193
+    },
+    "unittest": {
+      "term": "Unit Test",
+      "day": 194
+    },
+    "testdouble": {
+      "term": "Test Double",
+      "day": 194
+    },
+    "mockobject": {
+      "term": "Mock Object",
+      "day": 194
+    },
+    "datalayer": {
+      "term": "Data Layer",
+      "day": 195
+    },
+    "servicelayer": {
+      "term": "Service Layer",
+      "day": 195
+    },
+    "repositorypattern": {
+      "term": "Repository Pattern",
+      "day": 195
+    },
+    "statemanagement": {
+      "term": "State Management",
+      "day": 196
+    },
+    "unidirectionaldataflow": {
+      "term": "Unidirectional Data Flow",
+      "day": 196
+    },
+    "reducer": {
+      "term": "Reducer",
+      "day": 196
+    },
+    "closurecallback": {
+      "term": "Closure Callback",
+      "day": 197
+    },
+    "delegatepattern": {
+      "term": "Delegate Pattern",
+      "day": 197
+    },
+    "observerpattern": {
+      "term": "Observer Pattern",
+      "day": 197
+    },
+    "singleton": {
+      "term": "Singleton",
+      "day": 198
+    },
+    "factorymethod": {
+      "term": "Factory Method",
+      "day": 198
+    },
+    "adapterpattern": {
+      "term": "Adapter Pattern",
+      "day": 198
+    },
+    "json": {
+      "term": "JSON",
+      "day": 199
+    },
+    "serialization": {
+      "term": "Serialization",
+      "day": 199
+    },
+    "jsonserialization": {
+      "term": "JSONSerialization",
+      "day": 199
+    },
+    "decodingerror": {
+      "term": "DecodingError",
+      "day": 200
+    },
+    "decodeifpresent": {
+      "term": "decodeIfPresent",
+      "day": 200
+    },
+    "datedecodingstrategy": {
+      "term": "Date Decoding Strategy",
+      "day": 200
+    },
+    "http": {
+      "term": "HTTP",
+      "day": 201
+    },
+    "endpoint": {
+      "term": "Endpoint",
+      "day": 201
+    },
+    "queryparameter": {
+      "term": "Query Parameter",
+      "day": 201
+    },
+    "httpmethod": {
+      "term": "HTTP Method",
+      "day": 202
+    },
+    "getrequest": {
+      "term": "GET Request",
+      "day": 202
+    },
+    "postrequest": {
+      "term": "POST Request",
+      "day": 202
+    },
+    "statuscode": {
+      "term": "Status Code",
+      "day": 203
+    },
+    "requestbody": {
+      "term": "Request Body",
+      "day": 203
+    },
+    "responseheader": {
+      "term": "Response Header",
+      "day": 203
+    },
+    "url": {
+      "term": "URL",
+      "day": 204
+    },
+    "urlrequest": {
+      "term": "URLRequest",
+      "day": 204
+    },
+    "urlsession": {
+      "term": "URLSession",
+      "day": 204
+    },
+    "datatask": {
+      "term": "Data Task",
+      "day": 205
+    },
+    "httpurlresponse": {
+      "term": "HTTPURLResponse",
+      "day": 205
+    },
+    "downloadtask": {
+      "term": "Download Task",
+      "day": 205
+    },
+    "resource": {
+      "term": "Resource",
+      "day": 206
+    },
+    "restapi": {
+      "term": "REST API",
+      "day": 206
+    },
+    "idempotent": {
+      "term": "Idempotent",
+      "day": 206
+    },
+    "timeout": {
+      "term": "Timeout",
+      "day": 207
+    },
+    "retry": {
+      "term": "Retry",
+      "day": 207
+    },
+    "urlerror": {
+      "term": "URLError",
+      "day": 207
+    },
+    "authorizationheader": {
+      "term": "Authorization Header",
+      "day": 208
+    },
+    "bearertoken": {
+      "term": "Bearer Token",
+      "day": 208
+    },
+    "oauth": {
+      "term": "OAuth",
+      "day": 208
+    },
+    "keychain": {
+      "term": "Keychain",
+      "day": 209
+    },
+    "secitemadd": {
+      "term": "SecItemAdd",
+      "day": 209
+    },
+    "secitemcopymatching": {
+      "term": "SecItemCopyMatching",
+      "day": 209
+    },
+    "persistence": {
+      "term": "Persistence",
+      "day": 210
+    },
+    "temporarydirectory": {
+      "term": "Temporary Directory",
+      "day": 210
+    },
+    "atomicwrite": {
+      "term": "Atomic Write",
+      "day": 210
     }
   }
 }

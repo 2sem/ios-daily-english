@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 197
+
+Closure Callback
+- A closure you pass in so another piece of code can call it when work is done.
+- Example: "Pass a closure callback to run when the download ends."
+
+Delegate Pattern
+- A pattern where an object hands some of its work to another object through a protocol.
+- Example: "UIKit uses the delegate pattern for table views."
+
+Observer Pattern
+- A pattern where many objects get told when one object changes.
+- Example: "The observer pattern updates every screen when the user logs out."
+
+
+Quiz ①
+What do you call a pattern where many objects get told when one object changes?
+a) Observer Pattern
+b) Closure Callback
+c) Delegate Pattern
+
+Quiz ②
+What do you call a closure you pass in so another piece of code can call it when work is done?
+a) Delegate Pattern
+b) Observer Pattern
+c) Closure Callback
+
+Quiz ③
+What do you call a pattern where an object hands some of its work to another object through a protocol?
+a) Closure Callback
+b) Delegate Pattern
+c) Observer Pattern

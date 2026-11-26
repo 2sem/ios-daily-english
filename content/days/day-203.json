@@ -1,0 +1,230 @@
+{
+  "day": 203,
+  "phase": "5. App architecture & data",
+  "theme": "Reading a reply: status codes, request bodies and response headers",
+  "terms": [
+    {
+      "term": "Status Code",
+      "definition": "A number in a server reply that says if the request worked, like 200 or 404.",
+      "example": "Check the status code before you decode the data.",
+      "code": "import Foundation\nlet u = URL(string: \"https://x.com\")!\nlet r = HTTPURLResponse(url: u, statusCode: 404,\n    httpVersion: nil, headerFields: nil)!\nprint(r.statusCode)",
+      "output": "404"
+    },
+    {
+      "term": "Request Body",
+      "definition": "The data a request carries to the server, such as the new user to create.",
+      "example": "Put the user as JSON in the request body.",
+      "code": "import Foundation\nlet u = URL(string: \"https://x.com\")!\nvar r = URLRequest(url: u)\nr.httpBody = Data(\"hi\".utf8)\nprint(r.httpBody!.count)",
+      "output": "2"
+    },
+    {
+      "term": "Response Header",
+      "definition": "Extra information the server sends with a reply, like the content type.",
+      "example": "The response header says the data is JSON.",
+      "code": "import Foundation\nlet u = URL(string: \"https://x.com\")!\nlet h = [\"Content-Type\": \"text/json\"]\nlet r = HTTPURLResponse(url: u, statusCode: 200,\n    httpVersion: nil, headerFields: h)!\nprint(r.allHeaderFields[\"Content-Type\"]!)",
+      "output": "text/json"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What do you call the data a request carries to the server, such as the new user to create?",
+      "options": [
+        "Request Body",
+        "Status Code",
+        "Response Header"
+      ],
+      "answer": "a"
+    },
+    {
+      "question": "What do you call a number in a server reply that says if the request worked, like 200 or 404?",
+      "options": [
+        "Request Body",
+        "Response Header",
+        "Status Code"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "What do you call extra information the server sends with a reply, like the content type?",
+      "options": [
+        "Status Code",
+        "Response Header",
+        "Request Body"
+      ],
+      "answer": "b"
+    }
+  ],
+  "video": {
+    "title": "Status Code, Request Body & Response Header | Day 203",
+    "description": "Learn to explain what goes into a request and a reply: Status Code, Request Body & Response Header, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nStatus Code - A number in a server reply that says if the request worked, like 200 or 404.\nRequest Body - The data a request carries to the server, such as the new user to create.\nResponse Header - Extra information the server sends with a reply, like the content type.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 203 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "Status Code",
+      "Request Body",
+      "Response Header",
+      "status code",
+      "request body",
+      "response header",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "iOS Status Code, Request Body & Response Header | Day 203",
+      "description": "Explain Status Code, Request Body & Response Header in iOS by listening to a real code chat between two iOS devs.\nStatus Code, Request Body, Response Header 표현을 영어 대화로 익혀요.\n\nStatus Code - A number in a server reply that says if the request worked, like 200 or 404.\n한국어: Status Code: 200이나 404처럼 요청이 성공했는지 알려 주는 서버 응답 속 숫자\n\nRequest Body - The data a request carries to the server, such as the new user to create.\n한국어: Request Body: 만들 새 사용자처럼 요청이 서버로 운반하는 데이터\n\nResponse Header - Extra information the server sends with a reply, like the content type.\n한국어: Response Header: 콘텐츠 타입처럼 서버가 응답과 함께 보내는 추가 정보\n\nIn this video, Mina and Jake talk about what goes into a request and a reply, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 203 of the iOS Daily English series.\n\n#Swift #iOSArchitecture #EnglishForDevelopers",
+      "tags": [
+        "Status Code",
+        "Request Body",
+        "Response Header",
+        "iOS architecture",
+        "iOS 아키텍처",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "iOS Daily English"
+      ],
+      "hook": "Can you explain Status Code, Request Body and Response Header in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "An empty screen",
+    "setting": "Debugging a failed request",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, the screen stays empty. How do I know if the request worked?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Check the status code. It is a number in the reply, like 200 or 404.",
+        "terms": [
+          "Status Code"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "In our code the `statusCode` is 404. What does that mean?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "The server did not find the address.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "So a status code of 200 means success?",
+        "terms": [
+          "Status Code"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Yes. Always check the status code before you decode.",
+        "terms": [
+          "Status Code"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "What about the data I send? Is it in the header?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "No, that goes in the request body. It is the data the request carries to the server.",
+        "terms": [
+          "Request Body"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "And the reply has a header, right?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Yes, a response header has extra information, like the content type.",
+        "terms": [
+          "Response Header"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "So the request body is mine and the response header is the server's?",
+        "terms": [
+          "Request Body",
+          "Response Header"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Nice way to think about it. Here `headerFields` is `nil`, but real replies have them.",
+        "terms": []
+      }
+    ],
+    "code": "import Foundation\nlet u = URL(string: \"https://x.com\")!\nlet r = HTTPURLResponse(url: u, statusCode: 404,\n    httpVersion: nil, headerFields: nil)!",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "Status Code",
+      "lines": [
+        {
+          "text": "Check the status code before you decode the data."
+        }
+      ],
+      "title": "Check the status code before you decode the data. #Shorts",
+      "description": "Check the status code before you decode the data.\n\nStatus Code - A number in a server reply that says if the request worked, like 200 or 404.\n한국어: Status Code: 200이나 404처럼 요청이 성공했는지 알려 주는 서버 응답 속 숫자\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "Request Body",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Did my request work?"
+        },
+        {
+          "speaker": "B",
+          "text": "Check the status code."
+        }
+      ],
+      "title": "Did my request work? / Check the status code. #Shorts",
+      "description": "Did my request work? / Check the status code.\n\nRequest Body - The data a request carries to the server, such as the new user to create.\n한국어: Request Body: 만들 새 사용자처럼 요청이 서버로 운반하는 데이터\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Response Header",
+      "lines": [
+        {
+          "text": "The response header says the data is JSON."
+        }
+      ],
+      "title": "The response header says the data is JSON. #Shorts",
+      "description": "The response header says the data is JSON.\n\nResponse Header - Extra information the server sends with a reply, like the content type.\n한국어: Response Header: 콘텐츠 타입처럼 서버가 응답과 함께 보내는 추가 정보\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "What does 404 mean? Read the status code."
+}

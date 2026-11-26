@@ -1,0 +1,244 @@
+{
+  "day": 204,
+  "phase": "5. App architecture & data",
+  "theme": "The three networking building blocks: URL, URLRequest and URLSession",
+  "terms": [
+    {
+      "term": "URL",
+      "definition": "A Foundation type that represents the address of a web page, a server or a file.",
+      "example": "Create the URL from a string and check it.",
+      "code": "import Foundation\nlet url = URL(string: \"https://x.com/a?id=5\")!\nprint(url.host!, url.path)",
+      "output": "x.com /a"
+    },
+    {
+      "term": "URLRequest",
+      "definition": "A type that describes one request, with its address, method, headers and body.",
+      "example": "Set the timeout on the URLRequest.",
+      "code": "import Foundation\nlet u = URL(string: \"https://x.com/a\")!\nvar r = URLRequest(url: u)\nr.timeoutInterval = 10\nprint(r.url!.path, r.timeoutInterval)",
+      "output": "/a 10.0"
+    },
+    {
+      "term": "URLSession",
+      "definition": "The object that sends requests and receives the replies for your app.",
+      "example": "Use the shared URLSession for simple calls.",
+      "code": "import Foundation\nlet session = URLSession.shared\nlet t = session.configuration\nprint(t.timeoutIntervalForRequest)",
+      "output": "60.0"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What do you call a type that describes one request, with its address, method, headers and body?",
+      "options": [
+        "URLRequest",
+        "URL",
+        "URLSession"
+      ],
+      "answer": "a"
+    },
+    {
+      "question": "What do you call the object that sends requests and receives the replies for your app?",
+      "options": [
+        "URL",
+        "URLSession",
+        "URLRequest"
+      ],
+      "answer": "b"
+    },
+    {
+      "question": "What do you call a Foundation type that represents the address of a web page, a server or a file?",
+      "options": [
+        "URLRequest",
+        "URLSession",
+        "URL"
+      ],
+      "answer": "c"
+    }
+  ],
+  "video": {
+    "title": "URL, URLRequest & URLSession | Day 204",
+    "description": "Learn to explain the objects that send a request: URL, URLRequest & URLSession, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nURL - A Foundation type that represents the address of a web page, a server or a file.\nURLRequest - A type that describes one request, with its address, method, headers and body.\nURLSession - The object that sends requests and receives the replies for your app.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 204 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "URL",
+      "URLRequest",
+      "URLSession",
+      "url",
+      "urlrequest",
+      "urlsession",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "iOS URL, URLRequest & URLSession | Day 204",
+      "description": "Explain URL, URLRequest & URLSession in iOS by listening to a real code chat between two iOS devs.\nURL, URLRequest, URLSession 표현을 영어 대화로 익혀요.\n\nURL - A Foundation type that represents the address of a web page, a server or a file.\n한국어: URL: 웹 페이지, 서버, 파일의 주소를 나타내는 Foundation 타입\n\nURLRequest - A type that describes one request, with its address, method, headers and body.\n한국어: URLRequest: 주소, 메서드, 헤더, 바디를 가진 요청 하나를 설명하는 타입\n\nURLSession - The object that sends requests and receives the replies for your app.\n한국어: URLSession: 앱을 위해 요청을 보내고 응답을 받는 객체\n\nIn this video, Mina and Jake talk about the objects that send a request, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 204 of the iOS Daily English series.\n\n#Swift #iOSArchitecture #EnglishForDevelopers",
+      "tags": [
+        "URL",
+        "URLRequest",
+        "URLSession",
+        "iOS architecture",
+        "iOS 아키텍처",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "iOS Daily English"
+      ],
+      "hook": "Can you explain URL, URLRequest and URLSession in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "Loading a profile",
+    "setting": "Starting a network call",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, I want to load the profile. Where do I start?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "First make a URL. It represents the address of the resource on the server.",
+        "terms": [
+          "URL"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Like `url` in our code?",
+        "terms": [
+          "URL"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Yes. `URL(string:)` returns nil for a bad string, so you can check it.",
+        "terms": [
+          "URL"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "And what is URLRequest?",
+        "terms": [
+          "URL",
+          "URLRequest"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "A URLRequest describes one request: the address, the method, headers and body.",
+        "terms": [
+          "URL",
+          "URLRequest"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Do I need a URLRequest for a simple GET?",
+        "terms": [
+          "URL",
+          "URLRequest"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "No, you can pass only a URL, but a URLRequest gives you more control.",
+        "terms": [
+          "URL",
+          "URLRequest"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "So who sends it?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "URLSession. It sends requests and receives the replies.",
+        "terms": [
+          "URL",
+          "URLSession"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Is `URLSession.shared` fine for most apps?",
+        "terms": [
+          "URL",
+          "URLSession"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Yes, start with the shared URLSession and use a custom one later.",
+        "terms": [
+          "URL",
+          "URLSession"
+        ]
+      }
+    ],
+    "code": "import Foundation\nlet url = URL(string: \"https://x.com/a\")!\nlet req = URLRequest(url: url)\nlet session = URLSession.shared",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "URL",
+      "lines": [
+        {
+          "text": "Create the URL from a string and check it."
+        }
+      ],
+      "title": "Create the URL from a string and check it. #Shorts",
+      "description": "Create the URL from a string and check it.\n\nURL - A Foundation type that represents the address of a web page, a server or a file.\n한국어: URL: 웹 페이지, 서버, 파일의 주소를 나타내는 Foundation 타입\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "URLRequest",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Which object sends the request?"
+        },
+        {
+          "speaker": "B",
+          "text": "URLSession does."
+        }
+      ],
+      "title": "Which object sends the request? / URLSession does. #Shorts",
+      "description": "Which object sends the request? / URLSession does.\n\nURLRequest - A type that describes one request, with its address, method, headers and body.\n한국어: URLRequest: 주소, 메서드, 헤더, 바디를 가진 요청 하나를 설명하는 타입\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "URLSession",
+      "lines": [
+        {
+          "text": "Use the shared URLSession for simple calls."
+        }
+      ],
+      "title": "Use the shared URLSession for simple calls. #Shorts",
+      "description": "Use the shared URLSession for simple calls.\n\nURLSession - The object that sends requests and receives the replies for your app.\n한국어: URLSession: 앱을 위해 요청을 보내고 응답을 받는 객체\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "Which object sends your request? Meet URLSession."
+}

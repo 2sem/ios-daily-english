@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 194
+
+Unit Test
+- A small automatic check that proves one piece of code works.
+- Example: "I wrote a unit test for the price calculator."
+
+Test Double
+- A fake object that stands in for a real one during a test.
+- Example: "Use a test double instead of the real server."
+
+Mock Object
+- A fake object that also records how it was used, so a test can check the calls.
+- Example: "The mock object shows we sent only one email."
+
+
+Quiz ①
+What do you call a fake object that also records how it was used, so a test can check the calls?
+a) Unit Test
+b) Test Double
+c) Mock Object
+
+Quiz ②
+What do you call a fake object that stands in for a real one during a test?
+a) Test Double
+b) Unit Test
+c) Mock Object
+
+Quiz ③
+What do you call a small automatic check that proves one piece of code works?
+a) Test Double
+b) Unit Test
+c) Mock Object

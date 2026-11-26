@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 206
+
+Resource
+- A thing a server manages, such as a user or an order, that has its own address.
+- Example: "Each user is a resource with its own address."
+
+REST API
+- A web service where each resource has its own URL and the HTTP method says what to do.
+- Example: "Our backend is a REST API with JSON replies."
+
+Idempotent
+- A property of a request that has the same effect whether you send it once or many times.
+- Example: "A PUT request is idempotent, so a retry is safe."
+
+
+Quiz ①
+What do you call a property of a request that has the same effect whether you send it once or many times?
+a) Resource
+b) REST API
+c) Idempotent
+
+Quiz ②
+What do you call a web service where each resource has its own URL and the HTTP method says what to do?
+a) REST API
+b) Resource
+c) Idempotent
+
+Quiz ③
+What do you call a thing a server manages, such as a user or an order, that has its own address?
+a) REST API
+b) Resource
+c) Idempotent

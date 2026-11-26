@@ -1,0 +1,232 @@
+{
+  "day": 192,
+  "phase": "5. App architecture & data",
+  "theme": "How to split an app: business logic, presentation logic and separation of concerns",
+  "terms": [
+    {
+      "term": "Business Logic",
+      "definition": "The rules of your app that stay the same no matter how the screen looks.",
+      "example": "Keep the business logic out of the view controller.",
+      "code": "func total(_ prices: [Double]) -> Double {\n    prices.reduce(0, +)\n}\nprint(total([10, 20]))",
+      "output": "30.0"
+    },
+    {
+      "term": "Separation of Concerns",
+      "definition": "A design idea where each part of the code has one clear job.",
+      "example": "Separation of concerns makes this module easy to read.",
+      "code": "struct Pricing {   // math only\n    func sum(_ p: [Double]) -> Double {\n        p.reduce(0, +)\n    }\n}\nprint(Pricing().sum([10, 20]))",
+      "output": "30.0"
+    },
+    {
+      "term": "Presentation Logic",
+      "definition": "The code that decides how data looks on the screen, like text and format.",
+      "example": "The price format is presentation logic, so it goes in the view model.",
+      "code": "import Foundation\nfunc label(_ total: Double) -> String {\n    \"Total: $\" + String(format: \"%.2f\", total)\n}\nprint(label(30))",
+      "output": "Total: $30.00"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What do you call a design idea where each part of the code has one clear job?",
+      "options": [
+        "Separation of Concerns",
+        "Business Logic",
+        "Presentation Logic"
+      ],
+      "answer": "a"
+    },
+    {
+      "question": "What do you call the code that decides how data looks on the screen, like text and format?",
+      "options": [
+        "Business Logic",
+        "Presentation Logic",
+        "Separation of Concerns"
+      ],
+      "answer": "b"
+    },
+    {
+      "question": "What do you call the rules of your app that stay the same no matter how the screen looks?",
+      "options": [
+        "Separation of Concerns",
+        "Presentation Logic",
+        "Business Logic"
+      ],
+      "answer": "c"
+    }
+  ],
+  "video": {
+    "title": "Business Logic, Separation of Concerns & Presentation Logic | Day 192",
+    "description": "Learn to explain splitting an app into clear layers: Business Logic, Separation of Concerns & Presentation Logic, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nBusiness Logic - The rules of your app that stay the same no matter how the screen looks.\nSeparation of Concerns - A design idea where each part of the code has one clear job.\nPresentation Logic - The code that decides how data looks on the screen, like text and format.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 192 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "Business Logic",
+      "Separation of Concerns",
+      "Presentation Logic",
+      "business logic",
+      "separation of concerns",
+      "presentation logic",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "iOS Business Logic, Separation of Concerns & Presentation Logic | Day 192",
+      "description": "Explain Business Logic, Separation of Concerns & Presentation Logic in iOS by listening to a real code chat between two iOS devs.\nBusiness Logic, Separation of Concerns, Presentation Logic 표현을 영어 대화로 익혀요.\n\nBusiness Logic - The rules of your app that stay the same no matter how the screen looks.\n한국어: Business Logic: 화면 모양과 상관없이 늘 같은 앱의 규칙\n\nSeparation of Concerns - A design idea where each part of the code has one clear job.\n한국어: Separation of Concerns: 코드의 각 부분이 하나의 명확한 역할만 갖게 하는 설계 원칙\n\nPresentation Logic - The code that decides how data looks on the screen, like text and format.\n한국어: Presentation Logic: 텍스트와 형식처럼 데이터가 화면에 어떻게 보일지 정하는 코드\n\nIn this video, Mina and Jake talk about splitting an app into clear layers, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 192 of the iOS Daily English series.\n\n#Swift #iOSArchitecture #EnglishForDevelopers",
+      "tags": [
+        "Business Logic",
+        "Separation of Concerns",
+        "Presentation Logic",
+        "iOS architecture",
+        "iOS 아키텍처",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "iOS Daily English"
+      ],
+      "hook": "Can you explain Business Logic, Separation of Concerns and Presentation Logic in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "Mixing two jobs",
+    "setting": "Reviewing the checkout screen",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, the checkout view controller adds the prices and also formats them.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "That mixes business logic with display code.",
+        "terms": [
+          "Business Logic"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "What is business logic exactly?",
+        "terms": [
+          "Business Logic"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "It is a rule of your app, like adding prices in `total`. It stays the same on every screen.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "And the dollar sign in `label` is presentation logic?",
+        "terms": [
+          "Presentation Logic"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Yes. Presentation logic decides how data looks, like `label` does.",
+        "terms": [
+          "Presentation Logic"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "So where should each one go?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Follow separation of concerns: each type has one clear job.",
+        "terms": [
+          "Separation of Concerns"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Should `label` call `total` too?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "No. Keep business logic in `total` and presentation logic in `label`.",
+        "terms": [
+          "Business Logic",
+          "Presentation Logic"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "I see. Separation of concerns also makes tests easier, right?",
+        "terms": [
+          "Separation of Concerns"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Yes, you test `total` without any screen.",
+        "terms": []
+      }
+    ],
+    "code": "func total(_ p: [Double]) -> Double {\n    p.reduce(0, +)\n}\nfunc label(_ t: Double) -> String { \"$\\(t)\" }",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "Business Logic",
+      "lines": [
+        {
+          "text": "Keep the business logic out of the view controller."
+        }
+      ],
+      "title": "Keep the business logic out of the view controller. #Shorts",
+      "description": "Keep the business logic out of the view controller.\n\nBusiness Logic - The rules of your app that stay the same no matter how the screen looks.\n한국어: Business Logic: 화면 모양과 상관없이 늘 같은 앱의 규칙\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "Separation of Concerns",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Where should the price rules live?"
+        },
+        {
+          "speaker": "B",
+          "text": "Business logic stays out of views."
+        }
+      ],
+      "title": "Where should the price rules live? / Business logic stays out of views. #Shorts",
+      "description": "Where should the price rules live? / Business logic stays out of views.\n\nSeparation of Concerns - A design idea where each part of the code has one clear job.\n한국어: Separation of Concerns: 코드의 각 부분이 하나의 명확한 역할만 갖게 하는 설계 원칙\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Presentation Logic",
+      "lines": [
+        {
+          "text": "The price format is presentation logic, so it goes in the view model."
+        }
+      ],
+      "title": "The price format is presentation logic, so it goes in the view model. #Shorts",
+      "description": "The price format is presentation logic, so it goes in the view model.\n\nPresentation Logic - The code that decides how data looks on the screen, like text and format.\n한국어: Presentation Logic: 텍스트와 형식처럼 데이터가 화면에 어떻게 보일지 정하는 코드\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "Is your view controller doing two jobs? Split the logic."
+}

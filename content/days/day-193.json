@@ -1,0 +1,236 @@
+{
+  "day": 193,
+  "phase": "5. App architecture & data",
+  "theme": "Dependencies and how to give them to an object: dependency injection and constructor injection",
+  "terms": [
+    {
+      "term": "Dependency",
+      "definition": "An object that another object needs in order to do its work.",
+      "example": "The network client is a dependency of this view model.",
+      "code": "struct Logger { func log() { print(\"added\") } }\nstruct Cart {\n    let logger = Logger()\n    func add() { logger.log() }\n}\nCart().add()",
+      "output": "added"
+    },
+    {
+      "term": "Dependency Injection",
+      "definition": "A technique where an object receives what it needs from outside instead of creating it.",
+      "example": "We use dependency injection so tests can pass a fake client.",
+      "code": "struct Logger { func log() { print(\"added\") } }\nstruct Cart {\n    var logger: Logger\n    func add() { logger.log() }\n}\nCart(logger: Logger()).add()",
+      "output": "added"
+    },
+    {
+      "term": "Constructor Injection",
+      "definition": "A form of injection where you pass the needed objects into the initializer.",
+      "example": "Please use constructor injection instead of a global singleton.",
+      "code": "struct Logger { func log() { print(\"added\") } }\nstruct Cart {\n    let logger: Logger\n    init(_ l: Logger) { logger = l }\n}\nCart(Logger()).logger.log()",
+      "output": "added"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What do you call a form of injection where you pass the needed objects into the initializer?",
+      "options": [
+        "Dependency",
+        "Constructor Injection",
+        "Dependency Injection"
+      ],
+      "answer": "b"
+    },
+    {
+      "question": "What do you call an object that another object needs in order to do its work?",
+      "options": [
+        "Dependency Injection",
+        "Constructor Injection",
+        "Dependency"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "What do you call a technique where an object receives what it needs from outside instead of creating it?",
+      "options": [
+        "Dependency Injection",
+        "Dependency",
+        "Constructor Injection"
+      ],
+      "answer": "a"
+    }
+  ],
+  "video": {
+    "title": "Dependency, Dependency Injection & Constructor Injection | Day 193",
+    "description": "Learn to explain giving objects what they need: Dependency, Dependency Injection & Constructor Injection, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nDependency - An object that another object needs in order to do its work.\nDependency Injection - A technique where an object receives what it needs from outside instead of creating it.\nConstructor Injection - A form of injection where you pass the needed objects into the initializer.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 193 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "Dependency",
+      "Dependency Injection",
+      "Constructor Injection",
+      "dependency",
+      "dependency injection",
+      "constructor injection",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "iOS Dependency, Dependency Injection & Constructor Injection | Day 193",
+      "description": "Explain Dependency, Dependency Injection & Constructor Injection in iOS by listening to a real code chat between two iOS devs.\nDependency, Dependency Injection, Constructor Injection 표현을 영어 대화로 익혀요.\n\nDependency - An object that another object needs in order to do its work.\n한국어: Dependency: 다른 객체가 일하기 위해 필요로 하는 객체\n\nDependency Injection - A technique where an object receives what it needs from outside instead of creating it.\n한국어: Dependency Injection: 객체가 필요한 것을 직접 만들지 않고 밖에서 받는 기법\n\nConstructor Injection - A form of injection where you pass the needed objects into the initializer.\n한국어: Constructor Injection: 필요한 객체를 이니셜라이저로 넘겨 주는 주입 방식\n\nIn this video, Mina and Jake talk about giving objects what they need, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 193 of the iOS Daily English series.\n\n#Swift #iOSArchitecture #EnglishForDevelopers",
+      "tags": [
+        "Dependency",
+        "Dependency Injection",
+        "Constructor Injection",
+        "iOS architecture",
+        "iOS 아키텍처",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "iOS Daily English"
+      ],
+      "hook": "Can you explain Dependency, Dependency Injection and Constructor Injection in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "Hard to test",
+    "setting": "Fixing a view model",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, our old `Cart` created its own `Logger` inside, so tests are hard.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "The `Logger` is a dependency of `Cart`. It needs it to work.",
+        "terms": [
+          "Dependency"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "So a dependency is just an object that another object needs?",
+        "terms": [
+          "Dependency"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Exactly. Now use dependency injection: give the object what it needs from outside.",
+        "terms": [
+          "Dependency",
+          "Dependency Injection"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Like in this code, where `Cart` receives `logger` in its `init`?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Yes, that is constructor injection. You pass the dependency into the initializer.",
+        "terms": [
+          "Dependency",
+          "Constructor Injection"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Why not create the `Logger` inside `Cart`?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Then you cannot swap it in a test. Dependency injection lets you pass a fake one.",
+        "terms": [
+          "Dependency",
+          "Dependency Injection"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Is constructor injection safer than setting a property later?",
+        "terms": [
+          "Constructor Injection"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Yes. The object is ready as soon as it exists.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "Great. I will inject every dependency in our view models.",
+        "terms": [
+          "Dependency"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Start with the networking dependency.",
+        "terms": [
+          "Dependency"
+        ]
+      }
+    ],
+    "code": "struct Logger { func log() { print(\"added\") } }\nstruct Cart {\n    let logger: Logger\n    init(_ l: Logger) { logger = l }\n}",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "Dependency",
+      "lines": [
+        {
+          "text": "The network client is a dependency of this view model."
+        }
+      ],
+      "title": "The network client is a dependency of this view model. #Shorts",
+      "description": "The network client is a dependency of this view model.\n\nDependency - An object that another object needs in order to do its work.\n한국어: Dependency: 다른 객체가 일하기 위해 필요로 하는 객체\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "Dependency Injection",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "How do I make this class easy to test?"
+        },
+        {
+          "speaker": "B",
+          "text": "Use dependency injection."
+        }
+      ],
+      "title": "How do I make this class easy to test? / Use dependency injection. #Shorts",
+      "description": "How do I make this class easy to test? / Use dependency injection.\n\nDependency Injection - A technique where an object receives what it needs from outside instead of creating it.\n한국어: Dependency Injection: 객체가 필요한 것을 직접 만들지 않고 밖에서 받는 기법\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Constructor Injection",
+      "lines": [
+        {
+          "text": "Please use constructor injection instead of a global singleton."
+        }
+      ],
+      "title": "Please use constructor injection instead of a global singleton. #Shorts",
+      "description": "Please use constructor injection instead of a global singleton.\n\nConstructor Injection - A form of injection where you pass the needed objects into the initializer.\n한국어: Constructor Injection: 필요한 객체를 이니셜라이저로 넘겨 주는 주입 방식\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "Why do pros pass objects in? Dependency injection."
+}

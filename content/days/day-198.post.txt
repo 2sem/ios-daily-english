@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 198
+
+Singleton
+- A class that has exactly one shared instance for the whole app.
+- Example: "The settings object is a singleton, so avoid changing it in tests."
+
+Factory Method
+- A method that creates and returns objects so the caller skips the initializer.
+- Example: "Add a factory method that builds the preview data."
+
+Adapter Pattern
+- A pattern that wraps an object so it fits the interface another part expects.
+- Example: "The adapter pattern lets us use the old SDK in new code."
+
+
+Quiz ①
+What do you call a pattern that wraps an object so it fits the interface another part expects?
+a) Adapter Pattern
+b) Singleton
+c) Factory Method
+
+Quiz ②
+What do you call a method that creates and returns objects so the caller skips the initializer?
+a) Singleton
+b) Factory Method
+c) Adapter Pattern
+
+Quiz ③
+What do you call a class that has exactly one shared instance for the whole app?
+a) Factory Method
+b) Adapter Pattern
+c) Singleton

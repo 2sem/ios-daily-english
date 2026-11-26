@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 210
+
+Persistence
+- The ability of data to stay after the app closes, so it is still there next time.
+- Example: "Persistence keeps the draft after the app closes."
+
+Temporary Directory
+- A folder for short-lived files that the system may delete when it needs space.
+- Example: "The cache file lives in the temporary directory."
+
+Atomic Write
+- A save that writes to a temporary file first, so a crash cannot leave a half-written file.
+- Example: "Use an atomic write for the settings file."
+
+
+Quiz ①
+What do you call a save that writes to a temporary file first, so a crash cannot leave a half-written file?
+a) Atomic Write
+b) Persistence
+c) Temporary Directory
+
+Quiz ②
+What do you call a folder for short-lived files that the system may delete when it needs space?
+a) Persistence
+b) Temporary Directory
+c) Atomic Write
+
+Quiz ③
+What do you call the ability of data to stay after the app closes, so it is still there next time?
+a) Temporary Directory
+b) Atomic Write
+c) Persistence

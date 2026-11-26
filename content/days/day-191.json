@@ -1,0 +1,234 @@
+{
+  "day": 191,
+  "phase": "5. App architecture & data",
+  "theme": "Start of Phase 5: the first app architecture patterns, MVC, MVVM and the Massive View Controller problem",
+  "terms": [
+    {
+      "term": "MVC",
+      "definition": "A pattern that splits an app into a model, a view and a controller that connects them.",
+      "example": "Our old screens follow MVC, so the controller updates the view.",
+      "code": "struct Note { var title = \"Buy milk\" }\nstruct NoteView {\n    func show(_ n: Note) { print(n.title) }\n}\nstruct NoteController { let view = NoteView() }\nNoteController().view.show(Note())",
+      "output": "Buy milk"
+    },
+    {
+      "term": "MVVM",
+      "definition": "A pattern that puts the screen logic in a view model between the model and the view.",
+      "example": "We moved to MVVM to keep the view controller small.",
+      "code": "struct Note { var title = \"Buy milk\" }\nstruct NoteViewModel {\n    let note: Note\n    var text: String { note.title.uppercased() }\n}\nprint(NoteViewModel(note: Note()).text)",
+      "output": "BUY MILK"
+    },
+    {
+      "term": "Massive View Controller",
+      "definition": "A name for a view controller that grew too big because it does every job.",
+      "example": "This Massive View Controller has two thousand lines.",
+      "code": "class NoteVC {\n    func fetch() {}   // network\n    func parse() {}   // JSON\n    func save() {}    // database\n}\nprint(\"3 jobs, 1 class\")",
+      "output": "3 jobs, 1 class"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What do you call a pattern that puts the screen logic in a view model between the model and the view?",
+      "options": [
+        "MVVM",
+        "MVC",
+        "Massive View Controller"
+      ],
+      "answer": "a"
+    },
+    {
+      "question": "What do you call a pattern that splits an app into a model, a view and a controller that connects them?",
+      "options": [
+        "MVVM",
+        "Massive View Controller",
+        "MVC"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "What do you call a name for a view controller that grew too big because it does every job?",
+      "options": [
+        "MVC",
+        "Massive View Controller",
+        "MVVM"
+      ],
+      "answer": "b"
+    }
+  ],
+  "video": {
+    "title": "MVC, MVVM & Massive View Controller | Day 191",
+    "description": "Learn to explain app architecture patterns: MVC, MVVM & Massive View Controller, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nMVC - A pattern that splits an app into a model, a view and a controller that connects them.\nMVVM - A pattern that puts the screen logic in a view model between the model and the view.\nMassive View Controller - A name for a view controller that grew too big because it does every job.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 191 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "MVC",
+      "MVVM",
+      "Massive View Controller",
+      "mvc",
+      "mvvm",
+      "massive view controller",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "iOS MVC, MVVM & Massive View Controller | Day 191",
+      "description": "Explain MVC, MVVM & Massive View Controller in iOS by listening to a real code chat between two iOS devs.\nMVC, MVVM, Massive View Controller 표현을 영어 대화로 익혀요.\n\nMVC - A pattern that splits an app into a model, a view and a controller that connects them.\n한국어: MVC: 앱을 모델, 뷰, 컨트롤러로 나누는 패턴\n\nMVVM - A pattern that puts the screen logic in a view model between the model and the view.\n한국어: MVVM: 모델과 뷰 사이의 뷰 모델에 화면 로직을 두는 패턴\n\nMassive View Controller - A name for a view controller that grew too big because it does every job.\n한국어: Massive View Controller: 모든 일을 다 하느라 너무 커진 뷰 컨트롤러를 부르는 말\n\nIn this video, Mina and Jake talk about app architecture patterns, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 191 of the iOS Daily English series.\n\n#Swift #iOSArchitecture #EnglishForDevelopers",
+      "tags": [
+        "MVC",
+        "MVVM",
+        "Massive View Controller",
+        "iOS architecture",
+        "iOS 아키텍처",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "iOS Daily English"
+      ],
+      "hook": "Can you explain MVC, MVVM and Massive View Controller in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "Which pattern for Settings?",
+    "setting": "Planning a new screen",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, our Settings screen is a mess. Which pattern should we use?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Most UIKit apps start with MVC: a model, a view and a controller.",
+        "terms": [
+          "MVC"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "So in MVC the controller connects the model to the view?",
+        "terms": [
+          "MVC"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Yes. But the controller often does too much. People call it a Massive View Controller.",
+        "terms": [
+          "Massive View Controller"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "What is inside a Massive View Controller?",
+        "terms": [
+          "Massive View Controller"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Networking, parsing, saving and layout, all in one class.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "That sounds hard to test. Is there a better way?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Try MVVM. The view model holds the screen logic, like `text` in our code.",
+        "terms": [
+          "MVVM"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "So MVVM keeps the view controller small?",
+        "terms": [
+          "MVVM"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Right. The view only shows `text`, and the view model prepares it.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "But MVC is not wrong, right?",
+        "terms": [
+          "MVC"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Correct. MVC works for small screens. Switch when you see a Massive View Controller.",
+        "terms": [
+          "MVC",
+          "Massive View Controller"
+        ]
+      }
+    ],
+    "code": "struct Note { var title = \"Buy milk\" }\nstruct NoteViewModel {\n    let note: Note\n    var text: String { note.title }\n}",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "MVC",
+      "lines": [
+        {
+          "text": "Our old screens follow MVC, so the controller updates the view."
+        }
+      ],
+      "title": "Our old screens follow MVC, so the controller updates the view. #Shorts",
+      "description": "Our old screens follow MVC, so the controller updates the view.\n\nMVC - A pattern that splits an app into a model, a view and a controller that connects them.\n한국어: MVC: 앱을 모델, 뷰, 컨트롤러로 나누는 패턴\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "MVVM",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Which pattern keeps view controllers small?"
+        },
+        {
+          "speaker": "B",
+          "text": "Try MVVM."
+        }
+      ],
+      "title": "Which pattern keeps view controllers small? / Try MVVM. #Shorts",
+      "description": "Which pattern keeps view controllers small? / Try MVVM.\n\nMVVM - A pattern that puts the screen logic in a view model between the model and the view.\n한국어: MVVM: 모델과 뷰 사이의 뷰 모델에 화면 로직을 두는 패턴\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Massive View Controller",
+      "lines": [
+        {
+          "text": "This Massive View Controller has two thousand lines."
+        }
+      ],
+      "title": "This Massive View Controller has two thousand lines. #Shorts",
+      "description": "This Massive View Controller has two thousand lines.\n\nMassive View Controller - A name for a view controller that grew too big because it does every job.\n한국어: Massive View Controller: 모든 일을 다 하느라 너무 커진 뷰 컨트롤러를 부르는 말\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "Is your view controller too big? Learn MVC and MVVM."
+}

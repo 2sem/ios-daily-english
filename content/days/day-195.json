@@ -1,0 +1,237 @@
+{
+  "day": 195,
+  "phase": "5. App architecture & data",
+  "theme": "App layers for data: data layer, service layer and the repository pattern",
+  "terms": [
+    {
+      "term": "Data Layer",
+      "definition": "The part of an app that loads and saves data, away from the screens.",
+      "example": "The data layer reads the user list from disk.",
+      "code": "struct DataLayer {\n    func load() -> [String] { [\"Ann\", \"Bo\"] }\n}\nprint(DataLayer().load())",
+      "output": "[\"Ann\", \"Bo\"]"
+    },
+    {
+      "term": "Service Layer",
+      "definition": "The part of an app that offers actions like login or search to the rest of the code.",
+      "example": "Call the service layer to log in.",
+      "code": "struct AuthService {\n    func login(_ n: String) -> Bool { n != \"\" }\n}\nprint(AuthService().login(\"Ann\"))",
+      "output": "true"
+    },
+    {
+      "term": "Repository Pattern",
+      "definition": "A pattern that hides where data comes from behind one simple interface.",
+      "example": "The repository pattern lets us swap the web data for test data.",
+      "code": "protocol Repo { var name: String { get } }\nstruct Web: Repo { let name = \"Ann\" }\nfunc show(_ r: any Repo) { print(r.name) }\nshow(Web())",
+      "output": "Ann"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What do you call the part of an app that offers actions like login or search to the rest of the code?",
+      "options": [
+        "Data Layer",
+        "Service Layer",
+        "Repository Pattern"
+      ],
+      "answer": "b"
+    },
+    {
+      "question": "What do you call the part of an app that loads and saves data, away from the screens?",
+      "options": [
+        "Data Layer",
+        "Service Layer",
+        "Repository Pattern"
+      ],
+      "answer": "a"
+    },
+    {
+      "question": "What do you call a pattern that hides where data comes from behind one simple interface?",
+      "options": [
+        "Data Layer",
+        "Service Layer",
+        "Repository Pattern"
+      ],
+      "answer": "c"
+    }
+  ],
+  "video": {
+    "title": "Data Layer, Service Layer & Repository Pattern | Day 195",
+    "description": "Learn to explain layers that load and save data: Data Layer, Service Layer & Repository Pattern, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nData Layer - The part of an app that loads and saves data, away from the screens.\nService Layer - The part of an app that offers actions like login or search to the rest of the code.\nRepository Pattern - A pattern that hides where data comes from behind one simple interface.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 195 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "Data Layer",
+      "Service Layer",
+      "Repository Pattern",
+      "data layer",
+      "service layer",
+      "repository pattern",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "iOS Data Layer, Service Layer & Repository Pattern | Day 195",
+      "description": "Explain Data Layer, Service Layer & Repository Pattern in iOS by listening to a real code chat between two iOS devs.\nData Layer, Service Layer, Repository Pattern 표현을 영어 대화로 익혀요.\n\nData Layer - The part of an app that loads and saves data, away from the screens.\n한국어: Data Layer: 화면과 떨어져 데이터를 불러오고 저장하는 앱의 부분\n\nService Layer - The part of an app that offers actions like login or search to the rest of the code.\n한국어: Service Layer: 로그인이나 검색 같은 동작을 앱의 나머지 코드에 제공하는 부분\n\nRepository Pattern - A pattern that hides where data comes from behind one simple interface.\n한국어: Repository Pattern: 데이터의 출처를 하나의 간단한 인터페이스 뒤에 숨기는 패턴\n\nIn this video, Mina and Jake talk about layers that load and save data, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 195 of the iOS Daily English series.\n\n#Swift #iOSArchitecture #EnglishForDevelopers",
+      "tags": [
+        "Data Layer",
+        "Service Layer",
+        "Repository Pattern",
+        "iOS architecture",
+        "iOS 아키텍처",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "iOS Daily English"
+      ],
+      "hook": "Can you explain Data Layer, Service Layer and Repository Pattern in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "Who talks to the database?",
+    "setting": "Cleaning up a view model",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, the view model calls the network and the database directly.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Move that work to a data layer. It loads and saves data away from the screens.",
+        "terms": [
+          "Data Layer"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "And what is a service layer?",
+        "terms": [
+          "Service Layer"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "A service layer offers actions like login or search to the rest of the app.",
+        "terms": [
+          "Service Layer"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "So the data layer keeps things, and the service layer does things?",
+        "terms": [
+          "Data Layer",
+          "Service Layer"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Good way to say it. Now add the repository pattern. A repository hides where the data comes from.",
+        "terms": [
+          "Repository Pattern"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Like `Repo` in our code, where `Web` gives the `name`?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Yes. The view model asks the `Repo` for `name` and does not care about the source.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "So with the repository pattern I can swap web data for a test value?",
+        "terms": [
+          "Repository Pattern"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Exactly. That is why the repository pattern is so popular.",
+        "terms": [
+          "Repository Pattern"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "I will build a data layer and a service layer for login.",
+        "terms": [
+          "Data Layer",
+          "Service Layer"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Nice, and use the repository pattern for the user profile.",
+        "terms": [
+          "Repository Pattern"
+        ]
+      }
+    ],
+    "code": "protocol Repo { var name: String { get } }\nstruct Web: Repo { let name = \"Ann\" }\nfunc show(_ r: any Repo) { print(r.name) }",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "Data Layer",
+      "lines": [
+        {
+          "text": "The data layer reads the user list from disk."
+        }
+      ],
+      "title": "The data layer reads the user list from disk. #Shorts",
+      "description": "The data layer reads the user list from disk.\n\nData Layer - The part of an app that loads and saves data, away from the screens.\n한국어: Data Layer: 화면과 떨어져 데이터를 불러오고 저장하는 앱의 부분\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "Service Layer",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Where should the database code live?"
+        },
+        {
+          "speaker": "B",
+          "text": "In the data layer."
+        }
+      ],
+      "title": "Where should the database code live? / In the data layer. #Shorts",
+      "description": "Where should the database code live? / In the data layer.\n\nService Layer - The part of an app that offers actions like login or search to the rest of the code.\n한국어: Service Layer: 로그인이나 검색 같은 동작을 앱의 나머지 코드에 제공하는 부분\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Repository Pattern",
+      "lines": [
+        {
+          "text": "The repository pattern lets us swap the web data for test data."
+        }
+      ],
+      "title": "The repository pattern lets us swap the web data for test data. #Shorts",
+      "description": "The repository pattern lets us swap the web data for test data.\n\nRepository Pattern - A pattern that hides where data comes from behind one simple interface.\n한국어: Repository Pattern: 데이터의 출처를 하나의 간단한 인터페이스 뒤에 숨기는 패턴\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "Who should talk to your database? Learn the data layer."
+}

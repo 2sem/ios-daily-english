@@ -1,0 +1,238 @@
+{
+  "day": 206,
+  "phase": "5. App architecture & data",
+  "theme": "Reading the backend docs: resources, REST APIs and idempotent requests",
+  "terms": [
+    {
+      "term": "Resource",
+      "definition": "A thing a server manages, such as a user or an order, that has its own address.",
+      "example": "Each user is a resource with its own address.",
+      "code": "import Foundation\nlet base = \"https://x.com\"\nlet users = URL(string: base + \"/users\")!\nlet one = users.appendingPathComponent(\"42\")\nprint(one.path)",
+      "output": "/users/42"
+    },
+    {
+      "term": "REST API",
+      "definition": "A web service where each resource has its own URL and the HTTP method says what to do.",
+      "example": "Our backend is a REST API with JSON replies.",
+      "code": "import Foundation\nlet u = URL(string: \"https://x.com/users/42\")!\nvar r = URLRequest(url: u)\nr.httpMethod = \"DELETE\"\nprint(r.httpMethod!, r.url!.path)",
+      "output": "DELETE /users/42"
+    },
+    {
+      "term": "Idempotent",
+      "definition": "A property of a request that has the same effect whether you send it once or many times.",
+      "example": "A PUT request is idempotent, so a retry is safe.",
+      "code": "var a = 0, b = 0\nfunc put() { a = 10 }    // idempotent\nfunc post() { b += 10 }  // not idempotent\nput(); put(); post(); post()\nprint(a, b)",
+      "output": "10 20"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What do you call a property of a request that has the same effect whether you send it once or many times?",
+      "options": [
+        "Resource",
+        "REST API",
+        "Idempotent"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "What do you call a web service where each resource has its own URL and the HTTP method says what to do?",
+      "options": [
+        "REST API",
+        "Resource",
+        "Idempotent"
+      ],
+      "answer": "a"
+    },
+    {
+      "question": "What do you call a thing a server manages, such as a user or an order, that has its own address?",
+      "options": [
+        "REST API",
+        "Resource",
+        "Idempotent"
+      ],
+      "answer": "b"
+    }
+  ],
+  "video": {
+    "title": "Resource, REST API & Idempotent | Day 206",
+    "description": "Learn to explain the words in backend API docs: Resource, REST API & Idempotent, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nResource - A thing a server manages, such as a user or an order, that has its own address.\nREST API - A web service where each resource has its own URL and the HTTP method says what to do.\nIdempotent - A property of a request that has the same effect whether you send it once or many times.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 206 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "Resource",
+      "REST API",
+      "Idempotent",
+      "resource",
+      "rest api",
+      "idempotent",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "iOS Resource, REST API & Idempotent | Day 206",
+      "description": "Explain Resource, REST API & Idempotent in iOS by listening to a real code chat between two iOS devs.\nResource, REST API, Idempotent 표현을 영어 대화로 익혀요.\n\nResource - A thing a server manages, such as a user or an order, that has its own address.\n한국어: Resource: 사용자나 주문처럼 서버가 관리하며 자기만의 주소를 가진 대상\n\nREST API - A web service where each resource has its own URL and the HTTP method says what to do.\n한국어: REST API: 각 리소스가 자기 URL을 갖고 HTTP 메서드가 할 일을 알려 주는 웹 서비스\n\nIdempotent - A property of a request that has the same effect whether you send it once or many times.\n한국어: Idempotent: 한 번 보내든 여러 번 보내든 효과가 같은 요청의 성질\n\nIn this video, Mina and Jake talk about the words in backend API docs, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 206 of the iOS Daily English series.\n\n#Swift #iOSArchitecture #EnglishForDevelopers",
+      "tags": [
+        "Resource",
+        "REST API",
+        "Idempotent",
+        "iOS architecture",
+        "iOS 아키텍처",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "iOS Daily English"
+      ],
+      "hook": "Can you explain Resource, REST API and Idempotent in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "Words in the docs",
+    "setting": "Reading the backend documentation",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, what does the word resource mean in the backend docs?",
+        "terms": [
+          "Resource"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "A resource is a thing the server manages, like a user or an order. It has its own address.",
+        "terms": [
+          "Resource"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Like `one`, the user with number 42?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Yes. Its address is `/users/42`.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "And the docs say REST API everywhere.",
+        "terms": [
+          "REST API"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "A REST API gives each resource its own URL, and the HTTP method says what to do.",
+        "terms": [
+          "Resource",
+          "REST API"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "So GET reads a resource and `PUT` updates it?",
+        "terms": [
+          "Resource"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Right. That is the idea of a REST API.",
+        "terms": [
+          "REST API"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Why do the docs say `PUT` is idempotent?",
+        "terms": [
+          "Idempotent"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Idempotent means the same effect if you send it once or ten times.",
+        "terms": [
+          "Idempotent"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "So a retry after a timeout is safe for an idempotent request?",
+        "terms": [
+          "Idempotent"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Yes. Be careful with POST, because it is not idempotent.",
+        "terms": [
+          "Idempotent"
+        ]
+      }
+    ],
+    "code": "import Foundation\nlet users = URL(string: \"https://x.com/users\")!\nlet one = users.appendingPathComponent(\"42\")\nvar r = URLRequest(url: one)\nr.httpMethod = \"PUT\"",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "Resource",
+      "lines": [
+        {
+          "text": "Each user is a resource with its own address."
+        }
+      ],
+      "title": "Each user is a resource with its own address. #Shorts",
+      "description": "Each user is a resource with its own address.\n\nResource - A thing a server manages, such as a user or an order, that has its own address.\n한국어: Resource: 사용자나 주문처럼 서버가 관리하며 자기만의 주소를 가진 대상\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "REST API",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Is it safe to retry this request?"
+        },
+        {
+          "speaker": "B",
+          "text": "Yes, it is idempotent."
+        }
+      ],
+      "title": "Is it safe to retry this request? / Yes, it is idempotent. #Shorts",
+      "description": "Is it safe to retry this request? / Yes, it is idempotent.\n\nREST API - A web service where each resource has its own URL and the HTTP method says what to do.\n한국어: REST API: 각 리소스가 자기 URL을 갖고 HTTP 메서드가 할 일을 알려 주는 웹 서비스\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Idempotent",
+      "lines": [
+        {
+          "text": "A PUT request is idempotent, so a retry is safe."
+        }
+      ],
+      "title": "A PUT request is idempotent, so a retry is safe. #Shorts",
+      "description": "A PUT request is idempotent, so a retry is safe.\n\nIdempotent - A property of a request that has the same effect whether you send it once or many times.\n한국어: Idempotent: 한 번 보내든 여러 번 보내든 효과가 같은 요청의 성질\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "Is it safe to retry a request? Idempotent explained."
+}

@@ -1,0 +1,230 @@
+{
+  "day": 197,
+  "phase": "5. App architecture & data",
+  "theme": "Three ways for objects to talk: closure callbacks, the delegate pattern and the observer pattern",
+  "terms": [
+    {
+      "term": "Closure Callback",
+      "definition": "A closure you pass in so another piece of code can call it when work is done.",
+      "example": "Pass a closure callback to run when the download ends.",
+      "code": "func load(done: (String) -> Void) {\n    done(\"data ready\")\n}\nload { print($0) }",
+      "output": "data ready"
+    },
+    {
+      "term": "Delegate Pattern",
+      "definition": "A pattern where an object hands some of its work to another object through a protocol.",
+      "example": "UIKit uses the delegate pattern for table views.",
+      "code": "protocol Delegate { func didLoad() }\nstruct Screen: Delegate {\n    func didLoad() { print(\"loaded\") }\n}\nlet d: any Delegate = Screen()\nd.didLoad()",
+      "output": "loaded"
+    },
+    {
+      "term": "Observer Pattern",
+      "definition": "A pattern where many objects get told when one object changes.",
+      "example": "The observer pattern updates every screen when the user logs out.",
+      "code": "var observers: [(Int) -> Void] = []\nobservers.append { print(\"A got\", $0) }\nobservers.append { print(\"B got\", $0) }\nfor o in observers { o(7) }",
+      "output": "A got 7\nB got 7"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What do you call a pattern where many objects get told when one object changes?",
+      "options": [
+        "Observer Pattern",
+        "Closure Callback",
+        "Delegate Pattern"
+      ],
+      "answer": "a"
+    },
+    {
+      "question": "What do you call a closure you pass in so another piece of code can call it when work is done?",
+      "options": [
+        "Delegate Pattern",
+        "Observer Pattern",
+        "Closure Callback"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "What do you call a pattern where an object hands some of its work to another object through a protocol?",
+      "options": [
+        "Closure Callback",
+        "Delegate Pattern",
+        "Observer Pattern"
+      ],
+      "answer": "b"
+    }
+  ],
+  "video": {
+    "title": "Closure Callback, Delegate Pattern & Observer Pattern | Day 197",
+    "description": "Learn to explain how objects tell each other news: Closure Callback, Delegate Pattern & Observer Pattern, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nClosure Callback - A closure you pass in so another piece of code can call it when work is done.\nDelegate Pattern - A pattern where an object hands some of its work to another object through a protocol.\nObserver Pattern - A pattern where many objects get told when one object changes.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 197 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "Closure Callback",
+      "Delegate Pattern",
+      "Observer Pattern",
+      "closure callback",
+      "delegate pattern",
+      "observer pattern",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "iOS Closure Callback, Delegate Pattern & Observer Pattern | Day 197",
+      "description": "Explain Closure Callback, Delegate Pattern & Observer Pattern in iOS by listening to a real code chat between two iOS devs.\nClosure Callback, Delegate Pattern, Observer Pattern 표현을 영어 대화로 익혀요.\n\nClosure Callback - A closure you pass in so another piece of code can call it when work is done.\n한국어: Closure Callback: 작업이 끝났을 때 다른 코드가 호출하도록 넘겨 주는 클로저\n\nDelegate Pattern - A pattern where an object hands some of its work to another object through a protocol.\n한국어: Delegate Pattern: 객체가 프로토콜을 통해 일부 작업을 다른 객체에 맡기는 패턴\n\nObserver Pattern - A pattern where many objects get told when one object changes.\n한국어: Observer Pattern: 한 객체가 바뀌면 여러 객체가 알림을 받는 패턴\n\nIn this video, Mina and Jake talk about how objects tell each other news, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 197 of the iOS Daily English series.\n\n#Swift #iOSArchitecture #EnglishForDevelopers",
+      "tags": [
+        "Closure Callback",
+        "Delegate Pattern",
+        "Observer Pattern",
+        "iOS architecture",
+        "iOS 아키텍처",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "iOS Daily English"
+      ],
+      "hook": "Can you explain Closure Callback, Delegate Pattern and Observer Pattern in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "Telling the screen",
+    "setting": "Choosing how a loader reports back",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, the loader must tell the screen when the data is ready. How?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "The simplest way is a closure callback. You pass a closure, and the loader calls it when done.",
+        "terms": [
+          "Closure Callback"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "And UIKit uses delegates for that, right?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Yes. In the delegate pattern, an object hands some work to another object through a protocol.",
+        "terms": [
+          "Delegate Pattern"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Like `Screen` with `didLoad` in our code?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Exactly. The loader calls `didLoad`, and `Screen` decides what to do.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "What if three screens need the same news?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Then use the observer pattern. Many observers get told when one object changes.",
+        "terms": [
+          "Observer Pattern"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "So the delegate pattern talks to one object, but the observer pattern talks to many?",
+        "terms": [
+          "Delegate Pattern",
+          "Observer Pattern"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Right. Delegates are one to one.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "And a closure callback is the lightest of the three.",
+        "terms": [
+          "Closure Callback"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Yes, use a closure callback for a single, quick result.",
+        "terms": [
+          "Closure Callback"
+        ]
+      }
+    ],
+    "code": "protocol Delegate { func didLoad() }\nstruct Screen: Delegate {\n    func didLoad() { print(\"loaded\") }\n}",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "Closure Callback",
+      "lines": [
+        {
+          "text": "Pass a closure callback to run when the download ends."
+        }
+      ],
+      "title": "Pass a closure callback to run when the download ends. #Shorts",
+      "description": "Pass a closure callback to run when the download ends.\n\nClosure Callback - A closure you pass in so another piece of code can call it when work is done.\n한국어: Closure Callback: 작업이 끝났을 때 다른 코드가 호출하도록 넘겨 주는 클로저\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "Delegate Pattern",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "How does the loader tell the screen?"
+        },
+        {
+          "speaker": "B",
+          "text": "Use a closure callback."
+        }
+      ],
+      "title": "How does the loader tell the screen? / Use a closure callback. #Shorts",
+      "description": "How does the loader tell the screen? / Use a closure callback.\n\nDelegate Pattern - A pattern where an object hands some of its work to another object through a protocol.\n한국어: Delegate Pattern: 객체가 프로토콜을 통해 일부 작업을 다른 객체에 맡기는 패턴\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Observer Pattern",
+      "lines": [
+        {
+          "text": "The observer pattern updates every screen when the user logs out."
+        }
+      ],
+      "title": "The observer pattern updates every screen when the user logs out. #Shorts",
+      "description": "The observer pattern updates every screen when the user logs out.\n\nObserver Pattern - A pattern where many objects get told when one object changes.\n한국어: Observer Pattern: 한 객체가 바뀌면 여러 객체가 알림을 받는 패턴\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "Callback, delegate or observer? Pick the right one."
+}

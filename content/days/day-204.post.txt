@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 204
+
+URL
+- A Foundation type that represents the address of a web page, a server or a file.
+- Example: "Create the URL from a string and check it."
+
+URLRequest
+- A type that describes one request, with its address, method, headers and body.
+- Example: "Set the timeout on the URLRequest."
+
+URLSession
+- The object that sends requests and receives the replies for your app.
+- Example: "Use the shared URLSession for simple calls."
+
+
+Quiz ①
+What do you call a type that describes one request, with its address, method, headers and body?
+a) URLRequest
+b) URL
+c) URLSession
+
+Quiz ②
+What do you call the object that sends requests and receives the replies for your app?
+a) URL
+b) URLSession
+c) URLRequest
+
+Quiz ③
+What do you call a Foundation type that represents the address of a web page, a server or a file?
+a) URLRequest
+b) URLSession
+c) URL

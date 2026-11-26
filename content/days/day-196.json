@@ -1,0 +1,229 @@
+{
+  "day": 196,
+  "phase": "5. App architecture & data",
+  "theme": "One clear way to change data: state management, unidirectional data flow and reducers",
+  "terms": [
+    {
+      "term": "State Management",
+      "definition": "The way an app stores and updates the data that its screens show.",
+      "example": "Our state management is simple: one struct holds everything.",
+      "code": "struct AppState { var count = 0 }\nvar state = AppState()\nstate.count += 1\nprint(state.count)",
+      "output": "1"
+    },
+    {
+      "term": "Unidirectional Data Flow",
+      "definition": "A design where data moves in one direction and every change starts from an action.",
+      "example": "Unidirectional data flow makes the bug easy to trace.",
+      "code": "enum Action { case add }\nvar count = 0          // state\nfunc send(_ a: Action) { count += 1 }\nsend(.add)             // view -> action\nprint(count)           // state -> view",
+      "output": "1"
+    },
+    {
+      "term": "Reducer",
+      "definition": "A function that takes the current state and an action and returns the new state.",
+      "example": "The reducer returns a new state for every action.",
+      "code": "enum Action { case add, reset }\nfunc reduce(_ s: Int, _ a: Action) -> Int {\n    a == .add ? s + 1 : 0\n}\nprint(reduce(4, .add))",
+      "output": "5"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What do you call a design where data moves in one direction and every change starts from an action?",
+      "options": [
+        "State Management",
+        "Reducer",
+        "Unidirectional Data Flow"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "What do you call a function that takes the current state and an action and returns the new state?",
+      "options": [
+        "State Management",
+        "Reducer",
+        "Unidirectional Data Flow"
+      ],
+      "answer": "b"
+    },
+    {
+      "question": "What do you call the way an app stores and updates the data that its screens show?",
+      "options": [
+        "State Management",
+        "Unidirectional Data Flow",
+        "Reducer"
+      ],
+      "answer": "a"
+    }
+  ],
+  "video": {
+    "title": "State Management, Unidirectional Data Flow & Reducer | Day 196",
+    "description": "Learn to explain keeping app data in one place: State Management, Unidirectional Data Flow & Reducer, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nState Management - The way an app stores and updates the data that its screens show.\nUnidirectional Data Flow - A design where data moves in one direction and every change starts from an action.\nReducer - A function that takes the current state and an action and returns the new state.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 196 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "State Management",
+      "Unidirectional Data Flow",
+      "Reducer",
+      "state management",
+      "unidirectional data flow",
+      "reducer",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "iOS State Management, Unidirectional Data Flow & Reducer | Day 196",
+      "description": "Explain State Management, Unidirectional Data Flow & Reducer in iOS by listening to a real code chat between two iOS devs.\nState Management, Unidirectional Data Flow, Reducer 표현을 영어 대화로 익혀요.\n\nState Management - The way an app stores and updates the data that its screens show.\n한국어: State Management: 앱이 화면에 보여 줄 데이터를 저장하고 갱신하는 방식\n\nUnidirectional Data Flow - A design where data moves in one direction and every change starts from an action.\n한국어: Unidirectional Data Flow: 데이터가 한 방향으로만 흐르고 모든 변경이 액션에서 시작되는 설계\n\nReducer - A function that takes the current state and an action and returns the new state.\n한국어: Reducer: 현재 상태와 액션을 받아 새 상태를 돌려주는 함수\n\nIn this video, Mina and Jake talk about keeping app data in one place, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 196 of the iOS Daily English series.\n\n#Swift #iOSArchitecture #EnglishForDevelopers",
+      "tags": [
+        "State Management",
+        "Unidirectional Data Flow",
+        "Reducer",
+        "iOS architecture",
+        "iOS 아키텍처",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "iOS Daily English"
+      ],
+      "hook": "Can you explain State Management, Unidirectional Data Flow and Reducer in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "Five places, one bug",
+    "setting": "Debugging strange screen changes",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, our screens change the same data in five places. The bugs are strange.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "That is a state management problem. You need one clear place for the data your screens show.",
+        "terms": [
+          "State Management"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "How do I fix it?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Use unidirectional data flow. The view sends an action, the state changes, and the view updates.",
+        "terms": [
+          "Unidirectional Data Flow"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "So data moves in only one direction?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Yes. No view edits the state directly.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "Then where do the changes happen?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "In a reducer. A reducer takes the current state and an action, and returns the new state.",
+        "terms": [
+          "Reducer"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Like `reduce` in our code, with `add` and `reset`?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Exactly. The same state and action always give the same result, so a reducer is easy to test.",
+        "terms": [
+          "Reducer"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Good state management makes everything easier to test.",
+        "terms": [
+          "State Management"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "And unidirectional data flow makes bugs easy to trace.",
+        "terms": [
+          "Unidirectional Data Flow"
+        ]
+      }
+    ],
+    "code": "enum Action { case add, reset }\nfunc reduce(_ s: Int, _ a: Action) -> Int {\n    a == .add ? s + 1 : 0\n}",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "State Management",
+      "lines": [
+        {
+          "text": "Our state management is simple: one struct holds everything."
+        }
+      ],
+      "title": "Our state management is simple: one struct holds everything. #Shorts",
+      "description": "Our state management is simple: one struct holds everything.\n\nState Management - The way an app stores and updates the data that its screens show.\n한국어: State Management: 앱이 화면에 보여 줄 데이터를 저장하고 갱신하는 방식\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "Unidirectional Data Flow",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Who is allowed to change the state?"
+        },
+        {
+          "speaker": "B",
+          "text": "Only the reducer."
+        }
+      ],
+      "title": "Who is allowed to change the state? / Only the reducer. #Shorts",
+      "description": "Who is allowed to change the state? / Only the reducer.\n\nUnidirectional Data Flow - A design where data moves in one direction and every change starts from an action.\n한국어: Unidirectional Data Flow: 데이터가 한 방향으로만 흐르고 모든 변경이 액션에서 시작되는 설계\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Reducer",
+      "lines": [
+        {
+          "text": "The reducer returns a new state for every action."
+        }
+      ],
+      "title": "The reducer returns a new state for every action. #Shorts",
+      "description": "The reducer returns a new state for every action.\n\nReducer - A function that takes the current state and an action and returns the new state.\n한국어: Reducer: 현재 상태와 액션을 받아 새 상태를 돌려주는 함수\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "Why do big apps send actions? Learn the reducer."
+}

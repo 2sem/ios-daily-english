@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 205
+
+Data Task
+- A URLSession task that loads the reply into memory as Data.
+- Example: "Use a data task to load the small JSON file."
+
+HTTPURLResponse
+- The reply type that gives you the status code and headers of an HTTP reply.
+- Example: "Cast the response to HTTPURLResponse to read the status."
+
+Download Task
+- A task that saves a large reply to a file on disk instead of keeping it in memory.
+- Example: "Use a download task for the video file."
+
+
+Quiz ①
+What do you call a task that saves a large reply to a file on disk instead of keeping it in memory?
+a) Data Task
+b) Download Task
+c) HTTPURLResponse
+
+Quiz ②
+What do you call a URLSession task that loads the reply into memory as Data?
+a) HTTPURLResponse
+b) Download Task
+c) Data Task
+
+Quiz ③
+What do you call the reply type that gives you the status code and headers of an HTTP reply?
+a) HTTPURLResponse
+b) Data Task
+c) Download Task

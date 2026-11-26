@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 196
+
+State Management
+- The way an app stores and updates the data that its screens show.
+- Example: "Our state management is simple: one struct holds everything."
+
+Unidirectional Data Flow
+- A design where data moves in one direction and every change starts from an action.
+- Example: "Unidirectional data flow makes the bug easy to trace."
+
+Reducer
+- A function that takes the current state and an action and returns the new state.
+- Example: "The reducer returns a new state for every action."
+
+
+Quiz ①
+What do you call a design where data moves in one direction and every change starts from an action?
+a) State Management
+b) Reducer
+c) Unidirectional Data Flow
+
+Quiz ②
+What do you call a function that takes the current state and an action and returns the new state?
+a) State Management
+b) Reducer
+c) Unidirectional Data Flow
+
+Quiz ③
+What do you call the way an app stores and updates the data that its screens show?
+a) State Management
+b) Unidirectional Data Flow
+c) Reducer

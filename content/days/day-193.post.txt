@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 193
+
+Dependency
+- An object that another object needs in order to do its work.
+- Example: "The network client is a dependency of this view model."
+
+Dependency Injection
+- A technique where an object receives what it needs from outside instead of creating it.
+- Example: "We use dependency injection so tests can pass a fake client."
+
+Constructor Injection
+- A form of injection where you pass the needed objects into the initializer.
+- Example: "Please use constructor injection instead of a global singleton."
+
+
+Quiz ①
+What do you call a form of injection where you pass the needed objects into the initializer?
+a) Dependency
+b) Constructor Injection
+c) Dependency Injection
+
+Quiz ②
+What do you call an object that another object needs in order to do its work?
+a) Dependency Injection
+b) Constructor Injection
+c) Dependency
+
+Quiz ③
+What do you call a technique where an object receives what it needs from outside instead of creating it?
+a) Dependency Injection
+b) Dependency
+c) Constructor Injection

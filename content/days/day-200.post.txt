@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 200
+
+DecodingError
+- The error type that tells you why decoding failed, like a missing key or a wrong type.
+- Example: "Print the DecodingError to see which key is missing."
+
+decodeIfPresent
+- A decoding method that returns nil instead of failing when a key is missing.
+- Example: "Use decodeIfPresent because the nickname can be missing."
+
+Date Decoding Strategy
+- A setting that tells the decoder how to turn JSON text into a Date.
+- Example: "Set a date decoding strategy for the ISO dates."
+
+
+Quiz ①
+What do you call a decoding method that returns nil instead of failing when a key is missing?
+a) DecodingError
+b) Date Decoding Strategy
+c) decodeIfPresent
+
+Quiz ②
+What do you call a setting that tells the decoder how to turn JSON text into a Date?
+a) Date Decoding Strategy
+b) DecodingError
+c) decodeIfPresent
+
+Quiz ③
+What do you call the error type that tells you why decoding failed, like a missing key or a wrong type?
+a) decodeIfPresent
+b) DecodingError
+c) Date Decoding Strategy

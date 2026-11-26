@@ -1,0 +1,229 @@
+{
+  "day": 200,
+  "phase": "5. App architecture & data",
+  "theme": "Day 200: decoding errors, optional keys and dates",
+  "terms": [
+    {
+      "term": "DecodingError",
+      "definition": "The error type that tells you why decoding failed, like a missing key or a wrong type.",
+      "example": "Print the DecodingError to see which key is missing.",
+      "code": "import Foundation\nstruct U: Decodable { let age: Int }\nlet d = Data(\"{}\".utf8), dec = JSONDecoder()\ndo { _ = try dec.decode(U.self, from: d) }\ncatch { print(type(of: error)) }",
+      "output": "DecodingError"
+    },
+    {
+      "term": "decodeIfPresent",
+      "definition": "A decoding method that returns nil instead of failing when a key is missing.",
+      "example": "Use decodeIfPresent because the nickname can be missing.",
+      "code": "import Foundation\nstruct U: Decodable { var nick: String? }\nlet d = Data(\"{}\".utf8)\nlet u = try JSONDecoder().decode(U.self, from: d)\nprint(u.nick ?? \"none\")\n// String? uses decodeIfPresent",
+      "output": "none"
+    },
+    {
+      "term": "Date Decoding Strategy",
+      "definition": "A setting that tells the decoder how to turn JSON text into a Date.",
+      "example": "Set a date decoding strategy for the ISO dates.",
+      "code": "import Foundation\nlet d = JSONDecoder()\nd.dateDecodingStrategy = .iso8601\nlet j = Data(\"\\\"2024-01-01T00:00:00Z\\\"\".utf8)\nlet date = try d.decode(Date.self, from: j)\nprint(date.timeIntervalSince1970)",
+      "output": "1704067200.0"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What do you call a decoding method that returns nil instead of failing when a key is missing?",
+      "options": [
+        "DecodingError",
+        "Date Decoding Strategy",
+        "decodeIfPresent"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "What do you call a setting that tells the decoder how to turn JSON text into a Date?",
+      "options": [
+        "Date Decoding Strategy",
+        "DecodingError",
+        "decodeIfPresent"
+      ],
+      "answer": "a"
+    },
+    {
+      "question": "What do you call the error type that tells you why decoding failed, like a missing key or a wrong type?",
+      "options": [
+        "decodeIfPresent",
+        "DecodingError",
+        "Date Decoding Strategy"
+      ],
+      "answer": "b"
+    }
+  ],
+  "video": {
+    "title": "DecodingError, decodeIfPresent & Date Decoding Strategy | Day 200",
+    "description": "Learn to explain what happens when decoding goes wrong: DecodingError, decodeIfPresent & Date Decoding Strategy, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nDecodingError - The error type that tells you why decoding failed, like a missing key or a wrong type.\ndecodeIfPresent - A decoding method that returns nil instead of failing when a key is missing.\nDate Decoding Strategy - A setting that tells the decoder how to turn JSON text into a Date.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 200 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "DecodingError",
+      "decodeIfPresent",
+      "Date Decoding Strategy",
+      "decodingerror",
+      "decodeifpresent",
+      "date decoding strategy",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "iOS DecodingError, decodeIfPresent & Date Decoding Strategy | Day 200",
+      "description": "Explain DecodingError, decodeIfPresent & Date Decoding Strategy in iOS by listening to a real code chat between two iOS devs.\nDecodingError, decodeIfPresent, Date Decoding Strategy 표현을 영어 대화로 익혀요.\n\nDecodingError - The error type that tells you why decoding failed, like a missing key or a wrong type.\n한국어: DecodingError: 키가 없거나 타입이 틀린 것처럼 디코딩이 실패한 이유를 알려 주는 에러 타입\n\ndecodeIfPresent - A decoding method that returns nil instead of failing when a key is missing.\n한국어: decodeIfPresent: 키가 없을 때 실패하지 않고 nil을 돌려주는 디코딩 메서드\n\nDate Decoding Strategy - A setting that tells the decoder how to turn JSON text into a Date.\n한국어: Date Decoding Strategy: JSON 텍스트를 Date로 바꾸는 방법을 디코더에 알려 주는 설정\n\nIn this video, Mina and Jake talk about what happens when decoding goes wrong, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 200 of the iOS Daily English series.\n\n#Swift #iOSArchitecture #EnglishForDevelopers",
+      "tags": [
+        "DecodingError",
+        "decodeIfPresent",
+        "Date Decoding Strategy",
+        "iOS architecture",
+        "iOS 아키텍처",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "iOS Daily English"
+      ],
+      "hook": "Can you explain DecodingError, decodeIfPresent and Date Decoding Strategy in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "Missing key",
+    "setting": "Fixing a decoding bug",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, the app fails when the server forgets the `nick` key.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Decoding throws a DecodingError. Read it, because it says which key is missing.",
+        "terms": [
+          "DecodingError"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "So DecodingError tells me why decoding failed?",
+        "terms": [
+          "DecodingError"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Yes: a missing key, a wrong type, or bad data.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "But `nick` is optional. I want nil, not an error.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Then use decodeIfPresent. It returns nil when the key is missing.",
+        "terms": [
+          "decodeIfPresent"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Do I write decodeIfPresent myself for `String?`?",
+        "terms": [
+          "decodeIfPresent"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Not usually. The compiler uses it for optional properties.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "And the dates? The server sends text, not a Date.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Set a date decoding strategy. It tells the decoder how to turn the text into a Date.",
+        "terms": [
+          "Date Decoding Strategy"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "So `iso8601` is our date decoding strategy?",
+        "terms": [
+          "Date Decoding Strategy"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Right. Set it on the decoder before you decode.",
+        "terms": []
+      }
+    ],
+    "code": "import Foundation\nstruct U: Decodable { var nick: String? }\nlet d = JSONDecoder()\nd.dateDecodingStrategy = .iso8601",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "DecodingError",
+      "lines": [
+        {
+          "text": "Print the DecodingError to see which key is missing."
+        }
+      ],
+      "title": "Print the DecodingError to see which key is missing. #Shorts",
+      "description": "Print the DecodingError to see which key is missing.\n\nDecodingError - The error type that tells you why decoding failed, like a missing key or a wrong type.\n한국어: DecodingError: 키가 없거나 타입이 틀린 것처럼 디코딩이 실패한 이유를 알려 주는 에러 타입\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "decodeIfPresent",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Why did my decoding fail?"
+        },
+        {
+          "speaker": "B",
+          "text": "Check the DecodingError."
+        }
+      ],
+      "title": "Why did my decoding fail? / Check the DecodingError. #Shorts",
+      "description": "Why did my decoding fail? / Check the DecodingError.\n\ndecodeIfPresent - A decoding method that returns nil instead of failing when a key is missing.\n한국어: decodeIfPresent: 키가 없을 때 실패하지 않고 nil을 돌려주는 디코딩 메서드\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Date Decoding Strategy",
+      "lines": [
+        {
+          "text": "Set a date decoding strategy for the ISO dates."
+        }
+      ],
+      "title": "Set a date decoding strategy for the ISO dates. #Shorts",
+      "description": "Set a date decoding strategy for the ISO dates.\n\nDate Decoding Strategy - A setting that tells the decoder how to turn JSON text into a Date.\n한국어: Date Decoding Strategy: JSON 텍스트를 Date로 바꾸는 방법을 디코더에 알려 주는 설정\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "Why does decoding fail? Read the DecodingError."
+}

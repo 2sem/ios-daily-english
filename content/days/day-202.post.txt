@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 202
+
+HTTP Method
+- A word in a request, like GET or POST, that tells the server what to do.
+- Example: "Change the HTTP method to DELETE."
+
+GET Request
+- A request that asks the server to send data without changing anything.
+- Example: "A GET request loads the profile."
+
+POST Request
+- A request that sends new data to the server, for example to create an account.
+- Example: "Send a POST request to create the order."
+
+
+Quiz ①
+What do you call a request that sends new data to the server, for example to create an account?
+a) HTTP Method
+b) GET Request
+c) POST Request
+
+Quiz ②
+What do you call a request that asks the server to send data without changing anything?
+a) HTTP Method
+b) GET Request
+c) POST Request
+
+Quiz ③
+What do you call a word in a request, like GET or POST, that tells the server what to do?
+a) HTTP Method
+b) GET Request
+c) POST Request

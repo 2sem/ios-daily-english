@@ -1,0 +1,234 @@
+{
+  "day": 207,
+  "phase": "5. App architecture & data",
+  "theme": "When the network fails: timeouts, retries and URLError",
+  "terms": [
+    {
+      "term": "Timeout",
+      "definition": "The longest time a request may wait before the app gives up.",
+      "example": "Set a timeout of ten seconds for this request.",
+      "code": "import Foundation\nlet u = URL(string: \"https://x.com\")!\nvar r = URLRequest(url: u)\nr.timeoutInterval = 5\nprint(r.timeoutInterval)",
+      "output": "5.0"
+    },
+    {
+      "term": "Retry",
+      "definition": "The step of sending a failed request again, often after a short wait.",
+      "example": "Add a retry for the weak Wi-Fi case.",
+      "code": "var n = 0\nfunc ok() -> Bool { n += 1; return n > 2 }\nwhile !ok() {}   // retry until it works\nprint(\"ok after\", n)",
+      "output": "ok after 3"
+    },
+    {
+      "term": "URLError",
+      "definition": "The error type for network problems, like no internet or a lost connection.",
+      "example": "Catch the URLError and show a friendly message.",
+      "code": "import Foundation\nlet e = URLError(.notConnectedToInternet)\nprint(e.code == .notConnectedToInternet)\nprint(e.errorCode)",
+      "output": "true\n-1009"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What do you call the step of sending a failed request again, often after a short wait?",
+      "options": [
+        "Timeout",
+        "Retry",
+        "URLError"
+      ],
+      "answer": "b"
+    },
+    {
+      "question": "What do you call the longest time a request may wait before the app gives up?",
+      "options": [
+        "Timeout",
+        "Retry",
+        "URLError"
+      ],
+      "answer": "a"
+    },
+    {
+      "question": "What do you call the error type for network problems, like no internet or a lost connection?",
+      "options": [
+        "Timeout",
+        "Retry",
+        "URLError"
+      ],
+      "answer": "c"
+    }
+  ],
+  "video": {
+    "title": "Timeout, Retry & URLError | Day 207",
+    "description": "Learn to explain handling slow and failed requests: Timeout, Retry & URLError, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nTimeout - The longest time a request may wait before the app gives up.\nRetry - The step of sending a failed request again, often after a short wait.\nURLError - The error type for network problems, like no internet or a lost connection.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 207 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "Timeout",
+      "Retry",
+      "URLError",
+      "timeout",
+      "retry",
+      "urlerror",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "iOS Timeout, Retry & URLError | Day 207",
+      "description": "Explain Timeout, Retry & URLError in iOS by listening to a real code chat between two iOS devs.\nTimeout, Retry, URLError 표현을 영어 대화로 익혀요.\n\nTimeout - The longest time a request may wait before the app gives up.\n한국어: Timeout: 앱이 포기하기 전에 요청이 기다릴 수 있는 가장 긴 시간\n\nRetry - The step of sending a failed request again, often after a short wait.\n한국어: Retry: 실패한 요청을 보통 잠깐 기다린 뒤 다시 보내는 단계\n\nURLError - The error type for network problems, like no internet or a lost connection.\n한국어: URLError: 인터넷이 없거나 연결이 끊긴 것 같은 네트워크 문제의 에러 타입\n\nIn this video, Mina and Jake talk about handling slow and failed requests, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 207 of the iOS Daily English series.\n\n#Swift #iOSArchitecture #EnglishForDevelopers",
+      "tags": [
+        "Timeout",
+        "Retry",
+        "URLError",
+        "iOS architecture",
+        "iOS 아키텍처",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "iOS Daily English"
+      ],
+      "hook": "Can you explain Timeout, Retry and URLError in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "The endless spinner",
+    "setting": "Fixing slow network handling",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, users in the subway see an endless spinner.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Set a timeout. It is the longest time a request may wait before the app gives up.",
+        "terms": [
+          "Timeout"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "What happens when the timeout ends?",
+        "terms": [
+          "Timeout"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "The session throws a URLError with the code `timedOut`, like in our code.",
+        "terms": [
+          "URLError"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "So URLError is the error type for network problems?",
+        "terms": [
+          "URLError"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Yes: no internet, a lost connection or a slow request.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "Should I show an alert straight away?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "First retry. A retry sends the failed request again, often after a short wait.",
+        "terms": [
+          "Retry"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "How many times should I retry?",
+        "terms": [
+          "Retry"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Two or three. Then show the error and let the user press a button.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "And a retry is only safe for some requests, right?",
+        "terms": [
+          "Retry"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Good memory! Retry a GET request, and check the URLError code first.",
+        "terms": [
+          "Retry",
+          "URLError"
+        ]
+      }
+    ],
+    "code": "import Foundation\nlet e = URLError(.timedOut)\nprint(e.code == .timedOut)",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "Timeout",
+      "lines": [
+        {
+          "text": "Set a timeout of ten seconds for this request."
+        }
+      ],
+      "title": "Set a timeout of ten seconds for this request. #Shorts",
+      "description": "Set a timeout of ten seconds for this request.\n\nTimeout - The longest time a request may wait before the app gives up.\n한국어: Timeout: 앱이 포기하기 전에 요청이 기다릴 수 있는 가장 긴 시간\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "Retry",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "The request is too slow. What now?"
+        },
+        {
+          "speaker": "B",
+          "text": "Set a timeout."
+        }
+      ],
+      "title": "The request is too slow. What now? / Set a timeout. #Shorts",
+      "description": "The request is too slow. What now? / Set a timeout.\n\nRetry - The step of sending a failed request again, often after a short wait.\n한국어: Retry: 실패한 요청을 보통 잠깐 기다린 뒤 다시 보내는 단계\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "URLError",
+      "lines": [
+        {
+          "text": "Catch the URLError and show a friendly message."
+        }
+      ],
+      "title": "Catch the URLError and show a friendly message. #Shorts",
+      "description": "Catch the URLError and show a friendly message.\n\nURLError - The error type for network problems, like no internet or a lost connection.\n한국어: URLError: 인터넷이 없거나 연결이 끊긴 것 같은 네트워크 문제의 에러 타입\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "Spinner never ends? Add a timeout and a retry."
+}

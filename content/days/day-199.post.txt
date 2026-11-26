@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 199
+
+JSON
+- A text format that stores data as keys and values, easy for people and apps to read.
+- Example: "The server sends the user as JSON."
+
+Serialization
+- The process of turning an object in memory into data you can save or send.
+- Example: "Serialization turns the order into bytes for the server."
+
+JSONSerialization
+- A Foundation class that converts data to and from Swift arrays and dictionaries.
+- Example: "JSONSerialization returns a dictionary, so I cast it."
+
+
+Quiz ①
+What do you call the process of turning an object in memory into data you can save or send?
+a) JSON
+b) Serialization
+c) JSONSerialization
+
+Quiz ②
+What do you call a text format that stores data as keys and values, easy for people and apps to read?
+a) Serialization
+b) JSONSerialization
+c) JSON
+
+Quiz ③
+What do you call a Foundation class that converts data to and from Swift arrays and dictionaries?
+a) JSONSerialization
+b) JSON
+c) Serialization

@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 192
+
+Business Logic
+- The rules of your app that stay the same no matter how the screen looks.
+- Example: "Keep the business logic out of the view controller."
+
+Separation of Concerns
+- A design idea where each part of the code has one clear job.
+- Example: "Separation of concerns makes this module easy to read."
+
+Presentation Logic
+- The code that decides how data looks on the screen, like text and format.
+- Example: "The price format is presentation logic, so it goes in the view model."
+
+
+Quiz ①
+What do you call a design idea where each part of the code has one clear job?
+a) Separation of Concerns
+b) Business Logic
+c) Presentation Logic
+
+Quiz ②
+What do you call the code that decides how data looks on the screen, like text and format?
+a) Business Logic
+b) Presentation Logic
+c) Separation of Concerns
+
+Quiz ③
+What do you call the rules of your app that stay the same no matter how the screen looks?
+a) Separation of Concerns
+b) Presentation Logic
+c) Business Logic

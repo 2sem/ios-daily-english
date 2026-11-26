@@ -1,0 +1,239 @@
+{
+  "day": 194,
+  "phase": "5. App architecture & data",
+  "theme": "Testing basics: unit tests, test doubles and mock objects",
+  "terms": [
+    {
+      "term": "Unit Test",
+      "definition": "A small automatic check that proves one piece of code works.",
+      "example": "I wrote a unit test for the price calculator.",
+      "code": "func add(_ a: Int, _ b: Int) -> Int { a + b }\nfunc testAdd() {\n    assert(add(2, 3) == 5)\n    print(\"passed\")\n}\ntestAdd()",
+      "output": "passed"
+    },
+    {
+      "term": "Test Double",
+      "definition": "A fake object that stands in for a real one during a test.",
+      "example": "Use a test double instead of the real server.",
+      "code": "protocol Clock { var now: Int { get } }\nstruct FakeClock: Clock { let now = 100 }\nfunc age(_ c: any Clock) -> Int { c.now - 40 }\nprint(age(FakeClock()))",
+      "output": "60"
+    },
+    {
+      "term": "Mock Object",
+      "definition": "A fake object that also records how it was used, so a test can check the calls.",
+      "example": "The mock object shows we sent only one email.",
+      "code": "class MockMailer {\n    var sent: [String] = []\n    func send(_ s: String) { sent.append(s) }\n}\nlet m = MockMailer(); m.send(\"Hi\")\nprint(m.sent.count)",
+      "output": "1"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What do you call a fake object that also records how it was used, so a test can check the calls?",
+      "options": [
+        "Unit Test",
+        "Test Double",
+        "Mock Object"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "What do you call a fake object that stands in for a real one during a test?",
+      "options": [
+        "Test Double",
+        "Unit Test",
+        "Mock Object"
+      ],
+      "answer": "a"
+    },
+    {
+      "question": "What do you call a small automatic check that proves one piece of code works?",
+      "options": [
+        "Test Double",
+        "Unit Test",
+        "Mock Object"
+      ],
+      "answer": "b"
+    }
+  ],
+  "video": {
+    "title": "Unit Test, Test Double & Mock Object | Day 194",
+    "description": "Learn to explain testing code with fake objects: Unit Test, Test Double & Mock Object, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nUnit Test - A small automatic check that proves one piece of code works.\nTest Double - A fake object that stands in for a real one during a test.\nMock Object - A fake object that also records how it was used, so a test can check the calls.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 194 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "Unit Test",
+      "Test Double",
+      "Mock Object",
+      "unit test",
+      "test double",
+      "mock object",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "iOS Unit Test, Test Double & Mock Object | Day 194",
+      "description": "Explain Unit Test, Test Double & Mock Object in iOS by listening to a real code chat between two iOS devs.\nUnit Test, Test Double, Mock Object 표현을 영어 대화로 익혀요.\n\nUnit Test - A small automatic check that proves one piece of code works.\n한국어: Unit Test: 코드 한 조각이 제대로 동작하는지 증명하는 작은 자동 검사\n\nTest Double - A fake object that stands in for a real one during a test.\n한국어: Test Double: 테스트 동안 진짜 객체를 대신하는 가짜 객체\n\nMock Object - A fake object that also records how it was used, so a test can check the calls.\n한국어: Mock Object: 사용된 방식을 기록해서 테스트가 호출을 확인할 수 있게 하는 가짜 객체\n\nIn this video, Mina and Jake talk about testing code with fake objects, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 194 of the iOS Daily English series.\n\n#Swift #iOSArchitecture #EnglishForDevelopers",
+      "tags": [
+        "Unit Test",
+        "Test Double",
+        "Mock Object",
+        "iOS architecture",
+        "iOS 아키텍처",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "iOS Daily English"
+      ],
+      "hook": "Can you explain Unit Test, Test Double and Mock Object in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "No real emails",
+    "setting": "Writing tests for signup",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, I want a unit test for signup, but it sends a real email.",
+        "terms": [
+          "Unit Test"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "A unit test checks one small piece of code. It must not use the real network.",
+        "terms": [
+          "Unit Test"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "So what do I use instead of the real mailer?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "A test double. It stands in for the real object during the test.",
+        "terms": [
+          "Test Double"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Is `MockMailer` a test double too?",
+        "terms": [
+          "Test Double"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Yes, it is a mock object. It also records every call in `sent`.",
+        "terms": [
+          "Mock Object"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "So the unit test can check `sent` after signup?",
+        "terms": [
+          "Unit Test"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Right. Pass the mock object into the signup code.",
+        "terms": [
+          "Mock Object"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "What if I only need a fixed answer, not a record?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Then a simple test double is enough. You do not need a mock object.",
+        "terms": [
+          "Test Double",
+          "Mock Object"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Got it. One unit test, one test double.",
+        "terms": [
+          "Unit Test",
+          "Test Double"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "And keep each unit test fast, under a second.",
+        "terms": [
+          "Unit Test"
+        ]
+      }
+    ],
+    "code": "protocol Mailer { func send(_ s: String) }\nclass MockMailer: Mailer {\n    var sent: [String] = []\n    func send(_ s: String) { sent.append(s) }\n}",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "Unit Test",
+      "lines": [
+        {
+          "text": "I wrote a unit test for the price calculator."
+        }
+      ],
+      "title": "I wrote a unit test for the price calculator. #Shorts",
+      "description": "I wrote a unit test for the price calculator.\n\nUnit Test - A small automatic check that proves one piece of code works.\n한국어: Unit Test: 코드 한 조각이 제대로 동작하는지 증명하는 작은 자동 검사\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "Test Double",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Do I need the real server in my test?"
+        },
+        {
+          "speaker": "B",
+          "text": "No. Use a test double."
+        }
+      ],
+      "title": "Do I need the real server in my test? / No. Use a test double. #Shorts",
+      "description": "Do I need the real server in my test? / No. Use a test double.\n\nTest Double - A fake object that stands in for a real one during a test.\n한국어: Test Double: 테스트 동안 진짜 객체를 대신하는 가짜 객체\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Mock Object",
+      "lines": [
+        {
+          "text": "The mock object shows we sent only one email."
+        }
+      ],
+      "title": "The mock object shows we sent only one email. #Shorts",
+      "description": "The mock object shows we sent only one email.\n\nMock Object - A fake object that also records how it was used, so a test can check the calls.\n한국어: Mock Object: 사용된 방식을 기록해서 테스트가 호출을 확인할 수 있게 하는 가짜 객체\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "Stop sending real emails in tests. Use a test double."
+}

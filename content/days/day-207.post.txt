@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 207
+
+Timeout
+- The longest time a request may wait before the app gives up.
+- Example: "Set a timeout of ten seconds for this request."
+
+Retry
+- The step of sending a failed request again, often after a short wait.
+- Example: "Add a retry for the weak Wi-Fi case."
+
+URLError
+- The error type for network problems, like no internet or a lost connection.
+- Example: "Catch the URLError and show a friendly message."
+
+
+Quiz ①
+What do you call the step of sending a failed request again, often after a short wait?
+a) Timeout
+b) Retry
+c) URLError
+
+Quiz ②
+What do you call the longest time a request may wait before the app gives up?
+a) Timeout
+b) Retry
+c) URLError
+
+Quiz ③
+What do you call the error type for network problems, like no internet or a lost connection?
+a) Timeout
+b) Retry
+c) URLError
