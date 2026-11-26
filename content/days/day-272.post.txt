@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 272
+
+AsyncThrowingStream
+- An async sequence you build by yielding values by hand, which can also end with a thrown error.
+- Example: "Use an AsyncThrowingStream when the progress can fail."
+
+Stream Continuation
+- The handle passed into a stream closure that you use to yield values and finish the stream.
+- Example: "Call yield on the stream continuation for each value."
+
+Buffering Policy
+- A rule that decides how many yielded values a stream keeps when nobody is reading yet.
+- Example: "Set a small buffering policy so old values are dropped."
+
+
+Quiz ①
+What do you call the handle passed into a stream closure that you use to yield values and finish the stream?
+a) AsyncThrowingStream
+b) Stream Continuation
+c) Buffering Policy
+
+Quiz ②
+What do you call a rule that decides how many yielded values a stream keeps when nobody is reading yet?
+a) Stream Continuation
+b) AsyncThrowingStream
+c) Buffering Policy
+
+Quiz ③
+What do you call an async sequence you build by yielding values by hand, which can also end with a thrown error?
+a) AsyncThrowingStream
+b) Buffering Policy
+c) Stream Continuation

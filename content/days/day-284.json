@@ -1,0 +1,232 @@
+{
+  "day": 284,
+  "phase": "6. Concurrency",
+  "theme": "Bridging callbacks to async: completion handler, callback bridging and resume once",
+  "terms": [
+    {
+      "term": "Completion Handler",
+      "definition": "A closure you pass to a function, which the function calls later when its work is done.",
+      "example": "The old SDK takes a completion handler.",
+      "code": "func load(done: (Int) -> Void) {\n    done(42)\n}\nload { print($0) }",
+      "output": "42"
+    },
+    {
+      "term": "Callback Bridging",
+      "definition": "Wrapping an old callback API in an async function, so callers can simply use await.",
+      "example": "Callback bridging removes the nested closures.",
+      "code": "func old(_ f: @escaping (Int) -> Void) { f(42) }\nfunc modern() async -> Int {\n    await withCheckedContinuation { c in\n        old { c.resume(returning: $0) } }\n}\nprint(await modern())",
+      "output": "42"
+    },
+    {
+      "term": "Resume Once",
+      "definition": "The rule that a continuation must be resumed exactly one time, never zero times and never twice.",
+      "example": "Check every branch for resume once.",
+      "code": "func get(_ ok: Bool) async -> String {\n    await withCheckedContinuation { c in\n        if ok { c.resume(returning: \"yes\") }\n        else { c.resume(returning: \"no\") } }\n}\nprint(await get(true))",
+      "output": "yes"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What do you call wrapping an old callback API in an async function, so callers can simply use await?",
+      "options": [
+        "Completion Handler",
+        "Callback Bridging",
+        "Resume Once"
+      ],
+      "answer": "b"
+    },
+    {
+      "question": "What do you call the rule that a continuation must be resumed exactly one time, never zero times and never twice?",
+      "options": [
+        "Callback Bridging",
+        "Completion Handler",
+        "Resume Once"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "What do you call a closure you pass to a function, which the function calls later when its work is done?",
+      "options": [
+        "Completion Handler",
+        "Resume Once",
+        "Callback Bridging"
+      ],
+      "answer": "a"
+    }
+  ],
+  "video": {
+    "title": "Completion Handler, Callback Bridging & Resume Once | Day 284",
+    "description": "Learn to explain how to talk about wrapping an old callback API so other code can simply await it: Completion Handler, Callback Bridging & Resume Once, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nCompletion Handler - A closure you pass to a function, which the function calls later when its work is done.\nCallback Bridging - Wrapping an old callback API in an async function, so callers can simply use await.\nResume Once - The rule that a continuation must be resumed exactly one time, never zero times and never twice.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 284 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "Completion Handler",
+      "Callback Bridging",
+      "Resume Once",
+      "completion handler",
+      "callback bridging",
+      "resume once",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "iOS Completion Handler, Callback Bridging & Resume Once | Day 284",
+      "description": "Explain Completion Handler, Callback Bridging & Resume Once in iOS by listening to a real code chat between two iOS devs.\nCompletion Handler, Callback Bridging, Resume Once 표현을 영어 대화로 익혀요.\n\nCompletion Handler - A closure you pass to a function, which the function calls later when its work is done.\n한국어: Completion Handler: 함수에 전달하는 클로저로, 작업이 끝나면 함수가 나중에 호출함\n\nCallback Bridging - Wrapping an old callback API in an async function, so callers can simply use await.\n한국어: Callback Bridging: 오래된 콜백 API를 async 함수로 감싸서 호출하는 쪽이 await를 쓰게 하는 것\n\nResume Once - The rule that a continuation must be resumed exactly one time, never zero times and never twice.\n한국어: Resume Once: 컨티뉴에이션을 정확히 한 번만 재개해야 한다는 규칙으로, 0번도 두 번도 안 됨\n\nIn this video, Mina and Jake talk about wrapping an old callback API in an async function, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 284 of the iOS Daily English series.\n\n#Swift #SwiftConcurrency #EnglishForDevelopers",
+      "tags": [
+        "Completion Handler",
+        "Callback Bridging",
+        "Resume Once",
+        "Swift concurrency",
+        "iOS 동시성",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "iOS Daily English"
+      ],
+      "hook": "Can you explain Completion Handler, Callback Bridging and Resume Once in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "Wrap the old callback API",
+    "setting": "Modernizing a legacy SDK call",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, the old SDK still takes a completion handler, and I want to use await.",
+        "terms": [
+          "Completion Handler"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "A completion handler is a closure the function calls later when the work is done.",
+        "terms": [
+          "Completion Handler"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Right. How do I get rid of the nested closures?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Do callback bridging. Wrap `old` in an async function with a continuation.",
+        "terms": [
+          "Callback Bridging"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "I wrote `modern`, and it works. But sometimes the app hangs.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Check the error path. Does every branch call `resume`?",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "No. When the SDK returns an error, I do nothing.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "That is the bug. The rule is resume once, never zero times.",
+        "terms": [
+          "Resume Once"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "And not twice either, I guess?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Right. Resuming twice is a crash. So resume once on every path.",
+        "terms": [
+          "Resume Once"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Got it. I will bridge the completion handler and test both paths.",
+        "terms": [
+          "Completion Handler"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Good. Callback bridging is simple when you resume once.",
+        "terms": [
+          "Callback Bridging",
+          "Resume Once"
+        ]
+      }
+    ],
+    "code": "func old(_ f: @escaping (Int) -> Void) { f(42) }\nfunc modern() async -> Int {\n    await withCheckedContinuation { c in\n        old { c.resume(returning: $0) } }\n}\nprint(await modern())",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "Completion Handler",
+      "lines": [
+        {
+          "text": "The old SDK takes a completion handler."
+        }
+      ],
+      "title": "The old SDK takes a completion handler. #Shorts",
+      "description": "The old SDK takes a completion handler.\n\nCompletion Handler - A closure you pass to a function, which the function calls later when its work is done.\n한국어: Completion Handler: 함수에 전달하는 클로저로, 작업이 끝나면 함수가 나중에 호출함\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "Callback Bridging",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "How do I use await with an old API?"
+        },
+        {
+          "speaker": "B",
+          "text": "Use callback bridging."
+        }
+      ],
+      "title": "How do I use await with an old API? / Use callback bridging. #Shorts",
+      "description": "How do I use await with an old API? / Use callback bridging.\n\nCallback Bridging - Wrapping an old callback API in an async function, so callers can simply use await.\n한국어: Callback Bridging: 오래된 콜백 API를 async 함수로 감싸서 호출하는 쪽이 await를 쓰게 하는 것\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Resume Once",
+      "lines": [
+        {
+          "text": "Check every branch for resume once."
+        }
+      ],
+      "title": "Check every branch for resume once. #Shorts",
+      "description": "Check every branch for resume once.\n\nResume Once - The rule that a continuation must be resumed exactly one time, never zero times and never twice.\n한국어: Resume Once: 컨티뉴에이션을 정확히 한 번만 재개해야 한다는 규칙으로, 0번도 두 번도 안 됨\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "Wrap callbacks in async."
+}

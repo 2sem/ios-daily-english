@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 277
+
+measure
+- A clock method that runs a closure and returns how long it took as a Duration.
+- Example: "Wrap the slow call in measure."
+
+Instant
+- A single point in time on a clock, which you can compare or move by a Duration.
+- Example: "Store the start Instant, then compare it later."
+
+SuspendingClock
+- A clock that stops counting while the device sleeps, so it shows time spent awake.
+- Example: "Use SuspendingClock to time only the active work."
+
+
+Quiz ①
+What do you call a single point in time on a clock, which you can compare or move by a Duration?
+a) measure
+b) Instant
+c) SuspendingClock
+
+Quiz ②
+What do you call a clock that stops counting while the device sleeps, so it shows time spent awake?
+a) Instant
+b) measure
+c) SuspendingClock
+
+Quiz ③
+What do you call a clock method that runs a closure and returns how long it took as a Duration?
+a) measure
+b) SuspendingClock
+c) Instant

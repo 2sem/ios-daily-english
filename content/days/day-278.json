@@ -1,0 +1,232 @@
+{
+  "day": 278,
+  "phase": "6. Concurrency",
+  "theme": "The Synchronization module: Mutex, withLock and Atomic",
+  "terms": [
+    {
+      "term": "Mutex",
+      "definition": "A lock from the Synchronization module that lets only one thread use a protected value at a time.",
+      "example": "Store the shared array inside a Mutex.",
+      "code": "import Synchronization\nfinal class C: Sendable { let n = Mutex(0) }\nlet c = C()\nc.n.withLock { $0 += 1 }\nprint(c.n.withLock { $0 })",
+      "output": "1"
+    },
+    {
+      "term": "withLock",
+      "definition": "A method that locks a mutex, runs your closure on the protected value and then unlocks it.",
+      "example": "Read the count inside withLock, never outside.",
+      "code": "import Synchronization\nlet m = Mutex(10)\nlet r = m.withLock { v in v * 2 }\nprint(r)",
+      "output": "20"
+    },
+    {
+      "term": "Atomic",
+      "definition": "A type that lets many threads read and change a simple number safely, with no lock.",
+      "example": "Use an Atomic for a simple hit counter.",
+      "code": "import Synchronization\nlet hits = Atomic<Int>(0)\nhits.add(1, ordering: .relaxed)\nprint(hits.load(ordering: .relaxed))",
+      "output": "1"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What do you call a method that locks a mutex, runs your closure on the protected value and then unlocks it?",
+      "options": [
+        "Mutex",
+        "withLock",
+        "Atomic"
+      ],
+      "answer": "b"
+    },
+    {
+      "question": "What do you call a type that lets many threads read and change a simple number safely, with no lock?",
+      "options": [
+        "withLock",
+        "Mutex",
+        "Atomic"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "What do you call a lock from the Synchronization module that lets only one thread use a protected value at a time?",
+      "options": [
+        "Mutex",
+        "Atomic",
+        "withLock"
+      ],
+      "answer": "a"
+    }
+  ],
+  "video": {
+    "title": "Mutex, withLock & Atomic | Day 278",
+    "description": "Learn to explain how to talk about locks and atomic values that protect shared data without an actor: Mutex, withLock & Atomic, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nMutex - A lock from the Synchronization module that lets only one thread use a protected value at a time.\nwithLock - A method that locks a mutex, runs your closure on the protected value and then unlocks it.\nAtomic - A type that lets many threads read and change a simple number safely, with no lock.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 278 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "Mutex",
+      "withLock",
+      "Atomic",
+      "mutex",
+      "withlock",
+      "atomic",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "iOS Mutex, withLock & Atomic | Day 278",
+      "description": "Explain Mutex, withLock & Atomic in iOS by listening to a real code chat between two iOS devs.\nMutex, withLock, Atomic 표현을 영어 대화로 익혀요.\n\nMutex - A lock from the Synchronization module that lets only one thread use a protected value at a time.\n한국어: Mutex: Synchronization 모듈의 락으로, 보호하는 값을 한 번에 한 스레드만 쓰게 함\n\nwithLock - A method that locks a mutex, runs your closure on the protected value and then unlocks it.\n한국어: withLock: 뮤텍스를 잠그고 보호된 값으로 클로저를 실행한 뒤 다시 푸는 메서드\n\nAtomic - A type that lets many threads read and change a simple number safely, with no lock.\n한국어: Atomic: 락 없이 여러 스레드가 단순한 숫자를 안전하게 읽고 바꾸게 해 주는 타입\n\nIn this video, Mina and Jake talk about replacing an old lock with the Synchronization module, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 278 of the iOS Daily English series.\n\n#Swift #SwiftConcurrency #EnglishForDevelopers",
+      "tags": [
+        "Mutex",
+        "withLock",
+        "Atomic",
+        "Swift concurrency",
+        "iOS 동시성",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "iOS Daily English"
+      ],
+      "hook": "Can you explain Mutex, withLock and Atomic in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "A modern lock for shared data",
+    "setting": "Replacing NSLock in a small cache",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, I want to remove NSLock from our small cache.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Use a Mutex. It is a lock from the Synchronization module, and it wraps the value it protects.",
+        "terms": [
+          "Mutex"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "How do I reach the value inside?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Only through withLock. It locks, runs your closure and unlocks.",
+        "terms": [
+          "withLock"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "So I cannot forget to unlock?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Right. That is the big win over a manual lock.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "I also have a hit counter. Does it need a lock?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "No, use an Atomic. Many threads can change a simple number with no lock.",
+        "terms": [
+          "Atomic"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Can I use Atomic for the names array too?",
+        "terms": [
+          "Atomic"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "No, an Atomic is for simple values. Keep the array in a Mutex.",
+        "terms": [
+          "Mutex",
+          "Atomic"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "OK. A Mutex with withLock for the array, and an Atomic for the counter.",
+        "terms": [
+          "Mutex",
+          "withLock",
+          "Atomic"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Exactly.",
+        "terms": []
+      }
+    ],
+    "code": "import Synchronization\nlet hits = Atomic<Int>(0)\nlet names = Mutex([String]())\nnames.withLock { $0.append(\"a\") }\nhits.add(1, ordering: .relaxed)",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "Mutex",
+      "lines": [
+        {
+          "text": "Store the shared array inside a Mutex."
+        }
+      ],
+      "title": "Store the shared array inside a Mutex. #Shorts",
+      "description": "Store the shared array inside a Mutex.\n\nMutex - A lock from the Synchronization module that lets only one thread use a protected value at a time.\n한국어: Mutex: Synchronization 모듈의 락으로, 보호하는 값을 한 번에 한 스레드만 쓰게 함\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "withLock",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "How do I read the protected value?"
+        },
+        {
+          "speaker": "B",
+          "text": "Use withLock, never outside."
+        }
+      ],
+      "title": "How do I read the protected value? / Use withLock, never outside. #Shorts",
+      "description": "How do I read the protected value? / Use withLock, never outside.\n\nwithLock - A method that locks a mutex, runs your closure on the protected value and then unlocks it.\n한국어: withLock: 뮤텍스를 잠그고 보호된 값으로 클로저를 실행한 뒤 다시 푸는 메서드\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Atomic",
+      "lines": [
+        {
+          "text": "Use an Atomic for a simple hit counter."
+        }
+      ],
+      "title": "Use an Atomic for a simple hit counter. #Shorts",
+      "description": "Use an Atomic for a simple hit counter.\n\nAtomic - A type that lets many threads read and change a simple number safely, with no lock.\n한국어: Atomic: 락 없이 여러 스레드가 단순한 숫자를 안전하게 읽고 바꾸게 해 주는 타입\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "Lock data the modern way."
+}

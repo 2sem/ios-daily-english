@@ -1,0 +1,228 @@
+{
+  "day": 274,
+  "phase": "6. Concurrency",
+  "theme": "Cooperative cancellation: isCancelled, checkCancellation and a cancellation handler",
+  "terms": [
+    {
+      "term": "isCancelled",
+      "definition": "A task property that is true once someone has asked the task to stop.",
+      "example": "Check isCancelled inside the long loop.",
+      "code": "let t = Task {\n    while !Task.isCancelled {\n        await Task.yield() }\n    print(\"stopped\") }\nt.cancel()\nawait t.value",
+      "output": "stopped"
+    },
+    {
+      "term": "checkCancellation",
+      "definition": "A call that throws an error when the current task was cancelled, so the work stops early.",
+      "example": "Call checkCancellation before each slow step.",
+      "code": "let t = Task {\n    while true { try Task.checkCancellation() }\n}\nt.cancel()\ndo { try await t.value }\ncatch { print(\"cancelled\") }",
+      "output": "cancelled"
+    },
+    {
+      "term": "withTaskCancellationHandler",
+      "definition": "A function that runs your cleanup closure right away when the surrounding task is cancelled.",
+      "example": "Close the connection inside withTaskCancellationHandler.",
+      "code": "let t = Task {\n    await withTaskCancellationHandler {\n        try? await Task.sleep(for: .seconds(5))\n    } onCancel: { print(\"cleanup\") } }\nt.cancel()\nawait t.value",
+      "output": "cleanup"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What do you call a call that throws an error when the current task was cancelled, so the work stops early?",
+      "options": [
+        "isCancelled",
+        "checkCancellation",
+        "withTaskCancellationHandler"
+      ],
+      "answer": "b"
+    },
+    {
+      "question": "What do you call a function that runs your cleanup closure right away when the surrounding task is cancelled?",
+      "options": [
+        "checkCancellation",
+        "isCancelled",
+        "withTaskCancellationHandler"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "What do you call a task property that is true once someone has asked the task to stop?",
+      "options": [
+        "isCancelled",
+        "withTaskCancellationHandler",
+        "checkCancellation"
+      ],
+      "answer": "a"
+    }
+  ],
+  "video": {
+    "title": "isCancelled, checkCancellation & withTaskCancellationHandler | Day 274",
+    "description": "Learn to explain how to say that a task should stop, check for a stop request and clean up when it is cancelled: isCancelled, checkCancellation & withTaskCancellationHandler, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nisCancelled - A task property that is true once someone has asked the task to stop.\ncheckCancellation - A call that throws an error when the current task was cancelled, so the work stops early.\nwithTaskCancellationHandler - A function that runs your cleanup closure right away when the surrounding task is cancelled.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 274 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "isCancelled",
+      "checkCancellation",
+      "withTaskCancellationHandler",
+      "iscancelled",
+      "checkcancellation",
+      "withtaskcancellationhandler",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "iOS isCancelled, checkCancellation & withTaskCancellationHandler | Day 274",
+      "description": "Explain isCancelled, checkCancellation & withTaskCancellationHandler in iOS by listening to a real code chat between two iOS devs.\nisCancelled, checkCancellation, withTaskCancellationHandler 표현을 영어 대화로 익혀요.\n\nisCancelled - A task property that is true once someone has asked the task to stop.\n한국어: isCancelled: 누군가 태스크에 중단을 요청하면 true가 되는 태스크 속성\n\ncheckCancellation - A call that throws an error when the current task was cancelled, so the work stops early.\n한국어: checkCancellation: 현재 태스크가 취소되었으면 에러를 던져 작업을 일찍 멈추게 하는 호출\n\nwithTaskCancellationHandler - A function that runs your cleanup closure right away when the surrounding task is cancelled.\n한국어: withTaskCancellationHandler: 둘러싼 태스크가 취소되면 정리용 클로저를 즉시 실행하는 함수\n\nIn this video, Mina and Jake talk about a download that keeps running after the user leaves the screen, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 274 of the iOS Daily English series.\n\n#Swift #SwiftConcurrency #EnglishForDevelopers",
+      "tags": [
+        "isCancelled",
+        "checkCancellation",
+        "withTaskCancellationHandler",
+        "Swift concurrency",
+        "iOS 동시성",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "iOS Daily English"
+      ],
+      "hook": "Can you explain isCancelled, checkCancellation and withTaskCancellationHandler in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "The download that never stops",
+    "setting": "Fixing a task that ignores cancellation",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, users leave the screen, but my download keeps going.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Cancel the task. Cancellation is cooperative, so your code must look for it.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "How do I look for it?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Read isCancelled. It is true once someone has asked the task to stop.",
+        "terms": [
+          "isCancelled"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "And if I want to stop with an error?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Call checkCancellation. It throws when the task was cancelled.",
+        "terms": [
+          "checkCancellation"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "What about closing the connection?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Use withTaskCancellationHandler. Its `onCancel` closure runs right away on cancel.",
+        "terms": [
+          "withTaskCancellationHandler"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Even while the task is waiting?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Yes. isCancelled only helps when you look at it. The handler fires by itself.",
+        "terms": [
+          "isCancelled"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "So withTaskCancellationHandler for cleanup, and checkCancellation to stop early.",
+        "terms": [
+          "checkCancellation",
+          "withTaskCancellationHandler"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Exactly.",
+        "terms": []
+      }
+    ],
+    "code": "let t = Task {\n    await withTaskCancellationHandler {\n        guard !Task.isCancelled else { return }\n        try? Task.checkCancellation()\n    } onCancel: { print(\"cleanup\") } }\nt.cancel()",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "isCancelled",
+      "lines": [
+        {
+          "text": "Check isCancelled inside the long loop."
+        }
+      ],
+      "title": "Check isCancelled inside the long loop. #Shorts",
+      "description": "Check isCancelled inside the long loop.\n\nisCancelled - A task property that is true once someone has asked the task to stop.\n한국어: isCancelled: 누군가 태스크에 중단을 요청하면 true가 되는 태스크 속성\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "checkCancellation",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "How do I stop early with an error?"
+        },
+        {
+          "speaker": "B",
+          "text": "Call checkCancellation."
+        }
+      ],
+      "title": "How do I stop early with an error? / Call checkCancellation. #Shorts",
+      "description": "How do I stop early with an error? / Call checkCancellation.\n\ncheckCancellation - A call that throws an error when the current task was cancelled, so the work stops early.\n한국어: checkCancellation: 현재 태스크가 취소되었으면 에러를 던져 작업을 일찍 멈추게 하는 호출\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "withTaskCancellationHandler",
+      "lines": [
+        {
+          "text": "Close the connection inside withTaskCancellationHandler."
+        }
+      ],
+      "title": "Close the connection inside withTaskCancellationHandler. #Shorts",
+      "description": "Close the connection inside withTaskCancellationHandler.\n\nwithTaskCancellationHandler - A function that runs your cleanup closure right away when the surrounding task is cancelled.\n한국어: withTaskCancellationHandler: 둘러싼 태스크가 취소되면 정리용 클로저를 즉시 실행하는 함수\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "Cancelled? Check for it."
+}

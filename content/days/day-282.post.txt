@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 282
+
+@concurrent
+- An attribute that makes an async function run off the caller's actor, on the background pool.
+- Example: "Mark the image resize as @concurrent."
+
+Nonisolated Nonsending
+- A mode for an async function that keeps it running on the caller's actor instead of hopping away.
+- Example: "A nonisolated nonsending function stays on the main actor."
+
+Caller Isolation
+- The actor a function was called from, which a nonsending async function keeps using.
+- Example: "The helper inherits the caller isolation."
+
+
+Quiz ①
+What do you call a mode for an async function that keeps it running on the caller's actor instead of hopping away?
+a) @concurrent
+b) Nonisolated Nonsending
+c) Caller Isolation
+
+Quiz ②
+What do you call the actor a function was called from, which a nonsending async function keeps using?
+a) Nonisolated Nonsending
+b) @concurrent
+c) Caller Isolation
+
+Quiz ③
+What do you call an attribute that makes an async function run off the caller's actor, on the background pool?
+a) @concurrent
+b) Caller Isolation
+c) Nonisolated Nonsending

@@ -1,0 +1,233 @@
+{
+  "day": 287,
+  "phase": "6. Concurrency",
+  "theme": "UI state with concurrency: loading state, MainActor view model and MainActor.run",
+  "terms": [
+    {
+      "term": "Loading State",
+      "definition": "A value, often an enum, that says whether a screen is idle, loading or done.",
+      "example": "Add a loading state so the spinner shows.",
+      "code": "enum LoadState { case idle, loading, done }\nvar state = LoadState.idle\nstate = .loading\nprint(state)",
+      "output": "loading"
+    },
+    {
+      "term": "MainActor View Model",
+      "definition": "An observable class marked @MainActor, so every change to its screen state happens on the main actor.",
+      "example": "Make the MainActor view model own the screen state.",
+      "code": "@MainActor final class Model {\n    var title = \"Feed\"\n    func refresh() async { title = \"New\" }\n}\nlet m = Model(); await m.refresh()\nprint(m.title)",
+      "output": "New"
+    },
+    {
+      "term": "MainActor.run",
+      "definition": "A static method that runs a closure on the main actor and gives back its result.",
+      "example": "Use MainActor.run to hop back for one update.",
+      "code": "let v = await Task.detached {\n    await MainActor.run { \"ui\" }\n}.value\nprint(v)",
+      "output": "ui"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What do you call an observable class marked @MainActor, so every change to its screen state happens on the main actor?",
+      "options": [
+        "Loading State",
+        "MainActor View Model",
+        "MainActor.run"
+      ],
+      "answer": "b"
+    },
+    {
+      "question": "What do you call a static method that runs a closure on the main actor and gives back its result?",
+      "options": [
+        "MainActor View Model",
+        "Loading State",
+        "MainActor.run"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "What do you call a value, often an enum, that says whether a screen is idle, loading or done?",
+      "options": [
+        "Loading State",
+        "MainActor.run",
+        "MainActor View Model"
+      ],
+      "answer": "a"
+    }
+  ],
+  "video": {
+    "title": "Loading State, MainActor View Model & MainActor.run | Day 287",
+    "description": "Learn to explain how to talk about keeping screen state on the main actor while async work runs elsewhere: Loading State, MainActor View Model & MainActor.run, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nLoading State - A value, often an enum, that says whether a screen is idle, loading or done.\nMainActor View Model - An observable class marked @MainActor, so every change to its screen state happens on the main actor.\nMainActor.run - A static method that runs a closure on the main actor and gives back its result.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 287 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "Loading State",
+      "MainActor View Model",
+      "MainActor.run",
+      "loading state",
+      "mainactor view model",
+      "mainactor.run",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "iOS Loading State, MainActor View Model & MainActor.run | Day 287",
+      "description": "Explain Loading State, MainActor View Model & MainActor.run in iOS by listening to a real code chat between two iOS devs.\nLoading State, MainActor View Model, MainActor.run 표현을 영어 대화로 익혀요.\n\nLoading State - A value, often an enum, that says whether a screen is idle, loading or done.\n한국어: Loading State: 화면이 대기, 로딩 중, 완료 중 어느 상태인지 나타내는 값(주로 enum)\n\nMainActor View Model - An observable class marked @MainActor, so every change to its screen state happens on the main actor.\n한국어: MainActor View Model: @MainActor가 붙은 관찰 가능한 클래스로, 화면 상태 변경이 모두 메인 액터에서 일어남\n\nMainActor.run - A static method that runs a closure on the main actor and gives back its result.\n한국어: MainActor.run: 클로저를 메인 액터에서 실행하고 그 결과를 돌려주는 정적 메서드\n\nIn this video, Mina and Jake talk about a view model that updates the screen after async work, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 287 of the iOS Daily English series.\n\n#Swift #SwiftConcurrency #EnglishForDevelopers",
+      "tags": [
+        "Loading State",
+        "MainActor View Model",
+        "MainActor.run",
+        "Swift concurrency",
+        "iOS 동시성",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "iOS Daily English"
+      ],
+      "hook": "Can you explain Loading State, MainActor View Model and MainActor.run in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "Update the screen from async code",
+    "setting": "Reviewing a view model",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, my screen sometimes shows the old title after a refresh.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Where do you change `title`? It must change on the main actor.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "Inside an async method of my view model. It has no `@MainActor` yet.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Make it a MainActor view model. Then every change to its state happens on the main actor.",
+        "terms": [
+          "MainActor View Model"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Do I also need a loading state?",
+        "terms": [
+          "Loading State"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Yes. A loading state says if the screen is idle, loading or done. An enum works well.",
+        "terms": [
+          "Loading State"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "OK. And what if a background task needs to update one label?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Use MainActor.run. It runs a closure on the main actor and returns its result.",
+        "terms": [
+          "MainActor.run"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Should I use MainActor.run everywhere?",
+        "terms": [
+          "MainActor.run"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "No. If the class is a MainActor view model, you rarely need it.",
+        "terms": [
+          "MainActor View Model"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Got it. Loading state, MainActor view model, and MainActor.run only for edge cases.",
+        "terms": [
+          "Loading State",
+          "MainActor View Model",
+          "MainActor.run"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Exactly.",
+        "terms": []
+      }
+    ],
+    "code": "@MainActor final class Model {\n    var title = \"Feed\"\n    func refresh() async { title = \"New\" }\n}\nlet m = Model(); await m.refresh()\nprint(m.title)",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "Loading State",
+      "lines": [
+        {
+          "text": "Add a loading state so the spinner shows."
+        }
+      ],
+      "title": "Add a loading state so the spinner shows. #Shorts",
+      "description": "Add a loading state so the spinner shows.\n\nLoading State - A value, often an enum, that says whether a screen is idle, loading or done.\n한국어: Loading State: 화면이 대기, 로딩 중, 완료 중 어느 상태인지 나타내는 값(주로 enum)\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "MainActor View Model",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Where should screen state live?"
+        },
+        {
+          "speaker": "B",
+          "text": "In a MainActor view model."
+        }
+      ],
+      "title": "Where should screen state live? / In a MainActor view model. #Shorts",
+      "description": "Where should screen state live? / In a MainActor view model.\n\nMainActor View Model - An observable class marked @MainActor, so every change to its screen state happens on the main actor.\n한국어: MainActor View Model: @MainActor가 붙은 관찰 가능한 클래스로, 화면 상태 변경이 모두 메인 액터에서 일어남\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "MainActor.run",
+      "lines": [
+        {
+          "text": "Use MainActor.run to hop back for one update."
+        }
+      ],
+      "title": "Use MainActor.run to hop back for one update. #Shorts",
+      "description": "Use MainActor.run to hop back for one update.\n\nMainActor.run - A static method that runs a closure on the main actor and gives back its result.\n한국어: MainActor.run: 클로저를 메인 액터에서 실행하고 그 결과를 돌려주는 정적 메서드\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "UI state belongs on the main actor."
+}

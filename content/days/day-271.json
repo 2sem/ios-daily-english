@@ -1,0 +1,230 @@
+{
+  "day": 271,
+  "phase": "6. Concurrency",
+  "theme": "Async properties, async throws and async initializers",
+  "terms": [
+    {
+      "term": "Async Property",
+      "definition": "A read-only property whose getter is marked async, so you must await it.",
+      "example": "You need await to read an async property.",
+      "code": "struct Weather {\n    var temp: Int { get async { 21 } }\n}\nlet w = Weather()\nprint(await w.temp)",
+      "output": "21"
+    },
+    {
+      "term": "Async Throws",
+      "definition": "Two keywords that mark a function that can both suspend and fail, so callers write try await.",
+      "example": "Mark the loader async throws and handle the error.",
+      "code": "struct Oops: Error {}\nfunc load(_ s: String) async throws -> Int {\n    if s.isEmpty { throw Oops() }\n    return s.count\n}\nprint(try await load(\"abc\"))",
+      "output": "3"
+    },
+    {
+      "term": "Async Initializer",
+      "definition": "An initializer marked async, so creating the value can wait for work and needs await.",
+      "example": "An async initializer lets the init load data first.",
+      "code": "struct Profile {\n    let name: String\n    init() async { name = \"Mina\" }\n}\nlet p = await Profile()\nprint(p.name)",
+      "output": "Mina"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What do you call two keywords that mark a function that can both suspend and fail, so callers write try await?",
+      "options": [
+        "Async Property",
+        "Async Throws",
+        "Async Initializer"
+      ],
+      "answer": "b"
+    },
+    {
+      "question": "What do you call an initializer marked async, so creating the value can wait for work and needs await?",
+      "options": [
+        "Async Throws",
+        "Async Property",
+        "Async Initializer"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "What do you call a read-only property whose getter is marked async, so you must await it?",
+      "options": [
+        "Async Property",
+        "Async Initializer",
+        "Async Throws"
+      ],
+      "answer": "a"
+    }
+  ],
+  "video": {
+    "title": "Async Property, Async Throws & Async Initializer | Day 271",
+    "description": "Learn to explain how to talk about code that waits when you read a property, call a function or create a value: Async Property, Async Throws & Async Initializer, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nAsync Property - A read-only property whose getter is marked async, so you must await it.\nAsync Throws - Two keywords that mark a function that can both suspend and fail, so callers write try await.\nAsync Initializer - An initializer marked async, so creating the value can wait for work and needs await.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 271 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "Async Property",
+      "Async Throws",
+      "Async Initializer",
+      "async property",
+      "async throws",
+      "async initializer",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "iOS Async Property, Async Throws & Async Initializer | Day 271",
+      "description": "Explain Async Property, Async Throws & Async Initializer in iOS by listening to a real code chat between two iOS devs.\nAsync Property, Async Throws, Async Initializer 표현을 영어 대화로 익혀요.\n\nAsync Property - A read-only property whose getter is marked async, so you must await it.\n한국어: Async Property: getter가 async라서 읽을 때 await가 필요한 읽기 전용 프로퍼티\n\nAsync Throws - Two keywords that mark a function that can both suspend and fail, so callers write try await.\n한국어: Async Throws: 일시 중단도 되고 에러도 던질 수 있는 함수에 붙이는 두 키워드\n\nAsync Initializer - An initializer marked async, so creating the value can wait for work and needs await.\n한국어: Async Initializer: async로 표시되어 값을 만들 때 기다릴 수 있고 await가 필요한 이니셜라이저\n\nIn this video, Mina and Jake talk about why `await` is needed on a property and on a new value, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 271 of the iOS Daily English series.\n\n#Swift #SwiftConcurrency #EnglishForDevelopers",
+      "tags": [
+        "Async Property",
+        "Async Throws",
+        "Async Initializer",
+        "Swift concurrency",
+        "iOS 동시성",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "iOS Daily English"
+      ],
+      "hook": "Can you explain Async Property, Async Throws and Async Initializer in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "Why does this property need await?",
+    "setting": "A code review about async getters",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, why does Xcode ask for `await` when I read `score`?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Because `score` is an async property. Its getter can suspend, so you read it with `await`.",
+        "terms": [
+          "Async Property"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "I see. My `Profile` line shows the same error.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "That is an async initializer. Creating the value can wait, so write `await Profile()`.",
+        "terms": [
+          "Async Initializer"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "I wrote `try await p.score`, but the compiler warns me.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "This getter does not throw, so `try` is not needed. Remove it.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "Oh, I mixed it up. When do I use async throws, then?",
+        "terms": [
+          "Async Throws"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "When the work can fail, like loading a file. A getter can be async throws, too.",
+        "terms": [
+          "Async Throws"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Can an async initializer be async throws as well?",
+        "terms": [
+          "Async Throws",
+          "Async Initializer"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Yes. Then the caller writes `try await Profile()`.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "Nice. So an async property is read-only?",
+        "terms": [
+          "Async Property"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Right. It only has a getter, so keep the work small.",
+        "terms": []
+      }
+    ],
+    "code": "struct Profile {\n    var score: Int { get async { 90 } }\n    init() async { }\n}\nlet p = await Profile()\nprint(await p.score)",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "Async Property",
+      "lines": [
+        {
+          "text": "You need await to read an async property."
+        }
+      ],
+      "title": "You need await to read an async property. #Shorts",
+      "description": "You need await to read an async property.\n\nAsync Property - A read-only property whose getter is marked async, so you must await it.\n한국어: Async Property: getter가 async라서 읽을 때 await가 필요한 읽기 전용 프로퍼티\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "Async Throws",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Why does init need await?"
+        },
+        {
+          "speaker": "B",
+          "text": "It is an async initializer."
+        }
+      ],
+      "title": "Why does init need await? / It is an async initializer. #Shorts",
+      "description": "Why does init need await? / It is an async initializer.\n\nAsync Throws - Two keywords that mark a function that can both suspend and fail, so callers write try await.\n한국어: Async Throws: 일시 중단도 되고 에러도 던질 수 있는 함수에 붙이는 두 키워드\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Async Initializer",
+      "lines": [
+        {
+          "text": "Mark the loader async throws and handle the error."
+        }
+      ],
+      "title": "Mark the loader async throws and handle the error. #Shorts",
+      "description": "Mark the loader async throws and handle the error.\n\nAsync Initializer - An initializer marked async, so creating the value can wait for work and needs await.\n한국어: Async Initializer: async로 표시되어 값을 만들 때 기다릴 수 있고 await가 필요한 이니셜라이저\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "Properties can await too."
+}

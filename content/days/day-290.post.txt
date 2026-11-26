@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 290
+
+Data Race Report
+- A message from a sanitizer that names two unsynchronized accesses to the same memory.
+- Example: "Read the data race report from the top."
+
+Thread Sanitizer
+- An Xcode diagnostic that watches memory while the app runs and reports data races.
+- Example: "Turn on Thread Sanitizer in the scheme."
+
+Concurrency Instrument
+- An Instruments template that shows tasks and actors and their waits on a timeline.
+- Example: "Open the concurrency instrument to see the slow task."
+
+
+Quiz ①
+What do you call an Xcode diagnostic that watches memory while the app runs and reports data races?
+a) Data Race Report
+b) Thread Sanitizer
+c) Concurrency Instrument
+
+Quiz ②
+What do you call an Instruments template that shows tasks and actors and their waits on a timeline?
+a) Thread Sanitizer
+b) Data Race Report
+c) Concurrency Instrument
+
+Quiz ③
+What do you call a message from a sanitizer that names two unsynchronized accesses to the same memory?
+a) Data Race Report
+b) Concurrency Instrument
+c) Thread Sanitizer

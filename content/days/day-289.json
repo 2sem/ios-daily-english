@@ -1,0 +1,231 @@
+{
+  "day": 289,
+  "phase": "6. Concurrency",
+  "theme": "Swift Testing: #expect, confirmation and expected count",
+  "terms": [
+    {
+      "term": "#expect",
+      "definition": "A macro that checks a condition in a Swift Testing test and records a failure if it is false.",
+      "example": "Use #expect to check the total.",
+      "code": "import Testing\n@Test func sum() {\n    let total = [1, 2].reduce(0, +)\n    #expect(total == 3)\n}",
+      "output": "// no output"
+    },
+    {
+      "term": "Confirmation",
+      "definition": "A Swift Testing tool that counts how often an event happens while an async test runs.",
+      "example": "Use a confirmation to check that the callback runs.",
+      "code": "import Testing\n@Test func notify() async {\n    await confirmation { ok in\n        ok()\n    }\n}",
+      "output": "// no output"
+    },
+    {
+      "term": "Expected Count",
+      "definition": "The number of times a confirmation must be triggered for the test to pass.",
+      "example": "Set the expected count to two.",
+      "code": "import Testing\n@Test func twice() async {\n    await confirmation(expectedCount: 2) { ok in\n        ok(); ok()\n    }\n}",
+      "output": "// no output"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What do you call a Swift Testing tool that counts how often an event happens while an async test runs?",
+      "options": [
+        "#expect",
+        "Confirmation",
+        "Expected Count"
+      ],
+      "answer": "b"
+    },
+    {
+      "question": "What do you call the number of times a confirmation must be triggered for the test to pass?",
+      "options": [
+        "Confirmation",
+        "#expect",
+        "Expected Count"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "What do you call a macro that checks a condition in a Swift Testing test and records a failure if it is false?",
+      "options": [
+        "#expect",
+        "Expected Count",
+        "Confirmation"
+      ],
+      "answer": "a"
+    }
+  ],
+  "video": {
+    "title": "#expect, Confirmation & Expected Count | Day 289",
+    "description": "Learn to explain how to talk about checking values and counting async events in Swift Testing: #expect, Confirmation & Expected Count, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\n#expect - A macro that checks a condition in a Swift Testing test and records a failure if it is false.\nConfirmation - A Swift Testing tool that counts how often an event happens while an async test runs.\nExpected Count - The number of times a confirmation must be triggered for the test to pass.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 289 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "#expect",
+      "Confirmation",
+      "Expected Count",
+      "#expect",
+      "confirmation",
+      "expected count",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "iOS #expect, Confirmation & Expected Count | Day 289",
+      "description": "Explain #expect, Confirmation & Expected Count in iOS by listening to a real code chat between two iOS devs.\n#expect, Confirmation, Expected Count 표현을 영어 대화로 익혀요.\n\n#expect - A macro that checks a condition in a Swift Testing test and records a failure if it is false.\n한국어: #expect: Swift Testing에서 조건을 검사하고 거짓이면 실패를 기록하는 매크로\n\nConfirmation - A Swift Testing tool that counts how often an event happens while an async test runs.\n한국어: Confirmation: 비동기 테스트가 실행되는 동안 어떤 이벤트가 몇 번 일어나는지 세는 Swift Testing 도구\n\nExpected Count - The number of times a confirmation must be triggered for the test to pass.\n한국어: Expected Count: 테스트가 통과하려면 confirmation이 몇 번 호출되어야 하는지 정하는 횟수\n\nIn this video, Mina and Jake talk about testing that a callback fires exactly twice with Swift Testing, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 289 of the iOS Daily English series.\n\n#Swift #SwiftConcurrency #EnglishForDevelopers",
+      "tags": [
+        "#expect",
+        "Confirmation",
+        "Expected Count",
+        "Swift concurrency",
+        "iOS 동시성",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "iOS Daily English"
+      ],
+      "hook": "Can you explain #expect, Confirmation and Expected Count in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "Did the callback fire twice?",
+    "setting": "Moving tests from XCTest to Swift Testing",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, I move our tests from XCTest to Swift Testing. What replaces the asserts?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Use #expect. It checks a condition and records a failure if it is false.",
+        "terms": [
+          "#expect"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Nice. And the old expectation for my callback?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Use a confirmation. It counts how often an event happens while the async test runs.",
+        "terms": [
+          "Confirmation"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "In my code, I call `ok` inside the closure?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Yes. Each call to `ok` is one event.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "My callback should fire twice. Can the test check that?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Set the expected count to two. The test fails if the count is different.",
+        "terms": [
+          "Expected Count"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "What if it fires three times?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Then the confirmation fails, too. The expected count is exact.",
+        "terms": [
+          "Confirmation",
+          "Expected Count"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Good. #expect for values, a confirmation for events.",
+        "terms": [
+          "#expect",
+          "Confirmation"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "And an expected count for how many times.",
+        "terms": [
+          "Expected Count"
+        ]
+      }
+    ],
+    "code": "import Testing\n@Test func twice() async {\n    await confirmation(expectedCount: 2) { ok in\n        ok(); ok()\n    }\n}",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "#expect",
+      "lines": [
+        {
+          "text": "Use #expect to check the total."
+        }
+      ],
+      "title": "Use #expect to check the total. #Shorts",
+      "description": "Use #expect to check the total.\n\n#expect - A macro that checks a condition in a Swift Testing test and records a failure if it is false.\n한국어: #expect: Swift Testing에서 조건을 검사하고 거짓이면 실패를 기록하는 매크로\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "Confirmation",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "How do I wait for an async event?"
+        },
+        {
+          "speaker": "B",
+          "text": "Use a confirmation."
+        }
+      ],
+      "title": "How do I wait for an async event? / Use a confirmation. #Shorts",
+      "description": "How do I wait for an async event? / Use a confirmation.\n\nConfirmation - A Swift Testing tool that counts how often an event happens while an async test runs.\n한국어: Confirmation: 비동기 테스트가 실행되는 동안 어떤 이벤트가 몇 번 일어나는지 세는 Swift Testing 도구\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Expected Count",
+      "lines": [
+        {
+          "text": "Set the expected count to two."
+        }
+      ],
+      "title": "Set the expected count to two. #Shorts",
+      "description": "Set the expected count to two.\n\nExpected Count - The number of times a confirmation must be triggered for the test to pass.\n한국어: Expected Count: 테스트가 통과하려면 confirmation이 몇 번 호출되어야 하는지 정하는 횟수\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "Count async events in tests."
+}

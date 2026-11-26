@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 283
+
+Top-Level Code
+- Statements written directly in main.swift outside any function, which run in order when the program starts.
+- Example: "Top-level code is fine for a quick script."
+
+Top-Level Await
+- Using await directly in top-level code, with no async function around it.
+- Example: "Top-level await keeps the script short."
+
+Async Main
+- A main entry point marked async, so the whole program can await from its first line.
+- Example: "Make main async, then await the setup."
+
+
+Quiz ①
+What do you call using await directly in top-level code, with no async function around it?
+a) Top-Level Code
+b) Top-Level Await
+c) Async Main
+
+Quiz ②
+What do you call a main entry point marked async, so the whole program can await from its first line?
+a) Top-Level Await
+b) Top-Level Code
+c) Async Main
+
+Quiz ③
+What do you call statements written directly in main.swift outside any function, which run in order when the program starts?
+a) Top-Level Code
+b) Async Main
+c) Top-Level Await

@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 280
+
+Sendable Closure
+- A closure marked @Sendable, which promises it is safe to run on another task or thread.
+- Example: "Pass a Sendable closure to the new task."
+
+Isolated Deinit
+- A deinit marked isolated, so it runs on the actor that owns the object.
+- Example: "Use an isolated deinit to clean up on the main actor."
+
+Region-Based Isolation
+- A compiler rule that lets a value cross to another actor when nothing else can still reach it.
+- Example: "Region-based isolation allows the handoff of a fresh object."
+
+
+Quiz ①
+What do you call a deinit marked isolated, so it runs on the actor that owns the object?
+a) Sendable Closure
+b) Isolated Deinit
+c) Region-Based Isolation
+
+Quiz ②
+What do you call a compiler rule that lets a value cross to another actor when nothing else can still reach it?
+a) Isolated Deinit
+b) Sendable Closure
+c) Region-Based Isolation
+
+Quiz ③
+What do you call a closure marked @Sendable, which promises it is safe to run on another task or thread?
+a) Sendable Closure
+b) Region-Based Isolation
+c) Isolated Deinit

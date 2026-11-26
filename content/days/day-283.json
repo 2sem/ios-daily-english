@@ -1,0 +1,232 @@
+{
+  "day": 283,
+  "phase": "6. Concurrency",
+  "theme": "Program entry points: top-level code, top-level await and async main",
+  "terms": [
+    {
+      "term": "Top-Level Code",
+      "definition": "Statements written directly in main.swift outside any function, which run in order when the program starts.",
+      "example": "Top-level code is fine for a quick script.",
+      "code": "let name = \"Mina\"\nprint(\"Hello, \\(name)\")\nfor i in 1...2 { print(i) }",
+      "output": "Hello, Mina\n1\n2"
+    },
+    {
+      "term": "Top-Level Await",
+      "definition": "Using await directly in top-level code, with no async function around it.",
+      "example": "Top-level await keeps the script short.",
+      "code": "func answer() async -> Int { 42 }\nlet x = await answer()\nprint(x)",
+      "output": "42"
+    },
+    {
+      "term": "Async Main",
+      "definition": "A main entry point marked async, so the whole program can await from its first line.",
+      "example": "Make main async, then await the setup.",
+      "code": "@main\nstruct App {\n    static func main() async {\n        print(await Task { 1 }.value)\n    }\n}",
+      "output": "1"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What do you call using await directly in top-level code, with no async function around it?",
+      "options": [
+        "Top-Level Code",
+        "Top-Level Await",
+        "Async Main"
+      ],
+      "answer": "b"
+    },
+    {
+      "question": "What do you call a main entry point marked async, so the whole program can await from its first line?",
+      "options": [
+        "Top-Level Await",
+        "Top-Level Code",
+        "Async Main"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "What do you call statements written directly in main.swift outside any function, which run in order when the program starts?",
+      "options": [
+        "Top-Level Code",
+        "Async Main",
+        "Top-Level Await"
+      ],
+      "answer": "a"
+    }
+  ],
+  "video": {
+    "title": "Top-Level Code, Top-Level Await & Async Main | Day 283",
+    "description": "Learn to explain how to talk about where a Swift program starts and how to await from its first line: Top-Level Code, Top-Level Await & Async Main, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nTop-Level Code - Statements written directly in main.swift outside any function, which run in order when the program starts.\nTop-Level Await - Using await directly in top-level code, with no async function around it.\nAsync Main - A main entry point marked async, so the whole program can await from its first line.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 283 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "Top-Level Code",
+      "Top-Level Await",
+      "Async Main",
+      "top-level code",
+      "top-level await",
+      "async main",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "iOS Top-Level Code, Top-Level Await & Async Main | Day 283",
+      "description": "Explain Top-Level Code, Top-Level Await & Async Main in iOS by listening to a real code chat between two iOS devs.\nTop-Level Code, Top-Level Await, Async Main 표현을 영어 대화로 익혀요.\n\nTop-Level Code - Statements written directly in main.swift outside any function, which run in order when the program starts.\n한국어: Top-Level Code: main.swift에서 함수 밖에 직접 쓰는 문장들로, 프로그램이 시작될 때 순서대로 실행됨\n\nTop-Level Await - Using await directly in top-level code, with no async function around it.\n한국어: Top-Level Await: async 함수로 감싸지 않고 최상위 코드에서 바로 await를 쓰는 것\n\nAsync Main - A main entry point marked async, so the whole program can await from its first line.\n한국어: Async Main: async로 표시된 main 진입점으로, 프로그램이 첫 줄부터 await를 쓸 수 있게 함\n\nIn this video, Mina and Jake talk about using await at the start of a command-line tool, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 283 of the iOS Daily English series.\n\n#Swift #SwiftConcurrency #EnglishForDevelopers",
+      "tags": [
+        "Top-Level Code",
+        "Top-Level Await",
+        "Async Main",
+        "Swift concurrency",
+        "iOS 동시성",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "iOS Daily English"
+      ],
+      "hook": "Can you explain Top-Level Code, Top-Level Await and Async Main in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "Await in the first line",
+    "setting": "Writing a small command-line tool",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, I am writing a small command-line tool, and I need to call an async function.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Do it in main.swift. That file is top-level code, so statements run in order.",
+        "terms": [
+          "Top-Level Code"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Can I write `await fetch()` there?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Yes. That is top-level await. You do not need an async function around it.",
+        "terms": [
+          "Top-Level Await"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "It works. But in my other target, I use an `@main` struct, and `await` fails.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Then your `main` is not async. Write `static func main() async`.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "Is that an async main?",
+        "terms": [
+          "Async Main"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Yes. An async main lets the whole program await from its first line.",
+        "terms": [
+          "Async Main"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Oops, I forgot the `static` keyword. Now it works.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Good. Use top-level code for tiny scripts, and an async main for real tools.",
+        "terms": [
+          "Top-Level Code",
+          "Async Main"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "And top-level await is only for main.swift?",
+        "terms": [
+          "Top-Level Await"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Right, it only works in top-level code.",
+        "terms": [
+          "Top-Level Code"
+        ]
+      }
+    ],
+    "code": "func fetch() async -> Int { 42 }\n// In main.swift this is top-level code\nlet x = await fetch()\nprint(x)\n// In an app, use: static func main() async",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "Top-Level Code",
+      "lines": [
+        {
+          "text": "Top-level code is fine for a quick script."
+        }
+      ],
+      "title": "Top-level code is fine for a quick script. #Shorts",
+      "description": "Top-level code is fine for a quick script.\n\nTop-Level Code - Statements written directly in main.swift outside any function, which run in order when the program starts.\n한국어: Top-Level Code: main.swift에서 함수 밖에 직접 쓰는 문장들로, 프로그램이 시작될 때 순서대로 실행됨\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "Top-Level Await",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Where can I write await at line one?"
+        },
+        {
+          "speaker": "B",
+          "text": "Use top-level await in main.swift."
+        }
+      ],
+      "title": "Where can I write await at line one? / Use top-level await in main.swift. #Shorts",
+      "description": "Where can I write await at line one? / Use top-level await in main.swift.\n\nTop-Level Await - Using await directly in top-level code, with no async function around it.\n한국어: Top-Level Await: async 함수로 감싸지 않고 최상위 코드에서 바로 await를 쓰는 것\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Async Main",
+      "lines": [
+        {
+          "text": "Make main async, then await the setup."
+        }
+      ],
+      "title": "Make main async, then await the setup. #Shorts",
+      "description": "Make main async, then await the setup.\n\nAsync Main - A main entry point marked async, so the whole program can await from its first line.\n한국어: Async Main: async로 표시된 main 진입점으로, 프로그램이 첫 줄부터 await를 쓸 수 있게 함\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "Await from line one."
+}

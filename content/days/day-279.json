@@ -1,0 +1,233 @@
+{
+  "day": 279,
+  "phase": "6. Concurrency",
+  "theme": "Atomic details: counter, memory ordering and compare and exchange",
+  "terms": [
+    {
+      "term": "Atomic Counter",
+      "definition": "A number kept in an atomic type that many tasks can add to safely.",
+      "example": "An atomic counter is enough for simple stats.",
+      "code": "import Dispatch; import Synchronization\nlet n = Atomic<Int>(0)\nDispatchQueue.concurrentPerform(\n    iterations: 100) { _ in\n    n.add(1, ordering: .relaxed) }\nprint(n.load(ordering: .relaxed))",
+      "output": "100"
+    },
+    {
+      "term": "Memory Ordering",
+      "definition": "A setting on an atomic call that says how strictly other threads must see its changes.",
+      "example": "Pick the weakest memory ordering that is still correct.",
+      "code": "import Synchronization\nlet flag = Atomic<Bool>(false)\nflag.store(true, ordering: .releasing)\nprint(flag.load(ordering: .acquiring))",
+      "output": "true"
+    },
+    {
+      "term": "Compare and Exchange",
+      "definition": "An atomic step that changes a value only if it still equals the one you expected.",
+      "example": "Use compare and exchange to claim the job once.",
+      "code": "import Synchronization\nlet n = Atomic<Int>(5)\nlet a = n.compareExchange(\n    expected: 5, desired: 6, ordering: .relaxed)\nprint(a.exchanged, a.original)",
+      "output": "true 5"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What do you call a setting on an atomic call that says how strictly other threads must see its changes?",
+      "options": [
+        "Atomic Counter",
+        "Memory Ordering",
+        "Compare and Exchange"
+      ],
+      "answer": "b"
+    },
+    {
+      "question": "What do you call an atomic step that changes a value only if it still equals the one you expected?",
+      "options": [
+        "Memory Ordering",
+        "Atomic Counter",
+        "Compare and Exchange"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "What do you call a number kept in an atomic type that many tasks can add to safely?",
+      "options": [
+        "Atomic Counter",
+        "Compare and Exchange",
+        "Memory Ordering"
+      ],
+      "answer": "a"
+    }
+  ],
+  "video": {
+    "title": "Atomic Counter, Memory Ordering & Compare and Exchange | Day 279",
+    "description": "Learn to explain how to talk about counting across threads, how strictly changes are seen and conditional updates: Atomic Counter, Memory Ordering & Compare and Exchange, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nAtomic Counter - A number kept in an atomic type that many tasks can add to safely.\nMemory Ordering - A setting on an atomic call that says how strictly other threads must see its changes.\nCompare and Exchange - An atomic step that changes a value only if it still equals the one you expected.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 279 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "Atomic Counter",
+      "Memory Ordering",
+      "Compare and Exchange",
+      "atomic counter",
+      "memory ordering",
+      "compare and exchange",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "iOS Atomic Counter, Memory Ordering & Compare and Exchange | Day 279",
+      "description": "Explain Atomic Counter, Memory Ordering & Compare and Exchange in iOS by listening to a real code chat between two iOS devs.\nAtomic Counter, Memory Ordering, Compare and Exchange 표현을 영어 대화로 익혀요.\n\nAtomic Counter - A number kept in an atomic type that many tasks can add to safely.\n한국어: Atomic Counter: 여러 태스크가 안전하게 더할 수 있도록 원자 타입에 담아 둔 숫자\n\nMemory Ordering - A setting on an atomic call that says how strictly other threads must see its changes.\n한국어: Memory Ordering: 원자 연산의 변경 사항을 다른 스레드가 얼마나 엄격하게 보아야 하는지 정하는 설정\n\nCompare and Exchange - An atomic step that changes a value only if it still equals the one you expected.\n한국어: Compare and Exchange: 값이 기대한 값과 여전히 같을 때만 바꾸는 원자 연산\n\nIn this video, Mina and Jake talk about a shared counter and the ordering options on atomic calls, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 279 of the iOS Daily English series.\n\n#Swift #SwiftConcurrency #EnglishForDevelopers",
+      "tags": [
+        "Atomic Counter",
+        "Memory Ordering",
+        "Compare and Exchange",
+        "Swift concurrency",
+        "iOS 동시성",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "iOS Daily English"
+      ],
+      "hook": "Can you explain Atomic Counter, Memory Ordering and Compare and Exchange in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "What does ordering mean?",
+    "setting": "Reviewing a lock-free counter",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, I made an atomic counter for our stats, but every call asks for `ordering`.",
+        "terms": [
+          "Atomic Counter"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "That is the memory ordering. It says how strictly other threads must see your change.",
+        "terms": [
+          "Memory Ordering"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "I used `.relaxed` everywhere. Is that wrong?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "For a plain atomic counter, relaxed is fine. Nothing else depends on the number.",
+        "terms": [
+          "Atomic Counter"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "And when is it not fine?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "When a flag tells another thread that data is ready. Then you need a stronger memory ordering.",
+        "terms": [
+          "Memory Ordering"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "I see. Now I need to claim a job only once.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Use compare and exchange. It changes the value only if it still equals what you expected.",
+        "terms": [
+          "Compare and Exchange"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "So in my code, `exchanged` tells me if I won?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Yes. If two threads try, only one gets true.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "Great. An atomic counter, careful memory ordering and compare and exchange.",
+        "terms": [
+          "Atomic Counter",
+          "Memory Ordering",
+          "Compare and Exchange"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Keep the weakest memory ordering that is correct.",
+        "terms": [
+          "Memory Ordering"
+        ]
+      }
+    ],
+    "code": "import Synchronization\nlet n = Atomic<Int>(5)\nlet a = n.compareExchange(\n    expected: 5, desired: 6, ordering: .relaxed)\nprint(a.exchanged)",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "Atomic Counter",
+      "lines": [
+        {
+          "text": "An atomic counter is enough for simple stats."
+        }
+      ],
+      "title": "An atomic counter is enough for simple stats. #Shorts",
+      "description": "An atomic counter is enough for simple stats.\n\nAtomic Counter - A number kept in an atomic type that many tasks can add to safely.\n한국어: Atomic Counter: 여러 태스크가 안전하게 더할 수 있도록 원자 타입에 담아 둔 숫자\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "Memory Ordering",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Is relaxed always fine?"
+        },
+        {
+          "speaker": "B",
+          "text": "Not always. Choose the memory ordering."
+        }
+      ],
+      "title": "Is relaxed always fine? / Not always. Choose the memory ordering. #Shorts",
+      "description": "Is relaxed always fine? / Not always. Choose the memory ordering.\n\nMemory Ordering - A setting on an atomic call that says how strictly other threads must see its changes.\n한국어: Memory Ordering: 원자 연산의 변경 사항을 다른 스레드가 얼마나 엄격하게 보아야 하는지 정하는 설정\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Compare and Exchange",
+      "lines": [
+        {
+          "text": "Use compare and exchange to claim the job once."
+        }
+      ],
+      "title": "Use compare and exchange to claim the job once. #Shorts",
+      "description": "Use compare and exchange to claim the job once.\n\nCompare and Exchange - An atomic step that changes a value only if it still equals the one you expected.\n한국어: Compare and Exchange: 값이 기대한 값과 여전히 같을 때만 바꾸는 원자 연산\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "Atomic calls need an ordering."
+}

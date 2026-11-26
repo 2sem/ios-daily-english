@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 279
+
+Atomic Counter
+- A number kept in an atomic type that many tasks can add to safely.
+- Example: "An atomic counter is enough for simple stats."
+
+Memory Ordering
+- A setting on an atomic call that says how strictly other threads must see its changes.
+- Example: "Pick the weakest memory ordering that is still correct."
+
+Compare and Exchange
+- An atomic step that changes a value only if it still equals the one you expected.
+- Example: "Use compare and exchange to claim the job once."
+
+
+Quiz ①
+What do you call a setting on an atomic call that says how strictly other threads must see its changes?
+a) Atomic Counter
+b) Memory Ordering
+c) Compare and Exchange
+
+Quiz ②
+What do you call an atomic step that changes a value only if it still equals the one you expected?
+a) Memory Ordering
+b) Atomic Counter
+c) Compare and Exchange
+
+Quiz ③
+What do you call a number kept in an atomic type that many tasks can add to safely?
+a) Atomic Counter
+b) Compare and Exchange
+c) Memory Ordering

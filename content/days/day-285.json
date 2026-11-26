@@ -1,0 +1,233 @@
+{
+  "day": 285,
+  "phase": "6. Concurrency",
+  "theme": "URLSession async APIs: data(for:), bytes(for:) and download(for:)",
+  "terms": [
+    {
+      "term": "data(for:)",
+      "definition": "A URLSession method that sends a request and returns the whole body and the response.",
+      "example": "Call `data(for:)` for small JSON responses.",
+      "code": "import Foundation\nfunc load(_ r: URLRequest) async throws {\n    let s = URLSession.shared\n    let (d, _) = try await s.data(for: r)\n    print(d.count)\n}",
+      "output": "// no output"
+    },
+    {
+      "term": "bytes(for:)",
+      "definition": "A URLSession method that returns the body as an async sequence of bytes, so you can read it while it arrives.",
+      "example": "Use `bytes(for:)` to read the response as it arrives.",
+      "code": "import Foundation\nfunc read(_ r: URLRequest) async throws {\n    let s = URLSession.shared\n    let (bytes, _) = try await s.bytes(for: r)\n    for try await b in bytes { print(b) }\n}",
+      "output": "// no output"
+    },
+    {
+      "term": "download(for:)",
+      "definition": "A URLSession method that saves the body to a temporary file and returns that file's location.",
+      "example": "Use `download(for:)` for a big video file.",
+      "code": "import Foundation\nfunc save(_ r: URLRequest) async throws {\n    let s = URLSession.shared\n    let (url, _) = try await s.download(for: r)\n    print(url.lastPathComponent)\n}",
+      "output": "// no output"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What do you call a URLSession method that returns the body as an async sequence of bytes, so you can read it while it arrives?",
+      "options": [
+        "data(for:)",
+        "bytes(for:)",
+        "download(for:)"
+      ],
+      "answer": "b"
+    },
+    {
+      "question": "What do you call a URLSession method that saves the body to a temporary file and returns that file's location?",
+      "options": [
+        "bytes(for:)",
+        "data(for:)",
+        "download(for:)"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "What do you call a URLSession method that sends a request and returns the whole body and the response?",
+      "options": [
+        "data(for:)",
+        "download(for:)",
+        "bytes(for:)"
+      ],
+      "answer": "a"
+    }
+  ],
+  "video": {
+    "title": "data(for:), bytes(for:) & download(for:) | Day 285",
+    "description": "Learn to explain how to name and choose the async URLSession methods for small, streaming and large responses: data(for:), bytes(for:) & download(for:), with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\ndata(for:) - A URLSession method that sends a request and returns the whole body and the response.\nbytes(for:) - A URLSession method that returns the body as an async sequence of bytes, so you can read it while it arrives.\ndownload(for:) - A URLSession method that saves the body to a temporary file and returns that file's location.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 285 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "data(for:)",
+      "bytes(for:)",
+      "download(for:)",
+      "data(for:)",
+      "bytes(for:)",
+      "download(for:)",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "iOS data(for:), bytes(for:) & download(for:) | Day 285",
+      "description": "Explain data(for:), bytes(for:) & download(for:) in iOS by listening to a real code chat between two iOS devs.\ndata(for:), bytes(for:), download(for:) 표현을 영어 대화로 익혀요.\n\ndata(for:) - A URLSession method that sends a request and returns the whole body and the response.\n한국어: data(for:): 요청을 보내고 전체 본문과 응답을 돌려주는 URLSession 메서드\n\nbytes(for:) - A URLSession method that returns the body as an async sequence of bytes, so you can read it while it arrives.\n한국어: bytes(for:): 본문을 바이트의 비동기 시퀀스로 돌려줘서 도착하는 대로 읽을 수 있게 하는 URLSession 메서드\n\ndownload(for:) - A URLSession method that saves the body to a temporary file and returns that file's location.\n한국어: download(for:): 본문을 임시 파일로 저장하고 그 파일 위치를 돌려주는 URLSession 메서드\n\nIn this video, Mina and Jake talk about choosing the right async URLSession method for JSON and big files, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 285 of the iOS Daily English series.\n\n#Swift #SwiftConcurrency #EnglishForDevelopers",
+      "tags": [
+        "data(for:)",
+        "bytes(for:)",
+        "download(for:)",
+        "Swift concurrency",
+        "iOS 동시성",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "iOS Daily English"
+      ],
+      "hook": "Can you explain data(for:), bytes(for:) and download(for:) in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "Which URLSession method?",
+    "setting": "Planning a network layer",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, I need to load a small JSON file. I used `data(for:)` here.",
+        "terms": [
+          "data(for:)"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Good. The `data(for:)` method returns the whole body and the response, so it fits small files.",
+        "terms": [
+          "data(for:)"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "What about a response that is very big?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Then the whole body would sit in memory. Try `bytes(for:)` instead.",
+        "terms": [
+          "bytes(for:)"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "What does `bytes(for:)` return?",
+        "terms": [
+          "bytes(for:)"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "The body as an async sequence of bytes, so you can read it while it arrives.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "And a ninety megabyte video?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Use `download(for:)`. It saves the body to a temporary file and returns its location.",
+        "terms": [
+          "download(for:)"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "So I must move that file myself?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Yes, or the system may delete it. That is the catch with `download(for:)`.",
+        "terms": [
+          "download(for:)"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "OK. `data(for:)` for JSON, `bytes(for:)` for streams, `download(for:)` for big files.",
+        "terms": [
+          "data(for:)",
+          "bytes(for:)",
+          "download(for:)"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Perfect.",
+        "terms": []
+      }
+    ],
+    "code": "import Foundation\nfunc load(_ r: URLRequest) async throws {\n    let s = URLSession.shared\n    let (d, _) = try await s.data(for: r)\n    print(d.count)\n}",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "data(for:)",
+      "lines": [
+        {
+          "text": "Call `data(for:)` for small JSON responses."
+        }
+      ],
+      "title": "Call `data(for:)` for small JSON responses. #Shorts",
+      "description": "Call `data(for:)` for small JSON responses.\n\ndata(for:) - A URLSession method that sends a request and returns the whole body and the response.\n한국어: data(for:): 요청을 보내고 전체 본문과 응답을 돌려주는 URLSession 메서드\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "bytes(for:)",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "How do I read bytes while they arrive?"
+        },
+        {
+          "speaker": "B",
+          "text": "Use `bytes(for:)`."
+        }
+      ],
+      "title": "How do I read bytes while they arrive? / Use `bytes(for:)`. #Shorts",
+      "description": "How do I read bytes while they arrive? / Use `bytes(for:)`.\n\nbytes(for:) - A URLSession method that returns the body as an async sequence of bytes, so you can read it while it arrives.\n한국어: bytes(for:): 본문을 바이트의 비동기 시퀀스로 돌려줘서 도착하는 대로 읽을 수 있게 하는 URLSession 메서드\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "download(for:)",
+      "lines": [
+        {
+          "text": "Use `download(for:)` for a big video file."
+        }
+      ],
+      "title": "Use `download(for:)` for a big video file. #Shorts",
+      "description": "Use `download(for:)` for a big video file.\n\ndownload(for:) - A URLSession method that saves the body to a temporary file and returns that file's location.\n한국어: download(for:): 본문을 임시 파일로 저장하고 그 파일 위치를 돌려주는 URLSession 메서드\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "Which URLSession call?"
+}

@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 278
+
+Mutex
+- A lock from the Synchronization module that lets only one thread use a protected value at a time.
+- Example: "Store the shared array inside a Mutex."
+
+withLock
+- A method that locks a mutex, runs your closure on the protected value and then unlocks it.
+- Example: "Read the count inside withLock, never outside."
+
+Atomic
+- A type that lets many threads read and change a simple number safely, with no lock.
+- Example: "Use an Atomic for a simple hit counter."
+
+
+Quiz ①
+What do you call a method that locks a mutex, runs your closure on the protected value and then unlocks it?
+a) Mutex
+b) withLock
+c) Atomic
+
+Quiz ②
+What do you call a type that lets many threads read and change a simple number safely, with no lock?
+a) withLock
+b) Mutex
+c) Atomic
+
+Quiz ③
+What do you call a lock from the Synchronization module that lets only one thread use a protected value at a time?
+a) Mutex
+b) Atomic
+c) withLock

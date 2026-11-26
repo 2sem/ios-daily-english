@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 273
+
+Throwing Task Group
+- A task group whose child tasks can throw, and which passes on the first error.
+- Example: "Use a throwing task group when a child task can fail."
+
+Discarding Task Group
+- A task group that throws away each child's result as it finishes, made for tasks that return nothing.
+- Example: "A discarding task group keeps memory small for log tasks."
+
+Result Order
+- The order in which a task group hands back child results, which is when they finish, not when you added them.
+- Example: "Never depend on the result order of a group."
+
+
+Quiz ①
+What do you call a task group that throws away each child's result as it finishes, made for tasks that return nothing?
+a) Throwing Task Group
+b) Discarding Task Group
+c) Result Order
+
+Quiz ②
+What do you call the order in which a task group hands back child results, which is when they finish, not when you added them?
+a) Discarding Task Group
+b) Throwing Task Group
+c) Result Order
+
+Quiz ③
+What do you call a task group whose child tasks can throw, and which passes on the first error?
+a) Throwing Task Group
+b) Result Order
+c) Discarding Task Group

@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 275
+
+Task Priority
+- A hint that tells the system how urgent a task is, such as high, medium or low.
+- Example: "Give the image import a low task priority."
+
+currentPriority
+- A static property that tells you the priority of the task running right now.
+- Example: "Print currentPriority to see what the task got."
+
+Priority Inheritance
+- The rule that a new child task starts with the same priority as the task that created it.
+- Example: "Thanks to priority inheritance, the child is urgent too."
+
+
+Quiz ①
+What do you call a static property that tells you the priority of the task running right now?
+a) Task Priority
+b) currentPriority
+c) Priority Inheritance
+
+Quiz ②
+What do you call the rule that a new child task starts with the same priority as the task that created it?
+a) currentPriority
+b) Task Priority
+c) Priority Inheritance
+
+Quiz ③
+What do you call a hint that tells the system how urgent a task is, such as high, medium or low?
+a) Task Priority
+b) Priority Inheritance
+c) currentPriority

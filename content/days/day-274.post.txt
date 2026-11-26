@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 274
+
+isCancelled
+- A task property that is true once someone has asked the task to stop.
+- Example: "Check isCancelled inside the long loop."
+
+checkCancellation
+- A call that throws an error when the current task was cancelled, so the work stops early.
+- Example: "Call checkCancellation before each slow step."
+
+withTaskCancellationHandler
+- A function that runs your cleanup closure right away when the surrounding task is cancelled.
+- Example: "Close the connection inside withTaskCancellationHandler."
+
+
+Quiz ①
+What do you call a call that throws an error when the current task was cancelled, so the work stops early?
+a) isCancelled
+b) checkCancellation
+c) withTaskCancellationHandler
+
+Quiz ②
+What do you call a function that runs your cleanup closure right away when the surrounding task is cancelled?
+a) checkCancellation
+b) isCancelled
+c) withTaskCancellationHandler
+
+Quiz ③
+What do you call a task property that is true once someone has asked the task to stop?
+a) isCancelled
+b) withTaskCancellationHandler
+c) checkCancellation

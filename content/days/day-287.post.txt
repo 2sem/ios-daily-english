@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 287
+
+Loading State
+- A value, often an enum, that says whether a screen is idle, loading or done.
+- Example: "Add a loading state so the spinner shows."
+
+MainActor View Model
+- An observable class marked @MainActor, so every change to its screen state happens on the main actor.
+- Example: "Make the MainActor view model own the screen state."
+
+MainActor.run
+- A static method that runs a closure on the main actor and gives back its result.
+- Example: "Use MainActor.run to hop back for one update."
+
+
+Quiz ①
+What do you call an observable class marked @MainActor, so every change to its screen state happens on the main actor?
+a) Loading State
+b) MainActor View Model
+c) MainActor.run
+
+Quiz ②
+What do you call a static method that runs a closure on the main actor and gives back its result?
+a) MainActor View Model
+b) Loading State
+c) MainActor.run
+
+Quiz ③
+What do you call a value, often an enum, that says whether a screen is idle, loading or done?
+a) Loading State
+b) MainActor.run
+c) MainActor View Model

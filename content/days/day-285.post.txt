@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 285
+
+data(for:)
+- A URLSession method that sends a request and returns the whole body and the response.
+- Example: "Call `data(for:)` for small JSON responses."
+
+bytes(for:)
+- A URLSession method that returns the body as an async sequence of bytes, so you can read it while it arrives.
+- Example: "Use `bytes(for:)` to read the response as it arrives."
+
+download(for:)
+- A URLSession method that saves the body to a temporary file and returns that file's location.
+- Example: "Use `download(for:)` for a big video file."
+
+
+Quiz ①
+What do you call a URLSession method that returns the body as an async sequence of bytes, so you can read it while it arrives?
+a) data(for:)
+b) bytes(for:)
+c) download(for:)
+
+Quiz ②
+What do you call a URLSession method that saves the body to a temporary file and returns that file's location?
+a) bytes(for:)
+b) data(for:)
+c) download(for:)
+
+Quiz ③
+What do you call a URLSession method that sends a request and returns the whole body and the response?
+a) data(for:)
+b) download(for:)
+c) bytes(for:)

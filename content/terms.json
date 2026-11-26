@@ -3239,6 +3239,246 @@
     "uncheckedsendable": {
       "term": "Unchecked Sendable",
       "day": 270
+    },
+    "asyncproperty": {
+      "term": "Async Property",
+      "day": 271
+    },
+    "asyncthrows": {
+      "term": "Async Throws",
+      "day": 271
+    },
+    "asyncinitializer": {
+      "term": "Async Initializer",
+      "day": 271
+    },
+    "asyncthrowingstream": {
+      "term": "AsyncThrowingStream",
+      "day": 272
+    },
+    "streamcontinuation": {
+      "term": "Stream Continuation",
+      "day": 272
+    },
+    "bufferingpolicy": {
+      "term": "Buffering Policy",
+      "day": 272
+    },
+    "throwingtaskgroup": {
+      "term": "Throwing Task Group",
+      "day": 273
+    },
+    "discardingtaskgroup": {
+      "term": "Discarding Task Group",
+      "day": 273
+    },
+    "resultorder": {
+      "term": "Result Order",
+      "day": 273
+    },
+    "iscancelled": {
+      "term": "isCancelled",
+      "day": 274
+    },
+    "checkcancellation": {
+      "term": "checkCancellation",
+      "day": 274
+    },
+    "withtaskcancellationhandler": {
+      "term": "withTaskCancellationHandler",
+      "day": 274
+    },
+    "taskpriority": {
+      "term": "Task Priority",
+      "day": 275
+    },
+    "currentpriority": {
+      "term": "currentPriority",
+      "day": 275
+    },
+    "priorityinheritance": {
+      "term": "Priority Inheritance",
+      "day": 275
+    },
+    "duration": {
+      "term": "Duration",
+      "day": 276
+    },
+    "clock": {
+      "term": "Clock",
+      "day": 276
+    },
+    "continuousclock": {
+      "term": "ContinuousClock",
+      "day": 276
+    },
+    "measure": {
+      "term": "measure",
+      "day": 277
+    },
+    "instant": {
+      "term": "Instant",
+      "day": 277
+    },
+    "suspendingclock": {
+      "term": "SuspendingClock",
+      "day": 277
+    },
+    "mutex": {
+      "term": "Mutex",
+      "day": 278
+    },
+    "withlock": {
+      "term": "withLock",
+      "day": 278
+    },
+    "atomic": {
+      "term": "Atomic",
+      "day": 278
+    },
+    "atomiccounter": {
+      "term": "Atomic Counter",
+      "day": 279
+    },
+    "memoryordering": {
+      "term": "Memory Ordering",
+      "day": 279
+    },
+    "compareandexchange": {
+      "term": "Compare and Exchange",
+      "day": 279
+    },
+    "sendableclosure": {
+      "term": "Sendable Closure",
+      "day": 280
+    },
+    "isolateddeinit": {
+      "term": "Isolated Deinit",
+      "day": 280
+    },
+    "regionbasedisolation": {
+      "term": "Region-Based Isolation",
+      "day": 280
+    },
+    "nonisolatedunsafe": {
+      "term": "Nonisolated Unsafe",
+      "day": 281
+    },
+    "defaultisolation": {
+      "term": "Default Isolation",
+      "day": 281
+    },
+    "upcomingfeature": {
+      "term": "Upcoming Feature",
+      "day": 281
+    },
+    "concurrent": {
+      "term": "@concurrent",
+      "day": 282
+    },
+    "nonisolatednonsending": {
+      "term": "Nonisolated Nonsending",
+      "day": 282
+    },
+    "callerisolation": {
+      "term": "Caller Isolation",
+      "day": 282
+    },
+    "toplevelcode": {
+      "term": "Top-Level Code",
+      "day": 283
+    },
+    "toplevelawait": {
+      "term": "Top-Level Await",
+      "day": 283
+    },
+    "asyncmain": {
+      "term": "Async Main",
+      "day": 283
+    },
+    "completionhandler": {
+      "term": "Completion Handler",
+      "day": 284
+    },
+    "callbackbridging": {
+      "term": "Callback Bridging",
+      "day": 284
+    },
+    "resumeonce": {
+      "term": "Resume Once",
+      "day": 284
+    },
+    "datafor": {
+      "term": "data(for:)",
+      "day": 285
+    },
+    "bytesfor": {
+      "term": "bytes(for:)",
+      "day": 285
+    },
+    "downloadfor": {
+      "term": "download(for:)",
+      "day": 285
+    },
+    "loadonappear": {
+      "term": "Load on Appear",
+      "day": 286
+    },
+    "automaticcancellation": {
+      "term": "Automatic Cancellation",
+      "day": 286
+    },
+    "taskid": {
+      "term": "task(id:)",
+      "day": 286
+    },
+    "loadingstate": {
+      "term": "Loading State",
+      "day": 287
+    },
+    "mainactorviewmodel": {
+      "term": "MainActor View Model",
+      "day": 287
+    },
+    "mainactorrun": {
+      "term": "MainActor.run",
+      "day": 287
+    },
+    "asynctest": {
+      "term": "Async Test",
+      "day": 288
+    },
+    "xctestexpectation": {
+      "term": "XCTestExpectation",
+      "day": 288
+    },
+    "fulfillmentof": {
+      "term": "fulfillment(of:)",
+      "day": 288
+    },
+    "expect": {
+      "term": "#expect",
+      "day": 289
+    },
+    "confirmation": {
+      "term": "Confirmation",
+      "day": 289
+    },
+    "expectedcount": {
+      "term": "Expected Count",
+      "day": 289
+    },
+    "dataracereport": {
+      "term": "Data Race Report",
+      "day": 290
+    },
+    "threadsanitizer": {
+      "term": "Thread Sanitizer",
+      "day": 290
+    },
+    "concurrencyinstrument": {
+      "term": "Concurrency Instrument",
+      "day": 290
     }
   }
 }

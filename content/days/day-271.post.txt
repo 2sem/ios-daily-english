@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 271
+
+Async Property
+- A read-only property whose getter is marked async, so you must await it.
+- Example: "You need await to read an async property."
+
+Async Throws
+- Two keywords that mark a function that can both suspend and fail, so callers write try await.
+- Example: "Mark the loader async throws and handle the error."
+
+Async Initializer
+- An initializer marked async, so creating the value can wait for work and needs await.
+- Example: "An async initializer lets the init load data first."
+
+
+Quiz ①
+What do you call two keywords that mark a function that can both suspend and fail, so callers write try await?
+a) Async Property
+b) Async Throws
+c) Async Initializer
+
+Quiz ②
+What do you call an initializer marked async, so creating the value can wait for work and needs await?
+a) Async Throws
+b) Async Property
+c) Async Initializer
+
+Quiz ③
+What do you call a read-only property whose getter is marked async, so you must await it?
+a) Async Property
+b) Async Initializer
+c) Async Throws

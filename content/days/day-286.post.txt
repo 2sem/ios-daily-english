@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 286
+
+Load on Appear
+- Starting a view's data loading at the moment the view shows on screen.
+- Example: "Do the load on appear, not in the initializer."
+
+Automatic Cancellation
+- The way SwiftUI cancels a view's task by itself when the view goes away.
+- Example: "Automatic cancellation stops the request when the user leaves."
+
+task(id:)
+- A SwiftUI modifier that restarts its task whenever the given value changes.
+- Example: "Use `task(id:)` to reload when the filter changes."
+
+
+Quiz ①
+What do you call the way SwiftUI cancels a view's task by itself when the view goes away?
+a) Load on Appear
+b) Automatic Cancellation
+c) task(id:)
+
+Quiz ②
+What do you call a SwiftUI modifier that restarts its task whenever the given value changes?
+a) Automatic Cancellation
+b) Load on Appear
+c) task(id:)
+
+Quiz ③
+What do you call starting a view's data loading at the moment the view shows on screen?
+a) Load on Appear
+b) task(id:)
+c) Automatic Cancellation

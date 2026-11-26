@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 288
+
+Async Test
+- A test method marked async, so it can use await directly in XCTest.
+- Example: "Write an async test instead of using a callback."
+
+XCTestExpectation
+- An object that stands for something that must happen, such as a callback, before a test can finish.
+- Example: "Create an XCTestExpectation for the callback."
+
+fulfillment(of:)
+- An async XCTestCase method that waits for expectations to finish without blocking the thread.
+- Example: "Await `fulfillment(of:)` in an async test."
+
+
+Quiz ①
+What do you call an object that stands for something that must happen, such as a callback, before a test can finish?
+a) Async Test
+b) XCTestExpectation
+c) fulfillment(of:)
+
+Quiz ②
+What do you call an async XCTestCase method that waits for expectations to finish without blocking the thread?
+a) XCTestExpectation
+b) Async Test
+c) fulfillment(of:)
+
+Quiz ③
+What do you call a test method marked async, so it can use await directly in XCTest?
+a) Async Test
+b) fulfillment(of:)
+c) XCTestExpectation

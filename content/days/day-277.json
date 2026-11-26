@@ -1,0 +1,232 @@
+{
+  "day": 277,
+  "phase": "6. Concurrency",
+  "theme": "Timing code: measure, Instant and SuspendingClock",
+  "terms": [
+    {
+      "term": "measure",
+      "definition": "A clock method that runs a closure and returns how long it took as a Duration.",
+      "example": "Wrap the slow call in measure.",
+      "code": "let c = ContinuousClock()\nlet t = c.measure {\n    for _ in 0..<1000 { }\n}\nprint(t < .seconds(1))",
+      "output": "true"
+    },
+    {
+      "term": "Instant",
+      "definition": "A single point in time on a clock, which you can compare or move by a Duration.",
+      "example": "Store the start Instant, then compare it later.",
+      "code": "let c = ContinuousClock()\nlet start = c.now\nlet later = start.advanced(by: .seconds(5))\nprint(start.duration(to: later))",
+      "output": "5.0 seconds"
+    },
+    {
+      "term": "SuspendingClock",
+      "definition": "A clock that stops counting while the device sleeps, so it shows time spent awake.",
+      "example": "Use SuspendingClock to time only the active work.",
+      "code": "let c = SuspendingClock()\nlet start = c.now\ntry await c.sleep(for: .milliseconds(5))\nlet d = start.duration(to: c.now)\nprint(d >= .milliseconds(5))",
+      "output": "true"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What do you call a single point in time on a clock, which you can compare or move by a Duration?",
+      "options": [
+        "measure",
+        "Instant",
+        "SuspendingClock"
+      ],
+      "answer": "b"
+    },
+    {
+      "question": "What do you call a clock that stops counting while the device sleeps, so it shows time spent awake?",
+      "options": [
+        "Instant",
+        "measure",
+        "SuspendingClock"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "What do you call a clock method that runs a closure and returns how long it took as a Duration?",
+      "options": [
+        "measure",
+        "SuspendingClock",
+        "Instant"
+      ],
+      "answer": "a"
+    }
+  ],
+  "video": {
+    "title": "measure, Instant & SuspendingClock | Day 277",
+    "description": "Learn to explain how to talk about timing a task, points in time and a clock that pauses with the device: measure, Instant & SuspendingClock, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nmeasure - A clock method that runs a closure and returns how long it took as a Duration.\nInstant - A single point in time on a clock, which you can compare or move by a Duration.\nSuspendingClock - A clock that stops counting while the device sleeps, so it shows time spent awake.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 277 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "measure",
+      "Instant",
+      "SuspendingClock",
+      "measure",
+      "instant",
+      "suspendingclock",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "iOS measure, Instant & SuspendingClock | Day 277",
+      "description": "Explain measure, Instant & SuspendingClock in iOS by listening to a real code chat between two iOS devs.\nmeasure, Instant, SuspendingClock 표현을 영어 대화로 익혀요.\n\nmeasure - A clock method that runs a closure and returns how long it took as a Duration.\n한국어: measure: 클로저를 실행하고 걸린 시간을 Duration으로 돌려주는 시계의 메서드\n\nInstant - A single point in time on a clock, which you can compare or move by a Duration.\n한국어: Instant: 시계 위의 한 시점으로, 비교하거나 Duration만큼 옮길 수 있음\n\nSuspendingClock - A clock that stops counting while the device sleeps, so it shows time spent awake.\n한국어: SuspendingClock: 기기가 잠자는 동안 멈추는 시계로, 깨어 있던 시간만 보여 줌\n\nIn this video, Mina and Jake talk about timing a slow screen and what happens when the phone sleeps, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 277 of the iOS Daily English series.\n\n#Swift #SwiftConcurrency #EnglishForDevelopers",
+      "tags": [
+        "measure",
+        "Instant",
+        "SuspendingClock",
+        "Swift concurrency",
+        "iOS 동시성",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "iOS Daily English"
+      ],
+      "hook": "Can you explain measure, Instant and SuspendingClock in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "How long did the screen take?",
+    "setting": "Adding timing logs to a slow screen",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, I need to log how long the screen takes to load.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Wrap the loading code in measure. It runs the closure and returns a Duration.",
+        "terms": [
+          "measure"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "I can also save the start time and subtract later, right?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Yes. Save the start Instant, then call `duration(to:)` on it.",
+        "terms": [
+          "Instant"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "What is an Instant, exactly?",
+        "terms": [
+          "Instant"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "A single point in time on a clock. You can compare it or move it by a Duration.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "Which clock should I use for the log?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "I like SuspendingClock here. It stops while the device sleeps.",
+        "terms": [
+          "SuspendingClock"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "So if the phone sleeps for an hour, the log stays short?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Yes. SuspendingClock shows awake time only, so it matches the real work.",
+        "terms": [
+          "SuspendingClock"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Nice. Measure for quick checks, an Instant for long flows.",
+        "terms": [
+          "measure",
+          "Instant"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "And SuspendingClock when sleep should not count.",
+        "terms": [
+          "SuspendingClock"
+        ]
+      }
+    ],
+    "code": "let clock = SuspendingClock()\nlet start = clock.now\nlet t = clock.measure { print(\"work\") }\nprint(start.duration(to: clock.now))\nprint(t)",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "measure",
+      "lines": [
+        {
+          "text": "Wrap the slow call in measure."
+        }
+      ],
+      "title": "Wrap the slow call in measure. #Shorts",
+      "description": "Wrap the slow call in measure.\n\nmeasure - A clock method that runs a closure and returns how long it took as a Duration.\n한국어: measure: 클로저를 실행하고 걸린 시간을 Duration으로 돌려주는 시계의 메서드\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "Instant",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "What do I save as the start time?"
+        },
+        {
+          "speaker": "B",
+          "text": "Save the start Instant."
+        }
+      ],
+      "title": "What do I save as the start time? / Save the start Instant. #Shorts",
+      "description": "What do I save as the start time? / Save the start Instant.\n\nInstant - A single point in time on a clock, which you can compare or move by a Duration.\n한국어: Instant: 시계 위의 한 시점으로, 비교하거나 Duration만큼 옮길 수 있음\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "SuspendingClock",
+      "lines": [
+        {
+          "text": "Use SuspendingClock to time only the active work."
+        }
+      ],
+      "title": "Use SuspendingClock to time only the active work. #Shorts",
+      "description": "Use SuspendingClock to time only the active work.\n\nSuspendingClock - A clock that stops counting while the device sleeps, so it shows time spent awake.\n한국어: SuspendingClock: 기기가 잠자는 동안 멈추는 시계로, 깨어 있던 시간만 보여 줌\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "Time your code the Swift way."
+}

@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 276
+
+Duration
+- A length of time, such as seconds or milliseconds, stored as a precise value.
+- Example: "Use a Duration instead of a plain number."
+
+Clock
+- A protocol for something that tells the time and can wait until a given moment.
+- Example: "Pass a Clock into the retry helper."
+
+ContinuousClock
+- A clock that keeps counting even while the device sleeps, handy for measuring elapsed time.
+- Example: "Measure the request with a ContinuousClock."
+
+
+Quiz ①
+What do you call a protocol for something that tells the time and can wait until a given moment?
+a) Duration
+b) Clock
+c) ContinuousClock
+
+Quiz ②
+What do you call a clock that keeps counting even while the device sleeps, handy for measuring elapsed time?
+a) Clock
+b) Duration
+c) ContinuousClock
+
+Quiz ③
+What do you call a length of time, such as seconds or milliseconds, stored as a precise value?
+a) Duration
+b) ContinuousClock
+c) Clock

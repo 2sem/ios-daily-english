@@ -1,0 +1,231 @@
+{
+  "day": 280,
+  "phase": "6. Concurrency",
+  "theme": "Sendable closures, isolated deinit and region-based isolation",
+  "terms": [
+    {
+      "term": "Sendable Closure",
+      "definition": "A closure marked @Sendable, which promises it is safe to run on another task or thread.",
+      "example": "Pass a Sendable closure to the new task.",
+      "code": "let work: @Sendable () -> Int = { 42 }\nlet t = Task { work() }\nprint(await t.value)",
+      "output": "42"
+    },
+    {
+      "term": "Isolated Deinit",
+      "definition": "A deinit marked isolated, so it runs on the actor that owns the object.",
+      "example": "Use an isolated deinit to clean up on the main actor.",
+      "code": "@MainActor final class Screen {\n    isolated deinit { print(\"bye\") }\n}\n@MainActor func run() { _ = Screen() }\nawait run()",
+      "output": "bye"
+    },
+    {
+      "term": "Region-Based Isolation",
+      "definition": "A compiler rule that lets a value cross to another actor when nothing else can still reach it.",
+      "example": "Region-based isolation allows the handoff of a fresh object.",
+      "code": "final class Note { var text = \"hi\" }\nactor Box {\n    func put(_ n: Note) { print(n.text) } }\nfunc send() async { await Box().put(Note()) }\nawait send()",
+      "output": "hi"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What do you call a deinit marked isolated, so it runs on the actor that owns the object?",
+      "options": [
+        "Sendable Closure",
+        "Isolated Deinit",
+        "Region-Based Isolation"
+      ],
+      "answer": "b"
+    },
+    {
+      "question": "What do you call a compiler rule that lets a value cross to another actor when nothing else can still reach it?",
+      "options": [
+        "Isolated Deinit",
+        "Sendable Closure",
+        "Region-Based Isolation"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "What do you call a closure marked @Sendable, which promises it is safe to run on another task or thread?",
+      "options": [
+        "Sendable Closure",
+        "Region-Based Isolation",
+        "Isolated Deinit"
+      ],
+      "answer": "a"
+    }
+  ],
+  "video": {
+    "title": "Sendable Closure, Isolated Deinit & Region-Based Isolation | Day 280",
+    "description": "Learn to explain how to talk about closures that cross tasks, cleanup on an actor and passing values safely: Sendable Closure, Isolated Deinit & Region-Based Isolation, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nSendable Closure - A closure marked @Sendable, which promises it is safe to run on another task or thread.\nIsolated Deinit - A deinit marked isolated, so it runs on the actor that owns the object.\nRegion-Based Isolation - A compiler rule that lets a value cross to another actor when nothing else can still reach it.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 280 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "Sendable Closure",
+      "Isolated Deinit",
+      "Region-Based Isolation",
+      "sendable closure",
+      "isolated deinit",
+      "region-based isolation",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "iOS Sendable Closure, Isolated Deinit & Region-Based Isolation | Day 280",
+      "description": "Explain Sendable Closure, Isolated Deinit & Region-Based Isolation in iOS by listening to a real code chat between two iOS devs.\nSendable Closure, Isolated Deinit, Region-Based Isolation 표현을 영어 대화로 익혀요.\n\nSendable Closure - A closure marked @Sendable, which promises it is safe to run on another task or thread.\n한국어: Sendable Closure: @Sendable로 표시되어 다른 태스크나 스레드에서 실행해도 안전하다고 약속하는 클로저\n\nIsolated Deinit - A deinit marked isolated, so it runs on the actor that owns the object.\n한국어: Isolated Deinit: isolated로 표시되어 객체를 소유한 액터에서 실행되는 deinit\n\nRegion-Based Isolation - A compiler rule that lets a value cross to another actor when nothing else can still reach it.\n한국어: Region-Based Isolation: 다른 곳에서 더 이상 접근할 수 없는 값은 다른 액터로 넘기게 해 주는 컴파일러 규칙\n\nIn this video, Mina and Jake talk about Sendable errors on closures, notes and cleanup code, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 280 of the iOS Daily English series.\n\n#Swift #SwiftConcurrency #EnglishForDevelopers",
+      "tags": [
+        "Sendable Closure",
+        "Isolated Deinit",
+        "Region-Based Isolation",
+        "Swift concurrency",
+        "iOS 동시성",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "iOS Daily English"
+      ],
+      "hook": "Can you explain Sendable Closure, Isolated Deinit and Region-Based Isolation in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "Why is this closure not Sendable?",
+    "setting": "Fixing Swift 6 concurrency errors",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, I pass `work` to a Task, and Xcode talks about a Sendable closure.",
+        "terms": [
+          "Sendable Closure"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Mark it `@Sendable`. A Sendable closure promises it is safe to run on another task.",
+        "terms": [
+          "Sendable Closure"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "So it can only capture safe values?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Right, and the compiler checks every capture.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "Now I pass a `Note` to `Box`. It is not Sendable, but there is no error. Why?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Region-based isolation. If nothing else can reach the note, the compiler lets it cross.",
+        "terms": [
+          "Region-Based Isolation"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "And if I use the note after sending it?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Then you get an error. Region-based isolation only allows a clean handoff.",
+        "terms": [
+          "Region-Based Isolation"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Last one. My `Screen` cleans up in `deinit`, but it fails on the main actor.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Use an isolated deinit. It runs on the actor that owns the object.",
+        "terms": [
+          "Isolated Deinit"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Nice, no more hops during cleanup.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Yes. A Sendable closure, region-based isolation and an isolated deinit solve these errors.",
+        "terms": [
+          "Sendable Closure",
+          "Isolated Deinit",
+          "Region-Based Isolation"
+        ]
+      }
+    ],
+    "code": "@MainActor final class Screen {\n    isolated deinit { print(\"bye\") }\n}\nlet work: @Sendable () -> Int = { 42 }\nfinal class Note { var text = \"hi\" }\nactor Box { func put(_ n: Note) { } }",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "Sendable Closure",
+      "lines": [
+        {
+          "text": "Pass a Sendable closure to the new task."
+        }
+      ],
+      "title": "Pass a Sendable closure to the new task. #Shorts",
+      "description": "Pass a Sendable closure to the new task.\n\nSendable Closure - A closure marked @Sendable, which promises it is safe to run on another task or thread.\n한국어: Sendable Closure: @Sendable로 표시되어 다른 태스크나 스레드에서 실행해도 안전하다고 약속하는 클로저\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "Isolated Deinit",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Why does my deinit fail on the main actor?"
+        },
+        {
+          "speaker": "B",
+          "text": "Use an isolated deinit."
+        }
+      ],
+      "title": "Why does my deinit fail on the main actor? / Use an isolated deinit. #Shorts",
+      "description": "Why does my deinit fail on the main actor? / Use an isolated deinit.\n\nIsolated Deinit - A deinit marked isolated, so it runs on the actor that owns the object.\n한국어: Isolated Deinit: isolated로 표시되어 객체를 소유한 액터에서 실행되는 deinit\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Region-Based Isolation",
+      "lines": [
+        {
+          "text": "Region-based isolation allows the handoff of a fresh object."
+        }
+      ],
+      "title": "Region-based isolation allows the handoff of a fresh object. #Shorts",
+      "description": "Region-based isolation allows the handoff of a fresh object.\n\nRegion-Based Isolation - A compiler rule that lets a value cross to another actor when nothing else can still reach it.\n한국어: Region-Based Isolation: 다른 곳에서 더 이상 접근할 수 없는 값은 다른 액터로 넘기게 해 주는 컴파일러 규칙\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "Sendable errors, explained."
+}

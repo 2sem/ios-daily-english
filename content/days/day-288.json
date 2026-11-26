@@ -1,0 +1,230 @@
+{
+  "day": 288,
+  "phase": "6. Concurrency",
+  "theme": "Testing async code with XCTest: async tests, expectations and fulfillment",
+  "terms": [
+    {
+      "term": "Async Test",
+      "definition": "A test method marked async, so it can use await directly in XCTest.",
+      "example": "Write an async test instead of using a callback.",
+      "code": "import XCTest\nfinal class T: XCTestCase {\n    func testLoad() async {\n        let n = await Task { 3 }.value\n        XCTAssertEqual(n, 3) } }",
+      "output": "// no output"
+    },
+    {
+      "term": "XCTestExpectation",
+      "definition": "An object that stands for something that must happen, such as a callback, before a test can finish.",
+      "example": "Create an XCTestExpectation for the callback.",
+      "code": "import XCTest\nfinal class T: XCTestCase {\n    func testCb() {\n        let e = expectation(description: \"done\")\n        DispatchQueue.main.async { e.fulfill() }\n        wait(for: [e], timeout: 1) } }",
+      "output": "// no output"
+    },
+    {
+      "term": "fulfillment(of:)",
+      "definition": "An async XCTestCase method that waits for expectations to finish without blocking the thread.",
+      "example": "Await `fulfillment(of:)` in an async test.",
+      "code": "import XCTest\nfinal class T: XCTestCase {\n    func testCb() async {\n        let e = expectation(description: \"done\")\n        Task { e.fulfill() }\n        await fulfillment(of: [e]) } }",
+      "output": "// no output"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What do you call an object that stands for something that must happen, such as a callback, before a test can finish?",
+      "options": [
+        "Async Test",
+        "XCTestExpectation",
+        "fulfillment(of:)"
+      ],
+      "answer": "b"
+    },
+    {
+      "question": "What do you call an async XCTestCase method that waits for expectations to finish without blocking the thread?",
+      "options": [
+        "XCTestExpectation",
+        "Async Test",
+        "fulfillment(of:)"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "What do you call a test method marked async, so it can use await directly in XCTest?",
+      "options": [
+        "Async Test",
+        "fulfillment(of:)",
+        "XCTestExpectation"
+      ],
+      "answer": "a"
+    }
+  ],
+  "video": {
+    "title": "Async Test, XCTestExpectation & fulfillment(of:) | Day 288",
+    "description": "Learn to explain how to talk about writing tests that await results and wait for callbacks: Async Test, XCTestExpectation & fulfillment(of:), with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nAsync Test - A test method marked async, so it can use await directly in XCTest.\nXCTestExpectation - An object that stands for something that must happen, such as a callback, before a test can finish.\nfulfillment(of:) - An async XCTestCase method that waits for expectations to finish without blocking the thread.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 288 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "Async Test",
+      "XCTestExpectation",
+      "fulfillment(of:)",
+      "async test",
+      "xctestexpectation",
+      "fulfillment(of:)",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "iOS Async Test, XCTestExpectation & fulfillment(of:) | Day 288",
+      "description": "Explain Async Test, XCTestExpectation & fulfillment(of:) in iOS by listening to a real code chat between two iOS devs.\nAsync Test, XCTestExpectation, fulfillment(of:) 표현을 영어 대화로 익혀요.\n\nAsync Test - A test method marked async, so it can use await directly in XCTest.\n한국어: Async Test: async로 표시되어 XCTest에서 await를 바로 쓸 수 있는 테스트 메서드\n\nXCTestExpectation - An object that stands for something that must happen, such as a callback, before a test can finish.\n한국어: XCTestExpectation: 콜백처럼 테스트가 끝나기 전에 일어나야 하는 일을 나타내는 객체\n\nfulfillment(of:) - An async XCTestCase method that waits for expectations to finish without blocking the thread.\n한국어: fulfillment(of:): 스레드를 막지 않고 expectation이 완료되기를 기다리는 XCTestCase의 async 메서드\n\nIn this video, Mina and Jake talk about an async test and an expectation that waits for a callback, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 288 of the iOS Daily English series.\n\n#Swift #SwiftConcurrency #EnglishForDevelopers",
+      "tags": [
+        "Async Test",
+        "XCTestExpectation",
+        "fulfillment(of:)",
+        "Swift concurrency",
+        "iOS 동시성",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "iOS Daily English"
+      ],
+      "hook": "Can you explain Async Test, XCTestExpectation and fulfillment(of:) in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "My async test never waits",
+    "setting": "Fixing a flaky XCTest",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, my test passes, but the callback code never runs before the test ends.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "You need an XCTestExpectation. It stands for something that must happen first.",
+        "terms": [
+          "XCTestExpectation"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "So I create the `expectation` and call `fulfill` in the callback?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Yes. Then the test waits until the expectation is fulfilled.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "I used the old wait method, but Xcode says it is unavailable in my test.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Is the test async? Then wait is blocked. Use `fulfillment(of:)` and `await` it.",
+        "terms": [
+          "fulfillment(of:)"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Why not just keep the old one?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Because fulfillment(of:) waits without blocking the thread.",
+        "terms": [
+          "fulfillment(of:)"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Nice. Can I skip the expectation if the code already uses `await`?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Yes. Then write an async test and just await the result.",
+        "terms": [
+          "Async Test"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "So an async test for async code, and an XCTestExpectation for callbacks.",
+        "terms": [
+          "Async Test",
+          "XCTestExpectation"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Right, and use fulfillment(of:) to wait.",
+        "terms": [
+          "fulfillment(of:)"
+        ]
+      }
+    ],
+    "code": "import XCTest\nfinal class T: XCTestCase {\n    func testCb() async {\n        let e = expectation(description: \"done\")\n        Task { e.fulfill() }\n        await fulfillment(of: [e]) } }",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "Async Test",
+      "lines": [
+        {
+          "text": "Write an async test instead of using a callback."
+        }
+      ],
+      "title": "Write an async test instead of using a callback. #Shorts",
+      "description": "Write an async test instead of using a callback.\n\nAsync Test - A test method marked async, so it can use await directly in XCTest.\n한국어: Async Test: async로 표시되어 XCTest에서 await를 바로 쓸 수 있는 테스트 메서드\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "XCTestExpectation",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "How do I wait for a callback in a test?"
+        },
+        {
+          "speaker": "B",
+          "text": "Create an XCTestExpectation."
+        }
+      ],
+      "title": "How do I wait for a callback in a test? / Create an XCTestExpectation. #Shorts",
+      "description": "How do I wait for a callback in a test? / Create an XCTestExpectation.\n\nXCTestExpectation - An object that stands for something that must happen, such as a callback, before a test can finish.\n한국어: XCTestExpectation: 콜백처럼 테스트가 끝나기 전에 일어나야 하는 일을 나타내는 객체\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "fulfillment(of:)",
+      "lines": [
+        {
+          "text": "Await `fulfillment(of:)` in an async test."
+        }
+      ],
+      "title": "Await `fulfillment(of:)` in an async test. #Shorts",
+      "description": "Await `fulfillment(of:)` in an async test.\n\nfulfillment(of:) - An async XCTestCase method that waits for expectations to finish without blocking the thread.\n한국어: fulfillment(of:): 스레드를 막지 않고 expectation이 완료되기를 기다리는 XCTestCase의 async 메서드\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "Test async code the right way."
+}

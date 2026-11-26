@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 281
+
+Nonisolated Unsafe
+- A keyword that tells the compiler to skip isolation checks for a variable you protect yourself.
+- Example: "Mark the global nonisolated unsafe only if you guard it."
+
+Default Isolation
+- A build setting that puts code on the main actor unless you say otherwise.
+- Example: "New app targets use the main actor as the default isolation."
+
+Upcoming Feature
+- A compiler flag that turns on a future Swift behavior early, one feature at a time.
+- Example: "Enable the upcoming feature in the package settings."
+
+
+Quiz ①
+What do you call a build setting that puts code on the main actor unless you say otherwise?
+a) Nonisolated Unsafe
+b) Default Isolation
+c) Upcoming Feature
+
+Quiz ②
+What do you call a compiler flag that turns on a future Swift behavior early, one feature at a time?
+a) Default Isolation
+b) Nonisolated Unsafe
+c) Upcoming Feature
+
+Quiz ③
+What do you call a keyword that tells the compiler to skip isolation checks for a variable you protect yourself?
+a) Nonisolated Unsafe
+b) Upcoming Feature
+c) Default Isolation

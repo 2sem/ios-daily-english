@@ -1,0 +1,229 @@
+{
+  "day": 272,
+  "phase": "6. Concurrency",
+  "theme": "AsyncThrowingStream, stream continuation and buffering policy",
+  "terms": [
+    {
+      "term": "AsyncThrowingStream",
+      "definition": "An async sequence you build by yielding values by hand, which can also end with a thrown error.",
+      "example": "Use an AsyncThrowingStream when the progress can fail.",
+      "code": "let s = AsyncThrowingStream<Int, Error> { c in\n    c.yield(1)\n    c.finish(throwing: CancellationError())\n}\ndo { for try await v in s { print(v) } }\ncatch { print(\"failed\") }",
+      "output": "1\nfailed"
+    },
+    {
+      "term": "Stream Continuation",
+      "definition": "The handle passed into a stream closure that you use to yield values and finish the stream.",
+      "example": "Call yield on the stream continuation for each value.",
+      "code": "let s = AsyncStream<String> { continuation in\n    continuation.yield(\"a\")\n    continuation.yield(\"b\")\n    continuation.finish()\n}\nfor await x in s { print(x) }",
+      "output": "a\nb"
+    },
+    {
+      "term": "Buffering Policy",
+      "definition": "A rule that decides how many yielded values a stream keeps when nobody is reading yet.",
+      "example": "Set a small buffering policy so old values are dropped.",
+      "code": "let (s, c) = AsyncStream.makeStream(\n    of: Int.self,\n    bufferingPolicy: .bufferingNewest(2))\nfor i in 1...4 { c.yield(i) }\nc.finish()\nfor await v in s { print(v) }",
+      "output": "3\n4"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What do you call the handle passed into a stream closure that you use to yield values and finish the stream?",
+      "options": [
+        "AsyncThrowingStream",
+        "Stream Continuation",
+        "Buffering Policy"
+      ],
+      "answer": "b"
+    },
+    {
+      "question": "What do you call a rule that decides how many yielded values a stream keeps when nobody is reading yet?",
+      "options": [
+        "Stream Continuation",
+        "AsyncThrowingStream",
+        "Buffering Policy"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "What do you call an async sequence you build by yielding values by hand, which can also end with a thrown error?",
+      "options": [
+        "AsyncThrowingStream",
+        "Buffering Policy",
+        "Stream Continuation"
+      ],
+      "answer": "a"
+    }
+  ],
+  "video": {
+    "title": "AsyncThrowingStream, Stream Continuation & Buffering Policy | Day 272",
+    "description": "Learn to explain how to build your own async stream that can fail and control how it stores values: AsyncThrowingStream, Stream Continuation & Buffering Policy, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nAsyncThrowingStream - An async sequence you build by yielding values by hand, which can also end with a thrown error.\nStream Continuation - The handle passed into a stream closure that you use to yield values and finish the stream.\nBuffering Policy - A rule that decides how many yielded values a stream keeps when nobody is reading yet.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 272 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "AsyncThrowingStream",
+      "Stream Continuation",
+      "Buffering Policy",
+      "asyncthrowingstream",
+      "stream continuation",
+      "buffering policy",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "iOS AsyncThrowingStream, Stream Continuation & Buffering Policy | Day 272",
+      "description": "Explain AsyncThrowingStream, Stream Continuation & Buffering Policy in iOS by listening to a real code chat between two iOS devs.\nAsyncThrowingStream, Stream Continuation, Buffering Policy 표현을 영어 대화로 익혀요.\n\nAsyncThrowingStream - An async sequence you build by yielding values by hand, which can also end with a thrown error.\n한국어: AsyncThrowingStream: 값을 직접 내보내며 만들고 에러로 끝날 수도 있는 비동기 시퀀스\n\nStream Continuation - The handle passed into a stream closure that you use to yield values and finish the stream.\n한국어: Stream Continuation: 스트림 클로저에 전달되어 값을 내보내고 스트림을 끝내는 데 쓰는 핸들\n\nBuffering Policy - A rule that decides how many yielded values a stream keeps when nobody is reading yet.\n한국어: Buffering Policy: 아직 읽는 쪽이 없을 때 스트림이 값을 몇 개 보관할지 정하는 규칙\n\nIn this video, Mina and Jake talk about a progress stream that can fail and what happens when nobody reads it, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 272 of the iOS Daily English series.\n\n#Swift #SwiftConcurrency #EnglishForDevelopers",
+      "tags": [
+        "AsyncThrowingStream",
+        "Stream Continuation",
+        "Buffering Policy",
+        "Swift concurrency",
+        "iOS 동시성",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "iOS Daily English"
+      ],
+      "hook": "Can you explain AsyncThrowingStream, Stream Continuation and Buffering Policy in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "A progress stream that can fail",
+    "setting": "Turning a callback API into a stream",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, I want a stream of download progress that can fail.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Then use an AsyncThrowingStream. You build it by yielding values, and it can end with an error.",
+        "terms": [
+          "AsyncThrowingStream"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "How do I send values into it?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "With the stream continuation. It is `c` here. Call `c.yield` for each value.",
+        "terms": [
+          "Stream Continuation"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "And when the download ends?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Call `c.finish` on the stream continuation, or pass `throwing` to finish with an error.",
+        "terms": [
+          "Stream Continuation"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "What if I yield too fast and nobody reads?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "That depends on the buffering policy. By default the stream keeps every value.",
+        "terms": [
+          "Buffering Policy"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "That sounds like a memory risk.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "It can be. Set a small buffering policy, so old progress values are dropped.",
+        "terms": [
+          "Buffering Policy"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Good idea. Only the latest percent matters.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Right. An AsyncThrowingStream plus a small buffer fits progress well.",
+        "terms": [
+          "AsyncThrowingStream"
+        ]
+      }
+    ],
+    "code": "let s = AsyncThrowingStream<Int, Error> { c in\n    c.yield(1)\n    c.finish(throwing: nil)\n}\nfor try await v in s { print(v) }",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "AsyncThrowingStream",
+      "lines": [
+        {
+          "text": "Use an AsyncThrowingStream when the progress can fail."
+        }
+      ],
+      "title": "Use an AsyncThrowingStream when the progress can fail. #Shorts",
+      "description": "Use an AsyncThrowingStream when the progress can fail.\n\nAsyncThrowingStream - An async sequence you build by yielding values by hand, which can also end with a thrown error.\n한국어: AsyncThrowingStream: 값을 직접 내보내며 만들고 에러로 끝날 수도 있는 비동기 시퀀스\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "Stream Continuation",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "How do I send values in?"
+        },
+        {
+          "speaker": "B",
+          "text": "Use the stream continuation."
+        }
+      ],
+      "title": "How do I send values in? / Use the stream continuation. #Shorts",
+      "description": "How do I send values in? / Use the stream continuation.\n\nStream Continuation - The handle passed into a stream closure that you use to yield values and finish the stream.\n한국어: Stream Continuation: 스트림 클로저에 전달되어 값을 내보내고 스트림을 끝내는 데 쓰는 핸들\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Buffering Policy",
+      "lines": [
+        {
+          "text": "Set a small buffering policy so old values are dropped."
+        }
+      ],
+      "title": "Set a small buffering policy so old values are dropped. #Shorts",
+      "description": "Set a small buffering policy so old values are dropped.\n\nBuffering Policy - A rule that decides how many yielded values a stream keeps when nobody is reading yet.\n한국어: Buffering Policy: 아직 읽는 쪽이 없을 때 스트림이 값을 몇 개 보관할지 정하는 규칙\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "Build your own stream."
+}

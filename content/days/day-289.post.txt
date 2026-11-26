@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 289
+
+#expect
+- A macro that checks a condition in a Swift Testing test and records a failure if it is false.
+- Example: "Use #expect to check the total."
+
+Confirmation
+- A Swift Testing tool that counts how often an event happens while an async test runs.
+- Example: "Use a confirmation to check that the callback runs."
+
+Expected Count
+- The number of times a confirmation must be triggered for the test to pass.
+- Example: "Set the expected count to two."
+
+
+Quiz ①
+What do you call a Swift Testing tool that counts how often an event happens while an async test runs?
+a) #expect
+b) Confirmation
+c) Expected Count
+
+Quiz ②
+What do you call the number of times a confirmation must be triggered for the test to pass?
+a) Confirmation
+b) #expect
+c) Expected Count
+
+Quiz ③
+What do you call a macro that checks a condition in a Swift Testing test and records a failure if it is false?
+a) #expect
+b) Expected Count
+c) Confirmation

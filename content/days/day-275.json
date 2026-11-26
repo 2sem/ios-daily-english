@@ -1,0 +1,230 @@
+{
+  "day": 275,
+  "phase": "6. Concurrency",
+  "theme": "Task priority, currentPriority and priority inheritance",
+  "terms": [
+    {
+      "term": "Task Priority",
+      "definition": "A hint that tells the system how urgent a task is, such as high, medium or low.",
+      "example": "Give the image import a low task priority.",
+      "code": "let urgent = Task(priority: .high) { 42 }\nprint(await urgent.value)\nprint(TaskPriority.high > .low)",
+      "output": "42\ntrue"
+    },
+    {
+      "term": "currentPriority",
+      "definition": "A static property that tells you the priority of the task running right now.",
+      "example": "Print currentPriority to see what the task got.",
+      "code": "let t = Task(priority: .high) {\n    print(Task.currentPriority)\n}\nawait t.value",
+      "output": "TaskPriority.high"
+    },
+    {
+      "term": "Priority Inheritance",
+      "definition": "The rule that a new child task starts with the same priority as the task that created it.",
+      "example": "Thanks to priority inheritance, the child is urgent too.",
+      "code": "let t = Task(priority: .userInitiated) {\n    await Task { Task.currentPriority }.value\n}\nprint(await t.value)",
+      "output": "TaskPriority.high"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What do you call a static property that tells you the priority of the task running right now?",
+      "options": [
+        "Task Priority",
+        "currentPriority",
+        "Priority Inheritance"
+      ],
+      "answer": "b"
+    },
+    {
+      "question": "What do you call the rule that a new child task starts with the same priority as the task that created it?",
+      "options": [
+        "currentPriority",
+        "Task Priority",
+        "Priority Inheritance"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "What do you call a hint that tells the system how urgent a task is, such as high, medium or low?",
+      "options": [
+        "Task Priority",
+        "Priority Inheritance",
+        "currentPriority"
+      ],
+      "answer": "a"
+    }
+  ],
+  "video": {
+    "title": "Task Priority, currentPriority & Priority Inheritance | Day 275",
+    "description": "Learn to explain how to talk about how urgent a task is, how to read it and how child tasks get it: Task Priority, currentPriority & Priority Inheritance, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nTask Priority - A hint that tells the system how urgent a task is, such as high, medium or low.\ncurrentPriority - A static property that tells you the priority of the task running right now.\nPriority Inheritance - The rule that a new child task starts with the same priority as the task that created it.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 275 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "Task Priority",
+      "currentPriority",
+      "Priority Inheritance",
+      "task priority",
+      "currentpriority",
+      "priority inheritance",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "iOS Task Priority, currentPriority & Priority Inheritance | Day 275",
+      "description": "Explain Task Priority, currentPriority & Priority Inheritance in iOS by listening to a real code chat between two iOS devs.\nTask Priority, currentPriority, Priority Inheritance 표현을 영어 대화로 익혀요.\n\nTask Priority - A hint that tells the system how urgent a task is, such as high, medium or low.\n한국어: Task Priority: 태스크가 얼마나 급한지(high, medium, low 등) 시스템에 알려 주는 힌트\n\ncurrentPriority - A static property that tells you the priority of the task running right now.\n한국어: currentPriority: 지금 실행 중인 태스크의 우선순위를 알려 주는 정적 프로퍼티\n\nPriority Inheritance - The rule that a new child task starts with the same priority as the task that created it.\n한국어: Priority Inheritance: 새 자식 태스크가 자신을 만든 태스크와 같은 우선순위로 시작하는 규칙\n\nIn this video, Mina and Jake talk about which tasks should run first and what priority a child task gets, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 275 of the iOS Daily English series.\n\n#Swift #SwiftConcurrency #EnglishForDevelopers",
+      "tags": [
+        "Task Priority",
+        "currentPriority",
+        "Priority Inheritance",
+        "Swift concurrency",
+        "iOS 동시성",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "iOS Daily English"
+      ],
+      "hook": "Can you explain Task Priority, currentPriority and Priority Inheritance in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "Which task should run first?",
+    "setting": "A slow screen during a big import",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, the screen feels slow while the big import runs.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Did you set a task priority? The import should not be urgent.",
+        "terms": [
+          "Task Priority"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "No. I used the default for everything.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Give the import a low task priority. It is a hint that tells the system how urgent a task is.",
+        "terms": [
+          "Task Priority"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "And how can I check what a task got?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Print currentPriority inside the task.",
+        "terms": [
+          "currentPriority"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "I did. The child task shows `high` too, but I never set that.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "That is priority inheritance. A child starts with the priority of its parent.",
+        "terms": [
+          "Priority Inheritance"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "So one high parent makes every child urgent?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Yes, unless you create a detached task, which does not inherit it.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "Got it. Priority inheritance explains it, so I will lower the parent task priority.",
+        "terms": [
+          "Task Priority",
+          "Priority Inheritance"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Then print currentPriority again to verify.",
+        "terms": [
+          "currentPriority"
+        ]
+      }
+    ],
+    "code": "let t = Task(priority: .high) {\n    print(Task.currentPriority)\n    let c = Task { Task.currentPriority }\n    print(await c.value)\n}\nawait t.value",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "Task Priority",
+      "lines": [
+        {
+          "text": "Give the image import a low task priority."
+        }
+      ],
+      "title": "Give the image import a low task priority. #Shorts",
+      "description": "Give the image import a low task priority.\n\nTask Priority - A hint that tells the system how urgent a task is, such as high, medium or low.\n한국어: Task Priority: 태스크가 얼마나 급한지(high, medium, low 등) 시스템에 알려 주는 힌트\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "currentPriority",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "How do I read a task's priority?"
+        },
+        {
+          "speaker": "B",
+          "text": "Print currentPriority."
+        }
+      ],
+      "title": "How do I read a task's priority? / Print currentPriority. #Shorts",
+      "description": "How do I read a task's priority? / Print currentPriority.\n\ncurrentPriority - A static property that tells you the priority of the task running right now.\n한국어: currentPriority: 지금 실행 중인 태스크의 우선순위를 알려 주는 정적 프로퍼티\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Priority Inheritance",
+      "lines": [
+        {
+          "text": "Thanks to priority inheritance, the child is urgent too."
+        }
+      ],
+      "title": "Thanks to priority inheritance, the child is urgent too. #Shorts",
+      "description": "Thanks to priority inheritance, the child is urgent too.\n\nPriority Inheritance - The rule that a new child task starts with the same priority as the task that created it.\n한국어: Priority Inheritance: 새 자식 태스크가 자신을 만든 태스크와 같은 우선순위로 시작하는 규칙\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "Which task runs first?"
+}

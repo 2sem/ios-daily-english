@@ -1,0 +1,232 @@
+{
+  "day": 281,
+  "phase": "6. Concurrency",
+  "theme": "Opting out of isolation: nonisolated unsafe, default isolation and upcoming features",
+  "terms": [
+    {
+      "term": "Nonisolated Unsafe",
+      "definition": "A keyword that tells the compiler to skip isolation checks for a variable you protect yourself.",
+      "example": "Mark the global nonisolated unsafe only if you guard it.",
+      "code": "nonisolated(unsafe) var level = 1\nfunc bump() { level += 1 }\nbump()\nprint(level)",
+      "output": "2"
+    },
+    {
+      "term": "Default Isolation",
+      "definition": "A build setting that puts code on the main actor unless you say otherwise.",
+      "example": "New app targets use the main actor as the default isolation.",
+      "code": "import PackageDescription\nlet package = Package(name: \"Kit\", targets: [\n    .target(name: \"Kit\", swiftSettings: [\n        .defaultIsolation(MainActor.self)\n    ])])",
+      "output": "// no output"
+    },
+    {
+      "term": "Upcoming Feature",
+      "definition": "A compiler flag that turns on a future Swift behavior early, one feature at a time.",
+      "example": "Enable the upcoming feature in the package settings.",
+      "code": "import PackageDescription\nlet package = Package(name: \"Kit\", targets: [\n    .target(name: \"Kit\", swiftSettings: [\n        .enableUpcomingFeature(\n            \"NonisolatedNonsendingByDefault\"\n        )])])",
+      "output": "// no output"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What do you call a build setting that puts code on the main actor unless you say otherwise?",
+      "options": [
+        "Nonisolated Unsafe",
+        "Default Isolation",
+        "Upcoming Feature"
+      ],
+      "answer": "b"
+    },
+    {
+      "question": "What do you call a compiler flag that turns on a future Swift behavior early, one feature at a time?",
+      "options": [
+        "Default Isolation",
+        "Nonisolated Unsafe",
+        "Upcoming Feature"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "What do you call a keyword that tells the compiler to skip isolation checks for a variable you protect yourself?",
+      "options": [
+        "Nonisolated Unsafe",
+        "Upcoming Feature",
+        "Default Isolation"
+      ],
+      "answer": "a"
+    }
+  ],
+  "video": {
+    "title": "Nonisolated Unsafe, Default Isolation & Upcoming Feature | Day 281",
+    "description": "Learn to explain how to talk about new project settings that put code on the main actor and the escape hatch for unsafe globals: Nonisolated Unsafe, Default Isolation & Upcoming Feature, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nNonisolated Unsafe - A keyword that tells the compiler to skip isolation checks for a variable you protect yourself.\nDefault Isolation - A build setting that puts code on the main actor unless you say otherwise.\nUpcoming Feature - A compiler flag that turns on a future Swift behavior early, one feature at a time.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 281 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "Nonisolated Unsafe",
+      "Default Isolation",
+      "Upcoming Feature",
+      "nonisolated unsafe",
+      "default isolation",
+      "upcoming feature",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "iOS Nonisolated Unsafe, Default Isolation & Upcoming Feature | Day 281",
+      "description": "Explain Nonisolated Unsafe, Default Isolation & Upcoming Feature in iOS by listening to a real code chat between two iOS devs.\nNonisolated Unsafe, Default Isolation, Upcoming Feature 표현을 영어 대화로 익혀요.\n\nNonisolated Unsafe - A keyword that tells the compiler to skip isolation checks for a variable you protect yourself.\n한국어: Nonisolated Unsafe: 직접 보호하는 변수에 대해 컴파일러의 격리 검사를 건너뛰게 하는 키워드\n\nDefault Isolation - A build setting that puts code on the main actor unless you say otherwise.\n한국어: Default Isolation: 따로 지정하지 않으면 코드를 메인 액터에 두는 빌드 설정\n\nUpcoming Feature - A compiler flag that turns on a future Swift behavior early, one feature at a time.\n한국어: Upcoming Feature: 앞으로 도입될 Swift 동작을 기능 하나씩 미리 켜는 컴파일러 플래그\n\nIn this video, Mina and Jake talk about Xcode 26 project settings and a global variable that Swift 6 rejects, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 281 of the iOS Daily English series.\n\n#Swift #SwiftConcurrency #EnglishForDevelopers",
+      "tags": [
+        "Nonisolated Unsafe",
+        "Default Isolation",
+        "Upcoming Feature",
+        "Swift concurrency",
+        "iOS 동시성",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "iOS Daily English"
+      ],
+      "hook": "Can you explain Nonisolated Unsafe, Default Isolation and Upcoming Feature in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "The new project settings",
+    "setting": "Looking at an Xcode 26 project",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, I made a new target in Xcode 26, and my code runs on the main actor.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "That is the default isolation. New targets can use the main actor as the default.",
+        "terms": [
+          "Default Isolation"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "So I do not write `@MainActor` on every type?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Right. You only opt out when something should run elsewhere.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "I also see a list of upcoming feature flags in the settings.",
+        "terms": [
+          "Upcoming Feature"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "An upcoming feature turns on a future Swift behavior early, one flag at a time.",
+        "terms": [
+          "Upcoming Feature"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Good. But my global `level` still shows an error.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Is anything protecting it? You can mark it nonisolated unsafe if you guard it yourself.",
+        "terms": [
+          "Nonisolated Unsafe"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "I guard it with a lock, so that is safe.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Then nonisolated unsafe is fine. Without a guard, it hides a real data race.",
+        "terms": [
+          "Nonisolated Unsafe"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Got it. Default isolation and an upcoming feature for the target.",
+        "terms": [
+          "Default Isolation",
+          "Upcoming Feature"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "And nonisolated unsafe only for guarded globals.",
+        "terms": [
+          "Nonisolated Unsafe"
+        ]
+      }
+    ],
+    "code": "// Build setting: Default Isolation\n// Value: MainActor\nnonisolated(unsafe) var level = 1\nfunc bump() { level += 1 }\nbump()",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "Nonisolated Unsafe",
+      "lines": [
+        {
+          "text": "Mark the global nonisolated unsafe only if you guard it."
+        }
+      ],
+      "title": "Mark the global nonisolated unsafe only if you guard it. #Shorts",
+      "description": "Mark the global nonisolated unsafe only if you guard it.\n\nNonisolated Unsafe - A keyword that tells the compiler to skip isolation checks for a variable you protect yourself.\n한국어: Nonisolated Unsafe: 직접 보호하는 변수에 대해 컴파일러의 격리 검사를 건너뛰게 하는 키워드\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "Default Isolation",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Why is my code on the main actor?"
+        },
+        {
+          "speaker": "B",
+          "text": "That is the default isolation."
+        }
+      ],
+      "title": "Why is my code on the main actor? / That is the default isolation. #Shorts",
+      "description": "Why is my code on the main actor? / That is the default isolation.\n\nDefault Isolation - A build setting that puts code on the main actor unless you say otherwise.\n한국어: Default Isolation: 따로 지정하지 않으면 코드를 메인 액터에 두는 빌드 설정\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Upcoming Feature",
+      "lines": [
+        {
+          "text": "Enable the upcoming feature in the package settings."
+        }
+      ],
+      "title": "Enable the upcoming feature in the package settings. #Shorts",
+      "description": "Enable the upcoming feature in the package settings.\n\nUpcoming Feature - A compiler flag that turns on a future Swift behavior early, one feature at a time.\n한국어: Upcoming Feature: 앞으로 도입될 Swift 동작을 기능 하나씩 미리 켜는 컴파일러 플래그\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "New Xcode, new isolation defaults."
+}

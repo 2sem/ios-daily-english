@@ -1,0 +1,230 @@
+{
+  "day": 273,
+  "phase": "6. Concurrency",
+  "theme": "Task group variants and result ordering",
+  "terms": [
+    {
+      "term": "Throwing Task Group",
+      "definition": "A task group whose child tasks can throw, and which passes on the first error.",
+      "example": "Use a throwing task group when a child task can fail.",
+      "code": "try await withThrowingTaskGroup(\n    of: Int.self) { g in\n    g.addTask { 1 }\n    g.addTask { 2 }\n    print(try await g.reduce(0, +))\n}",
+      "output": "3"
+    },
+    {
+      "term": "Discarding Task Group",
+      "definition": "A task group that throws away each child's result as it finishes, made for tasks that return nothing.",
+      "example": "A discarding task group keeps memory small for log tasks.",
+      "code": "await withDiscardingTaskGroup { g in\n    g.addTask { print(\"one\") }\n}\nprint(\"done\")",
+      "output": "one\ndone"
+    },
+    {
+      "term": "Result Order",
+      "definition": "The order in which a task group hands back child results, which is when they finish, not when you added them.",
+      "example": "Never depend on the result order of a group.",
+      "code": "await withTaskGroup(of: String.self) { g in\n    g.addTask {\n        try? await Task.sleep(for: .seconds(1))\n        return \"slow\" }\n    g.addTask { \"fast\" }\n    for await r in g { print(r) } }",
+      "output": "fast\nslow"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What do you call a task group that throws away each child's result as it finishes, made for tasks that return nothing?",
+      "options": [
+        "Throwing Task Group",
+        "Discarding Task Group",
+        "Result Order"
+      ],
+      "answer": "b"
+    },
+    {
+      "question": "What do you call the order in which a task group hands back child results, which is when they finish, not when you added them?",
+      "options": [
+        "Discarding Task Group",
+        "Throwing Task Group",
+        "Result Order"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "What do you call a task group whose child tasks can throw, and which passes on the first error?",
+      "options": [
+        "Throwing Task Group",
+        "Result Order",
+        "Discarding Task Group"
+      ],
+      "answer": "a"
+    }
+  ],
+  "video": {
+    "title": "Throwing Task Group, Discarding Task Group & Result Order | Day 273",
+    "description": "Learn to explain how to talk about task groups that throw, task groups that discard results and the order results arrive in: Throwing Task Group, Discarding Task Group & Result Order, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nThrowing Task Group - A task group whose child tasks can throw, and which passes on the first error.\nDiscarding Task Group - A task group that throws away each child's result as it finishes, made for tasks that return nothing.\nResult Order - The order in which a task group hands back child results, which is when they finish, not when you added them.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 273 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "Throwing Task Group",
+      "Discarding Task Group",
+      "Result Order",
+      "throwing task group",
+      "discarding task group",
+      "result order",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "iOS Throwing Task Group, Discarding Task Group & Result Order | Day 273",
+      "description": "Explain Throwing Task Group, Discarding Task Group & Result Order in iOS by listening to a real code chat between two iOS devs.\nThrowing Task Group, Discarding Task Group, Result Order 표현을 영어 대화로 익혀요.\n\nThrowing Task Group - A task group whose child tasks can throw, and which passes on the first error.\n한국어: Throwing Task Group: 자식 태스크가 에러를 던질 수 있고 첫 에러를 전달하는 태스크 그룹\n\nDiscarding Task Group - A task group that throws away each child's result as it finishes, made for tasks that return nothing.\n한국어: Discarding Task Group: 자식 태스크가 끝나면 결과를 바로 버리는 태스크 그룹으로, 값을 반환하지 않는 태스크용\n\nResult Order - The order in which a task group hands back child results, which is when they finish, not when you added them.\n한국어: Result Order: 태스크 그룹이 자식 결과를 돌려주는 순서로, 추가한 순서가 아니라 끝난 순서\n\nIn this video, Mina and Jake talk about task group results that arrive in a different order than expected, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 273 of the iOS Daily English series.\n\n#Swift #SwiftConcurrency #EnglishForDevelopers",
+      "tags": [
+        "Throwing Task Group",
+        "Discarding Task Group",
+        "Result Order",
+        "Swift concurrency",
+        "iOS 동시성",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "iOS Daily English"
+      ],
+      "hook": "Can you explain Throwing Task Group, Discarding Task Group and Result Order in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "Why are my results out of order?",
+    "setting": "Debugging a task group",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, my results come out in a different order than I added the tasks.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "That is the result order. Child tasks finish at different times, and the group gives results as they finish.",
+        "terms": [
+          "Result Order"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Can I keep the original order?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Return `n` with each result, then sort them. Do not trust the result order.",
+        "terms": [
+          "Result Order"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "OK. One of my tasks can also throw an error.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Then switch to a throwing task group. The first error cancels the other children.",
+        "terms": [
+          "Throwing Task Group"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "I also have a group that only prints logs. Each task returns nothing.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Use a discarding task group. It throws away each result when the task finishes.",
+        "terms": [
+          "Discarding Task Group"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "So the result order does not matter there?",
+        "terms": [
+          "Result Order"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Right. You just wait for every task.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "Great. A throwing task group for loads, and a discarding task group for logs.",
+        "terms": [
+          "Throwing Task Group",
+          "Discarding Task Group"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Perfect.",
+        "terms": []
+      }
+    ],
+    "code": "await withTaskGroup(of: Int.self) { g in\n    for n in [3, 1, 2] { g.addTask { n } }\n    for await r in g { print(r) }\n}",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "Throwing Task Group",
+      "lines": [
+        {
+          "text": "Use a throwing task group when a child task can fail."
+        }
+      ],
+      "title": "Use a throwing task group when a child task can fail. #Shorts",
+      "description": "Use a throwing task group when a child task can fail.\n\nThrowing Task Group - A task group whose child tasks can throw, and which passes on the first error.\n한국어: Throwing Task Group: 자식 태스크가 에러를 던질 수 있고 첫 에러를 전달하는 태스크 그룹\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "Discarding Task Group",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Why is my group output shuffled?"
+        },
+        {
+          "speaker": "B",
+          "text": "Because of the result order."
+        }
+      ],
+      "title": "Why is my group output shuffled? / Because of the result order. #Shorts",
+      "description": "Why is my group output shuffled? / Because of the result order.\n\nDiscarding Task Group - A task group that throws away each child's result as it finishes, made for tasks that return nothing.\n한국어: Discarding Task Group: 자식 태스크가 끝나면 결과를 바로 버리는 태스크 그룹으로, 값을 반환하지 않는 태스크용\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Result Order",
+      "lines": [
+        {
+          "text": "A discarding task group keeps memory small for log tasks."
+        }
+      ],
+      "title": "A discarding task group keeps memory small for log tasks. #Shorts",
+      "description": "A discarding task group keeps memory small for log tasks.\n\nResult Order - The order in which a task group hands back child results, which is when they finish, not when you added them.\n한국어: Result Order: 태스크 그룹이 자식 결과를 돌려주는 순서로, 추가한 순서가 아니라 끝난 순서\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "Group results arrive out of order."
+}

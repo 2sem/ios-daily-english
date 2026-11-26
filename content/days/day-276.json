@@ -1,0 +1,236 @@
+{
+  "day": 276,
+  "phase": "6. Concurrency",
+  "theme": "Time in Swift concurrency: Duration, Clock and ContinuousClock",
+  "terms": [
+    {
+      "term": "Duration",
+      "definition": "A length of time, such as seconds or milliseconds, stored as a precise value.",
+      "example": "Use a Duration instead of a plain number.",
+      "code": "let d = Duration.seconds(90)\nprint(d)\nprint(d > .seconds(60))",
+      "output": "90.0 seconds\ntrue"
+    },
+    {
+      "term": "Clock",
+      "definition": "A protocol for something that tells the time and can wait until a given moment.",
+      "example": "Pass a Clock into the retry helper.",
+      "code": "func wait<C: Clock>(_ c: C) async throws\n    where C.Duration == Duration {\n    try await c.sleep(for: .milliseconds(1))\n    print(\"woke\") }\ntry await wait(ContinuousClock())",
+      "output": "woke"
+    },
+    {
+      "term": "ContinuousClock",
+      "definition": "A clock that keeps counting even while the device sleeps, handy for measuring elapsed time.",
+      "example": "Measure the request with a ContinuousClock.",
+      "code": "let c = ContinuousClock()\nlet t = await c.measure {\n    try? await c.sleep(for: .milliseconds(10))\n}\nprint(t > .milliseconds(5))",
+      "output": "true"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What do you call a protocol for something that tells the time and can wait until a given moment?",
+      "options": [
+        "Duration",
+        "Clock",
+        "ContinuousClock"
+      ],
+      "answer": "b"
+    },
+    {
+      "question": "What do you call a clock that keeps counting even while the device sleeps, handy for measuring elapsed time?",
+      "options": [
+        "Clock",
+        "Duration",
+        "ContinuousClock"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "What do you call a length of time, such as seconds or milliseconds, stored as a precise value?",
+      "options": [
+        "Duration",
+        "ContinuousClock",
+        "Clock"
+      ],
+      "answer": "a"
+    }
+  ],
+  "video": {
+    "title": "Duration, Clock & ContinuousClock | Day 276",
+    "description": "Learn to explain how to talk about lengths of time, clocks and measuring how long async work takes: Duration, Clock & ContinuousClock, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nDuration - A length of time, such as seconds or milliseconds, stored as a precise value.\nClock - A protocol for something that tells the time and can wait until a given moment.\nContinuousClock - A clock that keeps counting even while the device sleeps, handy for measuring elapsed time.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 276 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "Duration",
+      "Clock",
+      "ContinuousClock",
+      "duration",
+      "clock",
+      "continuousclock",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "iOS Duration, Clock & ContinuousClock | Day 276",
+      "description": "Explain Duration, Clock & ContinuousClock in iOS by listening to a real code chat between two iOS devs.\nDuration, Clock, ContinuousClock 표현을 영어 대화로 익혀요.\n\nDuration - A length of time, such as seconds or milliseconds, stored as a precise value.\n한국어: Duration: 초나 밀리초 같은 시간의 길이를 정확한 값으로 담는 타입\n\nClock - A protocol for something that tells the time and can wait until a given moment.\n한국어: Clock: 시간을 알려 주고 정해진 시점까지 기다릴 수 있는 것을 나타내는 프로토콜\n\nContinuousClock - A clock that keeps counting even while the device sleeps, handy for measuring elapsed time.\n한국어: ContinuousClock: 기기가 잠자는 동안에도 계속 흐르는 시계로, 경과 시간을 재는 데 편리함\n\nIn this video, Mina and Jake talk about measuring and waiting with time values instead of plain numbers, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 276 of the iOS Daily English series.\n\n#Swift #SwiftConcurrency #EnglishForDevelopers",
+      "tags": [
+        "Duration",
+        "Clock",
+        "ContinuousClock",
+        "Swift concurrency",
+        "iOS 동시성",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "iOS Daily English"
+      ],
+      "hook": "Can you explain Duration, Clock and ContinuousClock in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "No more magic numbers for time",
+    "setting": "Replacing nanosecond numbers in a retry helper",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, my retry helper waits for `1_000_000_000`. Nobody knows what that means.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "That is nanoseconds. Use a Duration instead. Write `.seconds(1)`.",
+        "terms": [
+          "Duration"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "So a Duration is a length of time with a unit?",
+        "terms": [
+          "Duration"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Yes, and it prints nicely, too.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "I also want to test the helper without waiting one real second.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Then take a Clock as a parameter. In the app you pass the real one, and in tests a fake one.",
+        "terms": [
+          "Clock"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "And which real clock do I use to measure the request time?",
+        "terms": [
+          "Clock"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "A ContinuousClock. Call `measure` and it returns a Duration.",
+        "terms": [
+          "Duration",
+          "Clock",
+          "ContinuousClock"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Does it stop when the phone sleeps?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "No. A ContinuousClock keeps counting, so it shows real elapsed time.",
+        "terms": [
+          "Clock",
+          "ContinuousClock"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Great. Duration for the delay, Clock for tests, ContinuousClock for timing.",
+        "terms": [
+          "Duration",
+          "Clock",
+          "ContinuousClock"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Perfect summary.",
+        "terms": []
+      }
+    ],
+    "code": "let clock = ContinuousClock()\nlet t = await clock.measure {\n    try? await clock.sleep(for: .seconds(1))\n}\nprint(t)",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "Duration",
+      "lines": [
+        {
+          "text": "Use a Duration instead of a plain number."
+        }
+      ],
+      "title": "Use a Duration instead of a plain number. #Shorts",
+      "description": "Use a Duration instead of a plain number.\n\nDuration - A length of time, such as seconds or milliseconds, stored as a precise value.\n한국어: Duration: 초나 밀리초 같은 시간의 길이를 정확한 값으로 담는 타입\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "Clock",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "How do I fake time in tests?"
+        },
+        {
+          "speaker": "B",
+          "text": "Pass a Clock into the helper."
+        }
+      ],
+      "title": "How do I fake time in tests? / Pass a Clock into the helper. #Shorts",
+      "description": "How do I fake time in tests? / Pass a Clock into the helper.\n\nClock - A protocol for something that tells the time and can wait until a given moment.\n한국어: Clock: 시간을 알려 주고 정해진 시점까지 기다릴 수 있는 것을 나타내는 프로토콜\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "ContinuousClock",
+      "lines": [
+        {
+          "text": "Measure the request with a ContinuousClock."
+        }
+      ],
+      "title": "Measure the request with a ContinuousClock. #Shorts",
+      "description": "Measure the request with a ContinuousClock.\n\nContinuousClock - A clock that keeps counting even while the device sleeps, handy for measuring elapsed time.\n한국어: ContinuousClock: 기기가 잠자는 동안에도 계속 흐르는 시계로, 경과 시간을 재는 데 편리함\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "Stop using raw seconds."
+}

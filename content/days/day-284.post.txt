@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 284
+
+Completion Handler
+- A closure you pass to a function, which the function calls later when its work is done.
+- Example: "The old SDK takes a completion handler."
+
+Callback Bridging
+- Wrapping an old callback API in an async function, so callers can simply use await.
+- Example: "Callback bridging removes the nested closures."
+
+Resume Once
+- The rule that a continuation must be resumed exactly one time, never zero times and never twice.
+- Example: "Check every branch for resume once."
+
+
+Quiz ①
+What do you call wrapping an old callback API in an async function, so callers can simply use await?
+a) Completion Handler
+b) Callback Bridging
+c) Resume Once
+
+Quiz ②
+What do you call the rule that a continuation must be resumed exactly one time, never zero times and never twice?
+a) Callback Bridging
+b) Completion Handler
+c) Resume Once
+
+Quiz ③
+What do you call a closure you pass to a function, which the function calls later when its work is done?
+a) Completion Handler
+b) Resume Once
+c) Callback Bridging
