@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 104
+
+Layer
+- The drawing surface behind every view, where effects like shadows and rounded corners live.
+- Example: "Set the shadow on the Layer, not on the view."
+
+Corner Radius
+- The size of the curve that rounds the corners of a layer.
+- Example: "A Corner Radius of twelve makes the card look friendly."
+
+Clips To Bounds
+- A setting that hides any content that goes outside a view's edges.
+- Example: "The image still has square corners, so turn on Clips To Bounds."
+
+
+Quiz ①
+What setting hides content that goes outside a view's edges?
+a) Layer
+b) Corner Radius
+c) Clips To Bounds
+
+Quiz ②
+In this code, which object holds the shadow settings?
+a) Clips To Bounds
+b) Layer
+c) Corner Radius
+
+Quiz ③
+What do you call the size of the curve that rounds a corner?
+a) Corner Radius
+b) Clips To Bounds
+c) Layer

@@ -1,0 +1,232 @@
+{
+  "day": 97,
+  "phase": "3. iOS foundations",
+  "theme": "3 terms on handing work to another object: the helper, the one that supplies content, and the function it calls",
+  "terms": [
+    {
+      "term": "Delegate",
+      "definition": "An object that another object hands some of its decisions and events to.",
+      "example": "Set the view controller as the Delegate, so it hears the taps.",
+      "code": "tableView.delegate = self",
+      "output": "// no output"
+    },
+    {
+      "term": "Data Source",
+      "definition": "An object that supplies the content a view needs to show, like how many rows and what is in each.",
+      "example": "The Data Source says there are twenty rows.",
+      "code": "tableView.dataSource = self",
+      "output": "// no output"
+    },
+    {
+      "term": "Delegate Method",
+      "definition": "A function that the delegate implements, so the other object can call it when something happens.",
+      "example": "Implement the Delegate Method `didSelectRowAt`, the table calls it on each tap.",
+      "code": "func tableView(_ tableView: UITableView,\n    didSelectRowAt indexPath: IndexPath) {\n    print(indexPath.row)\n}",
+      "output": "// no output"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What supplies the rows and the content a table needs to show?",
+      "options": [
+        "Delegate",
+        "Data Source",
+        "Delegate Method"
+      ],
+      "answer": "b"
+    },
+    {
+      "question": "In this code, what is the whole function called?",
+      "code": "func tableView(_ tableView: UITableView,\n    didSelectRowAt indexPath: IndexPath) {\n    print(indexPath.row)\n}",
+      "options": [
+        "Delegate Method",
+        "Delegate",
+        "Data Source"
+      ],
+      "answer": "a"
+    },
+    {
+      "question": "What do you call an object that another object hands some of its decisions to?",
+      "options": [
+        "Data Source",
+        "Delegate Method",
+        "Delegate"
+      ],
+      "answer": "c"
+    }
+  ],
+  "video": {
+    "title": "Delegate, Data Source & Delegate Method | Day 97",
+    "description": "Learn to explain how UIKit asks your code what to show and what to do: Delegate, Data Source & Delegate Method, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nDelegate - An object that another object hands some of its decisions and events to.\nData Source - An object that supplies the content a view needs to show, like how many rows and what is in each.\nDelegate Method - A function that the delegate implements, so the other object can call it when something happens.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 97 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "delegate",
+      "data source",
+      "delegate method",
+      "delegate",
+      "data source",
+      "delegate method",
+      "uitableviewdelegate",
+      "ios foundations",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "iOS Delegate, Data Source & Delegate Method | Day 97",
+      "description": "Explain Delegate, Data Source & Delegate Method in iOS by listening to a real code chat between two iOS devs.\n델리게이트, 데이터 소스, 델리게이트 메서드 표현을 영어 대화로 익혀요.\n\nDelegate - An object that another object hands some of its decisions and events to.\n한국어: 델리게이트: 다른 객체가 일부 결정과 이벤트를 대신 맡기는 객체\n\nData Source - An object that supplies the content a view needs to show, like how many rows and what is in each.\n한국어: 데이터 소스: 행이 몇 개인지, 각 행에 무엇이 들어가는지처럼 뷰가 보여 줄 내용을 공급하는 객체\n\nDelegate Method - A function that the delegate implements, so the other object can call it when something happens.\n한국어: 델리게이트 메서드: 무언가 일어났을 때 상대 객체가 호출할 수 있도록 델리게이트가 구현하는 함수\n\nIn this video, Mina and Jake find out why a table shows no rows, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 97 of the iOS Daily English series.\n\n#Swift #iOSDeveloper #EnglishForDevelopers",
+      "tags": [
+        "Delegate",
+        "Data Source",
+        "Delegate Method",
+        "UITableViewDelegate",
+        "UITableViewDataSource",
+        "delegation",
+        "iOS 기초",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "iOS Daily English"
+      ],
+      "hook": "Your table is empty. Can you explain why in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "Why is my table empty?",
+    "setting": "Empty table bug",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, my table is empty. No rows at all.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Did you set the Data Source?",
+        "terms": [
+          "Data Source"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "I set `delegate`, but I forgot `dataSource`.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "That's the bug. The Delegate handles taps. The Data Source supplies the rows through `numberOfRowsInSection`.",
+        "terms": [
+          "Delegate",
+          "Data Source"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "So the Delegate is only for events?",
+        "terms": [
+          "Delegate"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Mostly, yes. It also answers small questions, like the row height.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "Okay. Which Delegate Method runs when I tap a row?",
+        "terms": [
+          "Delegate",
+          "Delegate Method"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "`didSelectRowAt`. The table calls that Delegate Method for you.",
+        "terms": [
+          "Delegate",
+          "Delegate Method"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "And `numberOfRowsInSection` belongs to the Data Source?",
+        "terms": [
+          "Data Source"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Correct. Set both to `self` and your rows appear.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "Done. Now I see all twenty rows.",
+        "terms": []
+      }
+    ],
+    "code": "tableView.dataSource = self\ntableView.delegate = self",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-conversation",
+      "term": "Delegate",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Who handles the taps?"
+        },
+        {
+          "speaker": "B",
+          "text": "The Delegate. I set it to `self`."
+        }
+      ],
+      "title": "Who handles the taps? / The Delegate. I set it to `self`. #Shorts",
+      "description": "Who handles the taps? / The Delegate. I set it to `self`.\n\nDelegate - An object that another object hands some of its decisions and events to.\n한국어: 델리게이트: 다른 객체가 일부 결정과 이벤트를 대신 맡기는 객체\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Data Source",
+      "lines": [
+        {
+          "text": "No rows? You forgot to set the Data Source."
+        }
+      ],
+      "title": "No rows? You forgot to set the Data Source. #Shorts",
+      "description": "No rows? You forgot to set the Data Source.\n\nData Source - An object that supplies the content a view needs to show, like how many rows and what is in each.\n한국어: 데이터 소스: 행이 몇 개인지, 각 행에 무엇이 들어가는지처럼 뷰가 보여 줄 내용을 공급하는 객체\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Delegate Method",
+      "lines": [
+        {
+          "text": "The table calls your Delegate Method on every tap."
+        }
+      ],
+      "title": "The table calls your Delegate Method on every tap. #Shorts",
+      "description": "The table calls your Delegate Method on every tap.\n\nDelegate Method - A function that the delegate implements, so the other object can call it when something happens.\n한국어: 델리게이트 메서드: 무언가 일어났을 때 상대 객체가 호출할 수 있도록 델리게이트가 구현하는 함수\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "Why is the table empty?"
+}

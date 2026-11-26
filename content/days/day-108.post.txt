@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 108
+
+Tab Bar Controller
+- A container that shows a bar of tabs at the bottom and switches between screens.
+- Example: "Use a Tab Bar Controller, with Home, Search and Profile."
+
+Tab Bar Item
+- The icon and title of one tab in the tab bar.
+- Example: "Set the Tab Bar Item for each screen, with an SF Symbol."
+
+Badge
+- A small red number or dot on an icon that shows something new.
+- Example: "Show a Badge with the unread count on the Inbox tab."
+
+
+Quiz ①
+What do you call a small red number on an icon that shows something new?
+a) Tab Bar Item
+b) Badge
+c) Tab Bar Controller
+
+Quiz ②
+What container shows a bar of tabs at the bottom and switches screens?
+a) Badge
+b) Tab Bar Item
+c) Tab Bar Controller
+
+Quiz ③
+In this code, what holds the title and icon of one tab?
+a) Tab Bar Item
+b) Tab Bar Controller
+c) Badge

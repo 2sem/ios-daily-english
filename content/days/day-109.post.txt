@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 109
+
+Search Bar
+- A text box with a magnifying glass where the user types a search.
+- Example: "Put the Search Bar at the top of the list."
+
+Search Controller
+- An object that manages the search bar and shows the results on top of your screen.
+- Example: "Add a Search Controller to the navigation bar."
+
+Search Results Updater
+- An object that gets called each time the search text changes, so it can filter the results.
+- Example: "Set the view controller as the Search Results Updater, to filter on each key."
+
+
+Quiz ①
+What gets called each time the search text changes, so you can filter the results?
+a) Search Bar
+b) Search Controller
+c) Search Results Updater
+
+Quiz ②
+What do you call the text box with a magnifying glass where users type?
+a) Search Results Updater
+b) Search Bar
+c) Search Controller
+
+Quiz ③
+In this code, what object manages the search and shows the results?
+a) Search Controller
+b) Search Results Updater
+c) Search Bar

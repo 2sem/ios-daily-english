@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 110
+
+Activity Indicator
+- A small spinning wheel that shows the app is busy.
+- Example: "Show an Activity Indicator while the notes load."
+
+Pull to Refresh
+- A gesture where the user drags a list down to load fresh data.
+- Example: "Pull to Refresh is the usual way to reload a feed."
+
+Refresh Control
+- A built-in control that you attach to a table to start a refresh and show a spinner.
+- Example: "Attach a Refresh Control to the table, then call `endRefreshing` when the data arrives."
+
+
+Quiz ①
+What built-in control starts a refresh and shows a spinner when attached to a table?
+a) Activity Indicator
+b) Pull to Refresh
+c) Refresh Control
+
+Quiz ②
+What do you call the small spinning wheel that shows the app is busy?
+a) Refresh Control
+b) Activity Indicator
+c) Pull to Refresh
+
+Quiz ③
+In this code, what gesture makes the closure run?
+a) Pull to Refresh
+b) Refresh Control
+c) Activity Indicator

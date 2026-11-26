@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 103
+
+Animation Block
+- A closure where you change a view's properties, so UIKit animates the change.
+- Example: "Change the alpha inside the Animation Block, not before it."
+
+Animation Curve
+- The speed pattern of an animation, like starting slow and ending fast.
+- Example: "Use ease out as the Animation Curve, it feels natural."
+
+Spring Animation
+- An animation that overshoots the end value and settles back, like a spring.
+- Example: "The button uses a Spring Animation, so it bounces a little."
+
+
+Quiz ①
+What do you call an animation that overshoots and settles back like a coil?
+a) Animation Curve
+b) Animation Block
+c) Spring Animation
+
+Quiz ②
+In this code, what is the closure called, where the change is made?
+a) Animation Curve
+b) Animation Block
+c) Spring Animation
+
+Quiz ③
+What describes the speed pattern, like a slow start and a fast end?
+a) Spring Animation
+b) Animation Block
+c) Animation Curve

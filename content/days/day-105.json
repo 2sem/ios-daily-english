@@ -1,0 +1,235 @@
+{
+  "day": 105,
+  "phase": "3. iOS foundations",
+  "theme": "3 terms on images: the view that shows one, how it fits, and Apple's built-in icons",
+  "terms": [
+    {
+      "term": "Image View",
+      "definition": "A view that shows a single image on the screen.",
+      "example": "Show the avatar in an Image View with round corners.",
+      "code": "let imageView = UIImageView()\nimageView.image = photo",
+      "output": "// no output"
+    },
+    {
+      "term": "Content Mode",
+      "definition": "A setting that decides how an image is scaled and placed inside its view.",
+      "example": "Use aspect fill as the Content Mode, so the photo has no gaps.",
+      "code": "imageView.contentMode = .scaleAspectFill\nimageView.clipsToBounds = true",
+      "output": "// no output"
+    },
+    {
+      "term": "SF Symbol",
+      "definition": "One of thousands of icons that Apple provides, which scale and match your text.",
+      "example": "Use an SF Symbol for the heart, no PNG needed.",
+      "code": "let heart = UIImage(systemName: \"heart.fill\")\nimageView.image = heart",
+      "output": "// no output"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What do you call one of the thousands of built-in Apple icons that match your text?",
+      "options": [
+        "Content Mode",
+        "Image View",
+        "SF Symbol"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "What kind of view shows a single picture on the screen?",
+      "options": [
+        "SF Symbol",
+        "Image View",
+        "Content Mode"
+      ],
+      "answer": "b"
+    },
+    {
+      "question": "In this code, which setting decides how the image fits inside?",
+      "code": "imageView.contentMode = .scaleAspectFit\nimageView.clipsToBounds = true",
+      "options": [
+        "Content Mode",
+        "SF Symbol",
+        "Image View"
+      ],
+      "answer": "a"
+    }
+  ],
+  "video": {
+    "title": "Image View, Content Mode & SF Symbol | Day 105",
+    "description": "Learn to explain how images fit in a view and where icons come from: Image View, Content Mode & SF Symbol, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nImage View - A view that shows a single image on the screen.\nContent Mode - A setting that decides how an image is scaled and placed inside its view.\nSF Symbol - One of thousands of icons that Apple provides, which scale and match your text.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 105 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "image view",
+      "content mode",
+      "sf symbol",
+      "image view",
+      "content mode",
+      "sf symbol",
+      "uiimageview",
+      "systemname",
+      "ios foundations",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "iOS Image View, Content Mode & SF Symbol | Day 105",
+      "description": "Explain Image View, Content Mode & SF Symbol in iOS by listening to a real code chat between two iOS devs.\n이미지 뷰, 콘텐츠 모드, SF 심볼 표현을 영어 대화로 익혀요.\n\nImage View - A view that shows a single image on the screen.\n한국어: 이미지 뷰: 이미지 하나를 화면에 보여 주는 뷰\n\nContent Mode - A setting that decides how an image is scaled and placed inside its view.\n한국어: 콘텐츠 모드: 이미지를 뷰 안에서 어떻게 확대·축소하고 배치할지 정하는 설정\n\nSF Symbol - One of thousands of icons that Apple provides, which scale and match your text.\n한국어: SF 심볼: 텍스트에 맞춰 크기가 조절되는, 애플이 제공하는 수천 개의 아이콘 중 하나\n\nIn this video, Mina and Jake fix a cropped icon and choose the right fit, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 105 of the iOS Daily English series.\n\n#Swift #iOSDeveloper #EnglishForDevelopers",
+      "tags": [
+        "Image View",
+        "Content Mode",
+        "SF Symbol",
+        "UIImageView",
+        "contentMode",
+        "UIImage(systemName:)",
+        "iOS 기초",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "iOS Daily English"
+      ],
+      "hook": "Your icon looks cropped. Can you explain why in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "The star icon is cropped",
+    "setting": "Icon bug",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, my star icon looks cropped in the Image View.",
+        "terms": [
+          "Image View"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "What is the Content Mode?",
+        "terms": [
+          "Content Mode"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "It's `.scaleAspectFill`.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "That fills the whole view and crops the edges. For an icon, use `.scaleAspectFit`.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "Is the star an SF Symbol, then?",
+        "terms": [
+          "SF Symbol"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Yes. You load it with `systemName`.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "Does an SF Symbol scale with the text size?",
+        "terms": [
+          "SF Symbol"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Yes, and it matches the font weight too. That's the big advantage.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "Okay. What about my photos?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "For photos, aspect fill works well in an Image View, with clipping on.",
+        "terms": [
+          "Image View"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Good. Fit for icons, fill for photos.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Exactly. Pick the Content Mode for each case.",
+        "terms": [
+          "Content Mode"
+        ]
+      }
+    ],
+    "code": "imageView.image = UIImage(systemName: \"star\")\nimageView.contentMode = .scaleAspectFill",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "Image View",
+      "lines": [
+        {
+          "text": "An Image View shows one picture, nothing more."
+        }
+      ],
+      "title": "An Image View shows one picture, nothing more. #Shorts",
+      "description": "An Image View shows one picture, nothing more.\n\nImage View - A view that shows a single image on the screen.\n한국어: 이미지 뷰: 이미지 하나를 화면에 보여 주는 뷰\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "Content Mode",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "The photo looks stretched."
+        },
+        {
+          "speaker": "B",
+          "text": "Change the Content Mode to aspect fit."
+        }
+      ],
+      "title": "The photo looks stretched. / Change the Content Mode to aspect fit. #Shorts",
+      "description": "The photo looks stretched. / Change the Content Mode to aspect fit.\n\nContent Mode - A setting that decides how an image is scaled and placed inside its view.\n한국어: 콘텐츠 모드: 이미지를 뷰 안에서 어떻게 확대·축소하고 배치할지 정하는 설정\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "SF Symbol",
+      "lines": [
+        {
+          "text": "Need a heart icon? Use an SF Symbol."
+        }
+      ],
+      "title": "Need a heart icon? Use an SF Symbol. #Shorts",
+      "description": "Need a heart icon? Use an SF Symbol.\n\nSF Symbol - One of thousands of icons that Apple provides, which scale and match your text.\n한국어: SF 심볼: 텍스트에 맞춰 크기가 조절되는, 애플이 제공하는 수천 개의 아이콘 중 하나\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "Why is the icon cropped?"
+}

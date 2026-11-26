@@ -1,0 +1,229 @@
+{
+  "day": 106,
+  "phase": "3. iOS foundations",
+  "theme": "3 terms on typing: the input box, who receives the keys, and the message that says the keyboard moved",
+  "terms": [
+    {
+      "term": "Text Field",
+      "definition": "A single-line box where the user types text.",
+      "example": "Add a Text Field for the email, and set the keyboard type.",
+      "code": "field.placeholder = \"Email\"\nfield.keyboardType = .emailAddress",
+      "output": "// no output"
+    },
+    {
+      "term": "First Responder",
+      "definition": "The object that receives the keyboard input right now.",
+      "example": "The Text Field becomes the First Responder, so the keyboard appears.",
+      "code": "field.becomeFirstResponder()\n// later, to hide the keyboard\nfield.resignFirstResponder()",
+      "output": "// no output"
+    },
+    {
+      "term": "Keyboard Notification",
+      "definition": "A system message that tells your app when the keyboard shows, hides or changes size.",
+      "example": "Listen for the Keyboard Notification, then move the button up.",
+      "code": "let show = UIResponder\n    .keyboardWillShowNotification\nNotificationCenter.default.addObserver(\n    forName: show, object: nil,\n    queue: .main) { _ in }",
+      "output": "// no output"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What tells your app when the keyboard shows, hides or changes size?",
+      "options": [
+        "Text Field",
+        "First Responder",
+        "Keyboard Notification"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "What do you call a single-line box where the user types?",
+      "options": [
+        "First Responder",
+        "Text Field",
+        "Keyboard Notification"
+      ],
+      "answer": "b"
+    },
+    {
+      "question": "In this code, what does the field become, so the keyboard opens?",
+      "code": "field.becomeFirstResponder()",
+      "options": [
+        "Keyboard Notification",
+        "Text Field",
+        "First Responder"
+      ],
+      "answer": "c"
+    }
+  ],
+  "video": {
+    "title": "Text Field, First Responder & Keyboard Notification | Day 106",
+    "description": "Learn to explain how the keyboard, text fields and your layout work together: Text Field, First Responder & Keyboard Notification, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nText Field - A single-line box where the user types text.\nFirst Responder - The object that receives the keyboard input right now.\nKeyboard Notification - A system message that tells your app when the keyboard shows, hides or changes size.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 106 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "text field",
+      "first responder",
+      "keyboard notification",
+      "text field",
+      "first responder",
+      "keyboard notification",
+      "uitextfield",
+      "becomefirstresponder",
+      "ios foundations",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "iOS Text Field, First Responder & Keyboard Notification | Day 106",
+      "description": "Explain Text Field, First Responder & Keyboard Notification in iOS by listening to a real code chat between two iOS devs.\n텍스트 필드, 퍼스트 리스폰더, 키보드 노티피케이션 표현을 영어 대화로 익혀요.\n\nText Field - A single-line box where the user types text.\n한국어: 텍스트 필드: 사용자가 한 줄 텍스트를 입력하는 입력창\n\nFirst Responder - The object that receives the keyboard input right now.\n한국어: 퍼스트 리스폰더: 지금 키보드 입력을 받고 있는 객체\n\nKeyboard Notification - A system message that tells your app when the keyboard shows, hides or changes size.\n한국어: 키보드 노티피케이션: 키보드가 나타나거나 사라지거나 크기가 바뀔 때 앱에 알려 주는 시스템 메시지\n\nIn this video, Mina and Jake move a form up when the keyboard covers it, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 106 of the iOS Daily English series.\n\n#Swift #iOSDeveloper #EnglishForDevelopers",
+      "tags": [
+        "Text Field",
+        "First Responder",
+        "Keyboard Notification",
+        "UITextField",
+        "becomeFirstResponder",
+        "keyboardWillShowNotification",
+        "iOS 기초",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "iOS Daily English"
+      ],
+      "hook": "The keyboard covers your form. Can you explain how to fix it in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "The keyboard covers the form",
+    "setting": "Keyboard bug",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, the keyboard covers my Text Field at the bottom.",
+        "terms": [
+          "Text Field"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Listen for the Keyboard Notification. It tells you the keyboard height.",
+        "terms": [
+          "Keyboard Notification"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "I do that with `keyboardWillShowNotification`, like in the code.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Good. When it fires, move the form up.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "And how does the keyboard appear in the first place?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "The Text Field becomes the First Responder.",
+        "terms": [
+          "Text Field",
+          "First Responder"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "So `becomeFirstResponder` opens the keyboard?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Yes. And when you tap Done, resign the First Responder.",
+        "terms": [
+          "First Responder"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Then the keyboard hides, and I get a second Keyboard Notification.",
+        "terms": [
+          "Keyboard Notification"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Right. Move the form back down in that one.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "Perfect. I'll use two notifications.",
+        "terms": []
+      }
+    ],
+    "code": "field.becomeFirstResponder()\nlet show = UIResponder\n    .keyboardWillShowNotification\nNotificationCenter.default.addObserver(\n    forName: show, object: nil,\n    queue: .main) { _ in }",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "Text Field",
+      "lines": [
+        {
+          "text": "A Text Field takes one line of typing."
+        }
+      ],
+      "title": "A Text Field takes one line of typing. #Shorts",
+      "description": "A Text Field takes one line of typing.\n\nText Field - A single-line box where the user types text.\n한국어: 텍스트 필드: 사용자가 한 줄 텍스트를 입력하는 입력창\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "First Responder",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Who gets the keyboard input?"
+        },
+        {
+          "speaker": "B",
+          "text": "The First Responder."
+        }
+      ],
+      "title": "Who gets the keyboard input? / The First Responder. #Shorts",
+      "description": "Who gets the keyboard input? / The First Responder.\n\nFirst Responder - The object that receives the keyboard input right now.\n한국어: 퍼스트 리스폰더: 지금 키보드 입력을 받고 있는 객체\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Keyboard Notification",
+      "lines": [
+        {
+          "text": "Move the form when the Keyboard Notification fires."
+        }
+      ],
+      "title": "Move the form when the Keyboard Notification fires. #Shorts",
+      "description": "Move the form when the Keyboard Notification fires.\n\nKeyboard Notification - A system message that tells your app when the keyboard shows, hides or changes size.\n한국어: 키보드 노티피케이션: 키보드가 나타나거나 사라지거나 크기가 바뀔 때 앱에 알려 주는 시스템 메시지\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "The keyboard covers my form"
+}

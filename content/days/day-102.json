@@ -1,0 +1,233 @@
+{
+  "day": 102,
+  "phase": "3. iOS foundations",
+  "theme": "3 terms on keeping the app responsive: the thread for the screen, the lines of work, and the priority of each task",
+  "terms": [
+    {
+      "term": "Main Thread",
+      "definition": "The thread that draws your screen and handles touches, so it must stay free.",
+      "example": "Never block the Main Thread with a network call.",
+      "code": "import Foundation\nprint(Thread.isMainThread)",
+      "output": "true"
+    },
+    {
+      "term": "Dispatch Queue",
+      "definition": "A line of tasks that the system runs for you on threads it manages.",
+      "example": "Send the image resize to a background Dispatch Queue.",
+      "code": "import Foundation\nlet queue = DispatchQueue(label: \"notes\")\nqueue.sync { print(\"saving\") }",
+      "output": "saving"
+    },
+    {
+      "term": "Quality of Service",
+      "definition": "A level that tells the system how important and urgent a task is.",
+      "example": "Use a low Quality of Service for the background cleanup.",
+      "code": "import Foundation\nDispatchQueue.global(qos: .utility).async {\n    // slow cleanup work\n}",
+      "output": "// no output"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What tells the system how urgent a task is, like user-initiated or utility?",
+      "options": [
+        "Main Thread",
+        "Dispatch Queue",
+        "Quality of Service"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "In this code, which thread runs the closure that sets the label?",
+      "code": "DispatchQueue.main.async {\n    label.text = \"Done\"\n}",
+      "options": [
+        "Quality of Service",
+        "Main Thread",
+        "Dispatch Queue"
+      ],
+      "answer": "b"
+    },
+    {
+      "question": "What do you call the line of tasks that the system runs on threads for you?",
+      "options": [
+        "Dispatch Queue",
+        "Quality of Service",
+        "Main Thread"
+      ],
+      "answer": "a"
+    }
+  ],
+  "video": {
+    "title": "Main Thread, Dispatch Queue & Quality of Service | Day 102",
+    "description": "Learn to explain why heavy work freezes the screen and how to fix it: Main Thread, Dispatch Queue & Quality of Service, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nMain Thread - The thread that draws your screen and handles touches, so it must stay free.\nDispatch Queue - A line of tasks that the system runs for you on threads it manages.\nQuality of Service - A level that tells the system how important and urgent a task is.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 102 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "main thread",
+      "dispatch queue",
+      "quality of service",
+      "main thread",
+      "dispatch queue",
+      "quality of service",
+      "gcd",
+      "qos",
+      "ios foundations",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "iOS Main Thread, Dispatch Queue & Quality of Service | Day 102",
+      "description": "Explain Main Thread, Dispatch Queue & Quality of Service in iOS by listening to a real code chat between two iOS devs.\n메인 스레드, 디스패치 큐, 서비스 품질 표현을 영어 대화로 익혀요.\n\nMain Thread - The thread that draws your screen and handles touches, so it must stay free.\n한국어: 메인 스레드: 화면을 그리고 터치를 처리하는 스레드로, 항상 비어 있어야 해요\n\nDispatch Queue - A line of tasks that the system runs for you on threads it manages.\n한국어: 디스패치 큐: 시스템이 관리하는 스레드에서 작업을 대신 실행해 주는 작업 대기열\n\nQuality of Service - A level that tells the system how important and urgent a task is.\n한국어: 서비스 품질(QoS): 작업이 얼마나 중요하고 급한지 시스템에 알려 주는 단계\n\nIn this video, Mina and Jake fix a photo download that freezes the app, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 102 of the iOS Daily English series.\n\n#Swift #iOSDeveloper #EnglishForDevelopers",
+      "tags": [
+        "Main Thread",
+        "Dispatch Queue",
+        "Quality of Service",
+        "DispatchQueue",
+        "GCD",
+        "qos",
+        "iOS 기초",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "iOS Daily English"
+      ],
+      "hook": "The app freezes while it downloads. Can you explain why in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "The app freezes on download",
+    "setting": "Frozen UI bug",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, the app freezes when I download the photo.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Are you downloading on the Main Thread?",
+        "terms": [
+          "Main Thread"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "I think so. I call `download` directly.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "That blocks the Main Thread, so the screen can't update. Use a Dispatch Queue.",
+        "terms": [
+          "Main Thread",
+          "Dispatch Queue"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Which Dispatch Queue should I use?",
+        "terms": [
+          "Dispatch Queue"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "A global one, with a Quality of Service. User-initiated fits a button tap.",
+        "terms": [
+          "Quality of Service"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "And the image view?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Update it back on the Main Thread, with the main queue.",
+        "terms": [
+          "Main Thread"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Like the code does, with `DispatchQueue.main`.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Yes. For a background sync, use a lower Quality of Service, like utility.",
+        "terms": [
+          "Quality of Service"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Got it. Work in the background, screen on the Main Thread.",
+        "terms": [
+          "Main Thread"
+        ]
+      }
+    ],
+    "code": "DispatchQueue.global(qos: .userInitiated).async {\n    let image = download()\n    DispatchQueue.main.async {\n        imageView.image = image\n    }\n}",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-conversation",
+      "term": "Main Thread",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Why does the screen freeze?"
+        },
+        {
+          "speaker": "B",
+          "text": "You blocked the Main Thread."
+        }
+      ],
+      "title": "Why does the screen freeze? / You blocked the Main Thread. #Shorts",
+      "description": "Why does the screen freeze? / You blocked the Main Thread.\n\nMain Thread - The thread that draws your screen and handles touches, so it must stay free.\n한국어: 메인 스레드: 화면을 그리고 터치를 처리하는 스레드로, 항상 비어 있어야 해요\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Dispatch Queue",
+      "lines": [
+        {
+          "text": "Put the heavy work on a background Dispatch Queue."
+        }
+      ],
+      "title": "Put the heavy work on a background Dispatch Queue. #Shorts",
+      "description": "Put the heavy work on a background Dispatch Queue.\n\nDispatch Queue - A line of tasks that the system runs for you on threads it manages.\n한국어: 디스패치 큐: 시스템이 관리하는 스레드에서 작업을 대신 실행해 주는 작업 대기열\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Quality of Service",
+      "lines": [
+        {
+          "text": "Pick a Quality of Service that fits the task."
+        }
+      ],
+      "title": "Pick a Quality of Service that fits the task. #Shorts",
+      "description": "Pick a Quality of Service that fits the task.\n\nQuality of Service - A level that tells the system how important and urgent a task is.\n한국어: 서비스 품질(QoS): 작업이 얼마나 중요하고 급한지 시스템에 알려 주는 단계\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "Why did the app freeze?"
+}

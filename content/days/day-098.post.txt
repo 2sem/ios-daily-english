@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 98
+
+Storyboard
+- A visual file where you design screens and link them together by dragging.
+- Example: "Open the Storyboard, the login screen is the first one."
+
+Outlet
+- A property that connects an object in the storyboard to your code.
+- Example: "The label is nil because the Outlet isn't connected."
+
+Segue
+- A transition from one screen to another that you define in a storyboard.
+- Example: "Use a Segue to open the detail screen, then pass the data in `prepare`."
+
+
+Quiz ①
+What do you call a transition between two screens that you draw as an arrow?
+a) Outlet
+b) Storyboard
+c) Segue
+
+Quiz ②
+In this code, what file does the name `"Main"` point to?
+a) Segue
+b) Storyboard
+c) Outlet
+
+Quiz ③
+What connects a label in the visual editor to a property in your code?
+a) Storyboard
+b) Segue
+c) Outlet

@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 96
+
+Scroll View
+- A view that lets the user drag to see content that is bigger than the screen.
+- Example: "Put the long form inside a Scroll View, so it works on small phones."
+
+Content Size
+- The full width and height of everything inside a scroll view, including the part you can't see.
+- Example: "It won't scroll because the Content Size is still zero."
+
+Content Offset
+- The point that shows how far a scroll view has moved from its starting position.
+- Example: "Check the Content Offset to see if the user reached the bottom."
+
+
+Quiz ①
+What do you call the point that shows how far the user has dragged the content?
+a) Scroll View
+b) Content Offset
+c) Content Size
+
+Quiz ②
+In this code, what kind of view is created on the first line?
+a) Content Size
+b) Content Offset
+c) Scroll View
+
+Quiz ③
+What is the full size of everything inside, even the hidden part?
+a) Content Offset
+b) Scroll View
+c) Content Size

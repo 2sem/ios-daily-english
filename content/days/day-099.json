@@ -1,0 +1,232 @@
+{
+  "day": 99,
+  "phase": "3. iOS foundations",
+  "theme": "3 terms on building screens: the visual editor, the file for one view, and the code-only approach",
+  "terms": [
+    {
+      "term": "Interface Builder",
+      "definition": "The visual editor in Xcode where you drag and drop views to design a screen.",
+      "example": "Do the simple screens in Interface Builder, it takes a minute.",
+      "code": "// connected by Control-dragging\n@IBOutlet weak var titleLabel: UILabel!\n@IBAction func saveTapped(_ sender: Any) {}",
+      "output": "// no output"
+    },
+    {
+      "term": "Xib",
+      "definition": "A file that stores the layout of one view or screen, loaded at runtime as a nib.",
+      "example": "Each cell has its own Xib, so the storyboard stays small.",
+      "code": "let nib = UINib(nibName: \"NoteCell\",\n    bundle: nil)\ntableView.register(nib,\n    forCellReuseIdentifier: \"NoteCell\")",
+      "output": "// no output"
+    },
+    {
+      "term": "Programmatic UI",
+      "definition": "Building your screens in Swift code instead of dragging views in a visual editor.",
+      "example": "We use Programmatic UI, so merge conflicts are easy to read.",
+      "code": "let button = UIButton(type: .system)\nbutton.setTitle(\"Save\", for: .normal)\nview.addSubview(button)",
+      "output": "// no output"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What file stores the layout of one view and loads it as a nib?",
+      "options": [
+        "Programmatic UI",
+        "Interface Builder",
+        "Xib"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "What do you call building the whole screen in Swift code instead of dragging views?",
+      "options": [
+        "Xib",
+        "Programmatic UI",
+        "Interface Builder"
+      ],
+      "answer": "b"
+    },
+    {
+      "question": "In this code, which Xcode tool creates the connections marked `@IBOutlet` and `@IBAction`?",
+      "code": "@IBOutlet weak var titleLabel: UILabel!\n@IBAction func saveTapped(_ sender: Any) {}",
+      "options": [
+        "Interface Builder",
+        "Xib",
+        "Programmatic UI"
+      ],
+      "answer": "a"
+    }
+  ],
+  "video": {
+    "title": "Interface Builder, Xib & Programmatic UI | Day 99",
+    "description": "Learn to explain how teams build screens with and without a visual editor: Interface Builder, Xib & Programmatic UI, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nInterface Builder - The visual editor in Xcode where you drag and drop views to design a screen.\nXib - A file that stores the layout of one view or screen, loaded at runtime as a nib.\nProgrammatic UI - Building your screens in Swift code instead of dragging views in a visual editor.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 99 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "interface builder",
+      "xib",
+      "programmatic ui",
+      "interface builder",
+      "xib",
+      "nib",
+      "programmatic ui",
+      "ios foundations",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "iOS Interface Builder, Xib & Programmatic UI | Day 99",
+      "description": "Explain Interface Builder, Xib & Programmatic UI in iOS by listening to a real code chat between two iOS devs.\n인터페이스 빌더, Xib, 프로그래밍 방식 UI 표현을 영어 대화로 익혀요.\n\nInterface Builder - The visual editor in Xcode where you drag and drop views to design a screen.\n한국어: 인터페이스 빌더: 화면을 디자인하려고 뷰를 끌어다 놓는 Xcode의 시각적 편집기\n\nXib - A file that stores the layout of one view or screen, loaded at runtime as a nib.\n한국어: Xib: 스토리보드 없이 뷰 하나나 화면 하나의 레이아웃을 저장하는 파일\n\nProgrammatic UI - Building your screens in Swift code instead of dragging views in a visual editor.\n한국어: 프로그래밍 방식 UI: 시각적 편집기에서 뷰를 끌어다 놓는 대신 Swift 코드로 화면을 만드는 방식\n\nIn this video, Mina and Jake decide how to build the new screens, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 99 of the iOS Daily English series.\n\n#Swift #iOSDeveloper #EnglishForDevelopers",
+      "tags": [
+        "Interface Builder",
+        "Xib",
+        "Programmatic UI",
+        "UINib",
+        "nibName",
+        "storyboard",
+        "iOS 기초",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "iOS Daily English"
+      ],
+      "hook": "Storyboard or code? Can you explain the choice in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "Storyboard or code?",
+    "setting": "Team decision",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, should we keep using Interface Builder for the new screens?",
+        "terms": [
+          "Interface Builder"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "For small screens it's fast. For bigger ones I prefer Programmatic UI.",
+        "terms": [
+          "Programmatic UI"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Why? Interface Builder shows the layout directly.",
+        "terms": [
+          "Interface Builder"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Merge conflicts. A storyboard conflict is hard to read, Swift code isn't.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "True. What about reusable cells?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Give each cell its own Xib. Then you call `register` with the nib.",
+        "terms": [
+          "Xib"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Like `NoteCell`? I see it in the code.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Yes. The Xib keeps the cell layout, and the table loads it on demand.",
+        "terms": [
+          "Xib"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Okay. So a Xib for cells, Programmatic UI for the main screens?",
+        "terms": [
+          "Xib",
+          "Programmatic UI"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Sure. Use Interface Builder only when the team agrees.",
+        "terms": [
+          "Interface Builder"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "I'll bring it up at stand-up.",
+        "terms": []
+      }
+    ],
+    "code": "let nib = UINib(nibName: \"NoteCell\",\n    bundle: nil)\ntableView.register(nib,\n    forCellReuseIdentifier: \"NoteCell\")",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "Interface Builder",
+      "lines": [
+        {
+          "text": "Drag, drop, connect. That's Interface Builder."
+        }
+      ],
+      "title": "Drag, drop, connect. That's Interface Builder. #Shorts",
+      "description": "Drag, drop, connect. That's Interface Builder.\n\nInterface Builder - The visual editor in Xcode where you drag and drop views to design a screen.\n한국어: 인터페이스 빌더: 화면을 디자인하려고 뷰를 끌어다 놓는 Xcode의 시각적 편집기\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "Xib",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Where is the cell layout?"
+        },
+        {
+          "speaker": "B",
+          "text": "In its own Xib file."
+        }
+      ],
+      "title": "Where is the cell layout? / In its own Xib file. #Shorts",
+      "description": "Where is the cell layout? / In its own Xib file.\n\nXib - A file that stores the layout of one view or screen, loaded at runtime as a nib.\n한국어: Xib: 스토리보드 없이 뷰 하나나 화면 하나의 레이아웃을 저장하는 파일\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Programmatic UI",
+      "lines": [
+        {
+          "text": "No storyboard, no conflicts. Just Programmatic UI."
+        }
+      ],
+      "title": "No storyboard, no conflicts. Just Programmatic UI. #Shorts",
+      "description": "No storyboard, no conflicts. Just Programmatic UI.\n\nProgrammatic UI - Building your screens in Swift code instead of dragging views in a visual editor.\n한국어: 프로그래밍 방식 UI: 시각적 편집기에서 뷰를 끌어다 놓는 대신 Swift 코드로 화면을 만드는 방식\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "Storyboard or code?"
+}

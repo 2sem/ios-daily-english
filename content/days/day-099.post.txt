@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 99
+
+Interface Builder
+- The visual editor in Xcode where you drag and drop views to design a screen.
+- Example: "Do the simple screens in Interface Builder, it takes a minute."
+
+Xib
+- A file that stores the layout of one view or screen, loaded at runtime as a nib.
+- Example: "Each cell has its own Xib, so the storyboard stays small."
+
+Programmatic UI
+- Building your screens in Swift code instead of dragging views in a visual editor.
+- Example: "We use Programmatic UI, so merge conflicts are easy to read."
+
+
+Quiz ①
+What file stores the layout of one view and loads it as a nib?
+a) Programmatic UI
+b) Interface Builder
+c) Xib
+
+Quiz ②
+What do you call building the whole screen in Swift code instead of dragging views?
+a) Xib
+b) Programmatic UI
+c) Interface Builder
+
+Quiz ③
+In this code, which Xcode tool creates the connections marked `@IBOutlet` and `@IBAction`?
+a) Interface Builder
+b) Xib
+c) Programmatic UI

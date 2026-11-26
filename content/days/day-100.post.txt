@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 100
+
+Frame
+- The position and size of a view, measured in its parent's coordinates.
+- Example: "Print the Frame to see where the view really is."
+
+Bounds
+- A view's own position and size, measured in its own coordinates, so the origin is usually zero.
+- Example: "Use the Bounds to draw inside the view, not the parent's space."
+
+Transform
+- A value that rotates, scales or moves a view without changing its layout.
+- Example: "Rotate the arrow with a Transform, the layout stays the same."
+
+
+Quiz ①
+What rotates or scales a view without changing its layout?
+a) Frame
+b) Transform
+c) Bounds
+
+Quiz ②
+In this code, which value sets the place of the new view in its parent?
+a) Bounds
+b) Transform
+c) Frame
+
+Quiz ③
+What describes a view's own size in its own coordinates, usually starting at zero?
+a) Bounds
+b) Frame
+c) Transform

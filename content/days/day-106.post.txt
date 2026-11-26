@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 106
+
+Text Field
+- A single-line box where the user types text.
+- Example: "Add a Text Field for the email, and set the keyboard type."
+
+First Responder
+- The object that receives the keyboard input right now.
+- Example: "The Text Field becomes the First Responder, so the keyboard appears."
+
+Keyboard Notification
+- A system message that tells your app when the keyboard shows, hides or changes size.
+- Example: "Listen for the Keyboard Notification, then move the button up."
+
+
+Quiz ①
+What tells your app when the keyboard shows, hides or changes size?
+a) Text Field
+b) First Responder
+c) Keyboard Notification
+
+Quiz ②
+What do you call a single-line box where the user types?
+a) First Responder
+b) Text Field
+c) Keyboard Notification
+
+Quiz ③
+In this code, what does the field become, so the keyboard opens?
+a) Keyboard Notification
+b) Text Field
+c) First Responder

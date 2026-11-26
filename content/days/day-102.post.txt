@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 102
+
+Main Thread
+- The thread that draws your screen and handles touches, so it must stay free.
+- Example: "Never block the Main Thread with a network call."
+
+Dispatch Queue
+- A line of tasks that the system runs for you on threads it manages.
+- Example: "Send the image resize to a background Dispatch Queue."
+
+Quality of Service
+- A level that tells the system how important and urgent a task is.
+- Example: "Use a low Quality of Service for the background cleanup."
+
+
+Quiz ①
+What tells the system how urgent a task is, like user-initiated or utility?
+a) Main Thread
+b) Dispatch Queue
+c) Quality of Service
+
+Quiz ②
+In this code, which thread runs the closure that sets the label?
+a) Quality of Service
+b) Main Thread
+c) Dispatch Queue
+
+Quiz ③
+What do you call the line of tasks that the system runs on threads for you?
+a) Dispatch Queue
+b) Quality of Service
+c) Main Thread

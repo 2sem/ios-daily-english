@@ -1139,6 +1139,186 @@
     "appgroup": {
       "term": "App Group",
       "day": 95
+    },
+    "scrollview": {
+      "term": "Scroll View",
+      "day": 96
+    },
+    "contentsize": {
+      "term": "Content Size",
+      "day": 96
+    },
+    "contentoffset": {
+      "term": "Content Offset",
+      "day": 96
+    },
+    "delegate": {
+      "term": "Delegate",
+      "day": 97
+    },
+    "datasource": {
+      "term": "Data Source",
+      "day": 97
+    },
+    "delegatemethod": {
+      "term": "Delegate Method",
+      "day": 97
+    },
+    "storyboard": {
+      "term": "Storyboard",
+      "day": 98
+    },
+    "outlet": {
+      "term": "Outlet",
+      "day": 98
+    },
+    "segue": {
+      "term": "Segue",
+      "day": 98
+    },
+    "interfacebuilder": {
+      "term": "Interface Builder",
+      "day": 99
+    },
+    "xib": {
+      "term": "Xib",
+      "day": 99
+    },
+    "programmaticui": {
+      "term": "Programmatic UI",
+      "day": 99
+    },
+    "frame": {
+      "term": "Frame",
+      "day": 100
+    },
+    "bounds": {
+      "term": "Bounds",
+      "day": 100
+    },
+    "transform": {
+      "term": "Transform",
+      "day": 100
+    },
+    "subview": {
+      "term": "Subview",
+      "day": 101
+    },
+    "superview": {
+      "term": "Superview",
+      "day": 101
+    },
+    "viewhierarchy": {
+      "term": "View Hierarchy",
+      "day": 101
+    },
+    "mainthread": {
+      "term": "Main Thread",
+      "day": 102
+    },
+    "dispatchqueue": {
+      "term": "Dispatch Queue",
+      "day": 102
+    },
+    "qualityofservice": {
+      "term": "Quality of Service",
+      "day": 102
+    },
+    "animationblock": {
+      "term": "Animation Block",
+      "day": 103
+    },
+    "animationcurve": {
+      "term": "Animation Curve",
+      "day": 103
+    },
+    "springanimation": {
+      "term": "Spring Animation",
+      "day": 103
+    },
+    "layer": {
+      "term": "Layer",
+      "day": 104
+    },
+    "cornerradius": {
+      "term": "Corner Radius",
+      "day": 104
+    },
+    "clipstobounds": {
+      "term": "Clips To Bounds",
+      "day": 104
+    },
+    "imageview": {
+      "term": "Image View",
+      "day": 105
+    },
+    "contentmode": {
+      "term": "Content Mode",
+      "day": 105
+    },
+    "sfsymbol": {
+      "term": "SF Symbol",
+      "day": 105
+    },
+    "textfield": {
+      "term": "Text Field",
+      "day": 106
+    },
+    "firstresponder": {
+      "term": "First Responder",
+      "day": 106
+    },
+    "keyboardnotification": {
+      "term": "Keyboard Notification",
+      "day": 106
+    },
+    "alertcontroller": {
+      "term": "Alert Controller",
+      "day": 107
+    },
+    "alertaction": {
+      "term": "Alert Action",
+      "day": 107
+    },
+    "actionsheet": {
+      "term": "Action Sheet",
+      "day": 107
+    },
+    "tabbarcontroller": {
+      "term": "Tab Bar Controller",
+      "day": 108
+    },
+    "tabbaritem": {
+      "term": "Tab Bar Item",
+      "day": 108
+    },
+    "badge": {
+      "term": "Badge",
+      "day": 108
+    },
+    "searchbar": {
+      "term": "Search Bar",
+      "day": 109
+    },
+    "searchcontroller": {
+      "term": "Search Controller",
+      "day": 109
+    },
+    "searchresultsupdater": {
+      "term": "Search Results Updater",
+      "day": 109
+    },
+    "activityindicator": {
+      "term": "Activity Indicator",
+      "day": 110
+    },
+    "pulltorefresh": {
+      "term": "Pull to Refresh",
+      "day": 110
+    },
+    "refreshcontrol": {
+      "term": "Refresh Control",
+      "day": 110
     }
   }
 }

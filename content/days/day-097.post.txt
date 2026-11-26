@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 97
+
+Delegate
+- An object that another object hands some of its decisions and events to.
+- Example: "Set the view controller as the Delegate, so it hears the taps."
+
+Data Source
+- An object that supplies the content a view needs to show, like how many rows and what is in each.
+- Example: "The Data Source says there are twenty rows."
+
+Delegate Method
+- A function that the delegate implements, so the other object can call it when something happens.
+- Example: "Implement the Delegate Method `didSelectRowAt`, the table calls it on each tap."
+
+
+Quiz ①
+What supplies the rows and the content a table needs to show?
+a) Delegate
+b) Data Source
+c) Delegate Method
+
+Quiz ②
+In this code, what is the whole function called?
+a) Delegate Method
+b) Delegate
+c) Data Source
+
+Quiz ③
+What do you call an object that another object hands some of its decisions to?
+a) Data Source
+b) Delegate Method
+c) Delegate

@@ -1,0 +1,229 @@
+{
+  "day": 96,
+  "phase": "3. iOS foundations",
+  "theme": "3 terms on scrolling: the view that scrolls, the full size of what is inside, and how far it has moved",
+  "terms": [
+    {
+      "term": "Scroll View",
+      "definition": "A view that lets the user drag to see content that is bigger than the screen.",
+      "example": "Put the long form inside a Scroll View, so it works on small phones.",
+      "code": "let scrollView = UIScrollView()\nscrollView.addSubview(form)",
+      "output": "// no output"
+    },
+    {
+      "term": "Content Size",
+      "definition": "The full width and height of everything inside a scroll view, including the part you can't see.",
+      "example": "It won't scroll because the Content Size is still zero.",
+      "code": "scrollView.contentSize = CGSize(\n    width: 320, height: 1200)",
+      "output": "// no output"
+    },
+    {
+      "term": "Content Offset",
+      "definition": "The point that shows how far a scroll view has moved from its starting position.",
+      "example": "Check the Content Offset to see if the user reached the bottom.",
+      "code": "scrollView.setContentOffset(\n    .zero, animated: true)",
+      "output": "// no output"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What do you call the point that shows how far the user has dragged the content?",
+      "options": [
+        "Scroll View",
+        "Content Offset",
+        "Content Size"
+      ],
+      "answer": "b"
+    },
+    {
+      "question": "In this code, what kind of view is created on the first line?",
+      "code": "let scrollView = UIScrollView()\nscrollView.addSubview(form)",
+      "options": [
+        "Content Size",
+        "Content Offset",
+        "Scroll View"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "What is the full size of everything inside, even the hidden part?",
+      "options": [
+        "Content Offset",
+        "Scroll View",
+        "Content Size"
+      ],
+      "answer": "c"
+    }
+  ],
+  "video": {
+    "title": "Scroll View, Content Size & Content Offset | Day 96",
+    "description": "Learn to explain why a long screen will not scroll: Scroll View, Content Size & Content Offset, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nScroll View - A view that lets the user drag to see content that is bigger than the screen.\nContent Size - The full width and height of everything inside a scroll view, including the part you can't see.\nContent Offset - The point that shows how far a scroll view has moved from its starting position.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 96 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "scroll view",
+      "content size",
+      "content offset",
+      "scroll view",
+      "uiscrollview",
+      "contentsize",
+      "contentoffset",
+      "ios foundations",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "iOS Scroll View, Content Size & Content Offset | Day 96",
+      "description": "Explain Scroll View, Content Size & Content Offset in iOS by listening to a real code chat between two iOS devs.\n스크롤 뷰, 콘텐츠 크기, 콘텐츠 오프셋 표현을 영어 대화로 익혀요.\n\nScroll View - A view that lets the user drag to see content that is bigger than the screen.\n한국어: 스크롤 뷰: 화면보다 큰 콘텐츠를 드래그해서 볼 수 있게 해 주는 뷰\n\nContent Size - The full width and height of everything inside a scroll view, including the part you can't see.\n한국어: 콘텐츠 크기: 보이지 않는 부분까지 포함해 스크롤 뷰 안 전체 콘텐츠의 가로와 세로 크기\n\nContent Offset - The point that shows how far a scroll view has moved from its starting position.\n한국어: 콘텐츠 오프셋: 스크롤 뷰가 시작 위치에서 얼마나 움직였는지 보여 주는 좌표\n\nIn this video, Mina and Jake find out why a long form will not scroll, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 96 of the iOS Daily English series.\n\n#Swift #iOSDeveloper #EnglishForDevelopers",
+      "tags": [
+        "Scroll View",
+        "Content Size",
+        "Content Offset",
+        "UIScrollView",
+        "contentSize",
+        "contentOffset",
+        "iOS 기초",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "iOS Daily English"
+      ],
+      "hook": "Your long screen will not scroll. Can you explain why in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "Why won't the form scroll?",
+    "setting": "Long form bug",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, my long form won't scroll in the Scroll View.",
+        "terms": [
+          "Scroll View"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "What is the Content Size?",
+        "terms": [
+          "Content Size"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "I never set `contentSize`. It's `.zero` right now.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Then the Scroll View thinks there is nothing to scroll. Set it to the height of the form.",
+        "terms": [
+          "Scroll View"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Done. It scrolls now, but it opens in the middle.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Check the Content Offset. Maybe you restore an old one.",
+        "terms": [
+          "Content Offset"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Yes, I saved the Content Offset when the screen closed.",
+        "terms": [
+          "Content Offset"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Reset it to `.zero`, or clamp it to the new Content Size.",
+        "terms": [
+          "Content Size"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "I'll clamp it. Otherwise it jumps past the end.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Right. Size first, then offset.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "Thanks! Now it starts at the top.",
+        "terms": []
+      }
+    ],
+    "code": "let scrollView = UIScrollView()\nscrollView.addSubview(form)\nscrollView.contentSize = .zero\nscrollView.contentOffset = .zero",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "Scroll View",
+      "lines": [
+        {
+          "text": "Long screen? Put it inside a Scroll View."
+        }
+      ],
+      "title": "Long screen? Put it inside a Scroll View. #Shorts",
+      "description": "Long screen? Put it inside a Scroll View.\n\nScroll View - A view that lets the user drag to see content that is bigger than the screen.\n한국어: 스크롤 뷰: 화면보다 큰 콘텐츠를 드래그해서 볼 수 있게 해 주는 뷰\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "Content Size",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Why won't my form scroll?"
+        },
+        {
+          "speaker": "B",
+          "text": "Your Content Size is still zero."
+        }
+      ],
+      "title": "Why won't my form scroll? / Your Content Size is still zero. #Shorts",
+      "description": "Why won't my form scroll? / Your Content Size is still zero.\n\nContent Size - The full width and height of everything inside a scroll view, including the part you can't see.\n한국어: 콘텐츠 크기: 보이지 않는 부분까지 포함해 스크롤 뷰 안 전체 콘텐츠의 가로와 세로 크기\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Content Offset",
+      "lines": [
+        {
+          "text": "Read the Content Offset to know how far they scrolled."
+        }
+      ],
+      "title": "Read the Content Offset to know how far they scrolled. #Shorts",
+      "description": "Read the Content Offset to know how far they scrolled.\n\nContent Offset - The point that shows how far a scroll view has moved from its starting position.\n한국어: 콘텐츠 오프셋: 스크롤 뷰가 시작 위치에서 얼마나 움직였는지 보여 주는 좌표\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "Why won't it scroll?"
+}

@@ -1,0 +1,230 @@
+{
+  "day": 104,
+  "phase": "3. iOS foundations",
+  "theme": "3 terms on view styling: the drawing surface, the rounded corners, and the setting that cuts off what sticks out",
+  "terms": [
+    {
+      "term": "Layer",
+      "definition": "The drawing surface behind every view, where effects like shadows and rounded corners live.",
+      "example": "Set the shadow on the Layer, not on the view.",
+      "code": "card.layer.shadowOpacity = 0.3\ncard.layer.shadowRadius = 8",
+      "output": "// no output"
+    },
+    {
+      "term": "Corner Radius",
+      "definition": "The size of the curve that rounds the corners of a layer.",
+      "example": "A Corner Radius of twelve makes the card look friendly.",
+      "code": "card.layer.cornerRadius = 12",
+      "output": "// no output"
+    },
+    {
+      "term": "Clips To Bounds",
+      "definition": "A setting that hides any content that goes outside a view's edges.",
+      "example": "The image still has square corners, so turn on Clips To Bounds.",
+      "code": "imageView.layer.cornerRadius = 12\nimageView.clipsToBounds = true",
+      "output": "// no output"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What setting hides content that goes outside a view's edges?",
+      "options": [
+        "Layer",
+        "Corner Radius",
+        "Clips To Bounds"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "In this code, which object holds the shadow settings?",
+      "code": "card.layer.shadowOpacity = 0.3\ncard.layer.shadowRadius = 8",
+      "options": [
+        "Clips To Bounds",
+        "Layer",
+        "Corner Radius"
+      ],
+      "answer": "b"
+    },
+    {
+      "question": "What do you call the size of the curve that rounds a corner?",
+      "options": [
+        "Corner Radius",
+        "Clips To Bounds",
+        "Layer"
+      ],
+      "answer": "a"
+    }
+  ],
+  "video": {
+    "title": "Layer, Corner Radius & Clips To Bounds | Day 104",
+    "description": "Learn to explain how rounded corners and shadows work together: Layer, Corner Radius & Clips To Bounds, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nLayer - The drawing surface behind every view, where effects like shadows and rounded corners live.\nCorner Radius - The size of the curve that rounds the corners of a layer.\nClips To Bounds - A setting that hides any content that goes outside a view's edges.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 104 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "layer",
+      "corner radius",
+      "clips to bounds",
+      "layer",
+      "calayer",
+      "corner radius",
+      "clips to bounds",
+      "shadow",
+      "ios foundations",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "iOS Layer, Corner Radius & Clips To Bounds | Day 104",
+      "description": "Explain Layer, Corner Radius & Clips To Bounds in iOS by listening to a real code chat between two iOS devs.\n레이어, 코너 반경, 클립스 투 바운즈 표현을 영어 대화로 익혀요.\n\nLayer - The drawing surface behind every view, where effects like shadows and rounded corners live.\n한국어: 레이어: 그림자나 둥근 모서리 같은 효과가 적용되는, 모든 뷰 뒤에 있는 그리기 표면\n\nCorner Radius - The size of the curve that rounds the corners of a layer.\n한국어: 코너 반경: 레이어의 모서리를 둥글게 만드는 곡선의 크기\n\nClips To Bounds - A setting that hides any content that goes outside a view's edges.\n한국어: 클립스 투 바운즈: 뷰의 가장자리 밖으로 나가는 콘텐츠를 숨기는 설정\n\nIn this video, Mina and Jake find out why the card lost its shadow, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 104 of the iOS Daily English series.\n\n#Swift #iOSDeveloper #EnglishForDevelopers",
+      "tags": [
+        "Layer",
+        "Corner Radius",
+        "Clips To Bounds",
+        "CALayer",
+        "cornerRadius",
+        "clipsToBounds",
+        "iOS 기초",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "iOS Daily English"
+      ],
+      "hook": "Round corners ate your shadow. Can you explain why in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "Where did the shadow go?",
+    "setting": "Card styling",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, the card has round corners now, but the shadow is gone.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Do you use Clips To Bounds?",
+        "terms": [
+          "Clips To Bounds"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Yes. I need it to cut the photo at the corners.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "That's why. Clips To Bounds also cuts the shadow, because the shadow is outside the view.",
+        "terms": [
+          "Clips To Bounds"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "So the shadow is drawn on the Layer, outside the edges?",
+        "terms": [
+          "Layer"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Exactly. The Layer draws the shadow outside, and clipping hides it.",
+        "terms": [
+          "Layer"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "How do I keep both?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Use two views. The outer one has the shadow, the inner one has the Corner Radius and clipping.",
+        "terms": [
+          "Corner Radius"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Same Corner Radius on both?",
+        "terms": [
+          "Corner Radius"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Yes, or the shadow shape looks wrong.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "I'll try it now.",
+        "terms": []
+      }
+    ],
+    "code": "card.layer.cornerRadius = 12\ncard.layer.shadowOpacity = 0.3\ncard.clipsToBounds = true",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "Layer",
+      "lines": [
+        {
+          "text": "Every view has a Layer behind it."
+        }
+      ],
+      "title": "Every view has a Layer behind it. #Shorts",
+      "description": "Every view has a Layer behind it.\n\nLayer - The drawing surface behind every view, where effects like shadows and rounded corners live.\n한국어: 레이어: 그림자나 둥근 모서리 같은 효과가 적용되는, 모든 뷰 뒤에 있는 그리기 표면\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "Corner Radius",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "How do I round the card?"
+        },
+        {
+          "speaker": "B",
+          "text": "Set the Corner Radius to twelve."
+        }
+      ],
+      "title": "How do I round the card? / Set the Corner Radius to twelve. #Shorts",
+      "description": "How do I round the card? / Set the Corner Radius to twelve.\n\nCorner Radius - The size of the curve that rounds the corners of a layer.\n한국어: 코너 반경: 레이어의 모서리를 둥글게 만드는 곡선의 크기\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Clips To Bounds",
+      "lines": [
+        {
+          "text": "Turn on Clips To Bounds to cut the extra image."
+        }
+      ],
+      "title": "Turn on Clips To Bounds to cut the extra image. #Shorts",
+      "description": "Turn on Clips To Bounds to cut the extra image.\n\nClips To Bounds - A setting that hides any content that goes outside a view's edges.\n한국어: 클립스 투 바운즈: 뷰의 가장자리 밖으로 나가는 콘텐츠를 숨기는 설정\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "Where did the shadow go?"
+}

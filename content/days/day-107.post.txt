@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 107
+
+Alert Controller
+- An object that shows a popup message with a title and buttons.
+- Example: "Show an Alert Controller when the upload fails."
+
+Alert Action
+- A button in an alert, with a title, a style and the code to run when it's tapped.
+- Example: "Make Delete a destructive Alert Action, so it turns red."
+
+Action Sheet
+- A menu of choices that slides up from the bottom, instead of a centered popup.
+- Example: "Use an Action Sheet for share options, not an alert."
+
+
+Quiz ①
+What do you call a menu of choices that slides up from the bottom?
+a) Alert Controller
+b) Alert Action
+c) Action Sheet
+
+Quiz ②
+What is a button inside an alert, with a title, a style and code to run?
+a) Action Sheet
+b) Alert Action
+c) Alert Controller
+
+Quiz ③
+In this code, what object shows the popup message?
+a) Alert Controller
+b) Action Sheet
+c) Alert Action

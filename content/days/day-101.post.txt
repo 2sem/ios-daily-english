@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 101
+
+Subview
+- A view that sits inside another view.
+- Example: "Add the label as a Subview of the card."
+
+Superview
+- The view that directly contains another view.
+- Example: "If the Superview is nil, the view isn't on screen yet."
+
+View Hierarchy
+- The tree of views, where every view sits inside a parent and can hold its own children.
+- Example: "Open the View Hierarchy debugger to see which view covers the button."
+
+
+Quiz ①
+What do you call the tree of views, where each view sits inside a parent?
+a) Subview
+b) Superview
+c) View Hierarchy
+
+Quiz ②
+In this code, what is `badge` for `card`?
+a) View Hierarchy
+b) Subview
+c) Superview
+
+Quiz ③
+What do you call the view that directly contains another view?
+a) Superview
+b) View Hierarchy
+c) Subview

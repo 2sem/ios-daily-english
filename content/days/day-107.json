@@ -1,0 +1,234 @@
+{
+  "day": 107,
+  "phase": "3. iOS foundations",
+  "theme": "3 terms on popups: the object that shows them, the buttons inside, and the menu that slides up",
+  "terms": [
+    {
+      "term": "Alert Controller",
+      "definition": "An object that shows a popup message with a title and buttons.",
+      "example": "Show an Alert Controller when the upload fails.",
+      "code": "let alert = UIAlertController(\n    title: \"Upload failed\",\n    message: \"Try again later.\",\n    preferredStyle: .alert)",
+      "output": "// no output"
+    },
+    {
+      "term": "Alert Action",
+      "definition": "A button in an alert, with a title, a style and the code to run when it's tapped.",
+      "example": "Make Delete a destructive Alert Action, so it turns red.",
+      "code": "let delete = UIAlertAction(\n    title: \"Delete\", style: .destructive) { _ in\n    print(\"deleted\")\n}",
+      "output": "// no output"
+    },
+    {
+      "term": "Action Sheet",
+      "definition": "A menu of choices that slides up from the bottom, instead of a centered popup.",
+      "example": "Use an Action Sheet for share options, not an alert.",
+      "code": "let sheet = UIAlertController(\n    title: nil, message: nil,\n    preferredStyle: .actionSheet)",
+      "output": "// no output"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What do you call a menu of choices that slides up from the bottom?",
+      "options": [
+        "Alert Controller",
+        "Alert Action",
+        "Action Sheet"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "What is a button inside an alert, with a title, a style and code to run?",
+      "options": [
+        "Action Sheet",
+        "Alert Action",
+        "Alert Controller"
+      ],
+      "answer": "b"
+    },
+    {
+      "question": "In this code, what object shows the popup message?",
+      "code": "let alert = UIAlertController(\n    title: \"Oops\", message: nil,\n    preferredStyle: .alert)\npresent(alert, animated: true)",
+      "options": [
+        "Alert Controller",
+        "Action Sheet",
+        "Alert Action"
+      ],
+      "answer": "a"
+    }
+  ],
+  "video": {
+    "title": "Alert Controller, Alert Action & Action Sheet | Day 107",
+    "description": "Learn to explain how alerts and action sheets are built: Alert Controller, Alert Action & Action Sheet, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nAlert Controller - An object that shows a popup message with a title and buttons.\nAlert Action - A button in an alert, with a title, a style and the code to run when it's tapped.\nAction Sheet - A menu of choices that slides up from the bottom, instead of a centered popup.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 107 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "alert controller",
+      "alert action",
+      "action sheet",
+      "alert controller",
+      "alert action",
+      "action sheet",
+      "uialertcontroller",
+      "ios foundations",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "iOS Alert Controller, Alert Action & Action Sheet | Day 107",
+      "description": "Explain Alert Controller, Alert Action & Action Sheet in iOS by listening to a real code chat between two iOS devs.\n얼럿 컨트롤러, 얼럿 액션, 액션 시트 표현을 영어 대화로 익혀요.\n\nAlert Controller - An object that shows a popup message with a title and buttons.\n한국어: 얼럿 컨트롤러: 제목과 버튼이 있는 팝업 메시지를 보여 주는 객체\n\nAlert Action - A button in an alert, with a title, a style and the code to run when it's tapped.\n한국어: 얼럿 액션: 제목, 스타일, 눌렀을 때 실행할 코드를 가진 얼럿 안의 버튼\n\nAction Sheet - A menu of choices that slides up from the bottom, instead of a centered popup.\n한국어: 액션 시트: 가운데 팝업 대신 화면 아래에서 올라오는 선택지 메뉴\n\nIn this video, Mina and Jake fix a delete confirmation that crashes on iPad, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 107 of the iOS Daily English series.\n\n#Swift #iOSDeveloper #EnglishForDevelopers",
+      "tags": [
+        "Alert Controller",
+        "Alert Action",
+        "Action Sheet",
+        "UIAlertController",
+        "UIAlertAction",
+        "actionSheet",
+        "iOS 기초",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "iOS Daily English"
+      ],
+      "hook": "The confirmation crashes on iPad. Can you explain why in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "The delete popup crashes on iPad",
+    "setting": "iPad crash",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, the delete confirmation crashes on iPad.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Is it an Alert Controller with the action sheet style?",
+        "terms": [
+          "Alert Controller"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Yes, like in the code. It works on iPhone.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "On iPad, an Action Sheet appears as a popover, so it needs a source view.",
+        "terms": [
+          "Action Sheet"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Ah. I never set the source.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Set a source view for the popover, or switch to the alert style.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "Which one fits a delete confirmation?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "An alert is simple. An Action Sheet is better for many choices.",
+        "terms": [
+          "Action Sheet"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "And the Delete button is an Alert Action, right?",
+        "terms": [
+          "Alert Action"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Yes. Make it a destructive Alert Action, so it turns red.",
+        "terms": [
+          "Alert Action"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Great. I'll use the alert style for this one.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Good. The same Alert Controller supports both styles.",
+        "terms": [
+          "Alert Controller"
+        ]
+      }
+    ],
+    "code": "let alert = UIAlertController(\n    title: \"Delete note?\", message: nil,\n    preferredStyle: .actionSheet)\nalert.addAction(UIAlertAction(title: \"Delete\",\n    style: .destructive))\npresent(alert, animated: true)",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "Alert Controller",
+      "lines": [
+        {
+          "text": "Use an Alert Controller to show the error."
+        }
+      ],
+      "title": "Use an Alert Controller to show the error. #Shorts",
+      "description": "Use an Alert Controller to show the error.\n\nAlert Controller - An object that shows a popup message with a title and buttons.\n한국어: 얼럿 컨트롤러: 제목과 버튼이 있는 팝업 메시지를 보여 주는 객체\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "Alert Action",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "How do I make Delete red?"
+        },
+        {
+          "speaker": "B",
+          "text": "Use a destructive Alert Action."
+        }
+      ],
+      "title": "How do I make Delete red? / Use a destructive Alert Action. #Shorts",
+      "description": "How do I make Delete red? / Use a destructive Alert Action.\n\nAlert Action - A button in an alert, with a title, a style and the code to run when it's tapped.\n한국어: 얼럿 액션: 제목, 스타일, 눌렀을 때 실행할 코드를 가진 얼럿 안의 버튼\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Action Sheet",
+      "lines": [
+        {
+          "text": "On iPad, an Action Sheet needs a source view."
+        }
+      ],
+      "title": "On iPad, an Action Sheet needs a source view. #Shorts",
+      "description": "On iPad, an Action Sheet needs a source view.\n\nAction Sheet - A menu of choices that slides up from the bottom, instead of a centered popup.\n한국어: 액션 시트: 가운데 팝업 대신 화면 아래에서 올라오는 선택지 메뉴\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "Why does it crash on iPad?"
+}

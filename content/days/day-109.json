@@ -1,0 +1,228 @@
+{
+  "day": 109,
+  "phase": "3. iOS foundations",
+  "theme": "3 terms on searching a list: the box, the object that manages it, and the callback that filters on each keystroke",
+  "terms": [
+    {
+      "term": "Search Bar",
+      "definition": "A text box with a magnifying glass where the user types a search.",
+      "example": "Put the Search Bar at the top of the list.",
+      "code": "let bar = UISearchBar()\nbar.placeholder = \"Search notes\"",
+      "output": "// no output"
+    },
+    {
+      "term": "Search Controller",
+      "definition": "An object that manages the search bar and shows the results on top of your screen.",
+      "example": "Add a Search Controller to the navigation bar.",
+      "code": "let search = UISearchController(\n    searchResultsController: nil)\nnavigationItem.searchController = search",
+      "output": "// no output"
+    },
+    {
+      "term": "Search Results Updater",
+      "definition": "An object that gets called each time the search text changes, so it can filter the results.",
+      "example": "Set the view controller as the Search Results Updater, to filter on each key.",
+      "code": "let search = UISearchController()\nsearch.searchResultsUpdater = self",
+      "output": "// no output"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What gets called each time the search text changes, so you can filter the results?",
+      "options": [
+        "Search Bar",
+        "Search Controller",
+        "Search Results Updater"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "What do you call the text box with a magnifying glass where users type?",
+      "options": [
+        "Search Results Updater",
+        "Search Bar",
+        "Search Controller"
+      ],
+      "answer": "b"
+    },
+    {
+      "question": "In this code, what object manages the search and shows the results?",
+      "code": "navigationItem.searchController =\n    UISearchController()",
+      "options": [
+        "Search Controller",
+        "Search Results Updater",
+        "Search Bar"
+      ],
+      "answer": "a"
+    }
+  ],
+  "video": {
+    "title": "Search Bar, Search Controller & Search Results Updater | Day 109",
+    "description": "Learn to explain how live search is wired in UIKit: Search Bar, Search Controller & Search Results Updater, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nSearch Bar - A text box with a magnifying glass where the user types a search.\nSearch Controller - An object that manages the search bar and shows the results on top of your screen.\nSearch Results Updater - An object that gets called each time the search text changes, so it can filter the results.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 109 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "search bar",
+      "search controller",
+      "search results updater",
+      "search bar",
+      "search controller",
+      "search results updater",
+      "uisearchcontroller",
+      "ios foundations",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "iOS Search Bar, Search Controller & Search Results Updater | Day 109",
+      "description": "Explain Search Bar, Search Controller & Search Results Updater in iOS by listening to a real code chat between two iOS devs.\n서치 바, 서치 컨트롤러, 서치 리절트 업데이터 표현을 영어 대화로 익혀요.\n\nSearch Bar - A text box with a magnifying glass where the user types a search.\n한국어: 서치 바: 돋보기 아이콘과 함께 사용자가 검색어를 입력하는 입력창\n\nSearch Controller - An object that manages the search bar and shows the results on top of your screen.\n한국어: 서치 컨트롤러: 검색 바를 관리하고 결과를 화면 위에 보여 주는 객체\n\nSearch Results Updater - An object that gets called each time the search text changes, so it can filter the results.\n한국어: 서치 리절트 업데이터: 검색어가 바뀔 때마다 호출되어 결과를 걸러 내는 객체\n\nIn this video, Mina and Jake find out why the list never filters while typing, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 109 of the iOS Daily English series.\n\n#Swift #iOSDeveloper #EnglishForDevelopers",
+      "tags": [
+        "Search Bar",
+        "Search Controller",
+        "Search Results Updater",
+        "UISearchController",
+        "UISearchBar",
+        "updateSearchResults",
+        "iOS 기초",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "iOS Daily English"
+      ],
+      "hook": "Your search box does nothing. Can you explain why in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "The list never filters",
+    "setting": "Search bug",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, I added the Search Bar, but the list never changes.",
+        "terms": [
+          "Search Bar"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Do you have a Search Controller?",
+        "terms": [
+          "Search Controller"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Yes, and it's in the navigation bar.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Did you set the Search Results Updater?",
+        "terms": [
+          "Search Results Updater"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "I don't think so. What does it do?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "It's called each time the text changes. You filter your notes there.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "Like `updateSearchResults`, in the code?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Exactly. The Search Controller calls it, and you read the text from the Search Bar.",
+        "terms": [
+          "Search Bar",
+          "Search Controller"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "So I set the Search Results Updater to `self`.",
+        "terms": [
+          "Search Results Updater"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Right. Then each key press filters the list.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "It works now. Thanks!",
+        "terms": []
+      }
+    ],
+    "code": "func updateSearchResults(\n    for controller: UISearchController) {\n    let text = controller.searchBar.text ?? \"\"\n    notes = all.filter { $0.contains(text) }\n}",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "Search Bar",
+      "lines": [
+        {
+          "text": "The Search Bar sits right under the title."
+        }
+      ],
+      "title": "The Search Bar sits right under the title. #Shorts",
+      "description": "The Search Bar sits right under the title.\n\nSearch Bar - A text box with a magnifying glass where the user types a search.\n한국어: 서치 바: 돋보기 아이콘과 함께 사용자가 검색어를 입력하는 입력창\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "Search Controller",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Who manages the search results?"
+        },
+        {
+          "speaker": "B",
+          "text": "The Search Controller."
+        }
+      ],
+      "title": "Who manages the search results? / The Search Controller. #Shorts",
+      "description": "Who manages the search results? / The Search Controller.\n\nSearch Controller - An object that manages the search bar and shows the results on top of your screen.\n한국어: 서치 컨트롤러: 검색 바를 관리하고 결과를 화면 위에 보여 주는 객체\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Search Results Updater",
+      "lines": [
+        {
+          "text": "The Search Results Updater runs on every key press."
+        }
+      ],
+      "title": "The Search Results Updater runs on every key press. #Shorts",
+      "description": "The Search Results Updater runs on every key press.\n\nSearch Results Updater - An object that gets called each time the search text changes, so it can filter the results.\n한국어: 서치 리절트 업데이터: 검색어가 바뀔 때마다 호출되어 결과를 걸러 내는 객체\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "Why doesn't search filter?"
+}

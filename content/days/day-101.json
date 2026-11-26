@@ -1,0 +1,230 @@
+{
+  "day": 101,
+  "phase": "3. iOS foundations",
+  "theme": "3 terms on how views nest: the child, the parent, and the tree they form",
+  "terms": [
+    {
+      "term": "Subview",
+      "definition": "A view that sits inside another view.",
+      "example": "Add the label as a Subview of the card.",
+      "code": "parent.addSubview(child)",
+      "output": "// no output"
+    },
+    {
+      "term": "Superview",
+      "definition": "The view that directly contains another view.",
+      "example": "If the Superview is nil, the view isn't on screen yet.",
+      "code": "let isOnScreen = child.superview != nil",
+      "output": "// no output"
+    },
+    {
+      "term": "View Hierarchy",
+      "definition": "The tree of views, where every view sits inside a parent and can hold its own children.",
+      "example": "Open the View Hierarchy debugger to see which view covers the button.",
+      "code": "parent.addSubview(child)\nparent.sendSubviewToBack(child)\nlet order = parent.subviews",
+      "output": "// no output"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What do you call the tree of views, where each view sits inside a parent?",
+      "options": [
+        "Subview",
+        "Superview",
+        "View Hierarchy"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "In this code, what is `badge` for `card`?",
+      "code": "card.addSubview(photo)\ncard.addSubview(badge)",
+      "options": [
+        "View Hierarchy",
+        "Subview",
+        "Superview"
+      ],
+      "answer": "b"
+    },
+    {
+      "question": "What do you call the view that directly contains another view?",
+      "options": [
+        "Superview",
+        "View Hierarchy",
+        "Subview"
+      ],
+      "answer": "a"
+    }
+  ],
+  "video": {
+    "title": "Subview, Superview & View Hierarchy | Day 101",
+    "description": "Learn to explain how views sit inside each other and why order matters: Subview, Superview & View Hierarchy, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nSubview - A view that sits inside another view.\nSuperview - The view that directly contains another view.\nView Hierarchy - The tree of views, where every view sits inside a parent and can hold its own children.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 101 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "subview",
+      "superview",
+      "view hierarchy",
+      "subview",
+      "superview",
+      "view hierarchy",
+      "addsubview",
+      "ios foundations",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "iOS Subview, Superview & View Hierarchy | Day 101",
+      "description": "Explain Subview, Superview & View Hierarchy in iOS by listening to a real code chat between two iOS devs.\n서브뷰, 슈퍼뷰, 뷰 계층 표현을 영어 대화로 익혀요.\n\nSubview - A view that sits inside another view.\n한국어: 서브뷰: 다른 뷰 안에 들어 있는 뷰\n\nSuperview - The view that directly contains another view.\n한국어: 슈퍼뷰: 다른 뷰를 바로 담고 있는 뷰\n\nView Hierarchy - The tree of views, where every view sits inside a parent and can hold its own children.\n한국어: 뷰 계층: 모든 뷰가 부모 안에 있고 자신의 자식도 가질 수 있는 뷰의 트리 구조\n\nIn this video, Mina and Jake find out why a badge moves with the wrong view, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 101 of the iOS Daily English series.\n\n#Swift #iOSDeveloper #EnglishForDevelopers",
+      "tags": [
+        "Subview",
+        "Superview",
+        "View Hierarchy",
+        "addSubview",
+        "removeFromSuperview",
+        "UIView",
+        "iOS 기초",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "iOS Daily English"
+      ],
+      "hook": "A view has only one parent. Can you explain it in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "The badge follows the wrong view",
+    "setting": "Badge bug",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, my badge now moves with the photo, not with the card.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Look at the last line. You added the badge to the photo.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "So the photo is now its Superview?",
+        "terms": [
+          "Superview"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Yes. A view has only one Superview, so it left the card.",
+        "terms": [
+          "Superview"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "I wanted both as Subviews of the card.",
+        "terms": [
+          "Subview"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Then remove the last line. The card holds two Subviews.",
+        "terms": [
+          "Subview"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Does the order matter?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Yes. In the View Hierarchy, a later Subview is drawn on top.",
+        "terms": [
+          "Subview",
+          "View Hierarchy"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Good. The badge is added after the photo, so it's on top.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Perfect. Use the debugger if the View Hierarchy looks strange.",
+        "terms": [
+          "View Hierarchy"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Will do. Thanks!",
+        "terms": []
+      }
+    ],
+    "code": "card.addSubview(photo)\ncard.addSubview(badge)\nphoto.addSubview(badge)",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "Subview",
+      "lines": [
+        {
+          "text": "Every label on the card is a Subview."
+        }
+      ],
+      "title": "Every label on the card is a Subview. #Shorts",
+      "description": "Every label on the card is a Subview.\n\nSubview - A view that sits inside another view.\n한국어: 서브뷰: 다른 뷰 안에 들어 있는 뷰\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "Superview",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Who owns this button?"
+        },
+        {
+          "speaker": "B",
+          "text": "Its Superview, the card."
+        }
+      ],
+      "title": "Who owns this button? / Its Superview, the card. #Shorts",
+      "description": "Who owns this button? / Its Superview, the card.\n\nSuperview - The view that directly contains another view.\n한국어: 슈퍼뷰: 다른 뷰를 바로 담고 있는 뷰\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "View Hierarchy",
+      "lines": [
+        {
+          "text": "Stuck on a hidden button? Read the View Hierarchy."
+        }
+      ],
+      "title": "Stuck on a hidden button? Read the View Hierarchy. #Shorts",
+      "description": "Stuck on a hidden button? Read the View Hierarchy.\n\nView Hierarchy - The tree of views, where every view sits inside a parent and can hold its own children.\n한국어: 뷰 계층: 모든 뷰가 부모 안에 있고 자신의 자식도 가질 수 있는 뷰의 트리 구조\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "Who is the parent view?"
+}

@@ -1,0 +1,236 @@
+{
+  "day": 100,
+  "phase": "3. iOS foundations",
+  "theme": "3 terms on a view's geometry: its place in the parent, its own space, and the effect that changes how it is drawn",
+  "terms": [
+    {
+      "term": "Frame",
+      "definition": "The position and size of a view, measured in its parent's coordinates.",
+      "example": "Print the Frame to see where the view really is.",
+      "code": "let box = UIView(frame: CGRect(\n    x: 20, y: 40, width: 100, height: 50))\nlet corner = box.frame.origin",
+      "output": "// no output"
+    },
+    {
+      "term": "Bounds",
+      "definition": "A view's own position and size, measured in its own coordinates, so the origin is usually zero.",
+      "example": "Use the Bounds to draw inside the view, not the parent's space.",
+      "code": "let box = UIView(frame: CGRect(\n    x: 20, y: 40, width: 100, height: 50))\nlet size = box.bounds.size",
+      "output": "// no output"
+    },
+    {
+      "term": "Transform",
+      "definition": "A value that rotates, scales or moves a view without changing its layout.",
+      "example": "Rotate the arrow with a Transform, the layout stays the same.",
+      "code": "card.transform = CGAffineTransform(\n    rotationAngle: .pi / 2)",
+      "output": "// no output"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What rotates or scales a view without changing its layout?",
+      "options": [
+        "Frame",
+        "Transform",
+        "Bounds"
+      ],
+      "answer": "b"
+    },
+    {
+      "question": "In this code, which value sets the place of the new view in its parent?",
+      "code": "let box = UIView(frame: CGRect(\n    x: 20, y: 40, width: 100, height: 50))",
+      "options": [
+        "Bounds",
+        "Transform",
+        "Frame"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "What describes a view's own size in its own coordinates, usually starting at zero?",
+      "options": [
+        "Bounds",
+        "Frame",
+        "Transform"
+      ],
+      "answer": "a"
+    }
+  ],
+  "video": {
+    "title": "Frame, Bounds & Transform | Day 100",
+    "description": "Learn to explain why a view reports different sizes: Frame, Bounds & Transform, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nFrame - The position and size of a view, measured in its parent's coordinates.\nBounds - A view's own position and size, measured in its own coordinates, so the origin is usually zero.\nTransform - A value that rotates, scales or moves a view without changing its layout.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 100 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "frame",
+      "bounds",
+      "transform",
+      "frame",
+      "bounds",
+      "transform",
+      "cgaffinetransform",
+      "day 100",
+      "ios foundations",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "iOS Frame, Bounds & Transform | Day 100",
+      "description": "Explain Frame, Bounds & Transform in iOS by listening to a real code chat between two iOS devs.\n프레임, 바운즈, 트랜스폼 표현을 영어 대화로 익혀요.\n\nFrame - The position and size of a view, measured in its parent's coordinates.\n한국어: 프레임: 부모 뷰의 좌표 기준으로 잰 뷰의 위치와 크기\n\nBounds - A view's own position and size, measured in its own coordinates, so the origin is usually zero.\n한국어: 바운즈: 뷰 자신의 좌표 기준으로 잰 위치와 크기로, 보통 원점이 0이에요\n\nTransform - A value that rotates, scales or moves a view without changing its layout.\n한국어: 트랜스폼: 레이아웃은 그대로 두고 뷰를 회전, 확대 또는 이동시키는 값\n\nIn this video, Mina and Jake find out why a scaled card reports two different widths, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 100 of the iOS Daily English series.\n\n#Swift #iOSDeveloper #EnglishForDevelopers",
+      "tags": [
+        "Frame",
+        "Bounds",
+        "Transform",
+        "CGRect",
+        "CGAffineTransform",
+        "UIView",
+        "iOS 기초",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "iOS Daily English"
+      ],
+      "hook": "Frame or Bounds? Can you explain the difference in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "Two different widths",
+    "setting": "Scaled card bug",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, I scaled the card, but its width changed in one place and not in another.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Which one changed?",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "The Frame got twice as wide. The Bounds stayed the same.",
+        "terms": [
+          "Frame",
+          "Bounds"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "That's expected. A Transform changes how the view is drawn, so the Frame follows it.",
+        "terms": [
+          "Frame",
+          "Transform"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "And the Bounds don't change?",
+        "terms": [
+          "Bounds"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "No. The Bounds describe the view's own space, before the Transform.",
+        "terms": [
+          "Bounds",
+          "Transform"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "So the Frame is the position in the parent view.",
+        "terms": [
+          "Frame"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Right. Use the Frame to place the view, and the Bounds to draw inside it.",
+        "terms": [
+          "Frame",
+          "Bounds"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "What if the view is rotated?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Then the Frame is the box around the rotated shape. Don't set it directly.",
+        "terms": [
+          "Frame"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Got it. I'll use constraints instead.",
+        "terms": []
+      }
+    ],
+    "code": "print(card.frame.width)\ncard.transform = CGAffineTransform(\n    scaleX: 2, y: 2)\nprint(card.frame.width)\nprint(card.bounds.width)",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "Frame",
+      "lines": [
+        {
+          "text": "The Frame places the view inside its parent."
+        }
+      ],
+      "title": "The Frame places the view inside its parent. #Shorts",
+      "description": "The Frame places the view inside its parent.\n\nFrame - The position and size of a view, measured in its parent's coordinates.\n한국어: 프레임: 부모 뷰의 좌표 기준으로 잰 뷰의 위치와 크기\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "Bounds",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Where do I draw inside the view?"
+        },
+        {
+          "speaker": "B",
+          "text": "Use the Bounds, not the Frame."
+        }
+      ],
+      "title": "Where do I draw inside the view? / Use the Bounds, not the Frame. #Shorts",
+      "description": "Where do I draw inside the view? / Use the Bounds, not the Frame.\n\nBounds - A view's own position and size, measured in its own coordinates, so the origin is usually zero.\n한국어: 바운즈: 뷰 자신의 좌표 기준으로 잰 위치와 크기로, 보통 원점이 0이에요\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Transform",
+      "lines": [
+        {
+          "text": "Spin the icon with a Transform, no new layout."
+        }
+      ],
+      "title": "Spin the icon with a Transform, no new layout. #Shorts",
+      "description": "Spin the icon with a Transform, no new layout.\n\nTransform - A value that rotates, scales or moves a view without changing its layout.\n한국어: 트랜스폼: 레이아웃은 그대로 두고 뷰를 회전, 확대 또는 이동시키는 값\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "Day 100: Frame vs Bounds"
+}

@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 105
+
+Image View
+- A view that shows a single image on the screen.
+- Example: "Show the avatar in an Image View with round corners."
+
+Content Mode
+- A setting that decides how an image is scaled and placed inside its view.
+- Example: "Use aspect fill as the Content Mode, so the photo has no gaps."
+
+SF Symbol
+- One of thousands of icons that Apple provides, which scale and match your text.
+- Example: "Use an SF Symbol for the heart, no PNG needed."
+
+
+Quiz ①
+What do you call one of the thousands of built-in Apple icons that match your text?
+a) Content Mode
+b) Image View
+c) SF Symbol
+
+Quiz ②
+What kind of view shows a single picture on the screen?
+a) SF Symbol
+b) Image View
+c) Content Mode
+
+Quiz ③
+In this code, which setting decides how the image fits inside?
+a) Content Mode
+b) SF Symbol
+c) Image View
