@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 120
+
+App Icon
+- The picture that represents your app on the Home Screen and in the App Store.
+- Example: "Designers sent the new App Icon this morning."
+
+Asset Catalog
+- A folder in Xcode that stores your images, colors and icons.
+- Example: "Put the new logo in the Asset Catalog, not in the project folder."
+
+Image Set
+- One named entry that holds the same picture in several sizes, such as 1x, 2x and 3x.
+- Example: "Make an Image Set so the picture stays sharp on every device."
+
+
+Quiz ①
+What do you call the Xcode folder that stores your images, colors and icons?
+a) App Icon
+b) Asset Catalog
+c) Image Set
+
+Quiz ②
+What do you call one named entry that holds the same picture at 1x, 2x and 3x?
+a) Asset Catalog
+b) App Icon
+c) Image Set
+
+Quiz ③
+In this code, what does the name `Dark` change?
+a) App Icon
+b) Image Set
+c) Asset Catalog

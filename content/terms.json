@@ -1319,6 +1319,246 @@
     "refreshcontrol": {
       "term": "Refresh Control",
       "day": 110
+    },
+    "localizablestrings": {
+      "term": "Localizable Strings",
+      "day": 111
+    },
+    "nslocalizedstring": {
+      "term": "NSLocalizedString",
+      "day": 111
+    },
+    "stringcatalog": {
+      "term": "String Catalog",
+      "day": 111
+    },
+    "interfacestyle": {
+      "term": "Interface Style",
+      "day": 112
+    },
+    "dynamiccolor": {
+      "term": "Dynamic Color",
+      "day": 112
+    },
+    "traitcollection": {
+      "term": "Trait Collection",
+      "day": 112
+    },
+    "voiceover": {
+      "term": "VoiceOver",
+      "day": 113
+    },
+    "accessibilitylabel": {
+      "term": "Accessibility Label",
+      "day": 113
+    },
+    "accessibilityhint": {
+      "term": "Accessibility Hint",
+      "day": 113
+    },
+    "dynamictype": {
+      "term": "Dynamic Type",
+      "day": 114
+    },
+    "textstyle": {
+      "term": "Text Style",
+      "day": 114
+    },
+    "scaledfont": {
+      "term": "Scaled Font",
+      "day": 114
+    },
+    "deeplink": {
+      "term": "Deep Link",
+      "day": 115
+    },
+    "urlscheme": {
+      "term": "URL Scheme",
+      "day": 115
+    },
+    "universallink": {
+      "term": "Universal Link",
+      "day": 115
+    },
+    "backgroundmodes": {
+      "term": "Background Modes",
+      "day": 116
+    },
+    "backgroundtask": {
+      "term": "Background Task",
+      "day": 116
+    },
+    "backgroundrefresh": {
+      "term": "Background Refresh",
+      "day": 116
+    },
+    "activestate": {
+      "term": "Active State",
+      "day": 117
+    },
+    "inactivestate": {
+      "term": "Inactive State",
+      "day": 117
+    },
+    "backgroundstate": {
+      "term": "Background State",
+      "day": 117
+    },
+    "viewdidappear": {
+      "term": "viewDidAppear",
+      "day": 118
+    },
+    "viewwilldisappear": {
+      "term": "viewWillDisappear",
+      "day": 118
+    },
+    "viewdidlayoutsubviews": {
+      "term": "viewDidLayoutSubviews",
+      "day": 118
+    },
+    "infoplist": {
+      "term": "Info.plist",
+      "day": 119
+    },
+    "displayname": {
+      "term": "Display Name",
+      "day": 119
+    },
+    "bundleversion": {
+      "term": "Bundle Version",
+      "day": 119
+    },
+    "appicon": {
+      "term": "App Icon",
+      "day": 120
+    },
+    "assetcatalog": {
+      "term": "Asset Catalog",
+      "day": 120
+    },
+    "imageset": {
+      "term": "Image Set",
+      "day": 120
+    },
+    "accentcolor": {
+      "term": "Accent Color",
+      "day": 121
+    },
+    "namedcolor": {
+      "term": "Named Color",
+      "day": 121
+    },
+    "colorset": {
+      "term": "Color Set",
+      "day": 121
+    },
+    "interfaceorientation": {
+      "term": "Interface Orientation",
+      "day": 122
+    },
+    "sizeclass": {
+      "term": "Size Class",
+      "day": 122
+    },
+    "adaptivelayout": {
+      "term": "Adaptive Layout",
+      "day": 122
+    },
+    "hapticfeedback": {
+      "term": "Haptic Feedback",
+      "day": 123
+    },
+    "feedbackgenerator": {
+      "term": "Feedback Generator",
+      "day": 123
+    },
+    "impactstyle": {
+      "term": "Impact Style",
+      "day": 123
+    },
+    "longpress": {
+      "term": "Long Press",
+      "day": 124
+    },
+    "swipeaction": {
+      "term": "Swipe Action",
+      "day": 124
+    },
+    "contextmenu": {
+      "term": "Context Menu",
+      "day": 124
+    },
+    "pasteboard": {
+      "term": "Pasteboard",
+      "day": 125
+    },
+    "draginteraction": {
+      "term": "Drag Interaction",
+      "day": 125
+    },
+    "dropinteraction": {
+      "term": "Drop Interaction",
+      "day": 125
+    },
+    "memorywarning": {
+      "term": "Memory Warning",
+      "day": 126
+    },
+    "nscache": {
+      "term": "NSCache",
+      "day": 126
+    },
+    "cacheeviction": {
+      "term": "Cache Eviction",
+      "day": 126
+    },
+    "sharesheet": {
+      "term": "Share Sheet",
+      "day": 127
+    },
+    "activityitem": {
+      "term": "Activity Item",
+      "day": 127
+    },
+    "activityviewcontroller": {
+      "term": "Activity View Controller",
+      "day": 127
+    },
+    "parentviewcontroller": {
+      "term": "Parent View Controller",
+      "day": 128
+    },
+    "childviewcontroller": {
+      "term": "Child View Controller",
+      "day": 128
+    },
+    "viewcontrollercontainment": {
+      "term": "View Controller Containment",
+      "day": 128
+    },
+    "coldlaunch": {
+      "term": "Cold Launch",
+      "day": 129
+    },
+    "warmlaunch": {
+      "term": "Warm Launch",
+      "day": 129
+    },
+    "staterestoration": {
+      "term": "State Restoration",
+      "day": 129
+    },
+    "statusbar": {
+      "term": "Status Bar",
+      "day": 130
+    },
+    "barbuttonitem": {
+      "term": "Bar Button Item",
+      "day": 130
+    },
+    "largetitle": {
+      "term": "Large Title",
+      "day": 130
     }
   }
 }

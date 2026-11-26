@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 112
+
+Interface Style
+- The light or dark look that the screen uses.
+- Example: "Set the Interface Style to dark only for the video player."
+
+Dynamic Color
+- A color that switches between its light and dark versions by itself.
+- Example: "Use a Dynamic Color for the card, so it looks good at night."
+
+Trait Collection
+- A set of facts about the screen, such as light or dark mode and size, that a view can read.
+- Example: "Check the Trait Collection before you pick the image."
+
+
+Quiz ①
+What do you call the set of facts about the screen, such as its size and light or dark mode, that a view can read?
+a) Interface Style
+b) Trait Collection
+c) Dynamic Color
+
+Quiz ②
+In this code, what kind of color is `card`?
+a) Dynamic Color
+b) Trait Collection
+c) Interface Style
+
+Quiz ③
+What do you call the light or dark look that the screen uses?
+a) Trait Collection
+b) Dynamic Color
+c) Interface Style

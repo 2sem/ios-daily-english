@@ -1,0 +1,235 @@
+{
+  "day": 118,
+  "phase": "3. iOS foundations",
+  "theme": "3 terms on view controller timing: after it is visible, before it leaves, and after layout",
+  "terms": [
+    {
+      "term": "viewDidAppear",
+      "definition": "A method that runs after the screen is fully visible.",
+      "example": "Start the timer in viewDidAppear, so it begins when the user can see the screen.",
+      "code": "override func viewDidAppear(\n    _ animated: Bool) {\n    super.viewDidAppear(animated)\n    startTimer()\n}",
+      "output": "// no output"
+    },
+    {
+      "term": "viewWillDisappear",
+      "definition": "A method that runs just before the screen goes away.",
+      "example": "Stop the timer in viewWillDisappear, so it does not run on a hidden screen.",
+      "code": "override func viewWillDisappear(\n    _ animated: Bool) {\n    super.viewWillDisappear(animated)\n    stopTimer()\n}",
+      "output": "// no output"
+    },
+    {
+      "term": "viewDidLayoutSubviews",
+      "definition": "A method that runs after the view has set the size and position of its subviews.",
+      "example": "Set the gradient frame in viewDidLayoutSubviews, because the final size is known there.",
+      "code": "override func viewDidLayoutSubviews() {\n    super.viewDidLayoutSubviews()\n    gradient.frame = view.bounds\n}",
+      "output": "// no output"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "In this code, which method should hold this line so it runs just before the screen goes away?",
+      "code": "// stop when the user leaves\nstopTimer()",
+      "options": [
+        "viewDidAppear",
+        "viewWillDisappear",
+        "viewDidLayoutSubviews"
+      ],
+      "answer": "b"
+    },
+    {
+      "question": "Which method runs after the view has set the size and position of its subviews?",
+      "options": [
+        "viewWillDisappear",
+        "viewDidAppear",
+        "viewDidLayoutSubviews"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "Which method runs after the screen is fully visible?",
+      "options": [
+        "viewDidAppear",
+        "viewDidLayoutSubviews",
+        "viewWillDisappear"
+      ],
+      "answer": "a"
+    }
+  ],
+  "video": {
+    "title": "viewDidAppear, viewWillDisappear & viewDidLayoutSubviews | Day 118",
+    "description": "Learn to explain when UIKit calls the view controller lifecycle methods: viewDidAppear, viewWillDisappear & viewDidLayoutSubviews, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nviewDidAppear - A method that runs after the screen is fully visible.\nviewWillDisappear - A method that runs just before the screen goes away.\nviewDidLayoutSubviews - A method that runs after the view has set the size and position of its subviews.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 118 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "viewdidappear",
+      "viewwilldisappear",
+      "viewdidlayoutsubviews",
+      "viewdidappear",
+      "viewwilldisappear",
+      "viewdidlayoutsubviews",
+      "view controller lifecycle",
+      "uiviewcontroller",
+      "ios foundations",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "iOS viewDidAppear, viewWillDisappear & viewDidLayoutSubviews | Day 118",
+      "description": "Explain viewDidAppear, viewWillDisappear & viewDidLayoutSubviews in iOS by listening to a real code chat between two iOS devs.\nviewDidAppear, viewWillDisappear, viewDidLayoutSubviews 표현을 영어 대화로 익혀요.\n\nviewDidAppear - A method that runs after the screen is fully visible.\n한국어: viewDidAppear: 화면이 완전히 보인 뒤에 실행되는 메서드\n\nviewWillDisappear - A method that runs just before the screen goes away.\n한국어: viewWillDisappear: 화면이 사라지기 직전에 실행되는 메서드\n\nviewDidLayoutSubviews - A method that runs after the view has set the size and position of its subviews.\n한국어: viewDidLayoutSubviews: 뷰가 하위 뷰의 크기와 위치를 정한 뒤 실행되는 메서드\n\nIn this video, Mina and Jake move a timer and a gradient frame to the right lifecycle methods, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 118 of the iOS Daily English series.\n\n#Swift #iOSDeveloper #EnglishForDevelopers",
+      "tags": [
+        "viewDidAppear",
+        "viewWillDisappear",
+        "viewDidLayoutSubviews",
+        "view controller lifecycle",
+        "UIViewController",
+        "UIKit",
+        "iOS 기초",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "iOS Daily English"
+      ],
+      "hook": "Can you explain viewDidAppear, viewWillDisappear and viewDidLayoutSubviews in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "The timer starts too early",
+    "setting": "View controller lifecycle",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, the timer starts too early. The screen is not visible yet.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Where do you start it?",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "In viewDidLoad.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Move it to viewDidAppear, like in the code. It runs after the screen is fully visible.",
+        "terms": [
+          "viewDidAppear"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "And I stop it in viewWillDisappear, right?",
+        "terms": [
+          "viewWillDisappear"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Yes. viewWillDisappear runs just before the screen goes away.",
+        "terms": [
+          "viewWillDisappear"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Got it. Now the gradient frame is wrong.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Set it in viewDidLayoutSubviews. The final size is known there.",
+        "terms": [
+          "viewDidLayoutSubviews"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Why not in viewDidAppear?",
+        "terms": [
+          "viewDidAppear"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Too late. The user would see the wrong frame first.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "Does viewDidLayoutSubviews run again after rotation?",
+        "terms": [
+          "viewDidLayoutSubviews"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Yes, every time the layout changes. So keep it light.",
+        "terms": []
+      }
+    ],
+    "code": "override func viewDidAppear(\n    _ animated: Bool) {\n    super.viewDidAppear(animated)\n    startTimer()\n}",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "viewDidAppear",
+      "lines": [
+        {
+          "text": "Start the animation in viewDidAppear."
+        }
+      ],
+      "title": "Start the animation in viewDidAppear. #Shorts",
+      "description": "Start the animation in viewDidAppear.\n\nviewDidAppear - A method that runs after the screen is fully visible.\n한국어: viewDidAppear: 화면이 완전히 보인 뒤에 실행되는 메서드\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "viewWillDisappear",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Where do I stop the timer?"
+        },
+        {
+          "speaker": "B",
+          "text": "In viewWillDisappear."
+        }
+      ],
+      "title": "Where do I stop the timer? / In viewWillDisappear. #Shorts",
+      "description": "Where do I stop the timer? / In viewWillDisappear.\n\nviewWillDisappear - A method that runs just before the screen goes away.\n한국어: viewWillDisappear: 화면이 사라지기 직전에 실행되는 메서드\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "viewDidLayoutSubviews",
+      "lines": [
+        {
+          "text": "Update the gradient in viewDidLayoutSubviews."
+        }
+      ],
+      "title": "Update the gradient in viewDidLayoutSubviews. #Shorts",
+      "description": "Update the gradient in viewDidLayoutSubviews.\n\nviewDidLayoutSubviews - A method that runs after the view has set the size and position of its subviews.\n한국어: viewDidLayoutSubviews: 뷰가 하위 뷰의 크기와 위치를 정한 뒤 실행되는 메서드\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "When does the screen show up?"
+}

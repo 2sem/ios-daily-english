@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 111
+
+Localizable Strings
+- A file that lists keys and their translated text, one file for each language.
+- Example: "Add the new button text to Localizable Strings for Korean."
+
+NSLocalizedString
+- A function that looks up the translated text for a key.
+- Example: "Use NSLocalizedString so the title changes with the user's language."
+
+String Catalog
+- A single Xcode file that holds all your translations and shows which ones are missing.
+- Example: "Move our old strings files into a String Catalog to see every missing translation."
+
+
+Quiz ①
+What do you call the single Xcode file that holds all translations and shows which ones are missing?
+a) NSLocalizedString
+b) String Catalog
+c) Localizable Strings
+
+Quiz ②
+In this code, which function looks up the translated text?
+a) NSLocalizedString
+b) String Catalog
+c) Localizable Strings
+
+Quiz ③
+What do you call the file that lists keys and translated text for one language?
+a) NSLocalizedString
+b) String Catalog
+c) Localizable Strings

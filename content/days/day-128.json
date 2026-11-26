@@ -1,0 +1,234 @@
+{
+  "day": 128,
+  "phase": "3. iOS foundations",
+  "theme": "3 terms on splitting a screen: the owner controller, the controller inside it, and the steps that connect them",
+  "terms": [
+    {
+      "term": "Parent View Controller",
+      "definition": "A view controller that holds other view controllers inside its own screen.",
+      "example": "The Parent View Controller owns the header and the list.",
+      "code": "let owner = child.parent",
+      "output": "// no output"
+    },
+    {
+      "term": "Child View Controller",
+      "definition": "A view controller whose view lives inside another view controller.",
+      "example": "Make the header a Child View Controller to keep the screen small.",
+      "code": "parent.addChild(child)",
+      "output": "// no output"
+    },
+    {
+      "term": "View Controller Containment",
+      "definition": "The set of steps that adds a child view controller to a parent safely.",
+      "example": "Follow View Controller Containment, or the child will not get its events.",
+      "code": "parent.addChild(child)\nparent.view.addSubview(child.view)\nchild.didMove(toParent: parent)",
+      "output": "// no output"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What do you call the steps `addChild`, `addSubview` and `didMove` that put one controller inside another?",
+      "options": [
+        "Parent View Controller",
+        "Child View Controller",
+        "View Controller Containment"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "What do you call a view controller whose view lives inside another one?",
+      "options": [
+        "Child View Controller",
+        "View Controller Containment",
+        "Parent View Controller"
+      ],
+      "answer": "a"
+    },
+    {
+      "question": "What do you call a view controller that holds other view controllers inside its own screen?",
+      "options": [
+        "View Controller Containment",
+        "Parent View Controller",
+        "Child View Controller"
+      ],
+      "answer": "b"
+    }
+  ],
+  "video": {
+    "title": "Parent View Controller, Child View Controller & View Controller Containment | Day 128",
+    "description": "Learn to explain how one iOS view controller holds another: Parent View Controller, Child View Controller & View Controller Containment, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nParent View Controller - A view controller that holds other view controllers inside its own screen.\nChild View Controller - A view controller whose view lives inside another view controller.\nView Controller Containment - The set of steps that adds a child view controller to a parent safely.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 128 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "parent view controller",
+      "child view controller",
+      "view controller containment",
+      "parent view controller",
+      "child view controller",
+      "view controller containment",
+      "child view controller",
+      "view controller containment",
+      "ios foundations",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "iOS Parent View Controller, Child View Controller & View Controller Containment | Day 128",
+      "description": "Explain Parent View Controller, Child View Controller & View Controller Containment in iOS by listening to a real code chat between two iOS devs.\n부모 뷰 컨트롤러, 자식 뷰 컨트롤러, 뷰 컨트롤러 컨테인먼트 표현을 영어 대화로 익혀요.\n\nParent View Controller - A view controller that holds other view controllers inside its own screen.\n한국어: 부모 뷰 컨트롤러: 자기 화면 안에 다른 뷰 컨트롤러들을 품는 뷰 컨트롤러\n\nChild View Controller - A view controller whose view lives inside another view controller.\n한국어: 자식 뷰 컨트롤러: 뷰가 다른 뷰 컨트롤러 안에 들어 있는 뷰 컨트롤러\n\nView Controller Containment - The set of steps that adds a child view controller to a parent safely.\n한국어: 뷰 컨트롤러 컨테인먼트: 자식 뷰 컨트롤러를 부모에 안전하게 붙이는 일련의 단계\n\nIn this video, Mina and Jake split a huge profile screen into smaller parts, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 128 of the iOS Daily English series.\n\n#Swift #iOSDeveloper #EnglishForDevelopers",
+      "tags": [
+        "Parent View Controller",
+        "Child View Controller",
+        "View Controller Containment",
+        "view controller containment",
+        "addChild",
+        "UIViewController",
+        "iOS 기초",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "iOS Daily English"
+      ],
+      "hook": "Can you explain Parent View Controller, Child View Controller and View Controller Containment in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "Splitting a huge screen",
+    "setting": "Container view controllers",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, the profile screen is huge. I want to split it.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Make the header its own Child View Controller.",
+        "terms": [
+          "Child View Controller"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "And the profile screen becomes the Parent View Controller?",
+        "terms": [
+          "Parent View Controller"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Yes. The Parent View Controller owns the child and its layout.",
+        "terms": [
+          "Parent View Controller"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "How do I add the child?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Follow View Controller Containment, like in the code.",
+        "terms": [
+          "View Controller Containment"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "First `addChild`, then `addSubview`, then `didMove`.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Right. The order matters.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "What if I skip `didMove`?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "The Child View Controller never learns its parent, so some events break.",
+        "terms": [
+          "Child View Controller"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Got it. Can the child reach the parent later?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Yes, through the `parent` property. But keep View Controller Containment in the parent.",
+        "terms": [
+          "View Controller Containment"
+        ]
+      }
+    ],
+    "code": "parent.addChild(child)\nparent.view.addSubview(child.view)\nchild.didMove(toParent: parent)",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "Parent View Controller",
+      "lines": [
+        {
+          "text": "The Parent View Controller owns the header."
+        }
+      ],
+      "title": "The Parent View Controller owns the header. #Shorts",
+      "description": "The Parent View Controller owns the header.\n\nParent View Controller - A view controller that holds other view controllers inside its own screen.\n한국어: 부모 뷰 컨트롤러: 자기 화면 안에 다른 뷰 컨트롤러들을 품는 뷰 컨트롤러\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "Child View Controller",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "How do I split this screen?"
+        },
+        {
+          "speaker": "B",
+          "text": "Add a Child View Controller."
+        }
+      ],
+      "title": "How do I split this screen? / Add a Child View Controller. #Shorts",
+      "description": "How do I split this screen? / Add a Child View Controller.\n\nChild View Controller - A view controller whose view lives inside another view controller.\n한국어: 자식 뷰 컨트롤러: 뷰가 다른 뷰 컨트롤러 안에 들어 있는 뷰 컨트롤러\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "View Controller Containment",
+      "lines": [
+        {
+          "text": "Follow View Controller Containment in the right order."
+        }
+      ],
+      "title": "Follow View Controller Containment in the right order. #Shorts",
+      "description": "Follow View Controller Containment in the right order.\n\nView Controller Containment - The set of steps that adds a child view controller to a parent safely.\n한국어: 뷰 컨트롤러 컨테인먼트: 자식 뷰 컨트롤러를 부모에 안전하게 붙이는 일련의 단계\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "One screen, many controllers?"
+}

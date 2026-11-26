@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 129
+
+Cold Launch
+- A start of the app when it is not in memory yet, so iOS has to load everything.
+- Example: "The Cold Launch takes two seconds on an old iPhone."
+
+Warm Launch
+- A start of the app when it is still in memory, so it opens faster.
+- Example: "A Warm Launch is quick, because the app is already in memory."
+
+State Restoration
+- A feature that brings the user back to the screen where they stopped.
+- Example: "State Restoration opens the same note after a restart."
+
+
+Quiz ①
+What do you call the feature that brings the user back to the screen where they stopped?
+a) Cold Launch
+b) Warm Launch
+c) State Restoration
+
+Quiz ②
+What do you call a start when the app is still in memory, so it opens faster?
+a) Warm Launch
+b) State Restoration
+c) Cold Launch
+
+Quiz ③
+What do you call a start when the app is not in memory yet and iOS must load everything?
+a) State Restoration
+b) Cold Launch
+c) Warm Launch

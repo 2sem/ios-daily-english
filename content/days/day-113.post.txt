@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 113
+
+VoiceOver
+- A built-in screen reader that speaks what is on the screen.
+- Example: "Turn on VoiceOver and test the whole checkout flow."
+
+Accessibility Label
+- A short text that VoiceOver reads to name a control.
+- Example: "The icon button needs an Accessibility Label, or VoiceOver only says button."
+
+Accessibility Hint
+- An extra sentence that explains what happens after the user taps.
+- Example: "Add an Accessibility Hint that says what the tap does."
+
+
+Quiz ①
+What do you call the extra sentence that explains what happens after a tap?
+a) Accessibility Hint
+b) VoiceOver
+c) Accessibility Label
+
+Quiz ②
+In this code, which built-in screen reader speaks the word Saved?
+a) Accessibility Label
+b) Accessibility Hint
+c) VoiceOver
+
+Quiz ③
+What do you call the short text that VoiceOver reads to name a control?
+a) VoiceOver
+b) Accessibility Label
+c) Accessibility Hint

@@ -1,0 +1,238 @@
+{
+  "day": 114,
+  "phase": "3. iOS foundations",
+  "theme": "3 terms on text size: the user setting, the named font role, and the custom font that follows it",
+  "terms": [
+    {
+      "term": "Dynamic Type",
+      "definition": "A setting that lets users make text bigger or smaller in every app.",
+      "example": "Turn on Dynamic Type in Settings and check that nothing is cut off.",
+      "code": "label.adjustsFontForContentSizeCategory = true",
+      "output": "// no output"
+    },
+    {
+      "term": "Text Style",
+      "definition": "A named font role, such as body or title, that grows with the user's text size.",
+      "example": "Use a Text Style instead of a fixed font size.",
+      "code": "label.font = .preferredFont(\n    forTextStyle: .body)",
+      "output": "// no output"
+    },
+    {
+      "term": "Scaled Font",
+      "definition": "A custom font that you scale with `UIFontMetrics`, so it follows the user's text size.",
+      "example": "Our brand font needs a Scaled Font to support larger text.",
+      "code": "let base = UIFont.systemFont(ofSize: 20)\nlabel.font = UIFontMetrics(forTextStyle: .body)\n    .scaledFont(for: base)",
+      "output": "// no output"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What do you call a custom font that you scale with `UIFontMetrics` so it follows the user's text size?",
+      "options": [
+        "Scaled Font",
+        "Text Style",
+        "Dynamic Type"
+      ],
+      "answer": "a"
+    },
+    {
+      "question": "In this code, which setting makes the label follow the user's text size?",
+      "code": "label.adjustsFontForContentSizeCategory = true",
+      "options": [
+        "Text Style",
+        "Dynamic Type",
+        "Scaled Font"
+      ],
+      "answer": "b"
+    },
+    {
+      "question": "What do you call a named font role, such as body or title?",
+      "options": [
+        "Dynamic Type",
+        "Scaled Font",
+        "Text Style"
+      ],
+      "answer": "c"
+    }
+  ],
+  "video": {
+    "title": "Dynamic Type, Text Style & Scaled Font | Day 114",
+    "description": "Learn to explain how text grows with the user's size setting in iOS: Dynamic Type, Text Style & Scaled Font, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nDynamic Type - A setting that lets users make text bigger or smaller in every app.\nText Style - A named font role, such as body or title, that grows with the user's text size.\nScaled Font - A custom font that you scale with `UIFontMetrics`, so it follows the user's text size.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 114 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "dynamic type",
+      "text style",
+      "scaled font",
+      "dynamic type",
+      "text style",
+      "scaled font",
+      "dynamic type",
+      "uifontmetrics",
+      "ios foundations",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "iOS Dynamic Type, Text Style & Scaled Font | Day 114",
+      "description": "Explain Dynamic Type, Text Style & Scaled Font in iOS by listening to a real code chat between two iOS devs.\n다이내믹 타입, 텍스트 스타일, 스케일드 폰트 표현을 영어 대화로 익혀요.\n\nDynamic Type - A setting that lets users make text bigger or smaller in every app.\n한국어: 다이내믹 타입: 모든 앱의 글자 크기를 사용자가 바꾸는 설정\n\nText Style - A named font role, such as body or title, that grows with the user's text size.\n한국어: 텍스트 스타일: 본문이나 제목처럼 이름 붙은 글꼴 역할\n\nScaled Font - A custom font that you scale with `UIFontMetrics`, so it follows the user's text size.\n한국어: 스케일드 폰트: `UIFontMetrics`로 키워 사용자 글자 크기를 따르는 커스텀 글꼴\n\nIn this video, Mina and Jake make a custom font follow the text size a user chooses, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 114 of the iOS Daily English series.\n\n#Swift #iOSDeveloper #EnglishForDevelopers",
+      "tags": [
+        "Dynamic Type",
+        "Text Style",
+        "Scaled Font",
+        "dynamic type",
+        "UIFontMetrics",
+        "accessibility",
+        "iOS 기초",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "iOS Daily English"
+      ],
+      "hook": "Can you explain Dynamic Type, Text Style and Scaled Font in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "The text is too small",
+    "setting": "Dynamic Type",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, a user says our text is too small.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Did you support Dynamic Type for the label?",
+        "terms": [
+          "Dynamic Type"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "I did. But the font is fixed at 20.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "That is the problem. A fixed font cannot grow. Use a Text Style or a Scaled Font.",
+        "terms": [
+          "Text Style",
+          "Scaled Font"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "What is a Text Style again?",
+        "terms": [
+          "Text Style"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "A named role, like body or title. It grows with Dynamic Type by itself.",
+        "terms": [
+          "Dynamic Type"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "But we have a custom font.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Then make a Scaled Font with `UIFontMetrics`, like in the code.",
+        "terms": [
+          "Scaled Font"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "I see. The metrics use the body Text Style to scale the base font.",
+        "terms": [
+          "Text Style"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Right. Now Dynamic Type works for the custom font too.",
+        "terms": [
+          "Dynamic Type"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Let me test the largest size.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Good idea. Check that the layout still fits.",
+        "terms": []
+      }
+    ],
+    "code": "let base = UIFont.systemFont(ofSize: 20)\nlet metrics = UIFontMetrics(forTextStyle: .body)\nlabel.font = metrics.scaledFont(for: base)\nlabel.adjustsFontForContentSizeCategory = true",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "Dynamic Type",
+      "lines": [
+        {
+          "text": "Dynamic Type lets users choose their text size."
+        }
+      ],
+      "title": "Dynamic Type lets users choose their text size. #Shorts",
+      "description": "Dynamic Type lets users choose their text size.\n\nDynamic Type - A setting that lets users make text bigger or smaller in every app.\n한국어: 다이내믹 타입: 모든 앱의 글자 크기를 사용자가 바꾸는 설정\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Text Style",
+      "lines": [
+        {
+          "text": "Pick a Text Style, not a fixed font size."
+        }
+      ],
+      "title": "Pick a Text Style, not a fixed font size. #Shorts",
+      "description": "Pick a Text Style, not a fixed font size.\n\nText Style - A named font role, such as body or title, that grows with the user's text size.\n한국어: 텍스트 스타일: 본문이나 제목처럼 이름 붙은 글꼴 역할\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "Scaled Font",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Our brand font does not grow."
+        },
+        {
+          "speaker": "B",
+          "text": "Make it a Scaled Font."
+        }
+      ],
+      "title": "Our brand font does not grow. / Make it a Scaled Font. #Shorts",
+      "description": "Our brand font does not grow. / Make it a Scaled Font.\n\nScaled Font - A custom font that you scale with `UIFontMetrics`, so it follows the user's text size.\n한국어: 스케일드 폰트: `UIFontMetrics`로 키워 사용자 글자 크기를 따르는 커스텀 글꼴\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "Text too small for users?"
+}

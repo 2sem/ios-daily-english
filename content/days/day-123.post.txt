@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 123
+
+Haptic Feedback
+- A small vibration from the device that you feel when you touch the screen.
+- Example: "Add Haptic Feedback to the like button."
+
+Feedback Generator
+- An object that creates haptic feedback and can get ready ahead of time.
+- Example: "Create the Feedback Generator once, then call prepare before the tap."
+
+Impact Style
+- The strength of a tap vibration, such as light, medium or heavy.
+- Example: "Pick a light Impact Style for small buttons."
+
+
+Quiz ①
+What do you call the object that creates the vibration and can get ready ahead of time?
+a) Haptic Feedback
+b) Feedback Generator
+c) Impact Style
+
+Quiz ②
+What do you call the strength of a tap vibration, such as light or heavy?
+a) Feedback Generator
+b) Haptic Feedback
+c) Impact Style
+
+Quiz ③
+What do you call a small vibration that you feel when you touch the screen?
+a) Haptic Feedback
+b) Impact Style
+c) Feedback Generator

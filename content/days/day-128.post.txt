@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 128
+
+Parent View Controller
+- A view controller that holds other view controllers inside its own screen.
+- Example: "The Parent View Controller owns the header and the list."
+
+Child View Controller
+- A view controller whose view lives inside another view controller.
+- Example: "Make the header a Child View Controller to keep the screen small."
+
+View Controller Containment
+- The set of steps that adds a child view controller to a parent safely.
+- Example: "Follow View Controller Containment, or the child will not get its events."
+
+
+Quiz ①
+What do you call the steps `addChild`, `addSubview` and `didMove` that put one controller inside another?
+a) Parent View Controller
+b) Child View Controller
+c) View Controller Containment
+
+Quiz ②
+What do you call a view controller whose view lives inside another one?
+a) Child View Controller
+b) View Controller Containment
+c) Parent View Controller
+
+Quiz ③
+What do you call a view controller that holds other view controllers inside its own screen?
+a) View Controller Containment
+b) Parent View Controller
+c) Child View Controller

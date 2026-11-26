@@ -1,0 +1,237 @@
+{
+  "day": 112,
+  "phase": "3. iOS foundations",
+  "theme": "3 terms on dark mode: the light or dark look, the color that adapts, and the screen facts a view can read",
+  "terms": [
+    {
+      "term": "Interface Style",
+      "definition": "The light or dark look that the screen uses.",
+      "example": "Set the Interface Style to dark only for the video player.",
+      "code": "view.overrideUserInterfaceStyle = .dark",
+      "output": "// no output"
+    },
+    {
+      "term": "Dynamic Color",
+      "definition": "A color that switches between its light and dark versions by itself.",
+      "example": "Use a Dynamic Color for the card, so it looks good at night.",
+      "code": "let card = UIColor { traits in\n    traits.userInterfaceStyle == .dark\n        ? .black : .white\n}",
+      "output": "// no output"
+    },
+    {
+      "term": "Trait Collection",
+      "definition": "A set of facts about the screen, such as light or dark mode and size, that a view can read.",
+      "example": "Check the Trait Collection before you pick the image.",
+      "code": "if view.traitCollection.userInterfaceStyle == .dark {\n    view.backgroundColor = .black\n}",
+      "output": "// no output"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What do you call the set of facts about the screen, such as its size and light or dark mode, that a view can read?",
+      "options": [
+        "Interface Style",
+        "Trait Collection",
+        "Dynamic Color"
+      ],
+      "answer": "b"
+    },
+    {
+      "question": "In this code, what kind of color is `card`?",
+      "code": "let card = UIColor { traits in\n    traits.userInterfaceStyle == .dark\n        ? .black : .white\n}",
+      "options": [
+        "Dynamic Color",
+        "Trait Collection",
+        "Interface Style"
+      ],
+      "answer": "a"
+    },
+    {
+      "question": "What do you call the light or dark look that the screen uses?",
+      "options": [
+        "Trait Collection",
+        "Dynamic Color",
+        "Interface Style"
+      ],
+      "answer": "c"
+    }
+  ],
+  "video": {
+    "title": "Interface Style, Dynamic Color & Trait Collection | Day 112",
+    "description": "Learn to explain how an iOS app supports dark mode: Interface Style, Dynamic Color & Trait Collection, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nInterface Style - The light or dark look that the screen uses.\nDynamic Color - A color that switches between its light and dark versions by itself.\nTrait Collection - A set of facts about the screen, such as light or dark mode and size, that a view can read.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 112 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "interface style",
+      "dynamic color",
+      "trait collection",
+      "interface style",
+      "dynamic color",
+      "trait collection",
+      "dark mode",
+      "uicolor",
+      "ios foundations",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "iOS Interface Style, Dynamic Color & Trait Collection | Day 112",
+      "description": "Explain Interface Style, Dynamic Color & Trait Collection in iOS by listening to a real code chat between two iOS devs.\n인터페이스 스타일, 다이내믹 컬러, 트레이트 컬렉션 표현을 영어 대화로 익혀요.\n\nInterface Style - The light or dark look that the screen uses.\n한국어: 인터페이스 스타일: 화면이 쓰는 라이트 또는 다크 모양\n\nDynamic Color - A color that switches between its light and dark versions by itself.\n한국어: 다이내믹 컬러: 라이트와 다크 버전을 스스로 바꾸는 색\n\nTrait Collection - A set of facts about the screen, such as light or dark mode and size, that a view can read.\n한국어: 트레이트 컬렉션: 다크 모드나 크기 같은 화면 정보를 모아 둔 집합\n\nIn this video, Mina and Jake fix a card that looks too bright in dark mode, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 112 of the iOS Daily English series.\n\n#Swift #iOSDeveloper #EnglishForDevelopers",
+      "tags": [
+        "Interface Style",
+        "Dynamic Color",
+        "Trait Collection",
+        "dark mode",
+        "UITraitCollection",
+        "UIColor",
+        "iOS 기초",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "iOS Daily English"
+      ],
+      "hook": "Can you explain Interface Style, Dynamic Color and Trait Collection in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "Too bright at night",
+    "setting": "Dark mode",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, our card looks too bright at night.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Is the background a fixed white?",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "Yes. I set it with a normal color.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Use a Dynamic Color instead, like in the code.",
+        "terms": [
+          "Dynamic Color"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "How does it know the Interface Style?",
+        "terms": [
+          "Interface Style"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "The closure gets the Trait Collection and reads `userInterfaceStyle`.",
+        "terms": [
+          "Trait Collection"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "So the Trait Collection tells us dark or light.",
+        "terms": [
+          "Trait Collection"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Right. It also holds the screen size.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "Can I force light mode on one screen?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Yes. Set the Interface Style on that view. But try not to.",
+        "terms": [
+          "Interface Style"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "I agree. The Dynamic Color handles it better.",
+        "terms": [
+          "Dynamic Color"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Exactly. Let the user choose their Interface Style.",
+        "terms": [
+          "Interface Style"
+        ]
+      }
+    ],
+    "code": "let card = UIColor { traits in\n    traits.userInterfaceStyle == .dark\n        ? .black : .white\n}\nview.backgroundColor = card",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "Interface Style",
+      "lines": [
+        {
+          "text": "The Interface Style is dark after sunset."
+        }
+      ],
+      "title": "The Interface Style is dark after sunset. #Shorts",
+      "description": "The Interface Style is dark after sunset.\n\nInterface Style - The light or dark look that the screen uses.\n한국어: 인터페이스 스타일: 화면이 쓰는 라이트 또는 다크 모양\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "Dynamic Color",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Why does the card change at night?"
+        },
+        {
+          "speaker": "B",
+          "text": "It uses a Dynamic Color."
+        }
+      ],
+      "title": "Why does the card change at night? / It uses a Dynamic Color. #Shorts",
+      "description": "Why does the card change at night? / It uses a Dynamic Color.\n\nDynamic Color - A color that switches between its light and dark versions by itself.\n한국어: 다이내믹 컬러: 라이트와 다크 버전을 스스로 바꾸는 색\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Trait Collection",
+      "lines": [
+        {
+          "text": "Read the Trait Collection to detect dark mode."
+        }
+      ],
+      "title": "Read the Trait Collection to detect dark mode. #Shorts",
+      "description": "Read the Trait Collection to detect dark mode.\n\nTrait Collection - A set of facts about the screen, such as light or dark mode and size, that a view can read.\n한국어: 트레이트 컬렉션: 다크 모드나 크기 같은 화면 정보를 모아 둔 집합\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "Why does dark mode break?"
+}

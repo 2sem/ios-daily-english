@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 124
+
+Long Press
+- A gesture where the user holds a finger on the screen for a moment.
+- Example: "A Long Press on the photo opens the preview."
+
+Swipe Action
+- A button that appears when the user swipes a table row sideways.
+- Example: "Add a Swipe Action to delete a note."
+
+Context Menu
+- A small menu of actions that appears after a long press on an item.
+- Example: "Put copy and share in a Context Menu."
+
+
+Quiz ①
+What do you call the small menu of actions that appears when the user holds an item?
+a) Long Press
+b) Swipe Action
+c) Context Menu
+
+Quiz ②
+In this code, what do you call the Delete button that appears when a row is swiped?
+a) Swipe Action
+b) Context Menu
+c) Long Press
+
+Quiz ③
+What do you call a gesture where the user holds a finger on the screen for a moment?
+a) Context Menu
+b) Long Press
+c) Swipe Action

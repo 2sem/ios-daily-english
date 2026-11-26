@@ -1,0 +1,236 @@
+{
+  "day": 129,
+  "phase": "3. iOS foundations",
+  "theme": "3 terms on how an app starts: from nothing, from memory, and back to where you stopped",
+  "terms": [
+    {
+      "term": "Cold Launch",
+      "definition": "A start of the app when it is not in memory yet, so iOS has to load everything.",
+      "example": "The Cold Launch takes two seconds on an old iPhone.",
+      "code": "let start = Date()\n// setup runs on every cold launch\nlet took = Date().timeIntervalSince(start)\nprint(took < 1)",
+      "output": "true"
+    },
+    {
+      "term": "Warm Launch",
+      "definition": "A start of the app when it is still in memory, so it opens faster.",
+      "example": "A Warm Launch is quick, because the app is already in memory.",
+      "code": "// the app is still in memory\nlet scene = UIApplication.shared\n    .connectedScenes.first",
+      "output": "// no output"
+    },
+    {
+      "term": "State Restoration",
+      "definition": "A feature that brings the user back to the screen where they stopped.",
+      "example": "State Restoration opens the same note after a restart.",
+      "code": "func stateRestorationActivity(\n    for scene: UIScene) -> NSUserActivity? {\n    NSUserActivity(\n        activityType: \"com.example.note\")\n}",
+      "output": "// no output"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What do you call the feature that brings the user back to the screen where they stopped?",
+      "options": [
+        "Cold Launch",
+        "Warm Launch",
+        "State Restoration"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "What do you call a start when the app is still in memory, so it opens faster?",
+      "options": [
+        "Warm Launch",
+        "State Restoration",
+        "Cold Launch"
+      ],
+      "answer": "a"
+    },
+    {
+      "question": "What do you call a start when the app is not in memory yet and iOS must load everything?",
+      "options": [
+        "State Restoration",
+        "Cold Launch",
+        "Warm Launch"
+      ],
+      "answer": "b"
+    }
+  ],
+  "video": {
+    "title": "Cold Launch, Warm Launch & State Restoration | Day 129",
+    "description": "Learn to explain how an iOS app starts and returns to where the user stopped: Cold Launch, Warm Launch & State Restoration, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nCold Launch - A start of the app when it is not in memory yet, so iOS has to load everything.\nWarm Launch - A start of the app when it is still in memory, so it opens faster.\nState Restoration - A feature that brings the user back to the screen where they stopped.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 129 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "cold launch",
+      "warm launch",
+      "state restoration",
+      "cold launch",
+      "warm launch",
+      "state restoration",
+      "app launch",
+      "state restoration",
+      "ios foundations",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "iOS Cold Launch, Warm Launch & State Restoration | Day 129",
+      "description": "Explain Cold Launch, Warm Launch & State Restoration in iOS by listening to a real code chat between two iOS devs.\n콜드 런치, 웜 런치, 스테이트 리스토레이션 표현을 영어 대화로 익혀요.\n\nCold Launch - A start of the app when it is not in memory yet, so iOS has to load everything.\n한국어: 콜드 런치: 앱이 아직 메모리에 없어 iOS가 모두 불러와야 하는 시작\n\nWarm Launch - A start of the app when it is still in memory, so it opens faster.\n한국어: 웜 런치: 앱이 아직 메모리에 있어 더 빨리 열리는 시작\n\nState Restoration - A feature that brings the user back to the screen where they stopped.\n한국어: 스테이트 리스토레이션: 사용자가 멈춘 화면으로 돌아오게 하는 기능\n\nIn this video, Mina and Jake speed up the app start and bring users back to their note, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 129 of the iOS Daily English series.\n\n#Swift #iOSDeveloper #EnglishForDevelopers",
+      "tags": [
+        "Cold Launch",
+        "Warm Launch",
+        "State Restoration",
+        "app launch",
+        "NSUserActivity",
+        "UIScene",
+        "iOS 기초",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "iOS Daily English"
+      ],
+      "hook": "Can you explain Cold Launch, Warm Launch and State Restoration in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "Slow in the morning",
+    "setting": "App launch",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, users say the app opens slowly in the morning.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Is it a Cold Launch? iOS had to load everything.",
+        "terms": [
+          "Cold Launch"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Yes. After a restart, it is a Cold Launch every time.",
+        "terms": [
+          "Cold Launch"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Then a Warm Launch is much faster.",
+        "terms": [
+          "Warm Launch"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Why is a Warm Launch faster?",
+        "terms": [
+          "Warm Launch"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "The app is still in memory, so there is less to load.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "Can we make the Cold Launch faster?",
+        "terms": [
+          "Cold Launch"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Yes. Do less work at startup and load data later.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "Users also lose their note after a restart.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Use State Restoration. It returns them to the screen where they stopped.",
+        "terms": [
+          "State Restoration"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Is that the `stateRestorationActivity` method in the code?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Yes. State Restoration uses an `NSUserActivity` that describes the note screen.",
+        "terms": [
+          "State Restoration"
+        ]
+      }
+    ],
+    "code": "func stateRestorationActivity(\n    for scene: UIScene) -> NSUserActivity? {\n    NSUserActivity(\n        activityType: \"com.example.note\")\n}",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "Cold Launch",
+      "lines": [
+        {
+          "text": "A Cold Launch loads everything from scratch."
+        }
+      ],
+      "title": "A Cold Launch loads everything from scratch. #Shorts",
+      "description": "A Cold Launch loads everything from scratch.\n\nCold Launch - A start of the app when it is not in memory yet, so iOS has to load everything.\n한국어: 콜드 런치: 앱이 아직 메모리에 없어 iOS가 모두 불러와야 하는 시작\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "Warm Launch",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Why did it open so fast?"
+        },
+        {
+          "speaker": "B",
+          "text": "It was a Warm Launch."
+        }
+      ],
+      "title": "Why did it open so fast? / It was a Warm Launch. #Shorts",
+      "description": "Why did it open so fast? / It was a Warm Launch.\n\nWarm Launch - A start of the app when it is still in memory, so it opens faster.\n한국어: 웜 런치: 앱이 아직 메모리에 있어 더 빨리 열리는 시작\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "State Restoration",
+      "lines": [
+        {
+          "text": "State Restoration reopens the same note."
+        }
+      ],
+      "title": "State Restoration reopens the same note. #Shorts",
+      "description": "State Restoration reopens the same note.\n\nState Restoration - A feature that brings the user back to the screen where they stopped.\n한국어: 스테이트 리스토레이션: 사용자가 멈춘 화면으로 돌아오게 하는 기능\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "Why is your app slow to open?"
+}

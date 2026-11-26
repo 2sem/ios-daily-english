@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 130
+
+Status Bar
+- The strip at the top of the screen that shows the time, battery and signal.
+- Example: "Make the Status Bar light, so it is readable on the dark header."
+
+Bar Button Item
+- A button that you place in a navigation bar or toolbar.
+- Example: "Add a Bar Button Item for creating a new note."
+
+Large Title
+- A big title at the top of a screen that shrinks when the user scrolls.
+- Example: "Turn on the Large Title for the main list."
+
+
+Quiz ①
+What do you call the big title at the top of a screen that shrinks when the user scrolls?
+a) Status Bar
+b) Bar Button Item
+c) Large Title
+
+Quiz ②
+What do you call the strip at the top of the screen that shows the time and battery?
+a) Status Bar
+b) Large Title
+c) Bar Button Item
+
+Quiz ③
+What do you call a button that you place in a navigation bar?
+a) Large Title
+b) Bar Button Item
+c) Status Bar

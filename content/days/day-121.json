@@ -1,0 +1,234 @@
+{
+  "day": 121,
+  "phase": "3. iOS foundations",
+  "theme": "3 terms on app colors: the main tint, the color loaded by name, and the catalog entry with light and dark versions",
+  "terms": [
+    {
+      "term": "Accent Color",
+      "definition": "The main color of your app that tints buttons, links and controls.",
+      "example": "Change the Accent Color to the new brand blue.",
+      "code": "view.tintColor = .systemOrange",
+      "output": "// no output"
+    },
+    {
+      "term": "Named Color",
+      "definition": "A color that you load from the asset catalog by its name.",
+      "example": "Load the brand as a Named Color, not as a hex value.",
+      "code": "let brand = UIColor(named: \"Brand\")",
+      "output": "// no output"
+    },
+    {
+      "term": "Color Set",
+      "definition": "An asset catalog entry that holds one color with its light and dark versions.",
+      "example": "Create a Color Set so the card adapts to dark mode.",
+      "code": "// Brand has a light and a dark color\nlabel.textColor = UIColor(named: \"Brand\")",
+      "output": "// no output"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What do you call the asset catalog entry that holds one color with a light and a dark version?",
+      "options": [
+        "Accent Color",
+        "Named Color",
+        "Color Set"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "What do you call the main color of the app that tints buttons and links?",
+      "options": [
+        "Accent Color",
+        "Color Set",
+        "Named Color"
+      ],
+      "answer": "a"
+    },
+    {
+      "question": "What do you call a color that you load from the asset catalog by its name?",
+      "options": [
+        "Color Set",
+        "Named Color",
+        "Accent Color"
+      ],
+      "answer": "b"
+    }
+  ],
+  "video": {
+    "title": "Accent Color, Named Color & Color Set | Day 121",
+    "description": "Learn to explain how iOS apps store and use brand colors: Accent Color, Named Color & Color Set, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nAccent Color - The main color of your app that tints buttons, links and controls.\nNamed Color - A color that you load from the asset catalog by its name.\nColor Set - An asset catalog entry that holds one color with its light and dark versions.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 121 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "accent color",
+      "named color",
+      "color set",
+      "accent color",
+      "named color",
+      "color set",
+      "accent color",
+      "asset catalog",
+      "ios foundations",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "iOS Accent Color, Named Color & Color Set | Day 121",
+      "description": "Explain Accent Color, Named Color & Color Set in iOS by listening to a real code chat between two iOS devs.\n액센트 컬러, 네임드 컬러, 컬러 세트 표현을 영어 대화로 익혀요.\n\nAccent Color - The main color of your app that tints buttons, links and controls.\n한국어: 액센트 컬러: 버튼, 링크, 컨트롤에 입혀지는 앱의 대표 색\n\nNamed Color - A color that you load from the asset catalog by its name.\n한국어: 네임드 컬러: 에셋 카탈로그에서 이름으로 불러오는 색\n\nColor Set - An asset catalog entry that holds one color with its light and dark versions.\n한국어: 컬러 세트: 라이트와 다크 버전을 가진 하나의 색을 담은 에셋 항목\n\nIn this video, Mina and Jake fix a brand color that looks wrong in dark mode, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 121 of the iOS Daily English series.\n\n#Swift #iOSDeveloper #EnglishForDevelopers",
+      "tags": [
+        "Accent Color",
+        "Named Color",
+        "Color Set",
+        "accent color",
+        "UIColor",
+        "asset catalog",
+        "iOS 기초",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "iOS Daily English"
+      ],
+      "hook": "Can you explain Accent Color, Named Color and Color Set in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "Brand blue in dark mode",
+    "setting": "App colors",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, our brand blue looks wrong in dark mode.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "How do you create it now?",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "With a fixed hex value in code.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Make a Color Set instead. It holds a light and a dark version.",
+        "terms": [
+          "Color Set"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "And how do I use it?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Load it as a Named Color, like in the code.",
+        "terms": [
+          "Named Color"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Does `UIColor(named:)` return `nil` if the name is wrong?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Yes. It returns an optional, so check the Color Set name.",
+        "terms": [
+          "Color Set"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "What about buttons? They are still blue.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Set the Accent Color. It tints buttons and links.",
+        "terms": [
+          "Accent Color"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Can I use my Named Color there?",
+        "terms": [
+          "Named Color"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Yes. Use it for the Accent Color, like `tintColor` in the code.",
+        "terms": [
+          "Accent Color"
+        ]
+      }
+    ],
+    "code": "let brand = UIColor(named: \"Brand\")\nlabel.textColor = brand\nview.tintColor = brand",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "Accent Color",
+      "lines": [
+        {
+          "text": "Change the Accent Color to match the brand."
+        }
+      ],
+      "title": "Change the Accent Color to match the brand. #Shorts",
+      "description": "Change the Accent Color to match the brand.\n\nAccent Color - The main color of your app that tints buttons, links and controls.\n한국어: 액센트 컬러: 버튼, 링크, 컨트롤에 입혀지는 앱의 대표 색\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "Named Color",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "How do I load our brand color?"
+        },
+        {
+          "speaker": "B",
+          "text": "As a Named Color."
+        }
+      ],
+      "title": "How do I load our brand color? / As a Named Color. #Shorts",
+      "description": "How do I load our brand color? / As a Named Color.\n\nNamed Color - A color that you load from the asset catalog by its name.\n한국어: 네임드 컬러: 에셋 카탈로그에서 이름으로 불러오는 색\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Color Set",
+      "lines": [
+        {
+          "text": "A Color Set adapts to dark mode."
+        }
+      ],
+      "title": "A Color Set adapts to dark mode. #Shorts",
+      "description": "A Color Set adapts to dark mode.\n\nColor Set - An asset catalog entry that holds one color with its light and dark versions.\n한국어: 컬러 세트: 라이트와 다크 버전을 가진 하나의 색을 담은 에셋 항목\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "Brand color wrong in dark mode?"
+}

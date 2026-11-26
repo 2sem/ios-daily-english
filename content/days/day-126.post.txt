@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 126
+
+Memory Warning
+- A signal from iOS that the device is running low on memory.
+- Example: "Clear the image cache when the app gets a Memory Warning."
+
+NSCache
+- A dictionary-like object that stores temporary data and clears items by itself when memory is low.
+- Example: "Store the thumbnails in an NSCache, not in a plain dictionary."
+
+Cache Eviction
+- The removal of old items from a cache to free memory.
+- Example: "Cache Eviction started, so the old thumbnails are gone."
+
+
+Quiz ①
+What do you call the dictionary-like object that stores temporary data and clears itself when memory is low?
+a) Memory Warning
+b) NSCache
+c) Cache Eviction
+
+Quiz ②
+What do you call the removal of old items to free memory?
+a) NSCache
+b) Memory Warning
+c) Cache Eviction
+
+Quiz ③
+What do you call the signal from iOS that the device is running low on memory?
+a) Memory Warning
+b) Cache Eviction
+c) NSCache

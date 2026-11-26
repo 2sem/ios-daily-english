@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 118
+
+viewDidAppear
+- A method that runs after the screen is fully visible.
+- Example: "Start the timer in viewDidAppear, so it begins when the user can see the screen."
+
+viewWillDisappear
+- A method that runs just before the screen goes away.
+- Example: "Stop the timer in viewWillDisappear, so it does not run on a hidden screen."
+
+viewDidLayoutSubviews
+- A method that runs after the view has set the size and position of its subviews.
+- Example: "Set the gradient frame in viewDidLayoutSubviews, because the final size is known there."
+
+
+Quiz ①
+In this code, which method should hold this line so it runs just before the screen goes away?
+a) viewDidAppear
+b) viewWillDisappear
+c) viewDidLayoutSubviews
+
+Quiz ②
+Which method runs after the view has set the size and position of its subviews?
+a) viewWillDisappear
+b) viewDidAppear
+c) viewDidLayoutSubviews
+
+Quiz ③
+Which method runs after the screen is fully visible?
+a) viewDidAppear
+b) viewDidLayoutSubviews
+c) viewWillDisappear

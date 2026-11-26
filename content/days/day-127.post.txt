@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 127
+
+Share Sheet
+- The panel that slides up so the user can send content to another app.
+- Example: "Tap Share to open the Share Sheet."
+
+Activity Item
+- A piece of content, such as text or a link, that you want to share.
+- Example: "Add the note text and its link as Activity Items."
+
+Activity View Controller
+- A built-in view controller that shows the share sheet with your items.
+- Example: "Create an Activity View Controller and present it from the button action."
+
+
+Quiz ①
+What do you call the built-in view controller that you present to show the panel for sharing?
+a) Share Sheet
+b) Activity Item
+c) Activity View Controller
+
+Quiz ②
+What do you call the panel that slides up to send content to another app?
+a) Share Sheet
+b) Activity View Controller
+c) Activity Item
+
+Quiz ③
+What do you call a piece of content, such as text or a link, that you want to share?
+a) Activity View Controller
+b) Activity Item
+c) Share Sheet

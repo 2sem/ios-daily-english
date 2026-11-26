@@ -1,0 +1,235 @@
+{
+  "day": 122,
+  "phase": "3. iOS foundations",
+  "theme": "3 terms on screen shapes: upright or sideways, the compact or regular label, and a layout that adapts",
+  "terms": [
+    {
+      "term": "Interface Orientation",
+      "definition": "Whether the screen is shown upright (portrait) or sideways (landscape).",
+      "example": "Lock the Interface Orientation to portrait for the camera screen.",
+      "code": "override var supportedInterfaceOrientations\n    : UIInterfaceOrientationMask {\n    .portrait\n}",
+      "output": "// no output"
+    },
+    {
+      "term": "Size Class",
+      "definition": "A simple label, compact or regular, for the width or height available to your app.",
+      "example": "Check the Size Class before you show the sidebar.",
+      "code": "let size = view.traitCollection\n    .horizontalSizeClass\nif size == .compact {\n    showTabBar()\n}",
+      "output": "// no output"
+    },
+    {
+      "term": "Adaptive Layout",
+      "definition": "A layout that changes to fit different screen sizes and orientations.",
+      "example": "We need an Adaptive Layout so the screen works on iPad too.",
+      "code": "stack.axis = view.bounds.width > 600\n    ? .horizontal : .vertical",
+      "output": "// no output"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What do you call the compact or regular label for the width or height available to your app?",
+      "options": [
+        "Interface Orientation",
+        "Size Class",
+        "Adaptive Layout"
+      ],
+      "answer": "b"
+    },
+    {
+      "question": "What do you call a layout that changes to fit different screen sizes?",
+      "options": [
+        "Size Class",
+        "Interface Orientation",
+        "Adaptive Layout"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "What do you call whether the screen is shown upright or sideways?",
+      "options": [
+        "Interface Orientation",
+        "Adaptive Layout",
+        "Size Class"
+      ],
+      "answer": "a"
+    }
+  ],
+  "video": {
+    "title": "Interface Orientation, Size Class & Adaptive Layout | Day 122",
+    "description": "Learn to explain how an iOS layout adapts to rotation and screen size: Interface Orientation, Size Class & Adaptive Layout, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nInterface Orientation - Whether the screen is shown upright (portrait) or sideways (landscape).\nSize Class - A simple label, compact or regular, for the width or height available to your app.\nAdaptive Layout - A layout that changes to fit different screen sizes and orientations.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 122 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "interface orientation",
+      "size class",
+      "adaptive layout",
+      "interface orientation",
+      "size class",
+      "adaptive layout",
+      "size class",
+      "adaptive layout",
+      "ios foundations",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "iOS Interface Orientation, Size Class & Adaptive Layout | Day 122",
+      "description": "Explain Interface Orientation, Size Class & Adaptive Layout in iOS by listening to a real code chat between two iOS devs.\n인터페이스 방향, 사이즈 클래스, 어댑티브 레이아웃 표현을 영어 대화로 익혀요.\n\nInterface Orientation - Whether the screen is shown upright (portrait) or sideways (landscape).\n한국어: 인터페이스 방향: 화면이 세로(포트레이트)인지 가로(랜드스케이프)인지\n\nSize Class - A simple label, compact or regular, for the width or height available to your app.\n한국어: 사이즈 클래스: 앱이 쓸 수 있는 너비나 높이를 compact 또는 regular로 나눈 이름\n\nAdaptive Layout - A layout that changes to fit different screen sizes and orientations.\n한국어: 어댑티브 레이아웃: 화면 크기와 방향에 맞춰 바뀌는 레이아웃\n\nIn this video, Mina and Jake fix a settings screen that looks tiny on iPad, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 122 of the iOS Daily English series.\n\n#Swift #iOSDeveloper #EnglishForDevelopers",
+      "tags": [
+        "Interface Orientation",
+        "Size Class",
+        "Adaptive Layout",
+        "size class",
+        "UITraitCollection",
+        "adaptive layout",
+        "iOS 기초",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "iOS Daily English"
+      ],
+      "hook": "Can you explain Interface Orientation, Size Class and Adaptive Layout in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "Tiny on iPad",
+    "setting": "Screen size and rotation",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, the settings screen looks tiny on iPad.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Is it an Adaptive Layout, or fixed sizes?",
+        "terms": [
+          "Adaptive Layout"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Fixed sizes, I think.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Use the Size Class. Compact means little space, and regular means more.",
+        "terms": [
+          "Size Class"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Like in the code, the stack goes vertical when it is compact?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Right. The Size Class is usually compact on iPhone in portrait.",
+        "terms": [
+          "Size Class"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "And what about rotation?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Rotation changes the Interface Orientation, and the Size Class may change too.",
+        "terms": [
+          "Interface Orientation",
+          "Size Class"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Can I lock the Interface Orientation to portrait?",
+        "terms": [
+          "Interface Orientation"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Yes, but an Adaptive Layout is better for users.",
+        "terms": [
+          "Adaptive Layout"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Agreed. I will test it on iPad.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Test both portrait and landscape.",
+        "terms": []
+      }
+    ],
+    "code": "let size = view.traitCollection\n    .horizontalSizeClass\nstack.axis = size == .compact\n    ? .vertical : .horizontal",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "Interface Orientation",
+      "lines": [
+        {
+          "text": "Lock the Interface Orientation to portrait."
+        }
+      ],
+      "title": "Lock the Interface Orientation to portrait. #Shorts",
+      "description": "Lock the Interface Orientation to portrait.\n\nInterface Orientation - Whether the screen is shown upright (portrait) or sideways (landscape).\n한국어: 인터페이스 방향: 화면이 세로(포트레이트)인지 가로(랜드스케이프)인지\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "Size Class",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "How do I know it is an iPhone?"
+        },
+        {
+          "speaker": "B",
+          "text": "Check the Size Class."
+        }
+      ],
+      "title": "How do I know it is an iPhone? / Check the Size Class. #Shorts",
+      "description": "How do I know it is an iPhone? / Check the Size Class.\n\nSize Class - A simple label, compact or regular, for the width or height available to your app.\n한국어: 사이즈 클래스: 앱이 쓸 수 있는 너비나 높이를 compact 또는 regular로 나눈 이름\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Adaptive Layout",
+      "lines": [
+        {
+          "text": "An Adaptive Layout fits iPhone and iPad."
+        }
+      ],
+      "title": "An Adaptive Layout fits iPhone and iPad. #Shorts",
+      "description": "An Adaptive Layout fits iPhone and iPad.\n\nAdaptive Layout - A layout that changes to fit different screen sizes and orientations.\n한국어: 어댑티브 레이아웃: 화면 크기와 방향에 맞춰 바뀌는 레이아웃\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "Why is iPad layout tiny?"
+}

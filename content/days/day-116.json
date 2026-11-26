@@ -1,0 +1,233 @@
+{
+  "day": 116,
+  "phase": "3. iOS foundations",
+  "theme": "3 terms on work when the app is not on screen: the capability setting, the short extra time, and the wake-up feature",
+  "terms": [
+    {
+      "term": "Background Modes",
+      "definition": "A capability setting that lets your app keep working in the background, for example to play audio.",
+      "example": "Turn on Background Modes so the music keeps playing.",
+      "code": "let modes = Bundle.main.object(\n    forInfoDictionaryKey: \"UIBackgroundModes\"\n) as? [String] ?? []\nprint(modes)",
+      "output": "[]"
+    },
+    {
+      "term": "Background Task",
+      "definition": "A short extra amount of time that iOS gives your app to finish work after the user leaves.",
+      "example": "Start a Background Task so the upload can finish.",
+      "code": "let app = UIApplication.shared\nlet id = app.beginBackgroundTask {\n    // time is almost over\n}\napp.endBackgroundTask(id)",
+      "output": "// no output"
+    },
+    {
+      "term": "Background Refresh",
+      "definition": "A system feature that wakes your app now and then to fetch new data.",
+      "example": "Background Refresh keeps the feed fresh before the user opens the app.",
+      "code": "let request = BGAppRefreshTaskRequest(\n    identifier: \"com.example.refresh\")\nrequest.earliestBeginDate =\n    Date(timeIntervalSinceNow: 900)\ntry? BGTaskScheduler.shared.submit(request)",
+      "output": "// no output"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What do you call the system feature that wakes your app now and then to fetch new data?",
+      "options": [
+        "Background Modes",
+        "Background Task",
+        "Background Refresh"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "What capability setting lets an app keep playing audio after the user leaves?",
+      "options": [
+        "Background Refresh",
+        "Background Modes",
+        "Background Task"
+      ],
+      "answer": "b"
+    },
+    {
+      "question": "What do you call the short extra time iOS gives your app to finish saving after the user leaves?",
+      "options": [
+        "Background Task",
+        "Background Refresh",
+        "Background Modes"
+      ],
+      "answer": "a"
+    }
+  ],
+  "video": {
+    "title": "Background Modes, Background Task & Background Refresh | Day 116",
+    "description": "Learn to explain how an iOS app can work in the background: Background Modes, Background Task & Background Refresh, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nBackground Modes - A capability setting that lets your app keep working in the background, for example to play audio.\nBackground Task - A short extra amount of time that iOS gives your app to finish work after the user leaves.\nBackground Refresh - A system feature that wakes your app now and then to fetch new data.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 116 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "background modes",
+      "background task",
+      "background refresh",
+      "background modes",
+      "background task",
+      "background refresh",
+      "background modes",
+      "bgtaskscheduler",
+      "ios foundations",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "iOS Background Modes, Background Task & Background Refresh | Day 116",
+      "description": "Explain Background Modes, Background Task & Background Refresh in iOS by listening to a real code chat between two iOS devs.\n백그라운드 모드, 백그라운드 태스크, 백그라운드 리프레시 표현을 영어 대화로 익혀요.\n\nBackground Modes - A capability setting that lets your app keep working in the background, for example to play audio.\n한국어: 백그라운드 모드: 오디오 재생처럼 앱이 백그라운드에서 계속 일하게 하는 기능 설정\n\nBackground Task - A short extra amount of time that iOS gives your app to finish work after the user leaves.\n한국어: 백그라운드 태스크: 사용자가 떠난 뒤 작업을 끝내도록 iOS가 주는 짧은 추가 시간\n\nBackground Refresh - A system feature that wakes your app now and then to fetch new data.\n한국어: 백그라운드 리프레시: 시스템이 가끔 앱을 깨워 새 데이터를 가져오게 하는 기능\n\nIn this video, Mina and Jake save notes safely and sync them in the morning, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 116 of the iOS Daily English series.\n\n#Swift #iOSDeveloper #EnglishForDevelopers",
+      "tags": [
+        "Background Modes",
+        "Background Task",
+        "Background Refresh",
+        "background modes",
+        "BGTaskScheduler",
+        "UIApplication",
+        "iOS 기초",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "iOS Daily English"
+      ],
+      "hook": "Can you explain Background Modes, Background Task and Background Refresh in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "Lost notes on exit",
+    "setting": "Background work",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, users lose notes when they leave the app during a save.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Ask for a Background Task, like in the code.",
+        "terms": [
+          "Background Task"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "How long does that give us?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Only a short time. It is for finishing work, like `saveNotes`.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "And I must call `endBackgroundTask` when I finish?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Yes. If you forget, iOS ends the Background Task and stops your app.",
+        "terms": [
+          "Background Task"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "What about syncing every morning?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "That needs Background Refresh. iOS wakes the app when it decides.",
+        "terms": [
+          "Background Refresh"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Can I choose the time?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "No, only the earliest time. And enable the right Background Modes first.",
+        "terms": [
+          "Background Modes"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Is Background Refresh one of the Background Modes?",
+        "terms": [
+          "Background Modes",
+          "Background Refresh"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Yes, you will find it in the capabilities.",
+        "terms": []
+      }
+    ],
+    "code": "let app = UIApplication.shared\nlet id = app.beginBackgroundTask {\n    // time is almost over\n}\nsaveNotes()\napp.endBackgroundTask(id)",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "Background Modes",
+      "lines": [
+        {
+          "text": "Enable Background Modes for audio playback."
+        }
+      ],
+      "title": "Enable Background Modes for audio playback. #Shorts",
+      "description": "Enable Background Modes for audio playback.\n\nBackground Modes - A capability setting that lets your app keep working in the background, for example to play audio.\n한국어: 백그라운드 모드: 오디오 재생처럼 앱이 백그라운드에서 계속 일하게 하는 기능 설정\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "Background Task",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "The upload stops when I leave."
+        },
+        {
+          "speaker": "B",
+          "text": "Start a Background Task."
+        }
+      ],
+      "title": "The upload stops when I leave. / Start a Background Task. #Shorts",
+      "description": "The upload stops when I leave. / Start a Background Task.\n\nBackground Task - A short extra amount of time that iOS gives your app to finish work after the user leaves.\n한국어: 백그라운드 태스크: 사용자가 떠난 뒤 작업을 끝내도록 iOS가 주는 짧은 추가 시간\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Background Refresh",
+      "lines": [
+        {
+          "text": "Background Refresh wakes the app to sync."
+        }
+      ],
+      "title": "Background Refresh wakes the app to sync. #Shorts",
+      "description": "Background Refresh wakes the app to sync.\n\nBackground Refresh - A system feature that wakes your app now and then to fetch new data.\n한국어: 백그라운드 리프레시: 시스템이 가끔 앱을 깨워 새 데이터를 가져오게 하는 기능\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "Can your app work off screen?"
+}

@@ -1,0 +1,236 @@
+{
+  "day": 124,
+  "phase": "3. iOS foundations",
+  "theme": "3 terms on quick actions on a row: hold a finger, swipe sideways, and the small menu",
+  "terms": [
+    {
+      "term": "Long Press",
+      "definition": "A gesture where the user holds a finger on the screen for a moment.",
+      "example": "A Long Press on the photo opens the preview.",
+      "code": "let press = UILongPressGestureRecognizer()\npress.minimumPressDuration = 0.5\nview.addGestureRecognizer(press)",
+      "output": "// no output"
+    },
+    {
+      "term": "Swipe Action",
+      "definition": "A button that appears when the user swipes a table row sideways.",
+      "example": "Add a Swipe Action to delete a note.",
+      "code": "let delete = UIContextualAction(\n    style: .destructive,\n    title: \"Delete\") { _, _, done in\n    done(true)\n}",
+      "output": "// no output"
+    },
+    {
+      "term": "Context Menu",
+      "definition": "A small menu of actions that appears after a long press on an item.",
+      "example": "Put copy and share in a Context Menu.",
+      "code": "let menu = UIMenu(children: [\n    UIAction(title: \"Copy\") { _ in },\n    UIAction(title: \"Share\") { _ in }\n])",
+      "output": "// no output"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What do you call the small menu of actions that appears when the user holds an item?",
+      "options": [
+        "Long Press",
+        "Swipe Action",
+        "Context Menu"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "In this code, what do you call the Delete button that appears when a row is swiped?",
+      "code": "let delete = UIContextualAction(\n    style: .destructive,\n    title: \"Delete\") { _, _, done in\n    done(true)\n}",
+      "options": [
+        "Swipe Action",
+        "Context Menu",
+        "Long Press"
+      ],
+      "answer": "a"
+    },
+    {
+      "question": "What do you call a gesture where the user holds a finger on the screen for a moment?",
+      "options": [
+        "Context Menu",
+        "Long Press",
+        "Swipe Action"
+      ],
+      "answer": "b"
+    }
+  ],
+  "video": {
+    "title": "Long Press, Swipe Action & Context Menu | Day 124",
+    "description": "Learn to explain how users trigger quick actions in an iOS list: Long Press, Swipe Action & Context Menu, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nLong Press - A gesture where the user holds a finger on the screen for a moment.\nSwipe Action - A button that appears when the user swipes a table row sideways.\nContext Menu - A small menu of actions that appears after a long press on an item.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 124 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "long press",
+      "swipe action",
+      "context menu",
+      "long press",
+      "swipe action",
+      "context menu",
+      "context menu",
+      "swipe actions",
+      "ios foundations",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "iOS Long Press, Swipe Action & Context Menu | Day 124",
+      "description": "Explain Long Press, Swipe Action & Context Menu in iOS by listening to a real code chat between two iOS devs.\n롱 프레스, 스와이프 액션, 컨텍스트 메뉴 표현을 영어 대화로 익혀요.\n\nLong Press - A gesture where the user holds a finger on the screen for a moment.\n한국어: 롱 프레스: 화면에 손가락을 잠시 대고 있는 제스처\n\nSwipe Action - A button that appears when the user swipes a table row sideways.\n한국어: 스와이프 액션: 테이블 행을 옆으로 밀면 나타나는 버튼\n\nContext Menu - A small menu of actions that appears after a long press on an item.\n한국어: 컨텍스트 메뉴: 항목을 길게 누르면 나타나는 작은 동작 메뉴\n\nIn this video, Mina and Jake add quick actions to each note row, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 124 of the iOS Daily English series.\n\n#Swift #iOSDeveloper #EnglishForDevelopers",
+      "tags": [
+        "Long Press",
+        "Swipe Action",
+        "Context Menu",
+        "context menu",
+        "UIContextualAction",
+        "UIMenu",
+        "iOS 기초",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "iOS Daily English"
+      ],
+      "hook": "Can you explain Long Press, Swipe Action and Context Menu in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "Quick actions on a row",
+    "setting": "Quick actions",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, users want quick actions on each note row.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Add a Swipe Action for delete. It appears when the row is swiped sideways.",
+        "terms": [
+          "Swipe Action"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "And for copy and share?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Use a Context Menu. It appears after a Long Press.",
+        "terms": [
+          "Long Press",
+          "Context Menu"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "How long should the Long Press be?",
+        "terms": [
+          "Long Press"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "The default is fine. Do not change it.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "I created a menu with `UIMenu`, like in the code.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Nice. The Context Menu has two actions, Copy and Share.",
+        "terms": [
+          "Context Menu"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Should delete be in the Context Menu too?",
+        "terms": [
+          "Context Menu"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Yes, but also keep the Swipe Action. Many users swipe first.",
+        "terms": [
+          "Swipe Action"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Are two ways to delete confusing?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Not really. Both are standard iOS behavior.",
+        "terms": []
+      }
+    ],
+    "code": "let menu = UIMenu(children: [\n    UIAction(title: \"Copy\") { _ in },\n    UIAction(title: \"Share\") { _ in }\n])",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "Long Press",
+      "lines": [
+        {
+          "text": "A Long Press opens the quick actions."
+        }
+      ],
+      "title": "A Long Press opens the quick actions. #Shorts",
+      "description": "A Long Press opens the quick actions.\n\nLong Press - A gesture where the user holds a finger on the screen for a moment.\n한국어: 롱 프레스: 화면에 손가락을 잠시 대고 있는 제스처\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "Swipe Action",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "How do users delete a row?"
+        },
+        {
+          "speaker": "B",
+          "text": "With a Swipe Action."
+        }
+      ],
+      "title": "How do users delete a row? / With a Swipe Action. #Shorts",
+      "description": "How do users delete a row? / With a Swipe Action.\n\nSwipe Action - A button that appears when the user swipes a table row sideways.\n한국어: 스와이프 액션: 테이블 행을 옆으로 밀면 나타나는 버튼\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Context Menu",
+      "lines": [
+        {
+          "text": "Add Copy and Share to the Context Menu."
+        }
+      ],
+      "title": "Add Copy and Share to the Context Menu. #Shorts",
+      "description": "Add Copy and Share to the Context Menu.\n\nContext Menu - A small menu of actions that appears after a long press on an item.\n한국어: 컨텍스트 메뉴: 항목을 길게 누르면 나타나는 작은 동작 메뉴\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "Hold or swipe a row?"
+}

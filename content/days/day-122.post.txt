@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 122
+
+Interface Orientation
+- Whether the screen is shown upright (portrait) or sideways (landscape).
+- Example: "Lock the Interface Orientation to portrait for the camera screen."
+
+Size Class
+- A simple label, compact or regular, for the width or height available to your app.
+- Example: "Check the Size Class before you show the sidebar."
+
+Adaptive Layout
+- A layout that changes to fit different screen sizes and orientations.
+- Example: "We need an Adaptive Layout so the screen works on iPad too."
+
+
+Quiz ①
+What do you call the compact or regular label for the width or height available to your app?
+a) Interface Orientation
+b) Size Class
+c) Adaptive Layout
+
+Quiz ②
+What do you call a layout that changes to fit different screen sizes?
+a) Size Class
+b) Interface Orientation
+c) Adaptive Layout
+
+Quiz ③
+What do you call whether the screen is shown upright or sideways?
+a) Interface Orientation
+b) Adaptive Layout
+c) Size Class

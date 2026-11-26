@@ -1,0 +1,235 @@
+{
+  "day": 125,
+  "phase": "3. iOS foundations",
+  "theme": "3 terms on moving data between apps: copy and paste, picking something up, and accepting a drop",
+  "terms": [
+    {
+      "term": "Pasteboard",
+      "definition": "A shared place where the system keeps copied data, so you can paste it in another app.",
+      "example": "Write the invite link to the Pasteboard when the user taps Copy.",
+      "code": "UIPasteboard.general.string = note.text",
+      "output": "// no output"
+    },
+    {
+      "term": "Drag Interaction",
+      "definition": "An object you add to a view so that the user can pick it up and drag it.",
+      "example": "Add a Drag Interaction so users can drag the photo to another app.",
+      "code": "let drag = UIDragInteraction(\n    delegate: handler)\nview.addInteraction(drag)",
+      "output": "// no output"
+    },
+    {
+      "term": "Drop Interaction",
+      "definition": "An object you add to a view so that it can accept something the user drops on it.",
+      "example": "Add a Drop Interaction to accept files from the Files app.",
+      "code": "let drop = UIDropInteraction(\n    delegate: handler)\nview.addInteraction(drop)",
+      "output": "// no output"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What do you add to a view so that it can accept an item the user lets go on it?",
+      "options": [
+        "Drop Interaction",
+        "Drag Interaction",
+        "Pasteboard"
+      ],
+      "answer": "a"
+    },
+    {
+      "question": "What do you call the shared place where the system keeps copied data?",
+      "options": [
+        "Drag Interaction",
+        "Drop Interaction",
+        "Pasteboard"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "What do you add to a view so that the user can pick it up and move it?",
+      "options": [
+        "Pasteboard",
+        "Drag Interaction",
+        "Drop Interaction"
+      ],
+      "answer": "b"
+    }
+  ],
+  "video": {
+    "title": "Pasteboard, Drag Interaction & Drop Interaction | Day 125",
+    "description": "Learn to explain how iOS apps copy, drag and drop data: Pasteboard, Drag Interaction & Drop Interaction, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nPasteboard - A shared place where the system keeps copied data, so you can paste it in another app.\nDrag Interaction - An object you add to a view so that the user can pick it up and drag it.\nDrop Interaction - An object you add to a view so that it can accept something the user drops on it.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 125 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "pasteboard",
+      "drag interaction",
+      "drop interaction",
+      "pasteboard",
+      "drag interaction",
+      "drop interaction",
+      "drag and drop",
+      "uipasteboard",
+      "ios foundations",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "iOS Pasteboard, Drag Interaction & Drop Interaction | Day 125",
+      "description": "Explain Pasteboard, Drag Interaction & Drop Interaction in iOS by listening to a real code chat between two iOS devs.\n페이스트보드, 드래그 인터랙션, 드롭 인터랙션 표현을 영어 대화로 익혀요.\n\nPasteboard - A shared place where the system keeps copied data, so you can paste it in another app.\n한국어: 페이스트보드: 복사한 데이터를 다른 앱에 붙여 넣도록 시스템이 보관하는 공유 공간\n\nDrag Interaction - An object you add to a view so that the user can pick it up and drag it.\n한국어: 드래그 인터랙션: 사용자가 뷰를 집어 끌 수 있게 뷰에 붙이는 객체\n\nDrop Interaction - An object you add to a view so that it can accept something the user drops on it.\n한국어: 드롭 인터랙션: 사용자가 놓은 항목을 받을 수 있게 뷰에 붙이는 객체\n\nIn this video, Mina and Jake let users copy a note or drag it into another app, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 125 of the iOS Daily English series.\n\n#Swift #iOSDeveloper #EnglishForDevelopers",
+      "tags": [
+        "Pasteboard",
+        "Drag Interaction",
+        "Drop Interaction",
+        "drag and drop",
+        "UIPasteboard",
+        "UIDragInteraction",
+        "iOS 기초",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "iOS Daily English"
+      ],
+      "hook": "Can you explain Pasteboard, Drag Interaction and Drop Interaction in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "Copy it or drag it",
+    "setting": "Copy, drag and drop",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, can users copy a note into another app?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Yes. Write its text to the Pasteboard, like in the code.",
+        "terms": [
+          "Pasteboard"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "And on iPad, can they drag it?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Add a Drag Interaction to the note view.",
+        "terms": [
+          "Drag Interaction"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Does that also let them drop a file into our app?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "No. For that, add a Drop Interaction.",
+        "terms": [
+          "Drop Interaction"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "So a Drag Interaction sends data out, and a Drop Interaction takes it in.",
+        "terms": [
+          "Drag Interaction",
+          "Drop Interaction"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Exactly. Each interaction needs a delegate.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "I used the same `handler` for both.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "That is fine. But the Pasteboard is simpler for small text.",
+        "terms": [
+          "Pasteboard"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "When should I choose a Drag Interaction then?",
+        "terms": [
+          "Drag Interaction"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "When users expect to move things between apps, like photos.",
+        "terms": []
+      }
+    ],
+    "code": "UIPasteboard.general.string = note.text\nlet drag = UIDragInteraction(delegate: handler)\nlet drop = UIDropInteraction(delegate: handler)\nview.addInteraction(drag)\nview.addInteraction(drop)",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "Pasteboard",
+      "lines": [
+        {
+          "text": "Copy the link to the Pasteboard."
+        }
+      ],
+      "title": "Copy the link to the Pasteboard. #Shorts",
+      "description": "Copy the link to the Pasteboard.\n\nPasteboard - A shared place where the system keeps copied data, so you can paste it in another app.\n한국어: 페이스트보드: 복사한 데이터를 다른 앱에 붙여 넣도록 시스템이 보관하는 공유 공간\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Drag Interaction",
+      "lines": [
+        {
+          "text": "Add a Drag Interaction to the photo view."
+        }
+      ],
+      "title": "Add a Drag Interaction to the photo view. #Shorts",
+      "description": "Add a Drag Interaction to the photo view.\n\nDrag Interaction - An object you add to a view so that the user can pick it up and drag it.\n한국어: 드래그 인터랙션: 사용자가 뷰를 집어 끌 수 있게 뷰에 붙이는 객체\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "Drop Interaction",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "How can the view accept files?"
+        },
+        {
+          "speaker": "B",
+          "text": "Add a Drop Interaction."
+        }
+      ],
+      "title": "How can the view accept files? / Add a Drop Interaction. #Shorts",
+      "description": "How can the view accept files? / Add a Drop Interaction.\n\nDrop Interaction - An object you add to a view so that it can accept something the user drops on it.\n한국어: 드롭 인터랙션: 사용자가 놓은 항목을 받을 수 있게 뷰에 붙이는 객체\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "Copy, drag or drop?"
+}

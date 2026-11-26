@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 114
+
+Dynamic Type
+- A setting that lets users make text bigger or smaller in every app.
+- Example: "Turn on Dynamic Type in Settings and check that nothing is cut off."
+
+Text Style
+- A named font role, such as body or title, that grows with the user's text size.
+- Example: "Use a Text Style instead of a fixed font size."
+
+Scaled Font
+- A custom font that you scale with `UIFontMetrics`, so it follows the user's text size.
+- Example: "Our brand font needs a Scaled Font to support larger text."
+
+
+Quiz ①
+What do you call a custom font that you scale with `UIFontMetrics` so it follows the user's text size?
+a) Scaled Font
+b) Text Style
+c) Dynamic Type
+
+Quiz ②
+In this code, which setting makes the label follow the user's text size?
+a) Text Style
+b) Dynamic Type
+c) Scaled Font
+
+Quiz ③
+What do you call a named font role, such as body or title?
+a) Dynamic Type
+b) Scaled Font
+c) Text Style

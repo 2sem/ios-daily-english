@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 116
+
+Background Modes
+- A capability setting that lets your app keep working in the background, for example to play audio.
+- Example: "Turn on Background Modes so the music keeps playing."
+
+Background Task
+- A short extra amount of time that iOS gives your app to finish work after the user leaves.
+- Example: "Start a Background Task so the upload can finish."
+
+Background Refresh
+- A system feature that wakes your app now and then to fetch new data.
+- Example: "Background Refresh keeps the feed fresh before the user opens the app."
+
+
+Quiz ①
+What do you call the system feature that wakes your app now and then to fetch new data?
+a) Background Modes
+b) Background Task
+c) Background Refresh
+
+Quiz ②
+What capability setting lets an app keep playing audio after the user leaves?
+a) Background Refresh
+b) Background Modes
+c) Background Task
+
+Quiz ③
+What do you call the short extra time iOS gives your app to finish saving after the user leaves?
+a) Background Task
+b) Background Refresh
+c) Background Modes

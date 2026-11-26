@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 125
+
+Pasteboard
+- A shared place where the system keeps copied data, so you can paste it in another app.
+- Example: "Write the invite link to the Pasteboard when the user taps Copy."
+
+Drag Interaction
+- An object you add to a view so that the user can pick it up and drag it.
+- Example: "Add a Drag Interaction so users can drag the photo to another app."
+
+Drop Interaction
+- An object you add to a view so that it can accept something the user drops on it.
+- Example: "Add a Drop Interaction to accept files from the Files app."
+
+
+Quiz ①
+What do you add to a view so that it can accept an item the user lets go on it?
+a) Drop Interaction
+b) Drag Interaction
+c) Pasteboard
+
+Quiz ②
+What do you call the shared place where the system keeps copied data?
+a) Drag Interaction
+b) Drop Interaction
+c) Pasteboard
+
+Quiz ③
+What do you add to a view so that the user can pick it up and move it?
+a) Pasteboard
+b) Drag Interaction
+c) Drop Interaction

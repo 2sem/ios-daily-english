@@ -1,0 +1,233 @@
+{
+  "day": 126,
+  "phase": "3. iOS foundations",
+  "theme": "3 terms on low memory: the warning, the self-cleaning cache, and the removal of old items",
+  "terms": [
+    {
+      "term": "Memory Warning",
+      "definition": "A signal from iOS that the device is running low on memory.",
+      "example": "Clear the image cache when the app gets a Memory Warning.",
+      "code": "override func didReceiveMemoryWarning() {\n    super.didReceiveMemoryWarning()\n    imageCache.removeAllObjects()\n}",
+      "output": "// no output"
+    },
+    {
+      "term": "NSCache",
+      "definition": "A dictionary-like object that stores temporary data and clears items by itself when memory is low.",
+      "example": "Store the thumbnails in an NSCache, not in a plain dictionary.",
+      "code": "let cache = NSCache<NSString, NSString>()\ncache.setObject(\"Mina\", forKey: \"user\")\nprint(cache.object(forKey: \"user\") ?? \"empty\")",
+      "output": "Mina"
+    },
+    {
+      "term": "Cache Eviction",
+      "definition": "The removal of old items from a cache to free memory.",
+      "example": "Cache Eviction started, so the old thumbnails are gone.",
+      "code": "let cache = NSCache<NSString, NSString>()\ncache.setObject(\"Mina\", forKey: \"user\")\ncache.removeAllObjects()\nprint(cache.object(forKey: \"user\") ?? \"empty\")",
+      "output": "empty"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What do you call the dictionary-like object that stores temporary data and clears itself when memory is low?",
+      "options": [
+        "Memory Warning",
+        "NSCache",
+        "Cache Eviction"
+      ],
+      "answer": "b"
+    },
+    {
+      "question": "What do you call the removal of old items to free memory?",
+      "options": [
+        "NSCache",
+        "Memory Warning",
+        "Cache Eviction"
+      ],
+      "answer": "c"
+    },
+    {
+      "question": "What do you call the signal from iOS that the device is running low on memory?",
+      "options": [
+        "Memory Warning",
+        "Cache Eviction",
+        "NSCache"
+      ],
+      "answer": "a"
+    }
+  ],
+  "video": {
+    "title": "Memory Warning, NSCache & Cache Eviction | Day 126",
+    "description": "Learn to explain how an iOS app reacts when memory runs low: Memory Warning, NSCache & Cache Eviction, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nMemory Warning - A signal from iOS that the device is running low on memory.\nNSCache - A dictionary-like object that stores temporary data and clears items by itself when memory is low.\nCache Eviction - The removal of old items from a cache to free memory.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 126 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "memory warning",
+      "nscache",
+      "cache eviction",
+      "memory warning",
+      "nscache",
+      "cache eviction",
+      "nscache",
+      "memory warning",
+      "ios foundations",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "iOS Memory Warning, NSCache & Cache Eviction | Day 126",
+      "description": "Explain Memory Warning, NSCache & Cache Eviction in iOS by listening to a real code chat between two iOS devs.\n메모리 경고, NSCache, 캐시 퇴출 표현을 영어 대화로 익혀요.\n\nMemory Warning - A signal from iOS that the device is running low on memory.\n한국어: 메모리 경고: 기기의 메모리가 부족하다는 iOS의 신호\n\nNSCache - A dictionary-like object that stores temporary data and clears items by itself when memory is low.\n한국어: NSCache: 메모리가 부족하면 스스로 항목을 지우는 임시 데이터용 딕셔너리 같은 객체\n\nCache Eviction - The removal of old items from a cache to free memory.\n한국어: 캐시 퇴출: 메모리를 확보하려고 캐시에서 오래된 항목을 지우는 것\n\nIn this video, Mina and Jake stop a photo app from crashing on an old iPhone, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 126 of the iOS Daily English series.\n\n#Swift #iOSDeveloper #EnglishForDevelopers",
+      "tags": [
+        "Memory Warning",
+        "NSCache",
+        "Cache Eviction",
+        "NSCache",
+        "memory management",
+        "didReceiveMemoryWarning",
+        "iOS 기초",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "iOS Daily English"
+      ],
+      "hook": "Can you explain Memory Warning, NSCache and Cache Eviction in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "Crash on an old iPhone",
+    "setting": "Memory",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, the app crashed on an old iPhone after scrolling photos.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Do you cache the images?",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "Yes, in a dictionary.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Use NSCache instead. It removes items by itself when memory is low.",
+        "terms": [
+          "NSCache"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "How does it decide what to remove?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "That is Cache Eviction. iOS removes old items first, but you do not control the order.",
+        "terms": [
+          "Cache Eviction"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Should I also react to a Memory Warning?",
+        "terms": [
+          "Memory Warning"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Yes, like in the code. Clear the cache in `didReceiveMemoryWarning`.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "Is a Memory Warning a crash?",
+        "terms": [
+          "Memory Warning"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "No, it is only a signal. If you ignore it, iOS may close your app.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "Can I set a limit?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Yes. Set `countLimit` on the NSCache, so Cache Eviction starts earlier.",
+        "terms": [
+          "NSCache",
+          "Cache Eviction"
+        ]
+      }
+    ],
+    "code": "override func didReceiveMemoryWarning() {\n    super.didReceiveMemoryWarning()\n    imageCache.removeAllObjects()\n}",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "Memory Warning",
+      "lines": [
+        {
+          "text": "Free the images when you get a Memory Warning."
+        }
+      ],
+      "title": "Free the images when you get a Memory Warning. #Shorts",
+      "description": "Free the images when you get a Memory Warning.\n\nMemory Warning - A signal from iOS that the device is running low on memory.\n한국어: 메모리 경고: 기기의 메모리가 부족하다는 iOS의 신호\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "NSCache",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Why did my cache shrink?"
+        },
+        {
+          "speaker": "B",
+          "text": "NSCache clears itself when memory is low."
+        }
+      ],
+      "title": "Why did my cache shrink? / NSCache clears itself when memory is low. #Shorts",
+      "description": "Why did my cache shrink? / NSCache clears itself when memory is low.\n\nNSCache - A dictionary-like object that stores temporary data and clears items by itself when memory is low.\n한국어: NSCache: 메모리가 부족하면 스스로 항목을 지우는 임시 데이터용 딕셔너리 같은 객체\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "Cache Eviction",
+      "lines": [
+        {
+          "text": "Cache Eviction removes the oldest items first."
+        }
+      ],
+      "title": "Cache Eviction removes the oldest items first. #Shorts",
+      "description": "Cache Eviction removes the oldest items first.\n\nCache Eviction - The removal of old items from a cache to free memory.\n한국어: 캐시 퇴출: 메모리를 확보하려고 캐시에서 오래된 항목을 지우는 것\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "What if memory runs low?"
+}

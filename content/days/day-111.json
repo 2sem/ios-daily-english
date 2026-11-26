@@ -1,0 +1,237 @@
+{
+  "day": 111,
+  "phase": "3. iOS foundations",
+  "theme": "3 terms on translating an app: the per-language strings file, the lookup function, and the single catalog file",
+  "terms": [
+    {
+      "term": "Localizable Strings",
+      "definition": "A file that lists keys and their translated text, one file for each language.",
+      "example": "Add the new button text to Localizable Strings for Korean.",
+      "code": "let text = Bundle.main.localizedString(\n    forKey: \"welcome\",\n    value: nil,\n    table: \"Localizable\")\nprint(text)",
+      "output": "welcome"
+    },
+    {
+      "term": "NSLocalizedString",
+      "definition": "A function that looks up the translated text for a key.",
+      "example": "Use NSLocalizedString so the title changes with the user's language.",
+      "code": "let title = NSLocalizedString(\n    \"welcome\",\n    comment: \"Greeting on home\")\nprint(title)",
+      "output": "welcome"
+    },
+    {
+      "term": "String Catalog",
+      "definition": "A single Xcode file that holds all your translations and shows which ones are missing.",
+      "example": "Move our old strings files into a String Catalog to see every missing translation.",
+      "code": "let text = String(\n    localized: \"welcome\",\n    table: \"Localizable\")\nprint(text)",
+      "output": "welcome"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "What do you call the single Xcode file that holds all translations and shows which ones are missing?",
+      "options": [
+        "NSLocalizedString",
+        "String Catalog",
+        "Localizable Strings"
+      ],
+      "answer": "b"
+    },
+    {
+      "question": "In this code, which function looks up the translated text?",
+      "code": "let title = ___(\n    \"welcome\",\n    comment: \"Greeting\")\nprint(title)",
+      "options": [
+        "NSLocalizedString",
+        "String Catalog",
+        "Localizable Strings"
+      ],
+      "answer": "a"
+    },
+    {
+      "question": "What do you call the file that lists keys and translated text for one language?",
+      "options": [
+        "NSLocalizedString",
+        "String Catalog",
+        "Localizable Strings"
+      ],
+      "answer": "c"
+    }
+  ],
+  "video": {
+    "title": "Localizable Strings, NSLocalizedString & String Catalog | Day 111",
+    "description": "Learn to explain how to translate an iOS app: Localizable Strings, NSLocalizedString & String Catalog, with real code, a quiz at the end and each example read twice (normal, then slow).\n\nToday's terms\nLocalizable Strings - A file that lists keys and their translated text, one file for each language.\nNSLocalizedString - A function that looks up the translated text for a key.\nString Catalog - A single Xcode file that holds all your translations and shows which ones are missing.\n\nQuiz at the end - write your answers in the comments, then watch again to check.\n\nDay 111 of the iOS Daily English series: 3 terms a day, from Swift basics to advanced iOS.\n\n#Shorts #iOSDev #Swift #LearnEnglish",
+    "tags": [
+      "localizable strings",
+      "nslocalizedstring",
+      "string catalog",
+      "localizable strings",
+      "nslocalizedstring",
+      "string catalog",
+      "localization",
+      "xcstrings",
+      "ios foundations",
+      "swift",
+      "ios development",
+      "english for developers"
+    ],
+    "landscape": {
+      "title": "iOS Localizable Strings, NSLocalizedString & String Catalog | Day 111",
+      "description": "Explain Localizable Strings, NSLocalizedString & String Catalog in iOS by listening to a real code chat between two iOS devs.\n로컬라이즈 문자열, NSLocalizedString, 스트링 카탈로그 표현을 영어 대화로 익혀요.\n\nLocalizable Strings - A file that lists keys and their translated text, one file for each language.\n한국어: 로컬라이즈 문자열: 키와 번역 문구를 언어별로 정리한 파일\n\nNSLocalizedString - A function that looks up the translated text for a key.\n한국어: NSLocalizedString: 키에 맞는 번역 문구를 찾아 주는 함수\n\nString Catalog - A single Xcode file that holds all your translations and shows which ones are missing.\n한국어: 스트링 카탈로그: 모든 번역을 한곳에 모아 누락도 보여 주는 Xcode 파일\n\nIn this video, Mina and Jake fix a missing Korean translation on the home screen, in a chat-style conversation, with the Swift code on screen.\nMina와 Jake의 채팅 스타일 대화와 화면 속 Swift 코드로 배워요.\n\n{{CHAPTERS}}\n\nComment your quiz answers (1/2/3), I reply to every comment.\n퀴즈 정답을 댓글로 남겨주세요 (1/2/3). 모든 댓글에 답글 달아요. 한국어 댓글도 환영!\n\nDay 111 of the iOS Daily English series.\n\n#Swift #iOSDeveloper #EnglishForDevelopers",
+      "tags": [
+        "Localizable Strings",
+        "NSLocalizedString",
+        "String Catalog",
+        "localization",
+        "xcstrings",
+        "Bundle",
+        "iOS 기초",
+        "개발자 영어",
+        "코드 리뷰 영어",
+        "english for developers",
+        "swift",
+        "iOS Daily English"
+      ],
+      "hook": "Can you explain Localizable Strings, NSLocalizedString and String Catalog in English?"
+    },
+    "voices": {
+      "narrator": "en-US-AvaNeural",
+      "example": "en-US-AndrewNeural",
+      "exampleSlow": "en-US-AvaNeural",
+      "pattern": "female -> male",
+      "engine": "edge"
+    }
+  },
+  "dialogue": {
+    "title": "Missing Korean text",
+    "setting": "Localization",
+    "speakers": [
+      {
+        "id": "A",
+        "name": "Mina",
+        "voice": "en-US-AvaNeural"
+      },
+      {
+        "id": "B",
+        "name": "Jake",
+        "voice": "en-US-AndrewNeural"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "A",
+        "text": "Jake, the Korean build still shows English on the home screen.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Did you wrap the text in NSLocalizedString?",
+        "terms": [
+          "NSLocalizedString"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Yes, the key is `welcome`, like in the code.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Then check Localizable Strings. Does the Korean file have that key?",
+        "terms": [
+          "Localizable Strings"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "No. I only added it to the English one.",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "Add it there. Or move everything to a String Catalog.",
+        "terms": [
+          "String Catalog"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Is a String Catalog really better?",
+        "terms": [
+          "String Catalog"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Yes. It is one file, and it shows every missing translation.",
+        "terms": []
+      },
+      {
+        "speaker": "A",
+        "text": "Nice. And what about the `comment` text?",
+        "terms": []
+      },
+      {
+        "speaker": "B",
+        "text": "It helps translators. Always write a clear `comment` in NSLocalizedString.",
+        "terms": [
+          "NSLocalizedString"
+        ]
+      },
+      {
+        "speaker": "A",
+        "text": "Got it. I will fix Localizable Strings first.",
+        "terms": [
+          "Localizable Strings"
+        ]
+      },
+      {
+        "speaker": "B",
+        "text": "Sounds good. Then migrate to a String Catalog after the release.",
+        "terms": [
+          "String Catalog"
+        ]
+      }
+    ],
+    "code": "let title = NSLocalizedString(\n    \"welcome\",\n    comment: \"Greeting on home\")\nlabel.text = title",
+    "codeFile": "Chat.swift"
+  },
+  "hooks": [
+    {
+      "type": "one-line-example",
+      "term": "Localizable Strings",
+      "lines": [
+        {
+          "text": "Add the Korean text to Localizable Strings."
+        }
+      ],
+      "title": "Add the Korean text to Localizable Strings. #Shorts",
+      "description": "Add the Korean text to Localizable Strings.\n\nLocalizable Strings - A file that lists keys and their translated text, one file for each language.\n한국어: 로컬라이즈 문자열: 키와 번역 문구를 언어별로 정리한 파일\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-conversation",
+      "term": "NSLocalizedString",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "How do I get the translated title?"
+        },
+        {
+          "speaker": "B",
+          "text": "Call NSLocalizedString with the key."
+        }
+      ],
+      "title": "How do I get the translated title? / Call NSLocalizedString with the key. #Shorts",
+      "description": "How do I get the translated title? / Call NSLocalizedString with the key.\n\nNSLocalizedString - A function that looks up the translated text for a key.\n한국어: NSLocalizedString: 키에 맞는 번역 문구를 찾아 주는 함수\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    },
+    {
+      "type": "one-line-example",
+      "term": "String Catalog",
+      "lines": [
+        {
+          "text": "A String Catalog shows every missing translation."
+        }
+      ],
+      "title": "A String Catalog shows every missing translation. #Shorts",
+      "description": "A String Catalog shows every missing translation.\n\nString Catalog - A single Xcode file that holds all your translations and shows which ones are missing.\n한국어: 스트링 카탈로그: 모든 번역을 한곳에 모아 누락도 보여 주는 Xcode 파일\n\nFull conversation: {{LONG_URL}}\n\n#Shorts #Swift #iOSDeveloper"
+    }
+  ],
+  "thumbnailHook": "Where do translations live?"
+}

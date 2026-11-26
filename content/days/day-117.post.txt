@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 117
+
+Active State
+- The state when the app is on screen and the user can use it.
+- Example: "Start the animation only in the Active State."
+
+Inactive State
+- The short state when the app is on screen but cannot take input, for example during a call.
+- Example: "The app enters the Inactive State when a call comes in."
+
+Background State
+- The state when the app is off screen but can still run code.
+- Example: "Save the draft when the app enters the Background State."
+
+
+Quiz ①
+What do you call the short state when the app is visible but cannot take input, such as during an incoming call?
+a) Active State
+b) Inactive State
+c) Background State
+
+Quiz ②
+What state is the app in when it is off screen but can still run code?
+a) Inactive State
+b) Active State
+c) Background State
+
+Quiz ③
+What state is the app in when it is on screen and ready for the user?
+a) Active State
+b) Background State
+c) Inactive State

@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 121
+
+Accent Color
+- The main color of your app that tints buttons, links and controls.
+- Example: "Change the Accent Color to the new brand blue."
+
+Named Color
+- A color that you load from the asset catalog by its name.
+- Example: "Load the brand as a Named Color, not as a hex value."
+
+Color Set
+- An asset catalog entry that holds one color with its light and dark versions.
+- Example: "Create a Color Set so the card adapts to dark mode."
+
+
+Quiz ①
+What do you call the asset catalog entry that holds one color with a light and a dark version?
+a) Accent Color
+b) Named Color
+c) Color Set
+
+Quiz ②
+What do you call the main color of the app that tints buttons and links?
+a) Accent Color
+b) Color Set
+c) Named Color
+
+Quiz ③
+What do you call a color that you load from the asset catalog by its name?
+a) Color Set
+b) Named Color
+c) Accent Color

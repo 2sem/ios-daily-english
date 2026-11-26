@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 115
+
+Deep Link
+- A link that opens a specific screen inside an app.
+- Example: "Marketing wants a Deep Link to the new offer screen."
+
+URL Scheme
+- A custom prefix, like `myapp://`, that opens your app from a link.
+- Example: "Register a URL Scheme so the test link opens our app."
+
+Universal Link
+- A normal web link that opens your app if it is installed, and the website if not.
+- Example: "Use a Universal Link in emails, so it still works without the app."
+
+
+Quiz ①
+What do you call a normal web link that opens your app if it is installed?
+a) Deep Link
+b) URL Scheme
+c) Universal Link
+
+Quiz ②
+In this code, what do you call the custom `myapp` prefix?
+a) URL Scheme
+b) Universal Link
+c) Deep Link
+
+Quiz ③
+What do you call a link that opens a specific screen inside an app?
+a) Universal Link
+b) Deep Link
+c) URL Scheme

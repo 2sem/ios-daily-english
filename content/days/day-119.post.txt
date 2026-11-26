@@ -1,0 +1,32 @@
+📱 iOS Daily English - Day 119
+
+Info.plist
+- A settings file in your app that stores its name, version and other basic information.
+- Example: "Open the Info.plist and check the app name."
+
+Display Name
+- The app name shown under its icon on the Home Screen.
+- Example: "The Display Name is too long, so iOS cuts it off."
+
+Bundle Version
+- The build number of your app, which must go up with every App Store upload.
+- Example: "Increase the Bundle Version, or App Store Connect will reject the build."
+
+
+Quiz ①
+What do you call the build number that must go up with every App Store upload?
+a) Bundle Version
+b) Display Name
+c) Info.plist
+
+Quiz ②
+What do you call the settings file that stores your app's name and version?
+a) Display Name
+b) Bundle Version
+c) Info.plist
+
+Quiz ③
+What do you call the app name shown under its icon on the Home Screen?
+a) Info.plist
+b) Display Name
+c) Bundle Version
