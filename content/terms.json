@@ -407,6 +407,18 @@
     "public": {
       "term": "Public",
       "day": 34
+    },
+    "character": {
+      "term": "Character",
+      "day": 35
+    },
+    "stringinterpolation": {
+      "term": "String Interpolation",
+      "day": 35
+    },
+    "substring": {
+      "term": "Substring",
+      "day": 35
     }
   }
 }
